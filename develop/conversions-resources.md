@@ -1,0 +1,55 @@
+---
+title: Dönüştürme kaynakları
+description: Deneme aboneliğini ücretli aboneliğe dönüştürmenize yardımcı olması için Iş Ortağı Merkezi API dönüştürme kaynaklarını kullanma hakkında bilgi edinin.
+ms.date: 05/23/2019
+ms.service: partner-dashboard
+ms.subservice: partnercenter-sdk
+ms.openlocfilehash: d3ade5a5af76e7c637962b6bfe076ac806f337bf
+ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "97770067"
+---
+# <a name="conversion-resources-to-convert-trial-subscriptions-to-paid"></a><span data-ttu-id="e333a-103">Deneme aboneliklerini ücretli olarak dönüştürmek için dönüştürme kaynakları</span><span class="sxs-lookup"><span data-stu-id="e333a-103">Conversion resources to convert trial subscriptions to paid</span></span>
+
+<span data-ttu-id="e333a-104">**Uygulama hedefi:**</span><span class="sxs-lookup"><span data-stu-id="e333a-104">**Applies to:**</span></span>
+
+- <span data-ttu-id="e333a-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="e333a-105">Partner Center</span></span>
+- <span data-ttu-id="e333a-106">21Vianet tarafından çalıştırılan iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="e333a-106">Partner Center operated by 21Vianet</span></span>
+- <span data-ttu-id="e333a-107">Microsoft Bulut Almanya için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="e333a-107">Partner Center for Microsoft Cloud Germany</span></span>
+- <span data-ttu-id="e333a-108">Microsoft Cloud for US Government için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="e333a-108">Partner Center for Microsoft Cloud for US Government</span></span>
+
+<span data-ttu-id="e333a-109">Dönüştürme kaynakları, bir deneme aboneliğinin ücretli aboneliğe dönüştürülmesini destekler.</span><span class="sxs-lookup"><span data-stu-id="e333a-109">Conversion resources support the conversion of a trial subscription to a paid subscription.</span></span>
+
+## <a name="conversion"></a><span data-ttu-id="e333a-110">Dönüştürme</span><span class="sxs-lookup"><span data-stu-id="e333a-110">Conversion</span></span>
+
+<span data-ttu-id="e333a-111">Bir deneme aboneliğini ücretli aboneliğe dönüştürmek için kullanılan bilgileri içerir.</span><span class="sxs-lookup"><span data-stu-id="e333a-111">Contains information used to convert a trial subscription to a paid subscription.</span></span>
+
+| <span data-ttu-id="e333a-112">Özellik</span><span class="sxs-lookup"><span data-stu-id="e333a-112">Property</span></span> | <span data-ttu-id="e333a-113">Tür</span><span class="sxs-lookup"><span data-stu-id="e333a-113">Type</span></span> | <span data-ttu-id="e333a-114">Description</span><span class="sxs-lookup"><span data-stu-id="e333a-114">Description</span></span> |
+| -------- | ---- | ----------- |
+| <span data-ttu-id="e333a-115">OfferId</span><span class="sxs-lookup"><span data-stu-id="e333a-115">offerId</span></span> | <span data-ttu-id="e333a-116">string</span><span class="sxs-lookup"><span data-stu-id="e333a-116">string</span></span> | <span data-ttu-id="e333a-117">Orijinal, deneme teklifinin teklif tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="e333a-117">The offer identifier of the original, trial offer.</span></span> |
+| <span data-ttu-id="e333a-118">targetOfferId</span><span class="sxs-lookup"><span data-stu-id="e333a-118">targetOfferId</span></span> | <span data-ttu-id="e333a-119">string</span><span class="sxs-lookup"><span data-stu-id="e333a-119">string</span></span> | <span data-ttu-id="e333a-120">Hedef teklif için teklif tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="e333a-120">The offer identifier for the target offer.</span></span> |
+| <span data-ttu-id="e333a-121">Sipariş</span><span class="sxs-lookup"><span data-stu-id="e333a-121">orderId</span></span> | <span data-ttu-id="e333a-122">string</span><span class="sxs-lookup"><span data-stu-id="e333a-122">string</span></span> | <span data-ttu-id="e333a-123">Sıra tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="e333a-123">The order identifier.</span></span> |
+| <span data-ttu-id="e333a-124">miktar</span><span class="sxs-lookup"><span data-stu-id="e333a-124">quantity</span></span> | <span data-ttu-id="e333a-125">int</span><span class="sxs-lookup"><span data-stu-id="e333a-125">int</span></span> | <span data-ttu-id="e333a-126">Lisans sayısı.</span><span class="sxs-lookup"><span data-stu-id="e333a-126">The number of licenses.</span></span> <span data-ttu-id="e333a-127">Varsayılan değer, deneme aboneliğindeki lisansların sayısıdır.</span><span class="sxs-lookup"><span data-stu-id="e333a-127">The default is the number of licenses in the trial subscription.</span></span> |
+| <span data-ttu-id="e333a-128">Bilimlingcycle</span><span class="sxs-lookup"><span data-stu-id="e333a-128">billingCycle</span></span> | <span data-ttu-id="e333a-129">string</span><span class="sxs-lookup"><span data-stu-id="e333a-129">string</span></span> | <span data-ttu-id="e333a-130">İş ortağının abonelik için ne sıklıkta ücretlendirileceğini gösterir.</span><span class="sxs-lookup"><span data-stu-id="e333a-130">Indicates how often the partner is charged for the subscription.</span></span> <span data-ttu-id="e333a-131">Olası değerler: **aylık** (iş ortağı aylık olarak faturalandırılır), **yıllık** (iş ortağı yıllık olarak faturalandırılır) veya **hiçbiri** (iş ortağı faturalandırılmaz).</span><span class="sxs-lookup"><span data-stu-id="e333a-131">Possible values: **Monthly** (partner is billed monthly), **Annual** (partner is billed annually), or **None** (Partner isn't billed.</span></span> <span data-ttu-id="e333a-132">Deneme abonelikleri için kullanılır).</span><span class="sxs-lookup"><span data-stu-id="e333a-132">Used for trial subscriptions).</span></span> |
+
+## <a name="conversionerror"></a><span data-ttu-id="e333a-133">Dönüştürme hatası</span><span class="sxs-lookup"><span data-stu-id="e333a-133">ConversionError</span></span>
+
+<span data-ttu-id="e333a-134">Dönüştürme sırasında oluşan bir hatayı temsil eder.</span><span class="sxs-lookup"><span data-stu-id="e333a-134">Represents an error that occurred during conversion.</span></span>
+
+| <span data-ttu-id="e333a-135">Özellik</span><span class="sxs-lookup"><span data-stu-id="e333a-135">Property</span></span> | <span data-ttu-id="e333a-136">Tür</span><span class="sxs-lookup"><span data-stu-id="e333a-136">Type</span></span> | <span data-ttu-id="e333a-137">Description</span><span class="sxs-lookup"><span data-stu-id="e333a-137">Description</span></span> |
+| -------- | ---- | ----------- |
+| <span data-ttu-id="e333a-138">kod</span><span class="sxs-lookup"><span data-stu-id="e333a-138">code</span></span> | <span data-ttu-id="e333a-139">string</span><span class="sxs-lookup"><span data-stu-id="e333a-139">string</span></span> | <span data-ttu-id="e333a-140">Sorunla ilişkili hata kodu.</span><span class="sxs-lookup"><span data-stu-id="e333a-140">The error code associated with the issue.</span></span> <span data-ttu-id="e333a-141">Olası değerler: **diğer** (genel hata), **Conversionsnotfound** (dönüştürmeye yönelik deneme aboneliği için herhangi bir dönüştürme bulunamıyor).</span><span class="sxs-lookup"><span data-stu-id="e333a-141">Possible values: **Other** (general error), **ConversionsNotFound** (can't find any conversions for the trial subscription to convert to).</span></span>
+| <span data-ttu-id="e333a-142">açıklama</span><span class="sxs-lookup"><span data-stu-id="e333a-142">description</span></span> | <span data-ttu-id="e333a-143">string</span><span class="sxs-lookup"><span data-stu-id="e333a-143">string</span></span> | <span data-ttu-id="e333a-144">Sorunu açıklayan kolay metin.</span><span class="sxs-lookup"><span data-stu-id="e333a-144">The friendly text describing the issue.</span></span> |
+
+## <a name="conversionresult"></a><span data-ttu-id="e333a-145">ConversionResult</span><span class="sxs-lookup"><span data-stu-id="e333a-145">ConversionResult</span></span>
+
+<span data-ttu-id="e333a-146">Abonelik dönüştürmesi gerçekleştirme sonucunu temsil eder.</span><span class="sxs-lookup"><span data-stu-id="e333a-146">Represents the result of performing a subscription conversion.</span></span>
+
+| <span data-ttu-id="e333a-147">Özellik</span><span class="sxs-lookup"><span data-stu-id="e333a-147">Property</span></span>       | <span data-ttu-id="e333a-148">Tür</span><span class="sxs-lookup"><span data-stu-id="e333a-148">Type</span></span>                                | <span data-ttu-id="e333a-149">Description</span><span class="sxs-lookup"><span data-stu-id="e333a-149">Description</span></span>                                                            |
+|----------------|-------------------------------------|------------------------------------------------------------------------|
+| <span data-ttu-id="e333a-150">subscriptionId</span><span class="sxs-lookup"><span data-stu-id="e333a-150">subscriptionId</span></span> | <span data-ttu-id="e333a-151">string</span><span class="sxs-lookup"><span data-stu-id="e333a-151">string</span></span>                              | <span data-ttu-id="e333a-152">Abonelik tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="e333a-152">The subscription identifier.</span></span>                                           |
+| <span data-ttu-id="e333a-153">OfferId</span><span class="sxs-lookup"><span data-stu-id="e333a-153">offerId</span></span>        | <span data-ttu-id="e333a-154">string</span><span class="sxs-lookup"><span data-stu-id="e333a-154">string</span></span>                              | <span data-ttu-id="e333a-155">Özgün teklif tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="e333a-155">The original offer identifier.</span></span>                                         |
+| <span data-ttu-id="e333a-156">targetOfferId</span><span class="sxs-lookup"><span data-stu-id="e333a-156">targetOfferId</span></span>  | <span data-ttu-id="e333a-157">string</span><span class="sxs-lookup"><span data-stu-id="e333a-157">string</span></span>                              | <span data-ttu-id="e333a-158">Hedef teklif için teklif tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="e333a-158">The offer identifier for the target offer.</span></span>                             |
+| <span data-ttu-id="e333a-159">error</span><span class="sxs-lookup"><span data-stu-id="e333a-159">error</span></span>          | [<span data-ttu-id="e333a-160">Dönüştürme hatası</span><span class="sxs-lookup"><span data-stu-id="e333a-160">ConversionError</span></span>](#conversionerror) | <span data-ttu-id="e333a-161">Varsa, dönüştürme denenirken hatayla karşılaşıldı..</span><span class="sxs-lookup"><span data-stu-id="e333a-161">The error encountered while attempting the conversion, if applicable..</span></span> |

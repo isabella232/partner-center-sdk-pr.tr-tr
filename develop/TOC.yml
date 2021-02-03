@@ -1,0 +1,559 @@
+- name: İş Ortağı Merkezi geliştirici kaynakları
+  href: index.yml
+- name: başlarken
+  href: get-started.md
+  items:
+    - name: Microsoft Ulusal Buluta yönelik İş Ortağı Merkezi için geliştirme
+      href: developing-for-partner-center-for-microsoft-national-cloud.md
+      items:
+        - name: İş Ortağı Merkezi için uygulama ayrıntılarını kaydetme
+          href: create-apps-for-partner-center-for-microsoft-national-clouds.md
+    - name: İş Ortağı Merkezi örnekleri
+      href: partner-center-samples.md
+      items:
+        - name: CSP müşteri web vitrini
+          href: csp-customer-web-storefront.md
+        - name: CSP Müşteri Vitrini Oluşturucusu Hızlı Başlangıç Kılavuzu
+          href: csp-customer-storefront-builder-quick-start-guide-.md
+        - name: Konsol test uygulaması
+          href: console-test-app.md
+    - name: İş Ortağı Merkezi’nde API erişimini ayarlama
+      href: set-up-api-access-in-partner-center.md
+    - name: API azaltma yönergeleri
+      href: api-throttling-guidance.md
+    - name: İş Ortağı Merkezi kimlik doğrulaması
+      href: partner-center-authentication.md
+    - name: Güvenli uygulama modelini etkinleştirme
+      href: enable-secure-app-model.md
+    - name: Erken Benimseme Programı
+      href: early-adopter-program.md
+- name: Senaryolar
+  href: scenarios.md
+  items:
+    - name: Analiz
+      href: usage-analytics.md
+      items:
+        - name: İş Ortağı Merkezi Analizi - Kaynaklar
+          href: partner-center-analytics-resources.md
+    - name: Tüm Azure kullanım analizi bilgilerini alma
+      href: get-all-azure-usage-analytics.md
+      items:
+        - name: Tüm dolaylı satıcı analiz bilgilerini alma
+          href: get-all-indirect-resellers-analytics.md
+        - name: Tüm başvuru analizi bilgilerini alma
+          href: get-all-referrals-analytics.md
+        - name: Tüm arama analizi bilgilerini alma
+          href: get-all-search-analytics.md
+        - name: Tüm abonelik analizi bilgilerini alma
+          href: get-all-subscription-analytics.md
+        - name: Bir arama sorgusuyla filtrelenmiş abonelik analizi bilgilerini alma
+          href: get-subscription-analytics-by-search-query.md
+        - name: Tarih veya koşullara göre gruplanmış abonelik analizi bilgilerini alma
+          href: get-subscription-analytics-grouped-by-dates-or-terms.md
+        - name: Lisans dağıtım bilgilerini alma
+          href: get-licenses-deployment-information.md
+        - name: Lisans kullanım bilgilerini alma
+          href: get-licenses-usage-information.md
+        - name: Müşteri lisans dağıtım bilgilerini alma
+          href: get-customer-licenses-deployment-information.md
+        - name: Müşteri lisans kullanım bilgilerini alma
+          href: get-customer-licenses-usage-information.md
+        - name: İş ortağı lisans dağıtım bilgilerini alma
+          href: get-partner-licenses-deployment-information.md
+        - name: İş ortağı lisans kullanım bilgilerini alma
+          href: get-partner-licenses-usage-information.md
+    - name: İşlemleri denetleme
+      href: audit.md
+      items:
+        - name: İş Ortağı Merkezi etkinliğinin kaydını alma
+          href: get-a-record-of-partner-center-activity-by-user.md
+    - name: Cihaz dağıtıma
+      href: device-deployment.md
+      items:
+        - name: Belirtilen müşteri için yeni bir yapılandırma ilkesi oluşturma
+          href: create-a-new-configuration-policy-for-the-specified-customer.md
+        - name: Belirtilen müşteri için yeni bir yapılandırma ilkesini silme
+          href: delete-a-configuration-policy-for-the-specified-customer.md
+        - name: Müşteri ilkelerinin bir listesini alma
+          href: get-a-list-of-a-customer-s-policies.md
+        - name: Müşterinin yapılandırma ilkesini alma
+          href: retrieve-a-customer-s-configuration-policy.md
+        - name: Belirtilen müşteri için yeni bir yapılandırma ilkesini güncelleştirme
+          href: update-a-configuration-policy-for-the-specified-customer.md
+        - name: Cihaz toplu karşıya yükleme durumu alma
+          href: get-the-status-of-a-device-batch-upload.md
+        - name: Belirtilen müşteri için cihaz toplu işlemlerinin bir listesini alma
+          href: get-the-list-of-device-batches-for-the-specified-customer.md
+        - name: Belirtilen toplu iş ve müşteri için cihazların bir listesini alma
+          href: get-a-list-of-devices-for-the-specified-batch-and-customer.md
+        - name: Belirtilen müşteri için yeni bir toplu iş oluşturmak üzere cihaz listesini karşıya yükleme
+          href: upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer.md
+        - name: Belirtilen müşteri için mevcut bir toplu işe ait cihaz listesini karşıya yükleme
+          href: upload-a-list-of-devices-for-the-specified-customer.md
+        - name: İlke ile cihaz listesini güncelleştirme
+          href: update-a-list-of-devices-with-a-policy.md
+        - name: Belirtilen müşteri için bir cihazı silme
+          href: delete-a-device-for-the-specified-customer.md
+    - name: Hesapları ve profilleri yönetme
+      href: manage-profiles-and-information.md
+      items:
+        - name: İş ortağı MPN kimliğine göre bir müşterinin aboneliğini alma
+          href: get-all-subscriptions-by-partner.md
+        - name: Kuruluş profili alma
+          href: get-an-organization-profile.md
+        - name: Dolaylı bir satıcının müşterilerini alma
+          href: get-customers-of-an-indirect-reseller.md
+        - name: Müşterinin dolaylı satıcılarını alma
+          href: get-indirect-resellers-of-a-customer.md
+        - name: Microsoft İş Ortağı Ağı profil alma
+          href: get-partner-network-profile.md
+        - name: İş ortağı faturalandırma profili alma
+          href: get-partner-billing-profile.md
+        - name: İş ortağı MPN kimliğini doğrulama
+          href: get-partner-by-mpn-id.md
+        - name: Dolaylı bir satıcının Microsoft İş Ortağı Sözleşmesi imza durumunu doğrulama
+          href: verify-indirect-reseller-mpa-status.md
+        - name: Destek profili alma
+          href: get-support-profile.md
+        - name: İş ortağı yasal iş profili alma
+          href: get-legal-business-profile.md
+        - name: Dolaylı satıcıların bir listesini alma
+          href: retrieve-a-list-of-indirect-resellers.md
+        - name: Kuruluş profili güncelleştirme
+          href: update-an-organization-profile.md
+        - name: İş ortağı faturalandırma profili güncelleştirme
+          href: update-partner-billing-profile.md
+        - name: Destek profili güncelleştirme
+          href: update-support-profile.md
+        - name: İş ortağı yasal iş profili güncelleştirme
+          href: update-legal-business-profile.md
+    - name: Faturalandırmayı yönetme
+      href: manage-billing.md
+      items:
+        - name: Fatura döngüsünü değiştirme
+          href: change-the-billing-cycle.md
+        - name: Müşterinin hizmet maliyetleri özetini alma
+          href: get-a-customer-s-service-costs-summary.md
+        - name: Müşterinin hizmet maliyetleri satır öğelerini alma
+          href: get-a-customer-s-service-costs-line-items.md
+        - name: Faturaların koleksiyonunu alma
+          href: get-a-collection-of-invoices.md
+        - name: Müşterinin Azure kullanım kayıtlarını alma
+          href: get-a-customer-s-utilization-record-for-azure.md
+        - name: Kimliğe göre fatura alma
+          href: get-invoice-by-id.md
+        - name: Faturalandırılan tüketim satırı öğelerini alma
+          href: get-invoice-billed-consumption-lineitems.md
+        - name: Fatura tahmini bağlantılarını alma
+          href: get-invoice-estimate-links.md
+        - name: Fatura satırı öğelerini alma
+          href: get-invoiceline-items.md
+        - name: Fatura makbuz ekstresi alma
+          href: get-invoice-receipt-statement.md
+        - name: Fatura ekstresini alma
+          href: get-invoice-statement.md
+        - name: Fatura özetlerini alma
+          href: get-invoice-summaries.md
+        - name: Faturalanmamış tüketim satırı öğelerini alma
+          href: get-invoice-unbilled-consumption-lineitems.md
+        - name: Faturalanmamış keşif satırı öğelerini alma
+          href: get-invoice-unbilled-recon-lineitems.md
+        - name: Microsoft Azure için fiyat alma
+          href: get-prices-for-microsoft-azure.md
+        - name: Microsoft Azure İş Ortağı Paylaşılan Hizmetleri için fiyat alma
+          href: get-prices-for-microsoft-azure-partner-shared-services.md
+        - name: Ortağın geçerli hesap bakiyesini alma
+          href: get-the-reseller-s-current-account-balance.md
+    - name: Azure harcaması
+      href: azure-spending.md
+      items:
+        - name: İş ortağı kullanım özeti alma
+          href: get-a-partner-usage-summary.md
+        - name: İş ortağı için tüm müşteri kullanım kayıtlarını alma
+          href: get-a-customer-s-usage-records.md
+        - name: Müşteri kullanım özeti alma
+          href: get-a-customer-usage-summary.md
+        - name: Müşteri için tüm abonelik kullanım kayıtlarını alma
+          href: get-a-customer-subscription-s-usage-records.md
+        - name: Abonelik kullanım özeti alma
+          href: get-a-customer-subscription-usage-summary.md
+        - name: Bir abonelik için tüm aylık kullanım kayıtlarını alma
+          href: get-all-monthly-usage-records-for-a-subscription.md
+        - name: Kaynağa göre abonelik için kullanım verilerini alma
+          href: get-a-customer-subscription-resource-usage-records.md
+        - name: Ölçüme göre abonelik için kullanım verilerini alma
+          href: get-a-customer-subscription-meter-usage-records.md
+        - name: Ölçüm kullanım kaydı kaynaklarını alma
+          href: meter-usage-resources.md
+        - name: Kaynak kullanım kaydı kaynaklarını alma
+          href: resource-usage-resources.md
+        - name: Müşteri kullanım bütçesi alma
+          href: get-a-customer-s-usage-spending-budget.md
+        - name: Müşteri kullanım bütçesi güncelleştirme
+          href: update-a-customer-s-usage-spending-budget.md
+        - name: Ürün yükseltme kaynakları
+          href: product-upgrade-resources.md
+          items:
+            - name: Ürün yükseltme durumunu alma
+              href: get-product-upgrade-status.md
+            - name: Ürün yükseltmesine uygunluk sağlama
+              href: get-eligibility-for-product-upgrade.md
+            - name: Müşteri için ürün yükseltme varlığı oluşturma
+              href: create-product-upgrade-entity.md
+        - name: Bir abonelik için Azure yetkilendirmeleri listesini alma
+          href: get-a-list-of-azure-entitlements-for-subscription.md
+    - name: Müşteri hesaplarını yönetme
+      href: manage-customers.md
+      items:
+        - name: Müşteri için doğrulanmış bir etki alanı ekleme
+          href: add-a-verified-domain-for-a-customer.md
+        - name: Bir kullanıcıya lisans atama
+          href: assign-licenses-to-a-user.md
+        - name: Microsoft Bulut Sözleşmesi için anlaşma meta verilerini alma
+          href: get-agreement-metadata.md
+        - name: Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini alma
+          href: get-customer-agreement-metadata.md
+        - name: Microsoft Bulut Sözleşmesinin müşteri kabulünün onayını alma
+          href: get-confirmation-of-customer-consent.md
+        - name: Microsoft Müşteri Sözleşmesi şablonunu indirme
+          href: download-customer-agreement-template.md
+        - name: Microsoft Müşteri Sözleşmesinin müşteri kabulünün onayını alma
+          href: get-confirmation-of-customer-agreement.md
+        - name: Microsoft Müşteri Sözleşmesinin doğrudan imzalama (doğrudan kabul) durumunu alma
+          href: get-direct-sign-status-of-customer-agreement.md
+        - name: Microsoft Müşteri Sözleşmesinin müşteri kabulünü onaylama
+          href: confirm-customer-consent-customer-agreement.md
+        - name: Bir kullanıcıya atanan lisansları alma
+          href: check-which-licenses-are-assigned-to-a-user.md
+        - name: Lisans grubuna göre bir kullanıcıya atanan lisansları alma
+          href: get-licenses-assigned-to-a-user-by-license-group.md
+        - name: Müşteri oluşturma
+          href: create-a-customer.md
+        - name: Dolaylı satıcı için müşteri oluşturma
+          href: create-a-customer-for-an-indirect-reseller.md
+        - name: Müşteri için kullanıcı hesapları oluşturma
+          href: create-user-accounts-for-a-customer.md
+        - name: Müşterinin kullanıcı hesabını silme
+          href: delete-user-accounts-for-a-customer.md
+        - name: Yetkilendirme koleksiyonu alma
+          href: get-a-collection-of-entitlements.md
+        - name: Kimliğe göre müşteri alma
+          href: get-a-customer-by-id.md
+        - name: Müşterinin faturalandırma profilini alma
+          href: get-all-of-a-customer-s-billing-profiles.md
+        - name: Müşterinin şirket profilini alma
+          href: get-a-customer-s-company-profile.md
+        - name: Müşterinin nitelemesini alma
+          items:
+            - name: Zaman uyumsuz API’leri kullanma
+              href: get-customer-qualification-asynchronous.md
+            - name: Zaman uyumlu API’leri kullanma
+              href: get-customer-qualification-synchronous.md
+        - name: Müşteri siparişlerinin tümünü alma
+          href: get-all-of-a-customer-s-orders.md
+        - name: Müşterinin aboneliğini alma
+          href: get-all-of-a-customer-s-subscriptions.md
+        - name: Müşterinin abonelik aktarım uygunluğunu alma
+          href: get-customer-s-subscriptions-transfer-eligibility.md
+        - name: Müşterinin aktarımlarını alma
+          href: get-all-of-a-customer-s-transfers.md
+        - name: Müşterinin aktarım detaylarını alma
+          href: get-transfer-by-id.md
+        - name: Müşterinin tüm kullanıcı hesaplarının listesini alma
+          href: get-a-list-of-all-user-accounts-for-a-customer.md
+        - name: Kullanılabilir lisansların bir listesini alma
+          href: get-a-list-of-available-licenses.md
+        - name: Lisans grubuna göre kullanılabilir lisansların bir listesini alma
+          href: get-a-list-of-available-licenses-by-license-group.md
+        - name: Müşterilerin bir listesini alma
+          href: get-a-list-of-customers.md
+        - name: Arama alanına göre filtrelenmiş bir müşteri listesini alma
+          href: get-a-customer-by-name.md
+        - name: Müşteri ve faturalandırma dönem türüne göre siparişlerin bir listesini alma
+          href: get-a-list-of-orders-by-customer-and-billing-cycle-type.md
+        - name: İş ortağının doğrulama kodlarını alma
+          href: get-a-partner-s-validation-codes.md
+        - name: Kimliğe göre bir kullanıcı hesabı alma
+          href: get-a-user-account-by-id.md
+        - name: Müşteri için kullanıcı rolleri alma
+          href: get-user-roles-for-a-customer.md
+        - name: Bir rolden bir müşteri kullanıcısını kaldırma
+          href: remove-customer-user-from-a-role.md
+        - name: Bir müşteriyle kurumsal bayi ilişkisini kaldırma
+          href: remove-a-reseller-relationship-with-a-customer.md
+        - name: İlişki isteği URL’sini alma
+          href: request-reseller-relationship.md
+        - name: Müşterinin kullanıcı parolasını sıfırlama
+          href: reset-user-password-for-a-customer.md
+        - name: Silinen bir kullanıcıyı bir müşteri için geri yükleme
+          href: restore-a-user-for-a-customer.md
+        - name: Müşteri için kullanıcı rolleri ayarlama
+          href: set-user-roles-for-a-customer.md
+        - name: Müşterinin faturalandırma profilini güncelleştirme
+          href: update-a-customer-s-billing-profile.md
+        - name: Müşterinin yeterliliğini güncelleştirme
+          items:
+            - name: Zaman uyumsuz API’leri kullanma
+              href: update-customer-qualification-asynchronous.md
+            - name: Zaman uyumlu API’leri kullanma
+              href: update-customer-qualification-synchronous.md
+        - name: Bir abonelik için takma ad güncelleştirme
+          href: update-the-nickname-for-a-subscription.md
+        - name: Müşterinin aktarımını geri alma
+          href: withdraw-a-transfer.md
+        - name: Müşterinin aktarımını oluşturma
+          href: create-a-transfer.md
+        - name: Müşterinin aktarımını kabul etme
+          href: accept-a-transfer.md
+        - name: Müşterinin aktarımını reddetme
+          href: reject-a-transfer.md
+        - name: Müşteri için kullanıcı hesaplarını güncelleştirme
+          href: update-user-accounts-for-a-customer.md
+        - name: Müşteri için silinen kullanıcıları görüntüleme
+          href: view-a-deleted-user.md
+        - name: Self servis ilkesi oluşturma
+          href: create-a-self-serve-policy.md
+        - name: Bir self servis ilkesini silme
+          href: delete-a-self-serve-policy.md
+        - name: Self servis ilkelerinin bir listesini alma
+          href: get-a-list-of-self-serve-policies.md
+        - name: Kimliğe göre bir self servis ilkesi alma
+          href: get-a-self-serve-policy-by-id.md
+        - name: Bir self servis ilkesini güncelleştirme
+          href: update-a-self-serve-policy.md
+    - name: Siparişleri yönetme
+      href: manage-orders.md
+      items:
+        - name: Azure planı satın alma
+          href: create-azure-plan.md
+        - name: Azure rezervasyonları satın alma
+          href: purchase-azure-reservations.md
+        - name: Ticari market ürünleri için abonelik satın alma
+          href: create-subscription-azure-marketplace-products.md
+        - name: Ticari market aboneliğini iptal etme
+          href: cancel-an-azure-marketplace-subscription.md
+        - name: Yazılım satın alımlarını iptal etme
+          href: cancel-software-purchases.md
+        - name: Bir aboneliğin miktarını değiştirme
+          href: change-the-quantity-of-a-subscription.md
+        - name: Deneme aboneliğini ücretli aboneliğe dönüştürme
+          href: convert-a-trial-subscription-to-paid.md
+        - name: Envanter denetleme
+          href: check-inventory.md
+        - name: Sepet sonuçlandırma
+          href: checkout-a-cart.md
+        - name: Sepet oluşturma
+          href: create-a-cart.md
+        - name: Eklentilerle bir sepet oluşturma
+          href: create-a-cart-with-add-ons.md
+        - name: Sipariş oluşturma
+          href: create-an-order.md
+        - name: Dolaylı satıcı müşterisi için bir sipariş oluşturma
+          href: create-an-order-for-a-customer-of-an-indirect-reseller.md
+        - name: Bir abonelik için eklentilerin bir listesini alma
+          href: get-a-list-of-add-ons-for-a-subscription.md
+        - name: Bir SKU (ülkeye göre) için kullanılabilirlik listesini alma
+          href: get-a-list-of-availabilities-for-a-sku.md
+        - name: Bir SKU (müşteriye göre) için kullanılabilirlik listesini alma
+          href: get-a-list-of-availabilities-for-a-sku-by-customer.md
+        - name: Pazara göre teklif kategorilerinin bir listesini alma
+          href: get-a-list-of-offer-categories-by-country-and-locale.md
+        - name: Pazara yönelik tekliflerin bir listesini alma
+          href: get-a-list-of-offers-for-a-market.md
+        - name: Ürünlerin bir listesini alma (ülkeye göre)
+          href: get-a-list-of-products.md
+        - name: Ürünlerin bir listesini alma (müşteriye göre)
+          href: get-a-list-of-products-by-customer.md
+        - name: Bir ürüne ait SKU’ların listesini alma (ülkeye göre)
+          href: get-a-list-of-skus-for-a-product.md
+        - name: Bir ürüne ait SKU’ların listesini alma (müşteriye göre)
+          href: get-a-list-of-skus-for-a-product-by-customer.md
+        - name: Siparişe göre aboneliklerin bir listesini alma
+          href: get-a-list-of-subscriptions-by-order.md
+        - name: Deneme dönüştürme tekliflerinin bir listesini alma
+          href: get-a-list-of-trial-conversion-offers.md
+        - name: Kimliğe göre bir ürün alma
+          href: get-a-product-by-id.md
+        - name: Kimliğe göre bir SKU alma
+          href: get-a-sku-by-id.md
+        - name: Kimliğe göre bir abonelik alma
+          href: get-a-subscription-by-id.md
+        - name: Sipariş satırı öğesine göre etkinleştirme bağlantısını alma
+          href: get-activation-link-by-order-line-item.md
+        - name: Teklif kimliği için eklentiler alma
+          href: get-addon-offers-by-offer-id.md
+        - name: Kimliğe göre bir kullanılabilirlik alma
+          href: get-an-availability-by-id.md
+        - name: Kimliğe göre bir teklif alma
+          href: get-an-offer-by-id.md
+        - name: Kimliğe göre bir sipariş alma
+          href: get-an-order-by-id.md
+        - name: Abonelik sağlama durumunu alma
+          href: get-subscription-provisioning-status.md
+        - name: Abonelik kayıt durumunu alma
+          href: get-subscription-registration-status.md
+        - name: Tek seferlik satın alım yapma
+          href: make-a-one-time-purchase.md
+        - name: Bir abonelik için eklenti satın alma
+          href: purchase-an-add-on-to-a-subscription.md
+        - name: Katalog öğeleri satın alma
+          href: purchase-catalog-items.md
+        - name: Askıya alınmış bir aboneliği yeniden etkinleştirme
+          href: reactivate-a-suspended-a-subscription.md
+        - name: Bir aboneliğe kaydolma
+          href: register-a-subscription.md
+        - name: Bir aboneliği askıya alma
+          href: suspend-a-subscription.md
+        - name: Bir aboneliği geçirme
+          href: transition-a-subscription.md
+        - name: Sepeti güncelleştirme
+          href: update-a-cart.md
+        - name: Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
+          href: update-autorenew-for-an-azure-marketplace-subscription.md
+    - name: Destek sağlama
+      href: provide-support.md
+      items:
+        - name: Bir aboneliğin destek kişisini alma
+          href: get-a-subscription-s-support-contact.md
+        - name: Müşteri için tüm hizmet taleplerini alma
+          href: get-all-service-requests-for-a-customer.md
+        - name: Kimliğe göre hizmet isteği ayrıntılarını alma
+          href: get-service-request-details-by-id.md
+        - name: Kimliğe göre bir müşterinin yönetilen hizmetlerini alma
+          href: get-the-managed-services-for-a-customer-by-id.md
+        - name: Bir hizmet isteğini güncelleştirme
+          href: update-a-service-request.md
+        - name: Bir aboneliğin destek kişisini güncelleştirme
+          href: update-a-subscription-s-support-contact.md
+- name: Tümleştirme korumalı alan
+  items:
+    - name: Satıcı ilişkisini destekleyen iş ortağı korumalı özellikleri
+      href: sandbox-scenario.md
+    - name: Korumalı alanı test etme ve hata ayıklama
+      href: test-and-debug.md
+    - name: Tümleştirme korumalı alandan bir siparişi iptal etme
+      href: cancel-an-order-from-the-integration-sandbox.md
+    - name: Korumalı alan aboneliğini etkinleştirme
+      href: activate-sandbox-subscription-azure-marketplace-products.md
+    - name: Tümleştirme korumalı alandan bir müşteri hesabını silme
+      href: delete-a-customer-account-from-the-integration-sandbox.md
+- name: Referanslar
+  href: /partner/develop/referrals
+  items:
+    - name: Bir referans oluşturma
+      href: /partner/develop/create-a-referral
+    - name: Referansların bir listesini alma
+      href: /partner/develop/get-a-list-of-referrals
+    - name: Kimliğe göre bir referans alma
+      href: /partner/develop/get-a-referral-by-id
+    - name: Bir referansı güncelleştirme
+      href: /partner/develop/update-a-referral
+- name: Yardımcı Programlar
+  href: utilities.md
+  items:
+    - name: Bir adresi doğrulama
+      href: validate-an-address.md
+    - name: Pazara göre adres biçimlendirme kurallarını alma
+      href: get-market-specific-validation-data.md
+    - name: Etki alanı kullanılabilirliğini doğrulama
+      href: verify-domain-availability.md
+- name: Güvenlik
+  href: partner-security-requirements.md
+  items:
+    - name: MFA olmadan portal istekleri alma
+      href: get-portal-requests-without-mfa.md
+    - name: API isteği özeti alma
+      href: get-api-request-summary.md
+    - name: API isteği ayrıntılarını alma
+      href: get-api-request-details.md
+- name: İş Ortağı Merkezi REST API'si referansı
+  href: partner-center-rest-api-reference.md
+  items:
+    - name: İş Ortağı Merkezi REST API’si değişiklik günlüğü
+      href: api-change-log.md
+    - name: İş Ortağı Merkezi REST URL’leri
+      href: partner-center-rest-urls.md
+    - name: İş Ortağı Merkezi REST üstbilgileri
+      href: headers.md
+    - name: İş Ortağı Merkezi REST kaynakları
+      href: partner-center-rest-resources.md
+      items:
+        - name: Sözleşme
+          href: agreement-resources.md
+        - name: Sözleşme meta verileri
+          href: agreement-metadata-resources.md
+        - name: Sözleşme belgesi kaynakları (önizleme)
+          href: agreement-document-resources.md
+        - name: Müşteri sözleşmesi doğrudan imzalama (doğrudan kabul) durumu
+          href: customer-agreement-direct-sign-status-resource.md
+        - name: Analiz
+          href: analytics-resources.md
+        - name: Denetim
+          href: auditing-resources.md
+        - name: Azure ücret kartı
+          href: azure-rate-card-resources.md
+        - name: Azure kullanım kaydı
+          href: azure-utilization-record-resources.md
+        - name: Sepet
+          href: cart-resources.md
+        - name: Dönüşümler
+          href: conversions-resources.md
+        - name: Ülke bilgileri
+          href: country-information-resources.md
+        - name: Müşteri
+          href: customer-resources.md
+        - name: Müşteri kullanımı
+          href: customer-usage-resources.md
+        - name: Cihaz dağıtıma
+          href: device-deployment-resources.md
+        - name: Yetkilendirme
+          href: entitlement-resources.md
+        - name: Fatura
+          href: invoice-resources.md
+        - name: Lisans
+          href: license-resources.md
+        - name: Yönetilen hizmet
+          href: managed-service-resources.md
+        - name: Sunduğu
+          href: offer-resources.md
+        - name: Sipariş
+          href: order-resources.md
+        - name: Profil
+          href: profile-resources.md
+        - name: Ürünler
+          href: product-resources.md
+        - name: İlişkiler
+          href: relationships-resources.md
+        - name: Self servis ilkesi
+          href: self-serve-policy-resources.md
+        - name: Hizmet maliyetleri
+          href: service-costs-resources.md
+        - name: Hizmet İsteği
+          href: service-request-resources.md
+        - name: Abonelik
+          href: subscription-resources.md
+        - name: Abonelik kullanımı
+          href: subscription-usage-resources.md
+        - name: Yükseltme
+          href: upgrade-resources.md
+        - name: Kullanıcı
+          href: user-resources.md
+        - name: Yardımcı program kaynakları
+          href: utility-resources.md
+    - name: İş Ortağı Merkezi REST hata kodları
+      href: error-codes.md
+    - name: İş Ortağı Merkezi REST olayları
+      href: partner-center-webhook-events.md
+    - name: İş Ortağı Merkezi tarafından desteklenen diller ve yerel ayarlar
+      href: partner-center-supported-languages-and-locales.md
+    - name: İş Ortağı Merkezi web kancaları
+      href: partner-center-webhooks.md
+- name: İş Ortağı Merkezi Yönetilen .NET API’si başvurusu
+  href: /dotnet/api/
+  items:
+    - name: İş Ortağı Merkezi .NET API sürümü sürüm notları
+      href: dotnet-release-notes.md
+- name: İş Ortağı Merkezi Java API’si başvurusu
+  href: /java/partnercenter
+- name: İş Ortağı Merkezi PowerShell komutları
+  href: /powershell/partnercenter
