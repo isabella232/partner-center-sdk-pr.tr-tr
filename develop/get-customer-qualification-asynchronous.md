@@ -1,25 +1,25 @@
 ---
 title: Müşterinin niteliklerini al
 description: Iş Ortağı Merkezi API 'SI aracılığıyla bir müşterinin nitelemesini almak için zaman uyumsuz doğrulamayı nasıl kullanacağınızı öğrenin. İş ortakları Eğitim müşterilerini doğrulamak için bunu kullanabilir.
-ms.date: 12/07/2020
+ms.date: 01/21/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: JoeyBytes
 ms.author: jobiesel
-ms.openlocfilehash: 9f9b9aaddde0d66caf9c7ef32e8fba6d5e3aba36
-ms.sourcegitcommit: 0c98496e972aebe10eba23822aa229125bfc035d
+ms.openlocfilehash: 130ee276461e3390ac78ac7abd8baeefe6a70d7c
+ms.sourcegitcommit: 97f93caa57df6c64fe19868e6b2a0f7937226b51
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97770189"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98636392"
 ---
-# <a name="get-a-customers-qualifications-via-asynchronous-validation"></a>Zaman uyumsuz doğrulama aracılığıyla bir müşterinin niteliklerini al
+# <a name="get-a-customers-qualification-asynchronously"></a>Müşterinin nitelemesini zaman uyumsuz olarak al
 
 **Uygulama hedefi**
 
 - İş Ortağı Merkezi
 
-Iş Ortağı Merkezi API 'Leri aracılığıyla bir müşterinin niteliklerini zaman uyumsuz olarak almayı öğrenin. Bunu eşzamanlı olarak nasıl yapacağınızı öğrenmek için bkz. [zaman uyumlu doğrulama aracılığıyla bir müşterinin nitelemesini alma](get-customer-qualification-synchronous.md).
+Müşterinin niteliklerini zaman uyumsuz olarak alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -71,13 +71,7 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 ### <a name="response-examples"></a>Yanıt örnekleri
 
-Bu bölümde, bir müşteri olduğunda alacağınız yanıtlar gösterilmektedir `vettingStatus` :
-
-- Onaylandı
-- Gözden Geçiriliyor
-- Reddedildi
-
-**Onaylanan** örnek:
+#### <a name="approved"></a>Onaylandı
 
 ```http
 HTTP/1.1 200 OK
@@ -85,16 +79,18 @@ Content-Length:
 Content-Type: application/json
 MS-CorrelationId: 7d2456fd-2d79-46d0-9f8e-5d7ecd5f8745
 MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
-[
-    {
-        "qualification": "Education",
-        "vettingStatus": "Approved",
-    }
-]
+{
+    "qualifications": [
+        {
+            "qualification": "Education",
+            "vettingStatus": "Approved",
+        }
+    ]
+}
 
 ```
 
-**İnceleme** örneği:
+#### <a name="in-review"></a>Gözden Geçiriliyor
 
 ```http
 HTTP/1.1 200 OK
@@ -102,17 +98,19 @@ Content-Length:
 Content-Type: application/json
 MS-CorrelationId: 7d2456fd-2d79-46d0-9f8e-5d7ecd5f8745
 MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
-[
-    {
-        "qualification": "Education",
-        "vettingStatus": "InReview",
-        "vettingCreatedDate": "2020-12-03T10:37:38.885Z" // UTC
-    }
-]
+{
+    "qualifications": [
+        {
+            "qualification": "Education",
+            "vettingStatus": "InReview",
+            "vettingCreatedDate": "2020-12-03T10:37:38.885Z" // UTC
+        }
+    ]
+}
 
 ```
 
-**Engellenen** örnek:
+#### <a name="denied"></a>Reddedildi
 
 ```http
 HTTP/1.1 200 OK
@@ -120,14 +118,16 @@ Content-Length:
 Content-Type: application/json
 MS-CorrelationId: 7d2456fd-2d79-46d0-9f8e-5d7ecd5f8745
 MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
-[
-    {
-        "qualification": "Education",
-        "vettingStatus": "Denied",
-        "vettingReason": "Not an Education Customer", // example Vetting Reason
-        "vettingCreatedDate": "2020-12-03T10:37:38.885Z" // UTC
-    }
-]
+{
+    "qualifications": [
+        {
+            "qualification": "Education",
+            "vettingStatus": "Denied",
+            "vettingReason": "Not an Education Customer", // example Vetting Reason
+            "vettingCreatedDate": "2020-12-03T10:37:38.885Z" // UTC
+        }
+    ]
+}
 
 ```
 
