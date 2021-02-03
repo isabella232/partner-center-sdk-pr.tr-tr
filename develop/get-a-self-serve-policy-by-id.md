@@ -1,0 +1,109 @@
+---
+title: Kimliğe göre bir self servis ilkesi alma
+description: Belirtilen self servis ilkesini KIMLIĞINI kullanarak alır.
+ms.date: 04/13/2020
+ms.service: partner-dashboard
+ms.subservice: partnercenter-sdk
+author: amitravat
+ms.author: amrava
+ms.openlocfilehash: ec01d0d9b7c3858cdacf1dbaad3b2b0bb7b6a1a4
+ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "97769088"
+---
+# <a name="get-a-self-serve-policy-by-id"></a>Kimliğe göre bir self servis ilkesi alma
+
+**Uygulama hedefi**
+
+- İş Ortağı Merkezi
+
+Belirtilen self servis ilkesini KIMLIĞINI kullanarak alır.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- Self Servis ilke KIMLIĞI.
+
+## <a name="examples"></a>Örnekler
+
+
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Isteği
+
+**İstek sözdizimi**
+
+| Yöntem  | İstek URI'si                                                                   |
+|---------|-------------------------------------------------------------------------------|
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} http/1.1 |
+
+**URI parametresi**
+
+Belirtilen ürünü almak için aşağıdaki yol parametrelerini kullanın.
+
+| Ad                       | Tür         | Gerekli | Açıklama                                                     |
+|----------------------------|--------------|----------|-----------------------------------------------------------------|
+| **SelfServePolicy kimliği**     | **dizisinde**   | Yes      | Self Servis ilkesini tanımlayan bir dize.                 |
+
+**İstek üst bilgileri**
+
+- Daha fazla bilgi için bkz. [üst](headers.md) bilgiler.
+
+**İstek gövdesi**
+
+Yok.
+
+**İstek örneği**
+
+```http
+GET https://api.partnercenter.microsoft.com/v1/SelfServePolicy/634f6379-ad54-449b-9821-564f737158ab_0431a72c-7d8a-4393-b25e-ef63f5efb415 HTTP/1.1
+Authorization: Bearer  <token>
+Accept: application/json
+MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
+MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
+```
+
+## <a name="rest-response"></a>REST yanıtı
+
+Başarılı olursa, yanıt gövdesi bir [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağı içerir.
+
+**Yanıt başarısı ve hata kodları**
+
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+
+Bu yöntem aşağıdaki hata kodlarını döndürür:
+
+| HTTP durum kodu     | Hata kodu   | Description                                                                |
+|----------------------|--------------|----------------------------------------------------------------------------|
+| 404                  | 600039       | Self Servis ilkesi bulunamadı.                                                     |
+
+**Yanıt örneği**
+
+```http
+HTTP/1.1 200 OK
+Content-Length: 1918
+Content-Type: application/json
+MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
+MS-RequestId: ac943950-ba3d-47a0-bd2a-c5617a7fefe8
+Date: Tue, 23 Jan 2018 23:13:01 GMT
+
+{
+    "id": "634f6379-ad54-449b-9821-564f737158ab_0431a72c-7d8a-4393-b25e-ef63f5efb415",
+    "selfServeEntity": {
+        "selfServeEntityType": "customer",
+        "tenantID": "0431a72c-7d8a-4393-b25e-ef63f5efb415"
+    },
+    "grantor": {
+        "grantorType": "billToPartner",
+        "tenantID": "634f6379-ad54-449b-9821-564f737158ab"
+    },
+    "permissions": [{
+        "resource": "AzureReservedInstances",
+        "action": "Purchase"
+    }],
+    "attributes": {
+        "etag": "\"933523d1-3f63-4fc3-8789-5e21c02cdaed\"",
+        "objectType": "SelfServePolicy"
+    }
+}
+```
