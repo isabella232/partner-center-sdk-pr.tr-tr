@@ -4,12 +4,12 @@ description: Belirtilen müşteri için belirtilen yapılandırma ilkesini günc
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6bf3b6f4db7516779c157b647725368ff0e4a570
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 42c57a92020723415b4621e9f9d7c5c3278bfb77
+ms.sourcegitcommit: 970031473b2e8cd3d08c6c097949c057a51df3ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769791"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99505348"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>Belirtilen müşteri için yeni bir yapılandırma ilkesini güncelleştirme
 
@@ -77,12 +77,12 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 İstek gövdesi, ilke bilgilerini sağlayan bir nesne içermelidir.
 
-| Ad            | Tür             | Gerekli | Güncelleştirilebilir | Description                                                                                                                                              |
+| Ad            | Tür             | Gerekli | Güncelleştirilebilir | Açıklama                                                                                                                                              |
 |-----------------|------------------|----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | kimlik              | string           | Yes      | Hayır        | İlkeyi tanımlayan GUID biçimli dize.                                                                                                    |
 | name            | string           | Yes      | Yes       | İlkenin kolay adı.                                                                                                                         |
 | category        | string           | Yes      | Hayır        | İlke kategorisi.                                                                                                                                     |
-| açıklama     | dize           | No       | Yes       | İlke açıklaması.                                                                                                                                  |
+| açıklama     | dize           | Hayır       | Yes       | İlke açıklaması.                                                                                                                                  |
 | devicesAssigned | sayı           | Hayır       | Hayır        | Cihaz sayısı.                                                                                                                                   |
 | policySettings  | dize dizisi | Yes      | Yes       | İlke ayarları: "none", " \_ OEM \_ ön yüklemelerini kaldır", "OOBE \_ user \_ yerel yönetici değil", " \_ \_ \_ hızlı ayarları atla", "OEM kaydını atla", " \_ \_ \_ EULA 'yı atla \_ ". |
 

@@ -4,12 +4,12 @@ description: CSP Customer storefront Builder kullanarak bulut çözümü sağlay
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d64deff9b002b861c9f48d076feb5841af727e3d
-ms.sourcegitcommit: 57620e249e218edc4af7c83c2ce8a3008a4adf4e
+ms.openlocfilehash: 83ae0c789f95485ec3eb272434e57421a8f93fb6
+ms.sourcegitcommit: 970031473b2e8cd3d08c6c097949c057a51df3ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "97769208"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99505331"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP Müşteri Vitrini Oluşturucusu Hızlı Başlangıç Kılavuzu
 
@@ -25,10 +25,10 @@ CSP müşteri storefront Oluşturucusu, iş ortaklarının, müşterilerine CSP 
 
 Bu web sitesi, iş ortakları tarafından tamamen aittir, desteklenir ve sürdürülür ve Microsoft, Web sitesinden hiçbir veri veya telemetri toplamaz. CSP müşteri storefront Oluşturucusu, iş ortağı için, [ödeme kartı sektör verileri güvenlik standardı](https://www.pcisecuritystandards.org/) (PCI DSS) ile tam uyumlu bir Web sitesi oluşturur.
 
-CSP Customer storefront Builder Kodu, [Iş Ortağı Merkezi SDK EULA 'sında](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)bulunan lisansa tabidir.
+CSP Customer storefront Builder Kodu, [Iş Ortağı Merkezi SDK EULA 'sında](/legal/partner-center/eula-partner-center-sdk)bulunan lisansa tabidir.
 
 >[!NOTE]
->Storefront Web sitesi yönetimi, bakım ve Web sitesi oluşturma işleminden kaynaklanan sorunlardan siz sorumlusunuz. [Iş ortağı MERKEZI SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)'daki koşulları okuyun ve anlayın.
+>Storefront Web sitesi yönetimi, bakım ve Web sitesi oluşturma işleminden kaynaklanan sorunlardan siz sorumlusunuz. [Iş ortağı MERKEZI SDK EULA](/legal/partner-center/eula-partner-center-sdk)'daki koşulları okuyun ve anlayın.
 
 Ek bilgi için, aşağıdaki makalelere bakın: [CSP müşteri web storefront](csp-customer-web-storefront.md) ve [konsol test uygulaması](console-test-app.md).
 
@@ -52,7 +52,7 @@ CSP Customer storefront Builder, Web sitesi oluşturmanın hızlı bir yolu olar
 
 - PayU ödeme yapılandırması, yalnızca Hindistan 'da çalışır. PayU kullanılabilirliği ve desteği yalnızca PayU tarafından denetlenir ve PayU tarafından herhangi bir zamanda sonlandırılabilir.
 
-- [Iş ortağı MERKEZI SDK EULA](https://partnercenter.microsoft.com/partner/EULA_Partner_Center_SDK)'daki koşulları okuyun ve anlayın.
+- [Iş ortağı MERKEZI SDK EULA](/legal/partner-center/eula-partner-center-sdk)'daki koşulları okuyun ve anlayın.
 
 ## <a name="using-the-csp-customer-storefront-builder"></a>CSP Customer storefront Builder 'ı kullanma
 
