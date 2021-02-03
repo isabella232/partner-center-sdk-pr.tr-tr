@@ -1,0 +1,88 @@
+### YamlMime:Landing
+title: İş Ortağı Merkezi geliştirici belgeleri
+summary: İş ortağı özelliklerinin ve olanaklarının geliştirilmesi için Microsoft ile işbirliği yapın.
+metadata:
+  title: İş Ortağı Merkezi geliştirici belgeleri
+  description: İş ortağı özelliklerinin ve olanaklarının geliştirilmesi için Microsoft ile işbirliği yapın.
+  ms.service: partner-dashboard
+  ms.subservice: partnercenter-sdk
+  ms.topic: landing-page
+  ms.collection: collection
+  author: jasonwhowell
+  ms.author: jasonh
+  ms.date: 01/08/2020
+  ms.openlocfilehash: 12c6cba5f489b9ab7c3394629c319a43d2d9163b
+  ms.sourcegitcommit: 529b07030a874d644cf947790f4b53cdff438dd4
+  ms.translationtype: MT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "97766643"
+landingContent:
+- title: İş Ortağı Merkezi ile geliştirme
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Geliştirici hesabınızı ve kimlik doğrulamanızı yapılandırma
+      url: partner-center-authentication.md
+    - text: Ortamınızı ayarlama
+      url: get-started.md
+  - linkListType: whats-new
+    links:
+    - text: API’lerle bir Azure planı oluşturma
+      url: create-azure-plan.md
+  - linkListType: concept
+    links:
+    - text: Kod örnekleri
+      url: partner-center-samples.md
+    - text: Örnek senaryolar
+      url: scenarios.md
+- title: .NET SDK’sını kullanma (v1.16.1-önizleme)
+  linkLists:
+  - linkListType: download
+    links:
+    - text: İş Ortağı Merkezi .NET SDK
+      url: https://www.nuget.org/packages/Microsoft.Store.PartnerCenter
+    - text: İş Ortağı Merkezi .NET örnekleri
+      url: https://github.com/microsoft/Partner-Center-DotNet-Samples
+  - linkListType: reference
+    links:
+    - text: Yönetilen .NET API başvurusu
+      url: /dotnet/api/
+    - text: .NET SDK sürümleri için sürüm notları
+      url: dotnet-release-notes.md
+- title: REST API’leri kullanma
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: İş Ortağı Merkezi REST API'si referansı
+      url: partner-center-rest-api-reference.md
+- title: Java SDK’sını (açık kaynak) kullanma
+  linkLists:
+  - linkListType: download
+    links:
+    - text: İş Ortağı Merkezi Java SDK’sını indirme
+      url: https://search.maven.org/artifact/com.microsoft.store/partnercenter
+    - text: Java SDK GitHub deposu (sorular, katılımlar ve sorunlar için)
+      url: https://github.com/microsoft/Partner-Center-Java
+  - linkListType: reference
+    links:
+    - text: Java API'si başvurusu
+      url: /java/partnercenter/overview
+- title: PowerShell modülünü (açık kaynak) kullanma
+  linkLists:
+  - linkListType: download
+    links:
+    - text: PowerShell modülünü yükleme
+      url: https://www.powershellgallery.com/packages/PartnerCenter
+    - text: PowerShell modülü GitHub deposu (sorular, katkılar ve sorunlar için)
+      url: https://github.com/microsoft/Partner-Center-PowerShell
+  - linkListType: reference
+    links:
+    - text: PowerShell komutları
+      url: /powershell/partnercenter
+- title: CSP iş ortakları için Swagger API’sini kullanma
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: İş Ortağı Merkezi Hizmetleri için Swagger API başvurusu (CSP iş ortakları için)
+      url: https://apidocs.microsoft.com/services/partnercenter
