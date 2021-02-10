@@ -1,15 +1,15 @@
 ---
 title: Microsoft Müşteri Sözleşmesinin müşteri kabulünü onaylama
 description: Iş Ortağı Merkezi API 'Lerini kullanarak Microsoft Müşteri Sözleşmesi 'nin müşteri kabulünü onaylama hakkında bilgi edinin.
-ms.date: 02/04/2020
+ms.date: 02/08/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 239ca43c70fb8aa7f0d06e564e6c0726b235ffbe
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 62a6cebd5d6d093377dd5940dcff6204b7095c70
+ms.sourcegitcommit: ebb36208d6e2dea705f62b7d60d471f10c55132e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770073"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006070"
 ---
 # <a name="confirm-customer-acceptance-of-the-microsoft-customer-agreement-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylama
 
@@ -40,6 +40,20 @@ Bu makalede, Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylama v
   - Soyadı
   - E-posta adresi
   - Telefon numarası (isteğe bağlı)
+- Bir müşteri için aşağıdaki değerler değişiyorsa, Iş ortağı merkezi bu müşteri için başka bir sözleşmenin oluşturulmasını sağlayacaktır: ad soyadı e-posta adresi telefon numarası Aksi takdirde iş ortakları, oluşturulan yinelenen bir müşteri nedeniyle aşağıdaki hata kodunu alır
+
+
+```
+{
+"code": 600061,
+"message": "A partner confirmed agreement already exists for the customer.",
+"description": "A partner confirmed agreement already exists for the customer.",
+"errorName": "PartnerConfirmedAgreementAlreadyExists",
+"isRetryable": false,
+"parameters": {},
+"errorMessageExtended": "InternalErrorCode=600061"
+}
+ ```
 
 ## <a name="net"></a>.NET
 
