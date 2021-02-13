@@ -4,12 +4,12 @@ description: Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir faturaya ai
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 085397f3dc36468e411cec71e0dc9ae2cc364673
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 50dac1bbc96776d395014dc7ee5a5990f0710484
+ms.sourcegitcommit: a8ebfa97db9e43c6b5ff05bb37ecead6b3565721
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769671"
+ms.lasthandoff: 02/13/2021
+ms.locfileid: "100335821"
 ---
 # <a name="get-invoice-line-items"></a>Fatura satırı öğelerini alma
 
@@ -158,7 +158,7 @@ Aşağıdaki sözdizimleri kullanıyorsanız, kullanım durumu için uygun sözd
 | Ad                   | Tür   | Gerekli | Açıklama                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | Fatura kimliği             | string | Yes      | Faturayı tanımlayan bir dize.                             |
-| Faturalandırma-sağlayıcı       | string | Yes      | Faturalandırma sağlayıcısı: "Office", "Azure", "OneTime".               |
+| Faturalandırma-sağlayıcı       | string | Yes      | Faturalandırma sağlayıcısı: "Office", "Azure", "OneTime". Eski bir deyişle, Office & Azure işlemlerine yönelik ayrı veri modelleriniz vardır. Ancak modern sürümünde, "OneTime" değeri ile filtrelenen tüm ürünlerde tek bir veri modeli vardır.            |
 | fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "Billinglineıtems", "Usagelineıtems". |
 | boyut                   | sayı | No       | Döndürülecek en fazla öğe sayısı. Varsayılan en büyük boyut = 2000    |
 | uzaklık                 | sayı | No       | Döndürülecek ilk satır öğesinin sıfır tabanlı dizini.            |

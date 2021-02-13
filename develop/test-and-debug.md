@@ -4,12 +4,12 @@ description: Yanlışlıkla yeni ücret ödemeniz için kodunuzu test etmek ve h
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 95e80000a199ae00a31bddc5ecae8c19ab77c64e
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: e5b8f6cc2eb239b7a8b8a8722b231f290e768004
+ms.sourcegitcommit: a8ebfa97db9e43c6b5ff05bb37ecead6b3565721
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97769959"
+ms.lasthandoff: 02/13/2021
+ms.locfileid: "100335804"
 ---
 # <a name="test-and-debug-with-your-partner-center-integration-sandbox-to-avoid-paying-unexpected-charges"></a>Beklenmeyen ücretler ödemekten kaçınmak için Iş Ortağı Merkezi tümleştirme korumalı alanı ile test edin ve hata ayıklayın
 
@@ -27,10 +27,6 @@ Kodunuzu test etmek için, Iş Ortağı Merkezi 'nde tümleştirme korumalı ala
 Otomatik derleme doğrulama testlerini çalıştırır, üretimde test yapın veya tümleştirme korumalı alanında el ile test yaparsanız, tümleştirme korumalı alanı için en fazla sınıra ulaşabilirsiniz. Bu limitlerde 75 müşteri, müşteri başına 5 abonelik ve abonelik başına 25 lisans bulunur.
 
 - 25 lisans sınırı, en az 25 lisans gereksinimini aşan, korumalı alanda bir teklif edinemeyeceğiniz anlamına gelir. Bu sınırlama, denemeleri içerir.
-
-- Bu hesaplar test amacıyla olduğundan, Kullanım Özeti korumalı alan hesaplarında elde alınamaz.
-
-- Faturalandırma ve faturayla ilgili API 'Ler, test hesabı için hiçbir fatura oluşturulmadığı için korumalı alanda çalışmaz.
 
 
 ### <a name="azure-plan"></a>Azure planı
