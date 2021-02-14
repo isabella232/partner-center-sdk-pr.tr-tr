@@ -4,12 +4,12 @@ description: Yanlışlıkla yeni ücret ödemeniz için kodunuzu test etmek ve h
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e5b8f6cc2eb239b7a8b8a8722b231f290e768004
-ms.sourcegitcommit: a8ebfa97db9e43c6b5ff05bb37ecead6b3565721
+ms.openlocfilehash: 3ff4a7ec3ad984b09c60d3d820423c614fb8020d
+ms.sourcegitcommit: 9f8ba784171ab4f980ed0c60ef6f2323849c4a98
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2021
-ms.locfileid: "100335804"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100499890"
 ---
 # <a name="test-and-debug-with-your-partner-center-integration-sandbox-to-avoid-paying-unexpected-charges"></a>Beklenmeyen ücretler ödemekten kaçınmak için Iş Ortağı Merkezi tümleştirme korumalı alanı ile test edin ve hata ayıklayın
 
@@ -26,7 +26,17 @@ Kodunuzu test etmek için, Iş Ortağı Merkezi 'nde tümleştirme korumalı ala
 
 Otomatik derleme doğrulama testlerini çalıştırır, üretimde test yapın veya tümleştirme korumalı alanında el ile test yaparsanız, tümleştirme korumalı alanı için en fazla sınıra ulaşabilirsiniz. Bu limitlerde 75 müşteri, müşteri başına 5 abonelik ve abonelik başına 25 lisans bulunur.
 
-- 25 lisans sınırı, en az 25 lisans gereksinimini aşan, korumalı alanda bir teklif edinemeyeceğiniz anlamına gelir. Bu sınırlama, denemeleri içerir.
+25 lisans sınırı, en az 25 lisans gereksinimini aşan, korumalı alanda bir teklif edinemeyeceğiniz anlamına gelir. Bu sınırlama, denemeleri içerir.
+
+Korumalı alan ortamlarında sunulan çeşitli fatura ve mutabakat dosyaları vardır ancak bunların hepsi eski veya modern platformlarda kullanılabilir değildir. Daha fazla bilgi için aşağıdaki tabloyu doğrulayın.
+
+| **Dosyalar**                    | **Eski sürümünde kullanılabilir** | **Modern 'te kullanılabilir** |
+| ---------------------------- | ------------------------ | ------------------------ |
+| Fatura PDF dosyası                  | Hayır                       | Yes                      |
+| Fatura mutabakatı dosyası | Hayır                       | Yes                      |
+| Tahmin dosyası fatura       | Hayır                       | Yes                      |
+| Günlük faturalandırılan kullanım dosyası     | Hayır                       | Yes                      |
+| Günlük faturalanmamış kullanım dosyası   | Hayır                       | Yes                      |
 
 
 ### <a name="azure-plan"></a>Azure planı

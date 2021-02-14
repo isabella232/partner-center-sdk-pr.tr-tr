@@ -4,12 +4,12 @@ description: Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir faturaya ai
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 50dac1bbc96776d395014dc7ee5a5990f0710484
-ms.sourcegitcommit: a8ebfa97db9e43c6b5ff05bb37ecead6b3565721
+ms.openlocfilehash: e797f549e1344268c8167259a231122e7c669a2e
+ms.sourcegitcommit: 9f8ba784171ab4f980ed0c60ef6f2323849c4a98
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2021
-ms.locfileid: "100335821"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100499907"
 ---
 # <a name="get-invoice-line-items"></a>Fatura satırı öğelerini alma
 
@@ -158,7 +158,7 @@ Aşağıdaki sözdizimleri kullanıyorsanız, kullanım durumu için uygun sözd
 | Ad                   | Tür   | Gerekli | Açıklama                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | Fatura kimliği             | string | Yes      | Faturayı tanımlayan bir dize.                             |
-| Faturalandırma-sağlayıcı       | string | Yes      | Faturalandırma sağlayıcısı: "Office", "Azure", "OneTime". Eski bir deyişle, Office & Azure işlemlerine yönelik ayrı veri modelleriniz vardır. Ancak modern sürümünde, "OneTime" değeri ile filtrelenen tüm ürünlerde tek bir veri modeli vardır.            |
+| Faturalandırma-sağlayıcı       | string | Yes      | Faturalandırma sağlayıcısı: "Office", "Azure", "OneTime". Eski bir deyişle, Office & Azure işlemlerine yönelik ayrı veri modelleriniz vardır. Ancak modern, "OneTime" değeri ile filtrelenen tüm işlemler genelinde tek bir veri modeline sahiptir.            |
 | fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "Billinglineıtems", "Usagelineıtems". |
 | boyut                   | sayı | No       | Döndürülecek en fazla öğe sayısı. Varsayılan en büyük boyut = 2000    |
 | uzaklık                 | sayı | No       | Döndürülecek ilk satır öğesinin sıfır tabanlı dizini.            |
