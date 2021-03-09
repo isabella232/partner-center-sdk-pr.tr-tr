@@ -4,12 +4,12 @@ description: Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir faturaya ai
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 594946db712c28983dd390207fb06c8d9f62f18b
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 8d3bbe7921029dc6c40c65fb8d82baaa944089b6
+ms.sourcegitcommit: 160296667833366fb3f4021d042094606e1032ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769677"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102472691"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Fatura faturalanmamış ticari tüketim satırı öğelerini Al
 
@@ -132,8 +132,8 @@ Kullanım durumunuza bağlı olarak REST isteğiniz için aşağıdaki sözdizim
 | sağlayıcısını               | string | Yes      | Sağlayıcı: "**Onetime**".                                                |
 | fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "**Usagelineıtems**", "**usagelineıtems**".               |
 | currencyCode           | string | Yes      | Faturalandırılmamış satır öğelerinin para birimi kodu.                                  |
-| dönem                 | string | Yes      | Faturalandırılmamış keşfi için süre (örneğin: **geçerli**, **önceki**).<br/><br/>**Önceki** – faturalandırma döngüsünün 01/01/2020 – 01/31/2020 olması, büyük olasılıkla faturanızda 02/06/2020 ve 02/08/2020 UTC zamanı arasında oluşturulması gerekir. Faturalandırma döngüsünün faturalandırılmamış kullanım verilerini (01/01/2020 – 01/31/2020) 02/01/2020 ve fatura tarafından üretilen tarih (02/06/2020 ve 02/08/2020 UTC saati arasında) arasında herhangi bir zamanda sorgulayıp, "önceki" olarak dönem ' i seçmeniz gerekir.<br/><br/>**Current** : faturalandırma döngüsünün 01/01/2020 – 01/31/2020 olması, büyük olasılıkla faturanızda 02/06/2020 ve 02/08/2020 UTC zamanı arasında oluşturulması gerekir. Fatura döneminizin içinde olan 01/01/2020 ve 01/31/2020 arasında herhangi bir zamanda faturalandırma döngüsünün faturalandırılmamış kullanım verilerini (01/01/2020 – 01/31/2020) sorgulayabilmeniz gerekiyorsa, dönemi "geçerli" olarak seçmeniz gerekir. |
-| boyut                   | sayı | No       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir.                    |
+| dönem                 | string | Yes      | Faturalandırılmamış keşfi için süre (örneğin: **geçerli**, **önceki**). Fatura döngüsünün faturalandırılmamış kullanım verilerini (01/01/2020 – 01/31/2020), Ocak ayında **"geçerli,"** diğer **"önceki** " olarak seçin. |
+| boyut                   | sayı | Hayır       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir.                    |
 | seekOperation          | dize | No       | `seekOperation=Next`Mutabakat satır öğelerinin sonraki sayfasını almak için ayarlayın.                |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
