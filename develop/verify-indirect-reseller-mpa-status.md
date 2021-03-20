@@ -4,12 +4,12 @@ description: AgreementStatus API 'sini kullanarak dolaylı bir satıcının Micr
 ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9501f245a6c98fa90e77de7bc0caed8ca51fa4f2
-ms.sourcegitcommit: 40baf4d825ce0ca6a254b5f368c308f025be7034
+ms.openlocfilehash: fa9480424eccc933bc9c28c3879a195fbd5f2bb1
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100537585"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711924"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu doğrulama
 
@@ -44,7 +44,7 @@ var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementS
 
 - Örnek: **[konsol test uygulaması](console-test-app.md)**
 - Proje: **Partnercentersdk. FeaturesSamples**
-- Sınıf: **GetAgreementSignatureStatus.cs**
+- Sınıf: **GetAgreementSignatureStatus. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -60,8 +60,8 @@ var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementS
 
 | Ad | Tür | Gerekli | Açıklama |
 | ---- | ---- | -------- | ----------- |
-| **Mpnıd** | int | Hayır | Dolaylı Bayi tanımlayan bir Microsoft İş Ortağı Ağı KIMLIĞI (PGA/PLA). |
-| **Değerine** | GUID | Hayır | Dolaylı satıcıdan oluşan CSP hesabını tanımlayan bir Microsoft KIMLIĞI. |
+| **Mpnıd** | int | No | Dolaylı Bayi tanımlayan bir Microsoft İş Ortağı Ağı KIMLIĞI (PGA/PLA). |
+| **Değerine** | GUID | No | Dolaylı satıcıdan oluşan CSP hesabını tanımlayan bir Microsoft KIMLIĞI. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -240,7 +240,7 @@ Connection: close
 
 #### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>CSP dolaylı sağlayıcı bölgesi ve CSP dolaylı satıcı bölgesi eşleşmiyor
 
-Dolaylı satıcı MPN KIMLIĞI (PGA/PLA) bölgesi dolaylı sağlayıcının bölgesiyle eşleşmediği zaman aşağıdaki örnek yanıt döndürülür. CSP bölgeleri hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/partner-center/mpa-indirect-provider-faq) .
+Dolaylı satıcı MPN KIMLIĞI (PGA/PLA) bölgesi dolaylı sağlayıcının bölgesiyle eşleşmediği zaman aşağıdaki örnek yanıt döndürülür. CSP bölgeleri hakkında [daha fazla bilgi edinin](/partner-center/mpa-indirect-provider-faq) .
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -264,7 +264,7 @@ Connection: close
 
 #### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>CSP dolaylı satıcı hesabı Iş Ortağı Merkezi 'nde var, ancak MPA imzasız
 
-Aşağıdaki örnek yanıt, Iş ortağı merkezindeki CSP dolaylı satıcı hesabı MPA 'yı imzaladığı zaman döndürülür. [Daha Fazla Bilgi](https://docs.microsoft.com/partner-center/mpa-indirect-provider-faq)
+Aşağıdaki örnek yanıt, Iş ortağı merkezindeki CSP dolaylı satıcı hesabı MPA 'yı imzaladığı zaman döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -288,7 +288,7 @@ Connection: close
 
 #### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Belirtilen MPN KIMLIĞIYLE ilişkili CSP dolaylı satıcı hesabı yok
 
-Iş Ortağı Merkezi, istekte geçirilen MPN KIMLIĞINI (PGA/PLA) tanıyabileceği halde, belirtilen MPN KIMLIĞI (PGA/PLA) ile ilişkili CSP kaydı yoksa, aşağıdaki örnek yanıt döndürülür. [Daha Fazla Bilgi](https://docs.microsoft.com/partner-center/mpa-indirect-provider-faq)
+Iş Ortağı Merkezi, istekte geçirilen MPN KIMLIĞINI (PGA/PLA) tanıyabileceği halde, belirtilen MPN KIMLIĞI (PGA/PLA) ile ilişkili CSP kaydı yoksa, aşağıdaki örnek yanıt döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -334,7 +334,7 @@ Connection: close
 
 #### <a name="no-mpa-found-with-the-given-tenant-id"></a>Verilen kiracı KIMLIĞINE sahip bir MPA bulunamadı
 
-Aşağıdaki örnek yanıt, Iş Ortağı Merkezi belirtilen kiracı KIMLIĞINE sahip herhangi bir MPA imzasını bulamadığında döndürülür. [Daha Fazla Bilgi](https://docs.microsoft.com/partner-center/mpa-indirect-provider-faq)
+Aşağıdaki örnek yanıt, Iş Ortağı Merkezi belirtilen kiracı KIMLIĞINE sahip herhangi bir MPA imzasını bulamadığında döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request

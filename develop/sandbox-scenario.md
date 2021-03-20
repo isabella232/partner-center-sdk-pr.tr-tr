@@ -4,19 +4,19 @@ description: İş ortağı korumalı alanı, iş ortağı ve müşteri arasında
 ms.date: 11/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e01dd1a83ca459cbdf12b8e564b43a2d18f5595b
-ms.sourcegitcommit: f69ceae441bbb2ddba96e878a1ec8c1a499a4879
+ms.openlocfilehash: af46811b3615e1f904a9619de85b0aca7622490b
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180740"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711874"
 ---
 # <a name="partner-sandbox-capabilities-that-support-reseller-relationship"></a>Satıcı ilişkisini destekleyen iş ortağı korumalı özellikleri
 
 **Uygulama hedefi:**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
@@ -95,7 +95,7 @@ Ayrıntılar için müşterinin [satıcı Ilişkilerini kaldır ilişkisini](rem
 
 ### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](https://docs.microsoft.com/partner-center/develop/error-codes).
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](./error-codes.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -103,4 +103,4 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 - [Korumalı alan 'dan bir siparişi iptal etme](cancel-an-order-from-the-integration-sandbox.md)
 
-- [Test etme ve hata ayıklama](test-and-debug.md) 
+- [Test etme ve hata ayıklama](test-and-debug.md)

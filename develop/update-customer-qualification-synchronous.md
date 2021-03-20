@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 7faab68d20c698f5b040a76f4776dbdf14180640
-ms.sourcegitcommit: 0c98496e972aebe10eba23822aa229125bfc035d
+ms.openlocfilehash: c202d95beab771241a9665243be5f08ab6f82fd5
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97770205"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711976"
 ---
 # <a name="update-a-customers-qualification-via-synchronous-validation"></a>Zaman uyumlu doğrulama ile bir müşterinin nitelemesini güncelleştirme
 
@@ -39,7 +39,7 @@ Bir müşterinin nitelemesini "eğitim" olarak güncelleştirmek için mevcut bi
 var eduCustomerQualification = partnerOperations.Customers.ById(existingCustomer.Id).Qualification.Update(CustomerQualification.Education);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnersdk. Featuresamples **sınıfı**: CustomerQualificationOperations.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresamples **sınıfı**: CustomerQualificationOperations. cs
 
 Bir müşterinin nitelemesini, mevcut bir müşteri üzerinde bir nitelik olmadan **Hükümentcommunitycloud** olarak güncelleştirmek için.  Ayrıca iş ortağının, müşterinin [**Validationcode**](utility-resources.md#validationcode)'u içermesi gerekir.
 
@@ -107,5 +107,5 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="related-articles"></a>İlgili makaleler:
 
-- [Müşterinin nitelemesini alma](get-a-customer-s-qualification.md)
+- [Müşterinin nitelemesini alma](./get-customer-qualification-synchronous.md)
 - [İş ortağının doğrulama kodlarını alma](get-a-partner-s-validation-codes.md)

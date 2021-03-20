@@ -4,19 +4,19 @@ description: Bu bölümde, bulut çözümü sağlayıcısı iş ortaklarının m
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b76829bf8bfae51c135ea815e3360376a5ff294d
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: fa1a032735037b1b3a543d21bf4c868b52c13017
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769502"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711959"
 ---
 # <a name="manage-customers"></a>Müşterileri yönetme
 
 **Uygulama hedefi**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
@@ -53,8 +53,8 @@ Bu bölümde, bulut çözümü sağlayıcısı iş ortaklarının müşteri hesa
 - [Microsoft Müşteri Sözleşmesinin doğrudan imzalama (doğrudan kabul) durumunu alma](get-direct-sign-status-of-customer-agreement.md)
 - [Microsoft Müşteri Sözleşmesinin müşteri kabulünü onaylama](confirm-customer-consent-customer-agreement.md)
 - [İş ortağının doğrulama kodlarını alma](get-a-partner-s-validation-codes.md)
-- [Müşterinin nitelemesini alma](get-a-customer-s-qualification.md)
-- [Müşterinin yeterliliğini güncelleştirme](update-a-customer-s-qualification.md)
+- [Müşterinin nitelemesini alma](./get-customer-qualification-synchronous.md)
+- [Müşterinin yeterliliğini güncelleştirme](./update-customer-qualification-synchronous.md)
 
 ## <a name="manage-user-accounts-and-assign-licenses"></a>Kullanıcı hesaplarını yönetme ve lisans atama
 

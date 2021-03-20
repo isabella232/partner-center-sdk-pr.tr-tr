@@ -5,12 +5,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.topic: reference
 ms.date: 12/15/2020
-ms.openlocfilehash: 79359414276a1259117a8f506bbfae4441cdcbed
-ms.sourcegitcommit: f8ca3a14a763013fefafd3262d0a740881d1d7b1
+ms.openlocfilehash: b2c2cac36a8bd1bec7aa5bf6e5d1aa73b4779535
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97770282"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711857"
 ---
 # <a name="december-2020-changes-to-partner-center-rest-apis"></a>Iş Ortağı Merkezi REST API 'Lerinde Aralık 2020 değişiklikleri
 
@@ -24,8 +24,8 @@ Iş Ortağı Merkezi REST API 'Lerinde yapılan değişiklikler için buraya bak
 
 Şu anda Iş Ortağı Merkezi API 'sinin eğitim müşterilerinin uygunluğunu doğrulamak için GET ve PUT nitelikleri vardır. Nitelik al API 'sinde hiçbir değişiklik olmayacaktır. Ancak, YERLEŞTIRME API 'sine bir dönüş durumu ekledik.
 
-- GET-değişmez. [Geçerli API makalesi](get-a-customer-s-qualification.md)
-- PUT-Return Case eklenecektir. [Geçerli API makalesi](update-a-customer-s-qualification.md)
+- GET-değişmez. [Geçerli API makalesi](./get-customer-qualification-synchronous.md)
+- PUT-Return Case eklenecektir. [Geçerli API makalesi](./update-customer-qualification-synchronous.md)
 
 Bu API 'Ler, aşağıda açıklandığı gibi yeni API 'Ler ile değiştirilerek, Şubat 2021 ' un sonunda kullanımdan kaldırılacaktır.
 

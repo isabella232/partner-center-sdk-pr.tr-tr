@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 82812091be9c13d64ac183c37461e3b63b2ec294
-ms.sourcegitcommit: 0c98496e972aebe10eba23822aa229125bfc035d
+ms.openlocfilehash: e39ace3b598736abed6ab22021a8b93d473486a3
+ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97770186"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104711923"
 ---
 # <a name="get-a-customers-qualification-via-synchronous-validation"></a>Zaman uyumlu doğrulama yoluyla bir müşterinin nitelemesini al
 
@@ -95,4 +95,4 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="related-articles"></a>İlgili makaleler:
 
-- [Müşterinin yeterliliğini güncelleştirme](update-a-customer-s-qualification.md)
+- [Müşterinin yeterliliğini güncelleştirme](./update-customer-qualification-synchronous.md)
