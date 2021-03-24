@@ -1,25 +1,20 @@
 ---
 title: Müşterinin niteliklerini güncelleştirme
-description: Bir müşterinin niteliklerini, profille ilişkili adres dahil, zaman uyumsuz filtreleme veya diting aracılığıyla güncelleştirmeyi öğrenin.
-ms.date: 12/07/2020
+description: Profille ilişkili adres da dahil olmak üzere müşterinin niteliklerini zaman uyumsuz olarak güncelleştirir.
+ms.date: 03/23/2021
 ms.service: partner-dashboard
-ms.subservice: partnercenter-sdk
 author: JoeyBytes
 ms.author: jobiesel
-ms.openlocfilehash: 703585eeaba93b6d7a510a3174a78a28f22e1510
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: 7606eeaac4df158ec0fad6ffd4e565bb250f448e
+ms.sourcegitcommit: bbdb5f7c9ddd42c2fc4eaadbb67d61aeeae805ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711942"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105030615"
 ---
 # <a name="update-a-customers-qualifications-asynchronously"></a>Müşterinin niteliklerini zaman uyumsuz olarak güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Iş Ortağı Merkezi API 'Leri aracılığıyla bir müşterinin niteliklerini zaman uyumsuz olarak güncelleştirme hakkında bilgi edinin. Bunu eşzamanlı olarak nasıl yapacağınızı öğrenmek için bkz. [zaman uyumlu doğrulama ile bir müşterinin nitelemesini güncelleştirme](update-customer-qualification-synchronous.md).
+Müşterinin niteliklerini zaman uyumsuz olarak güncelleştirir.
 
 Bir iş ortağı, zaman uyumsuz olarak "eğitim" veya "Hükümentcommunıcloud" olarak bir müşterinin niteliklerini güncelleştirebilir. Diğer değerler, "none" ve "kar olmayan" ayarlanamaz.
 
@@ -28,6 +23,27 @@ Bir iş ortağı, zaman uyumsuz olarak "eğitim" veya "Hükümentcommunıcloud" 
 - [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
 - Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+
+## <a name="c"></a>C\#
+
+"Eğitim" için bir müşterinin nitelemesini oluşturmak için, önce nitelik türünü temsil eden bir nesne oluşturun. Ardından, müşteri tanımlayıcısıyla [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından, bir [**ıcustomernitelik**](/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification) arabirimi almak için [**nitelik**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) özelliğini kullanın. Son olarak, `CreateQualifications()` `CreateQualificationsAsync()` bir giriş parametresi olarak nitelendirme türü nesnesini çağırın.
+
+``` csharp
+var qualificationType = { Qualification = "education" };
+var eduCustomerQualification = partnerOperations.Customers.ById(existingCustomer.Id).Qualification.CreateQualifications(qualificationType);
+```
+
+**Örnek**: [konsol örnek uygulaması](https://github.com/microsoft/Partner-Center-DotNet-Samples). **Proje**: Sdksamples **sınıfı**: createcustomernitelik. cs
+
+Bir müşterinin nitelemesini, mevcut bir müşteri üzerinde bir nitelik olmadan **Hükümentcommunitycloud** olarak güncelleştirmek için, ortağın ayrıca müşterinin [**validationcode**](utility-resources.md#validationcode)'u içermesi gerekir. İlk olarak, nitelik türünü temsil eden bir nesne oluşturun. Ardından, müşteri tanımlayıcısıyla [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından, bir [**ıcustomernitelik**](/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification) arabirimi almak için [**nitelik**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) özelliğini kullanın. Son olarak, `CreateQualifications()` ya da `CreateQualificationsAsync()` nitelik türü nesnesini ve doğrulama kodunu giriş parametreleri olarak çağırın.
+
+``` csharp
+// GCC validation is type ValidationCode
+var qualificationType = { Qualification = "GovernmentCommunityCloud" };
+var gccCustomerQualification = partnerOperations.Customers.ById(existingCustomer.Id).Qualification.CreateQualifications(qualificationType, gccValidation);
+```
+
+**Örnek**: [konsol örnek uygulaması](https://github.com/microsoft/Partner-Center-DotNet-Samples). **Proje**: Sdksamples **sınıfı**: CreateCustomerQualificationWithGCC. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -52,7 +68,11 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-[**Customernitelendirme**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification) numaralandırmasından tamsayı değeri.
+Bu tablo, istek gövdesinde nitelik nesnesini açıklar.
+
+Özellik | Tür | Gerekli | Açıklama
+-------- | ---- | -------- | -----------
+Eleme | string | Yes | [**Customernitelendirme**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerqualification) numaralandırmasından dize değeri.
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -62,6 +82,10 @@ Accept: application/json
 Content-Type: application/json
 MS-CorrelationId: 7d2456fd-2d79-46d0-9f8e-5d7ecd5f8745
 MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
+
+{
+    "Qualification": "Education"
+}
 
 ```
 

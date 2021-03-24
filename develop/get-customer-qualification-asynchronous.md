@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: JoeyBytes
 ms.author: jobiesel
-ms.openlocfilehash: 2c860d4a35104131197e06d4712f4ef41ba0008e
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: 09801792c059873b9f6b842e99286eda09d38b1a
+ms.sourcegitcommit: bbdb5f7c9ddd42c2fc4eaadbb67d61aeeae805ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711925"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105030580"
 ---
 # <a name="get-a-customers-qualification-asynchronously"></a>Müşterinin nitelemesini zaman uyumsuz olarak al
 
@@ -26,6 +26,18 @@ Müşterinin niteliklerini zaman uyumsuz olarak alma.
 - [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
 - Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+
+## <a name="c"></a>C\#
+
+Müşterinin niteliklerini almak için, müşteri tanımlayıcısıyla [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından, bir [**ıcustomernitelik**](/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification) arabirimi almak için [**nitelik**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) özelliğini kullanın. Son olarak, `GetQualifications()` `GetQualificationsAsync()` müşterinin niteliklerini almak için veya öğesini çağırın.
+
+``` csharp
+// IAggregatePartner partnerOperations;
+// string customerId;
+var customerQualifications = partnerOperations.Customers.ById(customerId).Qualification.GetQualifications();
+```
+
+**Örnek**: [konsol örnek uygulaması](https://github.com/microsoft/Partner-Center-DotNet-Samples). **Proje**: Sdksamples **sınıfı**: getcustomernitelikler. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -79,14 +91,12 @@ Content-Length:
 Content-Type: application/json
 MS-CorrelationId: 7d2456fd-2d79-46d0-9f8e-5d7ecd5f8745
 MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
-{
-    "qualifications": [
-        {
-            "qualification": "Education",
-            "vettingStatus": "Approved",
-        }
-    ]
-}
+[
+    {
+        "qualification": "Education",
+        "vettingStatus": "Approved",
+    }
+]
 
 ```
 
@@ -98,15 +108,13 @@ Content-Length:
 Content-Type: application/json
 MS-CorrelationId: 7d2456fd-2d79-46d0-9f8e-5d7ecd5f8745
 MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
-{
-    "qualifications": [
-        {
-            "qualification": "Education",
-            "vettingStatus": "InReview",
-            "vettingCreatedDate": "2020-12-03T10:37:38.885Z" // UTC
-        }
-    ]
-}
+[
+    {
+        "qualification": "Education",
+        "vettingStatus": "InReview",
+        "vettingCreatedDate": "2020-12-03T10:37:38.885Z" // UTC
+    }
+]
 
 ```
 
@@ -118,16 +126,14 @@ Content-Length:
 Content-Type: application/json
 MS-CorrelationId: 7d2456fd-2d79-46d0-9f8e-5d7ecd5f8745
 MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
-{
-    "qualifications": [
-        {
-            "qualification": "Education",
-            "vettingStatus": "Denied",
-            "vettingReason": "Not an Education Customer", // example Vetting Reason
-            "vettingCreatedDate": "2020-12-03T10:37:38.885Z" // UTC
-        }
-    ]
-}
+[
+    {
+        "qualification": "Education",
+        "vettingStatus": "Denied",
+        "vettingReason": "Not an Education Customer", // example Vetting Reason
+        "vettingCreatedDate": "2020-12-03T10:37:38.885Z" // UTC
+    }
+]
 
 ```
 

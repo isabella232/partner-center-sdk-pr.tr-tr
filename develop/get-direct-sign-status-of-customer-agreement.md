@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 3f1deb20a18bc6e7133cac91db528f2d1ad694e2
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 267e3aa63a94c5045977ad566eb5061df3b59882
+ms.sourcegitcommit: bbdb5f7c9ddd42c2fc4eaadbb67d61aeeae805ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768740"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105030581"
 ---
 # <a name="get-the-status-of-a-customers-direct-signing-direct-acceptance-of-microsoft-customer-agreement"></a>Müşterinin doğrudan imzalanmasından (doğrudan kabulünün) Microsoft müşteri anlaşması 'nın durumunu alın
 
@@ -23,11 +23,29 @@ ms.locfileid: "97768740"
 
 Bu kaynak için *geçerli değildir* :
 
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
 Bu makalede, bir müşterinin Microsoft Müşteri Sözleşmesi 'nin doğrudan kabulünün durumunu nasıl alabileceğiniz açıklanmaktadır.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+
+- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+
+## <a name="c"></a>C\#
+
+Müşterinin Microsoft Müşteri sözleşmesinin doğrudan kabulünün durumunu almak için, müşteri tanımlayıcısıyla [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından [**ICustomerAgreementCollection**](/dotnet/api/microsoft.store.partnercenter.agreements.icustomeragreementcollection) arabirimini almak için [**anlaşmalar**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.agreements) özelliğini kullanın. Son olarak, `GetDirectSignedCustomerAgreementStatus()` `GetDirectSignedCustomerAgreementStatusAsync()` durumu almak için veya çağırın.
+
+``` csharp
+// IAggregatePartner partnerOperations;
+// string customerId;
+var customerDirectSigningStatus = partnerOperations.Customers.ById(selectedCustomerId).Agreements.GetDirectSignedCustomerAgreementStatus();
+```
+
+**Örnek**: [konsol örnek uygulaması](https://github.com/microsoft/Partner-Center-DotNet-Samples). **Proje**: Sdksamples **sınıfı**: GetDirectSignedCustomerAgreementStatus. cs
 
 ## <a name="rest-request"></a>REST isteği
 

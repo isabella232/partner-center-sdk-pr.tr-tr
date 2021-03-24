@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: c202d95beab771241a9665243be5f08ab6f82fd5
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: 0ffe6d1a236a8a07e1ff71163e7639ef1f3437e1
+ms.sourcegitcommit: bbdb5f7c9ddd42c2fc4eaadbb67d61aeeae805ca
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711976"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105030598"
 ---
 # <a name="update-a-customers-qualification-via-synchronous-validation"></a>Zaman uyumlu doğrulama ile bir müşterinin nitelemesini güncelleştirme
 
@@ -41,7 +41,7 @@ var eduCustomerQualification = partnerOperations.Customers.ById(existingCustomer
 
 **Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresamples **sınıfı**: CustomerQualificationOperations. cs
 
-Bir müşterinin nitelemesini, mevcut bir müşteri üzerinde bir nitelik olmadan **Hükümentcommunitycloud** olarak güncelleştirmek için.  Ayrıca iş ortağının, müşterinin [**Validationcode**](utility-resources.md#validationcode)'u içermesi gerekir.
+Bir müşterinin nitelemesini, mevcut bir müşteri üzerinde bir nitelik olmadan **Hükümentcommunitycloud** olarak güncelleştirmek için, ortağın müşterinin [**validationcode**](utility-resources.md#validationcode)'u içermesi gerekir.
 
 ``` csharp
 // CustomerQualification is an enum
