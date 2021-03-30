@@ -6,47 +6,47 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: a13b62903e44165ef9811ea7798fcea666d483dc
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1e19792da6a7510bf02dd11b3e77f40a8365be2b
+ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769694"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730204"
 ---
-# <a name="get-invoice-billed-commercial-consumption-line-items"></a><span data-ttu-id="28ca7-103">Fatura faturalandırılan ticari tüketim çizgisi öğelerini Al</span><span class="sxs-lookup"><span data-stu-id="28ca7-103">Get invoice billed commercial consumption line items</span></span>
+# <a name="get-invoice-billed-commercial-consumption-line-items"></a><span data-ttu-id="2197a-103">Fatura faturalandırılan ticari tüketim çizgisi öğelerini Al</span><span class="sxs-lookup"><span data-stu-id="2197a-103">Get invoice billed commercial consumption line items</span></span>
 
-<span data-ttu-id="28ca7-104">**Uygulama hedefi:**</span><span class="sxs-lookup"><span data-stu-id="28ca7-104">**Applies to:**</span></span>
+<span data-ttu-id="2197a-104">**Uygulama hedefi:**</span><span class="sxs-lookup"><span data-stu-id="2197a-104">**Applies to:**</span></span>
 
-- <span data-ttu-id="28ca7-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="28ca7-105">Partner Center</span></span>
+- <span data-ttu-id="2197a-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="2197a-105">Partner Center</span></span>
 
-<span data-ttu-id="28ca7-106">Belirli bir fatura için ticari tüketim fatura satırı öğelerinin (kapatılan günlük olarak derecelendirilmiş kullanım satırı öğeleri olarak da bilinir) ayrıntılarını bir koleksiyon almak için aşağıdaki yöntemleri kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="28ca7-106">You can use the following methods to get a collection of details for commercial consumption invoice line items (also known as closed daily rated usage line items) for a specified invoice.</span></span>
+<span data-ttu-id="2197a-106">Belirli bir fatura için ticari tüketim fatura satırı öğelerinin (kapatılan günlük olarak derecelendirilmiş kullanım satırı öğeleri olarak da bilinir) ayrıntılarını bir koleksiyon almak için aşağıdaki yöntemleri kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="2197a-106">You can use the following methods to get a collection of details for commercial consumption invoice line items (also known as closed daily rated usage line items) for a specified invoice.</span></span>
 
-<span data-ttu-id="28ca7-107">Bu API ayrıca Microsoft Azure (MS-AZR-0145P) abonelikleri için **Azure** sağlayıcı türlerini de destekler.</span><span class="sxs-lookup"><span data-stu-id="28ca7-107">This API also supports **azure** provider types for Microsoft Azure (MS-AZR-0145P) subscriptions.</span></span> <span data-ttu-id="28ca7-108">Bu, bu API 'nin geriye dönük olarak uyumlu bir özellik olduğu anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="28ca7-108">This means this API is a backward-compatible feature.</span></span>
+<span data-ttu-id="2197a-107">Bu API ayrıca Microsoft Azure (MS-AZR-0145P) abonelikleri için **Azure** sağlayıcı türlerini de destekler.</span><span class="sxs-lookup"><span data-stu-id="2197a-107">This API also supports **azure** provider types for Microsoft Azure (MS-AZR-0145P) subscriptions.</span></span> <span data-ttu-id="2197a-108">Bu, bu API 'nin geriye dönük olarak uyumlu bir özellik olduğu anlamına gelir.</span><span class="sxs-lookup"><span data-stu-id="2197a-108">This means this API is a backward-compatible feature.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="28ca7-109">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="28ca7-109">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="2197a-109">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="2197a-109">Prerequisites</span></span>
 
-- <span data-ttu-id="28ca7-110">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="28ca7-110">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="28ca7-111">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="28ca7-111">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="2197a-110">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="2197a-110">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="2197a-111">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="2197a-111">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="28ca7-112">Bir fatura tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="28ca7-112">An invoice identifier.</span></span> <span data-ttu-id="28ca7-113">Bu, satır öğelerinin alınacağı faturayı tanımlar.</span><span class="sxs-lookup"><span data-stu-id="28ca7-113">This identifies the invoice for which to retrieve the line items.</span></span>
+- <span data-ttu-id="2197a-112">Bir fatura tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="2197a-112">An invoice identifier.</span></span> <span data-ttu-id="2197a-113">Bu, satır öğelerinin alınacağı faturayı tanımlar.</span><span class="sxs-lookup"><span data-stu-id="2197a-113">This identifies the invoice for which to retrieve the line items.</span></span>
 
-## <a name="c"></a><span data-ttu-id="28ca7-114">C\#</span><span class="sxs-lookup"><span data-stu-id="28ca7-114">C\#</span></span>
+## <a name="c"></a><span data-ttu-id="2197a-114">C\#</span><span class="sxs-lookup"><span data-stu-id="2197a-114">C\#</span></span>
 
-<span data-ttu-id="28ca7-115">Belirtilen faturaya ait ticari çizgi öğelerini almak için, fatura nesnesini almanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="28ca7-115">To get the commercial line items for the specified invoice, you must retrieve the invoice object:</span></span>
+<span data-ttu-id="2197a-115">Belirtilen faturaya ait ticari çizgi öğelerini almak için, fatura nesnesini almanız gerekir:</span><span class="sxs-lookup"><span data-stu-id="2197a-115">To get the commercial line items for the specified invoice, you must retrieve the invoice object:</span></span>
 
-1. <span data-ttu-id="28ca7-116">Belirtilen faturaya yönelik işlemleri faturalamak için bir arabirim almak üzere [**Byıd**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="28ca7-116">Call the [**ById**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) method to get an interface to invoice operations for the specified invoice.</span></span>
+1. <span data-ttu-id="2197a-116">Belirtilen faturaya yönelik işlemleri faturalamak için bir arabirim almak üzere [**Byıd**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="2197a-116">Call the [**ById**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) method to get an interface to invoice operations for the specified invoice.</span></span>
 
-2. <span data-ttu-id="28ca7-117">Fatura nesnesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="28ca7-117">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the invoice object.</span></span> <span data-ttu-id="28ca7-118">Fatura nesnesi belirtilen faturaya ait tüm bilgileri içerir.</span><span class="sxs-lookup"><span data-stu-id="28ca7-118">The invoice object contains all of the information for the specified invoice.</span></span>
+2. <span data-ttu-id="2197a-117">Fatura nesnesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="2197a-117">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the invoice object.</span></span> <span data-ttu-id="2197a-118">Fatura nesnesi belirtilen faturaya ait tüm bilgileri içerir.</span><span class="sxs-lookup"><span data-stu-id="2197a-118">The invoice object contains all of the information for the specified invoice.</span></span>
 
-<span data-ttu-id="28ca7-119">**Sağlayıcı** , faturalandırılan ayrıntı bilgisinin kaynağını tanımlar (örneğin, **kerelik**).</span><span class="sxs-lookup"><span data-stu-id="28ca7-119">The **Provider** identifies the source of the billed detail information (for example, **onetime**).</span></span> <span data-ttu-id="28ca7-120">**Invoineıtemtype** türü belirtir (örneğin, **Usagelineitem**).</span><span class="sxs-lookup"><span data-stu-id="28ca7-120">The **InvoiceLineItemType** specifies the type (for example, **UsageLineItem**).</span></span>
+<span data-ttu-id="2197a-119">**Sağlayıcı** , faturalandırılan ayrıntı bilgisinin kaynağını tanımlar (örneğin, **kerelik**).</span><span class="sxs-lookup"><span data-stu-id="2197a-119">The **Provider** identifies the source of the billed detail information (for example, **onetime**).</span></span> <span data-ttu-id="2197a-120">**Invoineıtemtype** türü belirtir (örneğin, **Usagelineitem**).</span><span class="sxs-lookup"><span data-stu-id="2197a-120">The **InvoiceLineItemType** specifies the type (for example, **UsageLineItem**).</span></span>
 
-<span data-ttu-id="28ca7-121">Aşağıdaki örnek kod, satır öğeleri koleksiyonunu işlemek için bir **foreach** döngüsü kullanır.</span><span class="sxs-lookup"><span data-stu-id="28ca7-121">The following example code uses a **foreach** loop to process the line items collection.</span></span> <span data-ttu-id="28ca7-122">Her bir **Faturaöğeside** her bir faturaya ait ayrı bir satır öğesi koleksiyonu alınır.</span><span class="sxs-lookup"><span data-stu-id="28ca7-122">A separate collection of line items is retrieved for each **InvoiceLineItemType**.</span></span>
+<span data-ttu-id="2197a-121">Aşağıdaki örnek kod, satır öğeleri koleksiyonunu işlemek için bir **foreach** döngüsü kullanır.</span><span class="sxs-lookup"><span data-stu-id="2197a-121">The following example code uses a **foreach** loop to process the line items collection.</span></span> <span data-ttu-id="2197a-122">Her bir **Faturaöğeside** her bir faturaya ait ayrı bir satır öğesi koleksiyonu alınır.</span><span class="sxs-lookup"><span data-stu-id="2197a-122">A separate collection of line items is retrieved for each **InvoiceLineItemType**.</span></span>
 
-<span data-ttu-id="28ca7-123">Bir **InvoiceDetail** örneğine karşılık gelen satır öğelerinin bir koleksiyonunu almak için:</span><span class="sxs-lookup"><span data-stu-id="28ca7-123">To get a collection of line items that correspond to an **InvoiceDetail** instance:</span></span>
+<span data-ttu-id="2197a-123">Bir **InvoiceDetail** örneğine karşılık gelen satır öğelerinin bir koleksiyonunu almak için:</span><span class="sxs-lookup"><span data-stu-id="2197a-123">To get a collection of line items that correspond to an **InvoiceDetail** instance:</span></span>
 
-1. <span data-ttu-id="28ca7-124">Örneğe ait **Billingprovider** ve **ınvoineıtemtype** 'ı [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) metoduna geçirin.</span><span class="sxs-lookup"><span data-stu-id="28ca7-124">Pass the instance's **BillingProvider** and **InvoiceLineItemType** to the [**By**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) method.</span></span>
+1. <span data-ttu-id="2197a-124">Örneğe ait **Billingprovider** ve **ınvoineıtemtype** 'ı [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) metoduna geçirin.</span><span class="sxs-lookup"><span data-stu-id="2197a-124">Pass the instance's **BillingProvider** and **InvoiceLineItemType** to the [**By**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) method.</span></span>
 
-2. <span data-ttu-id="28ca7-125">İlişkili satır öğelerini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="28ca7-125">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the associated line items.</span></span>
-3. <span data-ttu-id="28ca7-126">Aşağıdaki örnekte gösterildiği gibi koleksiyonun çapraz geçişini yapmak için bir Numaralandırıcı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="28ca7-126">Create an enumerator to traverse the collection as shown in the following example.</span></span>
+2. <span data-ttu-id="2197a-125">İlişkili satır öğelerini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="2197a-125">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the associated line items.</span></span>
+3. <span data-ttu-id="2197a-126">Aşağıdaki örnekte gösterildiği gibi koleksiyonun çapraz geçişini yapmak için bir Numaralandırıcı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="2197a-126">Create an enumerator to traverse the collection as shown in the following example.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -105,67 +105,67 @@ while (fetchNext)
 }
 ```
 
-<span data-ttu-id="28ca7-127">Benzer bir örnek için aşağıdakilere bakın:</span><span class="sxs-lookup"><span data-stu-id="28ca7-127">For a similar example, see the following:</span></span>
+<span data-ttu-id="2197a-127">Benzer bir örnek için aşağıdakilere bakın:</span><span class="sxs-lookup"><span data-stu-id="2197a-127">For a similar example, see the following:</span></span>
 
-- <span data-ttu-id="28ca7-128">Örnek: [konsol test uygulaması](console-test-app.md)</span><span class="sxs-lookup"><span data-stu-id="28ca7-128">Sample: [Console test app](console-test-app.md)</span></span>
-- <span data-ttu-id="28ca7-129">Proje: **Iş ortağı MERKEZI SDK örnekleri**</span><span class="sxs-lookup"><span data-stu-id="28ca7-129">Project: **Partner Center SDK Samples**</span></span>
-- <span data-ttu-id="28ca7-130">Sınıf: **GetBilledConsumptionReconLineItemsPaging.cs**</span><span class="sxs-lookup"><span data-stu-id="28ca7-130">Class: **GetBilledConsumptionReconLineItemsPaging.cs**</span></span>
+- <span data-ttu-id="2197a-128">Örnek: [konsol test uygulaması](console-test-app.md)</span><span class="sxs-lookup"><span data-stu-id="2197a-128">Sample: [Console test app](console-test-app.md)</span></span>
+- <span data-ttu-id="2197a-129">Proje: **Iş ortağı MERKEZI SDK örnekleri**</span><span class="sxs-lookup"><span data-stu-id="2197a-129">Project: **Partner Center SDK Samples**</span></span>
+- <span data-ttu-id="2197a-130">Sınıf: **GetBilledConsumptionReconLineItemsPaging. cs**</span><span class="sxs-lookup"><span data-stu-id="2197a-130">Class: **GetBilledConsumptionReconLineItemsPaging.cs**</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="28ca7-131">REST isteği</span><span class="sxs-lookup"><span data-stu-id="28ca7-131">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="2197a-131">REST isteği</span><span class="sxs-lookup"><span data-stu-id="2197a-131">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="28ca7-132">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="28ca7-132">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="2197a-132">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="2197a-132">Request syntax</span></span>
 
-<span data-ttu-id="28ca7-133">Verilen faturaya ait her satır öğesinin tam listesini döndürmek için ilk sözdizimini kullanın.</span><span class="sxs-lookup"><span data-stu-id="28ca7-133">Use the first syntax to return a full list of every line item for the given invoice.</span></span> <span data-ttu-id="28ca7-134">Büyük faturalar için, satır öğelerinin disk belleğine alınmış bir listesini döndürmek üzere belirtilen boyut ve 0 tabanlı uzaklığa sahip ikinci söz dizimini kullanın.</span><span class="sxs-lookup"><span data-stu-id="28ca7-134">For large invoices, use the second syntax with a specified size and 0-based offset to return a paged list of line items.</span></span> <span data-ttu-id="28ca7-135">Kullanarak keşfi satır öğelerinin sonraki sayfasını almak için üçüncü sözdizimini kullanın `seekOperation = "Next"` .</span><span class="sxs-lookup"><span data-stu-id="28ca7-135">Use the third syntax to get the next page of recon line items using `seekOperation = "Next"`.</span></span>
+<span data-ttu-id="2197a-133">Verilen faturaya ait her satır öğesinin tam listesini döndürmek için ilk sözdizimini kullanın.</span><span class="sxs-lookup"><span data-stu-id="2197a-133">Use the first syntax to return a full list of every line item for the given invoice.</span></span> <span data-ttu-id="2197a-134">Büyük faturalar için, satır öğelerinin disk belleğine alınmış bir listesini döndürmek üzere belirtilen boyut ve 0 tabanlı uzaklığa sahip ikinci söz dizimini kullanın.</span><span class="sxs-lookup"><span data-stu-id="2197a-134">For large invoices, use the second syntax with a specified size and 0-based offset to return a paged list of line items.</span></span> <span data-ttu-id="2197a-135">Kullanarak keşfi satır öğelerinin sonraki sayfasını almak için üçüncü sözdizimini kullanın `seekOperation = "Next"` .</span><span class="sxs-lookup"><span data-stu-id="2197a-135">Use the third syntax to get the next page of recon line items using `seekOperation = "Next"`.</span></span>
 
-| <span data-ttu-id="28ca7-136">Yöntem</span><span class="sxs-lookup"><span data-stu-id="28ca7-136">Method</span></span>  | <span data-ttu-id="28ca7-137">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="28ca7-137">Request URI</span></span>                                                                                                                                                     |
+| <span data-ttu-id="2197a-136">Yöntem</span><span class="sxs-lookup"><span data-stu-id="2197a-136">Method</span></span>  | <span data-ttu-id="2197a-137">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="2197a-137">Request URI</span></span>                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="28ca7-138">**Al**</span><span class="sxs-lookup"><span data-stu-id="28ca7-138">**GET**</span></span> | <span data-ttu-id="28ca7-139">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {CURRENCYCODE} http/1.1</span><span class="sxs-lookup"><span data-stu-id="28ca7-139">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode} HTTP/1.1</span></span>                              |
-| <span data-ttu-id="28ca7-140">**Al**</span><span class="sxs-lookup"><span data-stu-id="28ca7-140">**GET**</span></span> | <span data-ttu-id="28ca7-141">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {currencycode} &boyut = {SIZE} http/1.1</span><span class="sxs-lookup"><span data-stu-id="28ca7-141">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&size={size} HTTP/1.1</span></span>  |
-| <span data-ttu-id="28ca7-142">**Al**</span><span class="sxs-lookup"><span data-stu-id="28ca7-142">**GET**</span></span> | <span data-ttu-id="28ca7-143">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {currencycode} &size = {size} &seekoperation = ileri</span><span class="sxs-lookup"><span data-stu-id="28ca7-143">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&size={size}&seekOperation=Next</span></span>                               |
+| <span data-ttu-id="2197a-138">**Al**</span><span class="sxs-lookup"><span data-stu-id="2197a-138">**GET**</span></span> | <span data-ttu-id="2197a-139">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {CURRENCYCODE} http/1.1</span><span class="sxs-lookup"><span data-stu-id="2197a-139">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode} HTTP/1.1</span></span>                              |
+| <span data-ttu-id="2197a-140">**Al**</span><span class="sxs-lookup"><span data-stu-id="2197a-140">**GET**</span></span> | <span data-ttu-id="2197a-141">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {currencycode} &boyut = {SIZE} http/1.1</span><span class="sxs-lookup"><span data-stu-id="2197a-141">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&size={size} HTTP/1.1</span></span>  |
+| <span data-ttu-id="2197a-142">**Al**</span><span class="sxs-lookup"><span data-stu-id="2197a-142">**GET**</span></span> | <span data-ttu-id="2197a-143">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {currencycode} &size = {size} &seekoperation = ileri</span><span class="sxs-lookup"><span data-stu-id="2197a-143">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&size={size}&seekOperation=Next</span></span>                               |
 
-#### <a name="uri-parameters"></a><span data-ttu-id="28ca7-144">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="28ca7-144">URI parameters</span></span>
+#### <a name="uri-parameters"></a><span data-ttu-id="2197a-144">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="2197a-144">URI parameters</span></span>
 
-<span data-ttu-id="28ca7-145">İsteği oluştururken aşağıdaki URI ve sorgu parametrelerini kullanın.</span><span class="sxs-lookup"><span data-stu-id="28ca7-145">Use the following URI and query parameters when creating the request.</span></span>
+<span data-ttu-id="2197a-145">İsteği oluştururken aşağıdaki URI ve sorgu parametrelerini kullanın.</span><span class="sxs-lookup"><span data-stu-id="2197a-145">Use the following URI and query parameters when creating the request.</span></span>
 
-| <span data-ttu-id="28ca7-146">Ad</span><span class="sxs-lookup"><span data-stu-id="28ca7-146">Name</span></span>                   | <span data-ttu-id="28ca7-147">Tür</span><span class="sxs-lookup"><span data-stu-id="28ca7-147">Type</span></span>   | <span data-ttu-id="28ca7-148">Gerekli</span><span class="sxs-lookup"><span data-stu-id="28ca7-148">Required</span></span> | <span data-ttu-id="28ca7-149">Açıklama</span><span class="sxs-lookup"><span data-stu-id="28ca7-149">Description</span></span>                                                       |
+| <span data-ttu-id="2197a-146">Ad</span><span class="sxs-lookup"><span data-stu-id="2197a-146">Name</span></span>                   | <span data-ttu-id="2197a-147">Tür</span><span class="sxs-lookup"><span data-stu-id="2197a-147">Type</span></span>   | <span data-ttu-id="2197a-148">Gerekli</span><span class="sxs-lookup"><span data-stu-id="2197a-148">Required</span></span> | <span data-ttu-id="2197a-149">Açıklama</span><span class="sxs-lookup"><span data-stu-id="2197a-149">Description</span></span>                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| <span data-ttu-id="28ca7-150">Fatura kimliği</span><span class="sxs-lookup"><span data-stu-id="28ca7-150">invoice-id</span></span>             | <span data-ttu-id="28ca7-151">string</span><span class="sxs-lookup"><span data-stu-id="28ca7-151">string</span></span> | <span data-ttu-id="28ca7-152">Yes</span><span class="sxs-lookup"><span data-stu-id="28ca7-152">Yes</span></span>      | <span data-ttu-id="28ca7-153">Faturayı tanımlayan bir dize.</span><span class="sxs-lookup"><span data-stu-id="28ca7-153">A string that identifies the invoice.</span></span>                             |
-| <span data-ttu-id="28ca7-154">sağlayıcısını</span><span class="sxs-lookup"><span data-stu-id="28ca7-154">provider</span></span>               | <span data-ttu-id="28ca7-155">string</span><span class="sxs-lookup"><span data-stu-id="28ca7-155">string</span></span> | <span data-ttu-id="28ca7-156">Yes</span><span class="sxs-lookup"><span data-stu-id="28ca7-156">Yes</span></span>      | <span data-ttu-id="28ca7-157">Sağlayıcı: "OneTime".</span><span class="sxs-lookup"><span data-stu-id="28ca7-157">The provider: "OneTime".</span></span>                                  |
-| <span data-ttu-id="28ca7-158">fatura-satır-öğe türü</span><span class="sxs-lookup"><span data-stu-id="28ca7-158">invoice-line-item-type</span></span> | <span data-ttu-id="28ca7-159">string</span><span class="sxs-lookup"><span data-stu-id="28ca7-159">string</span></span> | <span data-ttu-id="28ca7-160">Yes</span><span class="sxs-lookup"><span data-stu-id="28ca7-160">Yes</span></span>      | <span data-ttu-id="28ca7-161">Fatura ayrıntısı türü: "Usagelineıtems".</span><span class="sxs-lookup"><span data-stu-id="28ca7-161">The type of invoice detail: "UsageLineItems".</span></span> |
-| <span data-ttu-id="28ca7-162">currencyCode</span><span class="sxs-lookup"><span data-stu-id="28ca7-162">currencyCode</span></span>           | <span data-ttu-id="28ca7-163">string</span><span class="sxs-lookup"><span data-stu-id="28ca7-163">string</span></span> | <span data-ttu-id="28ca7-164">Yes</span><span class="sxs-lookup"><span data-stu-id="28ca7-164">Yes</span></span>      | <span data-ttu-id="28ca7-165">Faturalanan satır öğelerinin para birimi kodu.</span><span class="sxs-lookup"><span data-stu-id="28ca7-165">The currency code for the billed line items.</span></span>                    |
-| <span data-ttu-id="28ca7-166">dönem</span><span class="sxs-lookup"><span data-stu-id="28ca7-166">period</span></span>                 | <span data-ttu-id="28ca7-167">string</span><span class="sxs-lookup"><span data-stu-id="28ca7-167">string</span></span> | <span data-ttu-id="28ca7-168">Yes</span><span class="sxs-lookup"><span data-stu-id="28ca7-168">Yes</span></span>      | <span data-ttu-id="28ca7-169">Faturalandırılan keşfi için süre.</span><span class="sxs-lookup"><span data-stu-id="28ca7-169">The period for billed recon.</span></span> <span data-ttu-id="28ca7-170">Örnek: geçerli, önceki.</span><span class="sxs-lookup"><span data-stu-id="28ca7-170">example: current, previous.</span></span>        |
-| <span data-ttu-id="28ca7-171">boyut</span><span class="sxs-lookup"><span data-stu-id="28ca7-171">size</span></span>                   | <span data-ttu-id="28ca7-172">sayı</span><span class="sxs-lookup"><span data-stu-id="28ca7-172">number</span></span> | <span data-ttu-id="28ca7-173">No</span><span class="sxs-lookup"><span data-stu-id="28ca7-173">No</span></span>       | <span data-ttu-id="28ca7-174">Döndürülecek en fazla öğe sayısı.</span><span class="sxs-lookup"><span data-stu-id="28ca7-174">The maximum number of items to return.</span></span> <span data-ttu-id="28ca7-175">Varsayılan boyut 2000 ' dir</span><span class="sxs-lookup"><span data-stu-id="28ca7-175">Default size is 2000</span></span>       |
-| <span data-ttu-id="28ca7-176">seekOperation</span><span class="sxs-lookup"><span data-stu-id="28ca7-176">seekOperation</span></span>          | <span data-ttu-id="28ca7-177">dize</span><span class="sxs-lookup"><span data-stu-id="28ca7-177">string</span></span> | <span data-ttu-id="28ca7-178">No</span><span class="sxs-lookup"><span data-stu-id="28ca7-178">No</span></span>       | <span data-ttu-id="28ca7-179">Keşfi satır öğelerinin sonraki sayfasını almak için seekOperation = Next öğesini ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="28ca7-179">Set seekOperation=Next to get the next page of recon line items.</span></span> |
+| <span data-ttu-id="2197a-150">Fatura kimliği</span><span class="sxs-lookup"><span data-stu-id="2197a-150">invoice-id</span></span>             | <span data-ttu-id="2197a-151">string</span><span class="sxs-lookup"><span data-stu-id="2197a-151">string</span></span> | <span data-ttu-id="2197a-152">Yes</span><span class="sxs-lookup"><span data-stu-id="2197a-152">Yes</span></span>      | <span data-ttu-id="2197a-153">Faturayı tanımlayan bir dize.</span><span class="sxs-lookup"><span data-stu-id="2197a-153">A string that identifies the invoice.</span></span>                             |
+| <span data-ttu-id="2197a-154">sağlayıcısını</span><span class="sxs-lookup"><span data-stu-id="2197a-154">provider</span></span>               | <span data-ttu-id="2197a-155">string</span><span class="sxs-lookup"><span data-stu-id="2197a-155">string</span></span> | <span data-ttu-id="2197a-156">Yes</span><span class="sxs-lookup"><span data-stu-id="2197a-156">Yes</span></span>      | <span data-ttu-id="2197a-157">Sağlayıcı: "OneTime".</span><span class="sxs-lookup"><span data-stu-id="2197a-157">The provider: "OneTime".</span></span>                                  |
+| <span data-ttu-id="2197a-158">fatura-satır-öğe türü</span><span class="sxs-lookup"><span data-stu-id="2197a-158">invoice-line-item-type</span></span> | <span data-ttu-id="2197a-159">string</span><span class="sxs-lookup"><span data-stu-id="2197a-159">string</span></span> | <span data-ttu-id="2197a-160">Yes</span><span class="sxs-lookup"><span data-stu-id="2197a-160">Yes</span></span>      | <span data-ttu-id="2197a-161">Fatura ayrıntısı türü: "Usagelineıtems".</span><span class="sxs-lookup"><span data-stu-id="2197a-161">The type of invoice detail: "UsageLineItems".</span></span> |
+| <span data-ttu-id="2197a-162">currencyCode</span><span class="sxs-lookup"><span data-stu-id="2197a-162">currencyCode</span></span>           | <span data-ttu-id="2197a-163">string</span><span class="sxs-lookup"><span data-stu-id="2197a-163">string</span></span> | <span data-ttu-id="2197a-164">Yes</span><span class="sxs-lookup"><span data-stu-id="2197a-164">Yes</span></span>      | <span data-ttu-id="2197a-165">Faturalanan satır öğelerinin para birimi kodu.</span><span class="sxs-lookup"><span data-stu-id="2197a-165">The currency code for the billed line items.</span></span>                    |
+| <span data-ttu-id="2197a-166">dönem</span><span class="sxs-lookup"><span data-stu-id="2197a-166">period</span></span>                 | <span data-ttu-id="2197a-167">string</span><span class="sxs-lookup"><span data-stu-id="2197a-167">string</span></span> | <span data-ttu-id="2197a-168">Yes</span><span class="sxs-lookup"><span data-stu-id="2197a-168">Yes</span></span>      | <span data-ttu-id="2197a-169">Faturalandırılan keşfi için süre.</span><span class="sxs-lookup"><span data-stu-id="2197a-169">The period for billed recon.</span></span> <span data-ttu-id="2197a-170">Örnek: geçerli, önceki.</span><span class="sxs-lookup"><span data-stu-id="2197a-170">example: current, previous.</span></span>        |
+| <span data-ttu-id="2197a-171">boyut</span><span class="sxs-lookup"><span data-stu-id="2197a-171">size</span></span>                   | <span data-ttu-id="2197a-172">sayı</span><span class="sxs-lookup"><span data-stu-id="2197a-172">number</span></span> | <span data-ttu-id="2197a-173">Hayır</span><span class="sxs-lookup"><span data-stu-id="2197a-173">No</span></span>       | <span data-ttu-id="2197a-174">Döndürülecek en fazla öğe sayısı.</span><span class="sxs-lookup"><span data-stu-id="2197a-174">The maximum number of items to return.</span></span> <span data-ttu-id="2197a-175">Varsayılan boyut 2000 ' dir</span><span class="sxs-lookup"><span data-stu-id="2197a-175">Default size is 2000</span></span>       |
+| <span data-ttu-id="2197a-176">seekOperation</span><span class="sxs-lookup"><span data-stu-id="2197a-176">seekOperation</span></span>          | <span data-ttu-id="2197a-177">dize</span><span class="sxs-lookup"><span data-stu-id="2197a-177">string</span></span> | <span data-ttu-id="2197a-178">No</span><span class="sxs-lookup"><span data-stu-id="2197a-178">No</span></span>       | <span data-ttu-id="2197a-179">Keşfi satır öğelerinin sonraki sayfasını almak için seekOperation = Next öğesini ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="2197a-179">Set seekOperation=Next to get the next page of recon line items.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="28ca7-180">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="28ca7-180">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="2197a-180">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="2197a-180">Request headers</span></span>
 
-<span data-ttu-id="28ca7-181">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="28ca7-181">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="2197a-181">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="2197a-181">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="28ca7-182">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="28ca7-182">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="2197a-182">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="2197a-182">Request body</span></span>
 
-<span data-ttu-id="28ca7-183">Yok.</span><span class="sxs-lookup"><span data-stu-id="28ca7-183">None.</span></span>
+<span data-ttu-id="2197a-183">Yok.</span><span class="sxs-lookup"><span data-stu-id="2197a-183">None.</span></span>
 
-## <a name="rest-response"></a><span data-ttu-id="28ca7-184">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="28ca7-184">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="2197a-184">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="2197a-184">REST response</span></span>
 
-<span data-ttu-id="28ca7-185">Başarılı olursa, yanıt satır öğesi ayrıntıları koleksiyonunu içerir.</span><span class="sxs-lookup"><span data-stu-id="28ca7-185">If successful, the response contains the collection of line item details.</span></span>
+<span data-ttu-id="2197a-185">Başarılı olursa, yanıt satır öğesi ayrıntıları koleksiyonunu içerir.</span><span class="sxs-lookup"><span data-stu-id="2197a-185">If successful, the response contains the collection of line item details.</span></span>
 
-<span data-ttu-id="28ca7-186">**Chargetype** satır öğesi Için, **satın alma** değeri **Yeni** ile eşlenir.</span><span class="sxs-lookup"><span data-stu-id="28ca7-186">For the line item **ChargeType**, the value **Purchase** is mapped to **New**.</span></span> <span data-ttu-id="28ca7-187">Değer **Iadesi** **iptal** edilecek şekilde eşlendi.</span><span class="sxs-lookup"><span data-stu-id="28ca7-187">The value **Refund** is mapped to **Cancel**.</span></span>
+<span data-ttu-id="2197a-186">**Chargetype** satır öğesi Için, **satın alma** değeri **Yeni** ile eşlenir.</span><span class="sxs-lookup"><span data-stu-id="2197a-186">For the line item **ChargeType**, the value **Purchase** is mapped to **New**.</span></span> <span data-ttu-id="2197a-187">Değer **Iadesi** **iptal** edilecek şekilde eşlendi.</span><span class="sxs-lookup"><span data-stu-id="2197a-187">The value **Refund** is mapped to **Cancel**.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="28ca7-188">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="28ca7-188">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="2197a-188">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="2197a-188">Response success and error codes</span></span>
 
-<span data-ttu-id="28ca7-189">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="28ca7-189">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="28ca7-190">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="28ca7-190">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="28ca7-191">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="28ca7-191">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="2197a-189">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="2197a-189">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="2197a-190">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="2197a-190">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="2197a-191">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="2197a-191">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-## <a name="rest-examples"></a><span data-ttu-id="28ca7-192">REST örnekleri</span><span class="sxs-lookup"><span data-stu-id="28ca7-192">REST examples</span></span>
+## <a name="rest-examples"></a><span data-ttu-id="2197a-192">REST örnekleri</span><span class="sxs-lookup"><span data-stu-id="2197a-192">REST examples</span></span>
 
-### <a name="request-response-example-1"></a><span data-ttu-id="28ca7-193">İstek-yanıt örneği 1</span><span class="sxs-lookup"><span data-stu-id="28ca7-193">Request-response example 1</span></span>
+### <a name="request-response-example-1"></a><span data-ttu-id="2197a-193">İstek-yanıt örneği 1</span><span class="sxs-lookup"><span data-stu-id="2197a-193">Request-response example 1</span></span>
 
-<span data-ttu-id="28ca7-194">Bu örnek REST isteği ve yanıtının ayrıntıları aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="28ca7-194">The details for this example REST request and response are as follows:</span></span>
+<span data-ttu-id="2197a-194">Bu örnek REST isteği ve yanıtının ayrıntıları aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="2197a-194">The details for this example REST request and response are as follows:</span></span>
 
-- <span data-ttu-id="28ca7-195">**Sağlayıcı**: **Onetime**</span><span class="sxs-lookup"><span data-stu-id="28ca7-195">**Provider**: **OneTime**</span></span>
-- <span data-ttu-id="28ca7-196">**Faturaışgıtemtype**: **usagelineıtems**</span><span class="sxs-lookup"><span data-stu-id="28ca7-196">**InvoiceLineItemType**: **UsageLineItems**</span></span>
-- <span data-ttu-id="28ca7-197">**Dönem**: **önceki**</span><span class="sxs-lookup"><span data-stu-id="28ca7-197">**Period**: **Previous**</span></span>
+- <span data-ttu-id="2197a-195">**Sağlayıcı**: **Onetime**</span><span class="sxs-lookup"><span data-stu-id="2197a-195">**Provider**: **OneTime**</span></span>
+- <span data-ttu-id="2197a-196">**Faturaışgıtemtype**: **usagelineıtems**</span><span class="sxs-lookup"><span data-stu-id="2197a-196">**InvoiceLineItemType**: **UsageLineItems**</span></span>
+- <span data-ttu-id="2197a-197">**Dönem**: **önceki**</span><span class="sxs-lookup"><span data-stu-id="2197a-197">**Period**: **Previous**</span></span>
 
-#### <a name="request-example-1"></a><span data-ttu-id="28ca7-198">İstek örneği 1</span><span class="sxs-lookup"><span data-stu-id="28ca7-198">Request example 1</span></span>
+#### <a name="request-example-1"></a><span data-ttu-id="2197a-198">İstek örneği 1</span><span class="sxs-lookup"><span data-stu-id="2197a-198">Request example 1</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/T000001234/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode=usd&period=previous&size=2000 HTTP/1.1
@@ -178,7 +178,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-1"></a><span data-ttu-id="28ca7-199">Yanıt örneği 1</span><span class="sxs-lookup"><span data-stu-id="28ca7-199">Response example 1</span></span>
+#### <a name="response-example-1"></a><span data-ttu-id="2197a-199">Yanıt örneği 1</span><span class="sxs-lookup"><span data-stu-id="2197a-199">Response example 1</span></span>
 
 ```http
 HTTP/1.1 200 OK
@@ -238,6 +238,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "billingCurrency": "USD",
             "pricingPreTaxTotal": 0.486031696515249,
             "pricingCurrency": "USD",
+            "creditType": "Credit Not Applied",
             "invoiceLineItemType": "usage_line_items",
             "billingProvider": "marketplace",
             "attributes": {
@@ -295,6 +296,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "effectiveUnitPrice": 0.1999968000511991808131,
             "rateOfPartnerEarnedCredit": 0,
+            "rateOfCredit": 1,
+            "creditType": "Azure Credit Applied",
             "invoiceLineItemType": "usage_line_items",
             "billingProvider": "marketplace",
             "attributes": {
@@ -325,16 +328,16 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-### <a name="request-response-example-2"></a><span data-ttu-id="28ca7-200">İstek-yanıt örneği 2</span><span class="sxs-lookup"><span data-stu-id="28ca7-200">Request-response example 2</span></span>
+### <a name="request-response-example-2"></a><span data-ttu-id="2197a-200">İstek-yanıt örneği 2</span><span class="sxs-lookup"><span data-stu-id="2197a-200">Request-response example 2</span></span>
 
-<span data-ttu-id="28ca7-201">Bu örnek REST isteği ve yanıtının ayrıntıları aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="28ca7-201">The details for this example REST request and response are as follows:</span></span>
+<span data-ttu-id="2197a-201">Bu örnek REST isteği ve yanıtının ayrıntıları aşağıdaki gibidir:</span><span class="sxs-lookup"><span data-stu-id="2197a-201">The details for this example REST request and response are as follows:</span></span>
 
-- <span data-ttu-id="28ca7-202">**Sağlayıcı**: **Onetime**</span><span class="sxs-lookup"><span data-stu-id="28ca7-202">**Provider**: **OneTime**</span></span>
-- <span data-ttu-id="28ca7-203">**Faturaışgıtemtype**: **usagelineıtems**</span><span class="sxs-lookup"><span data-stu-id="28ca7-203">**InvoiceLineItemType**: **UsageLineItems**</span></span>
-- <span data-ttu-id="28ca7-204">**Dönem**: **önceki**</span><span class="sxs-lookup"><span data-stu-id="28ca7-204">**Period**: **Previous**</span></span>
-- <span data-ttu-id="28ca7-205">**Seekoperation**: **İleri**</span><span class="sxs-lookup"><span data-stu-id="28ca7-205">**SeekOperation**: **Next**</span></span>
+- <span data-ttu-id="2197a-202">**Sağlayıcı**: **Onetime**</span><span class="sxs-lookup"><span data-stu-id="2197a-202">**Provider**: **OneTime**</span></span>
+- <span data-ttu-id="2197a-203">**Faturaışgıtemtype**: **usagelineıtems**</span><span class="sxs-lookup"><span data-stu-id="2197a-203">**InvoiceLineItemType**: **UsageLineItems**</span></span>
+- <span data-ttu-id="2197a-204">**Dönem**: **önceki**</span><span class="sxs-lookup"><span data-stu-id="2197a-204">**Period**: **Previous**</span></span>
+- <span data-ttu-id="2197a-205">**Seekoperation**: **İleri**</span><span class="sxs-lookup"><span data-stu-id="2197a-205">**SeekOperation**: **Next**</span></span>
 
-#### <a name="request-example-2"></a><span data-ttu-id="28ca7-206">İstek örneği 2</span><span class="sxs-lookup"><span data-stu-id="28ca7-206">Request example 2</span></span>
+#### <a name="request-example-2"></a><span data-ttu-id="2197a-206">İstek örneği 2</span><span class="sxs-lookup"><span data-stu-id="2197a-206">Request example 2</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/T000001234/lineitems?provider=onetime&invoiceLineItemType=usagelineitems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -348,7 +351,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="response-example-2"></a><span data-ttu-id="28ca7-207">Yanıt örneği 2</span><span class="sxs-lookup"><span data-stu-id="28ca7-207">Response example 2</span></span>
+## <a name="response-example-2"></a><span data-ttu-id="2197a-207">Yanıt örneği 2</span><span class="sxs-lookup"><span data-stu-id="2197a-207">Response example 2</span></span>
 
 ```http
 HTTP/1.1 200 OK
@@ -414,7 +417,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "effectiveUnitPrice": 0.1835431430074643112595,
             "rateOfPartnerEarnedCredit": 0.15,
-
+            "rateOfCredit": 0.15,
+            "creditType": "Partner Earned Credit Applied",
             "attributes": {
                 "objectType": "DailyRatedUsageLineItem"
             }
