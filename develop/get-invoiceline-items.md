@@ -4,19 +4,19 @@ description: Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir faturaya ai
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e797f549e1344268c8167259a231122e7c669a2e
-ms.sourcegitcommit: 9f8ba784171ab4f980ed0c60ef6f2323849c4a98
+ms.openlocfilehash: ddc49e4d83518b809402a65f990f3e9c2658e64b
+ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100499907"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730238"
 ---
 # <a name="get-invoice-line-items"></a>Fatura satırı öğelerini alma
 
 **Uygulama hedefi:**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
@@ -103,7 +103,7 @@ Benzer bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
 - Proje: **Iş ortağı MERKEZI SDK örnekleri**
-- Sınıf: **GetInvoiceLineItems.cs**
+- Sınıf: **Getınvogıtems. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -160,10 +160,10 @@ Aşağıdaki sözdizimleri kullanıyorsanız, kullanım durumu için uygun sözd
 | Fatura kimliği             | string | Yes      | Faturayı tanımlayan bir dize.                             |
 | Faturalandırma-sağlayıcı       | string | Yes      | Faturalandırma sağlayıcısı: "Office", "Azure", "OneTime". Eski bir deyişle, Office & Azure işlemlerine yönelik ayrı veri modelleriniz vardır. Ancak modern, "OneTime" değeri ile filtrelenen tüm işlemler genelinde tek bir veri modeline sahiptir.            |
 | fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "Billinglineıtems", "Usagelineıtems". |
-| boyut                   | sayı | No       | Döndürülecek en fazla öğe sayısı. Varsayılan en büyük boyut = 2000    |
-| uzaklık                 | sayı | No       | Döndürülecek ilk satır öğesinin sıfır tabanlı dizini.            |
+| boyut                   | sayı | Hayır       | Döndürülecek en fazla öğe sayısı. Varsayılan en büyük boyut = 2000    |
+| uzaklık                 | sayı | Hayır       | Döndürülecek ilk satır öğesinin sıfır tabanlı dizini.            |
 | seekOperation          | dize | No       | **Faturalandırma-sağlayıcı** **Onetime** eşitse, fatura satır öğelerinin sonraki sayfasını almak için **seekoperation** ' ı **Next** ' e eşit olarak ayarlayın. |
-| Haspartnerearnedkrediyi | bool | No | Ortak kazanılan kredi uygulanmış olan satır öğelerinin döndürülmeyeceğini belirten değer. Note: Bu parametre yalnızca faturalandırma sağlayıcısı türü OneTime olduğunda uygulanır ve Faturaışgıtemtype ise Usagelineıtems olur. |
+| Haspartnerearnedkrediyi | bool | Hayır | Ortak kazanılan kredi uygulanmış olan satır öğelerinin döndürülmeyeceğini belirten değer. Note: Bu parametre yalnızca faturalandırma sağlayıcısı türü OneTime olduğunda uygulanır ve Faturaışgıtemtype ise Usagelineıtems olur. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -633,6 +633,7 @@ Date: Thu, 07 Sep 2017 23:31:09 GMT
             "termAndBillingCycle": "1 Month Subscription",
             "alternateId": "1234278124b8",
             "priceAdjustmentDescription": "[\"100.0% Tier 1 Discount\"]",
+            "creditReasonCode": "Azure Consumption Credit",
             "pricingCurrency": "USD",
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-09-30T23:59:59Z",

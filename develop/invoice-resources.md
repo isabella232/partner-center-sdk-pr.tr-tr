@@ -4,19 +4,19 @@ description: Iş Ortağı Merkezi API 'Leri aracılığıyla birden fazla fatura
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bd2caefe4ae18c81a31083d084f1e87da1288dd9
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8977b3b649cd930bb517965572d0efe51d6985a0
+ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768903"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730229"
 ---
 # <a name="invoice-resources"></a>Fatura kaynakları
 
 **Uygulama hedefi:**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
@@ -24,7 +24,7 @@ Aşağıdaki faturaya ilişkin kaynaklar Iş Ortağı Merkezi API 'Leri aracıl�
 
 ## <a name="invoice"></a>Fatura
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | kimlik | string | Fatura tanımlayıcısı. |
 | InvoiceDate | UTC Tarih-saat biçiminde dize | Faturanın oluşturulduğu tarih. |
@@ -47,7 +47,7 @@ Aşağıdaki faturaya ilişkin kaynaklar Iş Ortağı Merkezi API 'Leri aracıl�
 
 Fatura, faturalanan öğelerin bir koleksiyonunu içerir ve her öğe bir InvoiceDetail kaynağıyla temsil edilir.
 
-| Özellik            | Tür                                                           | Description                                                                       |
+| Özellik            | Tür                                                           | Açıklama                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | Faturadan Elineıtemtype | string                                                         | Fatura ayrıntısı türü: "none", "kullanım \_ satırı \_ öğeleri", "Faturalandırma \_ satırı \_ öğeleri". |
 | billingProvider     | string                                                         | Faturalandırma sağlayıcısı: "none", "Office", "Azure" veya "Azure \_ veri \_ marketi".         |
@@ -58,7 +58,7 @@ Fatura, faturalanan öğelerin bir koleksiyonunu içerir ve her öğe bir Invoic
 
 Bir faturadaki her bir ücret, bir fatura Elinei olarak temsil edilir.
 
-| Özellik            | Tür                                                           | Description                                                                          |
+| Özellik            | Tür                                                           | Açıklama                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Faturadan Elineıtemtype | string                                                         | Fatura satır öğesi türü: "none", "kullanım \_ satırı \_ öğeleri", "Faturalandırma \_ satırı \_ öğeleri". |
 | billingProvider     | string                                                         | Faturalandırma sağlayıcısı: "none", "Office", "Azure" veya "Azure \_ veri \_ marketi".            |
@@ -68,7 +68,7 @@ Bir faturadaki her bir ücret, bir fatura Elinei olarak temsil edilir.
 
 Bir faturanın bakiye ve toplam ücretlerine ilişkin bir Özet açıklanır.
 
-| Özellik                 | Tür                                                           | Description                                                           |
+| Özellik                 | Tür                                                           | Açıklama                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | balanceAmount            | sayı                                                         | Faturanın bakiyesi. Bu, ödenmemiş kambiyo senetlerinin toplam miktarıdır. |
 | currencyCode             | string                                                         | Bakiye miktarı için kullanılan para birimini belirten kod.       |
@@ -86,7 +86,7 @@ Bir faturanın bakiye ve toplam ücretlerine ilişkin bir Özet açıklanır.
 
 Bir fatura türü için bireysel ayrıntıların özetini temsil eder (örneğin, yinelenen, bir \_ zaman).
 
-| Özellik            | Tür                                                           | Description                                                                          |
+| Özellik            | Tür                                                           | Açıklama                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Faturano Etype         | string                                                         | Faturanın türü: "yinelenen", "bir \_ kez".                                       |
 | Özet             | [Faturalaresummary](#invoicesummary) nesnesi                       | Fatura türü başına Fatura Özeti.                                         |
@@ -95,7 +95,7 @@ Bir fatura türü için bireysel ayrıntıların özetini temsil eder (örneğin
 
 Para birimi başına bir fatura türü için bireysel ayrıntıları içeren fatura [Esummary](#invoicesummary) türünde bir koleksiyonu temsil eder.
 
-| Özellik            | Tür                                                           | Description                                                                          |
+| Özellik            | Tür                                                           | Açıklama                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | collectionOfSummary | [faturadan Esummary](#invoicesummary) nesneleri dizisi             | Para birimi başına fatura türü başına Fatura Özeti.                            |
 
@@ -103,7 +103,7 @@ Para birimi başına bir fatura türü için bireysel ayrıntıları içeren fat
 
 Lisanslı tabanlı abonelikler için fatura fatura satırı maddesini temsil eder.
 
-| Özellik                 | Tür                                                           | Description                                                           |
+| Özellik                 | Tür                                                           | Açıklama                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | tutara                   | string                                                         | Toplam miktarı alır veya ayarlar. Toplam tutar = birim fiyatı * miktar.  |
 | öznitelikler               | string                                                         | Öznitelikleri alır.                                                  |
@@ -141,7 +141,7 @@ Lisanslı tabanlı abonelikler için fatura fatura satırı maddesini temsil ede
 
 Kullanım tabanlı abonelikler için bir fatura faturalama satırı öğesini temsil eder.
 
-| Özellik                 | Tür                                                           | Description                                                           |
+| Özellik                 | Tür                                                           | Açıklama                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | öznitelikler               | string                                                         | Öznitelikleri alır.                                                  |
 | billingCycleType         | string                                                         | Faturalandırma dönem türünü alır veya ayarlar.                                  |
@@ -188,7 +188,7 @@ Kullanım tabanlı abonelikler için bir fatura faturalama satırı öğesini te
 
 Application/PDF içindeki bir fatura bildiriminde kullanılabilir olan işlemleri temsil eder.
 
-| Özellik                 | Tür                                                           | Description                                                           |
+| Özellik                 | Tür                                                           | Açıklama                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | httpResponseMessage      | object                                                         | ContentType = Application/PDF ile ByteArrayContent.                  |
 
@@ -196,7 +196,7 @@ Application/PDF içindeki bir fatura bildiriminde kullanılabilir olan işlemler
 
 Lisanslı abonelikler için fatura fatura satırı öğesini temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 | --- | --- | --- |
 | İş ortağı kimliği | string | İş ortağı kiracı KIMLIĞINI alır veya ayarlar. |
 | CustomerId | string | Müşteri kiracı KIMLIĞINI alır veya ayarlar. |
@@ -230,6 +230,7 @@ Lisanslı abonelikler için fatura fatura satırı öğesini temsil eder.
 | Tertermbillingcycle | string | Bu satınalmayla ilişkili terim ve fatura döngüsünü alır veya ayarlar. |
 | AlternateId | string | Alternatif KIMLIĞI (quote ID) alır veya ayarlar. |
 | PriceAdjustmentDescription | string | Fiyat ayarlama açıklamasını alır veya ayarlar. |
+| CreditReasonCode | string | Kredi nedeni kodunu alır veya ayarlar. |
 | DiscountDetails | string |  **Kullanım dışı**. Bu satınalmayla ilişkili indirim ayrıntılarını alır veya ayarlar. |
 | PricingCurrency | string | Fiyatlandırma para birimi kodunu alır veya ayarlar. |
 | PCToBCExchangeRate | decimal | Ödeme para birimi döviz kurundaki fiyatlandırma para birimini alır veya ayarlar. |
@@ -245,7 +246,7 @@ Lisanslı abonelikler için fatura fatura satırı öğesini temsil eder.
 
 Günlük olarak derecelendirilen kullanım için faturalandırılmamış, faturalanmış mutabakat satır öğelerini temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 | --- | --- | --- |
 | İş ortağı kimliği | string | İş ortağı kiracı KIMLIĞINI alır veya ayarlar. |
 | PartnerName | string | İş ortağı adını alır veya ayarlar. |
@@ -298,5 +299,7 @@ Günlük olarak derecelendirilen kullanım için faturalandırılmamış, fatura
 | Efekt, BirimFiyat | decimal | Geçerli birim fiyatını alır veya ayarlar. |
 | Rateofpartnerearnedkrediyi | decimal | İş ortağı kazanılmış kredisi oranını alır veya ayarlar. |
 | Haspartnerearnedkrediyi | bool | İş ortağı kazanılmış krediyi alır veya ayarlar. |
+| Rateofkrediyi | decimal | Verilen kredi türü için kredi oranını alır veya ayarlar. |
+| CreditType | string | Kredi türünü alır veya ayarlar. |
 | Faturadan Elineıtemtype | Faturadan Elineıtemtype | Fatura çizgisi öğesinin türünü döndürür. |
 | BillingProvider | BillingProvider | Faturalandırma sağlayıcısını döndürür. |

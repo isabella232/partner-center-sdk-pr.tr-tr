@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: a13b62903e44165ef9811ea7798fcea666d483dc
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1e19792da6a7510bf02dd11b3e77f40a8365be2b
+ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769694"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105730204"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Fatura faturalandırılan ticari tüketim çizgisi öğelerini Al
 
@@ -109,7 +109,7 @@ Benzer bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
 - Proje: **Iş ortağı MERKEZI SDK örnekleri**
-- Sınıf: **GetBilledConsumptionReconLineItemsPaging.cs**
+- Sınıf: **GetBilledConsumptionReconLineItemsPaging. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -134,7 +134,7 @@ Verilen faturaya ait her satır öğesinin tam listesini döndürmek için ilk s
 | fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "Usagelineıtems". |
 | currencyCode           | string | Yes      | Faturalanan satır öğelerinin para birimi kodu.                    |
 | dönem                 | string | Yes      | Faturalandırılan keşfi için süre. Örnek: geçerli, önceki.        |
-| boyut                   | sayı | No       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir       |
+| boyut                   | sayı | Hayır       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir       |
 | seekOperation          | dize | No       | Keşfi satır öğelerinin sonraki sayfasını almak için seekOperation = Next öğesini ayarlayın. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
@@ -238,6 +238,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "billingCurrency": "USD",
             "pricingPreTaxTotal": 0.486031696515249,
             "pricingCurrency": "USD",
+            "creditType": "Credit Not Applied",
             "invoiceLineItemType": "usage_line_items",
             "billingProvider": "marketplace",
             "attributes": {
@@ -295,6 +296,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "effectiveUnitPrice": 0.1999968000511991808131,
             "rateOfPartnerEarnedCredit": 0,
+            "rateOfCredit": 1,
+            "creditType": "Azure Credit Applied",
             "invoiceLineItemType": "usage_line_items",
             "billingProvider": "marketplace",
             "attributes": {
@@ -414,7 +417,8 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
             "effectiveUnitPrice": 0.1835431430074643112595,
             "rateOfPartnerEarnedCredit": 0.15,
-
+            "rateOfCredit": 0.15,
+            "creditType": "Partner Earned Credit Applied",
             "attributes": {
                 "objectType": "DailyRatedUsageLineItem"
             }
