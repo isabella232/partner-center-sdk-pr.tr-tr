@@ -1,17 +1,17 @@
 ---
 title: Dolaylı satıcı için müşteri oluşturma
 description: Dolaylı bir sağlayıcının dolaylı bir satıcı için müşteri oluşturmak üzere Iş Ortağı Merkezi API 'Lerini nasıl kullanabileceği hakkında bilgi edinin.
-ms.date: 11/13/2020
+ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: e2386f1963a5bb3ea4269bcbf4327c75987f3b91
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: 13cd1b051abb536d397dcd4000228f67fe3206b8
+ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97770178"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106103955"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak dolaylı satıcı için müşteri oluşturma
 
@@ -77,7 +77,7 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: CreateCustomerforIndirectReseller.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: createcustomerforındirectbayi. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -101,7 +101,7 @@ Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
 | [CompanyProfile](#company-profile)             | object | Yes      | Müşterinin şirket profili bilgileri.                                                               
 | [Ilişkili iş ortağı kimliği](customer-resources.md#customer) | string | Yes      | Dolaylı satıcı KIMLIĞI. Burada sağlanan KIMLIğIN gösterdiği dolaylı satıcının dolaylı sağlayıcıyla bir ortaklığı olmalıdır veya istek başarısız olur. Ayrıca, Ilişkili iş ortağı kimliği değeri sağlanmazsa, müşterinin dolaylı satıcı yerine dolaylı sağlayıcının doğrudan müşterisi olarak oluşturulduğunu unutmayın. |
 |Etki alanı| Dize| Yes|Müşterinin etki alanı adı, örneğin contoso.onmicrosoft.com.|
-|organizationRegistrationNumber|    string|Yes|     Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). Yalnızca aşağıdaki ülkelerde bulunan müşterinin şirketi/kuruluşu için gereklidir. Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan (TJ), Özbekistan (UZ), Ukrayna (UA). Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu belirtilmemelidir.|
+|organizationRegistrationNumber|    string|Yes|     Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). Yalnızca şu ülkelerde bulunan müşterinin şirketi/kuruluşu için gereklidir: Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan dili (TJ), Özbekistan (UZ), Ukrayna (UA), Hindistan, Brezilya, Güney Afrika, Polonya, Birleşik Arap Emirlikleri, Suudi Arabistan, Türkiye, Tayland, Vietnam, Myanmar, Irak, Güney Sudan ve Venezuela. Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu, isteğe bağlı bir alandır.|
 
 
 

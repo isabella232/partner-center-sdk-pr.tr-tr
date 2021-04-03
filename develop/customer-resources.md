@@ -1,24 +1,24 @@
 ---
 title: Müşteri kaynakları
 description: Müşteri veya satıcı temsil eden müşteri kaynakları.
-ms.date: 11/13/2020
+ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: fbd72ab5710876ba303fd1e30e6e552ecf89c5cd
-ms.sourcegitcommit: 741cfa8585901de207c2e5da5eeebe26db0b0ad1
+ms.openlocfilehash: 78622258880ab77ca99eae98082cc66acb3b66a7
+ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "97770048"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106103972"
 ---
 # <a name="customer-resources"></a>Müşteri kaynakları
 
 **Uygulama hedefi:**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
@@ -54,8 +54,7 @@ ms.locfileid: "97770048"
 | Tadı | string                                                         | Şirket veya kuruluşun adı.                                          |
 | Köprü       | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Profil içinde bulunan kaynak bağlantıları.                                  |
 | öznitelikler  | [ResourceAttributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.                             |
-
-| organizationRegistrationNumber | Dize | Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). Yalnızca aşağıdaki ülkelerde bulunan müşterinin şirketi/kuruluşu için gereklidir. Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan (TJ), Özbekistan (UZ), Ukrayna (UA). Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu belirtilmemelidir. |
+|organizationRegistrationNumber|Dize|Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). Yalnızca şu ülkelerde bulunan müşterinin şirketi/kuruluşu için gereklidir: Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan dili (TJ), Özbekistan (UZ), Ukrayna (UA), Hindistan, Brezilya, Güney Afrika, Polonya, Birleşik Arap Emirlikleri, Suudi Arabistan, Türkiye, Tayland, Vietnam, Myanmar, Irak, Güney Sudan ve Venezuela. Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu belirtilmemelidir.|
 
 
 ## <a name="customerbillingprofile"></a>CustomerBillingProfile

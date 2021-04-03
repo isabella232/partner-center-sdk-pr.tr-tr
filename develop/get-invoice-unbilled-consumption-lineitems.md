@@ -4,12 +4,12 @@ description: Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir faturaya ai
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0b0ce9d4c8d310243d8b799445e5a64975f2d05d
-ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
+ms.openlocfilehash: 8b6ca8d6ff7af53dd2a258ea20e6eaeb26421440
+ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105730255"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106274674"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Fatura faturalanmamış ticari tüketim satırı öğelerini Al
 
@@ -117,24 +117,24 @@ Benzer bir örnek için bkz.:
 
 Kullanım durumunuza bağlı olarak REST isteğiniz için aşağıdaki sözdizimleri kullanılabilir. Daha fazla bilgi için her bir sözdizimi için açıklamalara bakın.
 
- | Yöntem  | İstek URI'si         | Sözdizimi kullanım durumunun açıklaması |                                                                                                                                            |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturaın/Unbilled/LineItems? sağlayıcı = onetime&fatura elineıtemtype = usagelineıtems&CurrencyCode = {currencycode} &period = {PERIOD} http/1.1                              | Verilen faturaya ait her satır öğesinin tam listesini döndürmek için bu sözdizimini kullanın. |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/Unbilled/LineItems? sağlayıcı = onetime&fatura elineıtemtype = usagelineıtems&CurrencyCode = {currencycode} &süre = {period} &boyut = {SIZE} http/1.1  | Büyük faturalar için bu sözdizimini kullanın. Satır öğelerinin disk belleğine alınmış bir listesini döndürmek için bu söz dizimini belirtilen boyut ve 0 tabanlı bir uzaklığa göre kullanın. |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/Unbilled/LineItems? sağlayıcı = onetime&fatura elineıtemtype = usagelineıtems&CurrencyCode = {currencycode} &period = {period} &boyut = {size} &Seekoperation = ileri                               | Kullanılarak mutabakat satır öğelerinin sonraki sayfasını almak için bu sözdizimini kullanın `seekOperation = "Next"` . |
+| Yöntem  | İstek URI'si                                                                                                                                                                                              | Sözdizimi kullanım durumunun açıklaması                                                                                                     |
+|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturaın/Unbilled/LineItems? sağlayıcı = onetime&fatura elineıtemtype = usagelineıtems&CurrencyCode = {currencycode} &period = {PERIOD} http/1.1                       | Verilen faturaya ait her satır öğesinin tam listesini döndürmek için bu sözdizimini kullanın.                                                    |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/Unbilled/LineItems? sağlayıcı = onetime&fatura elineıtemtype = usagelineıtems&CurrencyCode = {currencycode} &süre = {period} &boyut = {SIZE} http/1.1           | Büyük faturalar için bu sözdizimini kullanın. Satır öğelerinin disk belleğine alınmış bir listesini döndürmek için bu söz dizimini belirtilen boyut ve 0 tabanlı bir uzaklığa göre kullanın. |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/Unbilled/LineItems? sağlayıcı = onetime&fatura elineıtemtype = usagelineıtems&CurrencyCode = {currencycode} &period = {period} &boyut = {size} &Seekoperation = ileri | Kullanılarak mutabakat satır öğelerinin sonraki sayfasını almak için bu sözdizimini kullanın `seekOperation = "Next"` .                                  |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
 İsteği oluştururken aşağıdaki URI ve sorgu parametrelerini kullanın.
 
-| Ad                   | Tür   | Gerekli | Açıklama                                                                     |
-|------------------------|--------|----------|---------------------------------------------------------------------------------|
-| sağlayıcısını               | string | Yes      | Sağlayıcı: "**Onetime**".                                                |
-| fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "**Usagelineıtems**", "**usagelineıtems**".               |
-| currencyCode           | string | Yes      | Faturalandırılmamış satır öğelerinin para birimi kodu.                                  |
+| Ad                   | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                                |
+|------------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sağlayıcısını               | string | Yes      | Sağlayıcı: "**Onetime**".                                                                                                                                                                                                               |
+| fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "**Usagelineıtems**", "**usagelineıtems**".                                                                                                                                                                    |
+| currencyCode           | string | Yes      | Faturalandırılmamış satır öğelerinin para birimi kodu.                                                                                                                                                                                             |
 | dönem                 | string | Yes      | Faturalandırılmamış keşfi için süre (örneğin: **geçerli**, **önceki**). Fatura döngüsünün faturalandırılmamış kullanım verilerini (01/01/2020 – 01/31/2020), Ocak ayında **"geçerli,"** diğer **"önceki** " olarak seçin. |
-| boyut                   | sayı | Hayır       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir.                    |
-| seekOperation          | dize | No       | `seekOperation=Next`Mutabakat satır öğelerinin sonraki sayfasını almak için ayarlayın.                |
+| boyut                   | sayı | Hayır       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir.                                                                                                                                                                           |
+| seekOperation          | dize | No       | `seekOperation=Next`Mutabakat satır öğelerinin sonraki sayfasını almak için ayarlayın.                                                                                                                                                                |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

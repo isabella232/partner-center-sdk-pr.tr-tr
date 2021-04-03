@@ -1,24 +1,24 @@
 ---
 title: Müşteri oluşturma
 description: Bir bulut çözümü sağlayıcısı (CSP) ortağının yeni bir müşteri oluşturmak için Iş Ortağı Merkezi API 'Lerini nasıl kullanabileceği hakkında bilgi edinin. Makalede önkoşulları ve başka neler olduğu açıklanmaktadır.
-ms.date: 11/13/2020
+ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 3bc8081c682bdf522bcb0ca218f16cafab7b3a99
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: bc8e9d38353511e747ba4da99b11be40d08781e3
+ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97770229"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106274606"
 ---
 # <a name="create-a-customer-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Leri kullanarak bir müşteri oluşturma
 
 **Uygulama hedefi:**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
 Bu makalede, yeni bir müşterinin nasıl oluşturulacağı açıklanmaktadır.
@@ -92,7 +92,7 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: CreateCustomer.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: CreateCustomer. cs
 
 ## <a name="java"></a>Java
 
@@ -194,8 +194,7 @@ Bu tabloda, yeni bir müşteri oluşturmak için gereken [Customercompanyprofile
 | Ad   | Tür   | Description                                                  |
 |--------|--------|--------------------------------------------------------------|
 | etki alanı | string | Müşterinin etki alanı adı, örneğin contoso.onmicrosoft.com. |
-|organizationRegistrationNumber|Dize|Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). Yalnızca aşağıdaki ülkelerde bulunan müşterinin şirketi/kuruluşu için gereklidir. Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan (TJ), Özbekistan (UZ), Ukrayna (UA). Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu belirtilmemelidir.|
-
+|organizationRegistrationNumber|Dize|Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). Yalnızca şu ülkelerde bulunan müşterinin şirketi/kuruluşu için gereklidir: Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan dili (TJ), Özbekistan (UZ), Ukrayna (UA), Brezilya (BR), Hindistan, Güney Afrika, Polonya, Birleşik Arap Emirlikleri, Suudi Arabistan, Türkiye, Tayland, Vietnam, Myanmar, Irak, Güney Sudan ve Venezuela. Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu, isteğe bağlı bir alandır.|
 
 ### <a name="request-example"></a>İstek örneği
 

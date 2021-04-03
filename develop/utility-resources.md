@@ -1,22 +1,22 @@
 ---
 title: Yardımcı program kaynakları
 description: Iş Ortağı Merkezi REST API, SDK genelinde kullanılan genel amaçlı veri modellerini açıklayan birçok kaynak içerir.
-ms.date: 11/13/2020
+ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 53d39e4f76684128d48eacdce75706d853c7ce74
-ms.sourcegitcommit: f5178dca1d9a51059738972810235d8858e6a67a
+ms.openlocfilehash: 115b0508f956c4b60e4db53193ef2585fa0c9a34
+ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "97770060"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106103989"
 ---
 # <a name="utility-resources"></a>Yardımcı program kaynakları
 
 **Uygulama hedefi**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
@@ -30,16 +30,16 @@ Müşteri veya iş ortağı profilleri için kullanılacak adres. Farklı ülkel
 |--------------|--------|-------------------|--------------------------------------------------------------------------------------------------|
 | AddressLine1 | string | (1, 200)          | Adresin ilk satırı.                                                                   |
 | AddressLine2 | string | (0, 200)          | Adresin ikinci satırı. Bu özellik isteğe bağlıdır.                                       |
-| City         | string | yok               | Şehir.                                                                                        |
+| Şehir         | string | yok               | Şehir.                                                                                        |
 | Durum        | string | (0, 2)            | Durum.                                                                                       |
 | PostalCode   | string | yok               | ZIP kodu veya posta kodu.                                                                     |
 | Ülke      | string | (2, 2)            | ISO ülke kodu biçimindeki ülke/bölge.                                                   |
-| Bölge       | string | yok               | Bölge.                                                                                      |
+| Region       | string | yok               | Bölge.                                                                                      |
 | FirstName    | string | (1, 50)           | Müşterinin şirketindeki veya kuruluşunda bir kişinin adı.                              |
 | MiddleName   | string | (1, 50)           | Müşterinin şirketinde/kuruluşunda bir kişinin ikinci adı. Bu özellik isteğe bağlıdır.  |
 | LastName     | string | (1, 50)           | Müşterinin şirketinde/kuruluşunda bir kişinin soyadı.                               |
 | PhoneNumber  | string | yok               | Müşterinin şirketindeki veya kuruluşunda bir kişinin telefon numarası. Bu özellik isteğe bağlıdır.|
-|PhoneNumber|string|yok|Müşterinin şirketindeki veya kuruluşunda bir kişinin telefon numarası. Müşteri profilinde, bu özellik müşterinin Şirket/kuruluş için aşağıdaki ülkelerde yer alan zorunludur. Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan (TJ), Özbekistan (UZ), Ukrayna (UA). Aksi takdirde bu isteğe bağlıdır.|
+|PhoneNumber|string|yok|Müşterinin şirketindeki veya kuruluşunda bir kişinin telefon numarası. Müşteri profilinde, bu özellik müşterinin Şirket/kuruluş için şu ülkelerde yer alan zorunludur: Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan dili (TJ), Özbekistan (UZ), Ukrayna (UA)), Hindistan, Brezilya, Güney Afrika, Polonya, Birleşik Arap Emirlikleri, Suudi Arabistan, Türkiye, Tayland, Vietnam, Myanmar, Irak, Güney Sudan ve Venezuela. Aksi takdirde bu isteğe bağlıdır.|
 
 
 ## <a name="contact"></a>İletişim
