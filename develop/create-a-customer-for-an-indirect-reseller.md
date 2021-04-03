@@ -1,17 +1,17 @@
 ---
 title: Dolaylı satıcı için müşteri oluşturma
 description: Dolaylı bir sağlayıcının dolaylı bir satıcı için müşteri oluşturmak üzere Iş Ortağı Merkezi API 'Lerini nasıl kullanabileceği hakkında bilgi edinin.
-ms.date: 03/30/2021
+ms.date: 04/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 13cd1b051abb536d397dcd4000228f67fe3206b8
-ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
+ms.openlocfilehash: 0de40d08e9fc2b9cf87b7c3c41214fdd34ad26f3
+ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106103955"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106274589"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak dolaylı satıcı için müşteri oluşturma
 
@@ -124,7 +124,7 @@ Bu tabloda, yeni bir müşteri oluşturmak için gereken [Customercompanyprofile
 | Ad   | Tür   | Gerekli | Açıklama                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
 | etki alanı | string | Yes     | Müşterinin etki alanı adı, örneğin contoso.onmicrosoft.com. |
-| organizationRegistrationNumber | string | Koşula bağlıdır | Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). <br/><br/>Bu alanın tamamlanması yalnızca bir müşterinin şirketi/kuruluşu aşağıdaki ülkelerde bulunuyorsa gereklidir: <br/><br/>-Ermenistan (Har) <br/>-Azerbaycan (AZ)<br/>-Belarus (BY)<br/>-Macaristan (HU)<br/>-Kazakistan (KZ)<br/>-Kırgızistan (KG)<br/>-Moldova (MD)<br/>-Rusya (RU)<br/>-Tacikistan (TJ)<br/>-Özbekistan (UZ)<br/>-Ukrayna (UA)<br/><br/>Müşterinin şirketi/kuruluşu burada gösterilenlerin ötesinde diğer ülkelerde bulunuyorsa bu alan gerekli değildir.  |
+| organizationRegistrationNumber | string | Koşula bağlıdır | Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). <br/><br/>Bu alanın tamamlanması yalnızca bir müşterinin şirketi/kuruluşu aşağıdaki ülkelerde bulunuyorsa gereklidir: <br/><br/>-Ermenistan (Har) <br/>-Azerbaycan (AZ)<br/>-Belarus (BY)<br/>-Macaristan (HU)<br/>-Kazakistan (KZ)<br/>-Kırgızistan (KG)<br/>-Moldova (MD)<br/>-Rusya (RU)<br/>-Tacikistan (TJ)<br/>-Özbekistan (UZ)<br/>-Ukrayna (UA)<br/>-Hindistan <br/>-Brezilya <br/>-Güney Afrika <br/>-Polonya <br/>-Birleşik Arap Emirlikleri <br/>-Suudi Arabistan <br/>-Türkiye <br/>-Tayland <br/>-Vietnam <br/>-Myanmar dili <br/>-Irak <br/>-Güney Sudan <br/>-Venezuela<br/> <br/>Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu, isteğe bağlı bir alandır.  |
 
 ### <a name="request-example"></a>İstek örneği
 
