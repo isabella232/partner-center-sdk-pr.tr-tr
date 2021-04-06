@@ -1,22 +1,22 @@
 ---
 title: İş ortağı yasal iş profili alma
-description: İş ortağının yasal iş profilini alma.
+description: Geçerli iş profilinizi almak için API 'Leri nasıl kullanacağınızı öğrenin.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 5d7055dd0a6586e16b078109db4252250561eb29
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1d488c8deb9f01110e92327035ce0c3c023fcb46
+ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769845"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106500031"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>İş ortağı yasal iş profili alma
 
 **Uygulama hedefi**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
@@ -36,7 +36,7 @@ ms.locfileid: "97769845"
 var billingProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetLegalBusinessProfile.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetLegalBusinessProfile. cs
 
 ## <a name="rest-request"></a>REST isteği
 

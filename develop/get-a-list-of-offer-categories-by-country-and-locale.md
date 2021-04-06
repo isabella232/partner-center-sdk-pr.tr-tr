@@ -1,24 +1,24 @@
 ---
 title: Pazara göre teklif kategorilerinin bir listesini alma
-description: Belirli bir ülke/bölge ve yerel ayarda yer alan tüm teklif kategorilerini içeren bir koleksiyon alma.
+description: Belirli bir ülke/bölgedeki tüm teklif kategorilerini ve tüm Microsoft bulutları için yerel ayarları içeren bir koleksiyon almayı öğrenin.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 22c46ed03a8579c53ee18c14cbca9a1e19ddb82a
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 05aad095c6cb8eaee4cbf7ce976ca1b4b7a408c4
+ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769544"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106500065"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>Pazara göre teklif kategorilerinin bir listesini alma
 
 **Uygulama hedefi:**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
@@ -62,7 +62,7 @@ Bu tablo teklif kategorilerini almak için gerekli sorgu parametrelerini listele
 
 | Ad           | Tür       | Gerekli | Açıklama            |
 |----------------|------------|----------|------------------------|
-| **ülke kimliği** | **dizisinde** | Y        | Ülke/bölge KIMLIĞI. |
+| **ülke kimliği** | **string** | Y        | Ülke/bölge KIMLIĞI. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
