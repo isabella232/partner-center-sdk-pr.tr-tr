@@ -1,17 +1,17 @@
 ---
 title: API azaltma yönergeleri
 description: Iş Ortağı Merkezi API 'Lerini çağıran iş ortakları için, hangi API 'Lerin Microsoft API daraltma ve en iyi uygulamalardan etkilendiğinin ve daha iyi bir şekilde azaltılmasını önlemek için
-ms.date: 09/09/2020
+ms.date: 04/14/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: a52751a97e699050075c1aac910cc51e94514f26
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: ab1138e19e06111299ab43ea13a6f033274aaa5d
+ms.sourcegitcommit: 3c3a21e73aaadf3023cf4c13b09809ceae5f027a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97770234"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107496153"
 ---
 # <a name="api-throttling-guidance-for-partners-calling-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini çağıran iş ortakları için API azaltma Kılavuzu 
 
@@ -62,10 +62,10 @@ Retry-After gecikmesini kullanmak için şunları yapın:
 
 ## <a name="apis-currently-impacted-by-throttling"></a>Daraltma tarafından şu anda etkilenen API 'Ler
 
-Uzun çalıştırmada, "api.partnercenter.microsoft.com/" uç noktasını çağıran her tek Iş Ortağı Merkezi API 'SI kısıtlanacak. Şu anda azaltma sınırları yalnızca aşağıda listelenen birkaç API üzerinde zorlanır. İş Ortağı Merkezi, her API için telemetri toplar ve azaltma sınırlarını dinamik olarak ayarlar. Aşağıdaki tabloda, azaltma 'nın Şu anda zorlandığı API 'Ler listelenmektedir.  
+Uzun çalıştırmada, "api.partnercenter.microsoft.com/" uç noktasını çağıran her tek Iş Ortağı Merkezi API 'SI kısıtlanacak. Şu anda azaltma sınırları yalnızca aşağıda listelenen API 'lerde zorlanır. İş Ortağı Merkezi, her API için telemetri toplar ve azaltma sınırlarını dinamik olarak ayarlar. Aşağıdaki tabloda, azaltma 'nın Şu anda zorlandığı API 'Ler listelenmektedir.  
 
 
-|**İşlem**| **İş Ortağı Merkezi belgeleri**|       
+|**İşlem**| **İş Ortağı Merkezi belgeleri**|
 |------------------------|----------------------------|
 |{baseURL}/v1/Customers/{customer_id}/Orders|[sipariş oluşturma](create-an-order.md)|
 |{baseURL}/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription}/yükseltmeler|[abonelik geçişi](transition-a-subscription.md)|
@@ -79,6 +79,18 @@ Uzun çalıştırmada, "api.partnercenter.microsoft.com/" uç noktasını çağ�
 |{baseURL}/v1/Customers/{Customer-Tenant-ID}|[kimliğe göre müşteri al](get-a-customer-by-id.md)|
 |{baseURL}/v1/productupgrades/uygunluk|[ürün yükseltmesine uygunluk sağlayın](get-eligibility-for-product-upgrade.md)|
 |{baseURL}/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription} |[aboneliği Yönet](manage-orders.md#manage-a-subscription)|
+|{baseURL}/v1/Customers/{customer_id}/abonelikler |[tüm a-a-a-a-](get-all-of-a-customer-s-subscriptions.md)|
+|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}|[Kimliğe göre bir abonelik alma](get-a-subscription-by-id.md)|
+|{baseURL}/v1/Customers/{customer_id}/Orders|[Tüm müşteri siparişlerini al](get-all-of-a-customer-s-orders.md)|
+|{baseURL}/v1/Customers/{customer_id}/Orders/{order_id}|[Kimliğe göre bir sipariş alma](get-an-order-by-id.md)|
+|{baseURL}/v1/Customers/{customer_id}/Orders/{order_id}/provisioningstatus|[Abonelik sağlama durumunu alma](get-subscription-provisioning-status.md)|
+|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}|[Siparişleri yönetme ve bir aboneliği yönetme](manage-orders.md#manage-a-subscription)|
+|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}/addons|[Bir abonelik için eklentilerin bir listesini alma](get-a-list-of-add-ons-for-a-subscription.md)|
+|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}/azureEntitlements|[Bir abonelik için Azure yetkilendirmeleri listesini alın](get-a-list-of-azure-entitlements-for-subscription.md)|
+|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}/registrationstatus|[Abonelik kayıt durumunu alma](get-subscription-registration-status.md)|
+|{baseURL}/v1/Customers/{Customer-Tenant-ID}/aktarmaları|[Müşterinin tüm aktarımlarını al](get-all-of-a-customer-s-transfers.md)|
+|{baseURL}/v1/productUpgrades/{upgrade-id}/status|[Ürün yükseltme durumunu alma](get-product-upgrade-status.md)|
+|{baseURL}/v1/Customers/{Customer-id}/Subscriptions/{Subscription-ID}/dönüşümler|[Deneme dönüştürme tekliflerinin bir listesini alma](get-a-list-of-trial-conversion-offers.md)|
 
 
 ### <a name="error-code-response"></a>Hata kodu yanıtı:
