@@ -1,15 +1,15 @@
 ---
 title: Müşterinin Azure kullanım kayıtlarını alma
 description: Belirli bir süre boyunca bir müşterinin Azure aboneliğinin kullanım kayıtlarını almak için Azure kullanım API 'sini kullanabilirsiniz.
-ms.date: 11/01/2019
+ms.date: 04/19/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bcdeb51b04039fd05b923150c85119385c0537e0
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 23c8d18462081c6d6c95c1d969f269cbb3f8754b
+ms.sourcegitcommit: abefe11421edc421491f14b257b2408b4f29b669
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769341"
+ms.lasthandoff: 04/20/2021
+ms.locfileid: "107745601"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Müşterinin Azure kullanım kayıtlarını alma
 
@@ -29,7 +29,7 @@ Azure kullanım API 'sini kullanarak belirli bir süre için müşterinin Azure 
 
 - Abonelik tanımlayıcısı.
 
-Bu API, rastgele bir zaman aralığı için günlük ve saatlik derecelendirilmemiş tüketim döndürür. Ancak, *Bu API Azure planları için desteklenmez*. Bir Azure planınız varsa, [Fatura faturalandırılmamış tüketim satırı öğelerini Al](get-invoice-unbilled-consumption-lineitems.md) ve [Fatura için faturalandırılan tüketim satırı öğelerini](get-invoice-billed-consumption-lineitems.md) al makalelerine bakın. Bu makalelerde, kaynak başına ölçüm başına her gün bir derecelendirmeden derecelendirilen tüketimin nasıl alınacağı açıklanır. Bu hız tüketimi, Azure kullanım API 'SI tarafından belirtilen günlük gren verilere eşdeğerdir. Fatura tanımlayıcısını, faturalandırılan kullanım verilerini almak için kullanmanız gerekir. Ya da, faturalandırılmamış kullanım tahminleri almak için geçerli ve önceki dönemleri de kullanabilirsiniz. *Saatlik gren veri ve rastgele tarih aralığı filtreleri şu anda Azure plan aboneliği kaynakları için desteklenmiyor*.
+Bu API, rastgele bir zaman aralığı için günlük ve saatlik derecelendirilmemiş tüketim döndürür. Ancak, *Bu API Azure planları için desteklenmez*. Bir Azure planınız varsa, [Fatura faturalandırılmamış tüketim satırı öğelerini alma](get-invoice-unbilled-consumption-lineitems.md) ve [Fatura için faturalandırılan tüketim satırı öğelerini](get-invoice-billed-consumption-lineitems.md) alma makalelerine bakın. Bu makalelerde, kaynak başına ölçüm başına her gün bir derecelendirmeden derecelendirilen tüketimin nasıl alınacağı açıklanır. Bu hız tüketimi, Azure kullanım API 'SI tarafından belirtilen günlük gren verilere eşdeğerdir. Fatura tanımlayıcısını, faturalandırılan kullanım verilerini almak için kullanmanız gerekir. Veya, faturalandırılmamış kullanım tahminleri almak için geçerli ve önceki dönemleri de kullanabilirsiniz. *Saatlik gren veri ve rastgele tarih aralığı filtreleri şu anda Azure plan aboneliği kaynakları için desteklenmiyor*.
 
 ## <a name="azure-utilization-api"></a>Azure kullanım API 'SI
 
@@ -38,6 +38,12 @@ Bu Azure kullanım API 'SI, kullanımın faturalandırma sisteminde ne zaman rap
 Örneğin, faturalandırma sistemi aynı kullanım verilerini alır ve bir mutabakat dosyasında nelerin hesaba katılmaz belirlemek için değer kuralları uygular. Bir faturalandırma dönemi kapandığında, fatura döneminin sona ereceği günün sonuna kadar tüm kullanımlar mutabakat dosyasına dahil edilir. Fatura dönemi bittikten sonra 24 saat içinde raporlanan ödeme dönemi içinde herhangi bir geç kullanım, bir sonraki mutabakat dosyasında hesaba katılmaz. Ortağın faturalandırılma şekli için bkz. [Azure aboneliği için tüketim verilerini alma](/previous-versions/azure/reference/mt219001(v=azure.100)).
 
 Bu REST API disk belleğine alınmış. Yanıt yükü tek bir sayfadan fazlaysa, kullanım kayıtlarının sonraki sayfasını almak için sonraki bağlantıyı izlemeniz gerekir.
+
+### <a name="scenario--partner-a-has-transferred-billing-ownership-of-azure-legacy-subscription-145p-to-partner-b"></a>Senaryo: Iş ortağı A, Azure eski aboneliğinin (145P) faturalama sahipliğini B ortağına aktardı
+
+Bir iş ortağı, Azure eski aboneliğinin faturalandırma sahipliğini başka bir ortağa aktarıyorsa yeni iş ortağı aktarılan abonelik için kullanım API 'sini çağırdığında, Azure Yetkilendirme KIMLIĞI yerine ticari abonelik KIMLIĞI (Iş Ortağı Merkezi hesabında gösterilir) kullanmaları gerekir. Azure Yetkilendirme KIMLIĞI, Iş ortağı B yalnızca müşterinin Azure portal (AOBO) adına yönetici olduklarında görüntülenir. 
+
+Aktarılan abonelik için kullanım API 'sini başarılı bir şekilde çağırmak için, yeni iş ortağının ticaret abonelik KIMLIĞINI kullanması gerekir.
 
 ## <a name="c"></a>C\#
 
@@ -51,7 +57,7 @@ Azure kullanım kayıtlarını almak için:
 
 - **Örnek**: [konsol test uygulaması](console-test-app.md)
 - **Proje**: Iş Ortağı Merkezi SDK örnekleri
-- **Sınıf**: GetAzureSubscriptionUtilization.cs
+- **Sınıf**: GetAzureSubscriptionUtilization. cs
 
 ```csharp
 // IAggregatePartner partnerOperations;
