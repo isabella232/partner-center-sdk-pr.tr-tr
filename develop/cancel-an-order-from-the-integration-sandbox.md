@@ -1,29 +1,29 @@
 ---
 title: Tümleştirme korumalı alanı 'ndan bir siparişi iptal etme
 description: Iş Ortağı Merkezi API 'Lerini, tümleştirme korumalı alanı hesaplarından farklı türdeki abonelik siparişlerinin iptal etmek için nasıl kullanacağınızı öğrenin.
-ms.date: 08/16/2019
+ms.date: 04/28/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 363bf209e27d5223259c8c533710a3b35bbef1e6
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: c3bf862c62804a56e6f73dd3ec36d2e9eb65f997
+ms.sourcegitcommit: f59a9311c8a37d45695caf74794ec1697426acc9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770084"
+ms.lasthandoff: 04/29/2021
+ms.locfileid: "108210028"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak tümleştirme korumalı alanından bir siparişi iptal etme
 
 **Uygulama hedefi:**
 
 - İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
+- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 - Microsoft Bulut Almanya için İş Ortağı Merkezi
 - Microsoft Cloud for US Government için İş Ortağı Merkezi
 
 Bu makalede, Iş Ortağı Merkezi API 'Lerinin, tümleştirme korumalı alanı hesaplarından farklı abonelik siparişlerinin türlerini iptal etmek için nasıl kullanılacağı açıklanır. Bu şekilde, ayrılmış örnekler, yazılımlar ve hizmet olarak satılan Market (SaaS) abonelik siparişleri bulunabilir.
 
->[!NOTE]
->Lütfen ayrılmış örneğin iptalinin veya ticari Market SaaS Abonelik siparişlerinin yalnızca tümleştirme korumalı alanı hesaplarından yapılacağına dikkat edin.  
+>[!NOTE] 
+>Lütfen ayrılmış örneğin iptalinin veya ticari Market SaaS Abonelik siparişlerinin yalnızca tümleştirme korumalı alanı hesaplarından yapılacağına dikkat edin. 60 günden eski olan tüm korumalı alan siparişleri Iş Ortağı Merkezi 'nden iptal edilemez. Yardıma ihtiyacınız varsa, Iş Ortağı Merkezi desteğine ulaşın. 
 
 API aracılığıyla yazılım üretim emirlerini iptal etmek için [iptal-yazılım-satın](cancel-software-purchases.md)alma kullanın.
 Ayrıca, [satın alma işlemini iptal etmek](/partner-center/csp-software-subscriptions)için pano aracılığıyla yazılımın üretim emirlerini iptal edebilirsiniz.
@@ -71,7 +71,7 @@ Bir müşteriyi silmek için aşağıdaki sorgu parametresini kullanın.
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Müşteri-Kiracı kimliği** | **guid** | Y        | Değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-Kiracı kimliği** ' dir. |
-| **sıra kimliği** | **dizisinde** | Y        | Değer, iptal edilmesi gereken sıra kimliklerini belirten bir dizedir. |
+| **sıra kimliği** | **string** | Y        | Değer, iptal edilmesi gereken sıra kimliklerini belirten bir dizedir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
