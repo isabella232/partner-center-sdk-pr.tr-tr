@@ -1,17 +1,17 @@
 ---
-title: Satıcı ilişkisini destekleyen iş ortağı korumalı özellikleri
+title: Satıcı ilişkisi için korumalı alan özellikleri
 description: İş ortağı korumalı alanı, iş ortağı ve müşteri arasındaki ilişkileri destekleyebilir
-ms.date: 11/10/2020
+ms.date: 05/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: af46811b3615e1f904a9619de85b0aca7622490b
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: 9bef4a15685ebbdc2212988f5ac5724b946cfd54
+ms.sourcegitcommit: 1aeaa12705a5945b8aab6bca254fedebd9c8bc4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711874"
+ms.lasthandoff: 05/21/2021
+ms.locfileid: "110243393"
 ---
-# <a name="partner-sandbox-capabilities-that-support-reseller-relationship"></a>Satıcı ilişkisini destekleyen iş ortağı korumalı özellikleri
+# <a name="sandbox-capabilities-for-reseller-relationship"></a>Satıcı ilişkisi için korumalı alan özellikleri
 
 **Uygulama hedefi:**
 
@@ -33,55 +33,55 @@ Bu makalede, iş ortağı ve müşteri arasındaki satıcı ilişkileri için ko
 1.  Korumalı alan doğrudan fatura ortakları ve dolaylı sağlayıcılar, Sandbox müşterisi ile ilişkiler oluşturabilir. 
 2.  Korumalı alan doğrudan fatura ortakları ve dolaylı sağlayıcılar, korumalı alan müşterilerini davet edemez.
 
-
-
-### <a name="in-the-sandbox"></a>Korumalı alanda
-
-**Doğrudan fatura ortakları**:
-
-• Mevcut müşteriler eklenebilir
-
-• Yeni müşterilerle ilişkiler isteyemezsiniz
-
-**Dolaylı sağlayıcılar**:
-
-• Mevcut müşteriler eklenebilir
-
-• Yeni müşterilerle ilişkiler isteyemezsiniz
-
-• Dolaylı bir satıcı ile bir ilişkiye sahip olamaz
-
-**Dolaylı satıcı**: (çok yakında)
-
-• Mevcut müşterilerle ilişkilerine sahip olabilir
-
-• Yeni ilişkiler isteyemezsiniz veya yeni müşteriler ekleyemez
-
-### <a name="in-partner-center"></a>Iş Ortağı Merkezi 'nde
-
-**Doğrudan fatura ortakları**:
-
-• Yeni müşteriler ekleyebilir
-
-• Yeni müşterilerle ilişkiler talep edebilir
-
-**Dolaylı sağlayıcılar**:
-
-• Yeni müşteriler ekleyebilir
-
-• Yeni müşterilerle ilişkiler talep edebilir
-
-• Dolaylı satıcılarla ilişkiler alabilir
-
-**Dolaylı satıcılar**:
-
-• Yeni müşteriler eklenemiyor
-
-• Yeni müşterilerle ilişkiler talep edebilir
-
 3. Korumalı alan doğrudan fatura ortağı ve dolaylı sağlayıcılar, Iş Ortağı Merkezi kullanıcı arabiriminden ve API 'den satıcı ilişkisini kaldırabilir.
 
-4. Korumalı alan satıcı Ilişkisini kaldır müşteri AP 'sini Sil ' i çağırır. Bu işlem ilişkiyi kaldırır ve müşteri kiracısını siler. {baseURL}/v1/Customers/{Customer-Tenant-ID}
+4. Korumalı alan satıcı Ilişkisini kaldır müşteri AP 'sini Sil ' i çağırır. Bu işlem ilişkiyi kaldırır ve müşteri kiracısını siler. {baseURL}/v1/Customers/{customer-Tenant-id}
+
+
+    ### <a name="in-the-sandbox"></a>Korumalı Alanda
+
+    **Doğrudan fatura iş ortakları:**
+
+    - Mevcut müşterileri ekleyebilir
+
+    - Yeni müşterilerle ilişki isteği bulunamaz
+
+    **Dolaylı sağlayıcılar:**
+
+    - Mevcut müşterileri ekleyebilir
+
+    - Yeni müşterilerle ilişki isteği bulunamaz
+
+    - Dolaylı kurumsal bayi ile ilişki bulunamaz
+
+    **Dolaylı kurumsal bayi:** 
+
+    -   Mevcut müşterilerle ilişki olabilir
+
+    -   Yeni ilişkiler isteği veya yeni müşteri ekleme
+
+    ### <a name="in-partner-center"></a>İş Ortağı Merkezi
+
+    **Doğrudan fatura iş ortakları:**
+
+    -   Yeni müşteriler ekleyebilir
+
+    -   Yeni müşterilerle ilişki isteğide olabilir
+
+    **Dolaylı sağlayıcılar:**
+
+    -   Yeni müşteriler ekleyebilir
+
+    -   Yeni müşterilerle ilişki isteğide olabilir
+
+    -   Dolaylı kurumsal bayilerle ilişki olabilir
+
+    **Dolaylı satıcılar**:
+
+    -   Yeni müşteriler eklenemiyor
+
+    -   Yeni müşterilerle ilişkiler talep edebilir
+
 
 Ayrıntılar için müşterinin [satıcı Ilişkilerini kaldır ilişkisini](remove-a-reseller-relationship-with-a-customer.md) izleyin. Ancak, ürün ve Sandbox özellikleri arasında bazı farklılıklar vardır.
 
