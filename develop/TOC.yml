@@ -427,10 +427,12 @@
           href: update-a-subscription-s-support-contact.md
 - name: Tümleştirme korumalı alan
   items:
-    - name: Satıcı ilişkisini destekleyen iş ortağı korumalı özellikleri
+    - name: Kurumsal Bayi ilişkisi için korumalı alan özellikleri
       href: sandbox-scenario.md
     - name: Korumalı alanı test etme ve hata ayıklama
       href: test-and-debug.md
+    - name: Korumalı Alanda CSP Dolaylı sağlayıcı özellikleri
+      href: indirect-provider-sandbox-capabilities.md
     - name: Tümleştirme korumalı alandan bir siparişi iptal etme
       href: cancel-an-order-from-the-integration-sandbox.md
     - name: Korumalı alan aboneliğini etkinleştirme
