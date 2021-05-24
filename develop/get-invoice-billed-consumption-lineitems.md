@@ -1,51 +1,50 @@
 ---
-title: Fatura faturalandırılan ticari tüketim çizgisi öğelerini Al
-description: Iş Ortağı Merkezi API 'Lerini kullanarak, belirli bir faturaya ait ticari tüketim fatura satırı öğesi (günlük derecelendirmeli kullanım satırı öğesi) ayrıntılarının bir koleksiyonunu alabilirsiniz.
+title: Faturalandırmış ticari tüketim satırı öğelerini alın
+description: Belirli bir fatura için ticari tüketim fatura satırı öğesi (kapalı günlük olarak derecelendirilmiş kullanım satırı öğesi) ayrıntılarının bir koleksiyonunu almak için İş Ortağı Merkezi edinebilirsiniz.
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 1e19792da6a7510bf02dd11b3e77f40a8365be2b
-ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
+ms.openlocfilehash: 1406938b16e5a363a73c36ef0338eb5fc4305279
+ms.sourcegitcommit: 89aefbff6dbe740b6f27a888492ffc2e5f98b1e9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105730204"
+ms.lasthandoff: 05/24/2021
+ms.locfileid: "110325454"
 ---
-# <a name="get-invoice-billed-commercial-consumption-line-items"></a>Fatura faturalandırılan ticari tüketim çizgisi öğelerini Al
+# <a name="get-invoice-billed-commercial-consumption-line-items"></a>Faturalandırmış ticari tüketim satırı öğelerini alın
 
-**Uygulama hedefi:**
+**Aşağıdakiler için geçerlidir:**
 
 - İş Ortağı Merkezi
 
-Belirli bir fatura için ticari tüketim fatura satırı öğelerinin (kapatılan günlük olarak derecelendirilmiş kullanım satırı öğeleri olarak da bilinir) ayrıntılarını bir koleksiyon almak için aşağıdaki yöntemleri kullanabilirsiniz.
+Belirtilen fatura için ticari tüketim fatura satırı öğelerine (kapalı günlük olarak anılan kullanım satırı öğeleri olarak da bilinir) ilişkin ayrıntıların bir koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
-Bu API ayrıca Microsoft Azure (MS-AZR-0145P) abonelikleri için **Azure** sağlayıcı türlerini de destekler. Bu, bu API 'nin geriye dönük olarak uyumlu bir özellik olduğu anlamına gelir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir fatura tanımlayıcısı. Bu, satır öğelerinin alınacağı faturayı tanımlar.
+- Fatura tanımlayıcısı. Bu, satır öğelerinin alın satırı için faturayı tanımlar.
 
 ## <a name="c"></a>C\#
 
-Belirtilen faturaya ait ticari çizgi öğelerini almak için, fatura nesnesini almanız gerekir:
+Belirtilen faturaya yönelik ticari satır öğelerini almak için fatura nesnesini alasiniz:
 
-1. Belirtilen faturaya yönelik işlemleri faturalamak için bir arabirim almak üzere [**Byıd**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) yöntemini çağırın.
+1. Belirtilen [**faturaya yönelik**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) fatura işlemlerine arabirim almak için ById yöntemini çağırma.
 
-2. Fatura nesnesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın. Fatura nesnesi belirtilen faturaya ait tüm bilgileri içerir.
+2. Fatura nesnesini [**almak**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) için [**Get veya GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırma. Invoice nesnesi, belirtilen faturayla ilgili tüm bilgileri içerir.
 
-**Sağlayıcı** , faturalandırılan ayrıntı bilgisinin kaynağını tanımlar (örneğin, **kerelik**). **Invoineıtemtype** türü belirtir (örneğin, **Usagelineitem**).
+Sağlayıcı, faturalandırilen ayrıntı bilgisinin kaynağını tanımlar (örneğin, **bir saat).**  **InvoiceLineItemType** türü belirtir (örneğin, **UsageLineItem).**
 
-Aşağıdaki örnek kod, satır öğeleri koleksiyonunu işlemek için bir **foreach** döngüsü kullanır. Her bir **Faturaöğeside** her bir faturaya ait ayrı bir satır öğesi koleksiyonu alınır.
+Aşağıdaki örnek kod, satır öğeleri koleksiyonunu işlemeye bir **foreach** döngüsü kullanır. Her **InvoiceLineItemType** için ayrı bir satır öğeleri koleksiyonu alınır.
 
-Bir **InvoiceDetail** örneğine karşılık gelen satır öğelerinin bir koleksiyonunu almak için:
+**InvoiceDetail** örneğine karşılık gelen satır öğeleri koleksiyonunu almak için:
 
-1. Örneğe ait **Billingprovider** ve **ınvoineıtemtype** 'ı [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) metoduna geçirin.
+1. Örneğin **BillingProvider ve** **InvoiceLineItemType** bilgilerini [**By yöntemine**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) geçin.
 
-2. İlişkili satır öğelerini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.
+2. İlişkili [**satır öğelerini**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) almak için Get veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırma.
 3. Aşağıdaki örnekte gösterildiği gibi koleksiyonun çapraz geçişini yapmak için bir Numaralandırıcı oluşturun.
 
 ``` csharp
@@ -130,16 +129,16 @@ Verilen faturaya ait her satır öğesinin tam listesini döndürmek için ilk s
 | Ad                   | Tür   | Gerekli | Açıklama                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
 | Fatura kimliği             | string | Yes      | Faturayı tanımlayan bir dize.                             |
-| sağlayıcısını               | string | Yes      | Sağlayıcı: "OneTime".                                  |
-| fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "Usagelineıtems". |
-| currencyCode           | string | Yes      | Faturalanan satır öğelerinin para birimi kodu.                    |
-| dönem                 | string | Yes      | Faturalandırılan keşfi için süre. Örnek: geçerli, önceki.        |
-| boyut                   | sayı | Hayır       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir       |
-| seekOperation          | dize | No       | Keşfi satır öğelerinin sonraki sayfasını almak için seekOperation = Next öğesini ayarlayın. |
+| Sağlayıcı               | string | Yes      | Sağlayıcı: "OneTime".                                  |
+| invoice-line-item-type | string | Yes      | Fatura ayrıntısı türü: "UsageLineItems". |
+| currencyCode           | string | Yes      | Faturalandırmış satır öğelerinin para birimi kodu.                    |
+| dönem                 | string | Yes      | Faturalandırmış mutabakat için dönem. örnek: geçerli, önceki.        |
+| boyut                   | sayı | No       | İade etmek istediğiniz en fazla öğe sayısı. Varsayılan boyut 2000'tir       |
+| seekOperation          | dize | No       | Keşif satırı öğelerinin sonraki sayfasını almak için seekOperation=Next'i ayarlayın. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -147,13 +146,13 @@ Yok.
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt satır öğesi ayrıntıları koleksiyonunu içerir.
+Başarılı olursa yanıt, satır öğesi ayrıntıları koleksiyonunu içerir.
 
-**Chargetype** satır öğesi Için, **satın alma** değeri **Yeni** ile eşlenir. Değer **Iadesi** **iptal** edilecek şekilde eşlendi.
+**ChargeType** satır öğesi için Satın Alma değeri **Yeni** ile **eşlenmiş.** Para İadesi **değeri** İptal ile **eşlenmiş.**
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ## <a name="rest-examples"></a>REST örnekleri
 
