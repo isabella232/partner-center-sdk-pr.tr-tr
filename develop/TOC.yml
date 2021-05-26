@@ -427,18 +427,20 @@
           href: update-a-subscription-s-support-contact.md
 - name: Tümleştirme korumalı alan
   items:
-    - name: Kurumsal Bayi ilişkisi için korumalı alan özellikleri
+    - name: Satıcı ilişkisi için korumalı alan özellikleri
       href: sandbox-scenario.md
     - name: Korumalı alanı test etme ve hata ayıklama
       href: test-and-debug.md
-    - name: Korumalı Alanda CSP Dolaylı sağlayıcı özellikleri
+    - name: Sanal alanda CSP dolaylı sağlayıcı özellikleri
       href: indirect-provider-sandbox-capabilities.md
     - name: Tümleştirme korumalı alandan bir siparişi iptal etme
       href: cancel-an-order-from-the-integration-sandbox.md
     - name: Korumalı alan aboneliğini etkinleştirme
       href: activate-sandbox-subscription-azure-marketplace-products.md
-    - name: Tümleştirme korumalı alandan bir müşteri hesabını silme
-      href: delete-a-customer-account-from-the-integration-sandbox.md
+    - name: Sandbox 'de dolaylı satıcı oluşturma
+      href: create-indirect-reseller-in-sandbox.md
+    - name: Korumalı alanda dolaylı Bayi silme
+      href: delete-indirect-reseller-in-sandbox.md
 - name: Referanslar
   href: /partner/develop/referrals
   items:
