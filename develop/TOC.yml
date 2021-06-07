@@ -471,14 +471,17 @@
     - name: API isteği ayrıntılarını alma
       href: get-api-request-details.md
 - name: İş Ortağı Merkezi REST API'si referansı
-  href: partner-center-rest-api-reference.md
   items:
+    - name: İş Ortağı Merkezi REST API giriş
+      href: partner-center-rest-api-reference.md
     - name: İş Ortağı Merkezi REST API’si değişiklik günlüğü
       href: api-change-log.md
     - name: İş Ortağı Merkezi REST URL’leri
       href: partner-center-rest-urls.md
     - name: İş Ortağı Merkezi REST üstbilgileri
       href: headers.md
+    - name: İş Ortağı Merkezi REST API'si referansı
+      href: /rest/api/partner-center-rest/
     - name: İş Ortağı Merkezi REST kaynakları
       href: partner-center-rest-resources.md
       items:
@@ -553,7 +556,7 @@
     - name: İş Ortağı Merkezi web kancaları
       href: partner-center-webhooks.md
 - name: İş Ortağı Merkezi Yönetilen .NET API’si başvurusu
-  href: /dotnet/api/
+  href: /dotnet/api/microsoft.store.partnercenter
   items:
     - name: İş Ortağı Merkezi .NET API sürümü sürüm notları
       href: dotnet-release-notes.md
