@@ -1,39 +1,35 @@
 ---
-title: Ortağın kamu Community bulut doğrulama kodlarını alın
-description: Ortağın kamu Community bulut doğrulama kodlarını alma.
+title: ortağın Government Community Cloud doğrulama kodlarını al
+description: iş ortağının Government Community Cloud doğrulama kodlarını alma.
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: d84a3d3c69d835e42565c4e6f1edb06ab338340a
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 04bccf587628337004a5825b534048945f791839
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769286"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873879"
 ---
-# <a name="get-a-partners-validation-codes"></a><span data-ttu-id="430a8-103">İş ortağının doğrulama kodlarını alma</span><span class="sxs-lookup"><span data-stu-id="430a8-103">Get a partner's validation codes</span></span>
+# <a name="get-a-partners-validation-codes"></a><span data-ttu-id="dece5-103">İş ortağının doğrulama kodlarını alma</span><span class="sxs-lookup"><span data-stu-id="dece5-103">Get a partner's validation codes</span></span>
 
-<span data-ttu-id="430a8-104">**Uygulama hedefi**</span><span class="sxs-lookup"><span data-stu-id="430a8-104">**Applies To**</span></span>
+<span data-ttu-id="dece5-104">bu makalede bir iş ortağının Government Community Cloud doğrulama kodları koleksiyonunu nasıl alacağınız açıklanır.</span><span class="sxs-lookup"><span data-stu-id="dece5-104">This article describes how to get a collection of a partner's Government Community Cloud validation codes.</span></span> <span data-ttu-id="dece5-105">Kamu topluluk bulutu 'nda bir müşteri oluşturmak için bir doğrulama kodu gerekir.</span><span class="sxs-lookup"><span data-stu-id="dece5-105">A validation code is required to create a customer in the government community cloud.</span></span>
 
-- <span data-ttu-id="430a8-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="430a8-105">Partner Center</span></span>
+<span data-ttu-id="dece5-106">kuruluşunuzun veya müşterinin kuruluşunun CSP için Office 365 Kamu GCC onaylanmasından ilgileniyorsanız, bkz. [csp iş ortağı ve müşteri uygunluk ölçütlerine yönelik Office 365 Kamu GCC](/partner-center/csp-gcc-validate).</span><span class="sxs-lookup"><span data-stu-id="dece5-106">If you are interested in having your organization or your customer's organization approved for Office 365 Government GCC for CSP, see [Office 365 Government GCC for CSP Partner and Customer eligibility criteria](/partner-center/csp-gcc-validate).</span></span>
 
-<span data-ttu-id="430a8-106">Ortağın kamu Community bulut doğrulama kodlarının bir koleksiyonunu alma.</span><span class="sxs-lookup"><span data-stu-id="430a8-106">How to get a collection of a partner's Government Community Cloud validation codes.</span></span> <span data-ttu-id="430a8-107">Kamu topluluk bulutu 'nda bir müşteri oluşturmak için bir doğrulama kodu gerekir.</span><span class="sxs-lookup"><span data-stu-id="430a8-107">A validation code is required to create a customer in the government community cloud.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="dece5-107">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="dece5-107">Prerequisites</span></span>
 
-<span data-ttu-id="430a8-108">Kuruluşunuzun veya müşterilerinin kuruluşunuzun Office 365 Kamu GCC 'yi CSP için onayladığı konusunda ilgileniyorsanız, lütfen bkz. [CSP Iş ortağı ve müşteri uygunluk ölçütleri/iş merkezi/CSP-GCC-Validate için Office 365 Kamu GCC.</span><span class="sxs-lookup"><span data-stu-id="430a8-108">If you are interested in having your organization or your customers organization approved for Office 365 Government GCC for CSP, please see [Office 365 Government GCC for CSP Partner and Customer Eligibility Criteria/partner-center/csp-gcc-validate).</span></span>
+- <span data-ttu-id="dece5-108">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="dece5-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="dece5-109">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="dece5-109">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="430a8-109">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="430a8-109">Prerequisites</span></span>
+- <span data-ttu-id="dece5-110">Form doldurulduktan sonra doğrulama onaylandı [](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).</span><span class="sxs-lookup"><span data-stu-id="dece5-110">Confirmed validation after filling out form [here](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).</span></span>
 
-- <span data-ttu-id="430a8-110">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="430a8-110">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="430a8-111">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="430a8-111">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="dece5-111">Nitelikleri olmayan bir müşteri.</span><span class="sxs-lookup"><span data-stu-id="dece5-111">A customer without a qualification.</span></span>
 
-- <span data-ttu-id="430a8-112">Form doldurulduktan sonra doğrulama onaylandı [](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).</span><span class="sxs-lookup"><span data-stu-id="430a8-112">Confirmed validation after filling out form [here](https://products.office.com/government/eligibility-validation?ReqType=CSPPartner).</span></span>
+## <a name="c"></a><span data-ttu-id="dece5-112">C\#</span><span class="sxs-lookup"><span data-stu-id="dece5-112">C\#</span></span>
 
-- <span data-ttu-id="430a8-113">Nitelikleri olmayan bir müşteri.</span><span class="sxs-lookup"><span data-stu-id="430a8-113">A customer without a qualification.</span></span>
-
-## <a name="c"></a><span data-ttu-id="430a8-114">C\#</span><span class="sxs-lookup"><span data-stu-id="430a8-114">C\#</span></span>
-
-<span data-ttu-id="430a8-115">Bir iş ortağının doğrulama kodlarının tümünün listesini almak için **Getvalidationcodes**' ı çağırın.</span><span class="sxs-lookup"><span data-stu-id="430a8-115">To get a list of all of a partner's validation codes, call **GetValidationCodes**.</span></span>
+<span data-ttu-id="dece5-113">Bir iş ortağının doğrulama kodlarının tümünün listesini almak için **Getvalidationcodes**' ı çağırın.</span><span class="sxs-lookup"><span data-stu-id="dece5-113">To get a list of all of a partner's validation codes, call **GetValidationCodes**.</span></span>
 
 ``` csharp
 // create the partner operations
@@ -42,23 +38,23 @@ IAggregatePartner partnerOperations = PartnerService.Instance.CreatePartnerOpera
 var gccValidations = partnerOperations.Validations.GetValidationCodes();
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="430a8-116">REST isteği</span><span class="sxs-lookup"><span data-stu-id="430a8-116">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="dece5-114">REST isteği</span><span class="sxs-lookup"><span data-stu-id="dece5-114">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="430a8-117">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="430a8-117">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="dece5-115">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="dece5-115">Request syntax</span></span>
 
-| <span data-ttu-id="430a8-118">Yöntem</span><span class="sxs-lookup"><span data-stu-id="430a8-118">Method</span></span>  | <span data-ttu-id="430a8-119">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="430a8-119">Request URI</span></span>                                                                                          |
+| <span data-ttu-id="dece5-116">Yöntem</span><span class="sxs-lookup"><span data-stu-id="dece5-116">Method</span></span>  | <span data-ttu-id="dece5-117">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="dece5-117">Request URI</span></span>                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="430a8-120">**Al**</span><span class="sxs-lookup"><span data-stu-id="430a8-120">**GET**</span></span> | <span data-ttu-id="430a8-121">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/All/doğrulamaları http/1.1</span><span class="sxs-lookup"><span data-stu-id="430a8-121">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1</span></span> |
+| <span data-ttu-id="dece5-118">**Al**</span><span class="sxs-lookup"><span data-stu-id="dece5-118">**GET**</span></span> | <span data-ttu-id="dece5-119">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/All/doğrulamaları http/1.1</span><span class="sxs-lookup"><span data-stu-id="dece5-119">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/all/validations HTTP/1.1</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="430a8-122">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="430a8-122">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="dece5-120">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="dece5-120">Request headers</span></span>
 
-<span data-ttu-id="430a8-123">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="430a8-123">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="dece5-121">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="dece5-121">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="430a8-124">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="430a8-124">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="dece5-122">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="dece5-122">Request body</span></span>
 
-<span data-ttu-id="430a8-125">Yok.</span><span class="sxs-lookup"><span data-stu-id="430a8-125">None.</span></span>
+<span data-ttu-id="dece5-123">Yok.</span><span class="sxs-lookup"><span data-stu-id="dece5-123">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="430a8-126">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="430a8-126">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="dece5-124">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="dece5-124">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/all/validations HTTP/1.1
@@ -68,15 +64,15 @@ MS-CorrelationId: 283b9b70-963a-4159-9920-f2bdf7ab7fce
 MS-RequestId: 7266f5f6-30ca-4672-9eb6-6c9d6dd0e9d3
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="430a8-127">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="430a8-127">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="dece5-125">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="dece5-125">REST response</span></span>
 
-<span data-ttu-id="430a8-128">Başarılı olursa, bu yöntem yanıt gövdesinde [**Validationcode**](utility-resources.md#validationcode) kaynaklarının bir listesini döndürür.</span><span class="sxs-lookup"><span data-stu-id="430a8-128">If successful, this method returns a list of [**ValidationCode**](utility-resources.md#validationcode) resources in the response body.</span></span>
+<span data-ttu-id="dece5-126">Başarılı olursa, bu yöntem yanıt gövdesinde [**Validationcode**](utility-resources.md#validationcode) kaynaklarının bir listesini döndürür.</span><span class="sxs-lookup"><span data-stu-id="dece5-126">If successful, this method returns a list of [**ValidationCode**](utility-resources.md#validationcode) resources in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="430a8-129">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="430a8-129">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="dece5-127">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="dece5-127">Response success and error codes</span></span>
 
-<span data-ttu-id="430a8-130">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="430a8-130">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="430a8-131">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="430a8-131">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="430a8-132">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="430a8-132">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="dece5-128">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="dece5-128">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="dece5-129">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="dece5-129">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="dece5-130">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="dece5-130">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="430a8-133">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="430a8-133">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="dece5-131">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="dece5-131">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK
