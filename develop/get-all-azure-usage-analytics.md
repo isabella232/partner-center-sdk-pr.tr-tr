@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: c281dcdeb93771a69a388ad64e1127b24156c809
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 7fe987c7dc50d55b26cd72d5aead52963eb1cfbe
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769442"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760224"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>Tüm Azure kullanım analizi bilgilerini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Müşterileriniz için tüm Azure kullanım analizi bilgilerini alma.
 
@@ -38,14 +33,14 @@ Müşterileriniz için tüm Azure kullanım analizi bilgilerini alma.
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-|Parametre        |Tür                        |Description               |
+|Parametre        |Tür                        |Açıklama               |
 |:----------------|:---------------------------|:-------------------------|
 |top              | string                     | İstekte döndürülecek veri satır sayısı. Belirtilen en büyük değer ve varsayılan değer 10000 ' dir. Sorguda daha fazla satır varsa, yanıt gövdesi sonraki veri sayfasını istemek için kullanabileceğiniz bir sonraki bağlantıyı içerir.                        |
 |Atla             | int                        | Sorgudaki atlanacak satır sayısı. Büyük veri kümeleri üzerinden sayfa eklemek için bu parametreyi kullanın. Örneğin, `top=10000 and skip=0` ilk 10000 veri satırını alır, `top=10000 and skip=10000` sonraki 10000 veri satırını alır ve bu şekilde devam eder.                       |
 |filtre           | string                     | İsteğin *filtre* parametresi, yanıttaki satırları filtreleyen bir veya daha fazla deyim içeriyor. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir `eq` `ne` ve deyimler or kullanılarak birleştirilebilir `and` `or` . Aşağıdaki dizeleri belirtebilirsiniz:<br/><br/>                                                       `customerTenantId`<br/> `customerName`<br/> `subscriptionId`<br/> `subscriptionName`<br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>**Örnek:**<br/> `.../usage/azure?filter=meterCategory eq 'Data Management'`<br/><br/> **Örnek:**<br/>`.../usage/azure?filter=meterCategory eq 'Data Management' or (usageDate le cast('2018-01-01', Edm.DateTimeOffset) and usageDate le cast('2018-04-01', Edm.DateTimeOffset))`                        |
 |aggregationLevel | string                    | Toplam verilerinin alınacağı zaman aralığını belirtir. Aşağıdaki dizelerden biri olabilir: `day` , `week` , veya `month` . Belirtilmemişse, varsayılan olur `day` .<br/><br/>                                              `aggregationLevel`Parametresi, olmadan desteklenmez `groupby` . `aggregationLevel`Parametresi, içinde bulunan tüm tarih alanları için geçerlidir `groupby` .                                                      |
 |OrderBy          |string                     | Her bir yüklemenin sonuç verileri değerlerini sıralayan bir ifade. Söz dizimi `...&orderby=field [order],field [order],...` şeklindedir. `field`Parametresi aşağıdaki dizelerden biri olabilir:<br/><br/>                    `customerTenantId`<br/>`customerName`<br/>`subscriptionId`<br/>`subscriptionName`<br/>`usageDate`<br/>`resourceLocation`<br/>`meterCategory`<br/>`meterSubcategory`<br/>`meterUnit`<br/> `reservationOrderId` <br/> `reservationId`<br/> `consumptionMeterId` <br/> `serviceType` <br/><br/> *Order* parametresi isteğe bağlıdır ve `asc` `desc` sırasıyla her bir alan için artan veya azalan sıralama belirtmek için ya da olabilir. Varsayılan değer: `asc`.<br/><br/>**Örnek:**<br/> `...&orderby=meterCategory,meterUnit`                                                                                           |
-|ölçütü          |string                    | Yalnızca belirtilen alanlara veri toplamayı uygulayan bir ifade. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>                                                                                                                     `customerTenantId`<br/>`customerName`<br/> `subscriptionId` <br/> `subscriptionName` <br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit` <br/> `reservationOrderId` <br/> `reservationId` <br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>Döndürülen veri satırları, parametresinde belirtilen alanları ve `groupby` *miktarı* içerir.<br/><br/>`groupby`Parametresi parametresiyle birlikte kullanılabilir `aggregationLevel` .<br/><br/>**Örnek:**<br/>`...&groupby=meterCategory,meterUnit` |
+|ölçütü          |string                    | Yalnızca belirtilen alanlara veri toplamayı uygulayan bir ifade. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>                                                                                                                     `customerTenantId`<br/>`customerName`<br/> `subscriptionId` <br/> `subscriptionName` <br/> `usageDate` <br/> `resourceLocation` <br/> `meterCategory` <br/> `meterSubcategory` <br/> `meterUnit` <br/> `reservationOrderId` <br/> `reservationId` <br/> `consumptionMeterId` <br/> `serviceType` <br/><br/>Döndürülen veri satırları, parametresinde belirtilen alanları `groupby`  ve *miktarı* içerir.<br/><br/>`groupby`Parametresi parametresiyle birlikte kullanılabilir `aggregationLevel` .<br/><br/>**Örnek:**<br/>`...&groupby=meterCategory,meterUnit` |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

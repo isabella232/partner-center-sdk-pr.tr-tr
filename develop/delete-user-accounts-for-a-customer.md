@@ -4,18 +4,14 @@ description: Bir müşterinin mevcut kullanıcı hesabını silme.
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 77fc1a1c7264779ca549be8d52798e90c91138bb
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: c45646da43b8926f911942374de5da07f318c526
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769382"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973069"
 ---
 # <a name="delete-a-user-account-for-a-customer"></a>Müşterinin kullanıcı hesabını silme
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Bu makalede, bir müşterinin mevcut kullanıcı hesabının nasıl silineceği açıklanır.
 
@@ -29,9 +25,9 @@ Bu makalede, bir müşterinin mevcut kullanıcı hesabının nasıl silineceği 
 
 ## <a name="deleting-a-user-account"></a>Kullanıcı hesabını silme
 
-Bir kullanıcı hesabını sildiğinizde, Kullanıcı durumu otuz gün boyunca **etkin değil** olarak ayarlanır. Otuz gün sonra, Kullanıcı hesabı ve onunla ilişkili veriler temizlenir ve kurtarılamaz hale getirilir.
+Bir kullanıcı hesabını sildiğinizde, Kullanıcı durumu 30 gün boyunca **etkin değil** olarak ayarlanır. 30 30 gün sonra, Kullanıcı hesabı ve onunla ilişkili veriler temizlenir ve kurtarılamaz hale getirilir.
 
-Etkin olmayan hesap otuz gün penceresinde yer alıyorsa, [bir müşterinin silinen kullanıcı hesabını geri yükleyebilirsiniz](restore-a-user-for-a-customer.md) . Ancak, silinmiş ve devre dışı olarak işaretlenen bir hesabı geri yüklediğinizde, hesap artık kullanıcı koleksiyonunun bir üyesi olarak döndürülmez (örneğin, [bir müşterinin tüm Kullanıcı hesaplarının bir listesini](get-a-list-of-all-user-accounts-for-a-customer.md)aldığınızda).
+Etkin olmayan hesap 30 günlük bir pencere içindeyse, [bir müşterinin silinen kullanıcı hesabını geri yükleyebilirsiniz](restore-a-user-for-a-customer.md) . Ancak, silinmiş ve devre dışı olarak işaretlenen bir hesabı geri yüklediğinizde, hesap artık kullanıcı koleksiyonunun bir üyesi olarak döndürülmez (örneğin, [bir müşterinin tüm Kullanıcı hesaplarının bir listesini](get-a-list-of-all-user-accounts-for-a-customer.md)aldığınızda).
 
 ## <a name="c"></a>C\#
 
@@ -51,7 +47,7 @@ Mevcut bir müşteri Kullanıcı hesabını silmek için:
 partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdToDelete).Delete();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: DeleteCustomerUser.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: deletecustomeruser. cs
 
 ## <a name="rest-request"></a>REST isteği
 

@@ -4,18 +4,14 @@ description: Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir faturaya ai
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8b6ca8d6ff7af53dd2a258ea20e6eaeb26421440
-ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
+ms.openlocfilehash: 1b7dba3333aaec8df73f0e8147b0bbbc78b9b184
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106274674"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446155"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Fatura faturalanmamış ticari tüketim satırı öğelerini Al
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Faturalandırılmamış ticari tüketim satırı öğe ayrıntılarının koleksiyonunu alma.
 
@@ -108,7 +104,7 @@ while (fetchNext)
 Benzer bir örnek için bkz.:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Iş ortağı MERKEZI SDK örnekleri**
+- Project: **iş ortağı merkezi SDK örnekleri**
 - Sınıf: **GetUnBilledConsumptionReconLineItemsPaging. cs**
 
 ## <a name="rest-request"></a>REST isteği
@@ -340,8 +336,8 @@ Aşağıdaki ayrıntılar Bu örnek için geçerlidir:
 
 - **Sağlayıcı**: **Onetime**
 - **Faturaışgıtemtype**: **usagelineıtems**
-- **Dönem**: **önceki**
-- **Seekoperation**: **İleri**
+- **Dönem:** **Önceki**
+- **SeekOperation:** **Next**
 
 #### <a name="request-example-2"></a>İstek örneği 2
 

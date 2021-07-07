@@ -6,20 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: mowrim
 ms.author: mowrim
-ms.openlocfilehash: 372b94ac7217899ca560cf943bf11a7e8906872d
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: f329b6a3f9a61522a9fad1f0ead021563c393118
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769316"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973425"
 ---
 # <a name="create-an-azure-plan"></a>Azure planı oluşturma
 
-**Uygulama hedefi:**
-
-* İş Ortağı Merkezi
-
-Iş Ortağı Merkezi API 'Lerini kullanarak bir Azure planı satın alabilir, oluşturabilir ve yönetebilirsiniz. İşlem, Microsoft Azure (MS-AZR-0145P) aboneliği oluşturmaya benzer. [Azure planına ait Katalog öğesini almanız](#get-the-catalog-item-for-azure-plan) [ve ardından sipariş oluşturmanız ve göndermeniz](#create-and-submit-an-order)gerekir.
+Iş Ortağı Merkezi API 'Lerini kullanarak bir Azure planı satın alabilir, oluşturabilir ve yönetebilirsiniz. işlem, Microsoft Azure (MS-azr-0145p) aboneliği oluşturmaya benzer. [Azure planına ait Katalog öğesini almanız](#get-the-catalog-item-for-azure-plan) [ve ardından sipariş oluşturmanız ve göndermeniz](#create-and-submit-an-order)gerekir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -65,7 +61,7 @@ Sipariş başarıyla işlendikten sonra Azure planı için bir Iş Ortağı Merk
 * [Müşterinin aboneliğini alma](get-all-of-a-customer-s-subscriptions.md)
 * [Siparişe göre aboneliklerin bir listesini alma](get-a-list-of-subscriptions-by-order.md)
 
-Iş Ortağı Merkezi 'nde bir Azure planı oluşturulduğunda, Azure 'da buna karşılık gelen bir Azure kullanım aboneliği de oluşturulur. Azure Portal ve Azure API 'Leri kullanarak aynı Azure planı altında ek Azure kullanım abonelikleri de oluşturabilirsiniz. Azure planıyla ilişkili tüm Azure kullanım aboneliklerinin tanımlayıcılarını, [Iş Ortağı Merkezi aboneliğine yönelik Azure yetkilendirmeleri listesini alma](get-a-list-of-azure-entitlements-for-subscription.md) bölümündeki adımları izleyerek elde edebilirsiniz.
+Iş Ortağı Merkezi 'nde bir Azure planı oluşturulduğunda, Azure 'da buna karşılık gelen bir Azure kullanım aboneliği de oluşturulur. Ayrıca, Azure portal ve Azure API 'Leri kullanarak aynı Azure planı altında ek Azure kullanım abonelikleri de oluşturabilirsiniz. Azure planıyla ilişkili tüm Azure kullanım aboneliklerinin tanımlayıcılarını, [Iş Ortağı Merkezi aboneliğine yönelik Azure yetkilendirmeleri listesini alma](get-a-list-of-azure-entitlements-for-subscription.md) bölümündeki adımları izleyerek elde edebilirsiniz.
 
 ## <a name="lifecycle-management"></a>Yaşam döngüsü yönetimi
 

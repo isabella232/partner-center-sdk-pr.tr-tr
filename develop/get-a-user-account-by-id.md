@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: a2f42001365324a65376318cb1f2d57dc123df0c
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 3a7cac98a8081a8557dcadfb0724f5497be7d14c
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769269"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760275"
 ---
 # <a name="get-a-user-account-by-id"></a>Kimliğe göre bir kullanıcı hesabı alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Müşteri için belirli bir kullanıcı hesabı alın.
 
@@ -38,7 +34,7 @@ Müşterinin Kullanıcı hesabını almak için müşteriyi tanımlamak üzere m
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetCustomerUserDetails.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getcustomeruserdetails. cs
 
 ## <a name="rest-request"></a>REST isteği
 

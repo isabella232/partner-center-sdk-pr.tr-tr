@@ -4,18 +4,14 @@ description: Bir iş ortağı, bir müşteri için self servis ilkelerini ayarla
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 04daf6aaeb69153c4139941188f53dbab8979969
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e44581b805e076132984b67280699314e274ca94
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768951"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446726"
 ---
 # <a name="selfservepolicy-resource"></a>SelfServePolicy kaynağı
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Bir iş ortağı, bir müşteri için self servis ilkelerini ayarlar.
 
@@ -23,9 +19,9 @@ Bir iş ortağı, bir müşteri için self servis ilkelerini ayarlar.
 
 Bir sepet tanımlar.
 
-| Özellik              | Tür             | Description                                                                                            |
+| Özellik              | Tür             | Açıklama                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| kimlik                    | string           | Self Servis ilkesinin başarıyla oluşturulması sırasında sağlanan self servis ilke tanımlayıcısı.     |
+| kimlik                    | string           | Self Servis ilkesinin başarıyla oluşturulması sırasında sağlanan kendi kendine bir ilke tanımlayıcısı.     |
 | SelfServeEntity       | SelfServeEntity  | Erişim izni verilen self servis varlığı.                                                     |
 | Verenin Grant izni               | Verenin Grant izni          | Erişim veren granör.                                                                    |
 | İzinler           | Izin dizisi| [İzin](#permission) kaynakları dizisi.                                                                     |
@@ -34,7 +30,7 @@ Bir sepet tanımlar.
 
 İzin verilen varlığı temsil eder.
 
-| Özellik             | Tür|Description|
+| Özellik             | Tür|Açıklama|
 |----------------------|----------------------------------|--------------------------------------------------------------------------------------------|
 | SelfServeEntityType  | string                           | Erişim izni verilen varlık, kabul edilen değerler: müşteri.                                 |
 | Değerine             | string                           | Erişim izni verilen varlığın kiracı tanımlayıcısı.                                   |
@@ -43,7 +39,7 @@ Bir sepet tanımlar.
 
 İzinleri veren granayı temsil eder.
 
-| Özellik             | Tür|Description|
+| Özellik             | Tür|Açıklama|
 |----------------------|----------------------------------|--------------------------------------------------------------------------------------------|
 | GrantorType          | string                           | Erişim verme, kabul edilen değerler: BillToPartner.                               |
 | Değerine             | string                           | Erişim veren varlığın kiracı tanımlayıcısı.                                       |
@@ -53,7 +49,7 @@ Bir sepet tanımlar.
 
 Self Servis ilkesindeki bir izni temsil eder.
 
-| Özellik             | Tür|Description|
+| Özellik             | Tür|Açıklama|
 |----------------------|----------------------------------|--------------------------------------------------------------------------------------------|
 | Kaynak             | string                           | Kaynak erişimine çok fazla: Azurereservedınstances verildi.                          |
 | Eylem               | string                           | Şu için eylem erişimi verildi: satın alma                                           |

@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: f32fb99ad52939ae8e9de26276588d3022f18fbc
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e1f16c92569a02bc51c96a85ecb642fbeb76a9a7
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768753"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760258"
 ---
 # <a name="get-all-subscription-analytics-information"></a>Tüm abonelik analizi bilgilerini alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bu makalede, müşterileriniz için tüm abonelik Analizi bilgilerinin nasıl alınacağı açıklanır.
 
@@ -40,7 +35,7 @@ Bu makalede, müşterileriniz için tüm abonelik Analizi bilgilerinin nasıl al
 
 Aşağıdaki tabloda isteğe bağlı parametreler ve açıklamaları listelenmektedir:
 
-| Parametre | Tür |  Description |
+| Parametre | Tür |  Açıklama |
 |-----------|------|--------------|
 | top | int | İstekte döndürülecek veri satır sayısı. Değer belirtilmezse, en büyük değer ve varsayılan değer `10000` . Sorguda daha fazla satır varsa, yanıt gövdesi sonraki veri sayfasını istemek için kullanabileceğiniz bir sonraki bağlantıyı içerir. |
 | Atla | int | Sorgudaki atlanacak satır sayısı. Büyük veri kümeleri üzerinden sayfa eklemek için bu parametreyi kullanın. Örneğin, `top=10000` ve `skip=0` ilk 10000 veri satırını alır `top=10000` ve `skip=10000` sonraki 10000 veri satırını alır. |

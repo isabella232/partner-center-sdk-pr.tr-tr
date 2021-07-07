@@ -7,27 +7,24 @@ MS-HAID:
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 887cb71c752ac5d9c61398536711545c19cc7600
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: 93d46a17bc26e9586e5e773bdf934653a571367f
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97770146"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973460"
 ---
 # <a name="register-app-details-for-partner-center-for-microsoft-national-cloud-through-the-azure-portal"></a>Microsoft National Cloud için Iş Ortağı Merkezi 'nin Azure portal aracılığıyla uygulama ayrıntılarını kaydedin
 
-**Uygulama hedefi:**
-
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Microsoft bulut Almanya için Iş Ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Geliştiricilerin, Azure portal aracılığıyla Azure AD ile uygulamaları hakkındaki ayrıntıları kaydetmesi gerekir. Bu, yalnızca belirtilen uygulamaların iş ortağı ve müşteri verilerine bağlanabildiğinden emin olmanıza yardımcı olur.
 
-ABD hükümeti için Microsoft Bulut Iş Ortağı Merkezi için, şu anda uygulamaları PowerShell aracılığıyla yönetmeniz gerekir. Daha fazla bilgi için [Azure PowerShell başvuru belgelerine](/powershell/module/Azuread/#applications)bakın.
+Microsoft Cloud for US Government için iş ortağı merkezi 'nde, şu anda uygulamaları PowerShell aracılığıyla yönetmeniz gerekir. daha fazla bilgi için [Azure PowerShell başvuru belgelerine](/powershell/module/Azuread/#applications)bakın.
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-ABD hükümeti için Microsoft Bulut için Microsoft Bulut Almanya veya Iş Ortağı Merkezi için Iş Ortağı Merkezi için bir uygulama oluşturduğunuzda aşağıdaki ek gereksinimleri unutmayın.
+Microsoft Cloud for US Government için Microsoft Bulut Almanya veya Iş Ortağı Merkezi için bir Iş Ortağı Merkezi uygulaması oluşturduğunuzda aşağıdaki ek gereksinimleri göz önünde bulundurun.
 
 ## <a name="web-apps"></a>Web uygulamaları
 
@@ -37,17 +34,17 @@ Web Apps için, uygulama KIMLIĞINIZI kaydetmek üzere aşağıdaki yordamları 
 
 1. Uygulamanızı kaydetmek için [Azure portal uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfasına gidin. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak Azure portalında oturum açın.
 
-2. **Yeni kayıt** seçeneğini belirleyin. Daha fazla bilgi için bkz. [hızlı başlangıç: Microsoft Identity platformu ile uygulama kaydetme](/azure/active-directory/develop/quickstart-register-app).
+2. **Yeni kayıt** seçeneğini belirleyin. daha fazla bilgi için bkz. [hızlı başlangıç: Microsoft kimlik platformu bir uygulamayı kaydetme](/azure/active-directory/develop/quickstart-register-app).
 
 ### <a name="configure-api-access-permissions-for-web-app"></a>Web uygulaması için API erişim izinlerini yapılandırma
 
-1. Uygulamanızı seçin. Web uygulamasının **Ayarlar** ' a gidin.
+1. Uygulamanızı seçin. Web uygulamasının **Ayarlar** gidin.
 
 2. **API erişimi** bölümünde **gerekli izinleri** seçin
 
-3. Windows Azure Active Directory izinleri için:
+3. Azure Active directory izinleri Windows için:
 
-    1. **Windows Azure Active Directory izinleri**' ni seçin.
+    1. **Windows Azure Active Directory izinlerini** seçin.
 
     2. **Uygulamalar izinler**' de, dizin verilerini oku ' nı seçin.
 
@@ -70,9 +67,9 @@ Web uygulaması yapılandırmasından aşağıdaki ayrıntılara sahip olmanız 
 
 ### <a name="register-the-web-app-in-partner-center"></a>Web uygulamasını Iş Ortağı Merkezi 'ne kaydetme
 
-1. ' Da oturum açın [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) .
+1. [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) adresinde oturum açın.
 
-2. **Pano**' yı ve ardından **Hesap ayarları**' nı ve ardından **uygulama yönetimi**' ni seçin.
+2. **pano**' yı seçin, ardından **hesap Ayarlar** öğesini ve ardından **uygulama yönetimi**' ni seçin.
 
 3. **Web uygulaması** bölümünde **var olan uygulamayı kaydet**' i seçin.
 
@@ -91,15 +88,15 @@ Yerel uygulamaların Iş Ortağı Merkezi 'ne kayıtlı olması gerekmez. Ancak 
 
 1. Uygulamanızı kaydetmek için [Azure portal uygulama kayıtları](https://go.microsoft.com/fwlink/?linkid=2083908) sayfasına gidin. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak Azure portalında oturum açın.
 
-2. **Yeni kayıt** seçeneğini belirleyin. Daha fazla bilgi için bkz. [hızlı başlangıç: Microsoft Identity platformu ile uygulama kaydetme](/azure/active-directory/develop/quickstart-register-app).
+2. **Yeni kayıt** seçeneğini belirleyin. daha fazla bilgi için bkz. [hızlı başlangıç: Microsoft kimlik platformu bir uygulamayı kaydetme](/azure/active-directory/develop/quickstart-register-app).
 
 ### <a name="configure-api-access-permissions-for-native-app"></a>Yerel uygulama için API erişim izinlerini yapılandırma
 
-1. Uygulamanızı seçin. **Ayarlar**' a gidin.
+1. Uygulamanızı seçin. **Ayarlar** gidin.
 
 2. API erişimi ' nde **gerekli izinler**' i seçin.
 
-3. **Windows Azure Active Directory izinleri**' ni seçin. **Temsilci izinleri**' nde şu izinleri seçin:
+3. **Windows Azure Active Directory izinlerini** seçin. **Temsilci izinleri**' nde şu izinleri seçin:
 
     - **Oturum açma ve kullanıcı profilini okuma**
     - **Dizin verilerini oku**

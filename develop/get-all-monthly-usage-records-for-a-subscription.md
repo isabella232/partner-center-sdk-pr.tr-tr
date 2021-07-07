@@ -1,46 +1,42 @@
 ---
-title: Bir abonelik için tüm aylık kullanım kayıtlarını alın.
-description: Bir müşterinin aboneliği içindeki hizmetlerin listesini ve bunların ilişkili derecelendirdikleri kullanım bilgilerini almak için AzureResourceMonthlyUsageRecord kaynak koleksiyonunu kullanabilirsiniz.
+title: Bir abonelik için tüm aylık kullanım kayıtlarını alma
+description: AzureResourceMonthlyUsageRecord kaynak koleksiyonunu kullanarak müşterinin aboneliği içindeki hizmetlerin listesini ve ilişkili derecelendirilmiş kullanım bilgilerini edinebilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 1dd09d4976c9626e088cda02ce36669dd7121a99
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: ee4bd413eec7d5a2dddbe3803df8839589ab7504
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769736"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760292"
 ---
-# <a name="get-all-monthly-usage-records-for-a-subscription"></a>Bir abonelik için tüm aylık kullanım kayıtlarını alın.
+# <a name="get-all-monthly-usage-records-for-a-subscription"></a>Bir abonelik için tüm aylık kullanım kayıtlarını alma
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bir müşterinin aboneliği içindeki hizmetlerin listesini ve bunların ilişkili derecelendirdikleri kullanım bilgilerini almak için [**AzureResourceMonthlyUsageRecord**](/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) kaynak koleksiyonunu kullanabilirsiniz.
+[**AzureResourceMonthlyUsageRecord**](/dotnet/api/microsoft.store.partnercenter.models.usage.azureresourcemonthlyusagerecord) kaynak koleksiyonunu kullanarak müşterinin aboneliği içindeki hizmetlerin listesini ve ilişkili derecelendirilmiş kullanım bilgilerini edinebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 - Abonelik tanımlayıcısı.
 
-*Bu API yalnızca Microsoft Azure (MS-AZR-0145P) aboneliklerini destekler. Azure planı kullanıyorsanız, bkz. bunun yerine [ölçüm için kullanım verilerini alın](get-a-customer-subscription-meter-usage-records.md) .*
+*Bu API yalnızca Microsoft Azure (MS-AZR-0145P) aboneliklerini destekler. Azure planı kullanıyorsanız bkz. [Ölçüme göre abonelik için kullanım verilerini](get-a-customer-subscription-meter-usage-records.md) alma.*
 
 ## <a name="c"></a>C\#
 
-Bir aboneliğin kaynak kullanım bilgilerini almak için:
+Aboneliğin kaynak kullanım bilgilerini almak için:
 
-1. **Byıd ()** yöntemini çağırmak Için **ıaggregatepartner. Customers** koleksiyonunuzu kullanın.
+1. **ById()** **yöntemini çağırarak IAggregatePartner.Customers** koleksiyonu kullanın.
 
-2. **UsageRecords** ve ardından **Resources** özelliği ile birlikte **abonelikler** özelliğini çağırın.
-3. **Get ()** veya **GetAsync ()** yöntemlerini çağırın.
+2. Subscriptions **özelliğini** ve **UsageRecords'ı,** ardından **Resources özelliğini** arayın.
+3. **Get() veya** **GetAsync() yöntemlerini** çağırma.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -52,30 +48,30 @@ var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscrip
 
 Bir örnek için aşağıdakilere bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSample**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **PartnerSDK.FeatureSample**
 - Sınıf: **SubscriptionResourceUsageRecords.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                                       |
 |---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{id-for-Subscription}/usagerecords/Resources http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/usagerecords/resources HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-Bu tablo, derecelendirilen kullanım bilgilerini almak için gerekli sorgu parametrelerini listeler.
+Bu tabloda, derecelendirilmiş kullanım bilgilerini almak için gerekli sorgu parametreleri listelemektedir.
 
 | Ad                    | Tür     | Gerekli | Açıklama                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **Müşteri-Kiracı kimliği**  | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
-| **abonelik kimliği** | **guid** | Y        | Aboneliğe karşılık gelen bir GUID. |
+| **customer-tenant-id**  | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
+| **subscription-id** | **guid** | Y        | Aboneliğe karşılık gelen BIR GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -93,11 +89,11 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **AzureResourceMonthlyUsageRecord** kaynakları koleksiyonu döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde **AzureResourceMonthlyUsageRecord** kaynaklarının bir koleksiyonunu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

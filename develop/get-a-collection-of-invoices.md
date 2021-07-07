@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: f56c3de8dd227f573921e5b969c2217c2f743a21
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 7698d85df3341ae4cbff0377bd0a1bb47cd36740
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769287"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906438"
 ---
 # <a name="get-a-collection-of-invoices"></a>Faturaların koleksiyonunu alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Ortağın faturalarının bir koleksiyonunu alma.
 
@@ -75,10 +70,10 @@ while (invoicesEnumerator.HasValue)
 }
 ```
 
-Biraz farklı bir örnek için bkz. **örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetPagedInvoices.cs
+Biraz farklı bir örnek için bkz. **örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getpageınvosesler. cs
 
 > [!NOTE] 
-> Aynı API, tüm modern ticari satın alımlar ve 145p ve Office lisansları için de kullanılır. Boyut ve konum yalnızca eski faturalar için kabul edilir. Tüm modern ticari satın alımlarda, PageSize & boşluğu yok sayılır.
+> aynı apı, tüm modern ticari satın alımlar ve ayrıca 145p ve Office lisansları için de kullanılır. Boyut ve konum yalnızca eski faturalar için kabul edilir. Tüm modern ticari satın alımlarda, PageSize & boşluğu yok sayılır.
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -94,8 +89,8 @@ Biraz farklı bir örnek için bkz. **örnek**: [konsol test uygulaması](consol
 
 | Ad   | Tür | Gerekli | Açıklama                                                                            |
 |--------|------|----------|----------------------------------------------------------------------------------------|
-| boyut   | int  | No       | Yanıtta döndürülecek fatura kaynağı sayısı. Bu parametre isteğe bağlıdır. |
-| uzaklık | int  | No       | Döndürülecek ilk faturanın sıfır tabanlı dizini.                                   |
+| boyut   | int  | Hayır       | Yanıtta döndürülecek fatura kaynağı sayısı. Bu parametre isteğe bağlıdır. |
+| uzaklık | int  | Hayır       | Döndürülecek ilk faturanın sıfır tabanlı dizini.                                   |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -103,7 +98,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 

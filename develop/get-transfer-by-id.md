@@ -1,21 +1,17 @@
 ---
-title: Kimliğe göre aktarım ayrıntılarını al
+title: KIMLIĞE göre aktarım ayrıntılarını al
 description: Bir müşterinin aboneliklerinin bir aktarımının ayrıntılarını alma.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c39e9483f1e51469981b0d6fa2541a6372ff2dac
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1347f95debec458b8c70c5e803cef6203ad34818
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768909"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445944"
 ---
-# <a name="get-transfer-details-by-id"></a>Kimliğe göre aktarım ayrıntılarını al
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
+# <a name="get-transfer-details-by-id"></a>KIMLIĞE göre aktarım ayrıntılarını al
 
 ## <a name="prerequisites"></a>Önkoşullar
 

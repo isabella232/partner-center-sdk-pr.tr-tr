@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 0ffe6d1a236a8a07e1ff71163e7639ef1f3437e1
-ms.sourcegitcommit: bbdb5f7c9ddd42c2fc4eaadbb67d61aeeae805ca
+ms.openlocfilehash: 5047743afdef02033d9494e3d8c16c9ab96b3fe9
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105030598"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446658"
 ---
 # <a name="update-a-customers-qualification-via-synchronous-validation"></a>Zaman uyumlu doğrulama ile bir müşterinin nitelemesini güncelleştirme
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Iş Ortağı Merkezi API 'Leri aracılığıyla bir müşterinin niteliklerini zaman uyumlu olarak güncelleştirme hakkında bilgi edinin. Bunu zaman uyumsuz yapmayı öğrenmek için bkz. [bir müşterinin nitelemesini zaman uyumsuz doğrulama aracılığıyla güncelleştirme](update-customer-qualification-asynchronous.md).
 
@@ -39,7 +35,7 @@ Bir müşterinin nitelemesini "eğitim" olarak güncelleştirmek için mevcut bi
 var eduCustomerQualification = partnerOperations.Customers.ById(existingCustomer.Id).Qualification.Update(CustomerQualification.Education);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresamples **sınıfı**: CustomerQualificationOperations. cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresamples **sınıfı**: CustomerQualificationOperations. cs
 
 Bir müşterinin nitelemesini, mevcut bir müşteri üzerinde bir nitelik olmadan **Hükümentcommunitycloud** olarak güncelleştirmek için, ortağın müşterinin [**validationcode**](utility-resources.md#validationcode)'u içermesi gerekir.
 
@@ -65,7 +61,7 @@ Nitelemeyi güncelleştirmek için aşağıdaki sorgu parametresini kullanın.
 | Ad                   | Tür | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Müşteri-Kiracı kimliği** | GUID | Yes      | Değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-Kiracı kimliği** ' dir. |
-| **validationCode**     | int  | No       | Yalnızca kamu Community bulutu için gereklidir.                                                                                                            |
+| **validationCode**     | int  | Hayır       | Yalnızca Government Community Cloud için gereklidir.                                                                                                            |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

@@ -1,29 +1,25 @@
 ---
 title: Müşteri için ürün yükseltme varlığı oluşturma
-description: Bir müşteriyi belirli bir ürün ailesine yükseltmek üzere ürün yükseltme varlığı oluşturmak için Productyükselderequest kaynağını kullanabilirsiniz.
+description: Bir müşteriyi belirli bir ürün ailesine yükseltmek üzere ürün yükseltme varlığı oluşturmak için ProductUpgradeRequest kaynağını kullanabilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 45830033d93e0906eafc169cf04b997e2ff7c3d8
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4e346b7f5294a8847047c85115d8c80f34eaca84
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768813"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973426"
 ---
 # <a name="create-a-product-upgrade-entity-for-a-customer"></a>Müşteri için ürün yükseltme varlığı oluşturma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bir müşteriyi, **Productyükselderequest** kaynağını kullanarak belirli bir ürün ailesine (örneğin, Azure planı) yükseltmek için bir ürün yükseltme varlığı oluşturabilirsiniz.
+**ProductUpgradeRequest** kaynağını kullanarak bir müşteriyi belirli bir ürün ailesine (örneğin, Azure planı) yükseltmek için bir ürün yükseltme varlığı oluşturabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler. Iş Ortağı Merkezi API 'Leriyle App + kullanıcı kimlik doğrulaması kullanırken [güvenli uygulama modelini](enable-secure-app-model.md) izleyin.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler. [Uygulama+Kullanıcı kimlik doğrulamasını](enable-secure-app-model.md) farklı API'lerle kullanırken güvenli İş Ortağı Merkezi izleyin.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 - Müşteriyi yükseltmek istediğiniz ürün ailesi.
 
@@ -31,13 +27,13 @@ Bir müşteriyi, **Productyükselderequest** kaynağını kullanarak belirli bir
 
 Bir müşteriyi Azure planına yükseltmek için:
 
-1. **Productupgradesrequest** nesnesi oluşturun ve ürün ailesi olarak müşteri tanımlayıcısını ve "Azure" i belirtin.
+1. Bir **ProductUpgradesRequest nesnesi** oluşturun ve müşteri tanımlayıcısını ve ürün ailesi olarak "Azure" belirtin.
 
-2. **Iaggregatepartner. Productyükseltmeleri** koleksiyonunu kullanın.
+2. **IAggregatePartner.ProductUpgrades koleksiyonunu** kullanın.
 
-3. **Create** metodunu çağırın ve bir **konum üst bilgi** dizesi döndürecek **productupgradesrequest** nesnesini geçirin.
+3. **Create** yöntemini çağırarak **ProductUpgradesRequest nesnesini** iletin; bu nesne bir konum üst **bilgisi dizesi** döndürür.
 
-4. Yükseltme [durumunu sorgulamak](get-product-upgrade-status.md)için kullanılabilecek konum üst bilgisi dizesinden **Upgrade-ID** ' i ayıklayın.
+4. Yükseltme **durumunu sorgulamak** için kullanılan konum üst bilgisi dizesinde [upgrade-id'sini ayıklar.](get-product-upgrade-status.md)
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -60,19 +56,19 @@ var upgradeId = Regex.Split(productUpgradeLocationHeader, "/")[1];
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                                   |
 |----------|-----------------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/productyükseltmeleri http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productupgrades HTTP/1.1 |
 
 #### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 #### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesi bir [Productyükseltilebilir Derequest](product-upgrade-resources.md#productupgraderequest) kaynağı içermelidir.
+İstek gövdesi bir [ProductUpgradeRequest kaynağı içermeli.](product-upgrade-resources.md#productupgraderequest)
 
 #### <a name="request-example"></a>İstek örneği
 
@@ -97,11 +93,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt ürün yükseltme durumunu almak için kullanılabilecek bir URI 'ye sahip bir **konum** üst bilgisi içerir. Bu URI 'yi diğer ilgili REST API 'Leri ile kullanmak üzere kaydedin.
+Başarılı olursa yanıt, ürün yükseltme **durumunu** almak için URI'ye sahip bir Konum üst bilgisi içerir. Bu URI'yi diğer ilgili REST API'leriyle kullanmak üzere kaydedin.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

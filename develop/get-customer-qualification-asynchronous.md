@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: JoeyBytes
 ms.author: jobiesel
-ms.openlocfilehash: df605e4d400d29e14fd0b44bef34f88bbc7ca8b2
-ms.sourcegitcommit: 7d59c58ee36b217bd5cac089f918059e9dbb8a62
+ms.openlocfilehash: 4795b6e1ad008f9d854dc7efbee0c2099aefa609
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/19/2021
-ms.locfileid: "110027937"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446318"
 ---
 # <a name="get-a-customers-qualification-asynchronously"></a>Müşterinin nitelemesini zaman uyumsuz olarak al
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Müşterinin niteliklerini zaman uyumsuz olarak alma.
 
@@ -37,27 +33,27 @@ Müşterinin niteliklerini almak için, müşteri tanımlayıcısıyla [**ıaggr
 var customerQualifications = partnerOperations.Customers.ById(customerId).Qualification.GetQualifications();
 ```
 
-**Örnek**: [konsol örnek uygulaması](https://github.com/microsoft/Partner-Center-DotNet-Samples). **Proje**: Sdksamples **sınıfı**: getcustomernitelikler. cs
+**Örnek**: [konsol örnek uygulaması](https://github.com/microsoft/Partner-Center-DotNet-Samples). **Project**: sdksamples **sınıfı**: getcustomernitelikler. cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem  | İstek URI'si                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/qualifications HTTP/1.1 |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/nitelikler http/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Bu tabloda tüm niteliği almak için gerekli sorgu parametresi listelemektedir.
+Bu tabloda, tüm nitelemeyi almak için gerekli sorgu parametresi listelenmektedir.
 
 | Ad               | Tür   | Gerekli | Açıklama                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| **customer-tenant-id** | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
+| **Müşteri-Kiracı kimliği** | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -75,11 +71,11 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir nitelik koleksiyonu döndürür.  Aşağıda, Eğitim niteliğine sahip bir müşteri için **GET** çağrısı örnekleri **verilmiştir.**
+Başarılı olursa, bu yöntem yanıt gövdesinde bir nitelikler koleksiyonu döndürür.  **Eğitim** nitelemesini içeren bir müşterinin **Get** çağrısının örnekleri aşağıda verilmiştir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
 
 ### <a name="response-examples"></a>Yanıt örnekleri
 
@@ -137,9 +133,9 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ```
 
-#### <a name="state-owned-entity-samples"></a>Eyalete Ait Varlık Örnekleri
+#### <a name="state-owned-entity-samples"></a>Eyalet ait varlık örnekleri
 
-**POST örneği aracılığıyla Eyalete Ait Varlık**
+**GÖNDERI örneği aracılığıyla durum sahibi olan varlık**
 
 ```csharp
 
@@ -153,7 +149,7 @@ POST {customer_id}/qualifications
 
 ```
 
-**Nitelik Al örneği aracılığıyla Eyalete Ait Varlık**
+**Get nitelikleri örneği aracılığıyla durum sahibi olan varlık**
 
 ```csharp
 
@@ -167,7 +163,7 @@ GET {customer_id}/qualifications
 
 ```
 
-**Eğitimle Nitelik Al aracılığıyla Eyalete Ait Varlık**
+**Eğitim ile Get nitelikleri aracılığıyla durum sahibi olan varlık**
 
 ```csharp
 
@@ -184,7 +180,7 @@ GET {customer_id}/qualifications
 
 ```
 
-**GCC ile Get nitelikleri aracılığıyla durum sahibi olan varlık**
+**GCC ile sahip olan varlık, Get nitelikleri aracılığıyla**
 
 ```csharp
 

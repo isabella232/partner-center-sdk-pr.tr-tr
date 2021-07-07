@@ -1,49 +1,45 @@
 ---
 title: Lisans dağıtım bilgilerini alma
-description: Office ve Dynamics lisanslarıyla ilgili dağıtım bilgilerini alma.
+description: Office ve Dynamics lisansları için dağıtım bilgilerini alın.
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ef0e5d73d34bc51e4cc58143db6c9fc49cb58fcb
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 9eb0dc655affb2216b11635e58e00ed6464d6792
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769436"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445672"
 ---
 # <a name="get-licenses-deployment-information"></a>Lisans dağıtım bilgilerini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Office ve Dynamics lisanslarıyla ilgili dağıtım bilgilerini alma.
+Office ve Dynamics lisansları için dağıtım bilgilerini alın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                     |
 |---------|-------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Analtics/, CIAL/Deployment/License/http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/commercial/deployment/license/ HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
 | Parametre         | Tür     | Açıklama | Gerekli |
 |-------------------|----------|-------------|----------|
-| top               | string   | İstekte döndürülecek veri satır sayısı. Belirtilen en büyük değer ve varsayılan değer 10000 ' dir. Sorguda daha fazla satır varsa, yanıt gövdesi sonraki veri sayfasını istemek için kullanabileceğiniz bir sonraki bağlantıyı içerir. | No |
-| Atla              | int      | Sorgudaki atlanacak satır sayısı. Büyük veri kümeleri üzerinden sayfa eklemek için bu parametreyi kullanın. Örneğin, top = 10000 ve Skip = 0 verilerin ilk 10000 satırını alır, top = 10000 ve Skip = 10000 sonraki 10000 satırlık verileri alır ve bu şekilde devam eder. | No |
-| filtre            | string   | İsteğin *filtre* parametresi, yanıttaki satırları filtreleyen bir veya daha fazla deyim içeriyor. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir `eq` `ne` ve deyimler or kullanılarak birleştirilebilir `and` `or` . Aşağıda bazı örnek *filtre* parametreleri verilmiştir:<br/><br/> *Filter = serviceCode EQ ' O365 '*<br/> *Filter = serviceCode EQ ' O365 '* veya (*Channel EQ ' Bayi '*)<br/><br/> Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**serviceCode**<br/>**HizmetAdı**<br/>**kanalla**<br/>**Customertenantıd**<br/>**customerName**<br/>**ProductID**<br/>**productName**  | No |
-| ölçütü           | string   | Yalnızca belirtilen alanlara veri toplamayı uygulayan bir ifade. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**serviceCode**<br/>**HizmetAdı**<br/>**kanalla**<br/>**Customertenantıd**<br/>**customerName**<br/>**ProductID**<br/>**productName**<br/><br/> Döndürülen veri satırları, *GroupBy* parametresinde belirtilen alanları ve aşağıdakileri içerir:<br/><br/>**Licensesdağıtıldı**<br/>**Lisanssesseski**  | No |
-| processedDateTime | DateTime | Bunlardan biri, kullanım verilerinin işlendiği tarihi belirtebilir. Verilerin işlendiği tarih varsayılan olarak en geç | No |
+| top               | string   | İstekte geri dönecek veri satırlarının sayısı. Belirtilmezse en büyük değer ve varsayılan değer 10000'tir. Sorguda daha fazla satır varsa yanıt gövdesi, sonraki veri sayfasını talep etmek için kullanabileceğiniz bir sonraki bağlantı içerir. | Hayır |
+| Atla              | int      | Sorguda atlana satır sayısı. Büyük veri kümelerini sayfalara yapmak için bu parametreyi kullanın. Örneğin, top=10000 ve skip=0 ilk 10000 veri satırlarını, top=10000 ve skip=10000 sonraki 10000 satırı ve bu şekilde devam ediyor. | Hayır |
+| filtre            | string   | *İsteğin* filtre parametresi, yanıtta satırları filtreleen bir veya daha fazla deyim içerir. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir ve `eq` `ne` deyimleri veya kullanılarak bir `and` araya `or` olabilir. Bazı örnek filtre *parametreleri şu* şekildedir:<br/><br/> *filter=serviceCode eq 'O365'*<br/> *filter=serviceCode eq 'O365'* veya (*channel eq 'Reseller'*)<br/><br/> Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**  | Hayır |
+| Groupby           | string   | Yalnızca belirtilen alanlara veri toplaması uygulanan bir deyim. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**<br/><br/> Döndürülen veri satırları *groupby* parametresinde belirtilen alanları ve şunları içerir:<br/><br/>**dağıtılan lisanslar**<br/>**licensesSold**  | Hayır |
+| processedDateTime | DateTime | Kullanım verileri işlenme tarihini belirtebilirsiniz. Verilerin işlenme tarihi varsayılan olarak en son tarihtir | Hayır |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -59,24 +55,24 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi dağıtılan lisanslar hakkında veri içeren aşağıdaki alanları içerir.
+Başarılı olursa, yanıt gövdesi dağıtılan lisanslar hakkında verileri içeren aşağıdaki alanları içerir.
 
-| Alan             | Tür     | Description                           |
+| Alan             | Tür     | Açıklama                           |
 |-------------------|----------|---------------------------------------|
 | serviceCode       | string   | Hizmet kodu                          |
-| HizmetAdı       | string   | Hizmet adı                          |
-| kanalla           | string   | Kanal adı, satıcı                |
-| Customertenantıd  | string   | Müşteri için benzersiz tanımlayıcı    |
-| customerName      | string   | Müşteri adı                         |
+| Hizmetadı       | string   | Hizmet adı                          |
+| Kanal           | string   | Kanal adı, kurumsal bayi                |
+| customerTenantId  | string   | Müşterinin benzersiz tanımlayıcısı    |
+| Müşteriadı      | string   | Müşteri adı                         |
 | productId         | string   | Ürün için benzersiz tanımlayıcı     |
-| productName       | string   | Ürün adı                          |
-| Licensesdağıtıldı  | long     | Dağıtılan lisansların sayısı           |
-| Lisanssesseski      | long     | Satılan lisansların sayısı               |
-| processedDateTime | DateTime | Verilerin son işlendiği tarih |
+| Productname       | string   | Ürün adı                          |
+| dağıtılan lisanslar  | long     | Dağıtılan lisans sayısı           |
+| licensesSold      | long     | Satılan lisans sayısı               |
+| processedDateTime | DateTime | Verilerin son işlenme tarihi |
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -4,21 +4,16 @@ description: Tüm arama Analizi bilgilerini alma.
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 967f8d0ed2d276e0f68a047204b64d83dc69da95
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: e789a013b01fb63a38c72f4fe94864ecf21f7e4b
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768758"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760173"
 ---
 # <a name="get-all-search-analytics-information"></a>Tüm arama analizi bilgilerini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Müşterileriniz için tüm arama Analizi bilgilerini alma.
 
@@ -36,7 +31,7 @@ Müşterileriniz için tüm arama Analizi bilgilerini alma.
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-|    Parametre     |  Tür  |                                                                                                                   Description                                                                                                                    |
+|    Parametre     |  Tür  |                                                                                                                   Açıklama                                                                                                                    |
 |------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      filtre      | string |                                                                     Filtre koşuluyla eşleşen verileri döndürür. </br> **Örnek:**</br> `.../search?filter=field eq 'value'`                                                                     |
 |     ölçütü      | string |                                         Hem hüküm hem de tarihleri destekler. Demet sayısını sınırlandırmak için kısa devre mantığı. </br> **Örnek:**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |

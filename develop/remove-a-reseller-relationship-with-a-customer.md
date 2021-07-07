@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 084797997e57c63b5c447379bb08ecb88ebd0cc4
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 45eca3564c3b9078e04d1f8155d08849a589d52f
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769604"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446607"
 ---
 # <a name="remove-a-reseller-relationship-with-a-customer"></a>Bir müşteriyle kurumsal bayi ilişkisini kaldırma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Artık işlem sahibi olmayan bir müşteriyle satıcı ilişkisini kaldırın.
 
@@ -35,7 +31,7 @@ Bir müşterinin satıcı ilişkisini kaldırmak için, ilk olarak söz konusu m
 
 Müşteri için herhangi bir Azure ayrılmış sanal makine örneğinin iptal edilip edilmesinin gerekip gerekmediğini belirlemek için, müşteriyi belirtmek için müşteri tanımlayıcısını kullanarak [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini ve yetkilendirme toplama işlemlerine bir arabirim almak Için [**yetkilendirmeler**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğini çağırarak yetkilendirmelerin koleksiyonunu alın. Yetkilendirme koleksiyonunu almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) metodunu çağırın. Koleksiyonu, [**EntitlementType**](entitlement-resources.md#entitlementtype) değeri [**EntitlementType. Virtualmachinereservedınstance**](entitlement-resources.md#entitlementtype) olan herhangi bir yetkilendirmeden filtreleyin ve varsa, devam etmeden önce destek çağırarak bunları iptal edin.
 
-Ardından, müşteriyi belirtmek için müşteri tanımlayıcısını kullanarak [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini ve abonelik koleksiyonu işlemlerine bir arabirim almak için [**abonelikler**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğini çağırarak müşterinin aboneliklerinin bir koleksiyonunu alın. Son olarak, müşterinin abonelikler koleksiyonunu almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) yöntemini çağırın. Abonelik koleksiyonunda çapraz geçiş yapın ve aboneliklerden hiçbirinin bir abonelikler olduğundan emin olun. [**Subscriptionstatus. Active**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)öğesinin [**Status**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) Özellik değeri. Abonelik hala etkin ise, nasıl askıya alınacağı hakkında bilgi edinmek için [aboneliği askıya alma](https://review.docs.microsoft.com/partner-center/develop/suspend-a-subscription) bölümüne bakın.
+Ardından, müşteriyi belirtmek için müşteri tanımlayıcısını kullanarak [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini ve abonelik koleksiyonu işlemlerine bir arabirim almak için [**abonelikler**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğini çağırarak müşterinin aboneliklerinin bir koleksiyonunu alın. Son olarak, müşterinin abonelikler koleksiyonunu almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) yöntemini çağırın. Abonelik koleksiyonunda çapraz geçiş yapın ve aboneliklerden hiçbirinin bir abonelikler olduğundan emin olun. [**Subscriptionstatus. Active**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)öğesinin [**Status**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) Özellik değeri. Abonelik hala etkin ise, nasıl askıya alınacağı hakkında bilgi edinmek için [aboneliği askıya alma](suspend-a-subscription.md) bölümüne bakın.
 
 Söz konusu müşteri için tüm etkin Azure ayrılmış sanal makine örneklerinin iptal edildiğini ve tüm etkin aboneliklerinin askıya alındığını doğruladıktan sonra, müşterinin satıcı ilişkisini kaldırabilirsiniz. İlk olarak, [Customer. RelationshipToPartner/DotNet/api/Microsoft. Store. partnercenter. model. Customers. Customer. relationshiptopartner) özelliği [**Customerpartnerrelationship. None**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerpartnerrelationship)olarak ayarlanmış yeni bir [Customer/DotNet/API/Microsoft. Store. partnercenter. model. Customers. Customer) nesnesi oluşturun. Ardından müşteriyi belirtmek için müşteri tanımlayıcısını kullanarak [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) metodunu çağırın ve yeni müşteri nesnesine geçirerek **Patch** yöntemini çağırın.
 
@@ -81,7 +77,7 @@ if (customer.RelationshipToPartner == CustomerPartnerRelationship.None)
 }
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresample **sınıfı**: DeletePartnerCustomerRelationship.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: deletepartnercustomerrelationship. cs
 
 ## <a name="rest-request"></a>REST isteği
 

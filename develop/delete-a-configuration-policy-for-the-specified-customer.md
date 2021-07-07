@@ -4,19 +4,16 @@ description: Belirtilen müşteri ve ilke tanımlayıcısı için yapılandırma
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 586878367fc0873ef0fb1415799b2b7022954053
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 2d6a7d392bd6af6850eb7716528e6745943bb7bb
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769389"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973035"
 ---
 # <a name="delete-a-configuration-policy-for-the-specified-customer"></a>Belirtilen müşteri için yeni bir yapılandırma ilkesini silme
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
 
 Belirtilen müşteri ve ilke tanımlayıcısı için yapılandırma ilkesini silme.
 
@@ -46,7 +43,7 @@ string selectedPolicyId;
 partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedPolicyId).Delete();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: DeleteConfigurationPolicy.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: deleteconfigurationpolicy. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -71,7 +68,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 

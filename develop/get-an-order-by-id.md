@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 0a39d7142e5bf97f9fb345416964d4ed6bb935ad
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 2cb2822935113fe1c5337b4ffc899fccff333d2f
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769869"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760190"
 ---
 # <a name="get-an-order-by-id"></a>Kimliğe göre bir sipariş alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Müşteri ve sipariş KIMLIĞIYLE eşleşen bir [sipariş](order-resources.md) kaynağı alır.
 
@@ -49,7 +44,7 @@ Müşterinin sırasını KIMLIĞE göre almak için:
 var order = partnerOperations.Customers.ById(selectedCustomerId).Orders.ById(selectedOrderId).Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresample **sınıfı**: GetOrder.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: GetOrder. cs
 
 ## <a name="java"></a>Java
 

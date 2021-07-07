@@ -4,18 +4,14 @@ description: Bir kullanıcı hesabına bağlı tüm rollerin/izinlerin bir liste
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8dad5c035c08905c3d39052de07ebb912452a16b
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8f58e8b7eae5bb47265bb1ac83fcdcd160f735d2
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768908"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445927"
 ---
 # <a name="get-user-roles-for-a-customer"></a>Müşteri için kullanıcı rolleri alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Bir kullanıcı hesabına bağlı tüm rollerin/izinlerin bir listesini alın. Çeşitlemeler, bir müşterinin tüm Kullanıcı hesapları genelinde tüm izinlerin listesini almayı ve belirli bir role sahip olan kullanıcıların bir listesini almayı içerir.
 
@@ -36,7 +32,7 @@ Belirtilen bir müşterinin tüm dizin rollerini almak için, önce belirtilen m
 var directoryRoles = partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetCustomerDirectoryRoles.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getcustomerdirectoryroles. cs
 
 Belirli bir rolü olan müşteri kullanıcılarının listesini almak için, önce belirtilen müşteri KIMLIĞINI ve dizin rolü KIMLIĞINI alın. Ardından, **ıaggregatepartner. Customers** koleksiyonunuzu kullanın ve **byıd ()** yöntemini çağırın. Daha sonra **Directoryroles** özelliğini ve ardından **byıd ()** yöntemini çağırın, ardından **Usermembers** özelliği, ardından **Get ()** veya **GetAsync ()** yöntemi tarafından izlenir.
 
@@ -48,7 +44,7 @@ Belirli bir rolü olan müşteri kullanıcılarının listesini almak için, ön
 var userMembers = partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selectedDirectoryRoleId).UserMembers.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnersdk. Featuresamples **sınıfı**: GetCustomerDirectoryRoleUserMembers.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresamples **sınıfı**: getcustomerdirectoryroleusermembers. cs
 
 ## <a name="rest-request"></a>REST isteği
 

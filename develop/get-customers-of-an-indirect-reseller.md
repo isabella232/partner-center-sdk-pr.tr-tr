@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: e4219f544a74bb3f34ec3aefe08cf18eed77fd42
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: e05248b16b803529258de806c25b117f3104ad2a
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769688"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446335"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>Dolaylı bir satıcının müşterilerini alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Dolaylı bir satıcı müşterilerinin listesini alma.
 
@@ -70,7 +66,7 @@ while (customersEnumerator.HasValue)
 }
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md)**PROJESI**: iş ortağı Merkezi SDK örnekleri **sınıfı**: GetCustomersOfIndirectReseller.cs
+**örnek**: [konsol test uygulaması](console-test-app.md)**Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getcustomersofındirectbayi. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -86,7 +82,7 @@ while (customersEnumerator.HasValue)
 
 | Ad   | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| boyut   | int    | No       | Tek seferde görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır.                                                                                                                                                                                                                |
+| boyut   | int    | Hayır       | Tek seferde görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır.                                                                                                                                                                                                                |
 | filtre | filtre | Yes      | Aramaya filtre uygulayan sorgu. Belirtilen bir dolaylı satıcı için müşterileri almak üzere, dolaylı satıcı tanımlayıcısını eklemeniz ve şu dizeyi içermelidir: {"Field": "ındirectbayi", "Value": "{dolaylı satıcı tanımlayıcısı}", "operator": " \_ ile başlar"}. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri

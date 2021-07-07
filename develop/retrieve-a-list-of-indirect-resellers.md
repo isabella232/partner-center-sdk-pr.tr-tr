@@ -4,18 +4,14 @@ description: Oturum açmış ortağın dolaylı satıcıların listesini alma.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e53237b97fa26d3a987f0ee7de491084b596af4a
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 58f5c3378b5b941fdc9dafcf28f5efbc58c29c7c
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769785"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446573"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>Dolaylı satıcıların bir listesini alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Oturum açmış ortağın dolaylı satıcıların listesini alma.
 
@@ -33,7 +29,7 @@ Oturum açmış iş ortağının ilişkiye sahip olduğu dolaylı satıcıların
 var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipType.IsIndirectCloudSolutionProviderOf);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md)**PROJESI**: iş ortağı Merkezi SDK örnekleri **sınıfı**: GetIndirectResellers.cs
+**örnek**: [konsol test uygulaması](console-test-app.md)**Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getındirectsatıcıları. cs
 
 ## <a name="rest-request"></a>REST isteği
 

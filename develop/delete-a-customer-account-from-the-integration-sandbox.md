@@ -1,61 +1,56 @@
 ---
 title: Tümleştirme korumalı alandan bir müşteri hesabını silme
-description: Üretim (tıp) tümleştirme korumalı alanındaki sınamadan bir müşteri hesabını silme.
+description: Bir müşteri hesabını Üretimde Test (İpucu) tümleştirme korumalı alandan silme.
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e3a1642c0202c174ddd4f65a6aeda2752def9176
-ms.sourcegitcommit: b1ff781b67b1d322820bbcac2c583229201a8c07
+ms.openlocfilehash: b9d9e44ac9c40bd4e3c7e1a9e04253f853dfd96c
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "97769424"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973137"
 ---
 # <a name="delete-a-customer-account-from-the-integration-sandbox"></a>Tümleştirme korumalı alandan bir müşteri hesabını silme
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bu makalede, iş ortağı ile müşteri hesabı arasındaki ilişkiyi bölmek ve üretim (tıp) tümleştirme korumalı alanında test için kotayı geri kazanmak açıklanmaktadır.
+Bu makalede iş ortağı ile müşteri hesabı arasındaki ilişkiyi kesme ve Üretimde Test (İpucu) tümleştirme korumalı alanı kotasını geri kazanma açıklanmıştır.
 
 > [!IMPORTANT]
-> Bir müşteri hesabını sildiğinizde, bu müşteri kiracısıyla ilişkili tüm kaynaklar temizlenir.
+> Bir müşteri hesabını silebilirsiniz. Bu müşteri kiracısı ile ilişkili tüm kaynaklar temiz olur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Bir müşteri, tıp tümleştirme korumalı alanından silinmeden önce tüm Azure ayrılmış sanal makine örneklerinin ve yazılım satın alma siparişlerinin iptal edilmesi gerekir.
+- İpucu Azure Ayrılmış Sanal Makine Örnekleri alanından müşteri silmeden önce tüm yazılım satın alma siparişlerini ve yazılım satın alma siparişlerini iptal etmeniz gerekir.
 
 ## <a name="c"></a>C\#
 
-Bir müşteriyi tıp tümleştirme korumalı alanından silmek için:
+İpucu tümleştirme korumalı alandan bir müşteri silmek için:
 
-1. İş ortağı işlemlerine bir [**ıpartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) arabirimi almak için tıp hesabı kimlik bilgilerinizi [**createpartneroperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) metoduna geçirin.
+1. İş ortağı işlemlerine bir [**IPartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) arabirimi almak için İpucu hesabı kimlik bilgilerinizi [**CreatePartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) yöntemine girin.
 
-2. Yetkilendirmeler koleksiyonunu almak için iş ortağı işlemler arabirimini kullanın:
+2. Yetkilendirme koleksiyonunu almak için iş ortağı işlemleri arabirimini kullanın:
 
-    1. Müşteriyi belirtmek için müşteri tanımlayıcısı ile [**Customers. byıd ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın.
+    1. Müşteriyi [**belirtmek için müşteri tanımlayıcısıyla Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırma.
 
-    2. **Yetkilendirmeler** özelliğini çağırın.
+    2. **Yetkilendirmeler özelliğini** çağırma.
 
-    3. [**Yetkilendirme**](entitlement-resources.md) koleksiyonunu almak için **Get** veya **GetAsync** metodunu çağırın.
+    3. Yetkilendirme koleksiyonunu almak için **Get** **veya GetAsync** [**yöntemini**](entitlement-resources.md) çağırma.
 
-3. Söz konusu müşteriye ait tüm Azure ayrılmış sanal makine örneklerinin ve yazılım satın alma siparişlerinin iptal edildiğinden emin olun. Koleksiyondaki her [**Yetkilendirme**](entitlement-resources.md) için:
+3. Bu müşteriye Azure Ayrılmış Sanal Makine Örnekleri satın alma siparişlerini iptal etmelerini sağlar. Koleksiyonda [**her Yetkilendirme**](entitlement-resources.md) için:
 
-    1. [**Yetkilendirme kullanın. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) , müşterinin sipariş koleksiyonundan Ilgili [siparişin](order-resources.md#order) yerel bir kopyasını almak için.
+    1. Yetkilendirmeyi [**kullanın. ReferenceOrder.Id**](entitlement-resources.md#referenceorder) sipariş koleksiyonundan ilgili [Siparişin](order-resources.md#order) yerel bir kopyasını almak için kullanın.
 
-    2. [**Order. Status**](order-resources.md#order) özelliğini "iptal edildi" olarak ayarlayın.
+    2. [**Order.Status özelliğini**](order-resources.md#order) "Cancelled" olarak ayarlayın.
 
-    3. Sıralamayı güncelleştirmek için **Patch ()** metodunu kullanın.
+    3. Siparişi **güncelleştirmek için Patch()** yöntemini kullanın.
 
-4. Tüm siparişleri iptal et. Örneğin, aşağıdaki kod örneği, durumu "Iptal edildi" olana kadar her sırayı yoklamak için bir döngü kullanır.
+4. Tüm siparişleri iptal edin. Örneğin, aşağıdaki kod örneği durumu "İptal Edildi" olana kadar her siparişi yoklama amacıyla bir döngü kullanır.
 
     ``` csharp
     // IPartnerCredentials tipAccountCredentials;
@@ -64,7 +59,7 @@ Bir müşteriyi tıp tümleştirme korumalı alanından silmek için:
 
     IPartner tipAccountPartnerOperations = PartnerService.Instance.CreatePartnerOperations(tipAccountCredentials);
 
-    // Get all entitlements whose order must be cancelled.
+    // Get all entitlements whose order must be canceled.
     ResourceCollection<Entitlement> entitlements = tipAccountPartnerOperations.Customers.ById(customerTenantId).Entitlements.Get();
 
     // Cancel all orders
@@ -79,7 +74,7 @@ Bir müşteriyi tıp tümleştirme korumalı alanından silmek için:
     bool proceed = true;
     do
     {
-        // Check if all the orders were cancelled.
+        // Check if all the orders were canceled.
         foreach (var entitlement in entitlements)
         {
             var order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(entitlement.ReferenceOrder.Id).Get();
@@ -97,17 +92,17 @@ Bir müşteriyi tıp tümleştirme korumalı alanından silmek için:
     tipAccountPartnerOperations.Customers.ById(customerTenantId).Delete();
     ```
 
-5. Müşterinin **silme** yöntemini çağırarak tüm siparişlerin iptal edildiğinden emin olun.
+5. Müşteri için Delete yöntemi çağrılarak tüm siparişlerin **iptal** edildiğine emin olun.
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş ortağı Center PartnerCenterSDK. FeaturesSamples **sınıfı**: DeleteCustomerFromTipAccount.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi PartnerCenterSDK.FeaturesSamples **Sınıfı:** DeleteCustomerFromTipAccount.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem     | İstek URI'si                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| DELETE     | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID} http/1.1 |
+| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI parametresi
 
@@ -115,11 +110,11 @@ Bir müşteriyi silmek için aşağıdaki sorgu parametresini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                         |
 |------------------------|----------|----------|-------------------------------------------------------------------------------------|
-| Müşteri-Kiracı kimliği     | GUID     | Y        | Değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-Kiracı kimliği** ' dir. |
+| customer-tenant-id     | GUID     | Y        | Değer, kurumsal bayinin kurumsal **bayiye** ait olan belirli bir müşteri için sonuçları filtrelemesini sağlayan GUID biçimli bir müşteri kiracı kimliğidir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -139,9 +134,9 @@ Content-Length: 0
 
 Başarılı olursa, bu yöntem boş bir yanıt döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

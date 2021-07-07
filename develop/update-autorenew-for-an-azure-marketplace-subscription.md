@@ -4,18 +4,14 @@ description: Müşteri ve abonelik KIMLIĞIYLE eşleşen bir abonelik kaynağı 
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8dccec57901ea4ea429b74044e3b6c28178c43f6
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: cc0b4c4bff5e8762ffcc2552b2e9e36bcf93686c
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769586"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446675"
 ---
 # <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market [abonelik](subscription-resources.md) kaynağı için autorenew özelliğini güncelleştirin.
 
@@ -43,7 +39,7 @@ selectedSubscription.AutoRenewEnabled = false;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresample **sınıfı**: UpdateSubscription.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: updatesubscription. cs
 
 ## <a name="rest-request"></a>REST isteği
 

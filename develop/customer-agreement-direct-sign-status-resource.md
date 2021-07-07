@@ -1,38 +1,32 @@
 ---
-title: Müşteri sözleşmesinin doğrudan imzalama (doğrudan kabul) durumu.
-description: DirectSignedCustomerAgreementStatus kaynağı, müşteri anlaşmasının doğrudan imzalanmasının (doğrudan kabul) durumunu temsil eder.
+title: Müşteri anlaşmasının doğrudan imzalama (doğrudan kabul) durumu.
+description: DirectSignedCustomerAgreementStatus kaynağı, bir müşteri anlaşmasının doğrudan imzalama (doğrudan kabul) durumunu temsil eder.
 ms.date: 02/11/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 9c4fd12ac3319057f3c4034aa0c8d93dcda726c6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d4d97667b5fd6b92c85889f1288dd770c2d1c035
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768795"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973120"
 ---
-# <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>Müşteri sözleşmesinin doğrudan imzası (doğrudan kabul) durumu
+# <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>Müşteri anlaşmasının doğrudan imzalama (doğrudan kabul) durumu
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi
 
-- İş Ortağı Merkezi
+**için geçerli değildir:** İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-**DirectSignedCustomerAgreementStatus** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
+**DirectSignedCustomerAgreementStatus** kaynağı şu anda yalnızca Microsoft genel İş Ortağı Merkezi kaynak tarafından de desteklene bir kaynaktır.
 
-Bu kaynak için *geçerli değildir* :
-
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-**DirectSignedCustomerAgreementStatus** kaynağı, müşteri sözleşmesinin doğrudan kabulünün durumunu temsil eder.
+**DirectSignedCustomerAgreementStatus** kaynağı, müşteri anlaşmasının doğrudan kabul durumunu temsil eder.
 
 ## <a name="directsignedcustomeragreementstatus"></a>DirectSignedCustomerAgreementStatus
 
-Bir **DirectSignedCustomerAgreementStatus** kaynağı aşağıdaki özellikleri içerir:
+**DirectSignedCustomerAgreementStatus** kaynağı aşağıdaki özellikleri içerir:
 
-| Özellik       | Tür   | Description                                                                                               |
+| Özellik       | Tür   | Açıklama                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| isSigned | boolean | Müşteri sözleşmesinin müşteri tarafından doğrudan imzalanıp imzalanmadığını (kabul edildi) gösterir. |
+| ıssigned | boolean | Müşteri anlaşmasının müşteri tarafından doğrudan imzalandı mı (kabul edildi) olduğunu gösterir. |

@@ -1,33 +1,29 @@
 ---
 title: Müşteri için kullanıcı rolleri ayarlama
-description: Bir müşteri hesabı içinde, bir dizi dizin rolü vardır. Bu rollere kullanıcı hesapları atayabilirsiniz.
+description: Bir müşteri hesabı içinde bir dizi dizin rolü vardır. Bu rollere kullanıcı hesapları atabilirsiniz.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f42120e40e54ff8bd6242634d97268091abf8e1c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: a035d711ffa91200fa7b479ed5ec53929aa4feaf
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769592"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446709"
 ---
 # <a name="set-user-roles-for-a-customer"></a>Müşteri için kullanıcı rolleri ayarlama
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Bir müşteri hesabı içinde, bir dizi dizin rolü vardır. Bu rollere kullanıcı hesapları atayabilirsiniz.
+Bir müşteri hesabı içinde bir dizi dizin rolü vardır. Bu rollere kullanıcı hesapları atabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
-Bir müşteri kullanıcısına bir dizin rolü atamak için, ilgili kullanıcı ayrıntıları ile yeni bir [**Usermember**](/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) oluşturun. Ardından, müşteriyi tanımlamak için belirtilen müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Buradan, rolü belirtmek için dizin rolü KIMLIĞIYLE [**Directoryroles. byıd**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) metodunu kullanın. Ardından, **Usermembers** koleksiyonuna erişin ve [**Create**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) metodunu kullanarak yeni Kullanıcı üyesini bu role atanan kullanıcı üyeleri koleksiyonuna ekleyin.
+Bir müşteri kullanıcıya dizin rolü atamak için, ilgili kullanıcı ayrıntılarıyla [**yeni bir UserMember**](/dotnet/api/microsoft.store.partnercenter.models.roles.usermember) oluşturun. Ardından, müşteriyi [**tanımlamak için belirtilen müşteri kimliğiyle IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Burada, rolü belirtmek için [**dizin rolü kimliğiyle DirectoryRoles.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) yöntemini kullanın. Ardından **UserMembers koleksiyonuna** erişin ve [**Create**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.create) yöntemini kullanarak yeni kullanıcı üyesini bu role atanan kullanıcı üyeleri koleksiyonuna ekleyin.
 
 ``` csharp
 // UserMember createdUser;
@@ -47,39 +43,39 @@ UserMember userMemberToAdd = new UserMember()
 var userMemberAdded = partnerOperations.Customers.ById(selectedCustomer.Id).DirectoryRoles.ById(selectedRole.Id).UserMembers.Create(userMemberToAdd);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: AddUserMemberToDirectoryRole.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** AddUserMemberToDirectoryRole.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/directoryroles/{role-id}/usermembers http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Doğru müşteriyi ve rolü tanımlamak için aşağıdaki URI parametrelerini kullanın. Rolün atanacağı kullanıcıyı belirlemek için, istek gövdesinde tanımlama bilgilerini sağlayın.
+Doğru müşteriyi ve rolü belirlemek için aşağıdaki URI parametrelerini kullanın. Rolün atanacak kullanıcıyı belirlemek için, istek gövdesinde tanımlayıcı bilgileri sağlar.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-Kiracı kimliği** ' dir. |
-| **rol kimliği**            | **guid** | Y        | Değer, kullanıcıya atanacak rolü tanımlayan bir GUID biçimli **rol kimliği** olur.                                                              |
+| **customer-tenant-id** | **guid** | Y        | Değer, kurumsal bayinin kurumsal **bayiye** ait olan belirli bir müşteri için sonuçları filtrelemesini sağlayan GUID biçimli bir müşteri kiracı kimliğidir. |
+| **role-id**            | **guid** | Y        | Değer, kullanıcıya atanma **rolünü tanımlayan GUID** biçimli bir rol kimliğidir.                                                              |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
 | Ad                  | Tür       | Gerekli | Açıklama                            |
 |-----------------------|------------|----------|----------------------------------------|
-| **Numarasını**                | **dizisinde** | Y        | Role eklenecek kullanıcının kimliği. |
-| **DisplayName**       | **dizisinde** | Y        | Kullanıcının kolay görünen adı. |
-| **UserPrincipalName** | **dizisinde** | Y        | Kullanıcı sorumlusunun adı.        |
-| **Öznitelikler**        | **nesne** | Y        | "ObjectType" içerir: "UserMember"     |
+| **Kimliği**                | **string** | Y        | Role eklemek istediğiniz kullanıcının kimliği. |
+| **DisplayName**       | **string** | Y        | Kullanıcının kolay görünen adı. |
+| **Userprincipalname** | **string** | Y        | Kullanıcı sorumlusu adı.        |
+| **Öznitelikler**        | **Nesne** | Y        | "ObjectType":"UserMember" içerir     |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -107,11 +103,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Bu yöntem, Kullanıcı rolü başarıyla atandığında eklenen rol kimliğine sahip kullanıcı hesabını döndürür.
+Bu yöntem, kullanıcıya başarıyla rol atandığı zaman rol kimliği eklenmiş kullanıcı hesabını döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

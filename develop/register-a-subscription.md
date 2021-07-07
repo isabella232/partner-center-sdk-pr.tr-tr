@@ -1,39 +1,35 @@
 ---
 title: Bir aboneliğe kaydolma
-description: Mevcut bir aboneliği Azure ayırmalarını sıralamak için etkin olacak şekilde kaydettirin.
+description: Azure rezervasyonlarını sipariş etmek için etkinleştirilmesi için mevcut bir aboneliği kaydetme.
 ms.date: 07/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9a96bb350f22430c9fd7a1759e336cc9f3ca1939
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: d26a7c77f60e6ef817cde80b9e97c88bd8bdc786
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769652"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446624"
 ---
 # <a name="register-a-subscription"></a>Bir aboneliğe kaydolma
 
-**Uygulama hedefi**
+Azure [rezervasyonlarını sipariş](subscription-resources.md) etmek için etkinleştirilmesi için mevcut bir Aboneliği kaydetme.
 
-- İş Ortağı Merkezi
-
-Mevcut bir [aboneliği](subscription-resources.md) Azure ayırmalarını sıralamak için etkin olacak şekilde kaydettirin.
-
-Bir Azure ayırması satın almak için, en az bir tane mevcut CSP Azure aboneliğiniz olması gerekir. Bu yöntem, mevcut CSP Azure aboneliğinizi kaydetmenizi sağlar ve bunu Azure ayırmaları satın almak üzere etkinleştirir.
+Azure rezervasyonu satın almak için en az bir CSP Azure aboneliğinizin olması gerekir. Bu yöntem, mevcut CSP Azure aboneliğinizi kaydederek Azure rezervasyonları satın almak için etkinleştirmenize olanak sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Abonelik KIMLIĞI.
+- Abonelik kimliği.
 
 ## <a name="c"></a>C\#
 
-Müşterinin aboneliğini kaydetmek için, müşteriyi tanımlamak üzere [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) YÖNTEMINI Müşteri kimliğiyle çağırarak abonelik işlemlerine bir arabirim alın. Ardından, kaydolduğunuz aboneliği tanımlamak için abonelik KIMLIĞIYLE birlikte [**Subscription. Byıd ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) yöntemini çağırın.
+Müşterinin aboneliğini kaydetmek için müşteri kimliğini kullanarak [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak abonelik işlemlerine bir arabirim alın. Ardından, kaydetmekte olduğunu aboneliği tanımlamak için [**Subscription.ById()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) yöntemini abonelik kimliğiyle birlikte çağırabilirsiniz.
 
-Son olarak, aboneliği kaydetmek ve abonelik kayıt durumunu almak için kullanılabilecek bir URI almak için **kayıt. Register ()** yöntemini çağırın. Daha fazla bilgi için bkz. [abonelik kayıt durumunu Al](get-subscription-registration-status.md).
+Son olarak, aboneliği kaydetmek ve abonelik kayıt durumunu almak için uri'yi almak için **Registration.Register()** yöntemini arayın. Daha fazla bilgi için [bkz. Abonelik kayıt durumunu alma.](get-subscription-registration-status.md)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -46,11 +42,11 @@ var subscriptionRegistrationDetails = partnerOperations.Customers.ById(selectedC
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| **Yayınla**  | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Subscriptions/{Subscription-id}/kayıtlar http/1.1 |
+| **Yayınla**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
@@ -58,12 +54,12 @@ Müşteriyi ve aboneliği tanımlamak için aşağıdaki yol parametrelerini kul
 
 | Ad                    | Tür       | Gerekli | Açıklama                                                   |
 |-------------------------|------------|----------|---------------------------------------------------------------|
-| müşteri kimliği             | string     | Yes      | Müşteriyi tanımlayan GUID biçimli dize.         |
-| abonelik kimliği         | string     | Yes      | Aboneliği tanımlayan GUID biçimli dize.     |
+| customer-id             | string     | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize.         |
+| subscription-id         | string     | Yes      | Aboneliği tanımlayan GUID biçimli bir dize.     |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -85,11 +81,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt, abonelik kayıt durumunu almak için kullanılabilecek bir URI içeren bir **konum** üst bilgisi içerir. Bu URI 'yi diğer ilgili REST API 'Leri ile kullanmak üzere kaydedin. Durumu alma hakkında bir örnek için bkz. [abonelik kayıt durumunu alma](get-subscription-registration-status.md).
+Başarılı olursa yanıt, abonelik **kayıt durumunu** almak için URI'ye sahip bir Konum üst bilgisi içerir. Bu URI'yi diğer ilgili REST API'leriyle kullanmak üzere kaydedin. Durumu alma örneği için bkz. [Abonelik kayıt durumunu alma.](get-subscription-registration-status.md)
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

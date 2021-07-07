@@ -4,19 +4,16 @@ description: Belirtilen müşteriye ait olan bir cihazı silme.
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 69b5440f2cf07d3cb4ecd5addf429acd64530257
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: a1e05ceb8615d6f84c1df101c542342f9a6eb04b
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769388"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973086"
 ---
 # <a name="delete-a-device-for-the-specified-customer"></a>Belirtilen müşteri için bir cihazı silme
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
 
 Bu makalede, belirtilen müşteriye ait olan bir cihazın nasıl silineceği açıklanmaktadır.
 
@@ -51,7 +48,7 @@ string selectedDeviceId;
 partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.ById(selectedDeviceBatchId).Devices.ById(selectedDeviceId).Delete();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: DeleteDevice.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: deletedevice. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -77,7 +74,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 

@@ -1,35 +1,31 @@
 ---
-title: Self Servis ilkesini silme
-description: Self Servis ilkesini silme.
+title: Self servis ilkesi silme
+description: Self servis ilkesi silme.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3450145d6daf2ffca5e2886245e592406cb0886d
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: 063cf98d4c78e82622e486427baeb1a5721715e5
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97770226"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973103"
 ---
-# <a name="delete-a-selfservepolicy"></a>Bir SelfServePolicy silme
+# <a name="delete-a-selfservepolicy"></a>SelfServePolicy silme
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bu konu, bir self servis ilkesinin nasıl güncelleştireceğinizi açıklar.
+Bu makalede self servis ilkesi güncelleştirme işlemi açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Self Servis ilkesini silmek için:
+Self servis ilkesi silmek için:
 
-1. İlkelerdeki işlemlere bir arabirim almak için, varlık tanımlayıcısıyla [**ıaggregatepartner. SelfServePolicies. Byıd**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) metodunu çağırın.
+1. İlkeler üzerinde işlemlere bir arabirim almak için varlık tanımlayıcısıyla [**IAggregatePartner.SelfServePolicies.ById**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) yöntemini çağırma.
 
-2. Self Servis ilkesini silmek için [**Delete**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.delete) veya [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.deleteasync) yöntemini çağırın.
+2. Self servis [**ilkeyi**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.delete) silmek için Delete veya [**DeleteAsync**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.deleteasync) yöntemini çağırma.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,17 +40,17 @@ partnerOperations.SelfServePolicies.ById(policyId).Delete();
 
 Bir örnek için aşağıdakilere bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSamples**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Sınıf: **DeleteSelfServePolicies.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **SILMELI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} http/1.1 |
+| **Silmek** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} HTTP/1.1 |
 
 **URI parametresi**
 
@@ -62,12 +58,12 @@ Belirtilen ürünü almak için aşağıdaki yol parametrelerini kullanın.
 
 | Ad                       | Tür         | Gerekli | Açıklama                                                     |
 |----------------------------|--------------|----------|-----------------------------------------------------------------|
-| **SelfServePolicy kimliği**     | **dizisinde**   | Yes      | Self Servis ilkesini tanımlayan bir dize.                 |
+| **SelfServePolicy-id**     | **string**   | Yes      | Self servis ilkesi tanımlayan bir dize.                 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-- İstek KIMLIĞI ve bağıntı KIMLIĞI gereklidir.
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üst bilgileri](headers.md) .
+- İstek kimliği ve bağıntı kimliği gereklidir.
+- Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -90,9 +86,9 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

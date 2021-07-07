@@ -1,43 +1,39 @@
 ---
 title: Silinen bir kullanıcıyı bir müşteri için geri yükleme
-description: Silinen bir kullanıcıyı müşteri KIMLIĞINE ve Kullanıcı KIMLIĞINE göre geri yükleme.
+description: Silinen bir Kullanıcının müşteri kimliğine ve kullanıcı kimliğine göre geri yükleme.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9fd86a268c804a2fdd5efd67a8982afc043c95a6
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 23caf91c6b29b292c2638b4a1ad208c606c47492
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769797"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445723"
 ---
 # <a name="restore-a-deleted-user-for-a-customer"></a>Silinen bir kullanıcıyı bir müşteri için geri yükleme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Silinen bir **kullanıcıyı** müşteri kimliğine ve kullanıcı kimliğine göre geri yükleme.
+Silinen bir Kullanıcının müşteri **kimliğine ve** kullanıcı kimliğine göre geri yükleme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Kullanıcı kimliği. Kullanıcı KIMLIĞINIZ yoksa, bkz. [bir müşteri için silinen kullanıcıları görüntüleme](view-a-deleted-user.md).
+- Kullanıcı kimliği. Kullanıcı kimliğiniz yoksa bkz. [Müşteri için silinen kullanıcıları görüntüleme.](view-a-deleted-user.md)
 
-## <a name="when-can-you-restore-a-deleted-user-account"></a>Silinen bir kullanıcı hesabını geri yüklemek ne zaman olabilir?
+## <a name="when-can-you-restore-a-deleted-user-account"></a>Silinen bir kullanıcı hesabını ne zaman geri yükleyebilirsiniz?
 
-Bir kullanıcı hesabını sildiğinizde Kullanıcı durumu "devre dışı" olarak ayarlanır. Bu, otuz gün boyunca, Kullanıcı hesabının ve ilişkili verilerinin temizlenme ve kurtarılamaz hale getirilme yolunda kalır. Silinen bir kullanıcı hesabını yalnızca bu otuz günlük pencere sırasında geri yükleyebilirsiniz. Silinen ve "etkin olmayan" olarak işaretlenen "etkin değil" Kullanıcı hesabı artık kullanıcı koleksiyonunun bir üyesi olarak döndürülmez (örneğin, [bir müşterinin tüm Kullanıcı hesaplarının listesini al](get-a-list-of-all-user-accounts-for-a-customer.md)' ı kullanarak).
+Bir kullanıcı hesabını silebilirsiniz, kullanıcı durumu "etkin değil" olarak ayarlanır. 30 gün boyunca bu şekilde kalır ve bu sürenin ardından kullanıcı hesabı ve ilişkili verileri temizlenebilir ve kurtarılamaz hale değiştirilebilir. Silinen bir kullanıcı hesabını yalnızca bu 30 günlük süre boyunca geri yükleyebilirsiniz. Silinen ve "etkin olmayan" olarak işaretlenen kullanıcı hesabı artık kullanıcı koleksiyonunun bir üyesi olarak döndürülemez (örneğin, Bir müşteri için tüm kullanıcı hesaplarının listesini [al](get-a-list-of-all-user-accounts-for-a-customer.md)kullanılarak).
 
 ## <a name="c"></a>C\#
 
-Bir kullanıcıyı geri yüklemek için [**customeruser**](/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) sınıfının yeni bir örneğini oluşturun ve [**User. State**](/dotnet/api/microsoft.store.partnercenter.models.users.user.state) özelliğinin değerini [**userState. Active**](/dotnet/api/microsoft.store.partnercenter.models.users.userstate)olarak ayarlayın.
+Bir kullanıcı geri yüklemek için [**CustomerUser**](/dotnet/api/microsoft.store.partnercenter.models.users.customeruser) sınıfının yeni bir örneğini oluşturun ve User.State özelliğinin değerini [**UserState.Active**](/dotnet/api/microsoft.store.partnercenter.models.users.user.state) [**olarak ayarlayın.**](/dotnet/api/microsoft.store.partnercenter.models.users.userstate)
 
-Silinen bir kullanıcıyı, kullanıcının durumunu etkin olarak ayarlayarak geri yükleyebilirsiniz. Kullanıcı kaynağındaki kalan alanları yeniden doldurmanız gerekmez. Bu değerler, silinen, etkin olmayan kullanıcı kaynağından otomatik olarak geri yüklenir. Ardından, müşteriyi tanımlamak için müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini ve kullanıcıyı tanımlamak için [**Users. byıd**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini kullanın.
+Silinen bir kullanıcının durumunu etkin olarak ayarerek geri yükleyebilirsiniz. Kullanıcı kaynağında kalan alanları yeniden doldurmanız zorunda değildir. Bu değerler silinen, etkin olmayan kullanıcı kaynağından otomatik olarak geri yüklenir. Ardından [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri kimliğiyle birlikte kullanarak müşteriyi ve kullanıcıyı tanımlamak için [**Users.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini kullanın.
 
-Son olarak, [**yama**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) yöntemini çağırın ve kullanıcıyı geri yükleme isteğini göndermek Için **customeruser** örneğini geçirin.
+Son olarak [**Patch yöntemini çağırarak**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.patch) **CustomerUser örneğini** geçarak kullanıcıya geri yükleme isteği gönderin.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,37 +49,37 @@ var updatedCustomerUser = new CustomerUser()
 var restoredCustomerUserInfo = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Patch(updatedCustomerUser);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: CustomerUserRestore.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** CustomerUserRestore.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                            |
 |-----------|--------------------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Users/{User-ID} http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Müşteri kimliğini ve Kullanıcı kimliğini belirtmek için aşağıdaki sorgu parametrelerini kullanın.
+Müşteri kimliğini ve kullanıcı kimliğini belirtmek için aşağıdaki sorgu parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                              |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Değer, satıcının sonuçları belirli bir müşteriye filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-Kiracı kimliği** olur. |
-| **Kullanıcı kimliği**            | **guid** | Y        | Değer, tek bir kullanıcı hesabına ait olan GUID biçimli bir **Kullanıcı kimliği** olur.                                         |
+| **customer-tenant-id** | **guid** | Y        | Değer, kurumsal bayinin sonuçları belirli bir müşteriye filtrelemesini sağlayan GUID biçimli bir **customer-tenant-id** değeridir. |
+| **user-id**            | **guid** | Y        | Değer, tek bir kullanıcı hesabına ait OLAN GUID biçimli bir **user-id** değeridir.                                         |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
 | Ad       | Tür   | Gerekli | Açıklama                                                            |
 |------------|--------|----------|------------------------------------------------------------------------|
-| Durum      | string | Y        | Kullanıcı durumu. Silinen bir kullanıcıyı geri yüklemek için, bu dize "etkin" içermelidir. |
-| Öznitelikler | object | N        | "ObjectType": "CustomerUser" içerir.                                 |
+| Durum      | string | Y        | Kullanıcı durumu. Silinen bir kullanıcı geri yüklemek için bu dizenin "etkin" olması gerekir. |
+| Öznitelikler | object | N        | "ObjectType": "CustomerUser" ifadesini içerir.                                 |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -109,11 +105,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa yanıt, yanıt gövdesinde geri yüklenen Kullanıcı bilgilerini döndürür.
+Başarılı olursa yanıt, yanıt gövdesinde geri yüklenen kullanıcı bilgilerini döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [REST İş Ortağı Merkezi Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

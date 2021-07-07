@@ -1,39 +1,35 @@
 ---
 title: MFA olmadan portal istekleri alma
-description: Iş ortağı REST API kullanarak Multi-Factor Authentication (MFA) olmadan kullanıcı isteklerinin bir listesini alın.
+description: İş Ortağı kimlik doğrulamasını kullanarak çok faktörlü kimlik doğrulaması (MFA) olmadan kullanıcı isteklerinin REST API.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
-ms.openlocfilehash: fd350aa3301f00926942ae6c6af359b0d0edc423
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 41627751d3402d7712d96c15c4281a25ed9a44a7
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769076"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445587"
 ---
 # <a name="get-portal-requests-without-mfa"></a>MFA olmadan portal istekleri alma
 
-Aşağıdakiler cihazlar için geçerlidir:
-
-- İş Ortağı Merkezi API’si
-
-Bu makalede, çok faktörlü kimlik doğrulamasını (MFA) tamamlamadan Iş Ortağı Merkezi portalına erişen kullanıcılardan gelen en son isteklerin listesinin nasıl alınacağı açıklanmaktadır.
+Bu makalede, çok faktörlü kimlik doğrulamasını (MFA) tamamlamadan İş Ortağı Merkezi kullanıcılardan en son isteklerin listesini alma işlemi açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                  |
 |---------|--------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/nonmfakarmaşıkantpartnerpartnersorumluları |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/nonMfaCompliantPartnerPrincipals |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üst bilgileri](headers.md) .
+- Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -54,11 +50,11 @@ Connection: keep-alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde [Portal istek](mfa-resources.md#portal-request-without-mfa) kaynaklarının bir koleksiyonunu döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde [Portal isteği](mfa-resources.md#portal-request-without-mfa) kaynaklarının bir koleksiyonunu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

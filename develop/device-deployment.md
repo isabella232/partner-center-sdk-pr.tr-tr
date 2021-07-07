@@ -1,24 +1,21 @@
 ---
 title: Cihaz dağıtıma
-description: İş Ortağı Merkezi API cihaz dağıtımı özellikleri, yapılandırma ilkelerini ve cihazları içerir.
+description: İş Ortağı Merkezi API cihaz dağıtım özellikleri yapılandırma ilkelerini ve cihazları içerir.
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 72292ee59955bb35be7ad9d59789a3e109d5f7ec
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 46fd8b53d6d42816d498103192122a81b5f6564f
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768776"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906495"
 ---
 # <a name="device-deployment"></a>Cihaz dağıtıma
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için destek
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-
-Iş Ortağı Merkezi API 'Leri, müşterileriniz için güvenli cihaz kurulumunu basitleştirecek şekilde, sıfır dokunma dağıtım özelliklerine erişim sağlar.
+Bu İş Ortağı Merkezi API'leri, müşterileriniz için güvenli cihaz kurulumunu kolaylaştırmanızı sağlayan sıfır dokunmalı dağıtım özelliklerine erişim sağlar.
 
 ## <a name="configuration-policies"></a>Yapılandırma ilkeleri
 
@@ -32,7 +29,7 @@ Cihaz yapılandırma ilkelerini ekleme, silme, güncelleştirme ve alma hakkınd
 
 ## <a name="devices"></a>Cihazlar
 
-Cihaz toplu işlemleriyle çalışma ve cihaz meta verileri yükleme hakkında konular:
+Cihaz toplu işleri ve cihaz meta verileriyle çalışma ve karşıya yükleme hakkında konular:
 
 - [Cihaz toplu karşıya yükleme durumu alma](get-the-status-of-a-device-batch-upload.md)
 - [Belirtilen müşteri için cihaz toplu işlemlerinin bir listesini alma](get-the-list-of-device-batches-for-the-specified-customer.md)

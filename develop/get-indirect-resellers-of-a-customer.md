@@ -1,35 +1,31 @@
 ---
 title: Müşterinin dolaylı satıcılarını alma
-description: Belirtilen müşteriyle ilişkisi olan dolaylı satıcıların listesini alma.
+description: Belirtilen müşteriyle ilişkisi olan dolaylı kurumsal bayilerin listesini alma.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: d69abf9530548f110820ca04fefb698e0e37556c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 8697c40c22d5c19979c066b8d3a1de733e211f71
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769689"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446250"
 ---
 # <a name="get-indirect-resellers-of-a-customer"></a>Müşterinin dolaylı satıcılarını alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Belirtilen müşteriyle ilişkisi olan dolaylı satıcıların listesini alma.
+Belirtilen müşteriyle ilişkisi olan dolaylı kurumsal bayilerin listesini alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
-Belirtilen müşterinin bir ilişkisi olan dolaylı satıcıların listesini almak için önce müşteriyi tanımlamak üzere müşteri KIMLIĞINI sağlayarak [**partneroperations. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) özelliğinden belirli müşteri için müşteri koleksiyonu işlemlerine bir arabirim alın. Daha sonra [**ilişkileri çağırın.**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) dolaylı satıcıların listesini almak için [**\_ zaman uyumsuz**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) yöntemi alın veya alın.
+Belirtilen müşterinin ilişkisi olan dolaylı kurumsal bayilerin listesini almak için önce [**partnerOperations.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) özelliğinden müşteri kimliğini sağlayarak müşteri koleksiyonu işlemlerine yönelik bir arabirim alın. Ardından dolaylı kurumsal bayilerin listesini almak için [**Relationships.Get**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) veya [**Get \_ Async**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) yöntemini çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,15 +34,15 @@ Belirtilen müşterinin bir ilişkisi olan dolaylı satıcıların listesini alm
  var indirectResellers = partnerOperations.Customers[customerId].Relationships.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md)**PROJESI**: iş ortağı Merkezi SDK örnekleri **sınıfı**: GetIndirectResellersOfCustomer.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md)**Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** GetIndirectResellersOfCustomer.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Relationships http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/relationships HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -54,11 +50,11 @@ Müşteriyi tanımlamak için aşağıdaki yol parametresini kullanın.
 
 | Ad        | Tür   | Gerekli | Açıklama                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| müşteri kimliği | string | Yes      | Müşteriyi tanımlayan GUID biçimli dize. |
+| customer-id | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -78,11 +74,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi satıcıları tanımlamak için bir [Iş ortağı ilişki](relationships-resources.md) kaynakları koleksiyonu içerir.
+Başarılı olursa, yanıt gövdesi kurumsal bayileri tanımlamak için [bir PartnerRelationship](relationships-resources.md) kaynakları koleksiyonu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

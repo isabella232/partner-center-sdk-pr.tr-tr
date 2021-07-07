@@ -1,37 +1,33 @@
 ---
 title: Sepeti güncelleştirme
-description: Bir sepetteki müşteri için bir siparişi güncelleştirme.
+description: Sepette müşteri için sipariş güncelleştirme.
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7c0806ccc87281b9b34005f22cd8d6ad57fb5de5
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8954d4dad39f9b1a1b9a2f213e0231f01856fcd2
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768939"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446692"
 ---
 # <a name="update-a-cart"></a>Sepeti güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Bir sepetteki müşteri için bir siparişi güncelleştirme.
+Sepette müşteri için sipariş güncelleştirme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Mevcut bir sepet için sepet KIMLIĞI.
+- Mevcut sepet için sepet kimliği.
 
 ## <a name="c"></a>C\#
 
-Müşterinin bir siparişini güncelleştirmek için, **Byıd ()** işlevini kullanarak müşteriyi ve sepet kimliğini geçirerek **Get ()** yöntemini kullanarak sepetini alın. Sepette gerekli değişiklikleri yapın. Şimdi, **Byıd ()** yöntemini kullanarak Customer ve sepet kimliği ' ni kullanarak **PUT** metodunu çağırın.
+Müşterinin siparişlerini güncelleştirmek **için, ById()** işlevini kullanarak müşteri ve sepet kimliklerini ileterek Get() yöntemini kullanarak **sepete** sahip olun. Sepette gerekli değişiklikleri yapın. Şimdi **ById()** yöntemini kullanarak müşteri ve sepet kimliklerini kullanarak **Put** yöntemini çağır.
 
-Son olarak, siparişi oluşturmak için **PUT ()** veya **PutAsync ()** metodunu çağırın.
+Son olarak, **siparişi oluşturmak için Put()** veya **PutAsync()** yöntemini arayın.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -47,52 +43,52 @@ var updatedCart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId)
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **PUT** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Carts/{cart-id} http/1.1              |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id} HTTP/1.1              |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-Müşteriyi tanımlamak için aşağıdaki yol parametrelerini kullanın ve güncelleştirileceğini seçin.
+Müşteriyi tanımlamak ve güncelleştirilacak sepeti belirtmek için aşağıdaki yol parametrelerini kullanın.
 
 | Ad            | Tür     | Gerekli | Açıklama                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **müşteri kimliği** | string   | Yes      | Müşteriyi tanımlayan bir GUID biçimli müşteri kimliği.             |
-| **sepet kimliği**     | string   | Yes      | Sepeti tanımlayan bir GUID biçimli sepet kimliği.                     |
+| **customer-id** | string   | Yes      | Müşteriyi tanımlayan GUID biçimlendirilmiş customer-id.             |
+| **cart-id**     | string   | Yes      | Sepeti tanımlayan GUID biçimli sepet kimliği.                     |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tablo, istek gövdesinde [sepet](cart-resources.md) özelliklerini açıklar.
+Bu tablo, istek [gövdesinin](cart-resources.md) Sepet özelliklerini açıklar.
 
 | Özellik              | Tür             | Gerekli        | Açıklama                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| kimlik                    | dize           | No              | Sepet başarıyla oluşturulduktan sonra sağlanan bir sepet tanımlayıcısı.                                  |
-| creationTimeStamp     | DateTime         | No              | Sepetin oluşturulduğu tarih ve saat biçimi. Sepet başarıyla oluşturulduktan sonra uygulandı.        |
-| lastModifiedTimeStamp | DateTime         | No              | Sepetin son güncelleştirildiği tarih ve saat biçimi. Sepet başarıyla oluşturulduktan sonra uygulandı.    |
-| expirationTimeStamp   | DateTime         | No              | Sepetin süresinin dolacağı tarih-saat biçiminde.  Sepet başarıyla oluşturulduktan sonra uygulandı.            |
-| lastModifiedUser      | dize           | No              | Sepetini son güncelleştiren Kullanıcı. Sepet başarıyla oluşturulduktan sonra uygulandı.                             |
-| LineItems             | Nesne dizisi | Yes             | Bir [Cartlineıtem](cart-resources.md#cartlineitem) kaynakları dizisi.                                               |
+| kimlik                    | dize           | No              | Sepetin başarıyla oluşturulmasının ardından sağlanan bir sepet tanımlayıcısı.                                  |
+| creationTimeStamp     | DateTime         | Hayır              | Sepetin tarih-saat biçiminde oluşturulma tarihi. Sepetin başarıyla oluşturulmasının ardından uygulanır.        |
+| lastModifiedTimeStamp | DateTime         | Hayır              | Sepetin en son güncelleştirilen tarih-saat biçiminde olduğu tarih. Sepetin başarıyla oluşturulmasının ardından uygulanır.    |
+| expirationTimeStamp   | DateTime         | Hayır              | Sepet tarih-saat biçiminde sona erer.  Sepetin başarıyla oluşturulmasının ardından uygulanır.            |
+| lastModifiedUser      | dize           | No              | Sepeti en son güncelleştirilen kullanıcı. Sepetin başarıyla oluşturulmasının ardından uygulanır.                             |
+| lineItems             | Nesne dizisi | Yes             | [Bir CartLineItem kaynakları](cart-resources.md#cartlineitem) dizisi.                                               |
 
-Bu tablo, istek gövdesinde [Cartlineıtem](cart-resources.md#cartlineitem) özelliklerini açıklar.
+Bu tablo, istek [gövdesinin CartLineItem](cart-resources.md#cartlineitem) özelliklerini açıklar.
 
 | Özellik             | Tür                        | Gerekli     | Açıklama                                                                                        |
 |----------------------|-----------------------------|--------------|----------------------------------------------------------------------------------------------------|
-| kimlik                   | dize                      | No           | Sepet çizgisi öğesi için benzersiz bir tanımlayıcı. Sepet başarıyla oluşturulduktan sonra uygulandı.                |
+| kimlik                   | dize                      | No           | Sepet satır öğesi için benzersiz tanımlayıcı. Sepetin başarıyla oluşturulmasının ardından uygulanır.                |
 | catalogId            | string                      | Yes          | Katalog öğesi tanımlayıcısı.                                                                       |
-| friendlyName         | dize                      | No           | İsteğe bağlı. Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.              |
+| Friendlyname         | dize                      | No           | İsteğe bağlı. Karartmanıza yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.              |
 | miktar             | int                         | Yes          | Lisans veya örnek sayısı.     |
 | currencyCode         | dize                      | No           | Para birimi kodu.                                                                                 |
-| Bilimlingcycle         | Nesne                      | Yes          | Geçerli dönem için ayarlanan faturalandırma dönemi türü.                                              |
-| Katılımcılar         | Nesne dizesi çiftlerinin listesi | No           | Satın alımdaki katılımcılar koleksiyonu.                                                      |
-| provisioningContext  | Sözlük<dize, dize>  | No           | Teklifin sağlanması için kullanılan bir bağlam.                                                          |
-| orderGroup           | dize                      | No           | Hangi öğelerin birlikte yerleştirilebileceğini belirten bir grup.                                            |
-| error                | Nesne                      | No           | Bir hata durumunda sepet oluşturulduktan sonra uygulandı.                                                 |
+| billingCycle         | Nesne                      | Yes          | Geçerli dönem için ayarlanmış faturalama dönemi türü.                                              |
+| Katılımcılar         | Nesne Dizesi çiftlerinin listesi | Hayır           | Satın alma ile ilgili katılımcılardan bir koleksiyon.                                                      |
+| provisioningContext  | Sözlük<dizesi, dize>  | Hayır           | Teklifin sağlanması için kullanılan bağlam.                                                          |
+| orderGroup           | dize                      | No           | Hangi öğelerin bir araya yerleştiril olduğunu belirten bir grup.                                            |
+| error                | Nesne                      | Hayır           | Bir hata durumunda sepet oluşturulduktan sonra uygulanır.                                                 |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -136,11 +132,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde doldurulmuş [sepet](cart-resources.md) kaynağını döndürür.
+Başarılı olursa, bu yöntem yanıt [gövdesinde](cart-resources.md) doldurulmuş Sepet kaynağını döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

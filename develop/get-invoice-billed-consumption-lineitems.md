@@ -6,20 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 1406938b16e5a363a73c36ef0338eb5fc4305279
-ms.sourcegitcommit: 89aefbff6dbe740b6f27a888492ffc2e5f98b1e9
+ms.openlocfilehash: 285b6fbda774c9396dee8947550ed774d52bf901
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/24/2021
-ms.locfileid: "110325454"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446233"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Faturalandırmış ticari tüketim satırı öğelerini alın
 
-**Aşağıdakiler için geçerlidir:**
-
-- İş Ortağı Merkezi
-
-Belirtilen fatura için ticari tüketim fatura satırı öğelerine (kapalı günlük olarak anılan kullanım satırı öğeleri olarak da bilinir) ilişkin ayrıntıların bir koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
+Belirtilen bir fatura için ticari tüketim fatura satırı öğelerine (kapalı günlük olarak anılan kullanım satırı öğeleri olarak da bilinir) ilişkin ayrıntıların bir koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -42,10 +38,10 @@ Aşağıdaki örnek kod, satır öğeleri koleksiyonunu işlemeye bir **foreach*
 
 **InvoiceDetail** örneğine karşılık gelen satır öğeleri koleksiyonunu almak için:
 
-1. Örneğin **BillingProvider ve** **InvoiceLineItemType** bilgilerini [**By yöntemine**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) geçin.
+1. Örneğin **BillingProvider ve** **InvoiceLineItemType** örneklerini [**By yöntemine**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) geçin.
 
 2. İlişkili [**satır öğelerini**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) almak için Get veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırma.
-3. Aşağıdaki örnekte gösterildiği gibi koleksiyonun çapraz geçişini yapmak için bir Numaralandırıcı oluşturun.
+3. Aşağıdaki örnekte gösterildiği gibi koleksiyonda geçiş yapmak için bir numaralayıcı oluşturun.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -106,34 +102,34 @@ while (fetchNext)
 
 Benzer bir örnek için aşağıdakilere bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Iş ortağı MERKEZI SDK örnekleri**
-- Sınıf: **GetBilledConsumptionReconLineItemsPaging. cs**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **İş Ortağı Merkezi SDK'sı Örnekleri**
+- Sınıf: **GetBilledConsumptionReconLineItemsPaging.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
-Verilen faturaya ait her satır öğesinin tam listesini döndürmek için ilk sözdizimini kullanın. Büyük faturalar için, satır öğelerinin disk belleğine alınmış bir listesini döndürmek üzere belirtilen boyut ve 0 tabanlı uzaklığa sahip ikinci söz dizimini kullanın. Kullanarak keşfi satır öğelerinin sonraki sayfasını almak için üçüncü sözdizimini kullanın `seekOperation = "Next"` .
+Verilen faturanın her satır öğesinin tam listesini dönmek için ilk söz dizimlerini kullanın. Büyük faturalar için, satır öğelerinin sayfalanmış listesini geri dönmek için belirtilen boyuta ve 0 tabanlı kaydırmaya sahip ikinci söz dizimi kullanın. kullanarak mutabakat satırı öğelerinin sonraki sayfasını almak için üçüncü söz dizimlerini `seekOperation = "Next"` kullanın.
 
 | Yöntem  | İstek URI'si                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {CURRENCYCODE} http/1.1                              |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {currencycode} &boyut = {SIZE} http/1.1  |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = usagelineıtems&CurrencyCode = {currencycode} &size = {size} &seekoperation = ileri                               |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode} HTTP/1.1                              |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&size={size} HTTP/1.1  |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems&currencycode={currencycode}&size={size}&seekOperation=Next                               |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-İsteği oluştururken aşağıdaki URI ve sorgu parametrelerini kullanın.
+İsteği oluştururken aşağıdaki URI'yi ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür   | Gerekli | Açıklama                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| Fatura kimliği             | string | Yes      | Faturayı tanımlayan bir dize.                             |
+| invoice-id             | string | Yes      | Faturayı tanımlayan bir dize.                             |
 | Sağlayıcı               | string | Yes      | Sağlayıcı: "OneTime".                                  |
 | invoice-line-item-type | string | Yes      | Fatura ayrıntısı türü: "UsageLineItems". |
 | currencyCode           | string | Yes      | Faturalandırmış satır öğelerinin para birimi kodu.                    |
 | dönem                 | string | Yes      | Faturalandırmış mutabakat için dönem. örnek: geçerli, önceki.        |
-| boyut                   | sayı | No       | İade etmek istediğiniz en fazla öğe sayısı. Varsayılan boyut 2000'tir       |
+| boyut                   | sayı | Hayır       | İade etmek istediğiniz en fazla öğe sayısı. Varsayılan boyut 2000'tir       |
 | seekOperation          | dize | No       | Keşif satırı öğelerinin sonraki sayfasını almak için seekOperation=Next'i ayarlayın. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
@@ -160,9 +156,9 @@ Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu
 
 Bu örnek REST isteği ve yanıtının ayrıntıları aşağıdaki gibidir:
 
-- **Sağlayıcı**: **Onetime**
-- **Faturaışgıtemtype**: **usagelineıtems**
-- **Dönem**: **önceki**
+- **Sağlayıcı:** **OneTime**
+- **InvoiceLineItemType:** **UsageLineItems**
+- **Dönem:** **Önceki**
 
 #### <a name="request-example-1"></a>İstek örneği 1
 
@@ -331,10 +327,10 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 Bu örnek REST isteği ve yanıtının ayrıntıları aşağıdaki gibidir:
 
-- **Sağlayıcı**: **Onetime**
-- **Faturaışgıtemtype**: **usagelineıtems**
-- **Dönem**: **önceki**
-- **Seekoperation**: **İleri**
+- **Sağlayıcı:** **OneTime**
+- **InvoiceLineItemType:** **UsageLineItems**
+- **Dönem:** **Önceki**
+- **SeekOperation:** **Next**
 
 #### <a name="request-example-2"></a>İstek örneği 2
 

@@ -1,35 +1,31 @@
 ---
 title: Müşterinin nitelemesini alma
-description: Iş Ortağı Merkezi API 'SI aracılığıyla bir müşterinin nitelemesini almak için zaman uyumlu doğrulamayı nasıl kullanacağınızı öğrenin. İş ortakları Eğitim müşterilerini doğrulamak için bunu kullanabilir.
+description: İş Ortağı Merkezi API aracılığıyla müşterinin niteliğini almak için zaman uyumlu doğrulamayı kullanmayı öğrenin. İş ortakları Eğitim müşterilerini doğrulamak için bunu kullanabilir.
 ms.date: 12/07/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: e39ace3b598736abed6ab22021a8b93d473486a3
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: d215ddb105efe3acd1182c4ff4bb25b045b121f0
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711923"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446352"
 ---
-# <a name="get-a-customers-qualification-via-synchronous-validation"></a>Zaman uyumlu doğrulama yoluyla bir müşterinin nitelemesini al
+# <a name="get-a-customers-qualification-via-synchronous-validation"></a>Zaman uyumlu doğrulama yoluyla müşterinin niteliğini elde etmek
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Iş Ortağı Merkezi API 'Leri aracılığıyla bir müşterinin nitelemesini eşzamanlı olarak nasıl alabileceğinizi öğrenin. Bunu zaman uyumsuz yapma hakkında bilgi edinmek için bkz. [zaman uyumsuz doğrulama aracılığıyla Müşterinin nitelemesini alma](get-customer-qualification-asynchronous.md).
+Api'leri kullanarak müşterinin niteliğini zaman uyumlu olarak İş Ortağı Merkezi öğrenin. Bu işlemi zaman uyumsuz olarak yapmayı öğrenmek için bkz. Zaman uyumsuz doğrulama [yoluyla müşterinin niteliğini al.](get-customer-qualification-asynchronous.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
-Müşterinin nitelemesini almak için, müşteri tanımlayıcısıyla [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından, bir [**ıcustomernitelik**](/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification) arabirimi almak için [**nitelik**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) özelliğini kullanın. Son olarak, müşterinin nitelemesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) çağrısı yapın.
+Müşterinin niteliğini almak için müşteri tanımlayıcısıyla [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini arayın. Ardından Bir [**ICustomerQualification**](/dotnet/api/microsoft.store.partnercenter.qualification.icustomerqualification) arabirimi almak için [**Nitelik**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.qualification) özelliğini kullanın. Son olarak, [**müşterinin niteliğini**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.get) almak için Get veya [**GetAsync'i**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.getasync) arayın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -40,23 +36,23 @@ var customerQualification = partnerOperations.Customers.ById(customerId).Qualifi
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/nitelik http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/qualification HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Bu tabloda, tüm nitelemeyi almak için gerekli sorgu parametresi listelenmektedir.
+Bu tabloda tüm niteliği almak için gerekli sorgu parametresi listelemektedir.
 
 | Ad               | Tür   | Gerekli | Açıklama                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
+| **customer-tenant-id** | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -74,11 +70,11 @@ MS-RequestId: 037db222-6d8e-4d7f-ba78-df3dca33fb68
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir nitelik değeri döndürür.  **Eğitim** nitelemesini içeren bir müşterinin **Get** çağrısına bir örnek aşağıda verilmiştir.
+Başarılı olursa, bu yöntem yanıt gövdesinde bir nitelik değeri döndürür.  Aşağıda, eğitim niteliğine sahip bir müşteriye yapılan **GET** çağrısının **bir örneği verilmiştir.**
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

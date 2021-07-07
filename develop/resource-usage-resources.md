@@ -1,38 +1,34 @@
 ---
 title: Kaynak kullanım kaydı kaynakları
-description: Geçerli fatura döngüsündeki bir aboneliğin kaynak düzeyi kullanımının tahmini parasal maliyetini anlatmak için ResourceUsageRecord kaynağını kullanabilirsiniz.
+description: Geçerli faturalama döngüsünde aboneliğin kaynak düzeyi kullanımının tahmini parasal maliyetini açıklamak için ResourceUsageRecord kaynağını kullanabilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b0a28620eec86e86630aef93b13f26c9dd675a5d
-ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
+ms.openlocfilehash: eb626b9d4cb4c57a07f45bcf7b914f534e62ab68
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106274572"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446590"
 ---
 # <a name="resource-usage-record-resources"></a>Kaynak kullanım kaydı kaynakları
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Geçerli fatura döngüsündeki bir aboneliğin kaynak düzeyi kullanımının tahmini parasal maliyetini anlatmak için **ResourceUsageRecord** kaynağını kullanabilirsiniz.
+Geçerli faturalama döngüsünde aboneliğin kaynak düzeyi kullanımının tahmini parasal maliyetini açıklamak için **ResourceUsageRecord** kaynağını kullanabilirsiniz.
 
 ## <a name="resourceusagerecord"></a>ResourceUsageRecord
 
-| Özellik          | Tür               | Description                                                                                                                                                                                                |
+| Özellik          | Tür               | Açıklama                                                                                                                                                                                                |
 |-------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SubscriptionId    | string             | Abonelik tanımlayıcısını alır veya ayarlar. Microsoft Azure (MS-AZR-0145P) abonelikleri için bu değer, ticaret abonelik tanımlayıcısıdır. Azure planları için bu değer Azure plan tanımlayıcısıdır. |
-| ResourceUri       | string             | Kaynak URI 'sini alır veya ayarlar. "                                                                                                                                                                            |
+| SubscriptionId    | string             | Abonelik tanımlayıcısını alır veya ayarlar. Daha Microsoft Azure (MS-AZR-0145P) abonelikleri için bu değer ticari abonelik tanımlayıcısıdır. Azure planları için bu değer Azure planı tanımlayıcısıdır). |
+| ResourceUri       | string             | Kaynak URI'lerini alır veya ayarlar."                                                                                                                                                                            |
 | ResourceType      | string             | Kaynak türünü alır veya ayarlar.                                                                                                                                                                            |
 | EntitlementId     | string             | Yetkilendirme tanımlayıcısını (Azure abonelik tanımlayıcısı) alır veya ayarlar.                                                                                                                               |
 | EntitlementName   | string             | Yetkilendirme adını alır veya ayarlar.                                                                                                                                                                         |
 | ResourceGroupName | double             | Kaynak grubu adını alır veya ayarlar.                                                                                                                                                                      |
 | Name              | string             | Kaynağın adı.                                                                                                                                                                                  |
 | ResourceName      | string             | Kaynağın adını alır veya ayarlar.                                                                                                                                                                     |
-| Toplam maliyet         | decimal            | Tahmini toplam maliyet kullanımını alır veya ayarlar.                                                                                                                                                               |
+| Toplam Toplam Toplam         | decimal            | Tahmini toplam maliyet kullanımını alır veya ayarlar.                                                                                                                                                               |
 | CurrencyCode      | string             | Para birimi kodunu alır veya ayarlar.                                                                                                                                                                            |
-| USDTotalCost      | decimal            | Tahmini toplam maliyeti USD cinsinden alır veya ayarlar.                                                                                                                                                              |
-| LastModifiedDate olarak ayarlayın  | string             | Bu kaydın son değiştirildiği gün (Tarih-saat biçiminde).                                                                                                                                          |
-| Öznitelikler        | ResourceAttributes | Kaynağa karşılık gelen meta veri öznitelikleri.                                                                                                                                                     |
+| USDTotalCost      | decimal            | Tahmini toplam maliyeti ABD doları olarak alır veya ayarlar.                                                                                                                                                              |
+| LastModifiedDate olarak ayarlayın  | string             | Bu kaydın son değiştiril olduğu gün (tarih-saat biçiminde).                                                                                                                                          |
+| Öznitelikler        | Resourceattributes | Kaynağa karşılık gelen meta veri öznitelikleri.                                                                                                                                                     |

@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 1ee19e458ec65faa21034dd230b5388f7de981b2
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: cfec12d37ce4f5f50baad57bfd45770388f8a2dc
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769707"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446438"
 ---
 # <a name="get-customer-licenses-usage-information"></a>Müşteri lisans kullanım bilgilerini alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Belirli bir müşteri için lisans dağıtımı öngörülerini alma.
 

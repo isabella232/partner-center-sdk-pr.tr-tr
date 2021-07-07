@@ -6,24 +6,20 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 8c794d264ad64a42fa6ca823ddfc3841248c01cd
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: fccb9e3d4a837f3e8043f8c7ae1e3911d819afd7
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769173"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906529"
 ---
 # <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft müşteri anlaşması şablonu için bir indirme bağlantısı alın
 
-**Uygulama hedefi:**
+**Uygulama hedefi**: Iş Ortağı Merkezi
 
-- İş Ortağı Merkezi
+**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-**AgreementDocument** kaynağı şu anda yalnızca *Microsoft genel bulutundaki* iş ortağı Merkezi tarafından desteklenmektedir. Bu kaynak için geçerlidir:
-
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**AgreementDocument** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
 
 Bu makalede, müşterinin ülkesine ve diline bağlı olarak Microsoft müşteri anlaşması şablonunu indirme bağlantısının nasıl yapılacağı açıklanır.
 
@@ -39,9 +35,9 @@ Bu makalede, müşterinin ülkesine ve diline bağlı olarak Microsoft müşteri
 
 > [!IMPORTANT]
 >
-> - Microsoft Müşteri Sözleşmesi ülkeye özeldir. Microsoft müşteri anlaşması şablonunu indirmek için bir bağlantı istendiğinde, müşterinin konumuna göre doğru ülkeyi belirttiğinizden emin olun. ya da desteklenen ülkelerin listesi, lütfen [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
+> - Microsoft Müşteri Sözleşmesi ülkeye özeldir. Microsoft müşteri anlaşması şablonunu indirmek için bir bağlantı istendiğinde, müşterinin konumuna göre doğru ülkeyi belirttiğinizden emin olun. ya da desteklenen ülkelerin listesi, [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
 >
-> - Bazı ülkelerde, Microsoft Müşteri Sözleşmesi birden çok dilde kullanılabilir. En iyi müşteri deneyimi için müşterinin ihtiyaçlarına en iyi eşleşen dili seçin. Desteklenen dillerin listesi için lütfen [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
+> - Bazı ülkelerde, Microsoft Müşteri Sözleşmesi birden çok dilde kullanılabilir. En iyi müşteri deneyimi için müşterinin ihtiyaçlarına en iyi eşleşen dili seçin. Desteklenen dillerin listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
 > - Bu yöntem yalnızca Microsoft Müşteri anlaşmasıyla desteklenir.
 
 ## <a name="net"></a>.NET
@@ -64,9 +60,9 @@ Microsoft müşteri anlaşması şablonunu indirmek için bir bağlantı almak �
 
 4. **Belge** özelliğini getir.
 
-5. **Bycountry** yöntemini çağırın ve Sözleşme şablonunun geçerli olduğu müşterinin ülkesini belirtin. Yöntem belirtilmemişse sorgu *bizim* için varsayılan olarak olur. Desteklenen ülke kodlarının listesi için lütfen [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın. Bu yöntem, **büyük/küçük harfe duyarlıdır**.
+5. **Bycountry** yöntemini çağırın ve Sözleşme şablonunun geçerli olduğu müşterinin ülkesini belirtin. Yöntem belirtilmemişse sorgu *bizim* için varsayılan olarak olur. Desteklenen ülke kodlarının listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın. Bu yöntem, **büyük/küçük harfe duyarlıdır**.
 
-6. **Bylanguage** metodunu çağırın ve anlaşma şablonunun hangi dilde yerelleştirileceğini belirtin. Yöntem belirtilmemişse sorgu varsayılan olarak *en-US* olur veya belirtilen ülke kodu belirtilen ülkede desteklenmez. Desteklenen dil kodlarının listesi için lütfen [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
+6. **Bylanguage** metodunu çağırın ve anlaşma şablonunun yerelleştirilmesi gereken dili belirtin. Yöntem belirtilmemişse sorgu varsayılan olarak *en-US* olur veya belirtilen ülke kodu belirtilen ülkede desteklenmez. Desteklenen dil kodlarının listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
 
 7. **Get** veya **GetAsync** yöntemini çağırın.
 
@@ -109,8 +105,8 @@ Bu kaynak için aşağıdaki istek sözdizimini kullanın:
 | Ad                   | Tür   | Gerekli | Açıklama                                 |
 |------------------------|--------|----------|---------------------------------------------|
 | Sözleşme-şablon kimliği  | string | Yes      | Anlaşma türünün benzersiz tanımlayıcısı. Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini alarak Microsoft Müşteri Sözleşmesi için TemplateId 'yi edinebilirsiniz. Daha fazla bilgi için bkz. [Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini edinme](./get-customer-agreement-metadata.md). Bu parametre, **büyük/küçük harfe duyarlıdır**.|
-| ülke                | dize | No       | Anlaşma şablonunun geçerli olduğu ülkeyi belirtir. Parametre belirtilmemişse sorgu *bizim* için varsayılan olarak olur. Desteklenen ülke kodlarının listesi için lütfen [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.|
-| language               | dize | No       | Sözleşme şablonunun yerelleştirilmesi gereken dili gösterir. Parametre belirtilmemişse sorgu varsayılan olarak *en-US* , belirtilen ülke için de belirtilen ülke kodu desteklenmez. Desteklenen ülke kodlarının listesi için lütfen [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.|
+| ülke                | dize | No       | Anlaşma şablonunun geçerli olduğu ülkeyi belirtir. Parametre belirtilmemişse sorgu *bizim* için varsayılan olarak olur. Desteklenen ülke kodlarının listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.|
+| language               | dize | No       | Sözleşme şablonunun yerelleştirilmesi gereken dili gösterir. Parametre belirtilmemişse sorgu varsayılan olarak *en-US* , belirtilen ülke için de belirtilen ülke kodu desteklenmez. Desteklenen ülke kodlarının listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.|
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -165,17 +161,17 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 | Ülke                   | Ülke kodu   | Desteklenen dil kodları |
 |------------------------|--------|----------|
-| Bir i Adaları | 'TE | en-US |
+| Åland Adaları | Ax | en-US |
 | Afganistan | AF | en-US |
 | Arnavutluk | AL | en-US |
 | Cezayir | DZ | en-US, fr-FR, en-US |
 | Amerikan Samoası | AS | en-US |
 | Andorra | AD | en-US |
-| Angola | AO | en-US, PT NK |
-| Anguilla | AI | en-US |
-| Antarktika | AQ | en-US |
+| Angola | AO | en-US, pt-PT |
+| Anguilla | Yapay Zeka | en-US |
+| Antarktika | Aq | en-US |
 | Antigua ve Barbuda | AG | en-US |
-| Arjantin | AR | en-US, ES-ES |
+| Arjantin | AR | en-US, es-ES |
 | Ermenistan | AM | en-US |
 | Aruba | AW | en-US |
 | Avustralya | AU | en-US |
@@ -187,51 +183,51 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Barbados | BB | en-US |
 | Belarus | BY | en-US, ru-RU |
 | Belçika | BE | en-US, nl-NL |
-| Belize | BZ | en-US, ES-ES |
+| Belize | BZ | en-US, es-ES |
 | Benin | BJ | en-US |
 | Bermuda | BM | en-US |
 | Butan | BT | en-US |
-| Bolivya | BO | en-US, ES-ES |
-| Bonaire | BQ | en-US |
+| Bolivya | BO | en-US, es-ES |
+| Bonaire | Bq | en-US |
 | Bosna-Hersek | BA | en-US |
 | Botsvana | BW | en-US |
-| Bouvet Adası | BV | en-US |
-| Brezilya | BR | en-US, PT-BR |
-| Britanya Hint Okyanusu Toprakları | IO | en-US |
+| Bouvet Adası | Bv | en-US |
+| Brezilya | BR | en-US, pt-BR |
+| Britanya Hint Okyanusu Toprakları | ıo | en-US |
 | Britanya Virjin Adaları | VG | en-US |
 | Brunei | BN | en-US |
-| Bulgaristan | BG | en-US, BG-BG |
+| Bulgaristan | BG | en-US, bg-BG |
 | Burkina Faso | BF | en-US |
 | Burundi | BI | en-US |
 | Fildişi Sahili (Côte d'Ivoire) | CI | en-US, fr-FR |
-| Cabo Verde | CV | en-US, PT NK |
+| Cabo Verde | CV | en-US, pt-PT |
 | Kamboçya | KH | en-US |
 | Kamerun | CM | en-US, fr-FR |
 | Kanada | CA | en-US, fr-FR |
 | Cayman Adaları | KY | en-US, en-US |
 | Orta Afrika Cumhuriyeti | CF | en-US |
 | Çad | TD | en-US |
-| Şili | CL | en-US, ES-ES |
+| Şili | CL | en-US, es-ES |
 | Christmas Adası | CX | en-US |
 | Cocos (Keeling) Adaları | CC | en-US |
-| Kolombiya | CO | en-US, ES-ES |
-| Komorlar | KM | en-US |
+| Kolombiya | CO | en-US, es-ES |
+| Komorlar | Km | en-US |
 | Kongo (KDC) | CD | en-US |
-| Kongo Cumhuriyeti | ILETISI | en-US |
-| Cook Adaları | STOKLAMA | en-US |
-| Kosta Rika | CR | en-US, ES-ES |
-| Hırvatistan | HR | en-US, HR-HR |
-| Curaçao | FIILI | en-US |
+| Kongo Cumhuriyeti | Cg | en-US |
+| Cook Adaları | Ck | en-US |
+| Kosta Rika | CR | en-US, es-ES |
+| Hırvatistan | HR | en-US, hr-HR |
+| Curaçao | Cw | en-US |
 | Kıbrıs | CY | en-US |
-| Czechia | CZ | en-US, CS-CZ |
+| Çekya | CZ | en-US, cs-CZ |
 | Danimarka | DK | en-US, da-DK |
-| Cibuti | DJ | en-US |
+| Cibuti | Dj | en-US |
 | Dominika | DM | en-US |
-| Dominik Cumhuriyeti | DO | en-US, ES-ES |
+| Dominik Cumhuriyeti | DO | en-US, es-ES |
 | Ekvador | EC | en-US |
 | Mısır | EG | en-US, ar-SA |
-| El Salvador | SV | en-US, ES-ES |
-| Ekvator Ginesi | GQ | en-US |
+| El Salvador | SV | en-US, es-ES |
+| Ekvator Ginesi | Gq | en-US |
 | Eritre | ER | en-US |
 | Estonya | EE | en-US, et-EE |
 | eSwatini | SZ | en-US |
@@ -266,27 +262,27 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Hong Kong ÖİB | HK | en-US, zh-HK |
 | Macaristan | HU | en-US, HU-HU |
 | İzlanda | IS | en-US |
-| Hindistan | IN | en-US, Hi-ın |
-| Endonezya | ID | en-US, kimlik KIMLIĞI |
+| Hindistan | IN | en-US, hi-IN |
+| Endonezya | ID | en-US, id-ID |
 | Irak | IQ | en-US, ar-SA |
 | İrlanda | IE | en-US |
 | Man Adası | Anlık İleti | en-US |
-| İsrail | IL | en-US, he-Il |
-| İtalya | BT | en-US, It-It |
+| İsrail | IL | en-US, he-IL |
+| İtalya | BT | en-US, it-IT |
 | Jamaika | JM | en-US |
-| Jan Mayen | XJ | en-US |
+| Jan Mayen | Xj | en-US |
 | Japonya | JP | en-US, ja-JP |
-| Jersey | HARFI | en-US |
+| Jersey | Je | en-US |
 | Ürdün | JO | en-US, ar-SA |
-| Kazakistan | KZ | en-US, KK-KZ |
+| Kazakistan | KZ | en-US, kk-KZ |
 | Kenya | KE | en-US |
 | Kiribati | KI | en-US |
 | Güney Kore | KR | en-US, ko-KR |
-| Kosova | XK | en-US |
+| Kosova | Xk | en-US |
 | Kuveyt | KW | en-US, ar-SA |
 | Kırgızistan | KG | en-US, ru-RU |
 | Laos | LA | en-US |
-| Letonya | LV | en-US, LV-LV |
+| Letonya | LV | en-US, lv-LV |
 | Lübnan | LB | en-US, ar-SA |
 | Lesotho | LS | en-US |
 | Liberya | LR | en-US |
@@ -295,7 +291,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Litvanya | LT | en-US, lt-LT |
 | Lüksemburg | LU | en-US, fr-FR |
 | Makao ÖİB | MO | en-US, zh-HK |
-| Makedonya, EYC | MK | en-US |
+| Kuzey Ve Kuzey Avrupa | MK | en-US |
 | Madagaskar | MG | en-US |
 | Malavi | MW | en-US |
 | Malezya | MY | en-US, MS-MY |
@@ -378,7 +374,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Saint Helena, Ascension ve Tristan da Cunha | SH | en-US |
 | Surinam | SR | en-US |
 | Svalbard | SJ | en-US |
-| İsveç | SE | en-US, ZF-o |
+| İsveç | SE | en-US, ZF-SE |
 | İsviçre | CH | en-US, fr-FR, en-US, en-US |
 | Tayvan | TW | en-US, zh-HK |
 | Tacikistan | TJ | en-US |
@@ -401,13 +397,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Birleşik Arap Emirlikleri | AE | en-US, ar-SA |
 | Birleşik Krallık | GB | en-US |
 | Birleşik Devletler | ABD | en-US |
-| Uruguay | UY | en-US, ES-ES |
+| Uruguay | UY | en-US, es-ES |
 | Özbekistan | UZ | en-US, ru-RU |
-| Vanuatu | Vu & lt | en-US |
+| Vanuatu | Vu | en-US |
 | Vatikan | VA | en-US |
-| Venezuela | VE | en-US, ES-ES |
+| Venezuela | VE | en-US, es-ES |
 | Vietnam | VN | en-US, vi-VN |
-| Wallis ve Futuna | WF | en-US |
-| Yemen | Vet | en-US, ar-SA |
+| Wallis veUçsuzuna | WF | en-US |
+| Yemen | YE | en-US, ar-SA |
 | Zambiya | ZM | en-US |
 | Zimbabve | ZW | en-US |

@@ -1,34 +1,30 @@
 ---
 title: İş ortağı lisans kullanım bilgilerini alma
-description: Tüm müşterileri dahil etmek için toplanan iş ortağı lisansları kullanım bilgilerini alma.
+description: Tüm müşterileri dahil etmek için iş ortağı lisansları kullanım bilgilerini toplama.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 93d003fb269a3421b8efd8cebe8f396f97599a10
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: f3d05d61ac4f2c90b0d8a4bfd93fe24e94bd5c1b
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769904"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445604"
 ---
 # <a name="get-partner-licenses-usage-information"></a>İş ortağı lisans kullanım bilgilerini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Tüm müşterileri dahil etmek için toplanan iş ortağı lisansları kullanım bilgilerini alma.
+Tüm müşterileri dahil etmek için iş ortağı lisansları kullanım bilgilerini toplama.
 
 > [!NOTE]
-> Bu senaryo, [lisans kullanım bilgilerinin yerini alır](get-licenses-usage-information.md).
+> Bu senaryo, Get licenses usage information ( Lisans kullanım [bilgilerini al) ile yenisi kullanılır.](get-licenses-usage-information.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Lisans dağıtımında toplanmış verileri almak için ilk olarak [**ıaggregatepartner. Analytics**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) özelliğinden iş ortağı düzeyi Analizi toplama işlemlerine bir arabirim alın. Ardından, [**lisanslar**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) özelliğinden iş ortağı düzeyi lisans Analizi koleksiyonuna bir arabirim alın. Son olarak, lisansların kullanımıyla ilgili toplanan verileri almak için [**Usage. Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) yöntemini çağırın. Yöntem başarılı olursa, [**Partnerlicensesusageınsights**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) nesnelerinin bir koleksiyonunu alırsınız.
+Lisans dağıtımında toplu verileri almak için, önce [**IAggregatePartner.Analytics**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) özelliğinden iş ortağı düzeyinde analiz toplama işlemlerine bir arabirim alın. Ardından Lisanslar özelliğinden iş ortağı düzeyinde lisanslar analiz koleksiyonuna [**bir arabirim**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) alın. Son olarak, lisans kullanımıyla ilgili toplu verileri almak için [**Usage.Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) yöntemini çağırabilirsiniz. Yöntem başarılı olursa [**PartnerLicensesUsageInsights nesnelerinin bir koleksiyonunu elde**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesusageinsights) edersiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,15 +34,15 @@ var partnerLicensesUsageAnalytics = partnerOperations.Analytics.Licenses.Usage.G
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                      |
 |---------|----------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/analiz Tics/licenses/Usage http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/licenses/usage HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -66,11 +62,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi, kullanılan lisanslar hakkında bilgi sağlayan bir iş [ortağı lisans](analytics-resources.md#partnerlicensesusageinsights) kaynakları koleksiyonu içerir.
+Başarılı olursa yanıt gövdesi, kullanılan lisanslar hakkında bilgi sağlayan [partnerLicensesUsageInsights](analytics-resources.md#partnerlicensesusageinsights) kaynaklarının bir koleksiyonunu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

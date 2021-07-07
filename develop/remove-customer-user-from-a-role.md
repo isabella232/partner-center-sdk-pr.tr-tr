@@ -4,18 +4,14 @@ description: Bir kullanıcıyı bir müşteri hesabı içindeki dizin rolünden 
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6253e86f3733bbf2b9c593c5ca3f3e2fccce7c2c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 36dc742c4f713131b4996d7dc945b6dd008a3ef5
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769647"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445655"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>Bir rolden bir müşteri kullanıcısını kaldırma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Bir kullanıcıyı bir müşteri hesabı içindeki dizin rolünden kaldırma.
 
@@ -38,7 +34,7 @@ Bir kullanıcıyı bir dizin rolünden kaldırmak için, Kullanıcı tarafından
 partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selectedRoleId).UserMembers.ById(selectedUserMemberId).Delete();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: RemoveCustomerUserMemberFromDirectoryRole.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: removecustomerusermemberfromdirectoryrole. cs
 
 ## <a name="rest-request"></a>REST isteği
 

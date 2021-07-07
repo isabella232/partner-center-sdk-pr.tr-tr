@@ -1,25 +1,21 @@
 ---
 title: Müşterinin bir Azure planına yükseltmeye uygunluğunu denetleme
-description: Bir müşterinin bir Microsoft Azure (MS-AZR-0145P) aboneliğinden bir Azure planına yükseltme için uygun olup olmadığını öğrenmek üzere Productyükselderequest kaynağını kullanarak bir ProductUpgradesEligibility kaynağı döndürebilirsiniz.
+description: bir müşterinin bir Microsoft Azure (MS-azr-0145p) aboneliğinden bir Azure planına yükseltme için uygun olup olmadığını öğrenmek üzere productyükselderequest kaynağını kullanarak bir ProductUpgradesEligibility kaynağı döndürebilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 568ed3f4cff7d9cd520e608d43cb89bb78e00ccc
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 34a20611c7d92042b5432c5ffb3ba4702d77e0c2
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768723"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446267"
 ---
 # <a name="check-a-customers-eligibility-for-upgrading-to-an-azure-plan"></a>Müşterinin bir Azure planına yükseltmeye uygunluğunu denetleme
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bir müşterinin bir Microsoft Azure (MS-AZR-0145P) aboneliğinden bir Azure planına yükseltme için uygun olup olmadığını denetlemek için [**productyükseltileequest**](product-upgrade-resources.md#productupgraderequest) kaynağını kullanabilirsiniz. Bu yöntem, müşterinin ürün yükseltme uygunluğuyla bir [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) kaynağı döndürür.
+bir müşterinin bir Microsoft Azure (MS-azr-0145p) aboneliğinden bir Azure planına yükseltme için uygun olup olmadığını denetlemek için [**productyükseltileequest**](product-upgrade-resources.md#productupgraderequest) kaynağını kullanabilirsiniz. bu yöntem, müşterinin ürün yükseltme uygunluğuyla bir [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) kaynağı döndürür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

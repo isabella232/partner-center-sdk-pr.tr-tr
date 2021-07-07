@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 43086a32fa0dbbdecf65aac167c687f26fc4c2c6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: fe8af76d1e1456754dec79291ec0853fb253d108
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768741"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446301"
 ---
 # <a name="get-a-customers-subscriptions-transfer-eligibility"></a>Müşterinin abonelik aktarım uygunluğunu alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Aktarım için uygun/uygun olmayan bir müşterinin aboneliklerinin bir koleksiyonunu alma.
 
