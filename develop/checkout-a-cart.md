@@ -1,38 +1,33 @@
 ---
 title: Sepet sonuçlandırma
-description: Iş Ortağı Merkezi API 'Lerini kullanarak bir sepetteki müşteriyi bir siparişi nasıl kullanıma alabileceğinizi öğrenin. Bunu bir müşteri siparişini tamamlayacak şekilde yapabilirsiniz.
+description: İş Ortağı Merkezi API'lerini kullanarak sepette bir müşteriye İş Ortağı Merkezi öğrenin. Bunu bir müşteri siparişlerini tamamlamak için de yapabiliriz.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 094817a34cd29bc96788fcfb6a16610a8192d784
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 9ee06797602b22a1f8257c94880a2d81e2280f2e
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770079"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974055"
 ---
-# <a name="checkout-an-order-for-a-customer-in-a-cart"></a><span data-ttu-id="4ef8b-104">Sepette müşteri için sipariş alma</span><span class="sxs-lookup"><span data-stu-id="4ef8b-104">Checkout an order for a customer in a cart</span></span>
+# <a name="checkout-an-order-for-a-customer-in-a-cart"></a><span data-ttu-id="de949-104">Sepette müşteri siparişi alma</span><span class="sxs-lookup"><span data-stu-id="de949-104">Checkout an order for a customer in a cart</span></span>
 
-<span data-ttu-id="4ef8b-105">**Uygulama hedefi:**</span><span class="sxs-lookup"><span data-stu-id="4ef8b-105">**Applies to:**</span></span>
+<span data-ttu-id="de949-105">**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="de949-105">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="4ef8b-106">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="4ef8b-106">Partner Center</span></span>
-- <span data-ttu-id="4ef8b-107">21Vianet tarafından çalıştırılan iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="4ef8b-107">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="4ef8b-108">Microsoft Bulut Almanya için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="4ef8b-108">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="4ef8b-109">Microsoft Cloud for US Government için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="4ef8b-109">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="de949-106">Sepette müşteri için sipariş alma.</span><span class="sxs-lookup"><span data-stu-id="de949-106">How to checkout an order for a customer in a cart.</span></span>
 
-<span data-ttu-id="4ef8b-110">Bir sepette müşteri için sipariş alma.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-110">How to checkout an order for a customer in a cart.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="de949-107">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="de949-107">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="4ef8b-111">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="4ef8b-111">Prerequisites</span></span>
+- <span data-ttu-id="de949-108">kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md)</span><span class="sxs-lookup"><span data-stu-id="de949-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="de949-109">Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="de949-109">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="4ef8b-112">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-112">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="4ef8b-113">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-113">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="de949-110">Müşteri kimliği ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="de949-110">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="de949-111">Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard)</span><span class="sxs-lookup"><span data-stu-id="de949-111">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="de949-112">İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.**</span><span class="sxs-lookup"><span data-stu-id="de949-112">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="de949-113">Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.**</span><span class="sxs-lookup"><span data-stu-id="de949-113">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="de949-114">Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın.</span><span class="sxs-lookup"><span data-stu-id="de949-114">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="de949-115">Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.</span><span class="sxs-lookup"><span data-stu-id="de949-115">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="4ef8b-114">Bir müşteri KIMLIĞI ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="4ef8b-114">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="4ef8b-115">Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-115">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="4ef8b-116">Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-116">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="4ef8b-117">Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-117">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="4ef8b-118">Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-118">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="4ef8b-119">Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .</span><span class="sxs-lookup"><span data-stu-id="4ef8b-119">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+- <span data-ttu-id="de949-116">Mevcut sepet için sepet kimliği.</span><span class="sxs-lookup"><span data-stu-id="de949-116">A Cart ID for an existing cart.</span></span>
 
-- <span data-ttu-id="4ef8b-120">Mevcut bir sepet için sepet KIMLIĞI.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-120">A Cart ID for an existing cart.</span></span>
+## <a name="c"></a><span data-ttu-id="de949-117">C\#</span><span class="sxs-lookup"><span data-stu-id="de949-117">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="4ef8b-121">C\#</span><span class="sxs-lookup"><span data-stu-id="4ef8b-121">C\#</span></span>
-
-<span data-ttu-id="4ef8b-122">Müşteriye yönelik bir siparişi kullanıma almak için sepet ve müşteri tanımlayıcısını kullanarak sepete bir başvuru alın.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-122">To checkout an order for a customer, get a reference to the cart using the cart and customer identifier.</span></span> <span data-ttu-id="4ef8b-123">Son olarak, sıralamayı gerçekleştirmek için **Create** veya **createasync** işlevlerini çağırın.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-123">Finally, call the **Create** or **CreateAsync** functions to complete the order.</span></span>
+<span data-ttu-id="de949-118">Müşterinin siparişlerini almak için sepet ve müşteri tanımlayıcısını kullanarak sepete başvuru edinin.</span><span class="sxs-lookup"><span data-stu-id="de949-118">To checkout an order for a customer, get a reference to the cart using the cart and customer identifier.</span></span> <span data-ttu-id="de949-119">Son olarak, **siparişi tamamlamak** için **Create veya CreateAsync** işlevlerini çağırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="de949-119">Finally, call the **Create** or **CreateAsync** functions to complete the order.</span></span>
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -42,11 +37,11 @@ ms.locfileid: "97770079"
 var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checkout();
 ```
 
-## <a name="java"></a><span data-ttu-id="4ef8b-124">Java</span><span class="sxs-lookup"><span data-stu-id="4ef8b-124">Java</span></span>
+## <a name="java"></a><span data-ttu-id="de949-120">Java</span><span class="sxs-lookup"><span data-stu-id="de949-120">Java</span></span>
 
 [!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
-<span data-ttu-id="4ef8b-125">Müşteriye yönelik bir siparişi kullanıma almak için sepet ve müşteri tanımlayıcısını kullanarak sepete bir başvuru alın.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-125">To checkout an order for a customer, get a reference to the cart using the cart and customer identifier.</span></span> <span data-ttu-id="4ef8b-126">Son olarak, sıralamayı gerçekleştirmek için **Create** işlevini çağırın.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-126">Finally, call the **create** function to complete the order.</span></span>
+<span data-ttu-id="de949-121">Müşterinin siparişlerini almak için sepet ve müşteri tanımlayıcısını kullanarak sepete başvuru edinin.</span><span class="sxs-lookup"><span data-stu-id="de949-121">To checkout an order for a customer, get a reference to the cart using the cart and customer identifier.</span></span> <span data-ttu-id="de949-122">Son olarak, **siparişi tamamlamak** için create işlevini çağırmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="de949-122">Finally, call the **create** function to complete the order.</span></span>
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -56,11 +51,11 @@ var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checko
 Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(cartId).checkout();
 ```
 
-## <a name="powershell"></a><span data-ttu-id="4ef8b-127">PowerShell</span><span class="sxs-lookup"><span data-stu-id="4ef8b-127">PowerShell</span></span>
+## <a name="powershell"></a><span data-ttu-id="de949-123">PowerShell</span><span class="sxs-lookup"><span data-stu-id="de949-123">PowerShell</span></span>
 
 [!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
-<span data-ttu-id="4ef8b-128">Bir müşteriye yönelik bir siparişi kullanıma almak için, siparişi tamamladıktan sonra [**Gönder-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) ' i yürütün.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-128">To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) to complete the order.</span></span>
+<span data-ttu-id="de949-124">Bir müşterinin siparişlerini teslim etmek için [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) yürütarak siparişi tamamlar.</span><span class="sxs-lookup"><span data-stu-id="de949-124">To checkout an order for a customer, execute the [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) to complete the order.</span></span>
 
 ```powershell
 # $customerId
@@ -69,32 +64,32 @@ Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(car
 Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 ```
 
-## <a name="rest-request"></a><span data-ttu-id="4ef8b-129">REST isteği</span><span class="sxs-lookup"><span data-stu-id="4ef8b-129">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="de949-125">REST isteği</span><span class="sxs-lookup"><span data-stu-id="de949-125">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="4ef8b-130">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="4ef8b-130">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="de949-126">İstek söz dizimi</span><span class="sxs-lookup"><span data-stu-id="de949-126">Request syntax</span></span>
 
-| <span data-ttu-id="4ef8b-131">Yöntem</span><span class="sxs-lookup"><span data-stu-id="4ef8b-131">Method</span></span>   | <span data-ttu-id="4ef8b-132">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="4ef8b-132">Request URI</span></span>                                                                                                 |
+| <span data-ttu-id="de949-127">Yöntem</span><span class="sxs-lookup"><span data-stu-id="de949-127">Method</span></span>   | <span data-ttu-id="de949-128">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="de949-128">Request URI</span></span>                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="4ef8b-133">**Yayınla**</span><span class="sxs-lookup"><span data-stu-id="4ef8b-133">**POST**</span></span> | <span data-ttu-id="4ef8b-134">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Carts/{cart-id}/Checkout http/1.1</span><span class="sxs-lookup"><span data-stu-id="4ef8b-134">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1</span></span>     |
+| <span data-ttu-id="de949-129">**Yayınla**</span><span class="sxs-lookup"><span data-stu-id="de949-129">**POST**</span></span> | <span data-ttu-id="de949-130">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="de949-130">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1</span></span>     |
 
-### <a name="uri-parameters"></a><span data-ttu-id="4ef8b-135">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="4ef8b-135">URI parameters</span></span>
+### <a name="uri-parameters"></a><span data-ttu-id="de949-131">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="de949-131">URI parameters</span></span>
 
-<span data-ttu-id="4ef8b-136">Müşteriyi tanımlamak ve kullanıma almak istediğiniz sepeti belirtmek için aşağıdaki yol parametrelerini kullanın.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-136">Use the following path parameters to identify the customer and specify the cart to be checked out.</span></span>
+<span data-ttu-id="de949-132">Müşteriyi tanımlamak ve kullanıma alma sepetini belirtmek için aşağıdaki yol parametrelerini kullanın.</span><span class="sxs-lookup"><span data-stu-id="de949-132">Use the following path parameters to identify the customer and specify the cart to be checked out.</span></span>
 
-| <span data-ttu-id="4ef8b-137">Ad</span><span class="sxs-lookup"><span data-stu-id="4ef8b-137">Name</span></span>            | <span data-ttu-id="4ef8b-138">Tür</span><span class="sxs-lookup"><span data-stu-id="4ef8b-138">Type</span></span>     | <span data-ttu-id="4ef8b-139">Gerekli</span><span class="sxs-lookup"><span data-stu-id="4ef8b-139">Required</span></span> | <span data-ttu-id="4ef8b-140">Açıklama</span><span class="sxs-lookup"><span data-stu-id="4ef8b-140">Description</span></span>                                                            |
+| <span data-ttu-id="de949-133">Ad</span><span class="sxs-lookup"><span data-stu-id="de949-133">Name</span></span>            | <span data-ttu-id="de949-134">Tür</span><span class="sxs-lookup"><span data-stu-id="de949-134">Type</span></span>     | <span data-ttu-id="de949-135">Gerekli</span><span class="sxs-lookup"><span data-stu-id="de949-135">Required</span></span> | <span data-ttu-id="de949-136">Açıklama</span><span class="sxs-lookup"><span data-stu-id="de949-136">Description</span></span>                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| <span data-ttu-id="4ef8b-141">**müşteri kimliği**</span><span class="sxs-lookup"><span data-stu-id="4ef8b-141">**customer-id**</span></span> | <span data-ttu-id="4ef8b-142">string</span><span class="sxs-lookup"><span data-stu-id="4ef8b-142">string</span></span>   | <span data-ttu-id="4ef8b-143">Yes</span><span class="sxs-lookup"><span data-stu-id="4ef8b-143">Yes</span></span>      | <span data-ttu-id="4ef8b-144">Müşteriyi tanımlayan bir GUID biçimli müşteri kimliği.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-144">A GUID formatted customer-id that identifies the customer.</span></span>             |
-| <span data-ttu-id="4ef8b-145">**sepet kimliği**</span><span class="sxs-lookup"><span data-stu-id="4ef8b-145">**cart-id**</span></span>     | <span data-ttu-id="4ef8b-146">string</span><span class="sxs-lookup"><span data-stu-id="4ef8b-146">string</span></span>   | <span data-ttu-id="4ef8b-147">Yes</span><span class="sxs-lookup"><span data-stu-id="4ef8b-147">Yes</span></span>      | <span data-ttu-id="4ef8b-148">Sepeti tanımlayan bir GUID biçimli sepet kimliği.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-148">A GUID formatted cart-id that identifies the cart.</span></span>                     |
+| <span data-ttu-id="de949-137">**customer-id**</span><span class="sxs-lookup"><span data-stu-id="de949-137">**customer-id**</span></span> | <span data-ttu-id="de949-138">string</span><span class="sxs-lookup"><span data-stu-id="de949-138">string</span></span>   | <span data-ttu-id="de949-139">Yes</span><span class="sxs-lookup"><span data-stu-id="de949-139">Yes</span></span>      | <span data-ttu-id="de949-140">Müşteriyi tanımlayan GUID biçimlendirilmiş customer-id.</span><span class="sxs-lookup"><span data-stu-id="de949-140">A GUID formatted customer-id that identifies the customer.</span></span>             |
+| <span data-ttu-id="de949-141">**cart-id**</span><span class="sxs-lookup"><span data-stu-id="de949-141">**cart-id**</span></span>     | <span data-ttu-id="de949-142">string</span><span class="sxs-lookup"><span data-stu-id="de949-142">string</span></span>   | <span data-ttu-id="de949-143">Yes</span><span class="sxs-lookup"><span data-stu-id="de949-143">Yes</span></span>      | <span data-ttu-id="de949-144">Sepeti tanımlayan GUID biçimli sepet kimliği.</span><span class="sxs-lookup"><span data-stu-id="de949-144">A GUID formatted cart-id that identifies the cart.</span></span>                     |
 
-### <a name="request-headers"></a><span data-ttu-id="4ef8b-149">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="4ef8b-149">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="de949-145">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="de949-145">Request headers</span></span>
 
-<span data-ttu-id="4ef8b-150">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="4ef8b-150">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="de949-146">Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="de949-146">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="4ef8b-151">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="4ef8b-151">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="de949-147">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="de949-147">Request body</span></span>
 
-<span data-ttu-id="4ef8b-152">Yok.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-152">None.</span></span>
+<span data-ttu-id="de949-148">Yok.</span><span class="sxs-lookup"><span data-stu-id="de949-148">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="4ef8b-153">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="4ef8b-153">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="de949-149">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="de949-149">Request example</span></span>
 
 ```http
 POST /v1/customers/d6bf25b7-e0a8-4f2d-a31b-97b55cfc774d/carts/b4c8fdea-cbe4-4d17-9576-13fcacbf9605/checkout HTTP/1.1
@@ -112,15 +107,15 @@ Expect: 100-continue
 No-Content-Body
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="4ef8b-154">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="4ef8b-154">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="de949-150">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="de949-150">REST response</span></span>
 
-<span data-ttu-id="4ef8b-155">Başarılı olursa, yanıt gövdesi doldurulmuş [Cartcheckoutresult](cart-resources.md#cartcheckoutresult) kaynağını içerir.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-155">If successful, the response body contains the populated [CartCheckoutResult](cart-resources.md#cartcheckoutresult) resource.</span></span>
+<span data-ttu-id="de949-151">Başarılı olursa yanıt gövdesi doldurulmuş [CartCheckoutResult kaynağını](cart-resources.md#cartcheckoutresult) içerir.</span><span class="sxs-lookup"><span data-stu-id="de949-151">If successful, the response body contains the populated [CartCheckoutResult](cart-resources.md#cartcheckoutresult) resource.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="4ef8b-156">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="4ef8b-156">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="de949-152">Yanıt başarı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="de949-152">Response success and error codes</span></span>
 
-<span data-ttu-id="4ef8b-157">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-157">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="4ef8b-158">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="4ef8b-158">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="4ef8b-159">Tam liste için bkz. [hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="4ef8b-159">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="de949-153">Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir.</span><span class="sxs-lookup"><span data-stu-id="de949-153">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="de949-154">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="de949-154">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="de949-155">Tam liste için bkz. [Hata Kodları.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="de949-155">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="4ef8b-160">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="4ef8b-160">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="de949-156">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="de949-156">Response example</span></span>
 
 ```http
 HTTP/1.1 201 Created

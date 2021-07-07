@@ -4,35 +4,32 @@ description: AgreementStatus API 'sini kullanarak dolaylı bir satıcının Micr
 ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fa9480424eccc933bc9c28c3879a195fbd5f2bb1
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: f83acc61624a72354c390905b1250bc021dd39aa
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711924"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529857"
 ---
-# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a><span data-ttu-id="cb012-103">Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu doğrulama</span><span class="sxs-lookup"><span data-stu-id="cb012-103">Verify an indirect reseller's Microsoft Partner Agreement signing status</span></span>
+# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a><span data-ttu-id="dbbf3-103">Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu doğrulama</span><span class="sxs-lookup"><span data-stu-id="dbbf3-103">Verify an indirect reseller's Microsoft Partner Agreement signing status</span></span>
 
-<span data-ttu-id="cb012-104">**Uygulama hedefi:**</span><span class="sxs-lookup"><span data-stu-id="cb012-104">**Applies to:**</span></span>
+<span data-ttu-id="dbbf3-104">**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="dbbf3-104">**Applies to**: Partner Center | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="cb012-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="cb012-105">Partner Center</span></span>
-- <span data-ttu-id="cb012-106">Microsoft Cloud for US Government için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="cb012-106">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="dbbf3-105">dolaylı bir satıcının, Microsoft İş Ortağı Ağı (mpn) kimliği (pga/PLA) veya Bulut Çözümü Sağlayıcısı (CSP) kiracı kimliğini (microsoft ıd) kullanarak Microsoft iş ortağı sözleşmesini imzaladığını doğrulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-105">You can verify whether an indirect reseller has signed the Microsoft Partner Agreement using their Microsoft Partner Network (MPN) ID (PGA/PLA) or Cloud Solution Provider (CSP) tenant ID (Microsoft ID).</span></span> <span data-ttu-id="dbbf3-106">**AgreementStatus** API 'Sini kullanarak Microsoft Iş ortağı sözleşmesi imza durumunu denetlemek için bu tanımlayıcılardan birini kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-106">You can use one of these identifiers to check the Microsoft Partner Agreement signing status using the **AgreementStatus** API.</span></span>
 
-<span data-ttu-id="cb012-107">Bir dolaylı satıcının, Microsoft İş Ortağı Ağı (MPN) KIMLIĞI (PGA/PLA) veya bulut çözümü sağlayıcısı (CSP) kiracı KIMLIĞI (Microsoft ID) kullanarak Microsoft Iş ortağı sözleşmesi 'Ni imzaladığını doğrulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cb012-107">You can verify whether an indirect reseller has signed the Microsoft Partner Agreement using their Microsoft Partner Network (MPN) ID (PGA/PLA) or Cloud Solution Provider (CSP) tenant ID (Microsoft ID).</span></span> <span data-ttu-id="cb012-108">**AgreementStatus** API 'Sini kullanarak Microsoft Iş ortağı sözleşmesi imza durumunu denetlemek için bu tanımlayıcılardan birini kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cb012-108">You can use one of these identifiers to check the Microsoft Partner Agreement signing status using the **AgreementStatus** API.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="dbbf3-107">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="dbbf3-107">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="cb012-109">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="cb012-109">Prerequisites</span></span>
+- <span data-ttu-id="dbbf3-108">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="dbbf3-109">Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-109">This scenario supports authentication with App+User credentials only.</span></span>
 
-- <span data-ttu-id="cb012-110">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="cb012-110">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="cb012-111">Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="cb012-111">This scenario supports authentication with App+User credentials only.</span></span>
+- <span data-ttu-id="dbbf3-110">MPN KIMLIĞI (PGA/PLA) veya dolaylı satıcıdan oluşan CSP kiracı KIMLIĞI (Microsoft ID).</span><span class="sxs-lookup"><span data-stu-id="dbbf3-110">The MPN ID (PGA/PLA) or the CSP tenant ID (Microsoft ID) of the indirect reseller.</span></span> <span data-ttu-id="dbbf3-111">*Bu iki tanımlayıcıdan birini kullanmalısınız.*</span><span class="sxs-lookup"><span data-stu-id="dbbf3-111">*You must use one of these two identifiers.*</span></span>
 
-- <span data-ttu-id="cb012-112">MPN KIMLIĞI (PGA/PLA) veya dolaylı satıcıdan oluşan CSP kiracı KIMLIĞI (Microsoft ID).</span><span class="sxs-lookup"><span data-stu-id="cb012-112">The MPN ID (PGA/PLA) or the CSP tenant ID (Microsoft ID) of the indirect reseller.</span></span> <span data-ttu-id="cb012-113">*Bu iki tanımlayıcıdan birini kullanmalısınız.*</span><span class="sxs-lookup"><span data-stu-id="cb012-113">*You must use one of these two identifiers.*</span></span>
+## <a name="c"></a><span data-ttu-id="dbbf3-112">C\#</span><span class="sxs-lookup"><span data-stu-id="dbbf3-112">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="cb012-114">C\#</span><span class="sxs-lookup"><span data-stu-id="cb012-114">C\#</span></span>
+<span data-ttu-id="dbbf3-113">Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu almak için:</span><span class="sxs-lookup"><span data-stu-id="dbbf3-113">To get the Microsoft Partner Agreement signature status of an indirect reseller:</span></span>
 
-<span data-ttu-id="cb012-115">Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu almak için:</span><span class="sxs-lookup"><span data-stu-id="cb012-115">To get the Microsoft Partner Agreement signature status of an indirect reseller:</span></span>
+1. <span data-ttu-id="dbbf3-114">**AgreementSignatureStatus** özelliğini çağırmak Için **ıaggregatepartner. uyum** koleksiyonunuzu kullanın.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-114">Use your **IAggregatePartner.Compliance** collection to call the **AgreementSignatureStatus** property.</span></span>
 
-1. <span data-ttu-id="cb012-116">**AgreementSignatureStatus** özelliğini çağırmak Için **ıaggregatepartner. uyum** koleksiyonunuzu kullanın.</span><span class="sxs-lookup"><span data-stu-id="cb012-116">Use your **IAggregatePartner.Compliance** collection to call the **AgreementSignatureStatus** property.</span></span>
-
-2. <span data-ttu-id="cb012-117">[**Get ()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="cb012-117">Call the [**Get()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) or [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) method.</span></span>
+2. <span data-ttu-id="dbbf3-115">[**Get ()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-115">Call the [**Get()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) or [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) method.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,36 +39,36 @@ var agreementSignatureStatusByMpnId = partnerOperations.Compliance.AgreementSign
 var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementSignatureStatus.Get(tenantId: "Enter Tenant Id");
 ```
 
-- <span data-ttu-id="cb012-118">Örnek: **[konsol test uygulaması](console-test-app.md)**</span><span class="sxs-lookup"><span data-stu-id="cb012-118">Sample: **[Console test app](console-test-app.md)**</span></span>
-- <span data-ttu-id="cb012-119">Proje: **Partnercentersdk. FeaturesSamples**</span><span class="sxs-lookup"><span data-stu-id="cb012-119">Project: **PartnerCenterSDK.FeaturesSamples**</span></span>
-- <span data-ttu-id="cb012-120">Sınıf: **GetAgreementSignatureStatus. cs**</span><span class="sxs-lookup"><span data-stu-id="cb012-120">Class: **GetAgreementSignatureStatus.cs**</span></span>
+- <span data-ttu-id="dbbf3-116">Örnek: **[konsol test uygulaması](console-test-app.md)**</span><span class="sxs-lookup"><span data-stu-id="dbbf3-116">Sample: **[Console test app](console-test-app.md)**</span></span>
+- <span data-ttu-id="dbbf3-117">Project: **partnercentersdk. featuressamples**</span><span class="sxs-lookup"><span data-stu-id="dbbf3-117">Project: **PartnerCenterSDK.FeaturesSamples**</span></span>
+- <span data-ttu-id="dbbf3-118">Sınıf: **GetAgreementSignatureStatus. cs**</span><span class="sxs-lookup"><span data-stu-id="dbbf3-118">Class: **GetAgreementSignatureStatus.cs**</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="cb012-121">REST isteği</span><span class="sxs-lookup"><span data-stu-id="cb012-121">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="dbbf3-119">REST isteği</span><span class="sxs-lookup"><span data-stu-id="dbbf3-119">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="cb012-122">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="cb012-122">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="dbbf3-120">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="dbbf3-120">Request syntax</span></span>
 
-| <span data-ttu-id="cb012-123">Yöntem</span><span class="sxs-lookup"><span data-stu-id="cb012-123">Method</span></span> | <span data-ttu-id="cb012-124">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="cb012-124">Request URI</span></span> |
+| <span data-ttu-id="dbbf3-121">Yöntem</span><span class="sxs-lookup"><span data-stu-id="dbbf3-121">Method</span></span> | <span data-ttu-id="dbbf3-122">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="dbbf3-122">Request URI</span></span> |
 | ------ | ----------- |
-| <span data-ttu-id="cb012-125">**Al**</span><span class="sxs-lookup"><span data-stu-id="cb012-125">**GET**</span></span> | <span data-ttu-id="cb012-126">*[{BaseUrl}](partner-center-rest-urls.md)*/v1/Compliance/{programname}/agreementstatus? mpnıd = {mpnıd} &tenantıd = {tenantıd}</span><span class="sxs-lookup"><span data-stu-id="cb012-126">*[{baseURL}](partner-center-rest-urls.md)*/v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId}</span></span> |
+| <span data-ttu-id="dbbf3-123">**Al**</span><span class="sxs-lookup"><span data-stu-id="dbbf3-123">**GET**</span></span> | <span data-ttu-id="dbbf3-124">*[{BaseUrl}](partner-center-rest-urls.md)*/v1/Compliance/{programname}/agreementstatus? mpnıd = {mpnıd} &tenantıd = {tenantıd}</span><span class="sxs-lookup"><span data-stu-id="dbbf3-124">*[{baseURL}](partner-center-rest-urls.md)*/v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId}</span></span> |
 
-#### <a name="uri-parameters"></a><span data-ttu-id="cb012-127">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="cb012-127">URI parameters</span></span>
+#### <a name="uri-parameters"></a><span data-ttu-id="dbbf3-125">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="dbbf3-125">URI parameters</span></span>
 
-<span data-ttu-id="cb012-128">İş ortağını tanımlamak için aşağıdaki iki sorgu parametresini sağlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="cb012-128">You must provide one of the following two query parameters to identify the partner.</span></span> <span data-ttu-id="cb012-129">Bu iki sorgu parametrelerinden birini sağlamazsanız, **400 (hatalı istek)** hatası alırsınız.</span><span class="sxs-lookup"><span data-stu-id="cb012-129">If you don't provide one of these two query parameters, you will receive a **400 (Bad request)** error.</span></span>
+<span data-ttu-id="dbbf3-126">İş ortağını tanımlamak için aşağıdaki iki sorgu parametresini sağlamanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-126">You must provide one of the following two query parameters to identify the partner.</span></span> <span data-ttu-id="dbbf3-127">Bu iki sorgu parametrelerinden birini sağlamazsanız, **400 (hatalı istek)** hatası alırsınız.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-127">If you don't provide one of these two query parameters, you will receive a **400 (Bad request)** error.</span></span>
 
-| <span data-ttu-id="cb012-130">Ad</span><span class="sxs-lookup"><span data-stu-id="cb012-130">Name</span></span> | <span data-ttu-id="cb012-131">Tür</span><span class="sxs-lookup"><span data-stu-id="cb012-131">Type</span></span> | <span data-ttu-id="cb012-132">Gerekli</span><span class="sxs-lookup"><span data-stu-id="cb012-132">Required</span></span> | <span data-ttu-id="cb012-133">Açıklama</span><span class="sxs-lookup"><span data-stu-id="cb012-133">Description</span></span> |
+| <span data-ttu-id="dbbf3-128">Ad</span><span class="sxs-lookup"><span data-stu-id="dbbf3-128">Name</span></span> | <span data-ttu-id="dbbf3-129">Tür</span><span class="sxs-lookup"><span data-stu-id="dbbf3-129">Type</span></span> | <span data-ttu-id="dbbf3-130">Gerekli</span><span class="sxs-lookup"><span data-stu-id="dbbf3-130">Required</span></span> | <span data-ttu-id="dbbf3-131">Açıklama</span><span class="sxs-lookup"><span data-stu-id="dbbf3-131">Description</span></span> |
 | ---- | ---- | -------- | ----------- |
-| <span data-ttu-id="cb012-134">**Mpnıd**</span><span class="sxs-lookup"><span data-stu-id="cb012-134">**MpnId**</span></span> | <span data-ttu-id="cb012-135">int</span><span class="sxs-lookup"><span data-stu-id="cb012-135">int</span></span> | <span data-ttu-id="cb012-136">No</span><span class="sxs-lookup"><span data-stu-id="cb012-136">No</span></span> | <span data-ttu-id="cb012-137">Dolaylı Bayi tanımlayan bir Microsoft İş Ortağı Ağı KIMLIĞI (PGA/PLA).</span><span class="sxs-lookup"><span data-stu-id="cb012-137">A Microsoft Partner Network ID (PGA/PLA) that identifies the indirect reseller.</span></span> |
-| <span data-ttu-id="cb012-138">**Değerine**</span><span class="sxs-lookup"><span data-stu-id="cb012-138">**TenantId**</span></span> | <span data-ttu-id="cb012-139">GUID</span><span class="sxs-lookup"><span data-stu-id="cb012-139">GUID</span></span> | <span data-ttu-id="cb012-140">No</span><span class="sxs-lookup"><span data-stu-id="cb012-140">No</span></span> | <span data-ttu-id="cb012-141">Dolaylı satıcıdan oluşan CSP hesabını tanımlayan bir Microsoft KIMLIĞI.</span><span class="sxs-lookup"><span data-stu-id="cb012-141">A Microsoft ID that identifies the CSP account of the indirect reseller.</span></span> |
+| <span data-ttu-id="dbbf3-132">**Mpnıd**</span><span class="sxs-lookup"><span data-stu-id="dbbf3-132">**MpnId**</span></span> | <span data-ttu-id="dbbf3-133">int</span><span class="sxs-lookup"><span data-stu-id="dbbf3-133">int</span></span> | <span data-ttu-id="dbbf3-134">Hayır</span><span class="sxs-lookup"><span data-stu-id="dbbf3-134">No</span></span> | <span data-ttu-id="dbbf3-135">Dolaylı Bayi tanımlayan bir Microsoft İş Ortağı Ağı KIMLIĞI (PGA/PLA).</span><span class="sxs-lookup"><span data-stu-id="dbbf3-135">A Microsoft Partner Network ID (PGA/PLA) that identifies the indirect reseller.</span></span> |
+| <span data-ttu-id="dbbf3-136">**Değerine**</span><span class="sxs-lookup"><span data-stu-id="dbbf3-136">**TenantId**</span></span> | <span data-ttu-id="dbbf3-137">GUID</span><span class="sxs-lookup"><span data-stu-id="dbbf3-137">GUID</span></span> | <span data-ttu-id="dbbf3-138">Hayır</span><span class="sxs-lookup"><span data-stu-id="dbbf3-138">No</span></span> | <span data-ttu-id="dbbf3-139">Dolaylı satıcıdan oluşan CSP hesabını tanımlayan bir Microsoft KIMLIĞI.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-139">A Microsoft ID that identifies the CSP account of the indirect reseller.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="cb012-142">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="cb012-142">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="dbbf3-140">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="dbbf3-140">Request headers</span></span>
 
-<span data-ttu-id="cb012-143">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI kalanı](headers.md).</span><span class="sxs-lookup"><span data-stu-id="cb012-143">For more information, see [Partner Center REST](headers.md).</span></span>
+<span data-ttu-id="dbbf3-141">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI kalanı](headers.md).</span><span class="sxs-lookup"><span data-stu-id="dbbf3-141">For more information, see [Partner Center REST](headers.md).</span></span>
 
-### <a name="request-examples"></a><span data-ttu-id="cb012-144">İstek örnekleri</span><span class="sxs-lookup"><span data-stu-id="cb012-144">Request examples</span></span>
+### <a name="request-examples"></a><span data-ttu-id="dbbf3-142">İstek örnekleri</span><span class="sxs-lookup"><span data-stu-id="dbbf3-142">Request examples</span></span>
 
-#### <a name="request-using-mpn-id-pgapla"></a><span data-ttu-id="cb012-145">MPN KIMLIĞI (PGA/PLA) kullanarak istek</span><span class="sxs-lookup"><span data-stu-id="cb012-145">Request using MPN ID (PGA/PLA)</span></span>
+#### <a name="request-using-mpn-id-pgapla"></a><span data-ttu-id="dbbf3-143">MPN KIMLIĞI (PGA/PLA) kullanarak istek</span><span class="sxs-lookup"><span data-stu-id="dbbf3-143">Request using MPN ID (PGA/PLA)</span></span>
 
-<span data-ttu-id="cb012-146">Aşağıdaki örnek istek dolaylı satıcının Microsoft Iş ortağı sözleşmesi imza durumunu dolaylı Bayi Microsoft İş Ortağı Ağı KIMLIĞINI kullanarak alır.</span><span class="sxs-lookup"><span data-stu-id="cb012-146">The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's Microsoft Partner Network ID.</span></span>
+<span data-ttu-id="dbbf3-144">Aşağıdaki örnek istek dolaylı satıcının Microsoft Iş ortağı sözleşmesi imza durumunu dolaylı Bayi Microsoft İş Ortağı Ağı KIMLIĞINI kullanarak alır.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-144">The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's Microsoft Partner Network ID.</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?mpnid=1234567 HTTP/1.1
@@ -83,9 +80,9 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="request-using-csp-tenant-id"></a><span data-ttu-id="cb012-147">CSP kiracı KIMLIĞI kullanarak istek</span><span class="sxs-lookup"><span data-stu-id="cb012-147">Request using CSP tenant ID</span></span>
+#### <a name="request-using-csp-tenant-id"></a><span data-ttu-id="dbbf3-145">CSP kiracı KIMLIĞI kullanarak istek</span><span class="sxs-lookup"><span data-stu-id="dbbf3-145">Request using CSP tenant ID</span></span>
 
-<span data-ttu-id="cb012-148">Aşağıdaki örnek istek, dolaylı satıcının CSP kiracı KIMLIĞINI (Microsoft ID) kullanarak dolaylı satıcının Microsoft Iş ortağı sözleşmesi imza durumunu alır.</span><span class="sxs-lookup"><span data-stu-id="cb012-148">The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's CSP tenant ID (Microsoft ID).</span></span>
+<span data-ttu-id="dbbf3-146">Aşağıdaki örnek istek, dolaylı satıcının CSP kiracı KIMLIĞINI (Microsoft ID) kullanarak dolaylı satıcının Microsoft Iş ortağı sözleşmesi imza durumunu alır.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-146">The following example request gets the indirect reseller's Microsoft Partner Agreement signing status using the indirect reseller's CSP tenant ID (Microsoft ID).</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?tenantId=a2898e3a-06ca-454e-a0d0-c73b0ee36bba HTTP/1.1
@@ -97,15 +94,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="cb012-149">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="cb012-149">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="dbbf3-147">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="dbbf3-147">REST response</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="cb012-150">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="cb012-150">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="dbbf3-148">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="dbbf3-148">Response success and error codes</span></span>
 
-<span data-ttu-id="cb012-151">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="cb012-151">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="cb012-152">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="cb012-152">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="cb012-153">Tam liste için bkz. [Iş ortağı MERKEZI Rest hatası](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="cb012-153">For the full list, see [Partner Center REST error](error-codes.md).</span></span>
+<span data-ttu-id="dbbf3-149">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-149">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="dbbf3-150">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-150">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="dbbf3-151">Tam liste için bkz. [Iş ortağı MERKEZI Rest hatası](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="dbbf3-151">For the full list, see [Partner Center REST error](error-codes.md).</span></span>
 
-### <a name="response-example-success"></a><span data-ttu-id="cb012-154">Yanıt örneği (başarılı)</span><span class="sxs-lookup"><span data-stu-id="cb012-154">Response example (success)</span></span>
+### <a name="response-example-success"></a><span data-ttu-id="dbbf3-152">Yanıt örneği (başarılı)</span><span class="sxs-lookup"><span data-stu-id="dbbf3-152">Response example (success)</span></span>
 
-<span data-ttu-id="cb012-155">Aşağıdaki örnek yanıt başarıyla dolaylı satıcının Microsoft Iş ortağı sözleşmesi 'Ni imzaladığı olup olmadığını döndürür.</span><span class="sxs-lookup"><span data-stu-id="cb012-155">The following example response successfully returns whether the indirect reseller has signed the Microsoft Partner Agreement.</span></span>
+<span data-ttu-id="dbbf3-153">Aşağıdaki örnek yanıt başarıyla dolaylı satıcının Microsoft Iş ortağı sözleşmesi 'Ni imzaladığı olup olmadığını döndürür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-153">The following example response successfully returns whether the indirect reseller has signed the Microsoft Partner Agreement.</span></span>
 
 ```http
 HTTP/1.1 200 OK
@@ -122,13 +119,13 @@ Connection: close
 }
 ```
 
-### <a name="response-examples-failure"></a><span data-ttu-id="cb012-156">Yanıt örnekleri (hata)</span><span class="sxs-lookup"><span data-stu-id="cb012-156">Response examples (failure)</span></span>
+### <a name="response-examples-failure"></a><span data-ttu-id="dbbf3-154">Yanıt örnekleri (hata)</span><span class="sxs-lookup"><span data-stu-id="dbbf3-154">Response examples (failure)</span></span>
 
-<span data-ttu-id="cb012-157">Dolaylı satıcının Microsoft Iş ortağı sözleşmesinin imzalama durumu döndürülemeyebilir, aşağıdaki örneklere benzer yanıtlar alabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="cb012-157">You may receive responses similar to the following examples when the signing status of the indirect reseller's Microsoft Partner Agreement can't be returned.</span></span>
+<span data-ttu-id="dbbf3-155">Dolaylı satıcının Microsoft Iş ortağı sözleşmesinin imzalama durumu döndürülemeyebilir, aşağıdaki örneklere benzer yanıtlar alabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-155">You may receive responses similar to the following examples when the signing status of the indirect reseller's Microsoft Partner Agreement can't be returned.</span></span>
 
-#### <a name="non-guid-formatted-csp-tenant-id"></a><span data-ttu-id="cb012-158">GUID olmayan biçimli CSP kiracı KIMLIĞI</span><span class="sxs-lookup"><span data-stu-id="cb012-158">Non-GUID formatted CSP tenant ID</span></span>
+#### <a name="non-guid-formatted-csp-tenant-id"></a><span data-ttu-id="dbbf3-156">GUID olmayan biçimli CSP kiracı KIMLIĞI</span><span class="sxs-lookup"><span data-stu-id="dbbf3-156">Non-GUID formatted CSP tenant ID</span></span>
 
-<span data-ttu-id="cb012-159">Aşağıdaki örnek yanıt, API 'ye geçirilen CSP kiracı KIMLIĞI bir GUID olmadığında döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-159">The following example response is returned when the CSP tenant ID that you passed to the API isn't a GUID.</span></span>
+<span data-ttu-id="dbbf3-157">Aşağıdaki örnek yanıt, API 'ye geçirilen CSP kiracı KIMLIĞI bir GUID olmadığında döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-157">The following example response is returned when the CSP tenant ID that you passed to the API isn't a GUID.</span></span>
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -148,9 +145,9 @@ Connection: close
 }
 ```
 
-#### <a name="non-numeric-mpn-id"></a><span data-ttu-id="cb012-160">Sayısal olmayan MPN KIMLIĞI</span><span class="sxs-lookup"><span data-stu-id="cb012-160">Non-numeric MPN ID</span></span>
+#### <a name="non-numeric-mpn-id"></a><span data-ttu-id="dbbf3-158">Sayısal olmayan MPN KIMLIĞI</span><span class="sxs-lookup"><span data-stu-id="dbbf3-158">Non-numeric MPN ID</span></span>
 
-<span data-ttu-id="cb012-161">Aşağıdaki örnek yanıt, API 'ye geçirilen MPN KIMLIĞI (PGA/PLA) sayısal olmayan bir değer olarak döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-161">The following example response is returned when the MPN ID (PGA/PLA) that you passed to the API is non-numeric.</span></span>
+<span data-ttu-id="dbbf3-159">Aşağıdaki örnek yanıt, API 'ye geçirilen MPN KIMLIĞI (PGA/PLA) sayısal olmayan bir değer olarak döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-159">The following example response is returned when the MPN ID (PGA/PLA) that you passed to the API is non-numeric.</span></span>
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -170,9 +167,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-mpn-id-or-csp-tenant-id"></a><span data-ttu-id="cb012-162">MPN KIMLIĞI veya CSP kiracı KIMLIĞI yok</span><span class="sxs-lookup"><span data-stu-id="cb012-162">No MPN ID or CSP tenant ID</span></span>
+#### <a name="no-mpn-id-or-csp-tenant-id"></a><span data-ttu-id="dbbf3-160">MPN KIMLIĞI veya CSP kiracı KIMLIĞI yok</span><span class="sxs-lookup"><span data-stu-id="dbbf3-160">No MPN ID or CSP tenant ID</span></span>
 
-<span data-ttu-id="cb012-163">Aşağıdaki örnek yanıt, API 'ye bir MPN KIMLIĞI (PGA/PLA) veya CSP kiracı KIMLIĞI geçirmedikçe döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-163">The following example response is returned when you haven't passed an MPN ID (PGA/PLA) or CSP tenant ID to the API.</span></span> <span data-ttu-id="cb012-164">İki KIMLIK türünden birini API 'ye geçirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="cb012-164">You must pass one of the two ID types to the API.</span></span>
+<span data-ttu-id="dbbf3-161">Aşağıdaki örnek yanıt, API 'ye bir MPN KIMLIĞI (PGA/PLA) veya CSP kiracı KIMLIĞI geçirmedikçe döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-161">The following example response is returned when you haven't passed an MPN ID (PGA/PLA) or CSP tenant ID to the API.</span></span> <span data-ttu-id="dbbf3-162">İki KIMLIK türünden birini API 'ye geçirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-162">You must pass one of the two ID types to the API.</span></span>
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -192,9 +189,9 @@ Connection: close
 }
 ```
 
-#### <a name="both-mpn-id-and-csp-tenant-id-passed"></a><span data-ttu-id="cb012-165">MPN KIMLIĞI ve CSP kiracı KIMLIĞI geçildi</span><span class="sxs-lookup"><span data-stu-id="cb012-165">Both MPN ID and CSP tenant ID passed</span></span>
+#### <a name="both-mpn-id-and-csp-tenant-id-passed"></a><span data-ttu-id="dbbf3-163">MPN KIMLIĞI ve CSP kiracı KIMLIĞI geçildi</span><span class="sxs-lookup"><span data-stu-id="dbbf3-163">Both MPN ID and CSP tenant ID passed</span></span>
 
-<span data-ttu-id="cb012-166">Aşağıdaki örnek yanıt, hem MPN KIMLIĞI (PGA/PLA) hem de CSP kiracı KIMLIĞINI API 'ye geçirdiğinizde döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-166">The following example response is returned when you pass both the MPN ID (PGA/PLA) and CSP tenant ID to the API.</span></span> <span data-ttu-id="cb012-167">API 'ye iki tanımlayıcı türünden *yalnızca birini* geçirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="cb012-167">You must pass *only one* of the two identifier types to the API.</span></span>
+<span data-ttu-id="dbbf3-164">Aşağıdaki örnek yanıt, hem MPN KIMLIĞI (PGA/PLA) hem de CSP kiracı KIMLIĞINI API 'ye geçirdiğinizde döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-164">The following example response is returned when you pass both the MPN ID (PGA/PLA) and CSP tenant ID to the API.</span></span> <span data-ttu-id="dbbf3-165">API 'ye iki tanımlayıcı türünden *yalnızca birini* geçirmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-165">You must pass *only one* of the two identifier types to the API.</span></span>
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -214,9 +211,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-reseller-mpn-id-pgapla-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a><span data-ttu-id="cb012-168">CSP dolaylı Bayi MPN kimliği (PGA/PLA) geçersiz ya da Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmedi</span><span class="sxs-lookup"><span data-stu-id="cb012-168">CSP Indirect Reseller MPN Id (PGA/PLA) is either invalid or not migrated from Partner Membership Center to Partner Center</span></span>
+#### <a name="csp-indirect-reseller-mpn-id-pgapla-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a><span data-ttu-id="dbbf3-166">CSP dolaylı Bayi MPN KIMLIĞI (PGA/PLA) geçersiz ya da Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmedi</span><span class="sxs-lookup"><span data-stu-id="dbbf3-166">CSP Indirect Reseller MPN ID (PGA/PLA) is either invalid or not migrated from Partner Membership Center to Partner Center</span></span>
 
-<span data-ttu-id="cb012-169">Geçirilen dolaylı satıcı MPN KIMLIĞI (PGA/PLA) geçersiz olduğunda veya Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmediğinde aşağıdaki örnek yanıt döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-169">The following example response is returned when Indirect reseller MPN ID (PGA/PLA) passed is either invalid or it is not migrated from Partner Membership Center to Partner Center.</span></span> [<span data-ttu-id="cb012-170">Daha Fazla Bilgi</span><span class="sxs-lookup"><span data-stu-id="cb012-170">Learn More</span></span>](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
+<span data-ttu-id="dbbf3-167">Geçirilen dolaylı satıcı MPN KIMLIĞI (PGA/PLA) geçersiz olduğunda veya Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmediğinde aşağıdaki örnek yanıt döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-167">The following example response is returned when Indirect reseller MPN ID (PGA/PLA) passed is either invalid or it is not migrated from Partner Membership Center to Partner Center.</span></span> [<span data-ttu-id="dbbf3-168">Daha Fazla Bilgi</span><span class="sxs-lookup"><span data-stu-id="dbbf3-168">Learn More</span></span>](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -238,9 +235,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a><span data-ttu-id="cb012-171">CSP dolaylı sağlayıcı bölgesi ve CSP dolaylı satıcı bölgesi eşleşmiyor</span><span class="sxs-lookup"><span data-stu-id="cb012-171">CSP Indirect Provider region and CSP Indirect Reseller region does not match</span></span>
+#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a><span data-ttu-id="dbbf3-169">CSP dolaylı sağlayıcı bölgesi ve CSP dolaylı satıcı bölgesi eşleşmiyor</span><span class="sxs-lookup"><span data-stu-id="dbbf3-169">CSP Indirect Provider region and CSP Indirect Reseller region does not match</span></span>
 
-<span data-ttu-id="cb012-172">Dolaylı satıcı MPN KIMLIĞI (PGA/PLA) bölgesi dolaylı sağlayıcının bölgesiyle eşleşmediği zaman aşağıdaki örnek yanıt döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-172">The following example response is returned when region of Indirect reseller MPN ID (PGA/PLA) doesn't match with region of the Indirect Provider.</span></span> <span data-ttu-id="cb012-173">CSP bölgeleri hakkında [daha fazla bilgi edinin](/partner-center/mpa-indirect-provider-faq) .</span><span class="sxs-lookup"><span data-stu-id="cb012-173">[Learn more](/partner-center/mpa-indirect-provider-faq) about CSP Regions.</span></span>
+<span data-ttu-id="dbbf3-170">Dolaylı satıcı MPN KIMLIĞI (PGA/PLA) bölgesi dolaylı sağlayıcının bölgesiyle eşleşmediği zaman aşağıdaki örnek yanıt döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-170">The following example response is returned when region of Indirect reseller MPN ID (PGA/PLA) doesn't match with region of the Indirect Provider.</span></span> <span data-ttu-id="dbbf3-171">CSP bölgeleri hakkında [daha fazla bilgi edinin](/partner-center/mpa-indirect-provider-faq) .</span><span class="sxs-lookup"><span data-stu-id="dbbf3-171">[Learn more](/partner-center/mpa-indirect-provider-faq) about CSP Regions.</span></span>
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -262,9 +259,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a><span data-ttu-id="cb012-174">CSP dolaylı satıcı hesabı Iş Ortağı Merkezi 'nde var, ancak MPA imzasız</span><span class="sxs-lookup"><span data-stu-id="cb012-174">CSP Indirect Reseller account exists in Partner Center but hasn't signed the MPA</span></span>
+#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a><span data-ttu-id="dbbf3-172">CSP dolaylı satıcı hesabı Iş Ortağı Merkezi 'nde var, ancak MPA imzasız</span><span class="sxs-lookup"><span data-stu-id="dbbf3-172">CSP Indirect Reseller account exists in Partner Center but hasn't signed the MPA</span></span>
 
-<span data-ttu-id="cb012-175">Aşağıdaki örnek yanıt, Iş ortağı merkezindeki CSP dolaylı satıcı hesabı MPA 'yı imzaladığı zaman döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-175">The following example response is returned when CSP Indirect Reseller account in Partner Center hasn't signed the MPA.</span></span> [<span data-ttu-id="cb012-176">Daha Fazla Bilgi</span><span class="sxs-lookup"><span data-stu-id="cb012-176">Learn More</span></span>](/partner-center/mpa-indirect-provider-faq)
+<span data-ttu-id="dbbf3-173">Aşağıdaki örnek yanıt, Iş ortağı merkezindeki CSP dolaylı satıcı hesabı MPA 'yı imzaladığı zaman döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-173">The following example response is returned when CSP Indirect Reseller account in Partner Center hasn't signed the MPA.</span></span> [<span data-ttu-id="dbbf3-174">Daha Fazla Bilgi</span><span class="sxs-lookup"><span data-stu-id="dbbf3-174">Learn More</span></span>](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -286,9 +283,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a><span data-ttu-id="cb012-177">Belirtilen MPN KIMLIĞIYLE ilişkili CSP dolaylı satıcı hesabı yok</span><span class="sxs-lookup"><span data-stu-id="cb012-177">No CSP Indirect Reseller account is associated with the given MPN ID</span></span>
+#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a><span data-ttu-id="dbbf3-175">Belirtilen MPN KIMLIĞIYLE ilişkili CSP dolaylı satıcı hesabı yok</span><span class="sxs-lookup"><span data-stu-id="dbbf3-175">No CSP Indirect Reseller account is associated with the given MPN ID</span></span>
 
-<span data-ttu-id="cb012-178">Iş Ortağı Merkezi, istekte geçirilen MPN KIMLIĞINI (PGA/PLA) tanıyabileceği halde, belirtilen MPN KIMLIĞI (PGA/PLA) ile ilişkili CSP kaydı yoksa, aşağıdaki örnek yanıt döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-178">The following example response is returned when Partner Center can recognize the MPN ID (PGA/PLA) passed in the request but there is no CSP enrollment associated to the given MPN ID (PGA/PLA).</span></span> [<span data-ttu-id="cb012-179">Daha Fazla Bilgi</span><span class="sxs-lookup"><span data-stu-id="cb012-179">Learn More</span></span>](/partner-center/mpa-indirect-provider-faq)
+<span data-ttu-id="dbbf3-176">Iş Ortağı Merkezi, istekte geçirilen MPN KIMLIĞINI (PGA/PLA) tanıyabileceği halde, belirtilen MPN KIMLIĞI (PGA/PLA) ile ilişkili CSP kaydı yoksa, aşağıdaki örnek yanıt döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-176">The following example response is returned when Partner Center can recognize the MPN ID (PGA/PLA) passed in the request but there is no CSP enrollment associated to the given MPN ID (PGA/PLA).</span></span> [<span data-ttu-id="dbbf3-177">Daha Fazla Bilgi</span><span class="sxs-lookup"><span data-stu-id="dbbf3-177">Learn More</span></span>](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -310,9 +307,9 @@ Connection: close
 }
 ```
 
-#### <a name="invalid-tenant-id"></a><span data-ttu-id="cb012-180">Geçersiz kiracı KIMLIĞI</span><span class="sxs-lookup"><span data-stu-id="cb012-180">Invalid Tenant ID</span></span>
+#### <a name="invalid-tenant-id"></a><span data-ttu-id="dbbf3-178">Geçersiz kiracı KIMLIĞI</span><span class="sxs-lookup"><span data-stu-id="dbbf3-178">Invalid Tenant ID</span></span>
 
-<span data-ttu-id="cb012-181">Iş Ortağı Merkezi, istekte geçirilen kiracı KIMLIĞIYLE ilişkili herhangi bir hesap bulamadığında aşağıdaki örnek yanıt döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-181">The following example response is returned when Partner Center doesn't find any account associated to the Tenant ID passed in the request.</span></span>
+<span data-ttu-id="dbbf3-179">Iş Ortağı Merkezi, istekte geçirilen kiracı KIMLIĞIYLE ilişkili herhangi bir hesap bulamadığında aşağıdaki örnek yanıt döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-179">The following example response is returned when Partner Center doesn't find any account associated to the Tenant ID passed in the request.</span></span>
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -332,9 +329,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-mpa-found-with-the-given-tenant-id"></a><span data-ttu-id="cb012-182">Verilen kiracı KIMLIĞINE sahip bir MPA bulunamadı</span><span class="sxs-lookup"><span data-stu-id="cb012-182">No MPA found with the given Tenant ID</span></span>
+#### <a name="no-mpa-found-with-the-given-tenant-id"></a><span data-ttu-id="dbbf3-180">Verilen kiracı KIMLIĞINE sahip bir MPA bulunamadı</span><span class="sxs-lookup"><span data-stu-id="dbbf3-180">No MPA found with the given Tenant ID</span></span>
 
-<span data-ttu-id="cb012-183">Aşağıdaki örnek yanıt, Iş Ortağı Merkezi belirtilen kiracı KIMLIĞINE sahip herhangi bir MPA imzasını bulamadığında döndürülür.</span><span class="sxs-lookup"><span data-stu-id="cb012-183">The following example response is returned when Partner Center can't find any MPA signature with the given Tenant ID.</span></span> [<span data-ttu-id="cb012-184">Daha Fazla Bilgi</span><span class="sxs-lookup"><span data-stu-id="cb012-184">Learn More</span></span>](/partner-center/mpa-indirect-provider-faq)
+<span data-ttu-id="dbbf3-181">Aşağıdaki örnek yanıt, Iş Ortağı Merkezi belirtilen kiracı KIMLIĞINE sahip herhangi bir MPA imzasını bulamadığında döndürülür.</span><span class="sxs-lookup"><span data-stu-id="dbbf3-181">The following example response is returned when Partner Center can't find any MPA signature with the given Tenant ID.</span></span> [<span data-ttu-id="dbbf3-182">Daha Fazla Bilgi</span><span class="sxs-lookup"><span data-stu-id="dbbf3-182">Learn More</span></span>](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request

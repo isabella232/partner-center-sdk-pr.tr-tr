@@ -6,31 +6,26 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 34e7d2396d6dbdd45a6cf87a3bda481f51326f1e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 2b09a0045df15d774c892a59fba8502d4d4f7024
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769191"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529775"
 ---
-# <a name="update-the-partner-billing-profile"></a><span data-ttu-id="2ee0c-103">İş ortağı faturalandırma profili güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="2ee0c-103">Update the partner billing profile</span></span>
+# <a name="update-the-partner-billing-profile"></a><span data-ttu-id="6007b-103">İş ortağı faturalandırma profili güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="6007b-103">Update the partner billing profile</span></span>
 
-<span data-ttu-id="2ee0c-104">**Uygulama hedefi**</span><span class="sxs-lookup"><span data-stu-id="2ee0c-104">**Applies To**</span></span>
+<span data-ttu-id="6007b-104">**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="6007b-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="2ee0c-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="2ee0c-105">Partner Center</span></span>
-- <span data-ttu-id="2ee0c-106">21Vianet tarafından çalıştırılan iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="2ee0c-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="2ee0c-107">Microsoft Bulut Almanya için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="2ee0c-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="2ee0c-108">Microsoft Cloud for US Government için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="2ee0c-108">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="6007b-105">Bir ortağın faturalandırma profilini güncelleştirir</span><span class="sxs-lookup"><span data-stu-id="6007b-105">Updates a partner's billing profile</span></span>
 
-<span data-ttu-id="2ee0c-109">Bir ortağın faturalandırma profilini güncelleştirir</span><span class="sxs-lookup"><span data-stu-id="2ee0c-109">Updates a partner's billing profile</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="6007b-106">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="6007b-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="2ee0c-110">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="2ee0c-110">Prerequisites</span></span>
+- <span data-ttu-id="6007b-107">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="6007b-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="6007b-108">Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="6007b-108">This scenario supports authentication with App+User credentials only.</span></span>
 
-- <span data-ttu-id="2ee0c-111">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-111">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="2ee0c-112">Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-112">This scenario supports authentication with App+User credentials only.</span></span>
+## <a name="c"></a><span data-ttu-id="6007b-109">C\#</span><span class="sxs-lookup"><span data-stu-id="6007b-109">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="2ee0c-113">C\#</span><span class="sxs-lookup"><span data-stu-id="2ee0c-113">C\#</span></span>
-
-<span data-ttu-id="2ee0c-114">Bir iş ortağı faturalandırma profilini güncelleştirmek için mevcut profili alın.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-114">To update a partner billing profile, retrieve the existing profile.</span></span> <span data-ttu-id="2ee0c-115">Profili güncelleştirdikten sonra **ıaggregatepartner. Profiles** koleksiyonunuzu kullanın ve **billingprofile** özelliğini çağırın.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-115">Once you have updated the profile, use your **IAggregatePartner.Profiles** collection and call the **BillingProfile** property.</span></span> <span data-ttu-id="2ee0c-116">Son olarak **Update ()** yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-116">Finally, call the **Update()** method.</span></span>
+<span data-ttu-id="6007b-110">Bir iş ortağı faturalandırma profilini güncelleştirmek için mevcut profili alın.</span><span class="sxs-lookup"><span data-stu-id="6007b-110">To update a partner billing profile, retrieve the existing profile.</span></span> <span data-ttu-id="6007b-111">Profili güncelleştirdikten sonra **ıaggregatepartner. Profiles** koleksiyonunuzu kullanın ve **billingprofile** özelliğini çağırın.</span><span class="sxs-lookup"><span data-stu-id="6007b-111">Once you have updated the profile, use your **IAggregatePartner.Profiles** collection and call the **BillingProfile** property.</span></span> <span data-ttu-id="6007b-112">Son olarak **Update ()** yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="6007b-112">Finally, call the **Update()** method.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,25 +38,25 @@ existingBillingProfile.PurchaseOrderNumber = new Random().Next(9000, 10000).ToSt
 BillingProfile updatedPartnerBillingProfile = partnerOperations.Profiles.BillingProfile.Update(existingBillingProfile);
 ```
 
-<span data-ttu-id="2ee0c-117">**Örnek**: [konsol test uygulaması](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="2ee0c-117">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="2ee0c-118">**Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: UpdateBillingProfile.cs</span><span class="sxs-lookup"><span data-stu-id="2ee0c-118">**Project**: Partner Center SDK Samples **Class**: UpdateBillingProfile.cs</span></span>
+<span data-ttu-id="6007b-113">**Örnek**: [konsol test uygulaması](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="6007b-113">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="6007b-114">**Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: updatebillingprofile. cs</span><span class="sxs-lookup"><span data-stu-id="6007b-114">**Project**: Partner Center SDK Samples **Class**: UpdateBillingProfile.cs</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="2ee0c-119">REST isteği</span><span class="sxs-lookup"><span data-stu-id="2ee0c-119">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="6007b-115">REST isteği</span><span class="sxs-lookup"><span data-stu-id="6007b-115">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="2ee0c-120">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="2ee0c-120">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="6007b-116">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="6007b-116">Request syntax</span></span>
 
-| <span data-ttu-id="2ee0c-121">Yöntem</span><span class="sxs-lookup"><span data-stu-id="2ee0c-121">Method</span></span>  | <span data-ttu-id="2ee0c-122">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="2ee0c-122">Request URI</span></span>                                                              |
+| <span data-ttu-id="6007b-117">Yöntem</span><span class="sxs-lookup"><span data-stu-id="6007b-117">Method</span></span>  | <span data-ttu-id="6007b-118">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="6007b-118">Request URI</span></span>                                                              |
 |---------|--------------------------------------------------------------------------|
-| <span data-ttu-id="2ee0c-123">**PUT**</span><span class="sxs-lookup"><span data-stu-id="2ee0c-123">**PUT**</span></span> | <span data-ttu-id="2ee0c-124">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/faturalandırma http/1.1</span><span class="sxs-lookup"><span data-stu-id="2ee0c-124">[*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/billing HTTP/1.1</span></span> |
+| <span data-ttu-id="6007b-119">**PUT**</span><span class="sxs-lookup"><span data-stu-id="6007b-119">**PUT**</span></span> | <span data-ttu-id="6007b-120">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/faturalandırma http/1.1</span><span class="sxs-lookup"><span data-stu-id="6007b-120">[*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/billing HTTP/1.1</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="2ee0c-125">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="2ee0c-125">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="6007b-121">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="6007b-121">Request headers</span></span>
 
-<span data-ttu-id="2ee0c-126">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="2ee0c-126">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="6007b-122">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="6007b-122">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="2ee0c-127">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="2ee0c-127">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="6007b-123">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="6007b-123">Request body</span></span>
 
-<span data-ttu-id="2ee0c-128">Yok.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-128">None.</span></span>
+<span data-ttu-id="6007b-124">Yok.</span><span class="sxs-lookup"><span data-stu-id="6007b-124">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="2ee0c-129">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="2ee0c-129">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="6007b-125">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="6007b-125">Request example</span></span>
 
 ```http
 PUT https://api.partnercenter.microsoft.com/v1/profiles/billing HTTP/1.1
@@ -107,15 +102,15 @@ Expect: 100-continue
 }
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="2ee0c-130">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="2ee0c-130">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="6007b-126">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="6007b-126">REST response</span></span>
 
-<span data-ttu-id="2ee0c-131">Başarılı olursa, bu yöntem yanıt gövdesinde bir **Billingprofile** nesnesi döndürür.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-131">If successful, this method returns a **BillingProfile** object in the response body.</span></span>
+<span data-ttu-id="6007b-127">Başarılı olursa, bu yöntem yanıt gövdesinde bir **Billingprofile** nesnesi döndürür.</span><span class="sxs-lookup"><span data-stu-id="6007b-127">If successful, this method returns a **BillingProfile** object in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="2ee0c-132">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="2ee0c-132">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="6007b-128">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="6007b-128">Response success and error codes</span></span>
 
-<span data-ttu-id="2ee0c-133">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-133">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="2ee0c-134">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="2ee0c-134">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="2ee0c-135">Tam liste için bkz. [hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="2ee0c-135">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="6007b-129">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="6007b-129">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="6007b-130">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="6007b-130">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="6007b-131">Tam liste için bkz. [hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="6007b-131">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="2ee0c-136">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="2ee0c-136">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="6007b-132">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="6007b-132">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

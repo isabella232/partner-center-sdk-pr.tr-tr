@@ -1,55 +1,51 @@
 ---
 title: Ticari market aboneliğini iptal etme
-description: Müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market abonelik kaynağını iptal etmek için Iş Ortağı Merkezi API 'Lerini nasıl kullanacağınızı öğrenin.
+description: Müşteri ve abonelik kimliğiyle İş Ortağı Merkezi ticari market Abonelik kaynağını iptal etmek için api'leri kullanmayı öğrenin.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 38708c17b31e39a5e7c436e0d76b4ebabbc3a801
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 95fa265a3c103d1ec55066f12a3ede7fdb2d0170
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770078"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974293"
 ---
-# <a name="cancel-a-commercial-marketplace-subscription-using-partner-center-apis"></a><span data-ttu-id="6ff57-103">Iş Ortağı Merkezi API 'Lerini kullanarak ticari Market aboneliğini iptal etme</span><span class="sxs-lookup"><span data-stu-id="6ff57-103">Cancel a commercial marketplace subscription using Partner Center APIs</span></span>
+# <a name="cancel-a-commercial-marketplace-subscription-using-partner-center-apis"></a><span data-ttu-id="aa8e9-103">İş Ortağı Merkezi API'lerini kullanarak ticari market aboneliğini iptal etme</span><span class="sxs-lookup"><span data-stu-id="aa8e9-103">Cancel a commercial marketplace subscription using Partner Center APIs</span></span>
 
-<span data-ttu-id="6ff57-104">**Uygulama hedefi:**</span><span class="sxs-lookup"><span data-stu-id="6ff57-104">**Applies to:**</span></span>
+<span data-ttu-id="aa8e9-104">Bu makalede, müşteri ve abonelik kimliğiyle İş Ortağı Merkezi ticari [](subscription-resources.md) market abonelik kaynağını iptal etmek için api'sini nasıl kullanabileceğiniz açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-104">This article describes how you can use Partner Center API to cancel a commercial marketplace [subscription](subscription-resources.md) resource that matches the customer and subscription ID.</span></span>
 
-- <span data-ttu-id="6ff57-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="6ff57-105">Partner Center</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="aa8e9-105">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="aa8e9-105">Prerequisites</span></span>
 
-<span data-ttu-id="6ff57-106">Bu makalede, Iş Ortağı Merkezi API 'sini müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market [abonelik](subscription-resources.md) kaynağını iptal etmek için nasıl kullanabileceğiniz açıklanır.</span><span class="sxs-lookup"><span data-stu-id="6ff57-106">This article describes how you can use Partner Center API to cancel a commercial marketplace [subscription](subscription-resources.md) resource that matches the customer and subscription ID.</span></span>
+- <span data-ttu-id="aa8e9-106">kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md)</span><span class="sxs-lookup"><span data-stu-id="aa8e9-106">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="aa8e9-107">Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-107">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="6ff57-107">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="6ff57-107">Prerequisites</span></span>
+- <span data-ttu-id="aa8e9-108">Müşteri kimliği ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="aa8e9-108">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="aa8e9-109">Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard)</span><span class="sxs-lookup"><span data-stu-id="aa8e9-109">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="aa8e9-110">İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.**</span><span class="sxs-lookup"><span data-stu-id="aa8e9-110">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="aa8e9-111">Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.**</span><span class="sxs-lookup"><span data-stu-id="aa8e9-111">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="aa8e9-112">Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-112">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="aa8e9-113">Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-113">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="6ff57-108">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="6ff57-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="6ff57-109">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="6ff57-109">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="aa8e9-114">Abonelik kimliği.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-114">A subscription ID.</span></span>
 
-- <span data-ttu-id="6ff57-110">Bir müşteri KIMLIĞI ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="6ff57-110">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="6ff57-111">Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6ff57-111">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="6ff57-112">Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin.</span><span class="sxs-lookup"><span data-stu-id="6ff57-112">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="6ff57-113">Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="6ff57-113">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="6ff57-114">Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın.</span><span class="sxs-lookup"><span data-stu-id="6ff57-114">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="6ff57-115">Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .</span><span class="sxs-lookup"><span data-stu-id="6ff57-115">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+## <a name="partner-center-dashboard-method"></a><span data-ttu-id="aa8e9-115">İş Ortağı Merkezi panosu yöntemi</span><span class="sxs-lookup"><span data-stu-id="aa8e9-115">Partner Center dashboard method</span></span>
 
-- <span data-ttu-id="6ff57-116">Abonelik KIMLIĞI.</span><span class="sxs-lookup"><span data-stu-id="6ff57-116">A subscription ID.</span></span>
+<span data-ttu-id="aa8e9-116">İş Ortağı Merkezi panosunda ticari market aboneliğini iptal etmek için:</span><span class="sxs-lookup"><span data-stu-id="aa8e9-116">To cancel a commercial marketplace subscription in the Partner Center dashboard:</span></span>
 
-## <a name="partner-center-dashboard-method"></a><span data-ttu-id="6ff57-117">İş Ortağı Merkezi Pano yöntemi</span><span class="sxs-lookup"><span data-stu-id="6ff57-117">Partner Center dashboard method</span></span>
+1. <span data-ttu-id="aa8e9-117">[Bir müşteri seçin.](get-a-customer-by-name.md)</span><span class="sxs-lookup"><span data-stu-id="aa8e9-117">[Select a customer](get-a-customer-by-name.md).</span></span>
 
-<span data-ttu-id="6ff57-118">Iş Ortağı Merkezi panosunda bir ticari Market aboneliğini iptal etmek için:</span><span class="sxs-lookup"><span data-stu-id="6ff57-118">To cancel a commercial marketplace subscription in the Partner Center dashboard:</span></span>
+2. <span data-ttu-id="aa8e9-118">İptal etmek istediğiniz aboneliği seçin.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-118">Select the subscription that you wish to cancel.</span></span>
 
-1. <span data-ttu-id="6ff57-119">[Bir müşteri seçin](get-a-customer-by-name.md).</span><span class="sxs-lookup"><span data-stu-id="6ff57-119">[Select a customer](get-a-customer-by-name.md).</span></span>
+3. <span data-ttu-id="aa8e9-119">Aboneliği iptal **et seçeneğini ve** ardından Gönder'i **seçin.**</span><span class="sxs-lookup"><span data-stu-id="aa8e9-119">Choose the **Cancel subscription** option, then select **Submit**.</span></span>
 
-2. <span data-ttu-id="6ff57-120">İptal etmek istediğiniz aboneliği seçin.</span><span class="sxs-lookup"><span data-stu-id="6ff57-120">Select the subscription that you wish to cancel.</span></span>
+## <a name="c"></a><span data-ttu-id="aa8e9-120">C\#</span><span class="sxs-lookup"><span data-stu-id="aa8e9-120">C\#</span></span>
 
-3. <span data-ttu-id="6ff57-121">**Aboneliği Iptal et** seçeneğini belirleyip **Gönder**' i seçin.</span><span class="sxs-lookup"><span data-stu-id="6ff57-121">Choose the **Cancel subscription** option, then select **Submit**.</span></span>
+<span data-ttu-id="aa8e9-121">Müşterinin aboneliğini iptal etmek için:</span><span class="sxs-lookup"><span data-stu-id="aa8e9-121">To cancel a customer's subscription:</span></span>
 
-## <a name="c"></a><span data-ttu-id="6ff57-122">C\#</span><span class="sxs-lookup"><span data-stu-id="6ff57-122">C\#</span></span>
+1. <span data-ttu-id="aa8e9-122">[Kimliğine göre aboneliği alın.](get-a-subscription-by-id.md)</span><span class="sxs-lookup"><span data-stu-id="aa8e9-122">[Get the subscription by ID](get-a-subscription-by-id.md).</span></span>
 
-<span data-ttu-id="6ff57-123">Bir müşterinin aboneliğini iptal etmek için:</span><span class="sxs-lookup"><span data-stu-id="6ff57-123">To cancel a customer's subscription:</span></span>
+2. <span data-ttu-id="aa8e9-123">Aboneliğin Status [**özelliğini**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) değiştirme.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-123">Change the subscription's [**Status**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) property.</span></span> <span data-ttu-id="aa8e9-124">Durum kodları hakkında **bilgi** için [bkz. SubscriptionStatus numaralama.](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)</span><span class="sxs-lookup"><span data-stu-id="aa8e9-124">For information on **Status** codes, see [SubscriptionStatus enumeration](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).</span></span>
 
-1. <span data-ttu-id="6ff57-124">[ABONELIĞI kimliğe göre alın](get-a-subscription-by-id.md).</span><span class="sxs-lookup"><span data-stu-id="6ff57-124">[Get the subscription by ID](get-a-subscription-by-id.md).</span></span>
+3. <span data-ttu-id="aa8e9-125">Değişiklik yapıldıktan sonra, koleksiyonu kullanın **`IAggregatePartner.Customers`** ve **ById() yöntemini** arayın.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-125">After the change is made, use your **`IAggregatePartner.Customers`** collection and call the **ById()** method.</span></span>
 
-2. <span data-ttu-id="6ff57-125">Aboneliğin [**Status**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) özelliğini değiştirin.</span><span class="sxs-lookup"><span data-stu-id="6ff57-125">Change the subscription's [**Status**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) property.</span></span> <span data-ttu-id="6ff57-126">**Durum** kodları hakkında bilgi için bkz. [subscriptionstatus numaralandırması](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).</span><span class="sxs-lookup"><span data-stu-id="6ff57-126">For information on **Status** codes, see [SubscriptionStatus enumeration](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).</span></span>
+4. <span data-ttu-id="aa8e9-126">Subscriptions [**özelliğini ve**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) ardından [**ById() yöntemini**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) çağırma.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-126">Call the [**Subscriptions**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method.</span></span>
 
-3. <span data-ttu-id="6ff57-127">Değişiklik yapıldıktan sonra, **`IAggregatePartner.Customers`** koleksiyonunuzu kullanın ve **byıd ()** yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="6ff57-127">After the change is made, use your **`IAggregatePartner.Customers`** collection and call the **ById()** method.</span></span>
-
-4. <span data-ttu-id="6ff57-128">[**Abonelik**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğini çağırın, ardından [**byıd ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) yöntemi.</span><span class="sxs-lookup"><span data-stu-id="6ff57-128">Call the [**Subscriptions**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) property, followed by the [**ById()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) method.</span></span>
-
-5. <span data-ttu-id="6ff57-129">**Patch ()** yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="6ff57-129">Call the **Patch()** method.</span></span>
+5. <span data-ttu-id="aa8e9-127">**Patch() yöntemini** çağırma.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-127">Call the **Patch()** method.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -60,36 +56,36 @@ selectedSubscription.Status = SubscriptionStatus.Deleted;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-### <a name="sample-console-test-app"></a><span data-ttu-id="6ff57-130">Örnek konsol test uygulaması</span><span class="sxs-lookup"><span data-stu-id="6ff57-130">Sample console test app</span></span>
+### <a name="sample-console-test-app"></a><span data-ttu-id="aa8e9-128">Örnek konsol test uygulaması</span><span class="sxs-lookup"><span data-stu-id="aa8e9-128">Sample console test app</span></span>
 
-<span data-ttu-id="6ff57-131">**Örnek**: [konsol test uygulaması](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="6ff57-131">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="6ff57-132">**Proje**: Partnersdk. Featuresample **sınıfı**: UpdateSubscription.cs</span><span class="sxs-lookup"><span data-stu-id="6ff57-132">**Project**: PartnerSDK.FeatureSample **Class**: UpdateSubscription.cs</span></span>
+<span data-ttu-id="aa8e9-129">**Örnek:** [Konsol test uygulaması](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="aa8e9-129">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="aa8e9-130">**Project:** PartnerSDK.FeatureSample **Sınıfı:** UpdateSubscription.cs</span><span class="sxs-lookup"><span data-stu-id="aa8e9-130">**Project**: PartnerSDK.FeatureSample **Class**: UpdateSubscription.cs</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="6ff57-133">REST isteği</span><span class="sxs-lookup"><span data-stu-id="6ff57-133">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="aa8e9-131">REST isteği</span><span class="sxs-lookup"><span data-stu-id="aa8e9-131">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="6ff57-134">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="6ff57-134">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="aa8e9-132">İstek söz dizimi</span><span class="sxs-lookup"><span data-stu-id="aa8e9-132">Request syntax</span></span>
 
-| <span data-ttu-id="6ff57-135">Yöntem</span><span class="sxs-lookup"><span data-stu-id="6ff57-135">Method</span></span>    | <span data-ttu-id="6ff57-136">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="6ff57-136">Request URI</span></span>                                                                                                                |
+| <span data-ttu-id="aa8e9-133">Yöntem</span><span class="sxs-lookup"><span data-stu-id="aa8e9-133">Method</span></span>    | <span data-ttu-id="aa8e9-134">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="aa8e9-134">Request URI</span></span>                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="6ff57-137">**DÜZELTMESI**</span><span class="sxs-lookup"><span data-stu-id="6ff57-137">**PATCH**</span></span> | <span data-ttu-id="6ff57-138">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription} http/1.1</span><span class="sxs-lookup"><span data-stu-id="6ff57-138">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1</span></span> |
+| <span data-ttu-id="aa8e9-135">**Yama**</span><span class="sxs-lookup"><span data-stu-id="aa8e9-135">**PATCH**</span></span> | <span data-ttu-id="aa8e9-136">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="aa8e9-136">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1</span></span> |
 
-### <a name="uri-parameter"></a><span data-ttu-id="6ff57-139">URI parametresi</span><span class="sxs-lookup"><span data-stu-id="6ff57-139">URI parameter</span></span>
+### <a name="uri-parameter"></a><span data-ttu-id="aa8e9-137">URI parametresi</span><span class="sxs-lookup"><span data-stu-id="aa8e9-137">URI parameter</span></span>
 
-<span data-ttu-id="6ff57-140">Bu tabloda, aboneliği askıya almak için gerekli sorgu parametresi listelenmektedir.</span><span class="sxs-lookup"><span data-stu-id="6ff57-140">This table lists the required query parameter to suspend the subscription.</span></span>
+<span data-ttu-id="aa8e9-138">Bu tabloda aboneliği askıya almak için gereken sorgu parametresi listelemektedir.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-138">This table lists the required query parameter to suspend the subscription.</span></span>
 
-| <span data-ttu-id="6ff57-141">Ad</span><span class="sxs-lookup"><span data-stu-id="6ff57-141">Name</span></span>                    | <span data-ttu-id="6ff57-142">Tür</span><span class="sxs-lookup"><span data-stu-id="6ff57-142">Type</span></span>     | <span data-ttu-id="6ff57-143">Gerekli</span><span class="sxs-lookup"><span data-stu-id="6ff57-143">Required</span></span> | <span data-ttu-id="6ff57-144">Açıklama</span><span class="sxs-lookup"><span data-stu-id="6ff57-144">Description</span></span>                               |
+| <span data-ttu-id="aa8e9-139">Ad</span><span class="sxs-lookup"><span data-stu-id="aa8e9-139">Name</span></span>                    | <span data-ttu-id="aa8e9-140">Tür</span><span class="sxs-lookup"><span data-stu-id="aa8e9-140">Type</span></span>     | <span data-ttu-id="aa8e9-141">Gerekli</span><span class="sxs-lookup"><span data-stu-id="aa8e9-141">Required</span></span> | <span data-ttu-id="aa8e9-142">Açıklama</span><span class="sxs-lookup"><span data-stu-id="aa8e9-142">Description</span></span>                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| <span data-ttu-id="6ff57-145">**Müşteri-Kiracı kimliği**</span><span class="sxs-lookup"><span data-stu-id="6ff57-145">**customer-tenant-id**</span></span>  | <span data-ttu-id="6ff57-146">**guid**</span><span class="sxs-lookup"><span data-stu-id="6ff57-146">**guid**</span></span> | <span data-ttu-id="6ff57-147">Y</span><span class="sxs-lookup"><span data-stu-id="6ff57-147">Y</span></span>        | <span data-ttu-id="6ff57-148">Müşteriye karşılık gelen bir GUID.</span><span class="sxs-lookup"><span data-stu-id="6ff57-148">A GUID corresponding to the customer.</span></span>     |
-| <span data-ttu-id="6ff57-149">**abonelik kimliği**</span><span class="sxs-lookup"><span data-stu-id="6ff57-149">**id-for-subscription**</span></span> | <span data-ttu-id="6ff57-150">**guid**</span><span class="sxs-lookup"><span data-stu-id="6ff57-150">**guid**</span></span> | <span data-ttu-id="6ff57-151">Y</span><span class="sxs-lookup"><span data-stu-id="6ff57-151">Y</span></span>        | <span data-ttu-id="6ff57-152">Aboneliğe karşılık gelen bir GUID.</span><span class="sxs-lookup"><span data-stu-id="6ff57-152">A GUID corresponding to the subscription.</span></span> |
+| <span data-ttu-id="aa8e9-143">**customer-tenant-id**</span><span class="sxs-lookup"><span data-stu-id="aa8e9-143">**customer-tenant-id**</span></span>  | <span data-ttu-id="aa8e9-144">**guid**</span><span class="sxs-lookup"><span data-stu-id="aa8e9-144">**guid**</span></span> | <span data-ttu-id="aa8e9-145">Y</span><span class="sxs-lookup"><span data-stu-id="aa8e9-145">Y</span></span>        | <span data-ttu-id="aa8e9-146">Müşteriye karşılık gelen bir GUID.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-146">A GUID corresponding to the customer.</span></span>     |
+| <span data-ttu-id="aa8e9-147">**abonelik için id**</span><span class="sxs-lookup"><span data-stu-id="aa8e9-147">**id-for-subscription**</span></span> | <span data-ttu-id="aa8e9-148">**guid**</span><span class="sxs-lookup"><span data-stu-id="aa8e9-148">**guid**</span></span> | <span data-ttu-id="aa8e9-149">Y</span><span class="sxs-lookup"><span data-stu-id="aa8e9-149">Y</span></span>        | <span data-ttu-id="aa8e9-150">Aboneliğe karşılık gelen BIR GUID.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-150">A GUID corresponding to the subscription.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="6ff57-153">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="6ff57-153">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="aa8e9-151">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="aa8e9-151">Request headers</span></span>
 
-<span data-ttu-id="6ff57-154">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="6ff57-154">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="aa8e9-152">Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="aa8e9-152">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="6ff57-155">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="6ff57-155">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="aa8e9-153">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="aa8e9-153">Request body</span></span>
 
-<span data-ttu-id="6ff57-156">İstek gövdesinde tam bir **abonelik** kaynağı gereklidir.</span><span class="sxs-lookup"><span data-stu-id="6ff57-156">A full **Subscription** resource is required in the request body.</span></span> <span data-ttu-id="6ff57-157">**Status** özelliğinin güncelleştirildiğinden emin olun.</span><span class="sxs-lookup"><span data-stu-id="6ff57-157">Ensure that the **Status** property has been updated.</span></span>
+<span data-ttu-id="aa8e9-154">İstek **gövdesinde** tam bir Abonelik kaynağı gereklidir.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-154">A full **Subscription** resource is required in the request body.</span></span> <span data-ttu-id="aa8e9-155">Status özelliğinin **güncelleştirilmiş** olduğundan emin olun.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-155">Ensure that the **Status** property has been updated.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="6ff57-158">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="6ff57-158">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="aa8e9-156">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="aa8e9-156">Request example</span></span>
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
@@ -133,15 +129,15 @@ Connection: Keep-Alive
 }
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="6ff57-159">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="6ff57-159">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="aa8e9-157">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="aa8e9-157">REST response</span></span>
 
-<span data-ttu-id="6ff57-160">Başarılı olursa, bu yöntem yanıt gövdesinde silinen [abonelik](subscription-resources.md) kaynak özelliklerini döndürür.</span><span class="sxs-lookup"><span data-stu-id="6ff57-160">If successful, this method returns deleted [Subscription](subscription-resources.md) resource properties in the response body.</span></span>
+<span data-ttu-id="aa8e9-158">Başarılı olursa, bu yöntem yanıt [gövdesinde](subscription-resources.md) silinen Abonelik kaynağı özelliklerini döndürür.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-158">If successful, this method returns deleted [Subscription](subscription-resources.md) resource properties in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="6ff57-161">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="6ff57-161">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="aa8e9-159">Yanıt başarı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="aa8e9-159">Response success and error codes</span></span>
 
-<span data-ttu-id="6ff57-162">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="6ff57-162">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="6ff57-163">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="6ff57-163">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="6ff57-164">Tam liste için bkz. [hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="6ff57-164">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="aa8e9-160">Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-160">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="aa8e9-161">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="aa8e9-161">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="aa8e9-162">Tam liste için bkz. [Hata Kodları.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="aa8e9-162">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="6ff57-165">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="6ff57-165">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="aa8e9-163">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="aa8e9-163">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK
