@@ -6,20 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 6f473c7a7d43b1a3929d983fb23dae92fdafbc0f
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: ffcbbb9cf14b1b2a5b3becab541d3042c3cad508
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769898"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760683"
 ---
 # <a name="get-all-service-requests-for-a-customer"></a>Müşteri için tüm hizmet taleplerini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Müşterinin tüm hizmet isteklerini alır.
 
@@ -42,7 +38,7 @@ Müşterinin hizmet isteklerinin tümünün listesini göstermek için, **ıaggr
 ResourceCollection<ServiceRequest> serviceRequests = partnerOperations.Customers.ById(customerId).ServiceRequests.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnercentersdk. FeaturesSamples **sınıfı**: CustomerManagedServices.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnercentersdk. featuressamples **sınıfı**: customermanagedservices. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -58,7 +54,7 @@ Müşterinin tüm hizmet isteklerini almak için aşağıdaki sorgu parametresin
 
 | Ad                   | Tür     | Gerekli | Açıklama                            |
 |------------------------|----------|----------|----------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Müşteriye karşılık gelen bir GUID.. |
+| **Müşteri-Kiracı kimliği** | **guid** | Y        | Müşteriye karşılık gelen bir GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

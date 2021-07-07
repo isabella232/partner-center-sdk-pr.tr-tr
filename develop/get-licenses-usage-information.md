@@ -1,49 +1,45 @@
 ---
 title: Lisans kullanım bilgilerini alma
-description: Office ve Dynamics için iş yükü düzeyinde lisans kullanım bilgileri alma.
+description: Office dynamics için iş yükü düzeyinde lisans kullanım bilgilerini alın.
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a144fd078a36289e4a2c70880817b1f0ca627e8a
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: ea3658089ce7eb5c1ad7cc65c3db34f9b6353cdd
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769430"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445995"
 ---
 # <a name="get-licenses-usage-information"></a>Lisans kullanım bilgilerini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Office ve Dynamics için iş yükü düzeyinde lisans kullanım bilgileri alma.
+Office dynamics için iş yükü düzeyinde lisans kullanım bilgilerini alın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                |
 |---------|--------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Analtics/, CIAL/Usage/License/http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/analytics/commercial/usage/license/ HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
 | Parametre         | Tür     | Açıklama | Gerekli |
 |-------------------|----------|-------------|----------|
-| top               | string   | İstekte döndürülecek veri satır sayısı. Belirtilen en büyük değer ve varsayılan değer 10000 ' dir. Sorguda daha fazla satır varsa, yanıt gövdesi sonraki veri sayfasını istemek için kullanabileceğiniz bir sonraki bağlantıyı içerir. | No |
-| Atla              | int      | Sorgudaki atlanacak satır sayısı. Büyük veri kümeleri üzerinden sayfa eklemek için bu parametreyi kullanın. Örneğin, top = 10000 ve Skip = 0 verilerin ilk 10000 satırını alır, top = 10000 ve Skip = 10000 sonraki 10000 satırlık verileri alır ve bu şekilde devam eder. | No |
-| filtre            | string   | İsteğin *filtre* parametresi, yanıttaki satırları filtreleyen bir veya daha fazla deyim içeriyor. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir **`eq`** **`ne`** ve deyimler or kullanılarak birleştirilebilir **`and`** **`or`** . Aşağıda bazı örnek *filtre* parametreleri verilmiştir:<br/><br/>*Filter = workloadCode EQ ' SFB '*<br/><br/>*Filter = workloadCode EQ ' SFB '* veya (*Channel EQ ' Bayi '*)<br/><br/>Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**HizmetAdı**<br/>**kanalla**<br/>**Customertenantıd**<br/>**customerName**<br/>**ProductID**<br/>**productName** | No |
-| ölçütü           | string   | Yalnızca belirtilen alanlara veri toplamayı uygulayan bir ifade. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**HizmetAdı**<br/>**Channelcustomertenantıd**<br/>**customerName**<br/>**ProductID**<br/>**productName**<br/><br/>Döndürülen veri satırları, *GroupBy* parametresinde belirtilen alanları ve aşağıdakileri içerir:<br/><br/>**licensesActive**<br/>**Lisans nitelikli** | No |
-| processedDateTime | DateTime | Bunlardan biri, kullanım verilerinin işlendiği tarihi belirtebilir. Verilerin işlendiği tarih varsayılan olarak en geç | No |
+| top               | string   | İstekte geri dönecek veri satırlarının sayısı. Belirtilmezse en büyük değer ve varsayılan değer 10000'tir. Sorguda daha fazla satır varsa yanıt gövdesi, sonraki veri sayfasını talep etmek için kullanabileceğiniz bir sonraki bağlantı içerir. | Hayır |
+| Atla              | int      | Sorguda atlana satır sayısı. Büyük veri kümelerini sayfalara yapmak için bu parametreyi kullanın. Örneğin, top=10000 ve skip=0 ilk 10000 veri satırlarını, top=10000 ve skip=10000 sonraki 10000 satırı ve bu şekilde devam ediyor. | Hayır |
+| filtre            | string   | *İsteğin* filtre parametresi, yanıtta satırları filtreleen bir veya daha fazla deyim içerir. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir ve **`eq`** **`ne`** deyimleri veya kullanılarak bir **`and`** araya **`or`** olabilir. Bazı örnek filtre *parametreleri şu* şekildedir:<br/><br/>*filter=workloadCode eq 'SFB'*<br/><br/>*filter=workloadCode eq 'SFB'* veya (*channel eq 'Reseller'*)<br/><br/>Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname** | Hayır |
+| Groupby           | string   | Yalnızca belirtilen alanlara veri toplaması uygulanan bir deyim. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Hizmetadı**<br/>**channelcustomerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**<br/><br/>Döndürülen veri satırları *groupby* parametresinde belirtilen alanları ve şunları içerir:<br/><br/>**licensesActive**<br/>**licensesQualified** | Hayır |
+| processedDateTime | DateTime | Kullanım verileri işlenme tarihini belirtebilirsiniz. Verilerin işlenme tarihi varsayılan olarak en son tarihtir | Hayır |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -59,17 +55,17 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi, lisans kullanımı hakkında veri içeren aşağıdaki alanları içerir.
+Başarılı olursa, yanıt gövdesi lisans kullanımıyla ilgili verileri içeren aşağıdaki alanları içerir.
 
-| Alan             | Tür     | Description                                   |
+| Alan             | Tür     | Açıklama                                   |
 |-------------------|----------|-----------------------------------------------|
 | workloadCode      | string   | İş yükü kodu                                 |
 | workloadName      | string   | İş yükü adı                                 |
 | serviceCode       | string   | Hizmet kodu                                  |
-| HizmetAdı       | string   | Hizmet adı                                  |
-| kanalla           | string   | Kanal adı, satıcı                        |
-| Customertenantıd  | string   | Müşteri için benzersiz tanımlayıcı            |
-| customerName      | string   | Müşteri adı                                 |
+| Hizmetadı       | string   | Hizmet adı                                  |
+| Kanal           | string   | Kanal adı, kurumsal bayi                        |
+| customerTenantId  | string   | Müşterinin benzersiz tanımlayıcısı            |
+| Müşteriadı      | string   | Müşteri adı                                 |
 | productId         | string   | Ürün için benzersiz tanımlayıcı             |
 | productName       | string   | Ürün adı                                  |
 | licensesActive    | long     | İş yükü başına etkin lisans sayısı        |

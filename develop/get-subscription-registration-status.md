@@ -4,18 +4,14 @@ description: Azure ayrılmış VM örnekleri ile kullanılmak üzere kaydedilmi�
 ms.date: 03/19/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e06cf8a450d6c281f7f83a68c899d1e5b29e9855
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 9e39f94c0eac402a0be3afde84279aa637868f96
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769850"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445961"
 ---
 # <a name="get-subscription-registration-status"></a>Abonelik kayıt durumunu alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Azure ayrılmış VM örnekleri satın alma için etkinleştirilen bir müşteri aboneliğinin abonelik kayıt durumunu alma.
 

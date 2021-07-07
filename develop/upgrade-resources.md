@@ -1,73 +1,68 @@
 ---
-title: Kaynakları yükselt
-description: Bir kullanıcıyı kaynak aboneliğinden hedef aboneliğe yükseltmek için kullanılan kaynakları açıklar.
+title: Kaynakları yükseltme
+description: Bir kullanıcıyı kaynak abonelikten hedef aboneliğe yükseltmek için kullanılan kaynakları açıklar.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: bdbef383370761a01eb462f90284ad826a38ddaa
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 4c57994d1b1e7659df5e6448578422f6d9c21fee
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768992"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529826"
 ---
-# <a name="upgrade-resources"></a>Kaynakları yükselt
+# <a name="upgrade-resources"></a>Kaynakları yükseltme
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bir kullanıcıyı kaynak aboneliğinden hedef aboneliğe yükseltmek için kullanılan kaynakları açıklar.
+Bir kullanıcıyı kaynak abonelikten hedef aboneliğe yükseltmek için kullanılan kaynakları açıklar.
 
 ## <a name="upgrade"></a>Yükseltme
 
 Tek bir yükseltme kaynağının davranışını açıklar.
 
-| Özellik      | Tür                   | Description                                                                                  |
+| Özellik      | Tür                   | Açıklama                                                                                  |
 |---------------|------------------------|----------------------------------------------------------------------------------------------|
 | TargetOffer   | Sunduğu                  | Hedef aboneliğin teklifi.                                                        |
-| UpgradeType   | string                 | Yükseltme türü: "none", " \_ yalnızca Upgrade" veya " \_ \_ Lisans \_ aktarımıyla yükselt".         |
-| IBir hal    | boolean                | Yükseltmenin gerçekleştirilip gerçekleştirilmeyeceğini belirler.                                                  |
-| Miktar      | tamsayı                | Satın alınması için yeni teklifin miktarı. Varsayılan kaynak abonelik miktarı olur. |
-| Yükseltme hataları | UpgradeErrors dizisi | Varsa yükseltmenin gerçekleştirilemediği nedenler.                                      |
-| Öznitelikler    | ResourceAttributes     | Yükseltmeye karşılık gelen meta veri öznitelikleri.                                        |
+| UpgradeType   | string                 | Yükseltme türü: "none", \_ "only upgrade" veya "upgrade \_ with license \_ \_ transfer".         |
+| Önemsiz    | boolean                | Yükseltmenin gerçekleştirilenin olup ola olduğunu tanımlar.                                                  |
+| Miktar      | tamsayı                | Satın alınacak yeni teklifin miktarı. Varsayılan olarak kaynak abonelik miktarı kullanılır. |
+| UpgradeErrors | UpgradeErrors dizisi | Uygunsa, yükseltmenin gerçekleştirilemama nedenleri.                                      |
+| Öznitelikler    | Resourceattributes     | Yükseltmeye karşılık gelen meta veri öznitelikleri.                                        |
 
-## <a name="upgradeerror"></a>Yükseltme hatası
+## <a name="upgradeerror"></a>UpgradeError
 
-Yükseltmenin neden gerçekleştirilmediğini açıklar.
+Yükseltmenin gerçekleştirilema nedenini açıklar.
 
-| Özellik          | Tür               | Description                                                                                                                                                                                                                                                                                                                                                                                     |
+| Özellik          | Tür               | Açıklama                                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Kod              | string             | Sorunla ilişkili hata kodu: "diğer", " \_ yönetici \_ izinleri \_ devre dışı bırakıldı", "abonelik \_ durumu \_ etkin değil", " \_ Çakışan hizmet türleri", " \_ \_ eş zamanlı \_ Çakışmalar", "Kullanıcı \_ bağlamı gereklidir", "abonelik \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ hedef \_ teklifi bulunamadı" \_ \_ veya "abonelik \_ \_ sağlanmadı". |
+| Kod              | string             | Sorunla ilişkili hata kodu: "other", "delegated \_ admin \_ permissions \_ disabled", "subscription status not \_ \_ \_ active", "conflicting service \_ \_ types", "concurrency \_ conflicts", "user \_ context required", "subscription add ons present", "subscription does not any upgrade \_ \_ \_ \_ \_ \_ \_ \_ \_ \_ paths", "subscription \_ target offer not \_ \_ found" veya "subscription not \_ \_ \_ provisioned". |
 | Description       | dize             | Hatayı açıklayan kolay metin.                                                                                                                                                                                                                                                                                                                                                             |
 | AdditionalDetails | string             | Hatayla ilgili ek ayrıntılar.                                                                                                                                                                                                                                                                                                                                                         |
-| Öznitelikler        | ResourceAttributes | Hataya karşılık gelen meta veri öznitelikleri.                                                                                                                                                                                                                                                                                                                                             |
+| Öznitelikler        | Resourceattributes | Hataya karşılık gelen meta veri öznitelikleri.                                                                                                                                                                                                                                                                                                                                             |
 
-## <a name="upgraderesult"></a>Yükseltme Deresult
+## <a name="upgraderesult"></a>Upgraderesult
 
-Abonelik yükseltme işleminin sonucunu açıklar.
+Abonelik yükseltme işleminin sonucu açıkmektedir.
 
-| Özellik             | Tür                        | Description                                                                          |
+| Özellik             | Tür                        | Açıklama                                                                          |
 |----------------------|-----------------------------|--------------------------------------------------------------------------------------|
-| Sourcesubscriptionıd | string                      | Kaynak aboneliğin tanımlayıcısı.                                           |
-| Targetsubscriptionıd | string                      | Hedef aboneliğin tanımlayıcısı.                                           |
-| UpgradeType          | string                      | Yükseltme türü: "none", " \_ yalnızca Upgrade" veya " \_ \_ Lisans \_ aktarımıyla yükselt". |
-| Yükseltme hataları        | UpgradeErrors dizisi      | Attemption, varsa yükseltme işlemini gerçekleştirmeye çalışırken hatalarla karşılaşıldı.           |
-| LicenseErrors        | UserLicenseErrrors dizisi | Varsa, kullanıcı lisanslarını geçirmeye çalışırken hatalarla karşılaşıldı.          |
-| Öznitelikler           | ResourceAttributes          | Lisansa karşılık gelen meta veri öznitelikleri.                                |
+| SourceSubscriptionId | string                      | Kaynak aboneliğin tanımlayıcısı.                                           |
+| TargetSubscriptionID | string                      | Hedef aboneliğin tanımlayıcısı.                                           |
+| UpgradeType          | string                      | Yükseltme türü: "none", \_ "only upgrade" veya "upgrade \_ with license \_ \_ transfer". |
+| UpgradeErrors        | UpgradeErrors dizisi      | Varsa, yükseltme gerçekleştirmeye çalışırken karşılaşılan hatalar.           |
+| LicenseErrors        | UserLicenseErrrors dizisi | Varsa, kullanıcı lisanslarını geçirme girişiminde karşılaşılan hatalar.          |
+| Öznitelikler           | Resourceattributes          | Lisansa karşılık gelen meta veri öznitelikleri.                                |
 
 ## <a name="userlicenseerror"></a>UserLicenseError
 
-Başarısız Kullanıcı Lisans aktarımından kaynaklanan hataları açıklar.
+Başarısız kullanıcı lisans aktarımından kaynaklanan hataları açıklar.
 
-| Özellik     | Tür                   | Description                                                               |
+| Özellik     | Tür                   | Açıklama                                                               |
 |--------------|------------------------|---------------------------------------------------------------------------|
-| Userobjectıd | string                 | Kullanıcı nesnesinin benzersiz tanımlanması.                                 |
+| UserObjectId | string                 | Kullanıcı nesnesinin tanımlanan benzersizi.                                 |
 | Name         | string                 | Kullanıcının adı.                                                     |
 | E-posta        | string                 | Kullanıcının e-postası.                                                    |
-| Hatalar       | ServiceFaults dizisi | Kullanıcı Lisans aktarımı gerçekleştirmeye çalışırken oluşturulan özel durumların listesi. |
-| Öznitelikler   | ResourceAttributes     | Lisansa karşılık gelen meta veri öznitelikleri.                     |
+| Hatalar       | ServiceFaults dizisi | Kullanıcı lisans aktarımı gerçekleştirmeye çalışılan özel durumların listesi. |
+| Öznitelikler   | Resourceattributes     | Lisansa karşılık gelen meta veri öznitelikleri.                     |
 

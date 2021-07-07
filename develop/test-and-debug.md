@@ -1,92 +1,87 @@
 ---
-title: Tümleştirme korumalı alanı ile test ve hata ayıklama
-description: Yanlışlıkla yeni ücret ödemeniz için kodunuzu test etmek ve hatalarını ayıklamak için Iş Ortağı Merkezi tümleştirme korumalı alanı hesabınızı (ve ilgili belirteçleri) nasıl kullanacağınızı öğrenin.
+title: Tümleştirme korumalı alanıyla test ve hata ayıklama
+description: Yanlışlıkla yeni ücretlerle İş Ortağı Merkezi kodunuzu test etmek ve hata ayıklamak için İş Ortağı Merkezi tümleştirme korumalı alan hesabınız (ve ilgili belirteçler) kullanmayı öğrenin.
 ms.date: 09/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3ff4a7ec3ad984b09c60d3d820423c614fb8020d
-ms.sourcegitcommit: 9f8ba784171ab4f980ed0c60ef6f2323849c4a98
+ms.openlocfilehash: 7a9d7755cd9f493f44f9a7bbf613e0f80cf7b4ac
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100499890"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530116"
 ---
-# <a name="test-and-debug-with-your-partner-center-integration-sandbox-to-avoid-paying-unexpected-charges"></a>Beklenmeyen ücretler ödemekten kaçınmak için Iş Ortağı Merkezi tümleştirme korumalı alanı ile test edin ve hata ayıklayın
+# <a name="test-and-debug-with-your-partner-center-integration-sandbox-to-avoid-paying-unexpected-charges"></a>Beklenmeyen ücretlerden kaçınmak için İş Ortağı Merkezi tümleştirme korumalı alanınız ile test etme ve hata ayıklama
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Kodunuzu test etmek için, Iş Ortağı Merkezi 'nde tümleştirme korumalı alanı hesabınızı (ve ilgili belirteçleri) kullanmanız gerekir, böylece yanlışlıkla şirketiniz ödemekten sorumlu yeni ücretler ödemeniz gerekmez. Bu üretim testi (tıp) ortamı hakkında daha fazla bilgi için bkz. [Iş Ortağı Merkezi 'NDE API erişimi ayarlama](set-up-api-access-in-partner-center.md).
+Kodunuzu test etmek için tümleştirme korumalı alan İş Ortağı Merkezi (ve karşılık gelen belirteçler) kullanarak yanlışlıkla ödemeden şirketin sorumlu olduğu yeni ücretler ödemeniz gerekir. Bu üretimde test (TiP) ortamı hakkında daha fazla bilgi için bkz. [İş Ortağı Merkezi.](set-up-api-access-in-partner-center.md)
 
 ## <a name="integration-sandbox-constraints"></a>Tümleştirme korumalı alanı kısıtlamaları
 
-Otomatik derleme doğrulama testlerini çalıştırır, üretimde test yapın veya tümleştirme korumalı alanında el ile test yaparsanız, tümleştirme korumalı alanı için en fazla sınıra ulaşabilirsiniz. Bu limitlerde 75 müşteri, müşteri başına 5 abonelik ve abonelik başına 25 lisans bulunur.
+Otomatik derleme doğrulama testleri çalıştıracak, üretimde test gerçekleştirecek veya tümleştirme korumalı alanda el ile test gerçekleştirecek olursanız, tümleştirme korumalı alanı için maksimum sınırlara ulaşabilirsiniz. Bu limitler 75 müşteri, müşteri başına 5 abonelik ve abonelik başına 25 lisanstır.
 
-25 lisans sınırı, en az 25 lisans gereksinimini aşan, korumalı alanda bir teklif edinemeyeceğiniz anlamına gelir. Bu sınırlama, denemeleri içerir.
+25 lisans sınırı, korumalı alanda 25 lisansı aşan en düşük lisans gereksinimine sahip bir teklif alamay anlamına gelir. Bu sınırlama denemeleri içerir.
 
-Korumalı alan ortamlarında sunulan çeşitli fatura ve mutabakat dosyaları vardır ancak bunların hepsi eski veya modern platformlarda kullanılabilir değildir. Daha fazla bilgi için aşağıdaki tabloyu doğrulayın.
+Korumalı Alan ortamlarında çeşitli fatura ve mutabakat dosyaları mevcuttur, ancak bunların hepsi eski veya modern platformlarda kullanılamaz. Daha fazla bilgi için aşağıdaki tabloyu doğrulayın.
 
-| **Dosyalar**                    | **Eski sürümünde kullanılabilir** | **Modern 'te kullanılabilir** |
+| **Dosyalar**                    | **Eski'de kullanılabilir** | **Modern'de kullanılabilir** |
 | ---------------------------- | ------------------------ | ------------------------ |
 | Fatura PDF dosyası                  | Hayır                       | Yes                      |
-| Fatura mutabakatı dosyası | Hayır                       | Yes                      |
-| Tahmin dosyası fatura       | Hayır                       | Yes                      |
-| Günlük faturalandırılan kullanım dosyası     | Hayır                       | Yes                      |
-| Günlük faturalanmamış kullanım dosyası   | Hayır                       | Yes                      |
+| Fatura Mutabakat Dosyası | Hayır                       | Yes                      |
+| Fatura Tahmin Dosyası       | Hayır                       | Yes                      |
+| Günlük Faturalandırıldı Kullanım Dosyası     | Hayır                       | Yes                      |
+| Günlük Bilgisiz Kullanım Dosyası   | Hayır                       | Yes                      |
 
 
 ### <a name="azure-plan"></a>Azure planı
 
-Varsayılan olarak, iş ortakları, Azure planlarını Sandbox hesaplarını kullanarak sağlayamaz. Bu şekilde, bu şekilde iş Sandbox hesabı için yapması gereken iş ortakları erişim için geçerlidir. Erişim için uygulamak üzere Microsoft hesabı yöneticinize veya iş iletişim ekibine ulaşın. Kullanım alanı hesaplarında Microsoft Azure sağlama (MS-AZR-0145P) aboneliklerine erişim için daha önce uygulamış olan iş ortaklarının, erişim için de uygulanması gerekmez. Azure planlarını otomatik olarak sağlamaya yönelik erişim izni verilecektir.
+Varsayılan olarak iş ortakları kendi korumalı alan hesaplarını kullanarak Azure planları sağlayamaz. Bunu kendi korumalı alan hesaplarıyla yapması gereken iş ortaklarının erişim için başvurması gerekir. Erişime uygulamak için, Microsoft hesabı yöneticinize veya iş ilgili kişinize ulaşın. Daha önce korumalı alan hesaplarında Microsoft Azure (MS-AZR-0145P) abonelikleri sağlama erişimi için başvuru yapan iş ortaklarının yeniden erişim için başvurması gerekmeyecektir. Bu kullanıcılara Azure planlarını otomatik olarak sağlama erişimi sağlandı.
 
-Korumalı alan hesaplarının Azure planlarını sağlamak üzere onaylandığı iş ortakları için aşağıdaki sınırlar geçerlidir:
+Korumalı alan hesapları Azure planları sağlama onayına sahip iş ortakları için aşağıdaki sınırlar geçerlidir:
 
-- Her bir korumalı alan iş ortağı hesabı, tüm müşteri kiracılarında en fazla 10 Azure planına sahip olabilir (planların müşteriler arasında nasıl dağıtılduğuna bakılmaksızın).
+- Her korumalı alan iş ortağı hesabının tüm müşteri kiracılarında (planlar müşteriler arasında nasıl dağıtılır olursa olsun) en fazla 10 Azure planı olabilir.
 
-- Doğrudan fatura ortağı, her müşteri kiracısı için bir adet Azure planı oluşturabilir.
+- Doğrudan fatura iş ortağı müşteri kiracısı başına en fazla bir Azure planı oluşturabilir.
 
-- Dolaylı bir sağlayıcı, müşteri kiracısı başına en fazla üç Azure planı oluşturabilir (kayıt ortağı olarak belirtilen farklı dolaylı satıcılar için).
+- Dolaylı sağlayıcı, müşteri kiracısı başına en fazla üç Azure planı oluşturabilir (Kayıt İş Ortağı olarak belirtilen farklı dolaylı kurumsal bayiler için).
 
-- Her Azure planının en fazla üç Azure aboneliği olabilir.
+- Her Azure planı en fazla üç Azure aboneliğine sahip olabilir.
 
-- Sandbox hesabınız kapsamındaki her CSP Azure aboneliği, veri merkezi başına dört sanal makine (VM) çekirdekle sınırlıdır. Bu nedenle, dörtten fazla VM çekirdeği gerektiren VM SKU 'Larını sağlayamazsınız. GPU çekirdekleri gibi bazı özel sanal makine SKU 'Ları da hariç tutulur.
+- Korumalı alan hesabınız altındaki her CSP Azure aboneliği, veri merkezi başına dört sanal makine (VM) çekirdeğiyle sınırlıdır. Bu nedenle, dörtten fazla VM çekirdeği gerektiren VM SKUS'ları sağamaz. GPU çekirdekleri gibi belirli özel VM S SU'ları da dışlanır.
 
-- Her bir korumalı alan iş ortağı hesabının, tüm Azure planlarında faturalandırma döngülerine göre $2000 (USD) harcama limiti vardır. Bir iş ortağı harcama limitine ulaştığında, bir sonraki fatura döngüsüne kadar tüm Azure planları geçici olarak devre dışı bırakılır.
+- Her korumalı alan iş ortağı hesabının tüm Azure planlarında faturalama döngüsü başına 2000 ABD doları (USD) harcama limiti vardır. İş ortağı harcama sınırına ulaştığında, sonraki faturalama döngüsüne kadar tüm Azure planları geçici olarak devre dışı bırakılır.
 
-### <a name="cloud-solution-provider-csp-azure-subscription-offers"></a>Bulut çözümü sağlayıcısı (CSP) Azure abonelik teklifleri
+### <a name="cloud-solution-provider-csp-azure-subscription-offers"></a>Bulut Çözümü Sağlayıcısı (CSP) Azure abonelik teklifleri
 
-CSP Azure aboneliği teklifleri artık varsayılan olarak Sandbox hesaplarına uygun değildir. Bunlar sırasıyla Microsoft genel bulutu, Almanya bulutu ve kamu bulutu 'nda CSP Azure abonelikleri için MS-AZR-0146P, MS-AZR-DE-0146P ve MS-AZR-USGOV-0146P içerir. Bu tekliflere erişmesi gereken iş ortakları, erişim için uygulanmalıdır. Erişim için uygulamak üzere Microsoft hesabı Yöneticisi veya iş kişiniz ile tartışın.
+CSP Azure abonelik teklifleri artık korumalı alan hesapları için varsayılan olarak kullanılamaz. Bunlar sırasıyla Microsoft Genel Bulut, Almanya Bulutu ve Kamu Bulutu'nun CSP Azure abonelikleri için MS-AZR-0146P, MS-AZR-DE-0146P ve MS-AZR-USGOV-0146P'tir. Korumalı alan hesabıyla bu tekliflere erişmesi gereken iş ortaklarının erişim için başvurması gerekir. Erişime uygulamak için yöneticinizle veya Microsoft hesabı kişisi ile iletişime geçin.
 
-Sandbox hesapları CSP Azure aboneliği teklifleri için onaylanmış iş ortakları için aşağıdaki sınırlar geçerlidir:
+CsP Azure aboneliği teklifleri için korumalı alan hesapları onaylanmış iş ortakları için aşağıdaki sınırlar geçerlidir:
 
-- En fazla 375 etkin abonelik (müşteri başına 75 müşteriler x 5 abonelik) olabilir. Ancak, CSP Azure abonelikleri yalnızca 10 ' u içerebilir.
+- En fazla 375 etkin aboneliğiniz (müşteri başına 75 müşteri x 5 abonelik) olabilir. Ancak bunlardan yalnızca 10'ları CSP Azure abonelikleri olabilir.
 
-- CSP Azure aboneliği, Azure kullanımının $200 ' ine eriştiğinde, kaynakları bir sonraki fatura döngüsüne kadar geçici olarak devre dışı bırakılır. Hala etkin bir abonelik olarak değerlendirilir ve 10 etkin Azure aboneliği sınırına doğru sayılır.
+- CSP Azure aboneliği 200 ABD doları Azure kullanımına ulaştığında kaynakları bir sonraki faturalama döngüsüne kadar geçici olarak devre dışı bırakılır. Hala etkin bir abonelik olarak kabul edilir ve 10 etkin Azure aboneliği sınırına dahil edilir.
 
-- Sandbox hesabınız kapsamındaki her CSP Azure aboneliği, veri merkezi başına dört sanal makine (VM) çekirdekle sınırlıdır. Bu nedenle, dörtten fazla VM çekirdeği gerektiren VM SKU 'Larını sağlayamazsınız. GPU çekirdekleri gibi bazı özel sanal makine SKU 'Ları da hariç tutulur.
+- Korumalı alan hesabınız altındaki her CSP Azure aboneliği, veri merkezi başına dört sanal makine (VM) çekirdeğiyle sınırlıdır. Bu nedenle, dörtten fazla VM çekirdeği gerektiren VM SKUS'ları sağamaz. GPU çekirdekleri gibi belirli özel VM S SU'ları da dışlanır.
 
 > [!Important]
-> 1 Ağustos 2018 ' den önceki korumalı alan hesapları ile sağlanan tüm mevcut CSP Azure abonelikleri artık desteklenmemektedir ve Microsoft tarafından, 16 Ekim 2018 arasında hazırlanacaktır. Abonelikler sağlandıktan sonra, yeniden etkinleştirilemez ve ilişkili veriler artık erişilebilir değildir. Bu Abonelikler altında depolanan değerli verileri olan iş ortakları, 16 Ekim 2018 tarihinden önce verileri yedeklemeli olmalıdır.
+> 1 Ağustos 2018'den önce korumalı alan hesaplarıyla sağlanan tüm mevcut CSP Azure abonelikleri artık desteklemeyecek ve 16 Ekim - 31 Ekim 2018 tarihleri arasında Microsoft tarafından sağlamaları silinecek. Aboneliklerin sağlandıktan sonra yeniden etkinleştirilemez ve ilişkili verilere artık erişilemez. Bu abonelikler altında depolanan değerli verilere sahip iş ortaklarının 16 Ekim 2018'den önce verileri depolaması gerekir.
 
-### <a name="azure-reserved-vm-instance"></a>Azure ayrılmış VM örneği
+### <a name="azure-reserved-vm-instance"></a>Azure Ayrılmış VM örneği
 
-Korumalı alan hesabınızla [bir Azure ayrılmış sanal makine örneği satın](purchase-azure-reservations.md) aldıysanız, müşteri BAŞıNA iki VM örneğiyle sınırlı olursunuz. Yalnızca aşağıdaki Azure ayrılmış VM örneğinden Ürün SKU 'Ları arasından seçim yapabilirsiniz:
+Korumalı alan [hesabınızla bir Azure Ayrılmış VM](purchase-azure-reservations.md) örneği satın alırsanız müşteri başına iki VM örneğiyle sınırlıdır. Ayrıca yalnızca aşağıdaki Azure Ayrılmış VM örneği ürünü SKI'lerinden seçim yapabilirsiniz:
 
-| Ürün başlığı  | Geçerlilik tarihi  | SKU başlığı                                               | Bölge [ArmRegionName] | Örnek anahtarı [ArmSkuName] | Süre | Tüketim ölçüm kimliği       |
+| Ürün Başlığı  | Geçerli Tarih  | Sku Başlığı                                               | Bölge [ArmRegionName] | Örnek Anahtarı [ArmSkuName] | Süre | Tüketim Ölçümü Kimliği       |
 |----------------|-----------------|---------------------------------------------------------|------------------------|--------------|----------|----------------------------|
-| B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, KR Güney, 1 yıl    | Koreagüney             | `Standard_B1s` | `1Year`    | 3f913071-0dd7-4258-8ec4-6fad05bd976d |
+| B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, KR Güney, 1 yıl    | KoreaSouth             | `Standard_B1s` | `1Year`    | 3f913071-0dd7-4258-8ec4-6fad05bd976d |
 | B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, ABD Doğu, 1 yıl     | eastus                 | `Standard_B1s` | `1Year`    | f4d7a5a5-1b67-45ea-b1a0-282fbdd34b05 |
-| B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, ABD Batı 2, 1 yıl   | westus2                | `Standard_B1s` | `1Year`    | 222e39f5-e99f-4FA3-a323-f46402977888 |
-| B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, ABD Orta Kuzey, 1 yıl    | northcentralus | `Standard_B1s` | `1Year`    | 4e1716fc-4842-43F1-aa96-7c1b1b1395a7 |
-| B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, CA Doğu, 1 yıl     | Canadadoğu             | `Standard_B1s` | `1Year`    | ab8a5993-5db7-47c8-b3b1-2e1365b353fb |
+| B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, ABD Batı 2, 1 yıl   | westus2                | `Standard_B1s` | `1Year`    | 222e39f5-e99f-4fa3-a323-f464029778888 |
+| B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, ABD Orta Kuzey, 1 yıl    | northcentralus | `Standard_B1s` | `1Year`    | 4e1716fc-4842-43f1-aa96-7c1b1b1395a7 |
+| B Serisi       | 12/1/2017 0:00  | Ayrılmış VM örneği, Standard_B1s, CA Doğu, 1 yıl     | CanadaEast             | `Standard_B1s` | `1Year`    | ab8a5993-5db7-47c8-b3b1-2e1365b353fb |
 
-### <a name="subscriptions-for-commercial-marketplace-products"></a>Ticari Market ürünleri için abonelikler
+### <a name="subscriptions-for-commercial-marketplace-products"></a>Ticari market ürünleri için abonelikler
 
-Üretimde, [ticari Market SaaS ürünlerine bir abonelik oluşturduktan](create-subscription-azure-marketplace-products.md)sonra, Iş Ortağı Merkezi 'nden kişiselleştirilmiş bir etkinleştirme bağlantısı almanız ve kurulum işlemini tamamlaması için yayımcının sitesini ziyaret etmeniz gerekir. Abonelik faturalandırması, yalnızca kurulum tamamlandıktan sonra başlayacaktır.
+Üretimde, ticari market [SaaS](create-subscription-azure-marketplace-products.md)ürünlerine abonelik oluşturduktan sonra, kurulum işlemini tamamlamak için İş Ortağı Merkezi'den kişiselleştirilmiş etkinleştirme bağlantısını almalı ve yayımcının sitesini ziyaret edebilirsiniz. Abonelik faturalandırması, yalnızca kurulum tamamlandıktan sonra başlayacaktır.
 
 CSP korumalı alan ortamında ISV 'Ler ile tümleştirme yoktur. Iş Ortağı Merkezi 'nden bir etkinleştirme bağlantısı almaya çalışırsanız, bir kukla bağlantı döndürülür. Bu kukla bağlantıyı, yayımcının sitesindeki kurulum işlemini tamamlayacak şekilde kullanamazsınız. Ticari Market SaaS ürünlerine yönelik aboneliklerin faturalandırmasını test etmek üzere tümleştirme korumalı alanı hesabını kullanmak için, bkz. bunun yerine [ticari Market ürünleri için bir korumalı alan aboneliğini etkinleştirme](activate-sandbox-subscription-azure-marketplace-products.md) . Aboneliğin faturalandırılması, başarıyla etkinleştirilmesinden sonra başlayacaktır.
 

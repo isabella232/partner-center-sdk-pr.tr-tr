@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: v-sumukh
 ms.author: v-sumukh
-ms.openlocfilehash: 9bd47b99f0abaa181e5f255dd6e46151363917e7
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: 69c6c195ba1a0d657a91320b2f9b08b5269a8499
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97770001"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025607"
 ---
 # <a name="analytics-api-resources-that-help-you-report-on-license-usage-deployment-and-consumption"></a>Lisans kullanımı, dağıtımı ve tüketimi hakkında rapor etmenize yardımcı olan analitik API kaynakları
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak için kullanılan verileri içerir.
 
@@ -25,7 +21,7 @@ Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak i
 
 **Partnerlicensesdeploymentinsıghts** kaynağı, lisans dağıtımı hakkında iş ortağı düzeyi öngörüleri içerir.
 
-| Özellik                  | Tür                                                           | Description                                                                         |
+| Özellik                  | Tür                                                           | Açıklama                                                                         |
 |---------------------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | Eşit oranda bulunan Deploymentpercent | sayı                                                         | Dağıtılan lisansların yüzdesi.                                                |
 | Lisanssesseski              | sayı                                                         | Satılan lisansların sayısı.                                                        |
@@ -38,7 +34,7 @@ Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak i
 
 **Partnerlicensesusageresource** , lisans kullanımı hakkında iş ortağı düzeyi öngörüleri içerir.
 
-| Özellik                     | Tür                                                           | Description                                                                    |
+| Özellik                     | Tür                                                           | Açıklama                                                                    |
 |------------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Eşit oranda bulunan Licensesusage yüzdesi | sayı                                                         | Dağıtılan lisansların yüzdesi.                                           |
 | workloadName                 | string                                                         | İş yükü adı (örneğin: Exchange).                                             |
@@ -51,7 +47,7 @@ Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak i
 
 **Customerlicensesdeploymentinsıghts** kaynağı, lisans dağıtımıyla ilgili müşteri düzeyi öngörüleri içerir.
 
-| Özellik          | Tür                                                           | Description                                                                          |
+| Özellik          | Tür                                                           | Açıklama                                                                          |
 |-------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Licensesdağıtıldı  | sayı                                                         | Dağıtılan lisansların sayısı.                                                     |
 | Lisanssesseski      | sayı                                                         | Satılan lisansların sayısı.                                                         |
@@ -69,18 +65,18 @@ Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak i
 
 **Customerlicensesusageınsights** kaynağı, lisans kullanımı hakkında müşteri düzeyi öngörüleri içerir.
 
-| Özellik          | Tür                                                           | Description                                                                     |
+| Özellik          | Tür                                                           | Açıklama                                                                     |
 |-------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | workloadCode      | string                                                         | İş yükü kodu.                                                              |
 | workloadName      | sayı                                                         | İş yükü adı (örneğin: Exchange).                                              |
-| Usage yüzdesi      | sayı                                                         | Kullanılan lisansların ayarlanan yüzdesi.                                       |
+| usagePercent      | sayı                                                         | Kullanılan lisansların ayarlanmış yüzdesi.                                       |
 | licensesActive    | sayı                                                         | Etkin lisansların sayısı.                                                  |
-| Lisans nitelikli | sayı                                                         | Nitelikli lisansların sayısı.                                               |
+| licensesQualified | sayı                                                         | Nitelikli lisans sayısı.                                               |
 | customerId        | string                                                         | Müşteri tanımlayıcısı.                                                        |
-| customerName      | string                                                         | Müşteri adı.                                                              |
-| productName       | string                                                         | Ürün adı.                                                               |
+| Müşteriadı      | string                                                         | Müşteri adı.                                                              |
+| Productname       | string                                                         | Ürün adı.                                                               |
 | serviceCode       | string                                                         | Lisansın hizmet kodu.                                                |
-| processedDateTime | UTC Tarih-saat biçiminde dize                                 | Verilerin toplanalındığı tarih ve saat.                                 |
-| HizmetAdı       | string                                                         | Hizmet adı (örneğin: O365, CRM).                                              |
-| kanalla           | string                                                         | Hizmetin kanal adı (örneğin: satıcı).                                |
-| öznitelikler        | [ResourceAttributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri. "ObjectType" içerir: "Customerlicensesusageınsights" |
+| processedDateTime | UTC tarih-saat biçiminde dize                                 | Verilerin toplanmış olduğu tarih ve saat.                                 |
+| Hizmetadı       | string                                                         | Hizmet adı (örneğin: o365, crm).                                              |
+| Kanal           | string                                                         | Hizmetin kanal adı (örneğin: kurumsal bayi).                                |
+| öznitelikler        | [Resourceattributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri. "objectType" içerir: "CustomerLicensesUsageInsights" |

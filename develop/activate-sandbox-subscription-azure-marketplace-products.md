@@ -4,18 +4,14 @@ description: Ticari Market ürünleri için bir korumalı alan aboneliğini etki
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a78b2c84368b29f1378f46971c4814929094e299
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: b32c3e87462f58218771fc5da7da56ed177489cb
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97769952"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025709"
 ---
 # <a name="activate-a-sandbox-subscription-for-commercial-marketplace-saas-products-to-enable-billing"></a>Faturalandırmayı etkinleştirmek için ticari Market SaaS ürünleri için bir korumalı alan aboneliği etkinleştirin
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Faturalandırmayı etkinleştirmek için tümleştirme korumalı alanı hesaplarından hizmet olarak satılan ticari Market yazılım (SaaS) ürünleri için bir abonelik etkinleştirme.
 

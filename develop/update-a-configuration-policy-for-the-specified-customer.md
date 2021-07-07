@@ -4,19 +4,16 @@ description: Belirtilen müşteri için belirtilen yapılandırma ilkesini günc
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 42c57a92020723415b4621e9f9d7c5c3278bfb77
-ms.sourcegitcommit: 970031473b2e8cd3d08c6c097949c057a51df3ef
+ms.openlocfilehash: 5e008f41a44f2b7cf3ddfd705505175c69bbad38
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99505348"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530250"
 ---
 # <a name="update-a-configuration-policy-for-the-specified-customer"></a>Belirtilen müşteri için yeni bir yapılandırma ilkesini güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
 
 Belirtilen müşteri için belirtilen yapılandırma ilkesini güncelleştirme.
 
@@ -50,7 +47,7 @@ ConfigurationPolicy updatedConfigurationPolicy =
     partnerOperations.Customers.ById(selectedCustomerId).ConfigurationPolicies.ById(selectedConfigurationPolicyId).Patch(configPolicyToBeUpdated);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: UpdateConfigurationPolicy.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: updateconfigurationpolicy. cs
 
 ## <a name="rest-request"></a>REST isteği
 

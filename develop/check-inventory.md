@@ -4,18 +4,14 @@ description: Belirli bir katalog öğeleri kümesinin envanterini denetlemek iç
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6921760abc0b95aff820467e84b3e8e9435731cd
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: b982dbd7e5e10d454ef87a1e750546ea50eb8438
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770085"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974089"
 ---
 # <a name="check-the-inventory-of-catalog-items-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak Katalog öğelerinin envanterini denetleme
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Belirli bir katalog öğeleri kümesinin envanterini denetleme.
 

@@ -1,83 +1,78 @@
 ---
 title: Müşteri için doğrulanmış bir etki alanı ekleme
-description: Iş Ortağı Merkezi 'nde bir müşterinin onaylanan etki alanları listesine doğrulanmış bir etki alanı eklemeyi öğrenin. Iş Ortağı Merkezi API 'Leri ve REST API 'Leri kullanarak bunu yapın.
+description: İş Ortağı Merkezi'daki bir müşteri için onaylı etki alanları listesine doğrulanmış etki alanı İş Ortağı Merkezi. Bunu api'İş Ortağı Merkezi REST API'lerini kullanarak yapma.
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d0ea9998324e99c7986645dc90fdfba0a2a71571
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: a8157bff5ac37100713a057ac68ac94c89ba28b8
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97769965"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025692"
 ---
-# <a name="add-a-verified-domain-to-the-list-of-approved-domains-for-an-existing-customer"></a>Mevcut bir müşterinin onaylanan etki alanları listesine doğrulanmış etki alanı ekleme 
+# <a name="add-a-verified-domain-to-the-list-of-approved-domains-for-an-existing-customer"></a>Mevcut bir müşteri için onaylanmış etki alanları listesine doğrulanmış bir etki alanı ekleme 
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Mevcut bir müşterinin onaylanan etki alanları listesine doğrulanmış etki alanı ekleme.
+Mevcut bir müşteri için onaylı etki alanları listesine doğrulanmış etki alanı ekleme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Etki alanı kaydedicisi olan bir Iş ortağı olmanız gerekir.
+- Etki alanı kayıt şirketi olan bir İş Ortağınız olmalıdır.
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="adding-a-verified-domain"></a>Doğrulanmış etki alanı ekleme
 
-Etki alanı kaydedicisi olan bir Iş ortağıysanız, API 'yi kullanarak mevcut bir `verifieddomain` müşterinin etki alanları listesine yeni bir [etki alanı](#domain) kaynağı gönderebilirsiniz. Bunu yapmak için Customertenantıd 'sini kullanarak müşteriyi tanımayın. VerifiedDomainName özelliği için bir değer belirtin. Istekte gerekli ad, yetenek, AuthenticationType, durum ve doğrulama Icationmethod özelliklerine sahip bir [etki alanı](#domain) kaynağı geçirin. Yeni [etki alanının](#domain) bir Federasyon etki alanı olduğunu belirtmek Için, [etki alanı](#domain) kaynağındaki AuthenticationType özelliğini olarak ayarlayın `Federated` ve isteğe bir [domainfederationsettings](#domain-federation-settings) kaynağı ekleyin. Yöntem başarılı olursa, yanıt yeni doğrulanmış etki alanı için bir [etki alanı](#domain) kaynağı içerecektir.
+Etki alanı kayıt şirketi olan bir İş Ortağınız varsa API'yi kullanarak mevcut müşteri için etki alanları listesine yeni bir Etki alanı `verifieddomain` kaynağı ekleyebilirsiniz. [](#domain) Bunu yapmak için CustomerTenantId'sini kullanarak müşteriyi tanıyın. VerifiedDomainName özelliği için bir değer belirtin. İstekte [gerekli](#domain) Ad, Yetenek, AuthenticationType, Durum ve VerificationMethod özelliklerine sahip bir Etki alanı kaynağı girin. Yeni Etki Alanının federasyon [etki](#domain) alanı olduğunu belirtmek için, Etki [](#domain) alanı kaynağında AuthenticationType özelliğini olarak ayarlayın ve `Federated` [İstek'e bir DomainFederationSettings](#domain-federation-settings) kaynağı dahil ederek. Yöntem başarılı olursa Yanıt, yeni doğrulanmış etki [alanı için](#domain) bir Etki alanı kaynağı içerir.
 
 ### <a name="custom-verified-domains"></a>Özel doğrulanmış etki alanları
 
-**Onmicrosoft.com**' de kayıtlı olmayan özel bir doğrulanmış etki alanı eklediğinizde, [Customeruser. ImmutableID](user-resources.md#customeruser) özelliğini, etki alanını eklediğiniz MÜŞTERIYE ait benzersiz bir kimlik değeri olarak ayarlamanız gerekir. Bu benzersiz tanımlayıcı, etki alanı doğrulanırken doğrulama işlemi sırasında gereklidir. Müşteri Kullanıcı hesapları hakkında daha fazla bilgi için bkz. [müşteri için Kullanıcı hesapları oluşturma](create-user-accounts-for-a-customer.md).
+Özel bir doğrulanmış etki alanı eklerken, **onmicrosoft.com** üzerinde kayıtlı olmayan bir etki alanı, [CustomerUser.immutableId](user-resources.md#customeruser) özelliğini etki alanını eklemekte olan müşteri için benzersiz bir kimlik değerine ayarlamış olur. Bu benzersiz tanımlayıcı, etki alanı doğrulandığında doğrulama işlemi sırasında gereklidir. Müşteri kullanıcı hesapları hakkında daha fazla bilgi için [bkz. Müşteri için kullanıcı hesapları oluşturma.](create-user-accounts-for-a-customer.md)
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem | İstek URI'si                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
-| POST   | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{CustomerTenantId}/verifieddomain http/1.1 |
+| POST   | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{CustomerTenantId}/verifieddomain HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI parametresi
 
-İçin doğrulanmış bir etki alanı eklediğiniz müşteriyi belirtmek için aşağıdaki sorgu parametresini kullanın.
+Doğrulanmış bir etki alanı eklemekte olduğunu müşteriyi belirtmek için aşağıdaki sorgu parametresini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| CustomerTenantId | guid | Y        | Değer, bir müşteriyi belirtmenizi sağlayan bir GUID biçimli **Customertenantıd** 'dir. |
+| CustomerTenantId | guid | Y        | Değer, müşteri belirtmenize olanak sağlayan GUID biçiminde bir **CustomerTenantId** değeridir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
 | Ad                                                  | Tür   | Gerekli                                      | Açıklama                                                |
 |-------------------------------------------------------|--------|-----------------------------------------------|--------------------------------------------------------|
-| VerifiedDomainName                                    | string | Yes                                           | Doğrulanan etki alanı adı. |
+| VerifiedDomainName                                    | string | Yes                                           | Doğrulanmış etki alanı adı. |
 | [Etki alanı](#domain)                                     | object | Yes                                           | Etki alanı bilgilerini içerir. |
-| [DomainFederationSettings](#domain-federation-settings) | object | Evet (IF AuthenticationType = `Federated` )     | Etki alanı etki alanı değil, etki alanı ise kullanılacak etki alanı Federasyon ayarları `Federated` `Managed` . |
+| [DomainFederationSettings](#domain-federation-settings) | object | Evet (AuthenticationType = `Federated` ise)     | Etki alanı bir etki alanı değil etki alanı ise `Federated` kullanılacak etki alanı federasyon `Managed` ayarları. |
 
 ### <a name="domain"></a>Etki alanı
 
-Bu tablo, istek gövdesinde gerekli ve isteğe bağlı **etki alanı** özelliklerini açıklar.
+Bu tablo, istek gövdesinde gerekli **ve isteğe** bağlı Etki alanı özelliklerini açıklar.
 
 | Ad               | Tür                                     | Gerekli | Açıklama                                                                                                                                                                                                     |
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| AuthenticationType                                    | string           | Yes      | Etki alanının bir etki alanı mı yoksa etki alanı mı olduğunu tanımlar `Managed` `Federated` . Desteklenen değerler: `Managed` , `Federated` .|
+| Authenticationtype                                    | string           | Yes      | Etki alanının bir etki alanı mı `Managed` yoksa etki alanı mı olduğunu `Federated` tanımlar. Desteklenen değerler: `Managed` , `Federated` .|
 | Özellik                                            | string           | Yes      | Etki alanı özelliğini belirtir. Örneğin, `Email`.                  |
-| IsDefault                                             | null yapılabilir Boole | No       | Etki alanının kiracı için varsayılan etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .        |
-| Isınıtıal                                             | null yapılabilir Boole | No       | Etki alanının bir ilk etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .                       |
+| ısdefault                                             | null değere sahip boole değeri | Hayır       | Etki alanının kiracı için varsayılan etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .        |
+| IsInitial                                             | null değere sahip boole değeri | Hayır       | Etki alanının bir ilk etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .                       |
 | Name                                                  | string           | Yes      | Etki alanı adı.                                                          |
 | RootDomain                                            | dize           | No       | Kök etki alanının adı.                                              |
 | Durum                                                | string           | Yes      | Etki alanı durumu. Örneğin, `Verified`. Desteklenen değerler:  `Unverified` , `Verified` , `PendingDeletion` .                               |
@@ -96,13 +91,13 @@ Bu tabloda, istek gövdesinde gerekli ve isteğe bağlı **Domainfederationsetti
 | LogOffUri                              | string           | Yes     | Oturum kapatma URI 'SI. Bu özellik, Federasyon etki alanı oturum açma URI 'sini açıklar.        |
 | MetadataExchangeUri                    | dize           | No      | Zengin istemci uygulamalarından kimlik doğrulaması için kullanılan meta veri değişim uç noktasını belirten URL. |
 | NextSigningCertificate                 | dize           | No      | Daha sonra gelen ve ADFS v2 STS tarafından talepleri imzalamak için kullanılan sertifika. Bu özellik, sertifikanın Base64 olarak kodlanmış bir gösterimidir. |
-| Openıdconnectdiscoveryendpoint         | dize           | No      | Federal ıDP STS 'nin OpenID Connect bulma uç noktası. |
+| Openıdconnectdiscoveryendpoint         | dize           | No      | federal ıdp STS 'nin openıd Bağlan bulma uç noktası. |
 | PassiveLogOnUri                        | string           | Yes     | Eski pasif Istemciler tarafından kullanılan oturum açma URI 'SI. Bu özellik, Federasyon oturum açma isteklerini göndermek için olan adrestir. |
 | PreferredAuthenticationProtocol        | string           | Yes     | Kimlik doğrulama belirtecinin biçimi. Örneğin, `WsFed`. Desteklenen değerler: `WsFed` , `Samlp` |
 | PromptLoginBehavior                    | string           | Yes     | İstem oturum açma davranışı türü.  Örneğin, `TranslateToFreshPasswordAuth`. Desteklenen değerler: `TranslateToFreshPasswordAuth` , `NativeSupport` , `Disabled` |
 | SigningCertificate                     | string           | Yes     | Şu anda ADFS v2 STS tarafından talepleri imzalamak için kullanılan sertifika. Bu özellik, sertifikanın Base64 olarak kodlanmış bir gösterimidir. |
 | SigningCertificateUpdateStatus         | dize           | No      | Imzalama sertifikasının güncelleştirme durumunu gösterir. |
-| SigningCertificateUpdateStatus         | null yapılabilir Boole | No      | IDP STS 'nin MFA 'yı destekleyip desteklemediğini gösterir. Desteklenen değerler: `True` , `False` , `Null` .|
+| SigningCertificateUpdateStatus         | null yapılabilir Boole | Hayır      | IDP STS 'nin MFA 'yı destekleyip desteklemediğini gösterir. Desteklenen değerler: `True` , `False` , `Null` .|
 
 ### <a name="request-example"></a>İstek örneği
 

@@ -1,53 +1,49 @@
 ---
 title: Tüm başvuru analizi bilgilerini alma
-description: Tüm başvuru Analizi bilgilerini alma.
+description: Tüm referans analizi bilgilerini nasıl elde edinebilirsiniz?
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: Kim-Davis
 ms.author: kimnich
-ms.openlocfilehash: b470c59cecf8b214e6d90a244e928e5d15ebd3e0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 7deda4098ceb9eb4e1ee75056c53c754618bf3e2
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769082"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760615"
 ---
 # <a name="get-all-referrals-analytics-information"></a>Tüm başvuru analizi bilgilerini alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Müşterileriniz için tüm başvuru Analizi bilgilerini alma.
+Müşterileriniz için tüm referans analizi bilgilerini nasıl elde edersiniz?
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si |
 |---------|-------------|
-| **Al** | [*\{ BaseUrl \}*](partner-center-rest-urls.md)/partner/v1/analiz Tics/başvuruları http/1.1 |
+| **Al** | [*\{ baseURL \}*](partner-center-rest-urls.md)/partner/v1/analytics/referanslar HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-| Parametre | Tür | Description |
+| Parametre | Tür | Açıklama |
 |-----------|------|-------------|
 | filtre | string | Filtre koşuluyla eşleşen verileri döndürür.</br> **Örnek:**</br>  `.../referrals?filter=field eq 'value'` |
-| ölçütü | string | Hem hüküm hem de tarihleri destekler. Demet sayısını sınırlandırmak için kısa devre mantığı.</br> **Örnek:**</br>  `.../referrals?groupby=termField1,dateField1,termField2` |
-| aggregationLevel | string | *AggregationLevel* parametresi bir *GroupBy* gerektirir. *AggregationLevel* parametresi, *GroupBy* içinde bulunan tüm tarih alanları için geçerlidir.</br> **Örnek:**</br> `.../referrals?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
-| top | string | Sayfa sınırı 10000 ' dir. 10000 'den küçük bir değer alır.</br> **Örnek:**</br> `.../referrals?top=100`</br> |
-| Atla | string | Atlanacak satır sayısı.</br> **Örnek:**</br>  `.../referrals?top=100&skip=100` |
+| Groupby | string | Hem terimleri hem de tarihleri destekler. Demet sayısını sınırlamak için kısa devre mantığı.</br> **Örnek:**</br>  `.../referrals?groupby=termField1,dateField1,termField2` |
+| aggregationLevel | string | *aggregationLevel parametresi* bir *groupby gerektirir.* *aggregationLevel* parametresi, groupby içinde mevcut olan tüm tarih *alanlarına uygulanır.*</br> **Örnek:**</br> `.../referrals?groupby=termField1,dateField1,termField2&aggregationLevel=day` |
+| top | string | Sayfa sınırı 10000'tir. 10000'den küçük herhangi bir değeri alır.</br> **Örnek:**</br> `.../referrals?top=100`</br> |
+| Atla | string | Atlan satır sayısı.</br> **Örnek:**</br>  `.../referrals?top=100&skip=100` |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -65,11 +61,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [başvuru](partner-center-analytics-resources.md#referrals-resource) kaynakları koleksiyonu içerir.
+Başarılı olursa, yanıt gövdesi Bir Referans kaynakları [koleksiyonu](partner-center-analytics-resources.md#referrals-resource) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

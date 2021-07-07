@@ -1,66 +1,62 @@
 ---
 title: TransferEntity kaynakları
-description: Bir müşteri, iş ortağı aboneliğini başka bir iş ortağına aktarmaya istediğinde iş ortağı bir aktarım oluşturur.
+description: Müşteri, iş ortağıyla olan aboneliğinin başka bir iş ortağına devredsini isterse iş ortağı bir aktarım oluşturur.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 96c43d255fcd31e6dc4de50baa0e19f5d8855685
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 544b9682bb0e1428fad088c818a62492198897b2
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769220"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530149"
 ---
 # <a name="transferentity-resources"></a>TransferEntity kaynakları
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bir müşteri, iş ortağı aboneliğini başka bir iş ortağına aktarmaya istediğinde iş ortağı bir aktarım oluşturur.
+Müşteri, iş ortağıyla olan aboneliğinin başka bir iş ortağına devredsini isterse iş ortağı bir aktarım oluşturur.
 
 ## <a name="transferentity"></a>TransferEntity
 
-Bir transferEntity tanımlar.
+transferEntity'i açıklar.
 
-| Özellik              | Tür             | Description                                                                                            |
+| Özellik              | Tür             | Açıklama                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| kimlik                    | string           | TransferEntity başarıyla oluşturulduktan sonra sağlanan bir transferEntity tanımlayıcısı.                               |
-| createdTime           | DateTime         | TransferEntity oluşturulduğu tarih-saat biçiminde. TransferEntity başarıyla oluşturulduktan sonra uygulandı.      |
-| Zamanı      | DateTime         | TransferEntity 'ın son güncelleştirilme tarihi, tarih-saat biçiminde. TransferEntity başarıyla oluşturulduktan sonra uygulandı. |
-| lastModifiedUser      | string           | Transfer varlığını son güncelleştiren Kullanıcı. TransferEntity başarıyla oluşturulduktan sonra uygulandı.                          |
-| customerName          | string           | İsteğe bağlı. Abonelikleri aktarılmakta olan müşterinin adı.                                              |
-| Customertenantıd      | string           | Müşteriyi tanımlayan bir GUID biçimli müşteri kimliği. TransferEntity başarıyla oluşturulduktan sonra uygulandı.         |
-| partnertenantıd       | string           | Ortağı tanımlayan bir GUID biçimli iş ortağı kimliği.                                                                   |
-| sourcePartnerName     | string           | İsteğe bağlı. Aktarımı başlatan iş ortağının kuruluşun adı.                                           |
-| Sourcepartnertenantıd | string           | Aktarımı başlatan ortağı tanımlayan bir GUID biçimli iş ortağı kimliği.                                           |
-| targetPartnerName     | string           | İsteğe bağlı. Aktarımın hedeflediği iş ortağının kuruluşun adı.                                         |
-| Targetpartnertenantıd | string           | Aktarımın hedeflediği ortağı tanımlayan bir GUID biçimli iş ortağı kimliği.                                  |
-| LineItems             | Nesne dizisi | Bir [Transferlineıtem](#transferlineitem) kaynakları dizisi.                                                   |
-| durum                | string           | TransferEntity durumu. Olası değerler şunlardır. "etkin" (silinebilir/gönderilebilir) ve "tamamlandı" (daha önce tamamlanmış). TransferEntity başarıyla oluşturulduktan sonra uygulandı.|
+| kimlik                    | string           | transferEntity'nin başarıyla oluşturulmasının ardından sağlanan bir transferEntity tanımlayıcısı.                               |
+| createdTime           | DateTime         | transferEntity'nin tarih-saat biçiminde oluşturulma tarihi. transferEntity başarıyla oluşturularak uygulanır.      |
+| lastModifiedTime      | DateTime         | transferEntity'nin en son güncelleştirilen tarih-saat biçiminde olduğu tarih. transferEntity başarıyla oluşturularak uygulanır. |
+| lastModifiedUser      | string           | transferEntity'i en son güncelleştirilen kullanıcı. transferEntity başarıyla 1.000.000'in oluşturulmasının ardından uygulanır.                          |
+| Müşteriadı          | string           | İsteğe bağlı. Abonelikleri aktarılan müşterinin adı.                                              |
+| customerTenantId      | string           | Müşteriyi tanımlayan GUID biçimlendirilmiş customer-id. transferEntity başarıyla oluşturularak uygulanır.         |
+| partnertenantid       | string           | İş ortağını tanımlayan GUID biçimlendirilmiş iş ortağı kimliği.                                                                   |
+| sourcePartnerName     | string           | İsteğe bağlı. Aktarımı başlatan iş ortağının kuruluş adı.                                           |
+| sourcePartnerTenantId | string           | Aktarımı başlatan iş ortağını tanımlayan GUID biçimli iş ortağı kimliği.                                           |
+| targetPartnerName     | string           | İsteğe bağlı. Aktarımın hedeflen olduğu iş ortağının kuruluş adı.                                         |
+| targetPartnerTenantId | string           | Aktarımın hedeflene iş ortağını tanımlayan GUID biçimli iş ortağı kimliği.                                  |
+| lineItems             | Nesne dizisi | [TransferLineItem kaynakları](#transferlineitem) dizisi.                                                   |
+| durum                | string           | transferEntity durumu. Olası değerler "Etkin" (silinebilir/gönderebilirsiniz) ve "Tamamlandı" (zaten tamamlandı) değerleridir. transferEntity başarıyla oluşturularak uygulanır.|
 
-## <a name="transferlineitem"></a>Transferlineıtem
+## <a name="transferlineitem"></a>TransferLineItem
 
-Bir transferEntity içinde bulunan bir öğeyi temsil eder.
+transferEntity içinde yer alan bir öğeyi temsil eder.
 
-| Özellik             | Tür                             | Description                                                                                             |
+| Özellik             | Tür                             | Açıklama                                                                                             |
 |----------------------|----------------------------------|---------------------------------------------------------------------------------------------------------|
-| kimlik                   | string                           | Aktarım satırı öğesi için benzersiz bir tanımlayıcı. TransferEntity başarıyla oluşturulduktan sonra uygulandı.   |
+| kimlik                   | string                           | Aktarım satırı öğesi için benzersiz tanımlayıcı. transferEntity başarıyla oluşturularak uygulanır.   |
 | subscriptionId       | string                           | Abonelik tanımlayıcısı.                                                                            |
 | miktar             | int                              | Lisans veya örnek sayısı.                                                                    |
-| Bilimlingcycle         | Nesne                           | Geçerli dönem için ayarlanan faturalandırma dönemi türü.                                                   |
-| friendlyName         | string                           | İsteğe bağlı. Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.                   |
-| partnerIdOnRecord    | string                           | Aktarım kabul edildiğinde gerçekleşen Satınalmadaki iş ortağı kimliği (MPNıD).                 |
-| OfferId              | string                           | Teklif tanımlayıcısı.    |
-| Addonıtems           | **Transferlineıtem** nesnelerinin listesi | Aktarılmakta olan, aktarılan temel abonelikle birlikte aktarılacak olan bir transferEntity satır öğeleri koleksiyonu. TransferEntity başarıyla oluşturulduktan sonra uygulandı.|
-| Transferhatası        | string                           | Bir hata durumunda transferEntity kabul edildikten sonra uygulandı.                |
-| durum               | string           | TransferEntity içindeki LineItem 'ın durumu.|
+| billingCycle         | Nesne                           | Geçerli dönem için ayarlanmış faturalama dönemi türü.                                                   |
+| Friendlyname         | string                           | İsteğe bağlı. Karartmanıza yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.                   |
+| partnerIdOnRecord    | string                           | Aktarım kabul edilirken yapılan satın almada Kayıtta PartnerId (MPNID).                 |
+| offerId              | string                           | Teklif tanımlayıcısı.    |
+| addonItems           | **TransferLineItem nesnelerinin** listesi | Aktarılan temel abonelikle birlikte aktaracak eklentiler için transferEntity satır öğeleri koleksiyonu. transferEntity başarıyla oluşturularak uygulanır.|
+| transferError        | string                           | Hata durumunda transferEntity kabul edildikten sonra uygulanır.                |
+| durum               | string           | transferEntity'de lineitem durumu.|
 
 ## <a name="transfersubmitresult"></a>TransferSubmitResult
 
-Bir aktarım kabul etme sonucunu temsil eder.
+Aktarım kabul etme sonucu temsil eder.
 
-| Özellik          | Tür                                                  | Description                        |
+| Özellik          | Tür                                                  | Açıklama                        |
 |-------------------|-------------------------------------------------------|------------------------------------|
 | siparişler            | [Sıra](order-resources.md#order) nesnelerinin listesi.    | Siparişlerin koleksiyonu.          |
 | transferErrors    | [Transfererror](#transfererror) nesnelerinin listesi.      | Aktarım hataları koleksiyonu. |
@@ -69,7 +65,7 @@ Bir aktarım kabul etme sonucunu temsil eder.
 
 Bir aktarım kabul edildiğinde oluşan bir hatayı gösterir.
 
-| Özellik          | Tür   | Description                                     |
+| Özellik          | Tür   | Açıklama                                     |
 |-------------------|--------|-------------------------------------------------|
 | Transfergroupıd   | string | Hatanın sipariş Grup KIMLIĞI. |
 | kod              | int    | Hata kodu.                                 |
@@ -80,15 +76,15 @@ Bir aktarım kabul edildiğinde oluşan bir hatayı gösterir.
 
 Bir sıra hatası türünü belirten değerler içeren bir [enum/DotNet/api/System. Enum).
 
-| Değer | Konum | Description |
+| Değer | Konum | Açıklama |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | İstek bağlamında ortak belirteç yok. |
 | Invalidınput | 800002 | Geçersiz istek girişi. |
 | ServiceException | 800003 | Beklenmeyen hizmet hatası. |
 | InvalidOfferId | 800004 | Geçersiz teklif KIMLIĞI. |
 | CreateOrderError | 800005 | Sipariş oluşturma başarılı değil. |
-| Mpnıdnotfound | 800015 | MPN kimliği bulunamadı. |
-| Notvalidındirectresellermpnıd | 800016 | MPN kimliği geçerli bir dolaylı satıcı değil. |
+| Mpnıdnotfound | 800015 | MPN KIMLIĞI bulunamadı. |
+| Notvalidındirectresellermpnıd | 800016 | MPN KIMLIĞI geçerli bir dolaylı satıcı değil. |
 | Transferıdnotfound | 900100   | Aktarım isteği bulunamadı.   |
 | Transfernotallowedıstatusisınprogress | 900101 | Aktarım isteği zaten devam ediyor.|
 | Transfernotallowedıstatusıscompleted | 900102 | Aktarım isteği zaten tamamlanmış.|

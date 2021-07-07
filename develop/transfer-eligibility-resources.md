@@ -1,29 +1,25 @@
 ---
 title: Transferuygunluk kaynakları
-description: Bir iş ortağı, bir müşteri aboneliğini başka bir iş ortağına aktarmaya istediğinde bir aktarım oluşturur.
+description: Bir iş ortağı, bir müşteri aboneliğini başka bir ortağa aktarılacak iş ortağıyla istediğinde bir aktarım oluşturabilir.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dcac5724a1f708bc540a3aac7ce74b2eda60a296
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8f121d499abffb4c4dda688c2a91c25f83d2e863
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768962"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530217"
 ---
 # <a name="transfereligibility-resources"></a>Transferuygunluk kaynakları
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bir iş ortağı, bir müşteri aboneliğini başka bir iş ortağına aktarmaya istediğinde bir aktarım oluşturur.
+Bir iş ortağı, bir müşteri aboneliğini başka bir ortağa aktarılacak iş ortağıyla istediğinde bir aktarım oluşturabilir. Bir aboneliğin aktarılmasının uygun olup olmadığını denetlemek için Transferuygunluk kullanın.
 
 ## <a name="transfereligibility"></a>Transferuygunluk
 
 Bir Transferuygunluk tanımlar.
 
-| Özellik              | Tür             | Description                                                                              |
+| Özellik              | Tür             | Açıklama                                                                              |
 |-----------------------|------------------|------------------------------------------------------------------------------------------|
 | kimlik                    | string           | Müşterinin abonelik tanımlayıcısı.                                                  |
 | IBir hal            | bool             | Aboneliğin aktarım için uygun olup olmadığını gösterir.                         |

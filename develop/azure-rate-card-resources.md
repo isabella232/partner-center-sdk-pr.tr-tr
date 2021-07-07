@@ -1,69 +1,65 @@
 ---
-title: Azure ücret kartı-geçerli Azure fiyatlandırması
-description: Bölgenizdeki Azure teklifleri için gerçek zamanlı, güncel fiyatlar almak üzere Azure ücret kartı 'nın nasıl kullanılacağını öğrenin. Azure ücret kartına Iş Ortağı Merkezi REST API üzerinden erişilir.
+title: Azure fiyat kartı - geçerli Azure fiyatlandırması
+description: Bölgenize uygun Azure tekliflerini gerçek zamanlı ve güncel fiyatlara almak için Azure Rate Card'ın nasıl kullanılası hakkında bilgi edinin. Azure Rate Card'a İş Ortağı Merkezi REST API.
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 2d011153f508ea0a745413b88003333452d0af24
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: e0b1bc9d764e2132315205653f46cef73b25e02f
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97770013"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974344"
 ---
-# <a name="azure-rate-card-resources-to-get-real-time-current-azure-prices-on-azure-offers-in-your-region"></a>Azure ücret kartı kaynakları, bölgenizdeki Azure tekliflerinizi gerçek zamanlı, güncel Azure fiyatlarına sahip olacak şekilde alabilir
+# <a name="azure-rate-card-resources-to-get-real-time-current-azure-prices-on-azure-offers-in-your-region"></a>Bölgenize göre Azure tekliflerini gerçek zamanlı ve geçerli Azure fiyatlarına almak için Azure fiyat kartı kaynakları
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+Azure Rate Card, Azure teklifleri için gerçek zamanlı fiyatlar sağlar. Azure fiyatlandırması dinamiktir ve sık sık değişir. Microsoft güncelleştirmeleri İş Ortağı Merkezi yayımlar ancak REST API iş ortaklarının geçerli fiyatları Bulut Çözümü Sağlayıcısı için en hızlı yolu sağlar.
 
-Azure ücret kartı, Azure teklifleri için gerçek zamanlı fiyatlar sağlar. Azure fiyatlandırması oldukça dinamik ve sık sık değişir. Microsoft, güncelleştirmeleri Iş Ortağı Merkezi 'nde yayımlar, ancak REST API bulut çözümü sağlayıcısı iş ortaklarının geçerli fiyatları alması için en hızlı yolu sağlar.
+Kullanımı izlemek ve bireysel müşterilerin aylık faturanızı ve faturalarını tahmin etmeye yardımcı olmak için, Bir Rate Card sorgusunu Azure için müşterinin kullanım kayıtlarını al isteğiyle [Microsoft Azure](get-prices-for-microsoft-azure.md) fiyatları almak için [birleştirebilirsiniz.](get-a-customer-s-utilization-record-for-azure.md)
 
-Kullanımı izlemek ve aylık faturanızı ve tek tek müşterilerin ücretini tahmin etmeye yardımcı olmak için, bir ücret kartı sorgusu birleştirerek [müşterinin Azure 'a ait kullanım kayıtlarını almaya](get-a-customer-s-utilization-record-for-azure.md)yönelik bir istekle birlikte [Microsoft Azure fiyatlar alabilirsiniz](get-prices-for-microsoft-azure.md) .
+Fiyatlar pazara ve para birimine göre farklılık gösterir ve bu API konumu dikkate alır. Varsayılan olarak API, İş Ortağı Merkezi ve tarayıcınızın dilinde iş ortağı profili ayarlarınızı kullanır ve bu ayarlar özelleştirilebilir. Konum tanıma, özellikle de birden çok pazarda satışları tek, merkezi bir ofisten yönetirken oldukça alakalıdır.
 
-Fiyatlar Pazar ve para birimine göre farklılık gösterir ve bu API 'nin yerini göz önünde bulundurun. Varsayılan olarak, API iş ortağı merkezi ve tarayıcı dilinizde ortak profil ayarlarınızı kullanır ve bu ayarlar özelleştirilebilir. Bu durum, özellikle birden çok pazardaki satışları tek bir merkezi bir ofiste yönetiyorsanız ilgilidir.
+## <a name="azureratecard"></a>AzureRateCard
 
-## <a name="azureratecard"></a>Azursilinebilir Tecard
+Azure Rate Card kaynağının özelliklerini açıklar.
 
-Bir Azure ücret kartı kaynağının özelliklerini açıklar.
-
-| Özellik      | Tür                                      | Description                                                       |
+| Özellik      | Tür                                      | Açıklama                                                       |
 |---------------|-------------------------------------------|-------------------------------------------------------------------|
-| currency      | string                                    | Oranların sağlandığı para birimi.                     |
-| Istaxiçerilen | boolean                                   | Tüm ücretler ön vergi olduğundan bu özellik olarak döndürülür `false` . |
-| locale        | string                                    | Kaynak bilgisinin yerelleştirildiği kültür.       |
-| gösterilmiştir        | nesne dizisi                          | [AzureMeter](#azuremeter) nesnelerinin dizisi.                       |
-| offerTerms    | nesne dizisi                          | [AzureOfferTerm](#azureofferterm) nesnelerinin dizisi.               |
-| öznitelikler    | [ResourceAttributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri. Vardır `"objectType": "AzureRateCard"`   |
+| currency      | string                                    | Oranların sağlanmıştır para birimi.                     |
+| isTaxIncluded | boolean                                   | Tüm fiyatlar vergi öncesidir, bu nedenle bu özellik olarak `false` döndürür. |
+| locale        | string                                    | Kaynak bilgisinin yerelleştirilmiş olduğu kültür.       |
+| Metre        | nesne dizisi                          | [AzureMeter nesneleri](#azuremeter) dizisi.                       |
+| offerTerms    | nesne dizisi                          | [AzureOfferTerm nesneleri](#azureofferterm) dizisi.               |
+| öznitelikler    | [Resourceattributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri. Içerir `"objectType": "AzureRateCard"`   |
 
-### <a name="operations-on-the-azureratecard-resource"></a>Azursilinebilir Tecard kaynağı üzerinde işlemler
+### <a name="operations-on-the-azureratecard-resource"></a>AzureRateCard kaynağında işlemler
 
 - [Microsoft Azure için fiyat alma](get-prices-for-microsoft-azure.md)
 
 ## <a name="azuremeter"></a>AzureMeter
 
-| Özellik         | Tür             | Description                                                                                   |
+| Özellik         | Tür             | Açıklama                                                                                   |
 |------------------|------------------|-----------------------------------------------------------------------------------------------|
-| kimlik               | string           | Ölçerin benzersiz tanımlayıcısı.                                                                    |
-| name             | string           | Ölçerin kolay adı.                                                                   |
-| hızını            | object           | Ölçüm oranları. Anahtar, ölçüm miktarı (dize) ve değer ölçüm oranıdır (sayı). |
-| tags             | dize dizisi | İsteğe bağlı ölçüm etiketleri. Bu dizi boş olabilir.                                                 |
+| kimlik               | string           | Ölçümün benzersiz tanımlayıcısı.                                                                    |
+| name             | string           | Ölçümün kolay adı.                                                                   |
+| Oran -ları            | object           | Ölçüm oranları. Anahtar, ölçüm miktarıdır (dize) ve değer de ölçüm oranıdır (sayı). |
+| etiketler             | dize dizisi | İsteğe bağlı ölçüm etiketleri. Bu dizi boş olabilir.                                                 |
 | category         | string           | Kaynağın kategorisi.                                                                     |
-| alt kategori      | string           | Kaynağın alt kategorisi.                                                                 |
+| Alt kategori      | string           | Kaynağın alt kategorisi.                                                                 |
 | region           | string           | Kimliğin bölgesi.                                                                             |
-| unit             | string           | Miktarın türü (saat, bayt vb.)                                                     |
-| includedQuantity | sayı           | Ölçüm miktarı, ücretsiz olarak dahil edilir.                                               |
-| effectiveDate    | string           | Bu ölçerin geçerli olduğu tarih.                                                             |
+| unit             | string           | Miktar türü (saat, bayt vb.)                                                     |
+| includedQuantity | sayı           | Ücretsiz olarak dahil edilen ölçüm miktarı.                                               |
+| effectiveDate    | string           | Bu ölçümün etkili olduğu tarih.                                                             |
 
 ## <a name="azureofferterm"></a>AzureOfferTerm
 
-| Özellik         | Tür             | Description                             |
+| Özellik         | Tür             | Açıklama                             |
 |------------------|------------------|-----------------------------------------|
 | name             | string           | Teklif teriminin kolay adı.        |
-| discount         | sayı           | Varsa, uygulanan indirim.           |
-| excludedMeterIds | dize dizisi | Varsa, tekliften çıkarılan ölçümler. |
-| effectiveDate    | string           | Teklifin etkin olduğu tarih.        |
+| discount         | sayı           | Varsa uygulanan indirim.           |
+| excludedMeterIds | dize dizisi | Varsa, tekliften hariç bırakılan metreler. |
+| effectiveDate    | string           | Teklifin etkili olduğu tarih.        |

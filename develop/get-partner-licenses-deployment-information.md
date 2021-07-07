@@ -4,18 +4,14 @@ description: Tüm müşterileri kapsayacak şekilde toplanmış iş ortağı lis
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 229f63d4df4f59cd0fde2bd0fc5e3f10cf6b25c0
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 2464242fc6dc4e7464511eac5d4197630e22fac0
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769838"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445994"
 ---
 # <a name="get-partner-licenses-deployment-information"></a>İş ortağı lisans dağıtım bilgilerini alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Tüm müşterileri kapsayacak şekilde toplanmış iş ortağı lisansları dağıtım bilgileri alma.
 
@@ -28,7 +24,7 @@ Tüm müşterileri kapsayacak şekilde toplanmış iş ortağı lisansları dağ
 
 ## <a name="c"></a>C\#
 
-Lisans dağıtımında toplanmış verileri almak için ilk olarak [**ıaggregatepartner. Analytics**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) özelliğinden iş ortağı düzeyi Analizi toplama işlemlerine bir arabirim alın. Ardından, [**lisanslar**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) özelliğinden iş ortağı düzeyi lisans Analizi koleksiyonuna bir arabirim alın. Son olarak, lisans dağıtımında toplanan verileri almak için [**Deployment. Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) yöntemini çağırın. Yöntem başarılı olursa, [**Partnerlicensesdeploymenınsıghts**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesdeploymentinsights) nesnelerinin bir koleksiyonunu alırsınız.
+Lisans dağıtımında toplanmış verileri almak için ilk olarak [**ıaggregatepartner. Analytics**](/dotnet/api/microsoft.store.partnercenter.ipartner.analytics) özelliğinden iş ortağı düzeyi Analizi toplama işlemlerine bir arabirim alın. Ardından, [**lisanslar**](/dotnet/api/microsoft.store.partnercenter.analytics.ipartneranalyticscollection.licenses) özelliğinden iş ortağı düzeyi lisans Analizi koleksiyonuna bir arabirim alın. Son olarak, lisans dağıtımında toplanan verileri almak için [**Deployment. Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) yöntemini çağırın. Yöntem başarılı olursa, [**Partnerlicensesdeploymentinsıghts**](/dotnet/api/microsoft.store.partnercenter.models.analytics.partnerlicensesdeploymentinsights) nesnelerinin bir koleksiyonunu alırsınız.
 
 ``` csharp
 // IAggregatePartner partnerOperations;

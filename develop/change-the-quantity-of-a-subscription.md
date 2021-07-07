@@ -4,21 +4,16 @@ description: Bir müşteri aboneliği için lisans miktarını değiştirmek üz
 ms.date: 06/05/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b9b781c50895aa3a14819bec43fcca1e931e3b30
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: d57ece4dd19ef2852f39130916222c54a9ccc85a
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770072"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974106"
 ---
 # <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Bir müşteri aboneliğinde lisans miktarını değiştirme
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Lisans miktarını artırmak veya azaltmak için bir [aboneliği](subscription-resources.md) güncelleştirir.
 
@@ -51,7 +46,7 @@ selectedSubscription.Quantity++;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresample **sınıfı**: UpdateSubscription.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: updatesubscription. cs
 
 ## <a name="rest-request"></a>REST isteği
 

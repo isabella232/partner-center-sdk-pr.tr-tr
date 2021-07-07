@@ -1,50 +1,48 @@
 ---
-title: Aboneliklerin aktarımını kabul etme
-description: Bir müşterinin aboneliklerinin aktarımını kabul etmek için Iş Ortağı Merkezi REST API nasıl kullanacağınızı öğrenin. REST isteği sözdizimi, üst bilgiler ve REST yanıtları içerir.
+title: Abonelik aktarımını kabul etme
+description: Müşteri için abonelik aktarımını kabul İş Ortağı Merkezi REST API aboneliği kullanmayı öğrenin. REST isteği söz dizimi, üst bilgileri ve REST yanıtlarını içerir.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fd9a6788b3dd022470e516ba928a6cd873970e53
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: 762f2106d6173e352bec11936c96bc3a9c9f89cb
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97769964"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025760"
 ---
-# <a name="accept-a-transfer-of-subscriptions-for-a-customer-using-partner-center-rest-apis"></a>Iş Ortağı Merkezi REST API 'Lerini kullanarak bir müşterinin aboneliklerinin aktarımını kabul etme
+# <a name="accept-a-transfer-of-subscriptions-for-a-customer-using-partner-center-rest-apis"></a>İş Ortağı Merkezi REST API'lerini kullanarak müşteri için abonelik aktarımını kabul etme
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
+Bu makale, müşteri için abonelik REST API kabul etmek İş Ortağı Merkezi için İş Ortağı Merkezi hizmet aboneliğinin nasıl kullanılamayacaklarını kapsar. Örnek REST söz dizimi, üst bilgiler ve REST yanıtlarını içerir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Mevcut bir aktarım için bir aktarım tanımlayıcısı.
+- Mevcut aktarım için aktarım tanımlayıcısı.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Transfers/{transfer-id}/Accept http/1.1                    |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/transfers/{transfer-id}/accept HTTP/1.1                    |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Müşteriyi tanımlamak ve kabul edilecek aktarımı belirtmek için aşağıdaki yol parametresini kullanın.
+Aşağıdaki path parametresini kullanarak müşteriyi tanıyın ve kabul edilecek aktarımı belirtin.
 
 | Ad            | Tür     | Gerekli | Açıklama                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **müşteri kimliği** | string   | Yes      | Müşteriyi tanımlayan bir GUID biçimli müşteri kimliği.             |
-| **Aktarım kimliği** | string   | Yes      | Aktarımı tanımlayan bir GUID biçimli aktarım kimliği.             |
+| **customer-id** | string   | Yes      | Müşteriyi tanımlayan GUID biçimlendirilmiş customer-id.             |
+| **transfer-id** | string   | Yes      | Aktarımı tanımlayan GUID biçimli aktarım kimliği.             |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -63,11 +61,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde doldurulmuş [Transfersubmitresult](transfer-entity-resources.md#transfersubmitresult) kaynağını döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde doldurulmuş [TransferSubmitResult](transfer-entity-resources.md#transfersubmitresult) kaynağını döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

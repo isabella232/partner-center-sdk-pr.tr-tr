@@ -1,37 +1,33 @@
 ---
 title: Lisans grubuna göre bir kullanıcıya atanan lisansları alma
-description: Belirtilen lisans grupları için Kullanıcı tarafından atanan lisansların listesini alma.
+description: Belirtilen lisans grupları için kullanıcı tarafından atanan lisansların listesini nasıl elde ekleyebilirsiniz?
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 28c10e3e2acb30e4110213344959a87d4ddfcffb
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 54acf6f315e3062d03903a98d0c6c1946065f95e
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769670"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446012"
 ---
 # <a name="get-licenses-assigned-to-a-user-by-license-group"></a>Lisans grubuna göre bir kullanıcıya atanan lisansları alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Belirtilen lisans grupları için Kullanıcı tarafından atanan lisansların listesini alma.
+Belirtilen lisans grupları için kullanıcı tarafından atanan lisansların listesini nasıl elde ekleyebilirsiniz?
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Kullanıcı tanımlayıcısı.
+- Bir kullanıcı tanımlayıcısı.
 
-- Bir veya daha fazla lisans grubu tanımlayıcısı listesi.
+- Bir veya daha fazla lisans grubu tanımlayıcısının listesi.
 
 ## <a name="c"></a>C\#
 
-Belirtilen lisans gruplarından bir kullanıcıya hangi lisansların atandığını denetlemek için, [**Licensegroupıd**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)türünde bir [list/DotNet/api/System. Collections. Generic. List -1) oluşturarak başlayın ve ardından Lisans gruplarını listeye ekleyin. Ardından, müşteriyi tanımlamak için [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) YÖNTEMINI Müşteri kimliğiyle birlikte kullanın. Ardından, kullanıcıyı tanımlamak için Kullanıcı KIMLIĞIYLE [**Users. byıd**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini çağırın. Ardından, [**lisanslar**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) özelliğinden müşteri Kullanıcı Lisansı işlemlerine yönelik bir arabirim alın. Son olarak, kullanıcıya atanan lisansların koleksiyonunu almak için lisans grupları listesini [**Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) yöntemine geçirin.
+Bir kullanıcıya belirtilen lisans gruplarından hangi lisansların atandığı kontrol etmek için, [**licenseGroupId**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)türünde bir [List/dotnet/api/system.collections.generic.list-1) örneği başlatarak ve ardından lisans gruplarını listeye ekleyin. Ardından, müşteriyi [**tanımlamak için IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri kimliğiyle birlikte kullanın. Ardından, kullanıcı kimliğini [**belirlemek için Users.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini çağırabilirsiniz. Ardından, Lisanslar özelliğinden müşteri kullanıcı lisans işlemlerine [**bir arabirim**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenses) alın. Son olarak, kullanıcıya atanmış lisans koleksiyonunu almak için lisans gruplarının listesini [**Get**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicensecollection.getasync) yöntemine iletirsiniz.
 
 ``` csharp
 // string selectedCustomerUserId;
@@ -53,27 +49,27 @@ var customerUserBothAadAndSfbAssignedLicenses = partnerOperations.Customers.ById
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Users/{User-ID}/lisanslar? Licensegroupıds = grup1 http/1.1                        |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Users/{User-ID}/lisanslar? Licensegroupıds = grup2 http/1.1                        |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/lisanslar? Licensegroupıds = grup1&Licensegroupıds = grup2 http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group1 HTTP/1.1                        |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group2 HTTP/1.1                        |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenses?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Müşteriyi, Kullanıcı ve lisans gruplarını tanımlamak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
+Müşteri, kullanıcı ve lisans gruplarını tanımlamak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
 
 | Ad            | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| müşteri kimliği     | string | Yes      | Müşteriyi tanımlayan GUID biçimli dize.                                                                                                                                                                                                                 |
-| user-id         | string | Yes      | Kullanıcıyı tanımlayan GUID biçimli dize.                                                                                                                                                                                                                     |
-| Licensegroupıds | dize | No       | Atanan lisansların lisans grubunu gösteren bir sabit listesi değeri. Geçerli değerler: grup1, grup2 grup1-bu grubun lisansı Azure Active Directory (AAD) içinde yönetilebilecek tüm ürünler vardır. Grup2-bu grup yalnızca Minecrat ürün lisanslarına sahiptir. |
+| customer-id     | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize.                                                                                                                                                                                                                 |
+| user-id         | string | Yes      | Kullanıcıyı tanımlayan GUID biçimli bir dize.                                                                                                                                                                                                                     |
+| licenseGroupIds | dize | No       | Atanan lisansların lisans grubunu gösteren bir enum değeri. Geçerli değerler: Grup1, Grup2 Grup1 - Bu grupta lisansları Azure Active Directory (AAD) vardır. Grup2 - Bu grubun yalnızca Minecraft lisansları vardır. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -93,11 +89,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi [Lisans](license-resources.md#license) kaynakları koleksiyonunu içerir.
+Başarılı olursa yanıt gövdesi Lisans [kaynaklarının](license-resources.md#license) koleksiyonunu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
@@ -157,7 +153,7 @@ Date: June 24 2016 22:00:25 PST
 
 ### <a name="response-example-no-matching-licenses-found"></a>Yanıt örneği (eşleşen lisans bulunamadı)
 
-Belirtilen lisans grupları için eşleşen bir lisans bulunamazsa, yanıt, değeri 0 olan totalCount öğesi olan boş bir koleksiyon içerir.
+Belirtilen lisans grupları için eşleşen lisans bulunamasa yanıt, değeri 0 olan totalCount öğesine sahip boş bir koleksiyon içerir.
 
 ```http
 HTTP/1.1 200 OK

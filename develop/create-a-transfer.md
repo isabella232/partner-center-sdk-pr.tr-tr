@@ -4,18 +4,14 @@ description: Bir müşteri için aboneliklerin aktarımını oluşturma.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d5e70cc5b7ce4fcfa715f581a2151f0b8d1922b0
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d459a0a96912ab27f312bc73af16af2d4fdb518c
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768830"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973715"
 ---
 # <a name="create-a-transfer"></a>Aktarım oluştur
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -50,8 +46,8 @@ Bu tablo, istek gövdesinde [Transferentity](transfer-entity-resources.md) özel
 | Özellik              | Tür          | Gerekli  | Açıklama                                                                                |
 |-----------------------|---------------|-----------|--------------------------------------------------------------------------------------------|
 | kimlik                    | dize        | No    | TransferEntity başarıyla oluşturulduktan sonra sağlanan bir transferEntity tanımlayıcısı.                               |
-| createdTime           | DateTime      | No    | TransferEntity oluşturulduğu tarih-saat biçiminde. TransferEntity başarıyla oluşturulduktan sonra uygulandı.      |
-| Zamanı      | DateTime      | No    | TransferEntity 'ın son güncelleştirilme tarihi, tarih-saat biçiminde. TransferEntity başarıyla oluşturulduktan sonra uygulandı. |
+| createdTime           | DateTime      | Hayır    | TransferEntity oluşturulduğu tarih-saat biçiminde. TransferEntity başarıyla oluşturulduktan sonra uygulandı.      |
+| Zamanı      | DateTime      | Hayır    | TransferEntity 'ın son güncelleştirilme tarihi, tarih-saat biçiminde. TransferEntity başarıyla oluşturulduktan sonra uygulandı. |
 | lastModifiedUser      | dize        | No    | Transfer varlığını son güncelleştiren Kullanıcı. TransferEntity başarıyla oluşturulduktan sonra uygulandı.                          |
 | customerName          | dize        | No    | İsteğe bağlı. Abonelikleri aktarılmakta olan müşterinin adı.                                              |
 | Customertenantıd      | dize        | No    | Müşteriyi tanımlayan bir GUID biçimli müşteri kimliği. TransferEntity başarıyla oluşturulduktan sonra uygulandı.         |
@@ -69,13 +65,13 @@ Bu tablo, istek gövdesinde [Transferlineıtem](transfer-entity-resources.md#tra
 |---------------------|-----------------------------|----------|-------------------------------------------------------------------------------------------------|
 | kimlik                   | dize                     | No       | Aktarım satırı öğesi için benzersiz bir tanımlayıcı. TransferEntity başarıyla oluşturulduktan sonra uygulandı.|
 | subscriptionId       | string                     | Yes      | Abonelik tanımlayıcısı.                                                                         |
-| miktar             | int                        | No       | Lisans veya örnek sayısı.                                                                 |
-| Bilimlingcycle         | Nesne                     | No       | Geçerli dönem için ayarlanan faturalandırma dönemi türü.                                                |
+| miktar             | int                        | Hayır       | Lisans veya örnek sayısı.                                                                 |
+| Bilimlingcycle         | Nesne                     | Hayır       | Geçerli dönem için ayarlanan faturalandırma dönemi türü.                                                |
 | friendlyName         | dize                     | No       | İsteğe bağlı. Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.                |
-| partnerIdOnRecord    | dize                     | No       | Aktarım kabul edildiğinde gerçekleşen Satınalmadaki iş ortağı kimliği (MPNıD).              |
+| partnerIdOnRecord    | dize                     | No       | Aktarım kabul edildiğinde gerçekleşen Satınalmadaki iş ortağı kimliği (MPN KIMLIĞI).              |
 | OfferId              | dize                     | No       | Teklif tanımlayıcısı.                                                                                |
-| Addonıtems           | **Transferlineıtem** nesnelerinin listesi | No | Aktarılmakta olan, aktarılan temel abonelikle birlikte aktarılacak olan bir transferEntity satır öğeleri koleksiyonu. TransferEntity başarıyla oluşturulduktan sonra uygulandı.|
-| Transferhatası        | dize                     | No       | Bir hata durumunda transferEntity kabul edildikten sonra uygulandı.                                        |
+| Addonıtems           | **Transferlineıtem** nesnelerinin listesi | Hayır | Aktarılmakta olan, aktarılan temel abonelikle birlikte aktarılacak olan bir transferEntity satır öğeleri koleksiyonu. TransferEntity başarıyla oluşturulduktan sonra uygulandı.|
+| Transferhatası        | dize                     | No       | Bir hata varsa transferEntity kabul edildikten sonra uygulanır.                                        |
 | durum               | dize                     | No       | TransferEntity içindeki LineItem 'ın durumu.                                                    |
 
 ### <a name="request-example"></a>İstek örneği

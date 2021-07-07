@@ -4,21 +4,16 @@ description: Bir kuruluşun faturalandırma profilini güncelleştirir.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ccf938fff285704f54d4717b2678e1419d857d8d
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0ef736a722cde16f95ed6dfdbdab278c98fcf738
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768993"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530064"
 ---
 # <a name="update-an-organization-profile"></a>Kuruluş profili güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bir ortağın faturalandırma profilini güncelleştirir.
 
@@ -41,7 +36,7 @@ organizationProfile.DefaultAddress.PhoneNumber = ((long)(new Random().NextDouble
 OrganizationProfile updatedOrganizationProfile = partnerOperations.Profiles.OrganizationProfile.Update(organizationProfile);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnercentersdk. FeaturesSamples **sınıfı**: UpdateOrganizationProfile.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnercentersdk. featuressamples **sınıfı**: updateorganizationprofile. cs
 
 ## <a name="rest-request"></a>REST isteği
 

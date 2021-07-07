@@ -4,21 +4,16 @@ description: Deneme aboneliğini ücretli aboneliğe dönüştürmenize yardımc
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d3ade5a5af76e7c637962b6bfe076ac806f337bf
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 1863c365627807d8de2534a2d3116807a5de70e1
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770067"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973902"
 ---
 # <a name="conversion-resources-to-convert-trial-subscriptions-to-paid"></a>Deneme aboneliklerini ücretli olarak dönüştürmek için dönüştürme kaynakları
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Dönüştürme kaynakları, bir deneme aboneliğinin ücretli aboneliğe dönüştürülmesini destekler.
 
@@ -26,7 +21,7 @@ Dönüştürme kaynakları, bir deneme aboneliğinin ücretli aboneliğe dönü�
 
 Bir deneme aboneliğini ücretli aboneliğe dönüştürmek için kullanılan bilgileri içerir.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | OfferId | string | Orijinal, deneme teklifinin teklif tanımlayıcısı. |
 | targetOfferId | string | Hedef teklif için teklif tanımlayıcısı. |
@@ -38,7 +33,7 @@ Bir deneme aboneliğini ücretli aboneliğe dönüştürmek için kullanılan bi
 
 Dönüştürme sırasında oluşan bir hatayı temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | kod | string | Sorunla ilişkili hata kodu. Olası değerler: **diğer** (genel hata), **Conversionsnotfound** (dönüştürmeye yönelik deneme aboneliği için herhangi bir dönüştürme bulunamıyor).
 | açıklama | string | Sorunu açıklayan kolay metin. |
@@ -47,9 +42,9 @@ Dönüştürme sırasında oluşan bir hatayı temsil eder.
 
 Abonelik dönüştürmesi gerçekleştirme sonucunu temsil eder.
 
-| Özellik       | Tür                                | Description                                                            |
+| Özellik       | Tür                                | Açıklama                                                            |
 |----------------|-------------------------------------|------------------------------------------------------------------------|
 | subscriptionId | string                              | Abonelik tanımlayıcısı.                                           |
 | OfferId        | string                              | Özgün teklif tanımlayıcısı.                                         |
 | targetOfferId  | string                              | Hedef teklif için teklif tanımlayıcısı.                             |
-| error          | [Dönüştürme hatası](#conversionerror) | Varsa, dönüştürme denenirken hatayla karşılaşıldı.. |
+| error          | [Dönüştürme hatası](#conversionerror) | Varsa, dönüştürme denenirken hatayla karşılaşıldı. |

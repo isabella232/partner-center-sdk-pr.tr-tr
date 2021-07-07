@@ -1,49 +1,44 @@
 ---
 title: Fatura döngüsünü değiştirme
-description: Iş Ortağı Merkezi API 'Lerini kullanarak aylık veya yıllık faturalandırma için bir müşteri aboneliğini güncelleştirme hakkında bilgi edinin. Bunu Iş Ortağı Merkezi panosundan de yapabilirsiniz.
+description: Api'leri kullanarak müşteri aboneliğini aylık veya yıllık faturalamaya İş Ortağı Merkezi öğrenin. Bunu panodan da İş Ortağı Merkezi.
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 8a2879db061ced799e29d84e71be5b1259b07689
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 435309229e2cb038c936028943f4c2cf27b032a7
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770090"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974123"
 ---
-# <a name="change-a-customer-subscription-billing-cycle"></a>Müşteri aboneliği fatura döngüsünü değiştirme
+# <a name="change-a-customer-subscription-billing-cycle"></a>Müşteri aboneliği faturalama döngüsünü değiştirme
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+Bir Siparişi [aylık](order-resources.md) faturalamadan yıllık faturalamaya veya yıllık faturalamadan aylık faturalamaya doğru güncelleştirmeler.
 
-Bir [siparişi](order-resources.md) aylık faturalandırmaya veya yıllık faturalandırmaya aylık faturalandırma olarak güncelleştirir.
+Bu İş Ortağı Merkezi, müşterinin abonelik ayrıntıları sayfasına giderek bu işlemi gerçekleştirebilirsiniz. Bu seçenek, abonelik için geçerli faturalama döngüsünü tanımlayarak değişiklik ve gönderme olanağına sahip olur.
 
-Iş Ortağı Merkezi panosunda, bu işlem bir müşterinin abonelik ayrıntıları sayfasına gidilerek gerçekleştirilebilir. Bu işlem tamamlandıktan sonra, abonelik için geçerli faturalandırma döngüsünü tanımlama ve gönderme yeteneğine sahip bir seçenek görürsünüz.
+**Bu makalenin** kapsamı dışında:
 
-Bu makalenin **kapsam dışı** :
-
-- Deneme için faturalandırma döngüsünü değiştirme
-- Yıllık olmayan dönem teklifleri (aylık, 6 yıl) & Azure abonelikleri için fatura döngülerini değiştirme
-- Etkin olmayan abonelikler için faturalandırma döngülerini değiştirme
-- Microsoft çevrimiçi hizmetler lisans tabanlı abonelikler için faturalandırma döngülerini değiştirme
+- Denemeler için faturalama döngüsünü değiştirme
+- Azure abonelikleri için yıllık olmayan dönem tekliflerinin (aylık, altı yıllık) faturalama & değiştirme
+- Etkin olmayan abonelikler için faturalama döngülerini değiştirme
+- Microsoft çevrimiçi hizmetler tabanlı abonelikler için faturalama döngülerini değiştirme
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Bir sipariş KIMLIĞI.
+- Sipariş kimliği.
 
 ## <a name="c"></a>C\#
 
-Faturalandırma döngüsünün sıklığını değiştirmek için [**Order. BillingCycle**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle) özelliğini güncelleştirin.
+Faturalama döngüsünün sıklığını değiştirmek için [**Order.BillingCycle özelliğini güncelleştirin.**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.billingcycle#Microsoft_Store_PartnerCenter_Models_Orders_Order_BillingCycle)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -72,48 +67,48 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.ById(orde
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Orders/{Order-ID} http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Bu tabloda, abonelik miktarını değiştirmek için gerekli sorgu parametresi listelenmektedir.
+Bu tabloda aboneliğin miktarını değiştirmek için gerekli sorgu parametresi listelemektedir.
 
 | Ad                   | Tür | Gerekli | Açıklama                                                          |
 |------------------------|------|----------|----------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | GUID |    Y     | Müşteriyi tanımlayan bir GUID biçimli **Müşteri Kiracı kimliği** |
-| **sıra kimliği**           | GUID |    Y     | Sıra tanımlayıcısı                                                 |
+| **customer-tenant-id** | GUID |    Y     | Müşteriyi tanımlayan **GUID biçimlendirilmiş customer-tenant-id** |
+| **order-id**           | GUID |    Y     | Sipariş tanımlayıcısı                                                 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Aşağıdaki tablolarda, istek gövdesindeki özellikler açıklanır.
+Aşağıdaki tablolar istek gövdesinin özelliklerini açıklar.
 
 ### <a name="order"></a>Sipariş
 
 | Özellik           | Tür             | Gerekli | Açıklama                                                                |
 |--------------------|------------------|----------|----------------------------------------------------------------------------|
-| Id                 | string           |    N     | Sıranın başarıyla oluşturulması sırasında sağlanan bir sipariş tanımlayıcısı |
-|Referencecustomerıd | string           |    Y     | Müşteri tanımlayıcısı                                                    |
-| BillingCycle       | string           |    Y     | Ortağın bu sipariş için faturalandırılabileceği sıklığı belirtir. Desteklenen değerler, [BillingCycleType](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. |
-| LineItems          | nesne dizisi |    Y     | [Orderlineıtem](#orderlineitem) kaynakları dizisi                      |
-| CreationDate       | datetime         |    N     | Siparişin oluşturulduğu tarih ve tarih-saat biçiminde                        |
-| Öznitelikler         | Nesne           |    N     | "ObjectType" içerir: "Orderlineıtem"                                     |
+| Id                 | string           |    N     | Siparişin başarıyla oluşturulmasının ardından sağlanan sipariş tanımlayıcısı |
+|ReferenceCustomerId | string           |    Y     | Müşteri tanımlayıcısı                                                    |
+| BillingCycle       | string           |    Y     | İş ortağının bu sipariş için faturalandırılama sıklığını gösterir. Desteklenen değerler, [BillingCycleType](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. |
+| LineItems          | nesne dizisi |    Y     | [OrderLineItem kaynakları](#orderlineitem) dizisi                      |
+| Creationdate       | datetime         |    N     | Siparişin tarih-saat biçiminde oluşturulma tarihi                        |
+| Öznitelikler         | Nesne           |    N     | "ObjectType": "OrderLineItem" içerir                                     |
 
-### <a name="orderlineitem"></a>Orderlineıtem
+### <a name="orderlineitem"></a>OrderLineItem
 
 | Özellik             | Tür   | Gerekli | Açıklama                                                                        |
 |----------------------|--------|----------|------------------------------------------------------------------------------------|
-| Lineıtemnumber       | sayı |    Y     | Satır öğe numarası, 0 ile başlar                                              |
-| OfferId              | string |    Y     | Teklifin KIMLIĞI                                                                |
-| SubscriptionId       | string |    Y     | Aboneliğin KIMLIĞI                                                         |
-| FriendlyName         | string |    N     | Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı |
+| LineItemNumber       | sayı |    Y     | 0 ile başlayan satır öğesi numarası                                              |
+| OfferId              | string |    Y     | Teklifin kimliği                                                                |
+| SubscriptionId       | string |    Y     | Aboneliğin kimliği                                                         |
+| Friendlyname         | string |    N     | Karartmanıza yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı |
 | Miktar             | sayı |    Y     | Lisans veya örnek sayısı                                                |
 | PartnerIdOnRecord    | string |    N     | Kayıt ortağının MPN KIMLIĞI                                                |
 | Öznitelikler           | Nesne |    N     | "ObjectType" içerir: "Orderlineıtem"                                             |

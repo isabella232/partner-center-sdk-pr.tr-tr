@@ -1,36 +1,31 @@
 ---
 title: Bir adresi doğrulama
-description: Adres doğrulama API 'sini kullanarak bir adresi doğrulama.
+description: Adres doğrulama API'sini kullanarak adresi doğrulama.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 22d5faec2fdab4907067bb01cb74e110032dea9a
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 14d45977f3af6e8bba1b7cb7f969aa7c5bb671da
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768932"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529894"
 ---
 # <a name="validate-an-address"></a>Bir adresi doğrulama
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+Adres doğrulama API'sini kullanarak adresi doğrulama.
 
-Adres doğrulama API 'sini kullanarak bir adresi doğrulama.
-
-Adres doğrulama API 'SI yalnızca müşteri profili güncelleştirmelerinin ön doğrulaması için kullanılmalıdır. Ülke Birleşik Devletler, Kanada, Çin veya Meksika olduğunda, eyalet alanının ilgili ülke için geçerli durumlar listesine göre doğrulanacağını anlamak için bunu kullanın. Diğer tüm ülkelerde, bu test oluşmaz ve API yalnızca durumun geçerli bir dize olduğunu denetler.
+Adres doğrulama API'si yalnızca müşteri profili güncelleştirmelerinin ön doğrulaması için kullanılmalıdır. Ülke Birleşik Devletler, Kanada, Çin veya Meksika ise eyalet alanı ilgili ülke için geçerli eyaletler listesinde doğrulanır. Diğer tüm ülkelerde bu test oluşmaz ve API yalnızca durumunun geçerli bir dize olduğunu denetler.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Bir adresi doğrulamak için önce yeni bir **Adres** nesnesi örneği oluşturun ve doğrulanacak adresle doldurun. Ardından, **ıaggregatepartner. doğrulamaları** özelliğinden **doğrulama** işlemlerine bir arabirim alın ve adres nesnesiyle **ısaddressvalid** yöntemini çağırın.
+Bir adresi doğrulamak için öncelikle yeni bir **Address** nesnesi örneği oluşturma ve bunu doğrulanması gereken adresle doldurmak. Ardından **IAggregatePartner.Validations** özelliğinden **Validations** işlemlerine bir arabirim alın ve adres nesnesiyle **IsAddressValid** yöntemini arayın.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -79,7 +74,7 @@ catch (PartnerException exception)
 
 ## <a name="java"></a>Java
 
-Bir adresi doğrulamak için önce yeni bir **Adres** nesnesi örneği oluşturun ve doğrulanacak adresle doldurun. Ardından, **ıaggregatepartner. Getdoğrulamaları** işlevinden **doğrulama** işlemlerine bir arabirim alın ve adres nesnesiyle **ısaddressvalid** yöntemini çağırın.
+Bir adresi doğrulamak için öncelikle yeni bir **Address** nesnesi örneği oluşturma ve bunu doğrulanması gereken adresle doldurmak. Ardından **IAggregatePartner.getValidations** işlevinden **Validations** işlemlerine bir arabirim alın ve adres nesnesiyle **isAddressValid** yöntemini arayın.
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
@@ -117,7 +112,7 @@ catch (Exception exception)
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Bir adresi doğrulamak için, [**Test-PartnerAddress**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) adresini doldurulmuş adres parametreleriyle yürütün.
+Bir adresi doğrulamak için [**Test-PartnerAddress'i**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Test-PartnerAddress.md) adres parametreleri doldurulmuş şekilde yürütün.
 
 ```powershell
 Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Country 'US' -PostalCode '98004' -State 'WA'
@@ -125,28 +120,28 @@ Test-PartnerAddress -AddressLine1 '700 Bellevue Way NE' -City 'Bellevue' -Countr
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/validations/Address http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
 | Ad         | Tür   | Gerekli | Açıklama                                                |
 |--------------|--------|----------|------------------------------------------------------------|
 | addressline1 | string | Y        | Adresin ilk satırı.                             |
-| addressline2 | string | N        | Adresin ikinci satırı. Bu özellik isteğe bağlıdır. |
+| Addressline2 | string | N        | Adresin ikinci satırı. Bu özellik isteğe bağlıdır. |
 | city         | string | Y        | Şehir.                                                  |
 | state        | string | Y        | Durum.                                                 |
-| PostalCode   | string | Y        | Posta kodu.                                           |
-| ülke      | string | Y        | İki karakterlik ISO Alpha-2 ülke kodu.                |
+| Postakodu   | string | Y        | Posta kodu.                                           |
+| ülke      | string | Y        | İki karakterli ISO alfa-2 ülke kodu.                |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -172,15 +167,15 @@ Content-Length: 129
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yöntemi aşağıda gösterilen yanıt doğrulama başarılı örneğinde gösterildiği gibi 200 durum kodunu döndürür.
+Başarılı olursa yöntemi, aşağıda gösterilen Yanıt - doğrulama başarılı örneğinde gösterildiği gibi 200 durum kodunu döndürür.
 
-İstek başarısız olursa, yöntemi aşağıda gösterilen yanıt doğrulama başarısız örnek bölümünde gösterildiği gibi 400 durum kodunu döndürür. Yanıt gövdesi, hata hakkında ek bilgi içeren bir JSON yükü içerir.
+İstek başarısız olursa yöntem, aşağıda gösterilen Yanıt - doğrulama başarısız örneği içinde gösterildiği gibi 400 durum kodunu döndürür. Yanıt gövdesi, hata hakkında ek bilgiler içeren bir JSON yükü içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
-### <a name="response---validation-succeeded-example"></a>Yanıt-doğrulama başarılı örneği
+### <a name="response---validation-succeeded-example"></a>Yanıt - doğrulama başarılı örneği
 
 ```http
 HTTP/1.1 200 OK
@@ -192,7 +187,7 @@ MS-ServerId: 030011719
 Date: Mon, 13 Mar 2017 23:56:12 GMT
 ```
 
-### <a name="response---validation-failed-example"></a>Yanıt doğrulama başarısız örnek
+### <a name="response---validation-failed-example"></a>Yanıt - doğrulama başarısız oldu örneği
 
 ```http
 HTTP/1.1 400 Bad Request

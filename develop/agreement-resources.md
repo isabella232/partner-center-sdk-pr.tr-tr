@@ -6,24 +6,20 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: d964b1c7c6d70814ef68e48f05611ecbb113c8fe
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: 5fa196e711d9ff899b61ba20e75edd92749165e5
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97770019"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025640"
 ---
 # <a name="agreement-resources-representing-a-microsoft-cloud-customer-agreement"></a>Microsoft bulut müşteri anlaşmasını temsil eden sözleşme kaynakları
 
-**Uygulama hedefi:**
+**Uygulama hedefi**: Iş Ortağı Merkezi
 
-- İş Ortağı Merkezi
+**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-**Sözleşme** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir. Şunları yapmak için geçerli değildir:
-
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Sözleşme** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
 
 **Sözleşme** kaynağı bir Microsoft bulut müşteri anlaşmasını temsil eder.
 
@@ -31,7 +27,7 @@ ms.locfileid: "97770019"
 
 **Anlaşma** kaynağı, iş ortağı tarafından belirtilen sertifikanın ayrıntılarını temsil eder.
 
-| Özellik       | Tür   | Description                                                                                               |
+| Özellik       | Tür   | Açıklama                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | userId         | string                         | İş ortağı kiracısında iş ortağı kuruluşu adına onay sağlayan, oturum açmış kullanıcının nesne tanıtıcısı. Iş Ortağı Merkezi, bir anlaşma kaynağı oluşturmak için uygulama + kullanıcı kimlik doğrulaması kullanırken, uygulama + Kullanıcı belirtecinden **UserID** özniteliği değerini otomatik olarak türetir.                                                                             |
 | primaryContact | [İletişim](./utility-resources.md#contact) | Müşteri kuruluşundan, sözleşmeyi kabul  **eden,** **Soyadı**, **e-posta** ve **PhoneNumber** (isteğe bağlı) dahil olmak üzere Kullanıcı hakkında bilgiler. |

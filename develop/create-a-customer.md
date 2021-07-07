@@ -1,55 +1,51 @@
 ---
 title: Müşteri oluşturma
-description: Bir bulut çözümü sağlayıcısı (CSP) ortağının yeni bir müşteri oluşturmak için Iş Ortağı Merkezi API 'Lerini nasıl kullanabileceği hakkında bilgi edinin. Makalede önkoşulları ve başka neler olduğu açıklanmaktadır.
+description: Bulut Çözümü Sağlayıcısı (CSP) iş ortağının yeni müşteri oluşturmak İş Ortağı Merkezi API'leri nasıl kullanabileceğini öğrenin. Makalede önkoşullar ve başka neler olduğu açıklanmıştır.
 ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: bc8e9d38353511e747ba4da99b11be40d08781e3
-ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
+ms.openlocfilehash: 6232ca77d057f2f5168b73d81ec551669d540246
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106274606"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973732"
 ---
-# <a name="create-a-customer-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Leri kullanarak bir müşteri oluşturma
+# <a name="create-a-customer-using-partner-center-apis"></a>İş Ortağı Merkezi API'lerini kullanarak müşteri oluşturma
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bu makalede, yeni bir müşterinin nasıl oluşturulacağı açıklanmaktadır.
+Bu makalede yeni müşteri oluşturma açıklanmıştır.
 
 > [!IMPORTANT]
-> Dolaylı bir Sağlayıcıysanız ve dolaylı bir satıcı için bir müşteri oluşturmak istiyorsanız, lütfen [dolaylı bir satıcı için müşteri oluşturma](create-a-customer-for-an-indirect-reseller.md)konusuna bakın.
+> Dolaylı sağlayıcıysanız ve dolaylı kurumsal bayi için müşteri oluşturmak istiyorsanız lütfen bkz. Dolaylı kurumsal [bayi için müşteri oluşturma.](create-a-customer-for-an-indirect-reseller.md)
 
-Bir bulut çözümü sağlayıcısı (CSP) iş ortağı olarak, bir müşteri oluşturduğunuzda müşteri adına sipariş yerleştirebilirsiniz. Bir müşteri oluşturduğunuzda şunları da oluşturursunuz:
+Bulut çözümü sağlayıcısı (CSP) iş ortağı olarak, müşteri oluşturma adımlarını müşteri adına sipariş veebilirsiniz. Bir müşteri oluşturmanın yanı sıra şunları da oluşturabilirsiniz:
 
-- Müşteri için bir Azure Active Directory (AD) kiracı nesnesi.
+- Müşteri Azure Active Directory (AD) kiracı nesnesi.
 
-- Temsil edilen yönetici ayrıcalıkları için kullanılan satıcı ve müşteri arasındaki ilişki.
+- Temsilci yönetici ayrıcalıkları için kullanılan kurumsal bayi ile müşteri arasındaki ilişki.
 
-- Müşteri için yönetici olarak oturum açmak için Kullanıcı adı ve parola.
+- Müşteri için yönetici olarak oturum açmanın kullanıcı adı ve parolası.
 
-Müşteri oluşturulduktan sonra, Iş Ortağı Merkezi SDK ile daha sonra kullanılmak üzere müşteri KIMLIĞI ve Azure AD ayrıntılarını kaydettiğinizden emin olun (örneğin, hesap yönetimi).
+Müşteri oluşturulduktan sonra müşteri kimliğini ve Azure AD ayrıntılarını daha sonra hesap yönetimi İş Ortağı Merkezi SDK'sı kaydetmeyi öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 > [!IMPORTANT]
-> Bir müşteri kiracısı oluşturmak için oluşturma işlemi sırasında geçerli bir fiziksel adres sağlamanız gerekir. Adres [doğrulama](validate-an-address.md) senaryosunda özetlenen adımları izleyerek bir adres doğrulanabilir. Korumalı alan ortamında geçersiz bir adres kullanarak bir müşteri oluşturursanız, bu müşteri kiracısını silemezsiniz.
+> Müşteri kiracısı oluşturmak için oluşturma işlemi sırasında geçerli bir fiziksel adres sağlayabilirsiniz. Adres doğrulama senaryosunda açıklanan adımların ardından bir adres [doğrulanabilir.](validate-an-address.md) Korumalı alan ortamında geçersiz bir adres kullanarak bir müşteri oluşturmanız, bu müşteri kiracısı silmeniz mümkün olmayacaktır.
 
 ## <a name="c"></a>C\#
 
 Müşteri eklemek için:
 
-1. Yeni bir [**Müşteri**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) nesnesi örneği oluşturun. [**Billingprofile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) ve [**companyprofile**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)' i doldurduğunuzdan emin olun.
+1. Yeni bir Customer nesnesi [**örneği**](/dotnet/api/microsoft.store.partnercenter.models.customers.customer) oluşturma. BillingProfile ve [**CompanyProfile bilgilerini**](/dotnet/api/microsoft.store.partnercenter.models.customers.customerbillingprofile) [**doldurmayınız gerekir.**](/dotnet/api/microsoft.store.partnercenter.models.customers.customercompanyprofile)
 
-2. [**Create**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create) veya [**createasync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync)çağırarak, yeni müşteriyi [**ıaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) koleksiyonuna ekleyin.
+2. Create veya CreateAsync [**çağrılarını kullanarak yeni müşteriyi IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) [**koleksiyonunuza ekleyin.**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.createasync) [](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientitycreateoperations-2.create)
 
 ### <a name="c-example"></a>C \# örneği
 
@@ -92,17 +88,17 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: CreateCustomer. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** CreateCustomer.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Yeni bir müşteri oluşturmak için:
+Yeni müşteri oluşturmak için:
 
-1. **Customerbillingprofile** ve **customercompanyprofile** nesnelerinin yeni bir örneğini oluşturun. Gerekli alanları doldurduğunuzdan emin olun.
+1. **CustomerBillingProfile** ve **CustomerCompanyProfile nesnelerinin yeni bir örneğini** oluşturun. Gerekli alanları doldurmak için emin olun.
 
-2. **Iaggregatepartner. getCustomers (). Create** işlevini çağırarak müşteriyi oluşturun.
+2. **IAggregatePartner.getCustomers().create işlevini çağırarak müşteriyi** oluşturun.
 
 ### <a name="java-example"></a>Java örneği
 
@@ -144,7 +140,7 @@ Customer newCustomer = partnerOperations.getCustomers().create( customerToCreate
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Bir müşteri oluşturmak için [**New-PartnerCustomer**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md) komutunu yürütün.
+Müşteri oluşturmak için [**New-PartnerCustomer komutunu yürütün.**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/New-PartnerCustomer.md)
 
 ```powershell
 New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity 'Redmond' -BillingAddressCountry 'US' -BillingAddressPostalCode '98052' -BillingAddressState 'WA' -ContactEmail 'jdoe@customer.com' -ContactFirstName 'Jane' -ContactLastName 'Doe' -Culture 'en-US' -Domain 'newcustomer.onmicrosoft.com' -Language 'en' -Name 'New Customer'
@@ -152,49 +148,49 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                       |
 |----------|-------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-- Bu API, ıdempotent (birden çok kez çağırırsanız farklı bir sonuç vermez).
+- Bu API bir kez etkilidir (birden çok kez çağırsanız farklı bir sonuç ortayalanmaz).
 
-- İstek KIMLIĞI ve bağıntı KIMLIĞI gereklidir.
+- İstek kimliği ve bağıntı kimliği gereklidir.
 
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+- Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
-| Ad                              | Tür   | Description                                 |
+| Ad                              | Tür   | Açıklama                                 |
 |-----------------------------------|--------|---------------------------------------------|
-| [BillingProfile](#billing-profile) | object | Müşterinin Faturalandırma profili bilgileri. |
+| [BillingProfile](#billing-profile) | object | Müşterinin faturalama profili bilgileri. |
 | [CompanyProfile](#company-profile) | object | Müşterinin şirket profili bilgileri. |
 
 #### <a name="billing-profile"></a>Faturalama profili
 
-Bu tabloda, yeni bir müşteri oluşturmak için gereken [Customerbillingprofile](customer-resources.md#customerbillingprofile) kaynağından gereken en düşük alan açıklanmaktadır.
+Bu tabloda, yeni müşteri oluşturmak için gereken [CustomerBillingProfile](customer-resources.md#customerbillingprofile) kaynağından gereken en düşük alanlar açıklanır.
 
-| Ad             | Tür                                     | Description                                                                                                                                                                                                     |
+| Ad             | Tür                                     | Açıklama                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | e-posta            | string                                   | Müşterinin e-posta adresi.                                                                                                                                                                                   |
-| kültür          | string                                   | İletişim ve para birimi için tercih edilen kültür, "en-US" gibi. Desteklenen kültürler için [Iş Ortağı Merkezi tarafından desteklenen dillere ve yerel ayarlara](partner-center-supported-languages-and-locales.md) bakın. |
-| language         | string                                   | Varsayılan dil. İki karakter dil kodu (örneğin `en` veya `fr` ) desteklenir.                                                                                                                                |
-| Şirket \_ adı    | string                                   | Kayıtlı şirket/kuruluş adı.                                                                                                                                                                       |
-| Varsayılan \_ Adres | [Adres](utility-resources.md#address) | Müşterinin şirketinin/kuruluşunun kayıtlı adresi. Herhangi bir uzunluk sınırlaması hakkında bilgi için bkz. [Adres](utility-resources.md#address) kaynağı.                                             |
+| kültür          | string                                   | İletişim ve para birimi için tercih edilen kültür (örneğin, "en-US"). Desteklenen [İş Ortağı Merkezi dil ve yerel dillerle](partner-center-supported-languages-and-locales.md) ilgili daha fazla şey öğrenmek için bkz. |
+| language         | string                                   | Varsayılan dil. İki karakterli dil kodu (örneğin `en` veya `fr` ) de destekler.                                                                                                                                |
+| şirket \_ adı    | string                                   | Kayıtlı şirket/kuruluş adı.                                                                                                                                                                       |
+| varsayılan \_ adres | [Adres](utility-resources.md#address) | Müşterinin şirketinin/kuruluşun kayıtlı adresi. Uzunluk sınırlamaları [hakkında](utility-resources.md#address) bilgi için adres kaynağına bakın.                                             |
 
 #### <a name="company-profile"></a>Şirket profili
 
-Bu tabloda, yeni bir müşteri oluşturmak için gereken [Customercompanyprofile](customer-resources.md#customercompanyprofile) kaynağından gereken en düşük alan açıklanmaktadır.
+Bu tabloda, yeni müşteri oluşturmak için gereken [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) kaynağından gereken minimum alanlar açıklanır.
 
-| Ad   | Tür   | Description                                                  |
+| Ad   | Tür   | Açıklama                                                  |
 |--------|--------|--------------------------------------------------------------|
 | etki alanı | string | Müşterinin etki alanı adı, örneğin contoso.onmicrosoft.com. |
-|organizationRegistrationNumber|Dize|Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). Yalnızca şu ülkelerde bulunan müşterinin şirketi/kuruluşu için gereklidir: Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan dili (TJ), Özbekistan (UZ), Ukrayna (UA), Brezilya (BR), Hindistan, Güney Afrika, Polonya, Birleşik Arap Emirlikleri, Suudi Arabistan, Türkiye, Tayland, Vietnam, Myanmar, Irak, Güney Sudan ve Venezuela. Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu, isteğe bağlı bir alandır.|
+|organizationRegistrationNumber|Dize|Müşterinin kuruluş kayıt numarası (belirli ülkelerde INN numarası olarak da adlandırılır). Müşterinin yalnızca şu ülkelerde bulunan şirketi/kuruluşu için gereklidir: Dalı(AM), Brezilya(AZ), Zaman(BY),İşle(HU), GZ), Kyrgyzstan(KG), Arjantin(MD), Rusya(RU), Tajikistan(TJ), Özbekistan(UZ), Arjantin(UA), Brezilya(BR), Hindistan, Güney Afrika, Afrika, Birleşik Krallık, Suudi Arabistan, Suudi Arabistan, Suudi Arabistan, Vietnam, Myanmar, Hindistan, Güney Sudan ve Sudan. Müşterinin başka ülkelerde bulunan şirketi/kuruluşu için bu isteğe bağlı bir alandır.|
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -235,11 +231,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu API yeni müşteri için bir [Müşteri](customer-resources.md#customer) kaynağı döndürür. Müşteri KIMLIĞI ve Azure AD ayrıntılarını Iş Ortağı Merkezi SDK ile ileride kullanılmak üzere kaydedin. Örneğin, hesap yönetimiyle kullanım için bu kişilere ihtiyaç duyarsınız.
+Başarılı olursa, bu API yeni [müşteri için](customer-resources.md#customer) bir Müşteri kaynağı döndürür. Müşteri kimliğini ve Azure AD ayrıntılarını daha sonra kullanmak üzere İş Ortağı Merkezi SDK'sı. Örneğin, hesap yönetimiyle kullanmak için bu hesaplara ihtiyacınız olacak.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Yanıtlar, başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Yanıtlar, başarılı veya başarısız olduğunu gösteren bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
 
 ### <a name="response-example"></a>Yanıt örneği
 

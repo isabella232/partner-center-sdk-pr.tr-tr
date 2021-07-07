@@ -4,23 +4,18 @@ description: CSP iş ortaklarının iş ortağı ve müşteri Azure harcama ve k
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 02a2995a06473cc6990d1234acd522a3b38a03d3
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: 472554de1c354559d5bc4b21959c109467891806
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97769995"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974327"
 ---
 # <a name="azure-spending-api-resources-to-manage-partner-or-customer-spending-and-usage-against-a-budget"></a>Azure harcama API kaynakları bir bütçeye göre iş ortağı veya müşteri harcama ve kullanımını yönetmek için 
 
-**Uygulama hedefi:**
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bulut çözümü sağlayıcısı (CSP) iş ortakları, Azure harcamalarını Iş Ortağı Merkezi API 'Leri üzerinden görüntüleyebilir ve yönetebilir. Ayrıca, müşterilerinin Azure harcama bütçesine göre harcamalarını de görüntüleyebilirler.
+Bulut Çözümü Sağlayıcısı (CSP) iş ortakları, Azure harcamalarını iş ortağı merkezi apı 'leri üzerinden görüntüleyebilir ve yönetebilir. Ayrıca, müşterilerinin Azure harcama bütçesine göre harcamalarını de görüntüleyebilirler.
 
 Daha fazla bilgi için, [CSP iş ortaklarının müşteri ve iş ortağı hesaplarını ve siparişlerini yönetmek üzere Iş Ortağı Merkezi API 'lerini kullanabileceği senaryolar](scenarios.md)bölümüne bakın.
 

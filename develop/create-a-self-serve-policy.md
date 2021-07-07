@@ -1,33 +1,29 @@
 ---
-title: Self Servis ilkesi oluşturma
+title: Self servis ilkesi oluşturma
 description: Yeni bir self servis ilkesi oluşturma.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fd1579b2775ead57a440db0d6afb3bf22164c319
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: 14f46e22fbd294c765b745204cf62474250cbfbd
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97770218"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973698"
 ---
 # <a name="create-a-selfservepolicy"></a>SelfServePolicy oluşturma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bu konuda, yeni bir self servis ilkesinin nasıl oluşturulacağı açıklanmaktadır.
+Bu makalede yeni bir self servis ilkesi oluşturma açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Self Servis ilkesi oluşturun:
+Self servis ilkesi oluşturun:
 
-1. Self Servis ilke bilgileriyle [**ıaggregatepartner. SelfServePolicies. Create**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.create) veya [**ıaggregatepartner. SelfServePolicies. createasync**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.createasync) metodunu çağırın.
+1. Self servis [**ilke bilgileriyle IAggregatePartner.SelfServePolicies.Create**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.create) veya [**IAggregatePartner.SelfServePolicies.CreateAsync**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.createasync) yöntemini arayın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -64,41 +60,41 @@ SelfServePolicy createdSelfServePolicy = scopedPartnerOperations.selfServePolici
 
 Bir örnek için aşağıdakilere bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSamples**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
 - Sınıf: **CreateSelfServePolicies.cs**
 
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                       |
 |----------|-------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/SelfServePolicy http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-- İstek KIMLIĞI ve bağıntı KIMLIĞI gereklidir.
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üst bilgileri](headers.md) .
+- İstek kimliği ve bağıntı kimliği gereklidir.
+- Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
-| Ad                              | Tür   | Description                                 |
+| Ad                              | Tür   | Açıklama                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
-| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | Self Servis ilke bilgileri. |
+| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | Self servis ilke bilgileri. |
 
 #### <a name="selfservepolicy"></a>SelfServePolicy
 
-Bu tabloda, yeni bir self servis ilkesi oluşturmak için gereken [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağından gerekli en düşük alan açıklanmaktadır.
+Bu tablo, yeni bir self servis ilkesi oluşturmak için [gereken SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağından gereken minimum alanları açıklar.
 
-| Özellik              | Tür             | Description                                                                                            |
+| Özellik              | Tür             | Açıklama                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| SelfServeEntity       | SelfServeEntity  | Erişim izni verilen self servis varlığı.                                                     |
-| Verenin Grant izni               | Verenin Grant izni          | Erişim veren granör.                                                                    |
-| İzinler           | Izin dizisi| [İzin](self-serve-policy-resources.md#permission) kaynakları dizisi.                                                                     |
+| SelfServeEntity       | SelfServeEntity  | Erişim verilen self servis varlık.                                                     |
+| Grantor               | Grantor          | Erişim iznini vermekte olan grantor.                                                                    |
+| İzinler           | İzin Dizisi| İzin [kaynakları](self-serve-policy-resources.md#permission) dizisi.                                                                     |
 
 
 ### <a name="request-example"></a>İstek örneği
@@ -136,15 +132,15 @@ Connection: Keep-Alive
 
 Başarılı olursa, bu API yeni self servis ilkesi için bir [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Description                                                                |
+| HTTP Durum Kodu     | Hata kodu   | Açıklama                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
-| 409                  | 600041       | Self Servis İlkesi zaten var.                                                     |
+| 409                  | 600041       | Self servis ilkesi zaten var.                                                     |
 
 
 ### <a name="response-example"></a>Yanıt örneği

@@ -4,18 +4,14 @@ description: Bir müşteri hesabındaki bir kullanıcıya atanan lisansların li
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b754ba4ecba7067f78c6868b387bac0190bfd230
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: a51fc4493e2476107206b03be66004d030e2aa47
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770096"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974072"
 ---
 # <a name="get-licenses-assigned-to-a-user-within-a-customer-account"></a>Müşteri hesabı içindeki bir kullanıcıya atanan lisansları al
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Müşteri hesabı içindeki bir kullanıcıya atanan lisansların listesini alma. Burada gösterilen örneklerde, Azure Active Directory tarafından yönetilen lisansları temsil eden varsayılan lisans grubu olan grup1 'ten atanan lisanslar döndürülür. Belirtilen lisans gruplarından atanan lisansları almak için bkz. [lisans grubuna göre kullanıcıya atanan lisansları alın](get-licenses-assigned-to-a-user-by-license-group.md).
 
@@ -39,7 +35,7 @@ Varsayılan grup1 lisans grubundan bir kullanıcıya hangi lisansların atandı�
 var customerUserAssignedLicenses = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).Licenses.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: CustomerUserAssignedLicenses.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: CustomerUserAssignedLicenses. cs
 
 ## <a name="rest-request"></a>REST isteği
 

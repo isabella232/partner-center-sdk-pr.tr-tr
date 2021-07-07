@@ -4,21 +4,16 @@ description: Bir müşteri, teklif listesinden bir abonelik satın almak istedi�
 ms.date: 08/26/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3aea428064654077ae67974132ec05918edfee65
-ms.sourcegitcommit: a8fe6268fed2162843e7c92dca41c3919b25647d
+ms.openlocfilehash: 08085dde1b43f20b6f6bf707120dd87c48816aba
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "97769214"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974157"
 ---
 # <a name="cart-resources"></a>Sepet kaynakları
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bir iş ortağı bir müşteri bir teklif listesinden abonelik satın almak istediğinde bir sipariş koyar.
 
@@ -26,7 +21,7 @@ Bir iş ortağı bir müşteri bir teklif listesinden abonelik satın almak iste
 
 Bir sepet tanımlar.
 
-| Özellik              | Tür             | Description                                                                                            |
+| Özellik              | Tür             | Açıklama                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | kimlik                    | string           | Sepet başarıyla oluşturulduktan sonra sağlanan bir sepet tanımlayıcısı.                               |
 | creationTimeStamp     | DateTime         | Sepetin oluşturulduğu tarih ve saat biçimi. Sepet başarıyla oluşturulduktan sonra uygulandı.      |
@@ -40,7 +35,7 @@ Bir sepet tanımlar.
 
 Sepette bulunan bir öğeyi temsil eder.
 
-| Özellik             | Tür                             | Description                                                                                                                                           |
+| Özellik             | Tür                             | Açıklama                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | kimlik                   | string                           | Sepet çizgisi öğesi için benzersiz bir tanımlayıcı. Sepet başarıyla oluşturulduktan sonra uygulandı.                                                                   |
 | Catalogıtemıd        | string                           | Katalog öğesi tanımlayıcısı.                                                                                                                          |
@@ -49,7 +44,7 @@ Sepette bulunan bir öğeyi temsil eder.
 | currencyCode         | string                           | Para birimi kodu.                                                                                                                                    |
 | Bilimlingcycle         | Nesne                           | Geçerli dönem için ayarlanan faturalandırma dönemi türü.                                                                                                 |
 | termDuration         | string                           | Terimin süresinin ISO 8601 temsili. Desteklenen geçerli değerler P1M (1 ay), P1Y (1 yıl) ve P3Y (3 yıl).                                |
-| Katılımcılar         | Nesne dizesi çiftlerinin listesi      | Satınalmada iş ortağı kimliği koleksiyonu (MPNıD).                                                                                          |
+| Katılımcılar         | Nesne dizesi çiftlerinin listesi      | Satın alımdaki kayıttaki iş ortağı kimliği koleksiyonu (MPN KIMLIĞI).                                                                                          |
 | provisioningContext  | Sözlük<dize, dize>       | Satın alınan öğe sağlanırken kullanılan ek bağlam. Belirli bir öğe için hangi değerlerin gerekli olduğunu öğrenmek için SKU 'nun provisioningVariables özelliğine bakın. |
 | orderGroup           | string                           | Aynı sırada hangi öğelerin birlikte gönderilebileceğine işaret eden bir grup.                                                                          |
 | Addonıtems           | **Cartlineıtem** nesnelerinin listesi | Eklentiler için sepet çizgisi öğeleri koleksiyonu. Bu öğeler, kök sepet çizgisi öğesinin satın alma işleminden kaynaklanan temel aboneliğe göre satın alınacaktır. |
@@ -70,28 +65,28 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 ## <a name="carterror"></a>CartError
 
-Bir sepet oluşturulduktan sonra oluşan bir hatayı temsil eder.
+Sepet oluşturulduktan sonra oluşan bir hatayı temsil eder.
 
-| Özellik         | Tür                                   | Description                                                                                   |
+| Özellik         | Tür                                   | Açıklama                                                                                   |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|
-| Raporladı        | [İş Ortağı Merkezi hata kodları](error-codes.md) | Sepet hatası türü.                                                                       |
-| errorDescription | string                                 | Desteklenen değerler, varsayılan değerler veya limitlere ilişkin notlar da dahil olmak üzere hata açıklaması. |
+| errorCode        | [İş Ortağı Merkezi hata kodları](error-codes.md) | Sepet hatasının türü.                                                                       |
+| Errordescription | string                                 | Desteklenen değerler, varsayılan değerler veya sınırlar hakkında notlar da dahil olmak üzere hata açıklaması. |
 
 ## <a name="cartcheckoutresult"></a>CartCheckoutResult
 
-Sepet kullanıma almanın sonucunu temsil eder.
+Sepet iadenin sonucu temsil eder.
 
-| Özellik    | Tür                                              | Description                     |
+| Özellik    | Tür                                              | Açıklama                     |
 |-------------|---------------------------------------------------|---------------------------------|
-| siparişler      | [Sıra](order-resources.md#order) nesnelerinin listesi.         | Siparişlerin koleksiyonu.       |
-| orderErrors | [OrderError](#ordererror) nesnelerinin listesi. | Sıra hatalarının toplanması. |
+| siparişler      | Order [nesnelerinin](order-resources.md#order) listesi.         | Sipariş koleksiyonu.       |
+| orderErrors | [OrderError nesnelerinin](#ordererror) listesi. | Sipariş hatalarının koleksiyonu. |
 
 ## <a name="ordererror"></a>OrderError
 
-Bir sipariş oluşturulduğunda sepet kullanıma alma sırasında oluşan bir hatayı gösterir.
+Sipariş oluşturulduğunda sepetin iade oluşturulduğunda oluşan bir hatayı temsil eder.
 
-| Özellik     | Tür   | Description                                     |
+| Özellik     | Tür   | Açıklama                                     |
 |--------------|--------|-------------------------------------------------|
-| Ordergroupıd | string | Hatanın sipariş Grup KIMLIĞI. |
+| orderGroupId | string | Hatayla birlikte siparişin sipariş grubu kimliği. |
 | kod         | int    | Hata kodu.                                 |
 | açıklama  | string | Hatanın açıklaması.                   |

@@ -4,19 +4,16 @@ description: Belirtilen müşteri için yeni bir toplu iş oluşturmak üzere ci
 ms.date: 08/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0b48971b862418136c42e78ae973a5aea27404a1
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 285af12034562262c99b2aa3b139e948b0fdd462
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769737"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529741"
 ---
 # <a name="upload-a-list-of-devices-to-create-a-new-batch-for-the-specified-customer"></a>Belirtilen müşteri için yeni bir toplu iş oluşturmak üzere cihaz listesini karşıya yükleme
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
 
 Belirtilen müşteri için yeni bir toplu iş oluşturmak üzere cihazlarla ilgili bilgilerin listesini karşıya yükleme. Bu, sıfır Touch dağıtımda kayıt için bir cihaz toplu işi oluşturur ve cihazları ve cihaz toplu işlemini belirtilen müşteriyle ilişkilendirir.
 
@@ -72,7 +69,7 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.Create(newDeviceBatch);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: CreateDeviceBatch.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: createdevicebatch. cs
 
 ## <a name="rest-request"></a>REST isteği
 

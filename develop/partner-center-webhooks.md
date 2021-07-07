@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 8225623ade7e922ac23ebf0ed9215686b0601244
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 74d5981436ba29ea4f6f93a5693ec6da82777eb4
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769226"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547759"
 ---
 # <a name="partner-center-webhooks"></a>İş Ortağı Merkezi web kancaları
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Iş Ortağı Merkezi Web kancası API 'Leri, iş ortaklarının kaynak değişiklik olayları kaydetmesine izin verir. Bu olaylar, ortağın kayıtlı URL 'sine HTTP yayınları biçiminde dağıtılır. İş Ortağı Merkezi 'nden bir olay almak için iş ortakları, Iş Ortağı Merkezi 'nin kaynak değişiklik olayını nakledebileceği bir geri çağırma işlemini barındıracaktır. Bu olay, iş ortağının Iş Ortağı Merkezi 'nden gönderildiğini doğrulayabilmesi için dijital olarak imzalanacaktır.
 
@@ -39,7 +34,7 @@ Iş Ortağı Merkezi Web kancası API 'Leri, iş ortaklarının kaynak değişik
 
 - **Eşik aşıldı olayı ("usagerecords-Thresholdexcembaşında")**
 
-    Bu olay, herhangi bir müşterinin Microsoft Azure kullanım miktarı kullanım harcama bütçesini (bunların eşiğini) aştığında tetiklenir. Daha fazla bilgi için bkz. [müşterileriniz için Azure harcama bütçesi ayarlama/iş ortağı-merkezi/set-a-Azure-harcama-bütçe-for-Customers).
+    bu olay, herhangi bir müşterinin Microsoft Azure kullanım miktarı kullanım harcama bütçesini (bunların eşiğini) aştığında tetiklenir. Daha fazla bilgi için bkz. [müşterileriniz için Azure harcama bütçesi ayarlama/iş ortağı-merkezi/set-a-Azure-harcama-bütçe-for-Customers).
 
 - **Başvuru oluşturulan olay ("başvuru-oluşturuldu")**
 

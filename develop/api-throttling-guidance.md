@@ -1,96 +1,92 @@
 ---
 title: API azaltma yönergeleri
-description: Iş Ortağı Merkezi API 'Lerini çağıran iş ortakları için, hangi API 'Lerin Microsoft API daraltma ve en iyi uygulamalardan etkilendiğinin ve daha iyi bir şekilde azaltılmasını önlemek için
+description: Api'leri İş Ortağı Merkezi iş ortakları için, hangi API'lerin Microsoft API azaltmadan etkilene olduğunu ve azaltmayı önlemeye veya daha iyi işlemeye yönelik en iyi yöntemleri öğrenin.
 ms.date: 04/14/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vijvala
 ms.author: vijvala
-ms.openlocfilehash: ab1138e19e06111299ab43ea13a6f033274aaa5d
-ms.sourcegitcommit: 3c3a21e73aaadf3023cf4c13b09809ceae5f027a
+ms.openlocfilehash: f18518e88b9bb08d4fd248922f4ce2fefdde004f
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107496153"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025658"
 ---
-# <a name="api-throttling-guidance-for-partners-calling-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini çağıran iş ortakları için API azaltma Kılavuzu 
+# <a name="api-throttling-guidance-for-partners-calling-partner-center-apis"></a>Api'leri çağıran iş ortakları için API İş Ortağı Merkezi azaltma kılavuzu 
 
-**Şunlara uygulanır**
+Microsoft, API'leri çağıran iş ortaklarının belirli bir zaman aralığı içinde daha tutarlı bir performans elde İş Ortağı Merkezi gerçekleştirmektedir. Azaltma, kaynakların aşırı kullanımına engel olmak için bir zaman aralığı içinde hizmete yapılan istek sayısını sınırlar. Bu İş Ortağı Merkezi, yüksek hacimli istekleri işlemek için tasarlansa da, az sayıda iş ortağı tarafından çok fazla istek oluşursa kısıtlama tüm iş ortakları için en iyi performansın ve güvenilirliğin korunmasına yardımcı olur.  
 
-- İş Ortağı Merkezi
+Azaltma sınırları senaryoya göre değişiklik gösterir. Örneğin, büyük hacimli yazmalar yapıyorsanız azaltma olasılığı yalnızca okumalar yapıyorsanız daha yüksektir.
 
-Microsoft, Iş Ortağı Merkezi API 'Lerini çağıran iş ortakları için zaman dilimi içinde daha tutarlı performans sağlamak üzere API daraltma işlemi yapıyor. Azaltma, kaynakların aşırı kullanımını engellemek için bir zaman dilimi içindeki bir hizmete yönelik isteklerin sayısını sınırlar. Iş ortağı merkezi yüksek bir istek hacmi işleyecek şekilde tasarlandığından, birkaç iş ortağı tarafından çok sayıda istek oluşursa, azaltma işlemi tüm iş ortakları için en iyi performansı ve güvenilirliği korumanıza yardımcı olur.  
+## <a name="what-happens-when-throttling-occurs"></a>Azaltma oluştuğunda ne olur? 
 
-Azaltma limitleri senaryoya göre farklılık gösterir. Örneğin, büyük bir yazma hacmi gerçekleştiriyorsanız, yalnızca okuma işlemi gerçekleştirmekten daha yüksektir.
+Bir azaltma eşiği aşılırsa, İş Ortağı Merkezi istemciden gelen diğer tüm istekleri bir süre için sınırlar. Azaltma davranışı istek türüne ve sayısına bağlıdır.   
 
-## <a name="what-happens-when-throttling-occurs"></a>Kısıtlama gerçekleştiğinde ne olur? 
+### <a name="common-throttling-scenarios"></a>Yaygın azaltma senaryoları 
 
-Bir azaltma eşiği aşıldığında, Iş ortağı merkezi bir süre için o istemciden gelen diğer istekleri sınırlandırır. Kısıtlama davranışı, istek türüne ve sayısına bağlıdır.   
+İstemcilerin azaltmanın en yaygın nedenleri şunlardır: 
 
-### <a name="common-throttling-scenarios"></a>Yaygın kısıtlama senaryoları 
+- **İş Ortağı** Kiracı Kimliği başına çok sayıda API isteği: Bazı İş Ortağı Merkezi API'leri için azaltma İş Ortağı Kiracı Kimliği tarafından belirlenir; aynı İş Ortağı Kiracı Kimliğinde bu API'lere yapılan çok fazla çağrı azaltma eşiğinin aşılır.  
 
-İstemcilerin azaltmasının en yaygın nedenleri şunlardır: 
+- **Müşteri Kiracı Kimliği** başına İş Ortağı Kiracı Kimliği başına çok sayıda API isteği: Diğer API'ler için azaltma, İş Ortağı Kiracı Kimliği/Müşteri Kiracı Kimliği birleşimine göre belirlenir; Bu durumlarda, aynı müşteri kiracı kimliğine karşı çok fazla çağrı yapmak azaltmaya neden olurken diğer müşterilere yapılan çağrılar başarılı olabilir.
 
-- **BIR API Için Iş ortağı KIRACı kimliği başına çok sayıda istek** vardır: bazı Iş Ortağı Merkezi API 'leri Için azaltma Iş ortağı kiracı kimliğine göre belirlenir, aynı Iş ortağı kiracı kimliğinde bu API 'lere çok fazla çağrı azaltma eşiğini aşarak sonuçlanır.  
-
-- Her **Müşteri KIRACı kimliği Için Iş ortağı KIRACı kimliği başına BIR API için çok sayıda istek** vardır: diğer API 'ler için, azaltma Iş ortağı Kiracı kimliği/MÜŞTERI Kiracı kimliği birleşimine göre belirlenir; Bu durumlarda, aynı müşteri kiracı KIMLIĞINE karşı çok fazla çağrı yapmak, diğer müşterilerle yapılan çağrıların başarılı olabileceği azaltma ile sonuçlanır.
-
-## <a name="best-practices-to-avoid-throttling"></a>Azaltmayı önlemek için en iyi uygulamalar 
+## <a name="best-practices-to-avoid-throttling"></a>Azaltmayı önlemeye yönelik en iyi yöntemler 
  
-Güncelleştirmeleri denetlemek için bir kaynağı sürekli yoklamak ve yeni veya silinmiş kaynakları denetlemek için düzenli olarak kaynak koleksiyonlarını taramak, azaltmaya neden olabilir ve genel performansı düşürür. Eşzamanlı API çağrıları, birim zamanı başına yüksek sayıda isteğe yol açabilir, bu da isteklerin kısıtlanmasına neden olur. Bunun yerine değişiklik izleme ve değişiklik bildirimleri özelliğinden yararlanabilirsiniz. Ayrıca, değişiklikleri algılamak için etkinlik günlüklerinden yararlanabilirsiniz, daha fazla bilgi için bkz. [Iş ortağı merkezi etkinlik günlükleri](get-a-record-of-partner-center-activity-by-user.md) .  İş ortaklarının, daha fazla verimlilik için etkinlik günlüğü API 'sini kullanmayı ve azaltmasını önlemek için kullanılması önerilir. Ayrıca aşağıdaki etkinlik günlüklerini kullanma örneğine bakın.
+Güncelleştirmeleri kontrol etmek için bir kaynağı sürekli yoklama ve yeni veya silinmiş kaynakları kontrol etmek için kaynak koleksiyonlarını düzenli olarak tarama gibi programlama uygulamaları, azaltmaya neden olabilir ve genel performansı düşürecektir. Eşzamanlı API çağrıları, birim zamanı başına çok sayıda istekle karşılanabilecek ve isteklerin kısıtlanabilecek şekilde kısıtlanabilecek. Bunun yerine değişiklik izleme ve değişiklik bildirimlerini kullan gerekir. Ayrıca, değişiklikleri algılamak için etkinlik günlüklerini de kullanabilirsiniz. Daha fazla bilgi için [bkz. İş Ortağı Merkezi günlüklerini görüntüleme.](get-a-record-of-partner-center-activity-by-user.md)  İş ortaklarının daha fazla verimlilik ve azaltmayı önlemek için etkinlik günlüğü API'sini kullanmayı göz önünde bulundurmalarını kesinlikle öneririz. Ayrıca aşağıdaki etkinlik günlüklerini kullanma örneğine de bakın.
 
-## <a name="best-practices-to-handle-throttling"></a>Azaltmayı işlemek için en iyi uygulamalar
+## <a name="best-practices-to-handle-throttling"></a>Azaltmayı işlemek için en iyi yöntemler
 
-Azaltma işlemi için en iyi uygulamalar şunlardır: 
+Aşağıda, azaltmayı işlemeye yönelik en iyi yöntemler ve daha iyi yöntemler ve ardından yer alan uygulamalar ve daha fazla bilgi yer amaktadır: 
 
-- Paralellik derecesini azaltın. 
-- Çağrıların sıklığını azaltın. 
-- Tüm istekler kullanım sınırlarınıza göre tahakkuk ettiğinden anında denemeler yapmaktan kaçının. 
+- Paralellik derecesini azaltma. 
+- Çağrı sıklığını azaltma. 
+- Tüm istekler kullanım sınırlarınıza göre tahakkuk etti olarak hemen yeniden denemelerden kaçının. 
 
-Hata işleme uyguladığınızda, azaltmayı algılamak için HTTP hata kodu 429’u kullanın. Başarısız yanıt Retry-After yanıt üst bilgisini içerir. Yeniden deneme-sonrası gecikmesini kullanarak istekleri kapatmak, azaltmayı kurtarmanın en hızlı yoludur. 
+Hata işleme uyguladığınızda, azaltmayı algılamak için HTTP hata kodu 429’u kullanın. Başarısız yanıt, yanıt üst Retry-After içerir. Yeniden deneme sonrası gecikmeyi kullanarak istekleri geri almanın en hızlı yolu azaltmadan kurtarmaktır. 
 
-Retry-After gecikmesini kullanmak için şunları yapın: 
+Yeniden deneme sonrası gecikmeyi kullanmak için şunları yapın: 
 
-1. Retry-After üstbilgisinde belirtilen saniye sayısını bekleyin. 
+1. Üst bilgisinde belirtilen saniye Retry-After bekleyin. 
 
 2. İsteği yeniden deneyin.  
 
-3. İstek bir 429 hata koduyla yeniden başarısız olursa, hala kısıtlanıyor olursunuz. Üstel geri alma ile yeniden deneyin, önerilen Retry-After gecikmesini kullanın ve başarılı olana kadar isteği yeniden deneyin.
+3. İstek 429 hata koduyla yeniden başarısız olursa, yine de kısıtlamaya devam edersiniz. Üstel geri ödeme ile yeniden deneyin, önerilen gecikmeyi Retry-After ve başarılı olana kadar isteği yeniden deneyin.
 
-4. SDK kullanıyorsanız, isteğiniz kısıtlandığınızda 429 durum koduyla bir özel durum alırsınız. Özel durumda RetryAfter özelliğini kullanın ve zaman geçtikten sonra isteği yeniden deneyin.
+4. SDK'yı kullanıyorsanız isteğiniz kısıtlanacaksa durum kodu 429 olan bir özel durum alırsınız. Özel durum içinde RetryAfter özelliğini kullanın ve süre sonra isteği yeniden deneyin.
 
 
-## <a name="apis-currently-impacted-by-throttling"></a>Daraltma tarafından şu anda etkilenen API 'Ler
+## <a name="apis-currently-impacted-by-throttling"></a>Şu anda azaltmadan etkilene API'ler
 
-Uzun çalıştırmada, "api.partnercenter.microsoft.com/" uç noktasını çağıran her tek Iş Ortağı Merkezi API 'SI kısıtlanacak. Şu anda azaltma sınırları yalnızca aşağıda listelenen API 'lerde zorlanır. İş Ortağı Merkezi, her API için telemetri toplar ve azaltma sınırlarını dinamik olarak ayarlar. Aşağıdaki tabloda, azaltma 'nın Şu anda zorlandığı API 'Ler listelenmektedir.  
+Sonunda, "İş Ortağı Merkezi" uç noktasını çağıran her api api.partnercenter.microsoft.com/ kısıtlar. Şu anda azaltma sınırları yalnızca aşağıda listelenen API'lere uygulanır. İş Ortağı Merkezi API'lerden her biri için telemetri toplayarak azaltma sınırlarını dinamik olarak ayarlar. Aşağıdaki tabloda azaltmanın şu anda zorlanan API'leri listele.  
 
 
 |**İşlem**| **İş Ortağı Merkezi belgeleri**|
 |------------------------|----------------------------|
-|{baseURL}/v1/Customers/{customer_id}/Orders|[sipariş oluşturma](create-an-order.md)|
-|{baseURL}/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription}/yükseltmeler|[abonelik geçişi](transition-a-subscription.md)|
-|{baseURL}/v1/Customers/{Customer-Tenant-id}/Orders/{Order-ID}|[bir aboneliğe eklenti satın alma](purchase-an-add-on-to-a-subscription.md)|
-|{baseURL}/v1/Customers/{Customer-id}/Carts/{cart-id}|[sepet oluşturma](create-a-cart.md)|
-|{baseURL}/v1/Customers/{Customer-id}/Carts/{cart-id}/Checkout|[sepet kullanıma alma](checkout-a-cart.md)|
-|{baseURL}/v1/Customers/{Customer-id}/Carts/{cart-id}|[sepetini güncelleştirme](update-a-cart.md)|
-|{baseURL}/v1/Customers/{Customer-id}/Subscriptions/{Subscription-ID}/kayıtları|[abonelik kaydetme](register-a-subscription.md)|
-|{baseURL}/v1/productyükseltmeleri|[ürün yükseltme varlığı oluştur](create-product-upgrade-entity.md)|
-|{baseURL}/v1/Customers/{Customer-id}/Subscriptions/{Subscription-ID}/dönüşümler |[deneme aboneliğini ücretli olarak dönüştürme](convert-a-trial-subscription-to-paid.md)|
-|{baseURL}/v1/Customers/{Customer-Tenant-ID}|[kimliğe göre müşteri al](get-a-customer-by-id.md)|
-|{baseURL}/v1/productupgrades/uygunluk|[ürün yükseltmesine uygunluk sağlayın](get-eligibility-for-product-upgrade.md)|
-|{baseURL}/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription} |[aboneliği Yönet](manage-orders.md#manage-a-subscription)|
-|{baseURL}/v1/Customers/{customer_id}/abonelikler |[tüm a-a-a-a-](get-all-of-a-customer-s-subscriptions.md)|
-|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}|[Kimliğe göre bir abonelik alma](get-a-subscription-by-id.md)|
-|{baseURL}/v1/Customers/{customer_id}/Orders|[Tüm müşteri siparişlerini al](get-all-of-a-customer-s-orders.md)|
-|{baseURL}/v1/Customers/{customer_id}/Orders/{order_id}|[Kimliğe göre bir sipariş alma](get-an-order-by-id.md)|
-|{baseURL}/v1/Customers/{customer_id}/Orders/{order_id}/provisioningstatus|[Abonelik sağlama durumunu alma](get-subscription-provisioning-status.md)|
-|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}|[Siparişleri yönetme ve bir aboneliği yönetme](manage-orders.md#manage-a-subscription)|
-|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}/addons|[Bir abonelik için eklentilerin bir listesini alma](get-a-list-of-add-ons-for-a-subscription.md)|
-|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}/azureEntitlements|[Bir abonelik için Azure yetkilendirmeleri listesini alın](get-a-list-of-azure-entitlements-for-subscription.md)|
-|{baseURL}/v1/Customers/{customer_id}/Subscriptions/{subscription_id}/registrationstatus|[Abonelik kayıt durumunu alma](get-subscription-registration-status.md)|
-|{baseURL}/v1/Customers/{Customer-Tenant-ID}/aktarmaları|[Müşterinin tüm aktarımlarını al](get-all-of-a-customer-s-transfers.md)|
+|{baseURL}/v1/customers/{customer_id}/orders|[sipariş oluşturma](create-an-order.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades|[aboneliği geçiş](transition-a-subscription.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/orders/{order-id}|[abonelik için eklenti satın alma](purchase-an-add-on-to-a-subscription.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[sepet oluşturma](create-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}/checkout|[sepete göz at](checkout-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/carts/{cart-id}|[sepeti güncelleştirme](update-a-cart.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/registrations|[aboneliği kaydetme](register-a-subscription.md)|
+|{baseURL}/v1/productupgrades|[ürün yükseltme varlığı oluşturma](create-product-upgrade-entity.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions |[deneme aboneliğini ücretli aboneliğe dönüştürme](convert-a-trial-subscription-to-paid.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}|[Kimliğine göre müşteri al](get-a-customer-by-id.md)|
+|{baseURL}/v1/productUpgrades/uygunluk|[ürün yükseltmesi için uygunluk elde etmek](get-eligibility-for-product-upgrade.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} |[aboneliği yönetme](manage-orders.md#manage-a-subscription)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions |[get-all-of-a-customer-s-subscriptions](get-all-of-a-customer-s-subscriptions.md)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}|[Kimliğe göre bir abonelik alma](get-a-subscription-by-id.md)|
+|{baseURL}/v1/customers/{customer_id}/orders|[Tüm müşteri siparişlerini alma](get-all-of-a-customer-s-orders.md)|
+|{baseURL}/v1/customers/{customer_id}/orders/{order_id}|[Kimliğe göre bir sipariş alma](get-an-order-by-id.md)|
+|{baseURL}/v1/customers/{customer_id}/orders/{order_id}/provisioningstatus|[Abonelik sağlama durumunu alma](get-subscription-provisioning-status.md)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}|[Siparişleri yönetme ve aboneliği yönetme](manage-orders.md#manage-a-subscription)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}/addons|[Bir abonelik için eklentilerin bir listesini alma](get-a-list-of-add-ons-for-a-subscription.md)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}/azureEntitlements|[Bir abonelik için Azure yetkilendirmelerinin listesini alma](get-a-list-of-azure-entitlements-for-subscription.md)|
+|{baseURL}/v1/customers/{customer_id}/subscriptions/{subscription_id}/registrationstatus|[Abonelik kayıt durumunu alma](get-subscription-registration-status.md)|
+|{baseURL}/v1/customers/{customer-tenant-id}/transfers|[Müşterinin tüm aktarımlarını al](get-all-of-a-customer-s-transfers.md)|
 |{baseURL}/v1/productUpgrades/{upgrade-id}/status|[Ürün yükseltme durumunu alma](get-product-upgrade-status.md)|
-|{baseURL}/v1/Customers/{Customer-id}/Subscriptions/{Subscription-ID}/dönüşümler|[Deneme dönüştürme tekliflerinin bir listesini alma](get-a-list-of-trial-conversion-offers.md)|
+|{baseURL}/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions|[Deneme dönüştürme tekliflerinin bir listesini alma](get-a-list-of-trial-conversion-offers.md)|
 
 
 ### <a name="error-code-response"></a>Hata kodu yanıtı:
@@ -110,11 +106,11 @@ Date: Tue, 21 Jul 2020 04:10:58 GMT
 
 ## <a name="example-of-activity-log"></a>Etkinlik günlüğü örneği
 
-Günlük değişiklikleri çözümlemede en iyi yöntem için, belirli bir gün için denetim kaydını sorgulamanızı öneririz. 
+Günlük değişiklikleri analiz etmede en iyi yöntem olarak, denetim kaydını belirli bir gün için sorgulamayı öneririz. 
 
-Yanıtta, belirli işlem türünde değişikliklerle bir sonuç alacaksınız.İlgilendiğiniz işleme göre filtreleyebilirsiniz. Örneğin, yeni oluşturulan bir müşteriyle ilgileniyorsanız, operationType = "add_customer" adresinden bakabilirsiniz.  
+Yanıtta, belirli bir işlem türüne yapılan değişikliklerle bir sonuç elde olur.Filtreyi önemsersiniz işlemi temel alarak filtreleysiniz. Örneğin, yeni oluşturulan bir müşteriyle ilgileniyorsanız operationType = "add_customer".  
 
-OperationType/Resources listesi aşağıdaki API belgeleri altında bulunabilir.  
+operationtype/resources listesi aşağıdaki API belgelerinden bulunabilir.  
 
 - [Kaynakları denetleme](auditing-resources.md)  
 

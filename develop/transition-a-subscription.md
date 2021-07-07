@@ -1,38 +1,33 @@
 ---
 title: Bir aboneliği geçirme
-description: Bir müşterinin aboneliğini belirtilen bir hedef aboneliğe yükseltir.
+description: Müşterinin aboneliğini belirtilen hedef aboneliğe yükselter.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9b757eee8bc65c16b5c65221a4c14b6c0fd6369e
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 01455315825cad026830268b6bbd55509e964bb5
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768938"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530251"
 ---
 # <a name="transition-a-subscription"></a>Bir aboneliği geçirme
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bir müşterinin aboneliğini belirtilen bir hedef aboneliğe yükseltir.
+Müşterinin aboneliğini belirtilen hedef aboneliğe yükselter.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Biri ilk abonelik diğeri de hedef abonelik için olmak üzere iki abonelik kimliği.
+- Biri ilk abonelik için, biri de hedef abonelik için olmak için iki abonelik kimlikleri.
 
 ## <a name="c"></a>C\#
 
-Bir müşterinin aboneliğini yükseltmek için önce bu müşterinin [müşterimizin aboneliğini alın](get-a-subscription-by-id.md). Ardından, **yükseltmeler** özelliğini çağırarak **Get ()** veya **GetAsync ()** yöntemleri tarafından bu abonelik için yükseltmelerin bir listesini alın. Bu yükseltmeler listesinden bir hedef yükseltme seçin ve ardından ilk aboneliğin **yükseltmeler** özelliğini çağırın ve ardından **Create ()** yöntemi gelir.
+Müşterinin aboneliğini yükseltmek için önce [bu müşterinin aboneliğini alın.](get-a-subscription-by-id.md) Ardından, Upgrades özelliğini ve ardından **Get()** veya **GetAsync()** yöntemlerini çağırarak bu abonelik için yükseltmelerin bir listesini alın.  Bu yükseltme listesinden bir hedef yükseltme seçin ve ardından ilk aboneliğin **Upgrades** özelliğini ve ardından **Create() yöntemini** çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,34 +38,34 @@ Bir müşterinin aboneliğini yükseltmek için önce bu müşterinin [müşteri
 UpgradeResult upgradeResult = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(subscriptionIdForUpgrade).Upgrades.Create(targetOffer);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnersdk. Featuresamples **sınıfı**: UpgradeSubscription.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerSDK.FeatureSamples **Sınıfı:** UpgradeSubscription.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                                                                         |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **Al**  | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription}/yükseltmeler http/1.1 |
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Target}/yükseltmeler http/1.1       |
+| **Al**  | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/upgrades HTTP/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-target}/upgrades HTTP/1.1       |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Aboneliği geçmek için aşağıdaki sorgu parametresini kullanın.
+Aboneliği geçiş yapmak için aşağıdaki sorgu parametresini kullanın.
 
 | Ad                    | Tür     | Gerekli | Açıklama                                       |
 |-------------------------|----------|----------|---------------------------------------------------|
-| **Müşteri-Kiracı kimliği**  | **guid** | Y        | Müşteriye karşılık gelen bir GUID.             |
-| **abonelik kimliği** | **guid** | Y        | İlk aboneliğe karşılık gelen bir GUID. |
-| **hedef için kimlik**       | **guid** | Y        | Hedef aboneliğe karşılık gelen bir GUID.  |
+| **customer-tenant-id**  | **guid** | Y        | Müşteriye karşılık gelen bir GUID.             |
+| **abonelik için id** | **guid** | Y        | İlk aboneliğe karşılık gelen GUID. |
+| **id-for-target**       | **guid** | Y        | Hedef aboneliğe karşılık gelen GUID.  |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -147,11 +142,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **yükseltme** sonucu kaynağı döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde** bir Yükseltme sonucu kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

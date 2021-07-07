@@ -4,19 +4,16 @@ description: Belirtilen müşteri için bir yapılandırma ilkesiyle bir cihaz l
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 04c2ef33116335db40bd2934dc7e33d57f015097
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 35b35873eb253b0929bfc01662b0beb9b31d0c6b
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769754"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530081"
 ---
 # <a name="update-a-list-of-devices-with-a-policy"></a>İlke ile cihaz listesini güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
 
 Belirtilen müşteri için bir yapılandırma ilkesiyle bir cihaz listesini güncelleştirme.
 
@@ -74,7 +71,7 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DevicePolicy.Update(devicePolicyUpdateRequest);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: UpdateDevicesPolicy.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: updatedevicespolicy. cs
 
 ## <a name="rest-request"></a>REST isteği
 

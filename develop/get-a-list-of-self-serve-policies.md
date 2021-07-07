@@ -6,20 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: ff3116b8757e28e03615930ebd19bc75f34e2efe
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: b18fde8a11d3ed3dd31e50fdba746dd6b0bf3f97
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97770242"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025743"
 ---
 # <a name="get-a-list-of-self-serve-policies"></a>Self Servis ilkelerinin bir listesini alın
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bu makalede bir varlık için self servis ilkelerini temsil eden bir kaynak koleksiyonunun nasıl alınacağı açıklanır.
+Bir varlık için self servis ilkelerini temsil eden kaynakların bir koleksiyonunu alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -44,8 +40,8 @@ var SelfServePolicies = scopedPartnerOperations.SelfServePolicies.Get(customerId
 Bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSamples**
-- Sınıf: **GetSelfServePolicies.cs**
+- Project: **partnersdk. featuresamples**
+- Sınıf: **GetSelfServePolicies. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -61,7 +57,7 @@ Müşterilerin bir listesini almak için aşağıdaki sorgu parametresini kullan
 
 | Ad          | Tür       | Gerekli | Açıklama                                        |
 |---------------|------------|----------|----------------------------------------------------|
-| **entity_id** | **dizisinde** | Y        | İçin erişim isteyen varlık tanımlayıcısı. Bu, müşterinin kiracı KIMLIĞI olacaktır. |
+| **entity_id** | **string** | Y        | İçin erişim isteyen varlık tanımlayıcısı. Bu, müşterinin kiracı KIMLIĞI olacaktır. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

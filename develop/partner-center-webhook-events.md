@@ -1,51 +1,46 @@
 ---
-title: İş Ortağı Merkezi Web kancası olayları
-description: Iş Ortağı Merkezi 'nde abonelikler ve diğer olaylar değiştiğinde göz önünde olmak için Web kancası olaylarını test etme ve kullanma hakkında bilgi edinin.
+title: İş Ortağı Merkezi kancası olaylarını
+description: Web kancası olaylarını test etmeyi ve kullanarak aboneliklerde ve diğer olaylarda ne zaman değişiklik olduğunu İş Ortağı Merkezi.
 ms.date: 04/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 03ee1d4e74408b8cf69e2971054bf9060650cb77
-ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
+ms.openlocfilehash: e5e363a2f928dd38304887547bdc0e5d652728d6
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106500048"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547750"
 ---
-# <a name="partner-center-webhook-events"></a>İş Ortağı Merkezi Web kancası olayları
+# <a name="partner-center-webhook-events"></a>İş Ortağı Merkezi kancası olaylarını
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+İş Ortağı Merkezi kancası olayları, HTTP POST'leri şeklinde kayıtlı bir URL'ye teslim edilen kaynak değişikliği olaylarıdır. Bir olay İş Ortağı Merkezi almak için, olay gönderenin İş Ortağı Merkezi bir geri çağırma barındırsınız. Olay dijital olarak imzalanır ve bu nedenle bu etkinliğin İş Ortağı Merkezi.
 
-İş Ortağı Merkezi Web kancası olayları, kayıtlı bir URL 'ye HTTP gönderimleri biçiminde teslim edilen kaynak değişiklik olaylardır. Iş Ortağı Merkezi 'nden bir olay almak için, Iş Ortağı Merkezi 'nin olayı NAKLEDEBILECEĞI bir geri çağırma barındırmanız gerekir. Etkinlik, Iş Ortağı Merkezi 'nden gönderildiğini doğrulayabilmeniz için dijital olarak imzalanır.
+Olayları alma, geri çağırma kimliğini doğrulama ve olay kaydını oluşturmak, görüntülemek ve güncelleştirmek için İş Ortağı Merkezi web kancası API'lerini kullanma hakkında bilgi için [bkz. İş Ortağı Merkezi Web Kancaları.](partner-center-webhooks.md)
 
-Olayları alma, geri çağırma kimlik doğrulaması ve bir olay kaydı oluşturmak, görüntülemek ve güncelleştirmek için Iş Ortağı Merkezi Web kancası API 'Lerini kullanma hakkında bilgi için bkz. [Partner Center Web kancaları](partner-center-webhooks.md).
+## <a name="supported-events"></a>Desteklenen Olaylar
 
-## <a name="supported-events"></a>Desteklenen olaylar
+Aşağıdaki web kancası olayları, aşağıdaki web kancası İş Ortağı Merkezi.
 
-Aşağıdaki Web kancası olayları Iş Ortağı Merkezi tarafından desteklenir.
+### <a name="test-event"></a>Test Olayı
 
-### <a name="test-event"></a>Test olayı
-
-Bu olay, bir test olayı isteyerek ve sonra ilerleme durumunu izleyerek kaydınızı kendi kendinize ekleme ve test etmenize olanak tanır. Olayı sunmaya çalışırken Microsoft 'tan alınmakta olan hata iletilerini görebileceksiniz. Bu, yalnızca "test tarafından oluşturulan" olaylar ve 7 günden eski olan veriler temizlenir.
+Bu olay, bir test olayı isteğinde bulundurarak ve ardından ilerlemesini takip etmek için kaydınızı kendi kendine eklemenizi ve test etmenizi sağlar. Olayı teslim etmeye çalışırken Microsoft'tan alınan hata iletilerini görebilirsiniz. Bu yalnızca "test tarafından oluşturulan" olaylar için geçerli olur ve yedi günlükten eski veriler temizilir.
 
 >[!NOTE]
->Test tarafından oluşturulan bir olay nakledilirken dakikada 2 istekten oluşan bir kısıtlama sınırı vardır.
+>Test tarafından oluşturulan bir olayı gönderdiğinizde dakikada 2 istek kısıtlama sınırı vardır.
 
 #### <a name="properties"></a>Özellikler
 
 | Özellik                  | Tür                               | Açıklama                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | string                             | Olayın adı. {Resource}-{Action} biçiminde. Bu olay için, değer "test tarafından oluşturuldu" olarak ayarlanır.                                          |
-| ResourceUri               | URI                                | Kaynağı almak için URI. Şu sözdizimini kullanır: "[*{BaseUrl}*](partner-center-rest-urls.md)/Webkancas/v1/Registration/validationevents/{{CorrelationId}}" |
-| ResourceName              | string                             | Olayı tetikleyecek kaynağın adı. Bu olay için değer "test" dir.                                  |
-| Sesturi                  | URI                                | Seçim Varsa, denetim kaydının alınacağı URI. Şu sözdizimini kullanır: "[*{BaseUrl}*](partner-center-rest-urls.md)/Auditactivity/v1/auditrecords/{{auditıd}}" |
-| ResourceChangeUtcDate     | UTC Tarih-saat biçiminde dize | Kaynak değişikliğinin gerçekleştiği tarih ve saat.                                                         |
+| EventName                 | string                             | Olayın adı. {resource}-{action} formunda. Bu olay için değer "test-created" şeklindedir.                                          |
+| ResourceUri               | URI                                | Kaynağı almak için URI. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" |
+| ResourceName              | string                             | Olayı tetikleyen kaynağın adı. Bu olay için değer "test" olur.                                  |
+| AuditUri                  | URI                                | (İsteğe bağlı) Denetim kaydının (varsa) elde URI'si. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| ResourceChangeUtcDate     | UTC tarih-saat biçimindeki dize | Kaynak değişikliğinin meydana geldiği tarih ve saat.                                                         |
 
 #### <a name="example"></a>Örnek
 
@@ -59,22 +54,22 @@ Bu olay, bir test olayı isteyerek ve sonra ilerleme durumunu izleyerek kaydın�
 }
 ```
 
-### <a name="subscription-updated-event"></a>Abonelik güncelleştirildi olayı
+### <a name="subscription-updated-event"></a>Abonelik Güncelleştirilmiş Olayı
 
-Bu olay, belirtilen abonelik değiştiğinde tetiklenir. Iş Ortağı Merkezi API 'SI aracılığıyla değişiklik yapıldığında bir iç değişiklik olduğunda, abonelik güncelleştirilmiş bir olay oluşturulur.  Bu olay yalnızca, ticaret düzeyi değişiklikler olduğunda (örneğin, lisansların sayısı değiştirildiğinde ve aboneliğin durumu değiştiğinde) oluşturulacaktır. Bu işlem, abonelik içinde kaynaklar oluşturulduğunda oluşturulmaz.
+Belirtilen abonelik değişirken bu olay ortaya çıkar. Abonelik Güncelleştirildi olayı, api'sinde değişiklik yapılana ek olarak bir iç değişiklik olduğunda İş Ortağı Merkezi oluşturulur.  Bu olay yalnızca ticari düzeyde değişiklikler olduğunda (örneğin, lisans sayısı değiştirildiğinde ve aboneliğin durumu değiştirildiğinde) oluşturulur. Abonelik içinde kaynaklar oluşturulduğunda oluşturulmaz.
 
 >[!NOTE]
->Abonelik değişikliği sırasında ve aboneliğin güncelleştirildiği olay tetiklendiğinde 48 saate kadar bir gecikme vardır.
+>Bir aboneliğin değişiklik zamanı ile Abonelik Güncelleştirildi olayı tetiklenmesi arasında 48 saate kadar bir gecikme olur.
 
 #### <a name="properties"></a>Özellikler
 
 | Özellik                  | Tür                               | Açıklama                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | string                             | Olayın adı. {Resource}-{Action} biçiminde. Bu olay için, değer "abonelik-güncelleştirildi" dır.                                  |
-| ResourceUri               | URI                                | Kaynağı almak için URI. Şu sözdizimini kullanır: "[*{BaseUrl}*](partner-center-rest-urls.md)/Webkancas/v1/Customers/{{CustomerID}}/Subscriptions/{{SubscriptionID}}" |
-| ResourceName              | string                             | Olayı tetikleyecek kaynağın adı. Bu olay için değer "Subscription" dır.                          |
-| Sesturi                  | URI                                | Seçim Varsa, denetim kaydının alınacağı URI. Şu sözdizimini kullanır: "[*{BaseUrl}*](partner-center-rest-urls.md)/Auditactivity/v1/auditrecords/{{auditıd}}" |
-| ResourceChangeUtcDate     | UTC Tarih-saat biçiminde dize | Kaynak değişikliğinin gerçekleştiği tarih ve saat.                                                         |
+| EventName                 | string                             | Olayın adı. {resource}-{action} formunda. Bu olay için değer "subscription-updated" şeklindedir.                                  |
+| ResourceUri               | URI                                | Kaynağı almak için URI. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" |
+| ResourceName              | string                             | Olayı tetikleyen kaynağın adı. Bu olay için değer "abonelik" olur.                          |
+| AuditUri                  | URI                                | (İsteğe bağlı) Denetim kaydının (varsa) elde URI'si. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| ResourceChangeUtcDate     | UTC tarih-saat biçimindeki dize | Kaynak değişikliğinin meydana geldiği tarih ve saat.                                                         |
 
 #### <a name="example"></a>Örnek
 
@@ -88,19 +83,19 @@ Bu olay, belirtilen abonelik değiştiğinde tetiklenir. Iş Ortağı Merkezi AP
 }
 ```
 
-### <a name="threshold-exceeded-event"></a>Eşik aşıldı olayı
+### <a name="threshold-exceeded-event"></a>Eşik Aşıldı Olayı
 
-Bu olay, herhangi bir müşterinin Microsoft Azure kullanım miktarı kullanım harcama bütçesini (bunların eşiğini) aştığında tetiklenir. Daha fazla bilgi için bkz. [müşterileriniz için Azure harcama bütçesi ayarlama/iş ortağı-merkezi/set-a-Azure-harcama-bütçe-for-Customers).
+Bu olay, herhangi bir müşterinin Microsoft Azure harcama bütçesini (eşik) aştıklarında ortaya çıkar. Daha fazla bilgi için bkz. [Müşterileriniz için Azure harcama bütçesi ayarlama/iş ortağı-merkezi/set-an-azure-spending-budget-for-your-customers).
 
 #### <a name="properties"></a>Özellikler
 
 | Özellik                  | Tür                               | Açıklama                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| EventName                 | string                             | Olayın adı. {Resource}-{Action} biçiminde. Bu olay için, değer "usagerecords-Thresholdexcebaşında" olur.                                  |
-| ResourceUri               | URI                                | Kaynağı almak için URI. "[*{BaseUrl}*](partner-center-rest-urls.md)/webhooks/v1/Customers/usagerecords" sözdizimini kullanır. |
-| ResourceName              | string                             | Olayı tetikleyecek kaynağın adı. Bu olay için, değer "usagerecords" olur.                          |
-| Sesturi                  | URI                                | Seçim Varsa, denetim kaydının alınacağı URI. Şu sözdizimini kullanır: "[*{BaseUrl}*](partner-center-rest-urls.md)/Auditactivity/v1/auditrecords/{{auditıd}}" |
-| ResourceChangeUtcDate     | UTC Tarih-saat biçiminde dize | Kaynak değişikliğinin gerçekleştiği tarih ve saat.                                                         |
+| EventName                 | string                             | Olayın adı. {resource}-{action} formunda. Bu olay için değer "usagerecords-thresholdExceeded" şeklindedir.                                  |
+| ResourceUri               | URI                                | Kaynağı almak için URI. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" |
+| ResourceName              | string                             | Olayı tetikleyen kaynağın adı. Bu olay için değer "usagerecords" olur.                          |
+| AuditUri                  | URI                                | (İsteğe bağlı) Denetim kaydının (varsa) elde URI'si. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/auditactivity/v1/auditrecords/{{AuditId}}" |
+| ResourceChangeUtcDate     | UTC tarih-saat biçimindeki dize | Kaynak değişikliğinin meydana geldiği tarih ve saat.                                                         |
 
 #### <a name="example"></a>Örnek
 
@@ -114,7 +109,7 @@ Bu olay, herhangi bir müşterinin Microsoft Azure kullanım miktarı kullanım 
 }
 ```
 
-### <a name="referral-created-event"></a>Başvuru oluşturulan olay
+### <a name="referral-created-event"></a>Referans Oluşturma Olayı
 
 Bu olay, başvuru oluşturulduğunda tetiklenir.
 

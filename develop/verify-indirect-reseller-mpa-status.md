@@ -4,21 +4,18 @@ description: AgreementStatus API 'sini kullanarak dolaylı bir satıcının Micr
 ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fa9480424eccc933bc9c28c3879a195fbd5f2bb1
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: f83acc61624a72354c390905b1250bc021dd39aa
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711924"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111529857"
 ---
 # <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu doğrulama
 
-**Uygulama hedefi:**
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-- İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bir dolaylı satıcının, Microsoft İş Ortağı Ağı (MPN) KIMLIĞI (PGA/PLA) veya bulut çözümü sağlayıcısı (CSP) kiracı KIMLIĞI (Microsoft ID) kullanarak Microsoft Iş ortağı sözleşmesi 'Ni imzaladığını doğrulayabilirsiniz. **AgreementStatus** API 'Sini kullanarak Microsoft Iş ortağı sözleşmesi imza durumunu denetlemek için bu tanımlayıcılardan birini kullanabilirsiniz.
+dolaylı bir satıcının, Microsoft İş Ortağı Ağı (mpn) kimliği (pga/PLA) veya Bulut Çözümü Sağlayıcısı (CSP) kiracı kimliğini (microsoft ıd) kullanarak Microsoft iş ortağı sözleşmesini imzaladığını doğrulayabilirsiniz. **AgreementStatus** API 'Sini kullanarak Microsoft Iş ortağı sözleşmesi imza durumunu denetlemek için bu tanımlayıcılardan birini kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,7 +40,7 @@ var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementS
 ```
 
 - Örnek: **[konsol test uygulaması](console-test-app.md)**
-- Proje: **Partnercentersdk. FeaturesSamples**
+- Project: **partnercentersdk. featuressamples**
 - Sınıf: **GetAgreementSignatureStatus. cs**
 
 ## <a name="rest-request"></a>REST isteği
@@ -60,8 +57,8 @@ var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementS
 
 | Ad | Tür | Gerekli | Açıklama |
 | ---- | ---- | -------- | ----------- |
-| **Mpnıd** | int | No | Dolaylı Bayi tanımlayan bir Microsoft İş Ortağı Ağı KIMLIĞI (PGA/PLA). |
-| **Değerine** | GUID | No | Dolaylı satıcıdan oluşan CSP hesabını tanımlayan bir Microsoft KIMLIĞI. |
+| **Mpnıd** | int | Hayır | Dolaylı Bayi tanımlayan bir Microsoft İş Ortağı Ağı KIMLIĞI (PGA/PLA). |
+| **Değerine** | GUID | Hayır | Dolaylı satıcıdan oluşan CSP hesabını tanımlayan bir Microsoft KIMLIĞI. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -214,7 +211,7 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-reseller-mpn-id-pgapla-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>CSP dolaylı Bayi MPN kimliği (PGA/PLA) geçersiz ya da Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmedi
+#### <a name="csp-indirect-reseller-mpn-id-pgapla-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>CSP dolaylı Bayi MPN KIMLIĞI (PGA/PLA) geçersiz ya da Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmedi
 
 Geçirilen dolaylı satıcı MPN KIMLIĞI (PGA/PLA) geçersiz olduğunda veya Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmediğinde aşağıdaki örnek yanıt döndürülür. [Daha Fazla Bilgi](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
 

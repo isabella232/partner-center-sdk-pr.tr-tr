@@ -1,38 +1,34 @@
 ---
-title: Anlaşma meta veri kaynakları
-description: AgreementMetadata kaynak koleksiyonu, iş ortaklarının müşteri kabulünün onayını sağlamak için kullanabileceği anlaşma türlerini açıklar.
+title: Sözleşme meta veri kaynakları
+description: AgreementMetadata kaynak koleksiyonu, iş ortaklarının müşteri kabulünü onaylaması için kullanabileceği sözleşme türlerini açıklar.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 36ba2aa2f78552dc9a835168b5bbd5b6a3ce47f3
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b930e3691b9d269ddb8d76ae18b6b26a217123c0
+ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768837"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025641"
 ---
-# <a name="agreement-metadata-resources"></a>Anlaşma meta veri kaynakları
+# <a name="agreement-metadata-resources"></a>Sözleşme meta veri kaynakları
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi
 
-- İş Ortağı Merkezi
+**için geçerli değildir:** İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-**AgreementMetaData** kaynağı şu anda yalnızca *Microsoft genel bulutundaki* iş ortağı Merkezi tarafından desteklenmektedir. Bu kaynak için geçerli değildir:
+**AgreementMetaData** kaynağı şu anda yalnızca Microsoft İş Ortağı Merkezi bulut üzerinde kullanılabilir. 
 
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-**AgreementMetaData** koleksiyonu tüm anlaşma türleri hakkında meta veriler sağlar. İş ortakları, bu koleksiyonu müşteri anlaşmalarının kabul edilmesine yönelik onay sağlamak için kullanabilir. **AgreementMetaData** Collection, her iki anlaşma türü (**Microsoft bulut sözleşmesi** ve **Microsoft Müşteri Sözleşmesi**) için meta verileri döndürür.
+**AgreementMetaData koleksiyonu,** tüm anlaşma türleri hakkında meta veriler sağlar. İş ortakları bu koleksiyonu kullanarak müşterinin sözleşme kabulünü onaylar. **AgreementMetaData koleksiyonu,** hem sözleşme türleri **(** hem de Microsoft Bulut Anlaşması) için **meta Microsoft Müşteri Sözleşmesi** döndürür.
 
 ## <a name="agreementmetadata"></a>AgreementMetaData
 
-Döndürülen anlaşma meta verileri aşağıdaki özellikleri içerir:
+Döndürülen sözleşme meta verileri aşağıdaki özellikleri içerir:
 
-| Özellik      | Tür               | Description                                                                       |
+| Özellik      | Tür               | Açıklama                                                                       |
 |---------------|--------------------|-----------------------------------------------------------------------------------|
-| TemplateId    | string             | Sözleşme şablonunun benzersiz tanıtıcısı.                                       |
-| tür          | string             | Anlaşma türü. Şu anda, desteklenen değerler **Microsoftcloudagreement** ve **microsoftcustomeragreement** (Önizleme) içerir. |
-| agreementLink | string             | Sözleşme şablonunun URL 'SI.                                                    |
+| templateId    | string             | Anlaşma şablonunun benzersiz tanımlayıcısı.                                       |
+| tür          | string             | Anlaşma türü. Şu anda desteklenen değerler **Arasında MicrosoftCloudAgreement ve** **MicrosoftCustomerAgreement** (önizleme) yer alır. |
+| agreementLink | string             | Anlaşma şablonunun URL'si.                                                    |

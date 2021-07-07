@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 0de40d08e9fc2b9cf87b7c3c41214fdd34ad26f3
-ms.sourcegitcommit: faea78fe3264cbafc2b02c04d98d5ce30e992124
+ms.openlocfilehash: 9a6218aeb61f3775c89d34b4d57a17741e3a1e93
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2021
-ms.locfileid: "106274589"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973749"
 ---
 # <a name="create-a-customer-for-an-indirect-reseller-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak dolaylı satıcı için müşteri oluşturma
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Dolaylı bir sağlayıcı, dolaylı bir satıcı için müşteri oluşturabilir.
 
@@ -77,7 +73,7 @@ var customerToCreate = new Customer()
 var newCustomer = partnerOperations.Customers.Create(customerToCreate);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: createcustomerforındirectbayi. cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: createcustomerforindirectbayi. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -124,7 +120,7 @@ Bu tabloda, yeni bir müşteri oluşturmak için gereken [Customercompanyprofile
 | Ad   | Tür   | Gerekli | Açıklama                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
 | etki alanı | string | Yes     | Müşterinin etki alanı adı, örneğin contoso.onmicrosoft.com. |
-| organizationRegistrationNumber | string | Koşula bağlıdır | Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). <br/><br/>Bu alanın tamamlanması yalnızca bir müşterinin şirketi/kuruluşu aşağıdaki ülkelerde bulunuyorsa gereklidir: <br/><br/>-Ermenistan (Har) <br/>-Azerbaycan (AZ)<br/>-Belarus (BY)<br/>-Macaristan (HU)<br/>-Kazakistan (KZ)<br/>-Kırgızistan (KG)<br/>-Moldova (MD)<br/>-Rusya (RU)<br/>-Tacikistan (TJ)<br/>-Özbekistan (UZ)<br/>-Ukrayna (UA)<br/>-Hindistan <br/>-Brezilya <br/>-Güney Afrika <br/>-Polonya <br/>-Birleşik Arap Emirlikleri <br/>-Suudi Arabistan <br/>-Türkiye <br/>-Tayland <br/>-Vietnam <br/>-Myanmar dili <br/>-Irak <br/>-Güney Sudan <br/>-Venezuela<br/> <br/>Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu, isteğe bağlı bir alandır.  |
+| organizationRegistrationNumber | string | Koşula bağlıdır | Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). <br/><br/>Bu alanın tamamlanması yalnızca bir müşterinin şirketi/kuruluşu aşağıdaki ülkelerde bulunuyorsa gereklidir: <br/><br/>-Ermenistan (Har) <br/>-Azerbaycan (AZ)<br/>-Belarus (BY)<br/>-Macaristan (HU)<br/>-Kazakistan (KZ)<br/>-Kırgızistan (KG)<br/>-Moldova (MD)<br/>-Rusya (RU)<br/>-Tacikistan (TJ)<br/>-Özbekistan (UZ)<br/>-Ukrayna (UA)<br/>-Hindistan <br/>-Brezilya <br/>-Güney Afrika <br/>-Polonya <br/>-Birleşik Arap Emirlikleri <br/>-Suudi Arabistan <br/>-Türkiye <br/>-Tayland <br/>-Vietnam <br/>-Myanmar dili <br/>-Irak <br/>-Güney Sudan <br/>-Venezuela<br/> <br/>Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için, bu isteğe bağlı bir alandır.  |
 
 ### <a name="request-example"></a>İstek örneği
 

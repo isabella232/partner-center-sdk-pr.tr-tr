@@ -4,18 +4,14 @@ description: Iş Ortağı Merkezi API 'Lerini kullanarak yazılım aboneliklerin
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 25fd10a171fa6ca01f3442d49145443f2382cc18
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 877702ac930919ff72c6cc45a3c0e8ecc7e1b5f4
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769328"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974242"
 ---
 # <a name="cancel-software-purchases"></a>Yazılım satın alımlarını iptal etme
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Iş Ortağı Merkezi API 'Lerini, yazılım aboneliklerini ve kalıcı yazılım satın alımlarını iptal etmek için kullanabilirsiniz (satın alma tarihinden itibaren iptal etme penceresinde yaptığınız sürece). Bu tür iptallerini yapmak için bir destek bileti oluşturmanız gerekmez ve bunun yerine aşağıdaki self servis yöntemlerini kullanabilirsiniz.
 
@@ -71,7 +67,7 @@ Bir müşteriyi silmek için aşağıdaki sorgu parametrelerini kullanın.
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Müşteri-Kiracı kimliği** | **guid** | Y        | Bu değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli müşteri kiracı tanımlayıcısıdır. |
-| **sıra kimliği** | **dizisinde** | Y        | Değer, iptal etmek istediğiniz sıranın tanımlayıcısını gösteren bir dizedir. |
+| **sıra kimliği** | **string** | Y        | Değer, iptal etmek istediğiniz sıranın tanımlayıcısını gösteren bir dizedir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

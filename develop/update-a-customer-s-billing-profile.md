@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: adf4e3de9941fded632e0561624d91d854c5aa24
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1605c3e8cb050717209cb482d2299e2a42b9b186
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769778"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530048"
 ---
 # <a name="update-a-customers-billing-profile"></a>Müşterinin faturalandırma profilini güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bir müşterinin faturalandırma profilini, profille ilişkili adres da dahil olmak üzere güncelleştirir.
 
@@ -45,7 +40,7 @@ var billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profil
 billingProfile = partnerOperations.Customers.ById(selectedCustomerId).Profiles.Billing.Update(billingProfile);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnersdk. Featuresamples **sınıfı**: UpdateCustomerBillingProfile.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresamples **sınıfı**: updatecustomerbillingprofile. cs
 
 ## <a name="rest-request"></a>REST isteği
 

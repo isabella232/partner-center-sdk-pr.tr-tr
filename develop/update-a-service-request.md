@@ -1,37 +1,33 @@
 ---
 title: Bir hizmet isteğini güncelleştirme
-description: Bir bulut çözümü sağlayıcısı 'nın müşterinin adına Microsoft ile dosyalandığı mevcut bir müşteri hizmeti isteğini güncelleştirme.
+description: Bir müşterinin Microsoft'a müşteri adına Bulut Çözümü Sağlayıcısı mevcut müşteri hizmetleri isteğini güncelleştirme.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a1df0d1f5fa4630b346d1c8b9cffabb86ce34cfb
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: efa7b2a98b6f95a763ca6e3811c43cc655c18e2b
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769742"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530098"
 ---
 # <a name="update-a-service-request"></a>Bir hizmet isteğini güncelleştirme
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+Bir müşterinin Microsoft'a müşteri adına Bulut Çözümü Sağlayıcısı mevcut müşteri hizmetleri isteğini güncelleştirme.
 
-Bir bulut çözümü sağlayıcısı 'nın müşterinin adına Microsoft ile dosyalandığı mevcut bir müşteri hizmeti isteğini güncelleştirme.
-
-Iş Ortağı Merkezi panosunda, bu işlem önce [bir müşteri seçilerek](get-a-customer-by-name.md)gerçekleştirilebilir. Sonra sol kenar çubuğundan **hizmet yönetimi** ' ni seçin. **Destek istekleri** üst bilgisi altında, söz konusu hizmet isteğini seçin. Son olarak, hizmet isteğinde istenen değişiklikleri yapıp Gönder ' i seçin **.**
+Bu İş Ortağı Merkezi önce bir müşteri [seçerek gerçekleştirebilirsiniz.](get-a-customer-by-name.md) Ardından, sol **kenar çubuğuna** Hizmet yönetimi'yi seçin. Destek **istekleri üst bilgisi** altında söz konusu hizmet isteğini seçin. Tamamlamak için hizmet isteğinde istediğiniz değişiklikleri yapın ve Gönder'i **seçin.**
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir hizmet isteği KIMLIĞI.
+- Hizmet isteği kimliği.
 
 ## <a name="c"></a>C\#
 
-Bir müşterinin hizmet isteğini güncelleştirmek için, hizmet isteği arabirimini tanımlamak ve döndürmek üzere hizmet isteği kimliğiyle [**ıvicerequestcollection. Byıd**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) yöntemini çağırın. Ardından, hizmet isteğini güncelleştirmek için [**ıvicerequest. Patch**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch) veya [**patchasync**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync) metodunu çağırın. Güncelleştirilmiş değerleri sağlamak için yeni ve boş bir [**servicerequest**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) nesnesi oluşturun ve yalnızca değiştirmek istediğiniz özellik değerlerini ayarlayın. Sonra bu nesneyi düzeltme ekine veya PatchAsync metoduna çağrı içinde geçirin.
+Müşterinin hizmet isteğini güncelleştirmek için [**IServiceRequestCollection.ById**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) yöntemini hizmet isteği kimliğiyle çağırarak hizmet isteği arabirimini tanıyın ve geri girin. Ardından hizmet isteğini [**güncelleştirmek için IServiceRequest.Patch**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patch) veya [**PatchAsync**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequest.patchasync) yöntemini çağırabilirsiniz. Güncelleştirilmiş değerleri sağlamak için yeni, boş bir [**ServiceRequest**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) nesnesi oluşturun ve yalnızca değiştirmek istediğiniz özellik değerlerini ayarlayın. Ardından patch veya PatchAsync yöntemine çağrıda bu nesneyi iletir.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,15 +39,15 @@ ServiceRequest updatedServiceRequest = partnerOperations.ServiceRequests.ById(ex
 });
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: UpdatePartnerServiceRequest.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı **Sınıfı:** UpdatePartnerServiceRequest.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-ID} http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -59,15 +55,15 @@ Hizmet isteğini güncelleştirmek için aşağıdaki URI parametresini kullanı
 
 | Ad                  | Tür     | Gerekli | Açıklama                                 |
 |-----------------------|----------|----------|---------------------------------------------|
-| **servicerequest kimliği** | **guid** | Y        | Hizmet isteğini tanımlayan bir GUID. |
+| **servicerequest-id** | **guid** | Y        | Hizmet isteğini tanımlayan bir GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesi bir [servicerequest](service-request-resources.md) kaynağı içermelidir. Yalnızca gerekli değerler güncellenmelidir.
+İstek gövdesi bir [ServiceRequest kaynağı içermeli.](service-request-resources.md) Yalnızca güncelleştirilen değerler gereklidir.
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -115,11 +111,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş özelliklerle bir **hizmet isteği** kaynağı döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde güncelleştirilmiş** özelliklere sahip bir Hizmet İsteği kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [REST İş Ortağı Merkezi Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

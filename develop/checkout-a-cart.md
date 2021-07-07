@@ -1,38 +1,33 @@
 ---
 title: Sepet sonuçlandırma
-description: Iş Ortağı Merkezi API 'Lerini kullanarak bir sepetteki müşteriyi bir siparişi nasıl kullanıma alabileceğinizi öğrenin. Bunu bir müşteri siparişini tamamlayacak şekilde yapabilirsiniz.
+description: İş Ortağı Merkezi API'lerini kullanarak sepette bir müşteriye İş Ortağı Merkezi öğrenin. Bunu bir müşteri siparişlerini tamamlamak için de yapabiliriz.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 094817a34cd29bc96788fcfb6a16610a8192d784
-ms.sourcegitcommit: a25d4951f25502cdf90cfb974022c5e452205f42
+ms.openlocfilehash: 9ee06797602b22a1f8257c94880a2d81e2280f2e
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "97770079"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974055"
 ---
-# <a name="checkout-an-order-for-a-customer-in-a-cart"></a>Sepette müşteri için sipariş alma
+# <a name="checkout-an-order-for-a-customer-in-a-cart"></a>Sepette müşteri siparişi alma
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bir sepette müşteri için sipariş alma.
+Sepette müşteri için sipariş alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Mevcut bir sepet için sepet KIMLIĞI.
+- Mevcut sepet için sepet kimliği.
 
 ## <a name="c"></a>C\#
 
-Müşteriye yönelik bir siparişi kullanıma almak için sepet ve müşteri tanımlayıcısını kullanarak sepete bir başvuru alın. Son olarak, sıralamayı gerçekleştirmek için **Create** veya **createasync** işlevlerini çağırın.
+Müşterinin siparişlerini almak için sepet ve müşteri tanımlayıcısını kullanarak sepete başvuru edinin. Son olarak, **siparişi tamamlamak** için **Create veya CreateAsync** işlevlerini çağırabilirsiniz.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -46,7 +41,7 @@ var cart = partnerOperations.Customers.ById(customerId).Cart.ById(cartId).Checko
 
 [!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
-Müşteriye yönelik bir siparişi kullanıma almak için sepet ve müşteri tanımlayıcısını kullanarak sepete bir başvuru alın. Son olarak, sıralamayı gerçekleştirmek için **Create** işlevini çağırın.
+Müşterinin siparişlerini almak için sepet ve müşteri tanımlayıcısını kullanarak sepete başvuru edinin. Son olarak, **siparişi tamamlamak** için create işlevini çağırmanız gerekir.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -60,7 +55,7 @@ Cart cart = partnerOperations.getCustomers().byId(customerId).getCart().byId(car
 
 [!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
-Bir müşteriye yönelik bir siparişi kullanıma almak için, siparişi tamamladıktan sonra [**Gönder-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) ' i yürütün.
+Bir müşterinin siparişlerini teslim etmek için [**Submit-PartnerCustomerCart**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Submit-PartnerCustomerCart.md) yürütarak siparişi tamamlar.
 
 ```powershell
 # $customerId
@@ -71,24 +66,24 @@ Submit-PartnerCustomerCart -CartId $cartId -CustomerId $customerId
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                                                 |
 |----------|-------------------------------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Carts/{cart-id}/Checkout http/1.1     |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/carts/{cart-id}/checkout HTTP/1.1     |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-Müşteriyi tanımlamak ve kullanıma almak istediğiniz sepeti belirtmek için aşağıdaki yol parametrelerini kullanın.
+Müşteriyi tanımlamak ve kullanıma alma sepetini belirtmek için aşağıdaki yol parametrelerini kullanın.
 
 | Ad            | Tür     | Gerekli | Açıklama                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
-| **müşteri kimliği** | string   | Yes      | Müşteriyi tanımlayan bir GUID biçimli müşteri kimliği.             |
-| **sepet kimliği**     | string   | Yes      | Sepeti tanımlayan bir GUID biçimli sepet kimliği.                     |
+| **customer-id** | string   | Yes      | Müşteriyi tanımlayan GUID biçimlendirilmiş customer-id.             |
+| **cart-id**     | string   | Yes      | Sepeti tanımlayan GUID biçimli sepet kimliği.                     |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -114,11 +109,11 @@ No-Content-Body
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi doldurulmuş [Cartcheckoutresult](cart-resources.md#cartcheckoutresult) kaynağını içerir.
+Başarılı olursa yanıt gövdesi doldurulmuş [CartCheckoutResult kaynağını](cart-resources.md#cartcheckoutresult) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -4,21 +4,16 @@ description: Müşterinin aboneliği için kolay ad veya ad alanı güncelleşti
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 57a9fec4b69d4a64128425ea58b4bb84d0d7dd54
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 195a85fcf29b3e4c9fe0e578d4d8cb80ca068c40
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769646"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530013"
 ---
 # <a name="update-the-nickname-for-a-subscription"></a>Bir abonelik için takma ad güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Müşterinin [aboneliği](subscription-resources.md)için kolay ad veya ad alanı güncelleştirir. Bu ad, müşteri hesabındaki aboneliklerin ayırt edilmesine yardımcı olmak için Iş Ortağı Merkezi 'nde görünür.
 
@@ -48,7 +43,7 @@ Subscription selectedSubscription = customerSubscriptions.Items.FirstOrDefault(s
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnersdk. Featuresamples **sınıfı**: UpdateSubscription.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresamples **sınıfı**: updatesubscription. cs
 
 ## <a name="rest-request"></a>REST isteği
 

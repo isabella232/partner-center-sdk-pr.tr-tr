@@ -6,20 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 81c41405a2f56eb4d1d3447d14b93e05d550cc70
-ms.sourcegitcommit: 4c253abb24140a6e00b0aea8e79a08823ea5a623
+ms.openlocfilehash: 513a9607b9194c36253630c91de9622325317c3a
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "97770132"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973766"
 ---
 # <a name="create-a-cart-with-add-ons-to-a-customer-order"></a>Eklentiler ile müşteri siparişi arasında bir sepet oluşturma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Eklentileri bir sepet aracılığıyla satın alabilirsiniz. Şu anda Satım için kullanılabilir olanlar hakkında daha fazla bilgi için bkz. [Cloud Solution Provider programındaki Iş ortağı teklifleri](/partner-center/csp-offers).
+Eklentileri bir sepet aracılığıyla satın alabilirsiniz. şu anda satım için kullanılabilir olanlar hakkında daha fazla bilgi için [Bulut Çözümü Sağlayıcısı programındaki iş ortağı teklifleri](/partner-center/csp-offers)konusuna bakın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -142,31 +138,31 @@ Bu tablo, istek gövdesinde [sepet](cart-resources.md) özelliklerini açıklar.
 | Özellik              | Tür             | Gerekli        | Açıklama |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | kimlik                    | dize           | No              | Sepet başarıyla oluşturulduktan sonra sağlanan bir sepet tanımlayıcısı.                                  |
-| creationTimeStamp     | DateTime         | No              | Sepetin oluşturulduğu tarih ve saat biçimi. Sepet başarıyla oluşturulduktan sonra uygulandı.         |
-| lastModifiedTimeStamp | DateTime         | No              | Sepetin son güncelleştirildiği tarih ve saat biçimi. Sepet başarıyla oluşturulduktan sonra uygulandı.    |
-| expirationTimeStamp   | DateTime         | No              | Sepetin süresinin dolacağı tarih-saat biçiminde.  Sepet başarıyla oluşturulduktan sonra uygulandı.            |
+| creationTimeStamp     | DateTime         | Hayır              | Sepetin oluşturulduğu tarih ve saat biçimi. Sepet başarıyla oluşturulduktan sonra uygulandı.         |
+| lastModifiedTimeStamp | DateTime         | Hayır              | Sepetin son güncelleştirildiği tarih ve saat biçimi. Sepet başarıyla oluşturulduktan sonra uygulandı.    |
+| expirationTimeStamp   | DateTime         | Hayır              | Sepetin süresinin dolacağı tarih-saat biçiminde.  Sepet başarıyla oluşturulduktan sonra uygulandı.            |
 | lastModifiedUser      | dize           | No              | Sepetini son güncelleştiren Kullanıcı. Sepet başarıyla oluşturulduktan sonra uygulandı.                             |
 | LineItems             | Nesne dizisi | Yes             | Bir [Cartlineıtem](cart-resources.md#cartlineitem) kaynakları dizisi.                                             |
 
 Bu tablo, istek gövdesinde [Cartlineıtem](cart-resources.md#cartlineitem) özelliklerini açıklar.
 
-| Özellik             | Tür                             | Description                                                                                                                                           |
+| Özellik             | Tür                             | Açıklama                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | kimlik                   | string                           | Sepet çizgisi öğesi için benzersiz bir tanımlayıcı. Sepet başarıyla oluşturulduktan sonra uygulandı.                                                                   |
 | catalogId            | string                           | Katalog öğesi tanımlayıcısı.                                                                                                                          |
 | friendlyName         | string                           | İsteğe bağlı. Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.                                                                 |
 | miktar             | int                              | Lisans veya örnek sayısı.                                                                                                                  |
 | currencyCode         | string                           | Para birimi kodu.                                                                                                                                    |
-| Bilimlingcycle         | Nesne                           | Geçerli dönem için ayarlanan faturalandırma dönemi türü.                                                                                                 |
-| Katılımcılar         | Nesne dizesi çiftlerinin listesi      | Satınalmada iş ortağı kimliği koleksiyonu (MPNıD).                                                                                          |
-| provisioningContext  | Sözlük<dize, dize>       | Teklifin sağlanması için kullanılan bir bağlam.                                                                                                             |
-| orderGroup           | string                           | Hangi öğelerin birlikte yerleştirilebileceğini belirten bir grup.                                                                                               |
-| Addonıtems           | **Cartlineıtem** nesnelerinin listesi | Ana sepet çizgisi öğesinin satın alma işleminden kaynaklanan temel aboneliğe yönelik olarak satın alınacak eklentiler için sepet çizgisi öğeleri koleksiyonu. |
-| error                | Nesne                           | Bir hata durumunda sepet oluşturulduktan sonra uygulandı.                                                                                                    |
+| billingCycle         | Nesne                           | Geçerli dönem için ayarlanmış faturalama dönemi türü.                                                                                                 |
+| Katılımcılar         | Nesne Dizesi çiftlerinin listesi      | Satın almada Kayıtta PartnerId (MPN KIMLIĞI) koleksiyonu.                                                                                          |
+| provisioningContext  | Sözlük<dizesi, dize>       | Teklifin sağlanması için kullanılan bağlam.                                                                                                             |
+| orderGroup           | string                           | Hangi öğelerin bir araya yerleştiril olduğunu belirten bir grup.                                                                                               |
+| addonItems           | **CartLineItem nesnelerinin** listesi | Üst sepet satır öğesinin satın alımından sonuç olarak temel aboneliğe doğru satın alınacak eklentiler için sepet satırı öğeleri koleksiyonu. |
+| error                | Nesne                           | Bir hata varsa sepet oluşturulduktan sonra uygulanır.                                                                                                    |
 
 ### <a name="request-example-new-base-subscription"></a>İstek örneği (yeni temel abonelik)
 
-Aşağıdaki REST örneği, yeni bir temel abonelik için eklenti öğelerine sahip bir sepet oluşturmayı gösterir.
+Aşağıdaki REST örneği, yeni bir temel abonelik için eklenti öğeleriyle bir sepet oluşturmayı gösterir.
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/carts HTTP/1.1
@@ -202,9 +198,9 @@ MS-CorrelationId: f73baf70-bbc3-43d0-8b29-dffa08ff9511
 }
 ```
 
-#### <a name="request-example-existing-base-subscription"></a>İstek örneği (varolan temel abonelik)
+#### <a name="request-example-existing-base-subscription"></a>İstek örneği (mevcut temel abonelik)
 
-Aşağıdaki REST örneği, mevcut bir temel aboneliğe eklentilerin nasıl ekleneceğini göstermektedir.
+Aşağıdaki REST örneği, mevcut bir temel aboneliğe eklenti eklemeyi gösterir.
 
 ```http
 POST https://api.partnercenter.microsoft.com/v1/customers/18ac2950-8ea9-4dfc-92a4-ff4d4cd57796/carts HTTP/1.1
@@ -228,11 +224,11 @@ MS-CorrelationId: 182474ba-7303-4d0f-870a-8c7fba5ccc4b
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde doldurulmuş [sepet](cart-resources.md) kaynağını döndürür.
+Başarılı olursa, bu yöntem yanıt [gövdesinde](cart-resources.md) doldurulmuş Sepet kaynağını döndürür.
 
-#### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+#### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 #### <a name="response-example-new-base-subscription"></a>Yanıt örneği (yeni temel abonelik)
 
@@ -295,7 +291,7 @@ Date: Thu, 01 Nov 2018 22:29:05 GMT
 }
 ```
 
-#### <a name="response-example-existing-base-subscription"></a>Yanıt örneği (varolan temel abonelik)
+#### <a name="response-example-existing-base-subscription"></a>Yanıt örneği (mevcut temel abonelik)
 
 ```http
 HTTP/1.1 201 Created
