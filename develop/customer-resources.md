@@ -1,84 +1,79 @@
 ---
 title: Müşteri kaynakları
-description: Müşteri veya satıcı temsil eden müşteri kaynakları.
+description: Bir müşteriyi veya kurumsal bayiyi temsil eden müşteri kaynakları.
 ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 78622258880ab77ca99eae98082cc66acb3b66a7
-ms.sourcegitcommit: 204e518e794b6b076a17488ee9ca1aaaa4beaaec
+ms.openlocfilehash: 7d76de33c9a0d28e9d3fb0b0821cbd37ad67e7af
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106103972"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973154"
 ---
 # <a name="customer-resources"></a>Müşteri kaynakları
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
 ## <a name="customer"></a>Müşteri
 
-**Müşteri** kaynağı bir müşteriyi veya satıcısı temsil eder. Çoğu genel olarak, müşteri kaynağı Microsoft ve Microsoft 'un satıcıları ile iş yapmak isteyen herhangi bir kişi, çalışan veya kuruluş olabilir. Müşterilerin ayrıca bir şirket profili ve bir faturalandırma profili vardır.
+Müşteri **kaynağı** bir müşteriyi veya kurumsal bayiyi temsil eder. Müşteri kaynakları, genel olarak Microsoft ve Microsoft'un kurumsal bayileriyle iş yapmak isteyen herhangi bir kişi, çalışan veya kuruluş olabilir. Müşterilerin bir şirket profili ve faturalama profili de vardır.
 
 >[!NOTE]
->**Müşteri** kaynağında, kiracı tanımlayıcısı başına dakikada 500 istekten oluşan bir hız limiti vardır.
+>Müşteri **kaynağının** kiracı tanımlayıcısı başına dakikada 500 istek hız sınırı vardır.
 
-| Özellik              | Tür                                                             | Description                                                                                                                                  |
+| Özellik              | Tür                                                             | Açıklama                                                                                                                                  |
 |-----------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| kimlik                    | string                                                           | Müşteri KIMLIĞI.                                                                                                                             |
-| commerceId            | string                                                           | Ticaret KIMLIĞI.                                                                                                                             |
+| kimlik                    | string                                                           | Müşteri kimliği.                                                                                                                             |
+| commerceId            | string                                                           | Ticari kimlik.                                                                                                                             |
 | companyProfile        | [CustomerCompanyProfile](#customercompanyprofile)                | Şirket veya kuruluş hakkında ek bilgiler.                                                                                    |
-| billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | Faturalandırma için kullanılan ek bilgiler.                                                                                                     |
-| relationshipToPartner | string                                                           | Bu müşteri için iş ortağının kullandığı lisanslama programını tanımlar: "none", "Bayi", "danışman", "dağıtım" veya "Microsoft \_ desteği". |
-| allowDelegatedAccess  | boolean                                                          | İş ortağına bu müşteri tarafından atanan yönetici ayrıcalıkları verilip verilmediğini belirtir. Bu özellik yalnızca KIMLIĞE göre değil, bir müşteri alınırken kullanılabilir.                                                         |
+| billingProfile        | [CustomerBillingProfile](#customerbillingprofile)                | Faturalama için kullanılan ek bilgiler.                                                                                                     |
+| relationshipToPartner | string                                                           | İş ortağının bu müşteri için kullandığı lisans programını tanımlar: "none", "reseller", "advisor", "syndication" veya "microsoft \_ support". |
+| allowDelegatedAccess  | boolean                                                          | İş ortağına bu müşteri tarafından yönetici ayrıcalıklarının temsilci olarak verilmiş olup olmadığını gösterir. Bu özellik yalnızca, listeye göre değil, kimliğine göre müşteri almada kullanılabilir.                                                         |
 | userCredentials       | [UserCredentials](user-resources.md#usercredentials) | Kullanıcı kimlik bilgileri.                                                                                                                        |
-| customDomains         | dize dizisi                                                 | Müşterinin özel etki alanları listesi.                                                                                                        |
-| Ilişkili iş ortağı kimliği   | string                                                           | Bu müşteri hesabıyla ilişkilendirilen dolaylı satıcı. Bu değer, yalnızca dolaylı CSP iş ortakları tarafından ayarlanabilir.                              |
-| Köprü                 | [Resourcelmürekkepler](utility-resources.md#resourcelinks)             | Profil içinde bulunan kaynak bağlantıları.                                                                                             |
-| öznitelikler            | [ResourceAttributes](utility-resources.md#resourceattributes)   | Profile karşılık gelen meta veri öznitelikleri.                                                                                        |
+| customDomains         | dize dizisi                                                 | Müşterinin özel etki alanlarının listesi.                                                                                                        |
+| associatedPartnerId   | string                                                           | Bu müşteri hesabıyla ilişkili dolaylı kurumsal bayi. Bu değer yalnızca dolaylı CSP iş ortakları tarafından ayarlandırabilirsiniz.                              |
+| Bağlantı                 | [ResourceLinks](utility-resources.md#resourcelinks)             | Profil içinde yer alan kaynak bağlantıları.                                                                                             |
+| öznitelikler            | [Resourceattributes](utility-resources.md#resourceattributes)   | Profile karşılık gelen meta veri öznitelikleri.                                                                                        |
 
 ## <a name="customercompanyprofile"></a>CustomerCompanyProfile
 
-**Customercompanyprofile** kaynağı, şirket veya kuruluş hakkında ek bilgiler.
+**CustomerCompanyProfile** kaynağı, şirket veya kuruluş hakkında ek bilgilerdir.
 
-| Özellik    | Tür                                                           | Description                                                                       |
+| Özellik    | Tür                                                           | Açıklama                                                                       |
 |-------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| Değerine    | string                                                         | Azure AD için müşterinin kiracı tanımlayıcısı. Bu, aynı zamanda Microsoftıd olarak da adlandırılır. |
-| etki alanı      | string                                                         | Contoso.onmicrosoft.com gibi müşterinin adı.                             |
-| Tadı | string                                                         | Şirket veya kuruluşun adı.                                          |
-| Köprü       | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Profil içinde bulunan kaynak bağlantıları.                                  |
-| öznitelikler  | [ResourceAttributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.                             |
-|organizationRegistrationNumber|Dize|Müşterinin kuruluş kayıt numarası (bazı ülkelerde ıNN numarası olarak da adlandırılır). Yalnızca şu ülkelerde bulunan müşterinin şirketi/kuruluşu için gereklidir: Ermenistan (Har), Azerbaycan (AZ), Belarus (BY), Macaristan (HU), Kazakistan (KZ), Kırgızistan (KG), Moldova (MD), Rusya (RU), Tacikistan dili (TJ), Özbekistan (UZ), Ukrayna (UA), Hindistan, Brezilya, Güney Afrika, Polonya, Birleşik Arap Emirlikleri, Suudi Arabistan, Türkiye, Tayland, Vietnam, Myanmar, Irak, Güney Sudan ve Venezuela. Müşterinin veya diğer ülkelerde bulunan şirket/kuruluş için bu belirtilmemelidir.|
+| tenantId    | string                                                         | Müşterinin Azure AD kiracı tanımlayıcısı. Buna MicrosoftID de denir. |
+| etki alanı      | string                                                         | Müşterinin adı, örneğin contoso.onmicrosoft.com.                             |
+| Şirketadı | string                                                         | Şirketin veya kuruluşun adı.                                          |
+| Bağlantı       | [ResourceLinks](utility-resources.md#resourcelinks)           | Profil içinde yer alan kaynak bağlantıları.                                  |
+| öznitelikler  | [Resourceattributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.                             |
+|organizationRegistrationNumber|Dize|Müşterinin kuruluş kayıt numarası (belirli ülkelerde INN numarası olarak da adlandırılır). Müşterinin yalnızca şu ülkelerde bulunan şirketi/kuruluşu için gereklidir: Arjantin(AM), Arjantin(AZ), Sonra(BY), Yerşek(HU), GZ), Kyrgyzstan(KG), Arjantin(MD), Rusya(RU), Tajikistan(TJ), Özbekistan(UZ), Yer (UA), Hindistan, Brezilya, Güney Afrika, Afrika Birleşik Devletleri, Birleşik Devletler, Suudi Arabistan, Suudi Arabistan, Hindistan, Vietnam, Myanmar, Hindistan, Güney Sudan ve Brezilya. Müşterinin başka ülkelerde bulunan şirketi/kuruluşu için bu belirtilmedi.|
 
 
 ## <a name="customerbillingprofile"></a>CustomerBillingProfile
 
-**Customerbillingprofile** kaynağı, müşteriyi faturalamak için kullanılan ek bilgiler.
+**CustomerBillingProfile** kaynağı, müşteriyi fatura etmek için kullanılan ek bilgilerdir.
 
-| Özellik       | Tür                                                           | Description                                                                                                                                            |
+| Özellik       | Tür                                                           | Açıklama                                                                                                                                            |
 |----------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | kimlik             | string                                                         | Profil tanımlayıcısı.                                                                                                                                |
-| firstName      | string                                                         | Müşterinin şirketindeki faturalandırma kişisinin ilk adı. Bu, faturaların ve diğer faturalandırma iletişiminin yönlendirileceği kişidir. |
-| lastName       | string                                                         | Faturalandırma kişisinin son adı.                                                                                                                  |
-| e-posta          | string                                                         | Faturalandırma kişisinin e-posta adresi                                                                                                                    |
-| kültür        | string                                                         | İletişim ve para birimi için tercih edilen kültür, "en-US" gibi.                                                                               |
-| language       | string                                                         | İletişim için tercih edilen dili.                                                                                                            |
-| Tadı    | string                                                         | Şirket veya kuruluşun adı.                                                                                                               |
-| defaultAddress | [Adres](utility-resources.md#address)                       | Kambiyo senetlerinin gönderildiği, faturalama kişisinin çalıştığı adres.                                                                                   |
-| Köprü          | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Profil içinde bulunan kaynak bağlantıları.                                                                                                       |
-| öznitelikler     | [ResourceAttributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.                                                                                                  |
+| firstName      | string                                                         | Müşterinin şirketinde faturalama ilgili kişisi adı. Bu, faturaların ve diğer faturalama iletişimini yönlendirecek kişidir. |
+| lastName       | string                                                         | Faturalama ilgili kişinin soyadı.                                                                                                                  |
+| e-posta          | string                                                         | Faturalama ilgili kişinin e-posta adresi                                                                                                                    |
+| kültür        | string                                                         | İletişim ve para birimi için tercih edilen kültür (örneğin, "en-us").                                                                               |
+| language       | string                                                         | İletişim için tercih edilen dil.                                                                                                            |
+| Şirketadı    | string                                                         | Şirketin veya kuruluşun adı.                                                                                                               |
+| defaultAddress | [Adres](utility-resources.md#address)                       | Faturanın gönderildiği adres, faturalama ilgili kişisi burada çalışır.                                                                                   |
+| Bağlantı          | [ResourceLinks](utility-resources.md#resourcelinks)           | Profil içinde yer alan kaynak bağlantıları.                                                                                                       |
+| öznitelikler     | [Resourceattributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.                                                                                                  |
 
 ## <a name="customerrelationshiprequest"></a>CustomerRelationshipRequest
 
-**Customerrelationshiprequest** kaynağı, müşteri tarafından bir iş ortağı ile bir satıcı ilişkisi kurmak için kullanılan URL 'yi içerir.
+**CustomerRelationshipRequest** kaynağı, müşteri tarafından iş ortağıyla kurumsal bayi ilişkisi kurmak için kullanılan URL'yi içerir.
 
-| Özellik   | Tür                                                           | Description                                                              |
+| Özellik   | Tür                                                           | Açıklama                                                              |
 |------------|----------------------------------------------------------------|--------------------------------------------------------------------------|
-| url        | string                                                         | Müşteri tarafından bir iş ortağıyla ilişki kurmak için kullanılan URL. |
-| öznitelikler | [ResourceAttributes](utility-resources.md#resourceattributes) | İlişki isteğine karşılık gelen meta veri öznitelikleri.       |
+| url        | string                                                         | Müşteri tarafından iş ortağıyla ilişki kurmak için kullanılan URL. |
+| öznitelikler | [Resourceattributes](utility-resources.md#resourceattributes) | İlişki isteğine karşılık gelen meta veri öznitelikleri.       |

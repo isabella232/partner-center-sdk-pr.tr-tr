@@ -1,62 +1,58 @@
 ---
-title: İş ortağı güvenlik gereksinimleri kaynakları
-description: Iş ortağı güvenlik gereksinimlerini karşılamak için Multi-Factor Authentication (MFA) benimseme ayrıntılarını anlayın.
+title: İş Ortağı Güvenlik gereksinimleri kaynakları
+description: İş Ortağı Güvenlik Gereksinimlerini karşılamak için çok faktörlü kimlik doğrulaması (MFA) benimseme ayrıntılarını anlama.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
-ms.openlocfilehash: 5eb77c3c10e95c9dc835cfe05e014b9256531b51
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b41a0e46fa6e0643e82a5a2dbfb7141f54a0f824
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768854"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445553"
 ---
 # <a name="partner-security-requirements-resources"></a>İş ortağı güvenlik gereksinimleri kaynakları
 
-**Uygulama hedefi:**
+Bu makale, çok faktörlü kimlik doğrulaması (MFA) benimseme ayrıntılarını anlamanıza yardımcı olur ve bu sayede kuruluşta iş ortağı güvenlik gereksinimi durumunu karşılamaya yardımcı olur. 
 
-- İş Ortağı Merkezi
+## <a name="portal-request-without-mfa"></a>MFA olmadan portal isteği
 
-Bu makale, kuruluşunuzun iş ortağı güvenlik gereksinimi durumunu karşılamasına yardımcı olmak için Multi-Factor Authentication (MFA) benimseme ayrıntılarını anlamanıza yardımcı olur. 
-
-## <a name="portal-request-without-mfa"></a>MFA olmadan Portal isteği
-
-MFA kimlik doğrulaması olmadan Iş Ortağı Merkezi portalına erişen bir kullanıcı belirtin.
+MFA kimlik doğrulaması olmadan İş Ortağı Merkezi erişen bir kullanıcıya işaret edin.
 
 | Özellik                            | Tür            | Açıklama                           |
 |-------------------------------------|-----------------|---------------------------------------|
-| ObjectId                            | string          | Kullanıcı nesnesi KIMLIĞI                        |
-| TenantId                            | string          | CSP kiracı KIMLIĞI                         |
-| 'Le                                 | string          | Kullanıcı asıl adı                   |
-| Lastnonmfakarmaşıantlogindatetime    | datetime        | MFA olmadan en son zaman Kullanıcı oturumu açma |
+| ObjectId                            | string          | Kullanıcı Nesne Kimliği                        |
+| TenantId                            | string          | CSP kiracı kimliği                         |
+| Upn                                 | string          | Kullanıcı asıl adı                   |
+| LastNonMfaCompliantLoginDateTime    | datetime        | MFA olmadan en son kullanıcı oturum açma zamanı |
 
 
-## <a name="api-request-summarized-by-application"></a>Uygulamaya göre özetlenen API isteği
+## <a name="api-request-summarized-by-application"></a>Uygulama tarafından özetlenen API isteği
 
-UYGULAMA + kullanıcı kimlik bilgileri tarafından yapılan, istek tarihine ve uygulama kimliğine göre toplanmış API isteğinin Özeti.
+APP + Kullanıcı kimlik bilgileri tarafından yapılan API isteğinin, istek tarihine ve Uygulama Kimliğine göre toplanmış bir özeti.
 
-| Özellik                            | Tür            | Description               |
+| Özellik                            | Tür            | Açıklama               |
 |-------------------------------------|-----------------|---------------------------|
 | LoginDate                           | datetime        | API istek tarihi          |
-| Mfakarmaşıkantrequestcount            | long            | MFA ile istek sayısı    |
+| MfaCompliantRequestCount            | long            | MFA ile istek sayısı    |
 | TotalRequestCount                   | long            | Toplam istek sayısı       |
-| ApplicationID                       | string          | Uygulama KIMLIĞI        |
+| ApplicationID                       | string          | Uygulama kimliği        |
 | ApplicationName                     | string          | Uygulama adı      |
 
 
 ## <a name="api-request-details"></a>API isteği ayrıntıları
 
-UYGULAMA + kullanıcı kimlik bilgileri tarafından gerçekleştirilen API isteği. 
+APP + Kullanıcı kimlik bilgileri tarafından yapılan API isteği. 
 
-| Özellik                            | Tür            | Description                              |
+| Özellik                            | Tür            | Açıklama                              |
 |-------------------------------------|-----------------|------------------------------------------|
-| No                           | string          | MS-RequestId                             |
+| Requestıd                           | string          | MS-RequestId                             |
 | CorrelationId                       | string          | MS-CorrelationId                         |
-| OperationName                       | string          | İstek yöntemi ile API yolu         |
+| OperationName                       | string          | İstek yöntemiyle API yolu         |
 | RequestDateTime                     | DateTime        | API istek süresi                     |
-| Belirlenemiyor                           | string          | Kaynak IP adresi                        |
-| ObjectId                            | string          | Kullanıcı nesnesi KIMLIĞI                           |
-| TenantId                            | string          | CSP kiracı KIMLIĞI                            |
-| 'Le                                 | string          | Kullanıcı asıl adı                      |
+| ıpaddress                           | string          | Kaynak IP adresi                        |
+| ObjectId                            | string          | Kullanıcı nesnesi kimliği                           |
+| TenantId                            | string          | CSP kiracı kimliği                            |
+| Upn                                 | string          | Kullanıcı asıl adı                      |
 | ApplicationID                       | string          | Uygulamanız                         |
-| Mfauyumlu                        | bool            | MFA ile veya olmadan isteği belirtin |
+| MfaCompliant                        | bool            | İsteği MFA ile veya MFA olmadan belirt |

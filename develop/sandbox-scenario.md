@@ -1,41 +1,36 @@
 ---
-title: Satıcı ilişkisi için korumalı alan özellikleri
-description: İş ortağı korumalı alanı, iş ortağı ve müşteri arasındaki ilişkileri destekleyebilir
+title: Kurumsal Bayi ilişkisi için korumalı alan özellikleri
+description: İş ortağı korumalı alanı, iş ortağı ile müşteri arasındaki ilişkileri destekleyene sahip
 ms.date: 05/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9bef4a15685ebbdc2212988f5ac5724b946cfd54
-ms.sourcegitcommit: 1aeaa12705a5945b8aab6bca254fedebd9c8bc4e
+ms.openlocfilehash: aa6c4fb9ef71bacfad7e0f1510fec15f6af60a05
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/21/2021
-ms.locfileid: "110243393"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547402"
 ---
-# <a name="sandbox-capabilities-for-reseller-relationship"></a>Satıcı ilişkisi için korumalı alan özellikleri
+# <a name="sandbox-capabilities-for-reseller-relationship"></a>Kurumsal Bayi ilişkisi için korumalı alan özellikleri
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bu makalede, iş ortağı ve müşteri arasındaki satıcı ilişkileri için korumalı alanda nelerin desteklendiği açıklanır. 
+Bu makalede iş ortağı ile müşteri arasındaki kurumsal bayi ilişkileri için Korumalı Alan'da desteklenenler açıklanmıştır. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- İş Ortağı Merkezi hesabı kimlik bilgileri. Sandbox senaryosu hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
-- Bir müşteri KIMLIĞI (müşteri-Kiracı kimliği). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard/home)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI (müşteri-Kiracı kimliği) ile aynıdır.
-- Bir müşteri, tıp tümleştirme korumalı alanından silinmeden önce tüm Azure ayrılmış sanal makine örneklerinin ve yazılım satın alma siparişlerinin iptal edilmesi gerekir.
+- İş Ortağı Merkezi kimlik bilgileri. Korumalı alan senaryosu hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- Müşteri kimliği (customer-tenant-id). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard/home) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği (customer-tenant-id) ile aynıdır.
+- İpucu Azure Ayrılmış Sanal Makine Örnekleri alanından müşteri silmeden önce tüm yazılım satın alma siparişlerini ve yazılım satın alma siparişlerini iptal etmeniz gerekir.
 
-## <a name="scenarios-supporting-reseller-relationship"></a>Satıcı Ilişkisini destekleyen senaryolar
+## <a name="scenarios-supporting-reseller-relationship"></a>Kurumsal Bayi İlişkisi Destekleyen Senaryolar
 
-1.  Korumalı alan doğrudan fatura ortakları ve dolaylı sağlayıcılar, Sandbox müşterisi ile ilişkiler oluşturabilir. 
-2.  Korumalı alan doğrudan fatura ortakları ve dolaylı sağlayıcılar, korumalı alan müşterilerini davet edemez.
+1.  Korumalı Alan Doğrudan Fatura İş Ortakları ve Dolaylı Sağlayıcılar, Korumalı Alan müşterisi ile ilişkiler oluşturabilir. 
+2.  Korumalı Alan Doğrudan Fatura İş Ortakları ve Dolaylı Sağlayıcılar Korumalı Alan müşterilerini davetamaz.
 
-3. Korumalı alan doğrudan fatura ortağı ve dolaylı sağlayıcılar, Iş Ortağı Merkezi kullanıcı arabiriminden ve API 'den satıcı ilişkisini kaldırabilir.
+3. Korumalı Alan Doğrudan Fatura İş Ortağı ve Dolaylı Sağlayıcılar, kurumsal bayi ilişkisini kullanıcı arabiriminden İş Ortağı Merkezi API'den kaldırabilir.
 
-4. Korumalı alan satıcı Ilişkisini kaldır müşteri AP 'sini Sil ' i çağırır. Bu işlem ilişkiyi kaldırır ve müşteri kiracısını siler. {baseURL}/v1/Customers/{customer-Tenant-id}
+4. Korumalı Alan Kurumsal Bayi İlişkisi Silme müşteri AP'lerini çağıracak. Bu, ilişkiyi kaldırır ve müşteri kiracısı silinir. {baseURL}/v1/Customers/{customer-Tenant-id}
 
 
     ### <a name="in-the-sandbox"></a>Korumalı Alanda
@@ -56,7 +51,7 @@ Bu makalede, iş ortağı ve müşteri arasındaki satıcı ilişkileri için ko
 
     **Dolaylı kurumsal bayi:** 
 
-    -   Mevcut müşterilerle ilişki olabilir
+    -   Mevcut müşterilerle ilişkileri olabilir
 
     -   Yeni ilişkiler isteği veya yeni müşteri ekleme
 
@@ -76,31 +71,31 @@ Bu makalede, iş ortağı ve müşteri arasındaki satıcı ilişkileri için ko
 
     -   Dolaylı kurumsal bayilerle ilişki olabilir
 
-    **Dolaylı satıcılar**:
+    **Dolaylı kurumsal bayiler:**
 
-    -   Yeni müşteriler eklenemiyor
+    -   Yeni müşteri ekley bilmiyorum
 
-    -   Yeni müşterilerle ilişkiler talep edebilir
+    -   Yeni müşterilerle ilişki isteğide olabilir
 
 
-Ayrıntılar için müşterinin [satıcı Ilişkilerini kaldır ilişkisini](remove-a-reseller-relationship-with-a-customer.md) izleyin. Ancak, ürün ve Sandbox özellikleri arasında bazı farklılıklar vardır.
+Ayrıntılar için [müşterinin Kurumsal Bayi](remove-a-reseller-relationship-with-a-customer.md) İlişkilerini Kaldır'ı izleyin. Ancak Product ve Sandbox özellikleri arasında bazı farklar vardır.
 
-### <a name="request-syntax"></a>ISTEK SÖZDIZIMI
+### <a name="request-syntax"></a>İSTEK SÖZ DIZIMI
 
 |**Yöntem**|**Silme**|
 |-------------|------------|
-|Sil|{baseURL}/v1/Customers/{Customer-Tenant-ID} |
+|Sil|{baseURL}/v1/Customers/{customer-Tenant-id} |
 
-İstek gövdesi yok
+İstek gövdesi Yok
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](./error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](./error-codes.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Market ürünleri için korumalı alan aboneliklerini etkinleştirin](activate-sandbox-subscription-azure-marketplace-products.md)
+- [Azure Market ürünleri için Korumalı alan aboneliklerini etkinleştirme](activate-sandbox-subscription-azure-marketplace-products.md)
 
-- [Korumalı alan 'dan bir siparişi iptal etme](cancel-an-order-from-the-integration-sandbox.md)
+- [Korumalı Alandan siparişi iptal etme](cancel-an-order-from-the-integration-sandbox.md)
 
 - [Test etme ve hata ayıklama](test-and-debug.md)

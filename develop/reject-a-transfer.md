@@ -4,18 +4,14 @@ description: Bir müşteri için aboneliklerin aktarımını reddetme.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e4a182ff92a21cf72ca1c2da9de7e211b433725f
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d09905979a89c9b2092462512c485524cd681d5f
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768980"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445383"
 ---
 # <a name="reject-a-transfer"></a>Bir aktarımı reddetme
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 ## <a name="prerequisites"></a>Önkoşullar
 

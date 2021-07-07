@@ -1,34 +1,29 @@
 ---
 title: Destek profili güncelleştirme
-description: Kullanıcının destek profilini güncelleştirir.
+description: Bir kullanıcının destek profilini güncelleştirme.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 605c509eeb18f301144fec6287c9611d5a5acfe2
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 143328c5501f525d52911eead805d420f79b78ff
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769593"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530353"
 ---
 # <a name="update-support-profile"></a>Destek profili güncelleştirme
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Kullanıcının destek profilini güncelleştirir.
+Bir kullanıcının destek profilini güncelleştirme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Destek profilinizi güncelleştirmek için öncelikle [destek profilinizi alın](get-support-profile.md) ve istediğiniz değişiklikleri yapın. Ardından, [**ıpartneroperations. Profiles**](/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) koleksiyonunuzu kullanın. [**Supportprofile**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) özelliğini çağırın, ardından [**Update ()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.update) veya [**UpdateAsync ()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.updateasync) yöntemi.
+Destek profilinizi güncelleştirmek için önce [destek profilinizi oluşturun ve](get-support-profile.md) istediğiniz değişiklikleri yapın. Ardından [**IPartnerOperations.Profiles koleksiyonu kullanın.**](/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) [**SupportProfile özelliğini**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) ve ardından [**Update()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.update) veya [**UpdateAsync() yöntemini**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.updateasync) arayın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,19 +39,19 @@ SupportProfile newSupportProfile = new SupportProfile
 SupportProfile updatedSupportProfile = partnerOperations.Profiles.SupportProfile.Update(newSupportProfile);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnercentersdk. FeaturesSamples **sınıfı**: UpdateSupportProfile.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples **Sınıfı:** UpdateSupportProfile.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                     |
 |---------|---------------------------------------------------------------------------------|
-| **PUT** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/supportprofile http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/supportprofile HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -87,11 +82,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş **supportprofile** nesne özellikleri döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş **SupportProfile** nesne özelliklerini döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

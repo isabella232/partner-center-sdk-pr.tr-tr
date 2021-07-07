@@ -4,21 +4,16 @@ description: Sahtekarlık veya ödeme dışı nedenlerle müşteri ve abonelik K
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f351c87efe2bdc810a66c64a9d01b7d376f8a6e3
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 7dae7c3422a403c48a2b10424c4ae5dbdbc498ea
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769598"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547351"
 ---
 # <a name="suspend-a-subscription"></a>Bir aboneliği askıya alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Sahtekarlık veya ödeme dışı nedenlerle müşteri ve abonelik KIMLIĞIYLE eşleşen bir [abonelik](subscription-resources.md) kaynağını askıya alır.
 
@@ -48,7 +43,7 @@ updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subsc
    });
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresample **sınıfı**: UpdateSubscription.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: updatesubscription. cs
 
 ## <a name="rest-request"></a>REST isteği
 

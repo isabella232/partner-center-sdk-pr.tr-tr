@@ -1,102 +1,98 @@
 ---
 title: CSP Müşteri Vitrini Oluşturucusu Hızlı Başlangıç Kılavuzu
-description: CSP Customer storefront Builder kullanarak bulut çözümü sağlayıcısı (CSP) tekliflerini satmaya yönelik bir çevrimiçi Market oluşturun.
+description: CSP Customer Storefront Builder'ı kullanarak bulut çözümü sağlayıcısı (CSP) tekliflerini satmak için çevrimiçi bir market oluşturun.
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 83ae0c789f95485ec3eb272434e57421a8f93fb6
-ms.sourcegitcommit: 970031473b2e8cd3d08c6c097949c057a51df3ef
+ms.openlocfilehash: 8550492c7a4201a955c7b051b453103628612f3e
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99505331"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111973358"
 ---
 # <a name="csp-customer-storefront-builder-quick-start-guide"></a>CSP Müşteri Vitrini Oluşturucusu Hızlı Başlangıç Kılavuzu
 
-**Uygulama hedefi:**
+CSP Customer Storefront Builder'ı kullanarak bulut çözümü sağlayıcısı (CSP) tekliflerini satmak için çevrimiçi bir market oluşturun.
 
-- İş Ortağı Merkezi
+## <a name="introduction-to-the-csp-customer-storefront-builder"></a>CSP Customer Storefront Builder'a giriş
 
-CSP Customer storefront Builder kullanarak bulut çözümü sağlayıcısı (CSP) tekliflerini satmaya yönelik bir çevrimiçi Market oluşturun.
+CSP Customer Storefront Builder, iş ortaklarının müşterilerine CSP tekliflerini satmaları için kolayca çevrimiçi bir market oluşturmalarına yardımcı olur. Çoğu iş ortağı ve küçük satış kuruluşu, çevrimiçi bir market geliştirmek yerine satışa odaklanmak istiyor. Örnek İş Ortağı Merkezi SDK'sı web sitesi oluşturmak ve dağıtmak için yazılım geliştirme becerilerine ihtiyaç vardır. CSP Customer Storefront Builder ile hızlı ve kolay bir şekilde kendi web sitenizi oluşturabilirsiniz. Ayrıca örnek kod olarak web sitesini indirebilir veya Transact'e Hazır web sitesiyle doğrudan Azure aboneliğinize dağıtabilirsiniz.
 
-## <a name="introduction-to-the-csp-customer-storefront-builder"></a>CSP Customer storefront Builder 'a giriş
+Bu web sitesi tamamen iş ortakları tarafından sahip olunan, desteklenen ve bakımı yapılan bir web sitesidir ve Microsoft web sitesinden herhangi bir veri veya telemetri toplamaz. CSP Customer Storefront Builder, ödeme kartı sektör veri [](https://www.pcisecuritystandards.org/) güvenliği standardı (PCI DSS) ile tamamen uyumlu olan iş ortağı için bir web PCI DSS.
 
-CSP müşteri storefront Oluşturucusu, iş ortaklarının, müşterilerine CSP teklifleri satmak için kolayca çevrimiçi bir market oluşturmalarına yardımcı olur. Çoğu iş ortağı ve küçük satış kuruluşları, çevrimiçi bir market geliştirme yerine satışa odaklanmak ister. Iş Ortağı Merkezi SDK örnek uygulaması, bir Web sitesi oluşturup dağıtmak için yazılım geliştirme becerileri gerektirir. CSP Customer storefront Builder ile kendi web sitenizi hızlı ve kolay bir şekilde oluşturabilirsiniz. Web sitesini örnek kod olarak da indirebilir veya bir Transact Web sitesiyle doğrudan Azure aboneliğinize dağıtabilirsiniz.
-
-Bu web sitesi, iş ortakları tarafından tamamen aittir, desteklenir ve sürdürülür ve Microsoft, Web sitesinden hiçbir veri veya telemetri toplamaz. CSP müşteri storefront Oluşturucusu, iş ortağı için, [ödeme kartı sektör verileri güvenlik standardı](https://www.pcisecuritystandards.org/) (PCI DSS) ile tam uyumlu bir Web sitesi oluşturur.
-
-CSP Customer storefront Builder Kodu, [Iş Ortağı Merkezi SDK EULA 'sında](/legal/partner-center/eula-partner-center-sdk)bulunan lisansa tabidir.
+CSP Customer Storefront Builder kodu, [EULA'daki](/legal/partner-center/eula-partner-center-sdk)İş Ortağı Merkezi SDK'sı tabi olur.
 
 >[!NOTE]
->Storefront Web sitesi yönetimi, bakım ve Web sitesi oluşturma işleminden kaynaklanan sorunlardan siz sorumlusunuz. [Iş ortağı MERKEZI SDK EULA](/legal/partner-center/eula-partner-center-sdk)'daki koşulları okuyun ve anlayın.
+>Vitrin web sitesi yönetiminden, bakımdan ve web sitesi oluşturma sonucunda ortaya çıkan sorunlar sizin sorumluluğundadır. [İş Ortağı Merkezi SDK'sı EULA'daki terimleri okuyun ve anlıyoruz.](/legal/partner-center/eula-partner-center-sdk)
 
-Ek bilgi için, aşağıdaki makalelere bakın: [CSP müşteri web storefront](csp-customer-web-storefront.md) ve [konsol test uygulaması](console-test-app.md).
+Ek bilgi için şu makalelere de bakın: [CSP müşteri web vitrini](csp-customer-web-storefront.md) ve [konsol test uygulaması](console-test-app.md).
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-CSP Customer storefront Builder, Web sitesi oluşturmanın hızlı bir yolu olarak hazırlanmıştır. Planlamada aşağıdaki noktalara dikkat edin:
+CSP Customer Storefront Builder, web sitesi oluşturmanın hızlı bir yolu olarak tasarlanmıştır. Planlamanız sırasında aşağıdaki önemli noktalara dikkat edilmesi gerekir:
 
-- Microsoft ve Iş Ortağı Merkezi dağıtıldıktan sonra, iş ortağı web sitesinin veya CSP müşteri storefront Oluşturucusu 'na eklenen bilgilerin bir kopyasını korumaz.
+- Microsoft ve İş Ortağı Merkezi, dağıtıldıktan sonra iş ortağı web sitesinin bir kopyasını veya CSP Customer Storefront Builder'a eklenen bilgileri korumaz.
 
-- İş Ortağı Merkezi, bir iş ortağının Azure aboneliklerine yalnızca bir CSP Customer storefront Web sitesi dağıtabilir.
+- İş Ortağı Merkezi csP Customer Storefront web sitesini yalnızca iş ortağının Azure abonelikleri için dağıtabilirsiniz.
 
-- Bu web sitesi dağıtıldıktan sonra, iş ortağı tarafından tam olarak sahipli ve yönetilir. Microsoft 'un bu Web sitesine veya Web sitesiyle ilgili herhangi bir veriye erişimi yoktur. İş ortakları, Web sitesinin bakımı ve yönetiminden sorumludur. Microsoft, CSP Customer storefront Builder veya CSP Customer storefront Builder kullanılarak oluşturulan herhangi bir Web sitesi ile ilgili canlı bir Web sitesi ya da diğer destek sağlamacaktır.
+- Bu web sitesi dağıtıldıktan sonra tamamen iş ortağına aittir ve iş ortağı tarafından yönetilir. Microsoft'un bu web sitesine veya web sitesiyle ilgili verilere erişimi yok. İş ortakları web sitesinin bakım ve yönetiminden sorumludur. Microsoft, CSP Customer Storefront Builder veya CSP Customer Storefront Builder kullanılarak oluşturulan herhangi bir web sitesi ile ilgili herhangi bir canlı web sitesi veya başka destek sağlamaz.
 
-- İş Ortağı Merkezi, yeni veya değiştirilmiş SDK veya API özellikleriyle bu Web sitesini doğrudan erişemez veya yükseltemiyor. Yeni özellik veya geliştirmelerin, yeni Iş Ortağı Merkezi SDK veya API özellikleri ekleme dahil olmak üzere iş ortakları tarafından sahip, geliştirilmiş ve yönetilen olması gerekir.
+- İş Ortağı Merkezi yeni veya değiştirilmiş SDK ya da API özellikleriyle bu web sitesine doğrudan erişenin veya web sitesini yükseltesiniz. Yeni özellikler veya geliştirmeler, iş ortakları tarafından sahip olunmalı, geliştirilmeli ve yönetilmeli ve iş ortakları tarafından yönetilmeli ve yeni İş Ortağı Merkezi SDK'sı api özellikleri ekleme de dahil olmak üzere.
 
-- Bu CSP Customer storefront Builder Şu anda bir PayPal Pro/PayU para (Hindistan için) hesabına ödeme yapılandırma olanağı sağlıyor. İş ortaklarının ödeme işlemcisini değiştirmesi gerekiyorsa, bu kodun tercih ettiği ödeme yöntemini desteklemesi için kodu değiştirmesi gerekir.
+- Bu CSP Customer Storefront Builder şu anda bir PayPal Pro/PayU Money (Hindistan için) hesabına ödeme yapılandırma olanağı sağlar. İş ortaklarının ödeme işlemcisini değiştirmesi gerekirse, tercih ettiği ödeme yöntemini desteklemek için kodu değiştirmesi gerekir.
 
-- CSP Customer storefront Builder 'a eklenen ödeme ile ilgili tüm bilgiler, Iş Ortağı Merkezi 'nde depolanmaz veya korunmaz.
+- CSP Customer Storefront Builder'a eklenen ödemeyle ilgili bilgiler, İş Ortağı Merkezi.
 
-- PayPal ödeme yapılandırması, PayPal 'in kullanılabildiği tüm coğrafi bölgelerde çalışacaktır. PayPal kullanılabilirliği ve desteği yalnızca PayPal tarafından denetlenir ve PayPal tarafından herhangi bir zamanda durdurulmuş olabilir.
+- PayPal yapılandırması, yapılandırmanın kullanılabilir olduğu tüm PayPal çalışır. PayPal kullanılabilirlik ve destek yalnızca PayPal tarafından denetlenmektedir ve herhangi bir zamanda kullanımdan kaldır PayPal.
 
-- PayU ödeme yapılandırması, yalnızca Hindistan 'da çalışır. PayU kullanılabilirliği ve desteği yalnızca PayU tarafından denetlenir ve PayU tarafından herhangi bir zamanda sonlandırılabilir.
+- PayU ödeme yapılandırması şu anda yalnızca Hindistan'da çalışır. PayU kullanılabilirliği ve desteği yalnızca PayU tarafından denetlenmektedir ve PayU tarafından herhangi bir zamanda kullanımdan kaldırılaabilmektedir.
 
-- [Iş ortağı MERKEZI SDK EULA](/legal/partner-center/eula-partner-center-sdk)'daki koşulları okuyun ve anlayın.
+- [İş Ortağı Merkezi SDK'sı EULA'daki terimleri okuyun ve anlıyoruz.](/legal/partner-center/eula-partner-center-sdk)
 
-## <a name="using-the-csp-customer-storefront-builder"></a>CSP Customer storefront Builder 'ı kullanma
+## <a name="using-the-csp-customer-storefront-builder"></a>CSP Customer Storefront Builder'ı kullanma
 
-Iş Ortağı Merkezi 'ndeki CSP iş ortağı yöneticileri, doğrudan Iş Ortağı Merkezi 'nden bir CSP müşterisi storefront dağıtabilir. En düşük çabayla, ortağın kiracısına yeni bir Web sitesi dağıtılabilir. Dağıtım yapıldıktan sonra, iş ortakları, marka, teklif ve ödemeyle ilgili bilgileri yapılandırmak için Web sitesini kullanabilir ve sonra Web sitesi URL adresini müşterilerle paylaşabilir.
+İş Ortağı Merkezi CSP iş ortağı yöneticileri doğrudan İş Ortağı Merkezi. En az çabayla, iş ortağının kiracısına yeni bir web sitesi dağıtılabilir. İş ortakları dağıtıldıktan sonra web sitesini kullanarak markayı, teklifleri ve ödemeyle ilgili bilgileri yapılandırarak web sitesi URL adresini müşterilerle paylaşabilir.
 
-Storefront Web sitesi oluşturma işlemi şu şekilde yapılır:
+Vitrin web sitesi oluşturma işlemi şunları yapmaktır:
 
 1. [Web sitesini dağıtma](#deploy)
 
-2. [Storefront yapılandırma](#configure)
+2. [Vitrini yapılandırma](#configure)
 
-3. [Storefront üzerinde Transact](#transact)
+3. [Vitrinde işlem](#transact)
 
 ### <a name="deploy"></a>Dağıtma
 
 Dağıtım seçenekleri:
 
-- GitHub 'dan [Iş Ortağı Merkezi storefront örnek kodunu](https://github.com/Microsoft/Partner-Center-Storefront) indirin
-- Yapılandırılmış Web sitesini dağıtmak için Azure ile tümleştirin
-- Mevcut bir abonelikte dağıtın veya kendi aboneliğinizi getirin
+- İş Ortağı Merkezi [storefront örnek kodunu GitHub](https://github.com/Microsoft/Partner-Center-Storefront)
+- Yapılandırılmış web sitesini dağıtmak için Azure ile tümleştirin
+- Mevcut bir abonelikte dağıtma veya kendi aboneliğinizi getirme
 
 ### <a name="configure"></a>Yapılandırma
 
-Bir storefront özelleştirmek için geliştirme becerileri gerekmez.
+Vitrini özelleştirmek için geliştirme becerisi gerekmez.
 
-Yapılandırmak için Iş ortağı merkezi yönetici kimlik bilgilerinizle oturum açın:
+Şunları yapılandırmak için İş Ortağı Merkezi yönetici kimlik bilgilerinizle oturum açma:
 
-- **Marka**: şirket adı, logo, kişiler ve daha fazlası.
+- **Markalama:** şirket adı, logo, kişiler ve daha fazlası.
 
-- **Teklifler**: tüm CSP tekliflerini görüntüleyin. Müşterilerinizin görüntüleyebileceği ve satın alabileceğiniz teklifleri seçebilirsiniz. Ayrıca teklif bilgilerini kişiselleştirebilir ve fiyatlarınızı ekleyebilirsiniz.
+- **Teklifler:** Tüm CSP tekliflerini görüntüleme. Müşterilerinize hangi tekliflerin görüntüleye ve satın alınarak satın alınalarını seçerek. Ayrıca teklif bilgilerini kişiselleştirin ve fiyatınızı ekleyin.
 
-- **PayPal ödeme yapılandırması**: PayPal ödeme hesabı bilgilerinizi ekleyin. PayPal hesabınız yoksa [https://www.paypal.com](https://www.paypal.com) Yeni bir hesap ziyaret edebilir ve yeni bir hesap oluşturabilirsiniz. Bu hesap, PayPal için, müşteriler tarafından yapılan ödemeleri alacak şekilde kullanılacaktır. *Microsoft, iş ortakları ve PayPal arasındaki ilişkiden sorumlu değildir. PayPal kullanımı, iş ortağının veya iş ortağının müşterilerinin ek koşulları kabul etmesi için gerekli olabilir.*
+- **PayPal yapılandırması:** Ödeme PayPal bilgilerini ekleyin. Bir hesap hesabınız yoksa PayPal yeni bir hesap [https://www.paypal.com](https://www.paypal.com) oluşturabilirsiniz. Bu hesap, müşteriler tarafından PayPal kredisi almak için kullanılacaktır. *İş ortakları ile iş ortakları arasındaki ilişkiDen Microsoft PayPal. Bu PayPal, iş ortağının veya iş ortağının müşterilerinin ek koşulları kabul etmiş olabilir.*
 
-- (*Hindistan için*) **PayU ödeme yapılandırması**: PayU para ödeme hesabı bilgilerinizi ekleyin. Bir PayU para hesabınız yoksa [https://www.payumoney.com/](https://www.payumoney.com/) Yeni bir hesap ziyaret edebilir ve yeni bir hesap oluşturabilirsiniz. Bu hesap PayU 'nin müşteriler tarafından yapılan ödemeleri alacağı şekilde kullanılacaktır. *Microsoft, iş ortakları ve PayU arasındaki ilişkiden sorumlu değildir. PayU kullanımı, iş ortağının veya iş ortağının müşterilerinin ek koşulları kabul etmesi için gerekli olabilir.*
+- (*Hindistan için*) **PayU Ödeme yapılandırması:** PayU Para ödeme hesabı bilgilerini ekleyin. PayU Money hesabınız yoksa, ziyaret edin ve yeni [https://www.payumoney.com/](https://www.payumoney.com/) bir hesap oluşturun. Bu hesap, Müşteriler tarafından yapılan ödemelerin kredisi için PayU için kullanılır. *İş ortakları ile PayU arasındaki ilişki Microsoft'un sorumluluğunda değildir. PayU'nun kullanımı, iş ortağının veya iş ortağının müşterilerinin ek koşulları kabul etmiş olabilir.*
 
 ### <a name="transact"></a>İşlem
 
-- Dağıtımdan sonra müşteriler hemen satın alabilir ve Transact.
+- Dağıtımdan sonra müşteriler hemen satın alma ve işlemde olabilir.
 
-- Müşteriler, Iş Ortağı Merkezi SDK ile tümleştirilmiş iş ortağı portalından doğrudan satın alabilir.
+- Müşteriler doğrudan iş ortağı portalıyla tümleştirilmiş iş ortağı portalını İş Ortağı Merkezi SDK'sı.
 
 #### <a name="customer-countries"></a>Müşteri ülkeleri
 
-Müşteriler bu ülkelere ait olabilir:
+Müşteriler şu ülkelere ait olabilir:
 
 | Ülke Kodu | Ülke Adı   |
 |--------------|----------------|
@@ -148,7 +144,7 @@ Gelişmiş veya özelleştirilmiş bir CSP müşteri storefront dağıtmak için
 
 - Ek özelleştirmeler yapmak için [Iş Ortağı Merkezi storefront örnek kodunu](https://github.com/Microsoft/Partner-Center-Storefront) indirin.
 
-- Geliştirmek için Microsoft Visual Studio 2015 (veya üzeri) kullanın.
+- geliştirmek için Microsoft Visual Studio 2015 (veya üzeri) kullanın.
 
 - Ek değişiklikler ve geliştirmeler için derleyin (yetkilendirmeler, sertifikalar, bildirim değişiklikleri ve diğer öğeler dahil).
 
@@ -162,7 +158,7 @@ Gelişmiş veya özelleştirilmiş bir CSP müşteri storefront dağıtmak için
 
   - Storefront, ortağın iş ortağı merkezindeki iş ortağının profilinden varsayılan yerel ayarını kullanarak yerel ayarı yapılandırır. Bu yerel ayar, depoda para birimlerini, tarih biçimlerini ve yerelleştirilmiş teklifleri yapılandırmak için kullanılır.
 
-- İş ortakları marka, teklif ve PayPal ya da PayU (Hindistan için) ödeme bilgilerini yapılandırabilir.
+- iş ortakları marka, teklif ve PayPal veya payu (hindistan için) ödeme bilgilerini yapılandırabilir.
 
 - İş ortakları şirket adını, Şirket logosunu, başlık görüntüsünü, satışları ve destek kişilerini ve daha fazlasını güncelleştirebilir.
 
@@ -177,18 +173,18 @@ Gelişmiş veya özelleştirilmiş bir CSP müşteri storefront dağıtmak için
 
   - Önceden onaylanan müşterilerin yeni abonelikler eklerken, var olan aboneliklerde ek lisanslar satın alması veya bir aboneliği yenilemeleri durumunda portal üzerinde ödeme yapması gerekmez.
 
-  - Önceden onaylanmış müşteriler, bu işlemler sırasında ödeme için PayPal veya PayU 'ya (Hindistan için) yeniden yönlendirilmeyecektir.
+  - önceden onaylanmış müşteriler, bu işlemler sırasında ödeme için PayPal veya payu (hindistan için) olarak yeniden yönlendirilmeyecektir.
 
   - Önceden onaylanmış müşteri işlemleri, bir ortağın, önceden onaylanmış müşterilerine çevrimdışı faturalandırma ve faturalandırma yapmasına izin verir.
 
-- Bir CSP iş ortağı PayPal Istemci KIMLIĞI ve gizli dizisi gibi PayPal hesap bilgilerini girişi yapabilir. CSP iş ortağı Ayrıca, bir korumalı alan veya canlı hesap kullanarak test etmek isteyip istemediğinizi de seçebilir.
+- CSP iş ortağı, PayPal istemci kimliği ve gizli dizi gibi PayPal hesap bilgilerini girişi yapabilir. CSP iş ortağı Ayrıca, bir korumalı alan veya canlı hesap kullanarak test etmek isteyip istemediğinizi de seçebilir.
 
-  - İş ortakları, bu bilgileri [https://developer.paypal.com/](https://developer.paypal.com/) **uygulamalarımın & kimlik bilgileriyle** bulabilir. Bu bilgileri geçerli bir uygulamadan veya PayPal 'de yeni bir uygulama oluşturarak da alabilirsiniz.
-  - Henüz bir tane yoksa yeni bir PayPal hesabı oluşturun. Bu hesap, PayPal için, müşteriler tarafından yapılan ödemeleri alacak şekilde kullanılacaktır.
+  - İş ortakları, bu bilgileri [https://developer.paypal.com/](https://developer.paypal.com/) **uygulamalarımın & kimlik bilgileriyle** bulabilir. Ayrıca, bu bilgileri geçerli bir uygulamadan veya PayPal yeni bir uygulama oluşturarak alabilirsiniz.
+  - henüz yoksa yeni bir PayPal hesabı oluşturun. bu hesap, müşteriler tarafından yapılan ödemeleri kredi PayPal için kullanılacaktır.
 
     - PayPal iş hesabını açmak için bkz [https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register](https://developer.paypal.com/docs/classic/lifecycle/goingLive/#register) ..
 
-    - PayPal korumalı alan hesabı oluşturmak için bkz [https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/) ..
+    - PayPal bir korumalı alan hesabı oluşturmak için bkz [https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/](https://developer.paypal.com/docs/classic/lifecycle/ug_sandbox/) ..
 
 - (Hindistan için) bir CSP iş ortağı PayU Istemci KIMLIĞI ve parolası gibi PayU para hesabı bilgilerini girişi yapabilir. İş ortakları hakkında daha fazla bilgi bulabilir [https://developer.payumoney.com/](https://developer.payumoney.com/) .
 
@@ -208,58 +204,58 @@ Gelişmiş veya özelleştirilmiş bir CSP müşteri storefront dağıtmak için
 - Müşteriler, katalogdan satın alma için bir teklif seçebilir.
   - Müşteri adlarını, adreslerini ve etki alanıyla ilgili bilgileri ekleyebilirler.
 
-- Müşteriler PayPal veya PayU (Hindistan için) kullanıma alma deneyimine yönlendirilir. Müşteriler, aşağıdakileri kullanarak ödeme sağlayabilir:
-  - Mevcut PayPal veya PayU (Hindistan için) hesabı
-  - Bu kişilerin ülkesinde PayPal veya PayU tarafından desteklenen komik araçlar (Hindistan için). Bunlar, kredi kartları, banka kartları ve banka hesaplarını geçerli olarak içerebilir.
+- müşteriler PayPal veya payu (hindistan için) kullanıma alma deneyimine yönlendirilir. Müşteriler, aşağıdakileri kullanarak ödeme sağlayabilir:
+  - mevcut PayPal veya payu (hindistan için) hesabı
+  - PayPal veya payu (hindistan için) tarafından ülkenizde desteklenen komik araçlar. Bunlar, kredi kartları, banka kartları ve banka hesaplarını geçerli olarak içerebilir.
 
 - Bu müşteri için bir müşteri kiracının oluşturulması. Kiracı siparişi başarıyla oluşturulduktan sonra müşterilere hesap Kullanıcı adı, parola ve abonelik ayrıntıları verilir.
-  - Müşteriler Kullanıcı adını ve parolayı kaydederek daha fazla satın alma işlemleri için oturum açabilir.
-  - Her abonelik bir yıl boyunca satın alınır ve müşteriler abonelik bitiş tarihinden önce 30 gün içinde yenileyebilirler.
+  - Müşteriler, daha fazla satın alma için oturum açmış olarak kalmak için kullanıcı adını ve parolayı kaydedebilir.
+  - Her abonelik bir yıl boyunca satın alınmaktadır ve müşteriler, abonelik bitiş tarihinden 30 gün önce yenilemektedir.
 
-### <a name="view-prior-purchases-scenario"></a>Önceki satın alma senaryosunu görüntüleyin
+### <a name="view-prior-purchases-scenario"></a>Önceki satın alma senaryosunu görüntüleme
 
-- Müşteri, müşteri kiracısı Kullanıcı adı ve parolasıyla oturum açar ve **emirlerim** bölümüne gider.
+- Müşteri, Müşteri kiracısı kullanıcı adı ve parolasıyla oturum alır ve **Siparişlerim bölümüne** gider.
 
-- Müşteriler, satın alınan abonelikleri görüntüleyebilecekleri ve gerekirse güncelleştirmeler yapabileceğiniz **siparişler** sayfasına gidebilir.
+- Müşteriler, satın alınan **abonelikleri görüntüleyebilirsiniz** ve gerekirse güncelleştirmeler yapmak için Siparişlerim sayfasına gidin.
 
-- Müşteriler, Iş Ortağı Merkezi 'nde tutuldukları dahil olmak üzere tüm abonelikleri (lisans tabanlı ve kullanım tabanlı) görüntüleyebilecekleri **Aboneliklerim** sayfasına gidebilir.
+- Müşteriler, aboneliklerde **bakımı** yapılanlar dahil olmak üzere tüm abonelikleri (lisans tabanlı ve kullanım tabanlı) görüntüley oldukları Aboneliklerim sayfasına İş Ortağı Merkezi.
 
-### <a name="add-licenses-to-existing-subscriptions-scenario"></a>Mevcut abonelikler senaryosuna lisans ekleme
+### <a name="add-licenses-to-existing-subscriptions-scenario"></a>Mevcut aboneliklere lisans ekleme senaryosu
 
-- Müşteriler, **mevcut** aboneliklere daha fazla lisans ekleyebilir. Müşteriler, abonelik yılı sırasında dilediğiniz zaman daha fazla lisans ekleyebilir.
+- Siparişlerim **bölümünde** müşteriler mevcut aboneliklere daha fazla lisans ekleyebilir. Müşteriler abonelik yılı boyunca dilediğiniz zaman daha fazla lisans ekleyebilir.
 
-- Her eklenen lisans Aboneliğin bitiş tarihini değiştirmez. Bununla birlikte, aboneliğin fiyatı, lisansı eklediğiniz tarihe ve bu tarihin yılda bulunduğu konuma göre değişir. Fiyatlandırma, gün başına eşit olarak dağıtılır ve yalnızca yılın kalan günleri için ücretlendirilir.
+- Eklenen her lisans, aboneliğin bitiş tarihini değiştirmez. Ancak aboneliğin fiyatı, lisansı ekley istediğiniz tarihe ve bu tarihin yıl içinde bulunduğu tarihe göre değişir. Fiyatlandırma, yalnızca yılın kalan günlerini ücretlendirmek için günlük olarak protrat edilir.
 
-### <a name="add-more-subscriptions-scenario"></a>Daha fazla abonelik ekleyin senaryosu
+### <a name="add-more-subscriptions-scenario"></a>Daha fazla abonelik ekleme senaryosu
 
-- Müşteriler istediğiniz zaman herhangi bir **sayıda abonelik satın** **alabilir.**
+- Müşteriler, Siparişlerim bölümündeki Abonelik ekle bölümünden istediğiniz **zaman istediğiniz** sayıda abonelik **satın alabilir.**
 
-- Bir müşteri bir abonelik seçebilir, bir miktar ekleyebilir ve işlemi tamamlamaya ve aboneliği hemen kullanmaya başlayabilirler. Müşteri önceden onaylanmış bir müşterisiyse, abonelik hemen kullanılabilir ve müşteriye ödeme için bir fatura gönderilir.
+- Müşteri bir abonelik seçer, miktar ekleyebilir ve işlemi tamamlamak için ödeme yapmak ve aboneliği hemen kullanmaya başlayabilir. Müşteri önceden onaylanmış bir müşteri ise abonelik hemen kullanılabilir ve ödeme için müşteriye bir fatura gönderilir.
 
-### <a name="renew-subscription-scenario"></a>Aboneliği Yenile senaryosu
+### <a name="renew-subscription-scenario"></a>Abonelik yenileme senaryosu
 
-- Bir müşteri, abonelik bitiş tarihinden önce son 30 gün içinde bir aboneliği yenileyebilirler.
+- Müşteri, abonelik bitiş tarihinden önceki son 30 gün içinde aboneliği yeniler.
 
 - Bu yalnızca son 30 gün içinde kullanılabilir.
 
-- Son 30 gün içinde yenilenmezse abonelik, bu müşteri kiracının abonelikleri listesinden kaldırılır.
+- Son 30 gün içinde yenilenmezse, abonelik bu Müşteri kiracısı için abonelik listesinden kaldırılır.
 
-- Yenileme sırasında miktarı güncelleştiremezsiniz.
+- Yenileme sırasında miktarı güncelleştiresiniz.
 
 ### <a name="payments-scenario"></a>Ödemeler senaryosu
 
-- Müşteri işlemler için yönetici tarafından önceden onaylanırsa, yukarıdaki senaryolar için ödeme deneyimi sunulmaz. Bunun yerine, iş ortağı fatura ödemesini önceden onaylanan müşteriye gönderebilir.
+- Müşteri, yönetici tarafından işlemler için önceden onaylanırsa, yukarıdaki senaryolar için ödeme deneyimi sunlanmaz. Bunun yerine iş ortağı, ödeme için faturayı önceden onaylanmış müşteriye gönderebilir.
 
-- Tüm yeni satın almalar için daha fazla lisans ekleyebilir, abonelik ekleyebilir ve yenileme işlemleri yapabilirsiniz. Müşteri, bu Web sitesini PayPal veya PayU aracılığıyla kullanarak bir iş ortağı ödeyebilir (Hindistan için).
+- Tüm yeni satın alma işlemleri için daha fazla lisans ekleyebilir, abonelik ekleyebilir ve yenileyebilirsiniz. Müşteri bu web sitesini kullanarak bir iş ortağına PayPal (Hindistan için) üzerinden ödemesi olabilir.
 
-- Bu web sitesi PayPal veya PayU (Hindistan için) ile tümleşiktir ve iş ortaklarının müşterilerinin ödemelerini kabul etmesine olanak tanır. PayPal veya PayU (Hindistan için), bu miktarı bir iş ortağının hesabında alacaklandırır. PayPal veya PayU (Hindistan için) banka hesabı yönetimi, bu Web sitesinin dışındadır ve sırasıyla PayPal.com veya PayUmoney.com üzerinde yönetilir.
+- Bu web sitesi, PayPal veya PayU (Hindistan için) ile tümleştirilmiştir ve iş ortaklarının müşterilerinden ödemeleri kabul etmelerini sağlar. PayPal veya PayU (Hindistan için) bu tutarı bir iş ortağının hesabında krediler. PayPal veya PayU (Hindistan için) Banka hesap yönetimi bu web sitesinin dışındadır ve sırasıyla PayPal.com veya PayUmoney.com yönetilir.
 
-- Bu, PayPal.com veya PayUmoney.com adresinden PayPal orPayU (Hindistan için) ödeme yapılandırmasını yapılandıran iş ortaklarına bağımlıdır. Microsoft bu bilgileri veya bu seçeneği kullanmanın sonucu olan gerçek ödeme işlemlerini kaydetmez.
+- Bu, iş ortaklarının PayPal.com veya PayPal adresinden ödeme yapılandırmasına veyaPayU (Hindistan için) ödeme yapılandırmasına PayUmoney.com. Microsoft bu bilgilerin veya bu seçeneğin kullanımından elde edilen gerçek ödeme işlemlerini kaydetmez.
 
-### <a name="prorated-pricing-scenario"></a>Eşit olarak dağıtılmış fiyatlandırma senaryosu
+### <a name="prorated-pricing-scenario"></a>Prorated fiyatlandırma senaryosu
 
-- Bu web sitesi, müşterilerin mevcut bir aboneliğe daha fazla lisans eklemesi durumunda eşit oranda dağıtılmış fiyatlandırmayı destekler.
+- Bu web sitesi, müşterilerin mevcut aboneliğe daha fazla lisans eklemesi durumlarında prokratlı fiyatlandırmayı destekler.
 
-- Her aboneliğin süresi bir yıl sonra dolar ve abonelik satın alındıktan sonra değiştirilemez.
+- Her aboneliğin süresi bir yıl sonra dolar ve abonelik satın alındikten sonra değiştirilemez.
 
-- Aboneliğin bitiş tarihi, ek lisanslar eklenerek değişmeyecektir. Müşteriler bitiş tarihine kadar kalan gün sayısı üzerinden ücretlendirilecektir. Örneğin, günde bir abonelik ücreti $365 ise ve iki güne de bir lisans eklerseniz, yeni lisansın fiyatı $364 olacaktır. Daha sonra 10 gün daha daha bir lisans eklerseniz, Fiyat $354 olur.
+- Ek lisanslar ekleyerek aboneliğin bitiş tarihi değişmez. Müşteriler, bitiş tarihine kadar kalan gün sayısı için ücret tahsil edilecektir. Örneğin, ilk günde abonelik maliyeti 365 ABD doları ise ve iki. günde bir lisans daha eklersiniz, yeni lisansın fiyatı 364 ABD doları olur. 10 gün sonra bir lisans daha eklersiniz, fiyat 354 ABD doları olur.

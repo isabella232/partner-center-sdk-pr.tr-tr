@@ -1,41 +1,37 @@
 ---
-title: Kimliğe göre bir self servis ilkesi alma
-description: Belirtilen self servis ilkesini KIMLIĞINI kullanarak alır.
+title: Kimlikle self servis ilkesi elde etme
+description: Kimliğini kullanarak belirtilen self servis ilkesi alır.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: ec01d0d9b7c3858cdacf1dbaad3b2b0bb7b6a1a4
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 074d7ba65c7aab91687a67f50e871cee913fc2bb
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769088"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873845"
 ---
-# <a name="get-a-self-serve-policy-by-id"></a>Kimliğe göre bir self servis ilkesi alma
+# <a name="get-a-self-serve-policy-by-id"></a>Kimlikle self servis ilkesi elde etme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Belirtilen self servis ilkesini KIMLIĞINI kullanarak alır.
+Kimliğini kullanarak belirtilen self servis ilkesi alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
-- Self Servis ilke KIMLIĞI.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
+- Self servis ilke kimliği.
 
 ## <a name="examples"></a>Örnekler
 
 
-## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST Isteği
+## <a name="span-idrest_requestspan-idrest_requestspan-idrest_requestrest-request"></a><span id="REST_Request"/><span id="rest_request"/><span id="REST_REQUEST"/>REST İsteği
 
-**İstek sözdizimi**
+**İstek söz dizimi**
 
 | Yöntem  | İstek URI'si                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy/{id} HTTP/1.1 |
 
 **URI parametresi**
 
@@ -43,11 +39,11 @@ Belirtilen ürünü almak için aşağıdaki yol parametrelerini kullanın.
 
 | Ad                       | Tür         | Gerekli | Açıklama                                                     |
 |----------------------------|--------------|----------|-----------------------------------------------------------------|
-| **SelfServePolicy kimliği**     | **dizisinde**   | Yes      | Self Servis ilkesini tanımlayan bir dize.                 |
+| **SelfServePolicy-id**     | **string**   | Yes      | Self servis ilkesi tanımlayan bir dize.                 |
 
 **İstek üst bilgileri**
 
-- Daha fazla bilgi için bkz. [üst](headers.md) bilgiler.
+- Daha fazla bilgi için [bkz. Üst Bilgiler.](headers.md)
 
 **İstek gövdesi**
 
@@ -65,17 +61,17 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağı içerir.
+Başarılı olursa, yanıt gövdesi bir [SelfServePolicy kaynağı](self-serve-policy-resources.md#selfservepolicy) içerir.
 
-**Yanıt başarısı ve hata kodları**
+**Yanıt başarı ve hata kodları**
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Description                                                                |
+| HTTP Durum Kodu     | Hata kodu   | Açıklama                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
-| 404                  | 600039       | Self Servis ilkesi bulunamadı.                                                     |
+| 404                  | 600039       | Self servis ilkesi bulunamadı.                                                     |
 
 **Yanıt örneği**
 

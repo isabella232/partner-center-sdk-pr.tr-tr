@@ -1,56 +1,52 @@
 ---
 title: Güvenli uygulama modelini etkinleştirme
-description: Iş ortağı merkezi ve Denetim Masası uygulamalarınızın güvenliğini sağlayın.
+description: Uygulamalarınızı İş Ortağı Merkezi denetim masası uygulamalarının güvenliğini sağlama.
 ms.date: 01/20/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-csp
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 3e153e1e7d4e38580d8cb39a3996e56365ff5fbe
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 5d35c0512ba8edcf3742ee69d38c699a9a8c16d2
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769304"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906414"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>Güvenlik Uygulama Modeli çerçevesini etkinleştirme
 
-**Uygulama hedefi:**
+Microsoft, Microsoft Azure Active Directory Multi-Factor Authentication (MFA) mimarisi aracılığıyla bulut çözümü sağlayıcısı (CSP) iş ortaklarının ve denetim masası satıcılarının (CPV) kimliklerini doğrulamaya Microsoft Azure Active Directory güvenli ve ölçeklenebilir bir çerçeve sunmaktadır.
 
-- İş Ortağı Merkezi
-
-Microsoft, Microsoft Azure Multi-Factor Authentication (MFA) mimarisi aracılığıyla bulut çözümü sağlayıcısı (CSP) iş ortaklarının ve Denetim Masası satıcılarının (CPV) kimlik doğrulaması için güvenli ve ölçeklenebilir bir çerçeve sunuyor.
-
-Iş Ortağı Merkezi API Tümleştirmesi çağrıları için güvenliği yükseltmek üzere yeni modeli kullanabilirsiniz. Bu, tüm taraflara (Microsoft, CSP iş ortakları ve CPVs 'ler dahil), altyapı ve müşteri verilerini güvenlik risklerinden korumalarına yardımcı olur.
+Yeni modeli kullanarak API tümleştirme çağrılarına İş Ortağı Merkezi yükseltebilirsiniz. Bu, tüm tarafların (Microsoft, CSP iş ortakları ve CPV'ler dahil) altyapılarını ve müşteri verilerini güvenlik risklerinden korumalarına yardımcı olur.
 
 ## <a name="scope"></a>Kapsam
 
-Bu makalede aşağıdaki aktörlerin kaygıları vardır:
+Bu makale aşağıdaki aktörlerle ilgilidir:
 
 - CPV’ler
   - CPV, CSP iş ortakları tarafından İş Ortağı Merkezi API’leriyle tümleştirilmek üzere kullanılacak uygulamalar geliştiren bağımsız yazılım satıcısıdır.
   - CPV, İş Ortağı Merkezi panosuna veya API’lerine doğrudan erişimi olan bir CSP iş ortağı değildir.
 
-- CSP dolaylı sağlayıcıları ve uygulama KIMLIĞI + Kullanıcı kimlik doğrulaması kullanan CSP Direct iş ortakları ve doğrudan Iş Ortağı Merkezi API 'Leri ile tümleştirin.
+- Uygulama kimliği + kullanıcı kimlik doğrulaması kullanan ve doğrudan uygulama API'leriyle tümleştiren CSP dolaylı sağlayıcıları ve CSP İş Ortağı Merkezi iş ortakları.
 
 ## <a name="security-requirements"></a>Güvenlik gereksinimleri
 
-Güvenlik gereksinimleriyle ilgili ayrıntılar için bkz. [Iş ortağı güvenlik gereksinimleri](/partner-center/partner-security-requirements).
+Güvenlik gereksinimleri hakkında ayrıntılı bilgi için bkz. [İş Ortağı Güvenlik Gereksinimleri.](/partner-center/partner-security-requirements)
 
-## <a name="secure-application-model"></a>Güvenli uygulama modeli
+## <a name="secure-application-model"></a>Güvenli Uygulama Modeli
 
-Market uygulamalarının Microsoft API 'Leri çağırmak için CSP iş ortağı ayrıcalıklarının kimliğine bürünmesi gerekir. Bu hassas uygulamalardaki güvenlik saldırıları müşteri verilerinin tehlikeye çıkmasına neden olabilir.
+Market uygulamalarının Microsoft API'lerini çağıran CSP iş ortağı ayrıcalıklarının kimliğine bürünmeleri gerekir. Bu hassas uygulamalara yönelik güvenlik saldırıları müşteri verilerini tehlikeye atarak yol açabilirsiniz.
 
-Yeni kimlik doğrulama çerçevesiyle ilgili genel bilgiler ve Ayrıntılar için [güvenli uygulama modeli çerçevesi](https://assetsprod.microsoft.com/secure-application-model-guide.pdf) belgesini indirin. Bu belgede, Market uygulamalarının güvenliği tehlikeye atmayı ve güçlü hale getirmek için ilkeler ve en iyi uygulamalar ele alınmaktadır.
+Yeni kimlik doğrulama çerçevesine genel bakış ve ayrıntılar için Güvenli Uygulama Modeli [belgesini](https://assetsprod.microsoft.com/secure-application-model-guide.pdf) indirin. Bu belge, market uygulamalarını güvenlik tehlikeye atlarına karşı sürdürülebilir ve sağlam hale etmek için ilkeler ve en iyi yöntemleri kapsar.
 
 ## <a name="samples"></a>Örnekler
 
-Aşağıdaki genel bakış belgeleri ve örnek kod, iş ortaklarının güvenli uygulama modeli çerçevesini nasıl uygulayabileceğini açıklamaktadır:
+Aşağıdaki genel bakış belgeleri ve örnek kod, iş ortaklarının Güvenli Uygulama Modeli açıklar:
 
 - [CPV genel bakış belgesi](https://assetsprod.microsoft.com/cpv-partner-application-overview.pdf)
-- [CSP genel bakış belgesi](https://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
-- [.NET örnekleri](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
-- [Java örnekleri](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
+- [CSP'ye genel bakış belgesi](https://assetsprod.microsoft.com/csp-partner-application-overview.pdf)
+- [.NET Örnekleri](https://github.com/microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model)
+- [Java Örnekleri](https://github.com/microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model)
 
     [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
@@ -59,62 +55,62 @@ Aşağıdaki genel bakış belgeleri ve örnek kod, iş ortaklarının güvenli 
 
 ## <a name="rest"></a>REST
 
-Örnek kodla güvenli uygulama modeli çerçevesiyle REST çağrıları yapmak için şu adımları izleyin:
+Güvenli Uygulama Modeli çerçevesini örnek kodla rest çağrısı yapmak için şu adımları izleyin:
 
 1. [Web uygulaması oluşturma](#create-a-web-app)
 
 2. [Yetkilendirme kodu al](#get-authorization-code)
 
-3. [Yenileme belirteci al](#get-refresh-token)
+3. [Yenileme belirteci alın](#get-refresh-token)
 
 4. [Bir erişim belirteci alma](#get-access-token)
 
 5. [İş Ortağı Merkezi API çağrısı yapma](#make-partner-center-api-calls)
 
 > [!TIP]
-> Bir yetkilendirme kodu ve yenileme belirteci almak için Iş Ortağı Merkezi PowerShell modülünü kullanabilirsiniz. Adım 2 ve 3 ' ün yerine bu seçeneği belirleyebilirsiniz. Daha fazla bilgi için [PowerShell bölümüne ve örneklerine](#powershell)bakın.
+> Yetkilendirme kodu ve İş Ortağı Merkezi almak için PowerShell modülünü kullanabilirsiniz. 2. ve 3. adımlar yerine bu seçeneği seçebilirsiniz. Daha fazla bilgi için [PowerShell bölümüne ve örneklerine bakın.](#powershell)
 
 ### <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-REST çağrıları yapmadan önce Iş Ortağı Merkezi 'nde bir Web uygulaması oluşturmanız ve kaydetmeniz gerekir.
+REST çağrıları yapmadan önce bir web uygulamasını İş Ortağı Merkezi web uygulaması oluşturmanız ve kaydetmeniz gerekir.
 
 1. [Azure portalında](https://portal.azure.com) oturum açın.
 
-2. Azure Active Directory (Azure AD) uygulaması oluşturun.
+2. Bir Azure Active Directory (Azure AD) uygulaması oluşturun.
 
-3. *Uygulamanızın gereksinimlerine bağlı olarak* aşağıdaki kaynaklara atanmış uygulama izinleri verin. Gerekirse, uygulama kaynakları için daha fazla temsilci izinleri ekleyebilirsiniz.
+3. Uygulama gereksinimlerine bağlı olarak aşağıdaki *kaynaklara temsilcili uygulama izinleri verin.* Gerekirse, uygulama kaynakları için daha fazla temsilcili izin ebilirsiniz.
 
-   1. **Microsoft Iş Ortağı Merkezi** (Bazı kiracılar bunu **samplebecapp** olarak gösterir)
+   1. **Microsoft İş Ortağı Merkezi** (bazı kiracılar bunu **SampleBECApp olarak gösterir)**
 
-   2. **Azure Yönetim API 'leri** (Azure API 'lerini çağırmayı planlıyorsanız)
+   2. **Azure Yönetim API'leri** (Azure API'lerini çağırmayı planlıyorsanız)
 
    3. **Windows Azure Active Directory**
 
-4. Uygulamanızın giriş URL 'sinin canlı bir Web uygulamasının çalıştığı bir uç noktaya ayarlandığından emin olun. Bu uygulamanın Azure AD oturum açma çağrısından [Yetkilendirme kodunu](#get-authorization-code) kabul etmesi gerekir. Örneğin, [aşağıdaki bölümdeki](#get-authorization-code)örnek kodda, Web uygulaması ' de çalışır `https://localhost:44395/` .
+4. Uygulamanın giriş URL'sinin canlı bir web uygulamasının çalıştır bulunduğu uç nokta olarak ayarlanmış olduğundan emin olun. Bu uygulamanın Azure AD oturum [açma çağrısından](#get-authorization-code) yetkilendirme kodunu kabul etmesi gerekir. Örneğin, aşağıdaki bölümdeki örnek [kodda](#get-authorization-code)web uygulaması üzerinde `https://localhost:44395/` çalışıyor.
 
-5. Web uygulamanızın Azure AD 'deki ayarlarından aşağıdaki bilgilere göz atalım:
+5. Azure AD'de web uygulamasının ayarlarından aşağıdaki bilgileri not edin:
 
    - Uygulama Kimliği
    - Uygulama gizli dizisi
 
 > [!NOTE]
-> [Uygulama gizli anahtarı olarak bir sertifika kullanmanız](/azure/active-directory/develop/active-directory-certificate-credentials)önerilir. Ancak, Azure portal bir uygulama anahtarı da oluşturabilirsiniz. [Aşağıdaki bölümdeki](#get-authorization-code) örnek kod bir uygulama anahtarı kullanır.
+> Uygulama gizli anahtar [olarak bir sertifika kullanılması önerilir.](/azure/active-directory/develop/active-directory-certificate-credentials) Ancak, uygulama anahtarı da uygulama anahtarı Azure portal. Aşağıdaki bölümdeki [örnek kod bir](#get-authorization-code) uygulama anahtarı kullanır.
 
 ### <a name="get-authorization-code"></a>Yetkilendirme kodunu alma
 
-Web uygulamanızın Azure AD oturum açma çağrısından kabul etmesi için bir yetkilendirme kodu almanız gerekir:
+Web uygulamanıza Azure AD oturum açma çağrısından kabul etmek için bir yetkilendirme kodu alalız:
 
-1. Şu URL 'de Azure AD 'de oturum açın: [https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1](https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1) . Iş Ortağı Merkezi API çağrılarını (bir Yönetim Aracısı veya satış aracısı hesabı gibi) yapacağınız kullanıcı hesabıyla oturum açmanız gerekir.
+1. Azure AD'de şu URL'de oturum açma: [https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1](https://login.microsoftonline.com/common/oauth2/authorize?client_id=Application-Id&response_mode=form_post&response_type=code%20id_token&scope=openid%20profile&nonce=1) . Api çağrılarını (yönetici aracısı veya satış aracısı hesabı gibi) İş Ortağı Merkezi kullanıcı hesabıyla oturum açabilirsiniz.
 
-2. **Uygulama kimliğini** Azure AD uygulama KIMLIĞINIZ (GUID) ile değiştirin.
+2. **Application-Id yerine** Azure AD uygulama kimliğinizi (GUID) girin.
 
-3. İstendiğinde, MFA yapılandırılmış kullanıcı hesabınızla oturum açın.
+3. İstendiğinde, MFA yapılandırılmış şekilde kullanıcı hesabınızla oturum açın.
 
-4. İstendiğinde, oturum açma bilgilerinizi doğrulamak için ek MFA bilgilerini (telefon numarası veya e-posta adresi) girin.
+4. İstendiğinde oturum açma bilgilerinizi doğrulamak için ek MFA bilgileri (telefon numarası veya e-posta adresi) girin.
 
-5. Oturum açtıktan sonra tarayıcı, yetkilendirme kodunuzla Web uygulaması uç noktanıza yapılan çağrıyı yeniden yönlendirir. Örneğin, aşağıdaki örnek kod öğesine yeniden yönlendirir `https://localhost:44395/` .
+5. Oturum açtıktan sonra tarayıcı, yetkilendirme kodunuzla çağrıyı web uygulaması uç noktanıza yeniden yönlendirecek. Örneğin, aşağıdaki örnek kod olarak yeniden `https://localhost:44395/` yönlendirildi.
 
-#### <a name="authorization-code-call-trace"></a>Yetkilendirme kodu çağrısı izleme
+#### <a name="authorization-code-call-trace"></a>Yetkilendirme kodu çağrı izlemesi
 
 ```http
 POST https://localhost:44395/ HTTP/1.1
@@ -130,15 +126,15 @@ Cookie: OpenIdConnect.nonce.hOMjjrivcxzuI4YqAw4uYC%2F%2BILFk4%2FCx3kHTHP3lBvA%3D
 code=AuthorizationCodeValue&id_token=IdTokenValue&<rest of properties for state>
 ```
 
-### <a name="get-refresh-token"></a>Yenileme belirtecini al
+### <a name="get-refresh-token"></a>Yenileme belirteci alın
 
-Daha sonra bir yenileme belirteci almak için yetkilendirme kodunuzu kullanmanız gerekir:
+Ardından yenileme belirteci almak için yetkilendirme kodunuzu kullansanız gerekir:
 
-1. Azure AD oturum açma uç noktasına yetkilendirme kodu ile bir POST çağrısı yapın `https://login.microsoftonline.com/CSPTenantID/oauth2/token` . Bir örnek için, aşağıdaki [örnek çağrıya](#sample-refresh-call)bakın.
+1. Yetkilendirme koduyla Azure AD oturum açma uç noktasına post `https://login.microsoftonline.com/CSPTenantID/oauth2/token` çağrısı yapın. Bir örnek için aşağıdaki örnek [çağrısına bakın.](#sample-refresh-call)
 
-2. Döndürülen yenileme belirtecini unutmayın.
+2. Döndürülen yenileme belirteci not alın.
 
-3. Yenileme belirtecini Azure Key Vault olarak depolayın. Daha fazla bilgi için [Key Vault API belgelerine](/rest/api/keyvault/)bakın.
+3. Yenileme belirteci Azure Key Vault. Daha fazla bilgi için api [Key Vault bakın.](/rest/api/keyvault/)
 
 > [!IMPORTANT]
 > Yenileme belirteci Key Vault’ta [gizli dizi olarak depolanmalıdır](/rest/api/keyvault/setsecret/setsecret).
@@ -177,7 +173,7 @@ Yanıt gövdesi:
 
 ### <a name="get-access-token"></a>Erişim belirteci al
 
-Iş Ortağı Merkezi API 'Lerine çağrı yapmadan önce bir erişim belirteci almalısınız. Erişim belirtecinin genellikle çok sınırlı bir yaşam süresi (örneğin, bir saatten kısa) olması nedeniyle, bir erişim belirteci almak için bir yenileme belirteci kullanmanız gerekir.
+Uygulama API'lerine çağrılar yapmak için önce bir erişim İş Ortağı Merkezi gerekir. Erişim belirteçleri genellikle çok sınırlı bir yaşam süresine sahip olduğundan (örneğin, bir saatten az) erişim belirteci almak için yenileme belirteci kullanasınız.
 
 Yer tutucu isteği:
 
@@ -209,11 +205,11 @@ Yanıt gövdesi:
 {"token_type":"Bearer","scope":"user_impersonation","expires_in":"3600","ext_expires_in":"3600","expires_on":"1547581389","not_before":"1547577489","resource":"https://api.partnercenter.microsoft.com","access_token":"AccessTokenValue","id_token":"IDTokenValue"}
 ```
 
-### <a name="make-partner-center-api-calls"></a>Iş Ortağı Merkezi API çağrıları yapma
+### <a name="make-partner-center-api-calls"></a>Api İş Ortağı Merkezi çağrıları yapma
 
-Iş Ortağı Merkezi API 'Lerini çağırmak için erişim belirtecinizi kullanmanız gerekir. Aşağıdaki örnek çağrıya bakın.
+İş Ortağı Merkezi API'lerini çağıran erişim belirtec İş Ortağı Merkezi gerekir. Aşağıdaki örnek çağrıya bakın.
 
-#### <a name="example-partner-center-api-call"></a>Örnek Iş Ortağı Merkezi API çağrısı
+#### <a name="example-partner-center-api-call"></a>Örnek İş Ortağı Merkezi API çağrısı
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/CustomerTenantId/users HTTP/1.1
@@ -227,11 +223,11 @@ Host: api.partnercenter.microsoft.com
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-[Iş Ortağı Merkezi PowerShell modülünü](https://www.powershellgallery.com/packages/PartnerCenter) , bir erişim belirteci için bir yetkilendirme kodu alışverişi yapmak üzere gerekli altyapıyı azaltmak için kullanabilirsiniz. Bu yöntem, [Iş ortağı MERKEZI Rest çağrıları](#rest)yapmak için isteğe bağlıdır.
+Erişim belirteci İş Ortağı Merkezi yetkilendirme kodunu değiştirmesi için gerekli altyapıyı azaltmak üzere [powershell](https://www.powershellgallery.com/packages/PartnerCenter) modülünü kullanabilirsiniz. Bu yöntem, rest çağrılarını [İş Ortağı Merkezi için isteğe bağlıdır.](#rest)
 
-Bu işlem hakkında daha fazla bilgi için bkz. [App model PowerShell Için güvenli uygulama](/powershell/partnercenter/secure-app-model) .
+Bu işlem hakkında daha fazla bilgi için PowerShell [ile Uygulama Modeli](/powershell/partnercenter/secure-app-model) belgelerine bakın.
 
-1. Azure AD ve Iş Ortağı Merkezi PowerShell modüllerini yükler.
+1. Azure AD'ye ve İş Ortağı Merkezi PowerShell modüllerini yükleyin.
 
     ```powershell
     Install-Module AzureAD
@@ -241,7 +237,7 @@ Bu işlem hakkında daha fazla bilgi için bkz. [App model PowerShell Için güv
     Install-Module PartnerCenter
     ```
 
-2. Onay işlemini gerçekleştirmek ve gerekli yenileme belirtecini yakalamak için **[New-PartnerAccessToken](/powershell/module/partnercenter/new-partneraccesstoken)** komutunu kullanın.
+2. Onay işlemini gerçekleştirmek ve gerekli yenileme belirteci yakalamak için **[New-PartnerAccessToken](/powershell/module/partnercenter/new-partneraccesstoken)** komutunu kullanın.
 
     ```powershell
     $credential = Get-Credential
@@ -250,7 +246,7 @@ Bu işlem hakkında daha fazla bilgi için bkz. [App model PowerShell Için güv
     ```
 
     > [!NOTE]
-    > **Web/API** türünde BIR Azure AD uygulaması kullanıldığından, **ServicePrincipal** parametresi **New-partneraccesstoken** komutuyla birlikte kullanılır. Bu tür bir uygulama, erişim belirteci isteğine bir istemci tanımlayıcısı ve gizli anahtar eklenmesini gerektirir. **Get-Credential** komutu çağrıldığında, bir Kullanıcı adı ve parola girmeniz istenir. Uygulama tanımlayıcısını Kullanıcı adı olarak girin. Parola olarak uygulama gizli anahtarını girin. **New-PartnerAccessToken** komutu çağrıldığında, kimlik bilgilerini yeniden girmeniz istenir. Kullanmakta olduğunuz hizmet hesabının kimlik bilgilerini girin. Bu hizmet hesabı, uygun izinlere sahip bir iş ortağı hesabı olmalıdır.
+    > **Web/API** türüne sahip bir Azure AD uygulaması kullanıldığından **ServicePrincipal** parametresi **New-PartnerAccessToken** komutuyla birlikte kullanılır. Bu tür bir uygulama, erişim belirteci isteğine bir istemci tanımlayıcısı ve gizli kodun dahilsini gerektirir. **Get-Credential komutu** çağrıldığında kullanıcı adı ve parola girmeniz istenir. Kullanıcı adı olarak uygulama tanımlayıcısını girin. Parola olarak uygulama gizli parolasını girin. **New-PartnerAccessToken** komutu çağrıldığında, kimlik bilgilerini yeniden girmeniz istenir. Kullanmakta olan hizmet hesabının kimlik bilgilerini girin. Bu hizmet hesabı, uygun izinlere sahip bir iş ortağı hesabı olması gerekir.
 
 3. Yenileme belirteci değerini kopyalayın.
 
@@ -258,4 +254,4 @@ Bu işlem hakkında daha fazla bilgi için bkz. [App model PowerShell Için güv
     $token.RefreshToken | clip
     ```
 
-Yenileme belirteci değerini, Azure Key Vault gibi güvenli bir depoda depolamanız gerekir. PowerShell ile güvenli uygulama modülünü kullanma hakkında daha fazla bilgi için bkz. [Multi-Factor Authentication](/powershell/partnercenter/multi-factor-auth) makalesi.
+Yenileme belirteci değerini, yenileme belirteci gibi güvenli bir Azure Key Vault. PowerShell ile güvenli uygulama modülü hakkında daha fazla bilgi için çok faktörlü [kimlik doğrulaması makalesine](/powershell/partnercenter/multi-factor-auth) bakın.

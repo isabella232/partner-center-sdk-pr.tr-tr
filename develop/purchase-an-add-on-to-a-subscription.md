@@ -4,52 +4,48 @@ description: Mevcut bir aboneliğe eklenti satın alma.
 ms.date: 11/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 975a2516bccdc6274bfec5d6a3286a649fc4f808
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: d8b700a2ad41a37ca0ad745f3e7767449974b18a
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769658"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547691"
 ---
 # <a name="purchase-an-add-on-to-a-subscription"></a>Bir abonelik için eklenti satın alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
 Mevcut bir aboneliğe eklenti satın alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Abonelik KIMLIĞI. Bu, eklenti teklifinin satın alınacağı mevcut bir aboneliğiniz.
+- Abonelik kimliği. Bu, eklenti teklifi satın alınarak satın alınan mevcut aboneliktir.
 
-- Satın almaya yönelik eklenti teklifini tanımlayan bir teklif KIMLIĞI.
+- Satın alınan eklenti teklifini tanımlayan teklif kimliği.
 
-## <a name="purchasing-an-add-on-through-code"></a>Kod üzerinden eklenti satın alma
+## <a name="purchasing-an-add-on-through-code"></a>Kod aracılığıyla eklenti satın alma
 
-Bir aboneliğe eklenti satın aldığınızda, özgün abonelik sırasını eklentinin sırasıyla güncelliyor olursunuz. Aşağıda, CustomerID müşteri KIMLIĞI, SubscriptionID abonelik KIMLIĞI, Addonofferıd ise eklentinin teklif KIMLIĞIDIR.
+Bir abonelik için eklenti satın aldığınız zaman, özgün abonelik siparişlerini eklentinin siparişiyle güncelleştirebilirsiniz. Aşağıda customerId müşteri kimliği, subscriptionId abonelik kimliği, addOnOfferId ise eklentinin teklif kimliğidir.
 
 Adımlar aşağıdaki gibidir:
 
-1.  Abonelik işlemlerine yönelik bir arabirim alın.
+1.  Aboneliğin işlemleri için bir arabirim alın.
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
-2.  Bir abonelik nesnesi oluşturmak için bu arabirimi kullanın. Bu, sipariş kimliği de dahil olmak üzere üst abonelik ayrıntılarını alır.
+2.  Bir abonelik nesnesi örneği için bu arabirimi kullanın. Bu, sipariş kimliği de dahil olmak üzere üst abonelik ayrıntılarını size alır.
 
     ``` csharp
     var parentSubscription = subscriptionOperations.Get();
     ```
 
-3.  Yeni bir [**Order**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) nesnesi örneği oluşturun. Bu sipariş örneği, aboneliği satın almak için kullanılan orijinal sırayı güncelleştirmek için kullanılır. Eklentiyi temsil eden sıraya tek satırlık bir öğe ekleyin.
+3.  Yeni bir Order nesnesi [**örneği**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) oluşturma. Bu sipariş örneği, aboneliği satın almak için kullanılan özgün siparişi güncelleştirmek için kullanılır. Eklentiyi temsil eden sıraya tek satırlı bir öğe ekleyin.
     ``` csharp
     var orderToUpdate = new Order()
     {
@@ -68,16 +64,16 @@ Adımlar aşağıdaki gibidir:
     };
     ```
 
-4.  Eklenti için yeni siparişle abonelik için orijinal sırayı güncelleştirin.
+4.  Aboneliğin özgün siparişlerini eklentinin yeni siparişiyle güncelleştirin.
     ``` csharp
     Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(parentSubscription.OrderId).Patch(orderToUpdate);
     ```
 
 ## <a name="c"></a>C\#
 
-Bir eklenti satın almak için, müşteriyi belirlemek için müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak ve eklenti teklifini içeren aboneliği belirlemek için [**abonelikler. byıd**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini çağırarak abonelik işlemlerine bir arabirim edinerek başlayın. [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get)yöntemini çağırarak abonelik ayrıntılarını almak için bu [**arabirimi**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) kullanın. Abonelik ayrıntılarına neden ihtiyacınız var? Abonelik siparişinin sipariş kimliği gereklidir. Bu, eklenti ile güncelleştirilme sıraatalım.
+Bir eklenti satın almak için, müşteriyi tanımlamak üzere müşteri kimliğiyle [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak abonelik işlemlerine bir arabirim elde edin ve [**subscriptions.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemi ile eklenti teklifinin yer alan aboneliğini tanıyın. [**Al'ı**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription) çağırarak abonelik ayrıntılarını almak için bu arabirimi [**kullanın.**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.get) Abonelik ayrıntıları, abonelik siparişinin sipariş kimliğini içerir ve bu, eklentiyle güncelleştirilen sipariştir.
 
-Ardından, yeni bir [**Order**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) nesnesi örneği oluşturun ve aşağıdaki kod parçacığında gösterildiği gibi, eklentiyi tanımlayan bilgileri içeren tek bir [**LineItem**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) örneğiyle doldurun. Bu yeni nesneyi, eklenti ile abonelik sırasını güncelleştirmek için kullanacaksınız. Son olarak, ilk olarak, bir müşteriyi [**ıaggregatepartner. Customers. byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) ve [**Orders. byıd**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)ile sipariş olarak tanımladıktan sonra, abonelik sırasını güncelleştirmek için [**Patch**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch) yöntemini çağırın.
+Ardından yeni bir [**Order**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) nesnesi örneği ekleyin ve aşağıdaki kod parçacığında gösterildiği gibi eklentiyi tanımlamak için gereken bilgileri içeren tek [**bir LineItem**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) örneğiyle doldurmak. Bu yeni nesneyi kullanarak abonelik siparişlerini eklentiyle güncelleştirebilirsiniz. Son olarak, önce [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) ile müşteriyi ve [**Orders.ById**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid)ile siparişi tanımdikten sonra abonelik siparişini güncelleştirmek için [**Patch**](/dotnet/api/microsoft.store.partnercenter.orders.iorder.patch) yöntemini arayın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -113,55 +109,55 @@ var orderToUpdate = new Order()
 Order updatedOrder = partnerOperations.Customers.ById(customerId).Orders.ById(parentSubscription.OrderId).Patch(orderToUpdate);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: AddSubscriptionAddOn.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı **Samples Sınıfı:** AddSubscriptionAddOn.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                              |
 |-----------|----------------------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Orders/{Order-ID} http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-Müşteriyi ve siparişi tanımlamak için aşağıdaki parametreleri kullanın.
+Müşteriyi ve siparişi belirlemek için aşağıdaki parametreleri kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Değer, müşteriyi tanımlayan bir GUID biçimli **Müşteri-Kiracı kimliği** olur. |
-| **sıra kimliği**           | **guid** | Y        | Sıra tanımlayıcısı.                                                              |
+| **customer-tenant-id** | **guid** | Y        | Değer, müşteriyi tanımlayan GUID **biçimli bir customer-tenant-id** değeridir. |
+| **order-id**           | **guid** | Y        | Sipariş tanımlayıcısı.                                                              |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Aşağıdaki tablolarda, istek gövdesindeki özellikler açıklanır.
+Aşağıdaki tablolar istek gövdesinin özelliklerini açıklar.
 
 ## <a name="order"></a>Sipariş
 
 | Ad                | Tür             | Gerekli | Açıklama                                          |
 |---------------------|------------------|----------|------------------------------------------------------|
-| Id                  | string           | N        | Sipariş KIMLIĞI.                                        |
-| Referencecustomerıd | string           | Y        | Müşteri KIMLIĞI.                                     |
-| LineItems           | nesne dizisi | Y        | [Orderlineıtem](#orderlineitem) nesneleri dizisi. |
-| CreationDate        | string           | N        | Siparişin oluşturulduğu tarih ve saat biçimi. |
-| Öznitelikler          | object           | N        | "ObjectType": "Order" içerir.                      |
+| Id                  | string           | N        | Sipariş kimliği.                                        |
+| ReferenceCustomerId | string           | Y        | Müşteri kimliği.                                     |
+| LineItems           | nesne dizisi | Y        | [OrderLineItem nesneleri dizisi.](#orderlineitem) |
+| Creationdate        | string           | N        | Siparişin tarih-saat biçiminde oluşturulma tarihi. |
+| Öznitelikler          | object           | N        | "ObjectType": "Order" ifadesini içerir.                      |
 
-## <a name="orderlineitem"></a>Orderlineıtem
+## <a name="orderlineitem"></a>OrderLineItem
 
 | Ad                 | Tür   | Gerekli | Açıklama                                                  |
 |----------------------|--------|----------|--------------------------------------------------------------|
-| Lineıtemnumber       | sayı | Y        | Satır öğe numarası, 0 ile başlar.                       |
-| OfferId              | string | Y        | Eklentinin teklif KIMLIĞI.                                  |
-| SubscriptionId       | string | N        | Satın alınan eklenti aboneliğinin KIMLIĞI.                 |
-| Parentsubscriptionıd | string | Y        | Eklenti teklifine sahip olan üst aboneliğin KIMLIĞI. |
-| FriendlyName         | string | N        | Bu satır öğesi için kolay ad.                        |
+| LineItemNumber       | sayı | Y        | 0 ile başlayan satır öğesi numarası.                       |
+| OfferId              | string | Y        | Eklentinin teklif kimliği.                                  |
+| SubscriptionId       | string | N        | Satın alınan eklenti aboneliğinin kimliği.                 |
+| ParentSubscriptionId | string | Y        | Eklenti teklifine sahip üst aboneliğin kimliği. |
+| Friendlyname         | string | N        | Bu satır öğesinin kolay adı.                        |
 | Miktar             | sayı | Y        | Lisans sayısı.                                      |
-| PartnerIdOnRecord    | string | N        | Kayıt ortağının MPN KIMLIĞI.                         |
-| Öznitelikler           | object | N        | "ObjectType": "Orderlineıtem" içerir.                      |
+| PartnerIdOnRecord    | string | N        | Kayıt ortağının MPN kimliği.                         |
+| Öznitelikler           | object | N        | "ObjectType": "OrderLineItem" ifadesini içerir.                      |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -202,11 +198,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş abonelik sırasını döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş abonelik siparişlerini döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

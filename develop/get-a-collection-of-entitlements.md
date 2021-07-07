@@ -1,33 +1,29 @@
 ---
 title: Yetkilendirme koleksiyonu alma
-description: Yetkilendirmeler koleksiyonu alma.
+description: Yetkilendirme koleksiyonunu elde etmek.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d2cc485429941dd2080bd285553333a01fc0ffd1
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 7bb8d3aefb11fae0af4bce790b41598d935de57c
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769292"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906421"
 ---
 # <a name="get-a-collection-of-entitlements"></a>Yetkilendirme koleksiyonu alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Yetkilendirmeler koleksiyonu alma.
+Yetkilendirme koleksiyonunu elde etmek.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
-Bir müşteriye yönelik yetkilendirmeler koleksiyonu almak için, müşteriyi tanımlamak üzere müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak [**Yetkilendirme**](entitlement-resources.md#entitlement) işlemlerine yönelik bir arabirim elde edin. Daha sonra, **yetkilendirmeler** özelliğinden arabirimi alın ve yetkilendirme koleksiyonunu almak için **Get ()** veya **GetAsync ()** metodunu çağırın.
+Müşterinin yetkilendirme koleksiyonunu almak için, müşteri kimliğini kullanarak [**IAggregatePartner.Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak [**Yetkilendirme**](entitlement-resources.md#entitlement) işlemlerine yönelik bir arabirim elde edin. Ardından **Entitlements** özelliğinden arabirimini alın ve yetkilendirme koleksiyonunu almak için **Get()** veya **GetAsync()** yöntemini çağırabilirsiniz.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -37,18 +33,18 @@ string customerId;
 var entitlements = partnerOperations.Customers.ById(customerId).Entitlements.Get();
 ```
 
-Alınacak yetkilendirmelerin bitiş tarihlerini doldurmak için yukarıdaki aynı yöntemleri çağırın ve **Showsüre sonu** isteğe bağlı Boolean parametresini true **Get (true)** veya **GetAsync (true)** olarak ayarlayın. Bu, yetkilendirme süre sonu tarihlerinin gerekli olduğunu gösterir (varsa).
+Alınacak yetkilendirmelerin süre sonu tarihlerini doldurmak için yukarıdaki aynı yöntemleri çağırarak isteğe bağlı **showExpiry** boole parametresini true **Get(true)** veya **GetAsync(true)** olarak ayarlayın. Bu, yetkilendirme süre sonu tarihlerinin gerekli olduğunu gösterir (uygun olduğunda).
 
 > [!IMPORTANT]
-> Şirket içi yetkilendirme türlerinde süre sonu tarihleri yoktur.
+> Şirket içi yetkilendirme türlerinin süre sonu tarihleri yok.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem | İstek URI'si |
 |--------|-------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{CustomerID}/yetkilendirmeler http/1.1                            |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customerId}/yetkilendirmeLER HTTP/1.1                            |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
@@ -56,13 +52,13 @@ Alınacak yetkilendirmelerin bitiş tarihlerini doldurmak için yukarıdaki ayn�
 
 | Ad | Tür | Gerekli | Açıklama |
 |------|------|----------|-------------|
-| customerId | string | Yes | Müşteriyi tanımlayan bir GUID biçimli CustomerID. |
-| entitlementType | dize | No | Alınacak yetkilendirmelerin türünü (**yazılım** veya **reservedınstance** ) belirtmek için kullanılabilir. Ayarlanmamışsa, tüm türler alınır |
-| Showsüre sonu | boolean | No | Yetkilendirmelerin süre sonu tarihlerinin gerekip gerekmediğini belirten isteğe bağlı bayrak. |
+| customerId | string | Yes | Müşteriyi tanımlayan GUID biçimli customerId. |
+| entitlementType | dize | No | Alınacak yetkilendirmelerin türünü belirtmek için kullanılabilir ( yazılım **veya** **reservedInstance** ). Ayarlanmazsa, tüm türler alınır |
+| showExpiry | boolean | Hayır | Yetkilendirme süre sonu tarihleri gerekip gerekip gereklğerlğerlerini gösteren isteğe bağlı bayrağı. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -82,11 +78,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [Yetkilendirme](entitlement-resources.md#entitlement) kaynakları koleksiyonu içerir.
+Başarılı olursa, yanıt gövdesi yetkilendirme [kaynaklarının bir koleksiyonunu](entitlement-resources.md#entitlement) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
@@ -175,11 +171,11 @@ Date: Mon, 19 Mar 2018 07:42:51 GMT
 
 ## <a name="additional-examples"></a>Ek Örnekler
 
-Aşağıdaki örnek, belirli bir yetkilendirmelerin, süre sonu tarihleriyle birlikte nasıl alınacağını gösterir (uygun olduğunda)
+Aşağıdaki örnek, süre sonu tarihleriyle birlikte belirli bir yetkilendirme türünü (uygun olduğunda) nasıl alacazlanı gösterir
 
 ### <a name="c-example"></a>C \# örneği
 
-Belirli bir hak türünü almak için, **yetkilendirmeler** arabiriminden **Byentitlementtype** arabirimini alın ve **Get ()** veya **GetAsync ()** yöntemlerini kullanın.
+Belirli bir yetkilendirme türünü almak için **Entitlements** arabiriminden **ByEntitlementType** arabirimini alın ve **Get()** veya **GetAsync()** yöntemlerini kullanın.
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("software").Get(true);
@@ -301,13 +297,13 @@ Date: Mon, 28 Jan 2019 18:31:43 GMT
 }
 ```
 
-Aşağıdaki örneklerde, bir yetkilendirkarşı ürün ve rezervasyonlar hakkındaki bilgilerin nasıl alınacağını gösterilmektedir.
+Aşağıdaki örneklerde, bir yetkilendirmeden ürünler ve rezervasyonlar hakkında bilgileri nasıl alasiniz?
 
-### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>SDK V 1.8 kullanarak bir yetkilendirkarşı sanal makine ayırma ayrıntılarını alma
+### <a name="retrieve-virtual-machine-reservation-details-from-an-entitlement-by-using-sdk-v18"></a>SDK V1.8 kullanarak yetkilendirmeden sanal makine rezervasyon ayrıntılarını alma
 
 ### <a name="c-example"></a>C \# örneği
 
-Yetkilendirmeli sanal makine ayırmaları hakkında daha fazla ayrıntı almak için, entitledArtifacts. LINK altında sunulan URI 'yi artifactType = virtual_machine_reserved_instance ile çağırın.
+Bir yetkilendirmeden sanal makine ayırmaları ile ilgili daha fazla ayrıntı almak için artifactType = entitledArtifacts.link altında ortaya virtual_machine_reserved_instance.
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("VirtualMachineReservedInstance").Get();
@@ -355,11 +351,11 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 }
 ```
 
-### <a name="retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>SDK V 1.9 kullanarak bir yetkilendirkarşı rezervasyon ayrıntılarını alma
+### <a name="retrieve-reservation-details-from-an-entitlement-by-using-sdk-v19"></a>SDK V1.9 kullanarak yetkilendirmeden rezervasyon ayrıntılarını alma
 
 ### <a name="c-example"></a>C \# örneği
 
-Ayrılmış bir örnek yetkilendirmeli rezervasyonlar ile ilgili daha fazla ayrıntı almak için, altında sunulan URI 'yi çağırın ```entitledArtifacts.link``` ```artifactType = reservedinstance``` .
+Ayrılmış örnek yetkilendirmeden rezervasyonlarla ilgili daha fazla ayrıntı almak için ile altında ortaya konulan URI'yi ```entitledArtifacts.link``` ```artifactType = reservedinstance``` çağırabilirsiniz.
 
 ``` csharp
 ResourceCollection<Entitlement> entitlements = partnerOperations.Customers.ById(selectedCustomerId).Entitlements.ByEntitlementType("ReservedInstance").Get();
@@ -407,6 +403,6 @@ Date: Mon, 19 Mar 2018 07:45:14 GMT
 }
 ```
 
-### <a name="api-consumers"></a>API tüketicileri
+### <a name="api-consumers"></a>API Tüketicileri
 
-Sanal makine ayrılmış örnek yetkilendirmelerini sorgulamak için API kullanan iş ortakları-geriye dönük uyumluluğu sürdürmek için **/Customers/{CustomerID}/yetkilendirmeler ' den/Customers/{CustomerID}/yetkilendirmeler? entitlementType = virtualmachinereservedınstance** ' a YÖNELIK istek URI 'sini güncelleştirin. Sanal makineyi veya Azure SQL 'i gelişmiş sözleşmeyle kullanmak için, istek URI 'sini **/Customers/{CustomerID}/yetkilendirmeler? entitlementType = reservedınstance** olarak güncelleştirin.
+Sanal makine ayrılmış örnek yetkilendirmelerini sorgulamak için API'yi kullanan iş ortakları - Geriye dönük uyumluluğu korumak için **/customers/{customerId}/yetkilendirmelerinden gelen istek URI'sini /customers/{customerId}/entitlements?entitlementType=virtualmachinereservedinstance** olarak güncelleştirin. Sanal makineyi veya Azure SQL gelişmiş sözleşmeyle tüketmek için istek URI'sini **/customers/{customerId}/entitlements?entitlementType=reservedinstance olarak güncelleştirin.**

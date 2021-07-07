@@ -4,18 +4,14 @@ description: İş ortağı kiracınızda Multi-Factor Authentication 'ı zorlama
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
-ms.openlocfilehash: dcd3ac364e0d86ecac2c51eb34de48f1d66e2158
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: cbdf081f7d9424280e778364b130c7ac1c26f0e3
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769221"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445332"
 ---
 # <a name="partner-security-requirements-status"></a>İş ortağı güvenlik gereksinimlerinin durumu
-
-Aşağıdakiler cihazlar için geçerlidir:
-
-- İş Ortağı Merkezi
 
 Bu makalede, Iş Ortağı Merkezi 'nde Multi-Factor Authentication (MFA) ile ilgili REST API 'Lerinin listesi açıklanır. Bu API 'Ler, iş ortağı kiracınızdaki her kullanıcı hesabı için MFA 'yı zorlamanıza yardımcı olur. 
 

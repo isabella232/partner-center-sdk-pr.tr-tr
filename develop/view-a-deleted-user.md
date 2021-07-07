@@ -1,37 +1,33 @@
 ---
 title: Müşteri için silinen kullanıcıları görüntüleme
-description: Müşteri KIMLIĞINE göre bir müşterinin silinen CustomerUser kaynaklarının bir listesini alır. İsteğe bağlı olarak bir sayfa boyutu ayarlayabilirsiniz. Bir filtre sağlamanız gerekir.
+description: Müşteri kimliğine göre bir müşteri için silinen CustomerUser kaynaklarının listesini alır. İsteğe bağlı olarak bir sayfa boyutu da ayarlayabilirsiniz. Bir filtre sağlamak gerekir.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9b1a9b85e3eba7ae7ec1dab8e951134d03371604
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: f4fec958a9a6bb580d35de1cf3007e1db3b2b650
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769533"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445315"
 ---
 # <a name="view-deleted-users-for-a-customer"></a>Müşteri için silinen kullanıcıları görüntüleme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-
-Müşteri KIMLIĞINE göre bir müşterinin silinen CustomerUser kaynaklarının bir listesini alır. İsteğe bağlı olarak bir sayfa boyutu ayarlayabilirsiniz. Bir filtre sağlamanız gerekir.
+Müşteri kimliğine göre bir müşteri için silinen CustomerUser kaynaklarının listesini alır. İsteğe bağlı olarak bir sayfa boyutu da ayarlayabilirsiniz. Bir filtre sağlamak gerekir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-## <a name="what-happens-when-you-delete-a-user-account"></a>Bir kullanıcı hesabını sildiğinizde ne olur?
+## <a name="what-happens-when-you-delete-a-user-account"></a>Bir kullanıcı hesabını silebilirsiniz.
 
-Bir kullanıcı hesabını sildiğinizde Kullanıcı durumu "devre dışı" olarak ayarlanır. Bu, otuz gün boyunca, Kullanıcı hesabının ve ilişkili verilerinin temizlenme ve kurtarılamaz hale getirilme yolunda kalır. Bir silinen kullanıcı hesabını otuz gün penceresinde geri yüklemek isterseniz, bkz. bir [müşteri için silinen bir kullanıcıyı geri yükleme](restore-a-user-for-a-customer.md). Silinen ve "etkin olmayan" olarak işaretlenen Kullanıcı hesabı artık kullanıcı koleksiyonunun bir üyesi olarak döndürülmez (örneğin, [bir müşterinin tüm Kullanıcı hesaplarının listesini al](get-a-list-of-all-user-accounts-for-a-customer.md)' ı kullanarak). Henüz temizlenmemiş silinen kullanıcıların bir listesini almak için, etkin olmayan olarak ayarlanmış kullanıcı hesaplarını sorgumalısınız.
+Bir kullanıcı hesabını silebilirsiniz, kullanıcı durumu "etkin değil" olarak ayarlanır. 30 gün boyunca bu şekilde kalır ve bu sürenin ardından kullanıcı hesabı ve ilişkili verileri temizlenebilir ve kurtarılamaz hale değiştirilebilir. Silinen bir kullanıcı hesabını 30 günlük süre içinde geri yüklemek için bkz. Silinen bir [kullanıcıyı müşteri için geri yükleme.](restore-a-user-for-a-customer.md) Silindikten ve "etkin değil" olarak işaretlendiktan sonra, kullanıcı hesabı artık kullanıcı koleksiyonunun bir üyesi olarak [döndürülemez](get-a-list-of-all-user-accounts-for-a-customer.md)(örneğin, Bir müşteri için tüm kullanıcı hesaplarının listesini al kullanılarak). Henüz temizlenemeyen silinmiş kullanıcıların listesini almak için etkin değil olarak ayarlanmış kullanıcı hesaplarını sorgulamanız gerekir.
 
 ## <a name="c"></a>C\#
 
-Silinen kullanıcıların bir listesini almak için, durumu devre dışı olarak ayarlanan müşteri kullanıcıları için filtre uygulayan bir sorgu oluşturun. İlk olarak, aşağıdaki kod parçacığında gösterildiği gibi parametreleriyle bir [**Simplefieldfilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) nesnesini örnekleyerek filtre oluşturun. Sonra [**Buildındexedquery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) yöntemini kullanarak sorguyu oluşturun. Disk belleğine alınmış sonuçları istemiyorsanız, bunun yerine [**Buildsimplequery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) yöntemini kullanabilirsiniz. Ardından, müşteriyi tanımlamak için, müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini kullanın. Son olarak, isteği göndermek için [**sorgu**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) yöntemini çağırın.
+Silinen kullanıcıların listesini almak için, durumu etkin olmayan olarak ayarlanmış müşteri kullanıcılarını filtreleten bir sorgu oluşturun. İlk olarak, aşağıdaki kod parçacığında gösterildiği gibi parametrelerle [**bir SimpleFieldFilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) nesnesi örneği başlatarak filtreyi oluşturun. Ardından [**BuildIndexedQuery yöntemini kullanarak sorguyu**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildindexedquery) oluşturun. Sayfalı sonuçları istemiyorsanız bunun yerine [**BuildSimpleQuery yöntemini kullanabilirsiniz.**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) Ardından, müşteriyi [**tanımlamak için IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri kimliğiyle birlikte kullanın. Son olarak, isteği göndermek için [**Query**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.query) yöntemini çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,15 +43,15 @@ var simpleQueryWithFilter = QueryFactory.Instance.BuildIndexedQuery(customerUser
 var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Query(simpleQueryWithFilter);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetCustomerInactiveUsers.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı **Örnekler Sınıfı:** GetCustomerInactiveUsers.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                       |
 |---------|-------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users? size = {size} &filtre = {FILTER} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users?size={size}&filter={filter} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -63,13 +59,13 @@ var customerUsers = partnerOperations.Customers.ById(selectedCustomerId).Users.Q
 
 | Ad        | Tür   | Gerekli | Açıklama                                                                                                                                                                        |
 |-------------|--------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| müşteri kimliği | guid   | Yes      | Değer, müşteriyi tanımlayan bir GUID biçimli müşteri kimliği olur.                                                                                                            |
-| boyut        | int    | No       | Tek seferde görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır.                                                                                                     |
-| filtre      | filtre | Yes      | Kullanıcı aramasına filtre uygulayan sorgu. Silinen kullanıcıları almak için şu dizeyi dahil etmeniz ve kodlamanız gerekir: {"alan": "UserState", "Value": "etkin olmayan", "Işleç": "Equals"}. |
+| customer-id | guid   | Yes      | Değer, müşteriyi tanımlayan GUID biçimli bir customer-id değeridir.                                                                                                            |
+| boyut        | int    | Hayır       | Aynı anda görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır.                                                                                                     |
+| filtre      | filtre | Yes      | Kullanıcı aramalarını filtreleen sorgu. Silinen kullanıcıları almak için şu dizeyi dahil etmek ve kodlamanız gerekir: {"Field":"UserState","Value":"Inactive","Operator":"equals"}. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -89,11 +85,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir [Customeruser](user-resources.md#customeruser) kaynakları koleksiyonu döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde [CustomerUser](user-resources.md#customeruser) kaynaklarının bir koleksiyonunu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

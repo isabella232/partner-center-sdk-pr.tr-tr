@@ -4,27 +4,22 @@ description: Yetkilendirkaynaklarla ilgili kaynakları açıklar.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 428ac6f8b4d67894092119a6246279045a04dac0
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: a5ddf5dcd1189f686c5d41c05d7c66abc46605cc
+ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769299"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111906363"
 ---
 # <a name="entitlement-resources"></a>Yetkilendirme kaynakları
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 ## <a name="entitlement"></a>Yetkilendirme
 
 Bu kaynak, katalogdan öğeler üzerinde iş ortağı satın alma nedeniyle müşterinin kullanması gereken ürünleri temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 |----------|------|-------------|
 | referenceOrder | [ReferenceOrder](#referenceorder) | Yetkilendirbir şekilde sonuçlanan sıra başvurusu. |
 | productId | string | Ürünün kimliği. |
@@ -40,7 +35,7 @@ Bu kaynak, katalogdan öğeler üzerinde iş ortağı satın alma nedeniyle mü�
 
 Yetkilendirbir yetkilendirme sırası başvurusu.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 |----------|------|-------------|
 | kimlik | string | Başvurulan siparişin KIMLIĞI. |
 | Lineıtemıd | string | Başvurulan sipariş satırı öğesinin KIMLIĞI. |
@@ -50,7 +45,7 @@ Yetkilendirbir yetkilendirme sırası başvurusu.
 
 Bir yetkilendirme miktarının ayrıntılarını temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 |----------|------|-------------|
 | miktar | int | Öğe sayısı. |
 | durum | string | Miktarın durumu. |
@@ -71,10 +66,10 @@ Yetkilendirme türünü belirten değerleri içeren bir [enum](/dotnet/api/syste
 
 Yetkilendirmeden ilişkili yapıt.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 |----------|------|-------------|
 | artifactType | string | Yapıt türü. (SDK V 1.8 'de [ArtifactType](#artifacttype) 'dan dizeye güncelleştirilmiş) |
-| dynamicAttributes | Sözlük &lt; dizesi, nesne&gt; | ArtifactType 'a özgü değerler içeren dinamik öznitelikler. Örneğin, artifactType = "reservedınstance" olduğunda, bu özellik "Rezervationtype" = "virtualmachines" veya "Rezervationtype" = "sqldatabases" (sanal makine ayrılmış örneği veya Azure SQL ayrılmış örneği) içerir. (SDK v 1.9 'den başlayarak kullanılabilir) |
+| dynamicAttributes | Sözlük &lt; dizesi, nesne&gt; | ArtifactType 'a özgü değerler içeren dinamik öznitelikler. örneğin, artifacttype = "reservedınstance" olduğunda, bu özellik "rezervationtype" = "virtualmachines" veya "rezervationtype" = "sqldatabases" ile sanal makine ayrılmış örneği veya Azure SQL ayrılmış örneği içerir. (SDK v 1.9 'den başlayarak kullanılabilir) |
 
 ## <a name="artifacttype"></a>ArtifactType
 
@@ -91,73 +86,73 @@ Yetkilendirme yapıtı türünü belirten değerler içeren bir [enum](/dotnet/a
 
 Azure ayrılmış örneği yetkilendirimiyle ilişkilendirilen yapıt. [Yapıt](#artifact) sınıfından devralır.
 
-| Özellik   | Tür                           | Description                                        |
+| Özellik   | Tür                           | Açıklama                                        |
 |------------|--------------------------------|----------------------------------------------------|
-| bağlantı       | [Bağlantı](./utility-resources.md#link) | Tüm ilişkili yapıt ayrıntılarını almak için bağlantı.   |
-| RESOURCEID | string                         | Azure rezervasyon siparişi veya kaynağının KIMLIĞI. |
+| bağlantı       | [Bağlantısının](./utility-resources.md#link) | İlişkili tüm yapıt ayrıntılarını almak için bağlantı.   |
+| Resourceıd | string                         | Azure rezervasyon siparişinin veya kaynağının kimliği. |
 
-## <a name="reservedinstanceartifactdetails"></a>Reservedınstanceartifactdetails
+## <a name="reservedinstanceartifactdetails"></a>ReservedInstanceArtifactDetails
 
-Azure ayrılmış örnek yapıt bağlantısının çağrılmasıyla döndürülen varlığı temsil eder.
+Azure Ayrılmış Örneği yapıtı bağlantısının çağrılsı üzerine döndürülen varlığı temsil eder.
 
-|   Özellik   |           Tür           |                          Description                          |
+|   Özellik   |           Tür           |                          Açıklama                          |
 |--------------|--------------------------|---------------------------------------------------------------|
 |     tür     |          string          |                     Yapıt türü.                     |
-| oluşturamaz | IEnumerable<Reservation> | Azure kaynağı veya rezervasyon siparişi tanımlayıcısını gösterir. |
+| Rezervasyonlar | ıenumerable<Reservation> | Azure kaynağını veya rezervasyon siparişi tanımlayıcısını gösterir. |
 
 ## <a name="reservation"></a>Ayırma
 
-Tek bir ayırmayı temsil eder.
+Tek bir rezervasyonu temsil eder.
 
-| Özellik          | Tür                           | Description                                                        |
+| Özellik          | Tür                           | Açıklama                                                        |
 |-------------------|--------------------------------|--------------------------------------------------------------------|
-| reservationId     | string                         | Ayırmanın KIMLIĞI.                                         |
-| Ssosession         | string                         | Sanal makine rezervasyonuna ilişkin kapsam türü. |
-| displayName       | string                         | Ayırmanın görünen adı.                               |
-| appliedScopes     | IEnumerable                    | Ayırma ile ilişkili uygulanan kapsamların listesi. (Yalnızca scopeType paylaştırılmamış olduğunda kullanılabilir.) |
-| miktar          | int                            | Ayırma içindeki sanal makine sayısı.                 |
-| Expirrivdatetime    | UTC Tarih-saat biçiminde dize | Ayırmanın sona erme tarihi.                                |
-| Etkilenen bir tarih saat | UTC Tarih-saat biçiminde dize | Ayırmanın geçerlilik tarihi.                             |
-| provisioningState | string                         | Ayırmanın sağlama durumu.                         |
+| reservationId     | string                         | Rezervasyonun kimliği.                                         |
+| scopeType         | string                         | Sanal makine rezervasyonuyla ilişkili kapsam türü. |
+| displayName       | string                         | Rezervasyonun görünen adı.                               |
+| appliedScopes     | ıenumerable                    | Rezervasyonla ilişkili uygulanan kapsamların listesi. (Yalnızca scopeType paylaşılmazken kullanılabilir.) |
+| miktar          | int                            | Rezervasyonda sanal makine sayısı.                 |
+| expiryDateTime    | UTC tarih-saat biçiminde dize | Rezervasyonun sona erme tarihi.                                |
+| effectiveDateTime | UTC tarih-saat biçiminde dize | Rezervasyonun geçerli olduğu tarih.                             |
+| provisioningState | string                         | Rezervasyonun sağlama durumu.                         |
 
-## <a name="virtualmachinereservedinstanceartifact"></a>Virtualmachinereservedınstanceartifact
+## <a name="virtualmachinereservedinstanceartifact"></a>VirtualMachineReservedInstanceArtifact
 
 > [!IMPORTANT]
-> SDK v 1.9 'da kullanım dışı
+> SDK v1.9'da kullanım dışı
 
-Azure ayrılmış sanal makine örneği yetkilendirimiyle ilişkili yapıt. [Yapıt](#artifact) sınıfından devralır.
+Azure Ayrılmış Sanal Makine Örneği yetkilendirmesi ile ilişkili yapıt. [Yapıt](#artifact) sınıfından devralınır.
 
-| Özellik   | Tür                              | Description                                        |
+| Özellik   | Tür                              | Açıklama                                        |
 |------------|-----------------------------------|----------------------------------------------------|
-| bağlantı       | [Bağlantı](utility-resources.md#link) | Tüm ilişkili yapıt ayrıntılarını almak için bağlantı.   |
-| RESOURCEID | string                            | Azure rezervasyon siparişi veya kaynağının KIMLIĞI. |
+| bağlantı       | [Bağlantı](utility-resources.md#link) | İlişkili tüm yapıt ayrıntılarını almak için bağlantı.   |
+| Resourceıd | string                            | Azure rezervasyon siparişinin veya kaynağının kimliği. |
 
-## <a name="virtualmachinereservedinstanceartifactdetails"></a>Virtualmachinereservedınstanceartifactdetails
+## <a name="virtualmachinereservedinstanceartifactdetails"></a>VirtualMachineReservedInstanceArtifactDetails
 
 > [!IMPORTANT]
-> SDK v 1.9 'da kullanım dışı
+> SDK v1.9'da kullanım dışı
 
-Azure ayrılmış sanal makine örneği yapıt bağlantısının çağrılmasıyla döndürülen varlığı temsil eder.
+Azure Ayrılmış Sanal Makine Örneği yapıtı bağlantısının çağrılsı üzerine döndürülen varlığı temsil eder.
 
-| Özellik                    | Tür                                                                 | Description           |
+| Özellik                    | Tür                                                                 | Açıklama           |
 |-----------------------------|----------------------------------------------------------------------|-----------------------|
-| tür                        | [ArtifactType](#artifacttype)                                        | Yapıt türü. |
-| virtualMachineReservations  | IEnumerable<[Virtualmachinereservation](#virtualmachinereservation)> | Azure kaynağı veya rezervasyon siparişi tanımlayıcısını gösterir. |
+| tür                        | [Artifacttype](#artifacttype)                                        | Yapıt türü. |
+| virtualMachineReservations  | [VirtualMachineReservation](#virtualmachinereservation)<IEnumerable> | Azure kaynağını veya rezervasyon siparişi tanımlayıcısını gösterir. |
 
 ## <a name="virtualmachinereservation"></a>VirtualMachineReservation
 
 > [!IMPORTANT]
-> SDK v 1.9 'da kullanım dışı
+> SDK v1.9'da kullanım dışı
 
-Tek bir sanal makine ayırmasını temsil eder.
+Tek bir sanal makine ayırmayı temsil eder.
 
-|     Özellik      |              Tür              |                                                Description                                                 |
+|     Özellik      |              Tür              |                                                Açıklama                                                 |
 |-------------------|--------------------------------|------------------------------------------------------------------------------------------------------------|
-|   reservationId   |             string             |                                         Ayırmanın KIMLIĞI.                                         |
-|     Ssosession     |             string             |                     Sanal makine rezervasyonuna ilişkin kapsam türü.                     |
-|    displayName    |             string             |                                    Ayırmanın görünen adı.                                    |
-|   appliedScopes   |      IEnumerable<string>       | Ayırma ile ilişkili uygulanan kapsamların listesi. (Yalnızca scopeType paylaştırılmamış olduğunda kullanılabilir.) |
-|     miktar      |              int               |                             Ayırma içindeki sanal makine sayısı.                             |
-|  Expirrivdatetime   | UTC Tarih-saat biçiminde dize |                                    Ayırmanın sona erme tarihi.                                     |
-| Etkilenen bir tarih saat | UTC Tarih-saat biçiminde dize |                                   Ayırmanın geçerlilik tarihi.                                   |
+|   reservationId   |             string             |                                         Rezervasyonun kimliği.                                         |
+|     scopeType     |             string             |                     Sanal makine rezervasyonuyla ilişkili kapsam türü.                     |
+|    displayName    |             string             |                                    Rezervasyonun görünen adı.                                    |
+|   appliedScopes   |      ıenumerable<string>       | Rezervasyonla ilişkili uygulanan kapsamların listesi. (Yalnızca scopeType paylaşılmazken kullanılabilir.) |
+|     miktar      |              int               |                             Rezervasyonda sanal makine sayısı.                             |
+|  expiryDateTime   | UTC tarih-saat biçiminde dize |                                    Rezervasyonun sona erme tarihi.                                     |
+| effectiveDateTime | UTC tarih-saat biçiminde dize |                                   Rezervasyonun geçerli olduğu tarih.                                   |
 | provisioningState |             string             |                                 Ayırmanın sağlama durumu.                                 |

@@ -4,20 +4,16 @@ description: Bir aboneliğin destek kişisini iş ortağının değer eklenmiş 
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c8c6b658cfe6e14c75b0c06b177920ce3eb1b4ed
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 8c89f91fc9e89384a7be1237c08d7a9a1cfe3164
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769587"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530370"
 ---
 # <a name="update-a-subscriptions-support-contact"></a>Bir aboneliğin destek kişisini güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bir aboneliğin destek kişisini iş ortağının değer eklenmiş satıcılarından biriyle güncelleştirme.
 
@@ -52,7 +48,7 @@ var supportContact = new SupportContact()
 var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionID).SupportContact.Update(supportContact);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: UpdateSubscriptionSupportContact.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: updatesubscriptionsupportcontact. cs
 
 ## <a name="rest-request"></a>REST isteği
 

@@ -6,20 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: ba1885f46043a75274595239fe61ce3ef0998acf
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f003980f1b521ad0ac26dbfd0d4821b9096fdd27
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769035"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873913"
 ---
 # <a name="get-a-usage-summary-for-a-partner"></a>İş ortağı için Kullanım Özeti alın
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Geçerli fatura döneminde belirli bir Azure hizmetini veya kaynağını satın alan tüm müşterilerin iş ortağı kullanım özetini almak için **Partnerusagesummary** kaynağını kullanabilirsiniz.
 
@@ -46,8 +42,8 @@ Geçerli faturalandırma döneminde belirli bir Azure hizmetini veya kaynağın�
 Bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSamples**
-- Sınıf: **GetPartnerUsageSummary.cs**
+- Project: **partnersdk. featuresamples**
+- Sınıf: **Getpartnerusagesummary. cs**
 
 ## <a name="rest-request"></a>REST isteği
 

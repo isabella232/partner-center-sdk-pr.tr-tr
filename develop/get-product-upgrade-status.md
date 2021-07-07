@@ -1,45 +1,41 @@
 ---
-title: Müşteri için ürün yükseltme durumunu alın
-description: Bir müşteri için ürün yükseltmenin durumunu bir Azure planına Microsoft Azure (MS-AZR-0145P) aboneliği gibi yeni bir ürün ailesine yönelik olarak öğrenmek için Productyükselderequest kaynağını kullanabilirsiniz.
+title: Müşterinin ürün yükseltme durumunu al
+description: ProductUpgradeRequest kaynağını kullanarak müşterinin yeni bir ürün ailesine (örneğin, bir Microsoft Azure (MS-AZR-0145P) aboneliğinden Azure planına ürün yükseltme durumunu tespit edebilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1819887d459ec72a48ea2b7a5a4121dc56718313
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 03d925dd0fae987226ad1f8e71fad380ba144b83
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769059"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445571"
 ---
-# <a name="get-the-product-upgrade-status-for-a-customer"></a>Müşteri için ürün yükseltme durumunu alın
+# <a name="get-the-product-upgrade-status-for-a-customer"></a>Müşterinin ürün yükseltme durumunu al
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Yeni bir ürün ailesine yükseltmenin durumunu almak için [**Productyükseltiderequest**](product-upgrade-resources.md#productupgraderequest) kaynağını kullanabilirsiniz. Bu kaynak, bir müşteriyi bir Microsoft Azure (MS-AZR-0145P) aboneliğinden bir Azure planına yükselttiğinizde geçerlidir. Başarılı bir istek [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) kaynağını döndürür.
+Yeni bir ürün ailesine yükseltme durumunu almak için [**ProductUpgradeRequest**](product-upgrade-resources.md#productupgraderequest) kaynağını kullanabilirsiniz. Bu kaynak, bir müşteriyi Microsoft Azure (MS-AZR-0145P) aboneliğinden Azure planına yükseltirken geçerlidir. Başarılı bir istek [**ProductUpgradesEligibility kaynağını**](product-upgrade-resources.md#productupgradeseligibility) döndürür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler. Iş Ortağı Merkezi API 'Leriyle App + kullanıcı kimlik doğrulaması kullanırken [güvenli uygulama modelini](enable-secure-app-model.md) izleyin.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler. [Uygulama+Kullanıcı kimlik doğrulamasını](enable-secure-app-model.md) farklı API'lerle kullanırken güvenli İş Ortağı Merkezi izleyin.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 - Ürün ailesi.
 
-- Yükseltme isteğinin yükseltme kimliği.
+- Yükseltme isteğinin upgrade-id.
 
 ## <a name="c"></a>C\#
 
-Müşterinin Azure planına yükseltmeye uygun olup olmadığını denetlemek için:
+Bir müşterinin Azure planına yükseltmeye uygun olup olduğunu kontrol etmek için:
 
-1. **Productupgradesrequest** nesnesi oluşturun ve ürün ailesi olarak müşteri tanımlayıcısını ve "Azure" i belirtin.
+1. Bir **ProductUpgradesRequest nesnesi** oluşturun ve müşteri tanımlayıcısını ve ürün ailesi olarak "Azure" belirtin.
 
-2. **Iaggregatepartner. Productyükseltmeleri** koleksiyonunu kullanın.
+2. **IAggregatePartner.ProductUpgrades koleksiyonunu** kullanın.
 
-3. **Byıd** metodunu çağırın ve **yükseltme-kimliği**' ni geçirin.
+3. **ById yöntemini** çağırın ve **upgrade-id girin.**
 
-4. **CheckStatus** metodunu çağırın ve **productupgradestatus** nesnesini döndürecek **productupgradesrequest** nesnesini geçirin.
+4. **CheckStatus** yöntemini çağırarak **ProductUpgradesRequest** nesnesini **(productUpgradeStatus** nesnesi) iade eder.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -65,27 +61,27 @@ if (productUpgradeEligibility.IsEligibile)
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si |
 |----------|-----------------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/productupgrades/{Upgrade-id}/Status http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/productUpgrades/{upgrade-id}/status HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Ürün yükseltme durumu almak istediğiniz müşteriyi belirtmek için aşağıdaki sorgu parametresini kullanın.
+Ürün yükseltme durumunu almak istediğiniz müşteriyi belirtmek için aşağıdaki sorgu parametresini kullanın.
 
 | Ad               | Tür | Gerekli | Açıklama                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **yükseltme kimliği** | GUID | Yes | Değer, GUID biçimli bir yükseltme tanımlayıcısıdır. Bu tanımlayıcıyı, izlemek üzere bir yükseltme belirtmek için kullanabilirsiniz. |
+| **upgrade-id** | GUID | Yes | Değer, GUID biçimli bir yükseltme tanımlayıcısıdır. bu tanımlayıcıyı, izılacak bir yükseltme belirtmek için kullanabilirsiniz. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesi bir [**Productyükseltilebilir Derequest**](product-upgrade-resources.md#productupgraderequest) kaynağı içermelidir.
+İstek gövdesi bir [**ProductUpgradeRequest kaynağı içermeli.**](product-upgrade-resources.md#productupgraderequest)
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -115,11 +111,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem gövdede bir [**ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) kaynağı döndürür.
+Başarılı olursa, bu yöntem gövdede [**bir ProductUpgradesEligibility**](product-upgrade-resources.md#productupgradeseligibility) kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

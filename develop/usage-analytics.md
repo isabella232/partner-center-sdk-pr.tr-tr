@@ -4,21 +4,16 @@ description: Iş Ortağı Merkezi SDK 'sını ve API 'Leri kullanarak analitik b
 ms.date: 07/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d779b749b318f1cfadbbcc46943c533c9635b994
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 503d00d9d4acf307cfa9fad86a322be2e8549b73
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768968"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530302"
 ---
 # <a name="analytics"></a>Analiz
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Iş Ortağı Merkezi SDK 'sını ve API 'Leri kullanarak analitik bilgileri programlı bir şekilde alabilirsiniz. Daha fazla bilgi için burada listelenen makalelere bakın:
 

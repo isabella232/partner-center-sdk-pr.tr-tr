@@ -6,33 +6,28 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: 6c61b51ab0680e36daa99c11dc8e8c3506259d29
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: cb9f5815e0019c5e9b648dfd865e9752f0afdf05
+ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769599"
+ms.lasthandoff: 06/05/2021
+ms.locfileid: "111530336"
 ---
 # <a name="update-the-partner-legal-business-profile"></a>İş ortağı yasal iş profili güncelleştirme
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
 İş ortağı yasal iş profilini güncelleştirme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-İş ortağı yasal iş profilini güncelleştirmek için önce bir **LegalBusinessProfile** nesnesi örneği oluşturun ve var olan profille doldurun. Daha fazla bilgi için bkz. [iş ortağı yasal iş profilini edinme](get-legal-business-profile.md). Ardından, değiştirmeniz gereken özellikleri güncelleştirin. Aşağıdaki kod örneği, adresi ve birincil iletişim telefon numaralarını değiştirmeyi gösterir.
+İş ortağı yasal iş profilini güncelleştirmek için öncelikle bir **LegalBusinessProfile** nesnesi örneği oluşturun ve bunu mevcut profille doldurmak. Daha fazla bilgi için [bkz. İş ortağı yasal iş profilini al.](get-legal-business-profile.md) Ardından, değiştirmeniz gereken özellikleri güncelleştirin. Aşağıdaki kod örneği, adresin ve birincil iletişim telefon numaralarının değiştirilmesini göstermektedir.
 
-Sonra, **ıaggregatepartner. Profiles** özelliğinden iş ortağı profili işlemleri koleksiyonuna bir arabirim alın. Ardından, yasal iş profili işlemlerine bir arabirim almak için **LegalBusinessProfile** özelliğinin değerini alın. Son olarak, profili güncelleştirmek için değiştirilen nesneyle [**Update**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) veya [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) yöntemini çağırın.
+Ardından, **IAggregatePartner.Profiles** özelliğinden iş ortağı profili işlemleri koleksiyonuna bir arabirim elde etmek. Ardından yasal iş profili işlemlerine bir arabirim almak için **LegalBusinessProfile** özelliğinin değerini alın. Son olarak, [**profili güncelleştirmek**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.update) için değiştirilen nesneyle Update veya [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.updateasync) yöntemini çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -49,15 +44,15 @@ var updatedLegalBusinessProfile = partnerOperations.Profiles.LegalBusinessProfil
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| **PUT** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/legalbusiness http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -127,11 +122,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi güncelleştirilmiş **LegalBusinessProfile** içerir
+Başarılı olursa yanıt gövdesi güncelleştirilmiş **LegalBusinessProfile dosyasını içerir**
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

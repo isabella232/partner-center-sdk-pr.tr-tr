@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 9d5ec9172ed92d33e6ff291eafd523cbc13bfbbd
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 27a2391a22a9439461fb53764b87c1cafa68b875
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769094"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873896"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>Bir ürüne ait SKU’ların listesini alma (ülkeye göre)
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir ürün için bir ülkede bulunan SKU 'ların bir koleksiyonunu edinebilirsiniz.
 
@@ -129,7 +125,7 @@ Bir ürüne yönelik SKU 'ların listesini almak için aşağıdaki yolu ve sorg
 | ürün kimliği             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
 | ülke kodu           | string   | Yes      | Ülke/bölge KIMLIĞI.                                            |
 | hedef segment         | dize   | No       | Filtreleme için kullanılan hedef segmenti tanımlayan bir dize. |
-| Rezervationscope | dize   | No | Bir Azure rezervasyon ürününe yönelik SKU 'ların listesini sorgularken, `reservationScope=AzurePlan` Azuplanlama için geçerli olan SKU 'ların listesini almak için belirtin. Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan bir Azure ayırma ürününe yönelik SKU 'ların listesini almak için bu parametreyi dışlayın.  |
+| Rezervationscope | dize   | No | Bir Azure rezervasyon ürününe yönelik SKU 'ların listesini sorgularken, `reservationScope=AzurePlan` Azuplanlamada geçerli olan SKU 'ların listesini almak için belirtin. Microsoft Azure (MS-azr-0145p) abonelikleri için geçerli olan Azure rezervasyon ürünleri sku 'larının listesini almak için bu parametreyi dışlayın.  |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -151,7 +147,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Bir Azure rezervasyon ürününe ait SKU 'ların listesini alın. Yalnızca Azure planlarına uygulanabilen ve Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan SKU 'Ları dahil edin:
+Bir Azure rezervasyon ürününe ait SKU 'ların listesini alın. yalnızca Azure planlarına uygulanabilen ve Microsoft Azure (MS-azr-0145p) abonelikleri için geçerli olan sku 'ları dahil et:
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US&reservationScope=AzurePlan HTTP/1.1
@@ -161,7 +157,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Bir Azure rezervasyon ürününe ait SKU 'ların listesini alın. Yalnızca Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan SKU 'Ları (Azure planlarına değil) dahil edin:
+Bir Azure rezervasyon ürününe ait SKU 'ların listesini alın. yalnızca Microsoft Azure (MS-azr-0145p) abonelikleri için geçerli olan sku 'ları (Azure planlarına değil) dahil edin:
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US HTTP/1.1
@@ -181,7 +177,7 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Description                                                                                               |
+| HTTP durum kodu     | Hata kodu   | Açıklama                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | 403                  | 400030       | İstenen targetSegment erişimine izin verilmiyor.                                                     |
 | 404                  | 400013       | Üst ürün bulunamadı.                                                                         |

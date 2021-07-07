@@ -1,27 +1,23 @@
 ---
-title: Ortağın kamu Community bulut doğrulama kodlarını alın
-description: Ortağın kamu Community bulut doğrulama kodlarını alma.
+title: ortağın Government Community Cloud doğrulama kodlarını al
+description: iş ortağının Government Community Cloud doğrulama kodlarını alma.
 ms.date: 11/08/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: d84a3d3c69d835e42565c4e6f1edb06ab338340a
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 04bccf587628337004a5825b534048945f791839
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769286"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873879"
 ---
 # <a name="get-a-partners-validation-codes"></a>İş ortağının doğrulama kodlarını alma
 
-**Uygulama hedefi**
+bu makalede bir iş ortağının Government Community Cloud doğrulama kodları koleksiyonunu nasıl alacağınız açıklanır. Kamu topluluk bulutu 'nda bir müşteri oluşturmak için bir doğrulama kodu gerekir.
 
-- İş Ortağı Merkezi
-
-Ortağın kamu Community bulut doğrulama kodlarının bir koleksiyonunu alma. Kamu topluluk bulutu 'nda bir müşteri oluşturmak için bir doğrulama kodu gerekir.
-
-Kuruluşunuzun veya müşterilerinin kuruluşunuzun Office 365 Kamu GCC 'yi CSP için onayladığı konusunda ilgileniyorsanız, lütfen bkz. [CSP Iş ortağı ve müşteri uygunluk ölçütleri/iş merkezi/CSP-GCC-Validate için Office 365 Kamu GCC.
+kuruluşunuzun veya müşterinin kuruluşunun CSP için Office 365 Kamu GCC onaylanmasından ilgileniyorsanız, bkz. [csp iş ortağı ve müşteri uygunluk ölçütlerine yönelik Office 365 Kamu GCC](/partner-center/csp-gcc-validate).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

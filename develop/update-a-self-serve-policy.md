@@ -4,20 +4,16 @@ description: Self Servis ilkesini güncelleştirme.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4d53ab8e5b8ef5b7be83360a3f43ec7791b2e3b4
-ms.sourcegitcommit: 01e75175077611da92175c777a440a594fb05797
+ms.openlocfilehash: d94382e73fd2a79751fe5f8f8414df2befde584f
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "97770250"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445264"
 ---
 # <a name="update-a-selfservepolicy"></a>SelfServePolicy güncelleştirme
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bu konu, bir self servis ilkesinin nasıl güncelleştireceğinizi açıklar.
+Bu makalede bir self servis ilkesinin nasıl güncelleştirilmesi açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -53,13 +49,13 @@ partnerOperations.SelfServePolicies.ById(policy.id).Put(policy);
 ### <a name="request-headers"></a>İstek üst bilgileri
 
 - İstek tanımlayıcısı ve bağıntı tanımlayıcısı gereklidir.
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üst bilgileri](headers.md) .
+- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
 Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
 
-| Ad                              | Tür   | Description                                 |
+| Ad                              | Tür   | Açıklama                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
 | [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | Self Servis ilke bilgileri. |
 
@@ -67,7 +63,7 @@ Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
 
 Bu tabloda, yeni bir self servis ilkesi oluşturmak için gereken [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağından gerekli en düşük alan açıklanmaktadır.
 
-| Özellik              | Tür             | Description                                                                                            |
+| Özellik              | Tür             | Açıklama                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | kimlik                    | string           | Self Servis ilkesinin başarıyla oluşturulması sırasında sağlanan kendi kendine bir ilke tanımlayıcısı.     |
 | SelfServeEntity       | SelfServeEntity  | Erişim izni verilen self servis varlığı.                                                     |
@@ -118,7 +114,7 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Description                                                                |
+| HTTP durum kodu     | Hata kodu   | Açıklama                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
 | 404                  | 600039       | Self Servis ilkesi bulunamadı                                            |
 | 404                  | 600040       | Self Servis ilke tanımlayıcısı yanlış                                  |

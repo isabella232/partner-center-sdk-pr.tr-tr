@@ -1,107 +1,102 @@
 ---
 title: İş Ortağı Merkezi’nde API erişimini ayarlama
-description: Iş Ortağı Merkezi SDK 'sında geliştirme ve tümleştirme korumalı alanında test için hesapları ayarlayın.
+description: Sanal İş Ortağı Merkezi SDK'sı için geliştirme hesapları ayarlayın ve tümleştirme korumalı alanı içinde test olun.
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 873ff2ff9cecbfa92429958d3bfe2aa79fc3ad9a
-ms.sourcegitcommit: d5de47c08ba661ba5de4935caa6843d7c2c91710
+ms.openlocfilehash: 2c564baa9b626ff6ce21f9bcc517902d7cf99244
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "97769418"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547436"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>İş Ortağı Merkezi’nde API erişimini ayarlama
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi için Microsoft Cloud for US Government | İş Ortağı Merkezi Microsoft Bulut Almanya için destek
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-
-Bu makalede, Iş Ortağı Merkezi SDK 'sına karşı geliştirme yapmanız gereken hesaplar açıklanmaktadır. Bu makalede ayrıca Integration Sandbox [hesabının](#integration-sandbox-account) nasıl oluşturulacağı ve tümleştirme korumalı alanında nasıl test kurulacağı açıklanmaktadır.
+Bu makalede, bu hesaplara karşı geliştirmesi gereken hesaplar İş Ortağı Merkezi SDK'sı. Bu makalede tümleştirme korumalı alanı hesabı oluşturma [ve tümleştirme korumalı alanda](#integration-sandbox-account) test oluşturma da açıklanmıştır.
 
 >[!NOTE]
->API 'lere erişim sağlamak için kiracınızın bir CSP kiracısı olması ve dolaylı bir sağlayıcı ya da doğrudan fatura ortağı olmanız gerekir.
+>API'lere erişim elde etmek için kiracınız CSP kiracısı olmalı ve dolaylı sağlayıcı veya Doğrudan fatura iş ortağınız olması gerekir.
 
 ## <a name="account-definitions"></a>Hesap tanımları
 
-Iş Ortağı Merkezi, API tümleştirmenizi tümleştirmenize ve test etmenize yardımcı olmak için iki hesap türünü destekler:
+API tümleştirmenizi tümleştirmenize ve test etmeye yardımcı olmak İş Ortağı Merkezi iki tür hesabı destekler:
 
-### <a name="primary-partner-account"></a>Birincil Iş ortağı hesabı
+### <a name="primary-partner-account"></a>Birincil İş Ortağı hesabı
 
-Bu hesap, gerçek müşteriler için gerçek siparişler oluşturduğunuz yerdir. Birincil hesapta oturum açtığınızda, Iş Ortağı Merkezi SDK 'sını veya Iş ortağı panosu Kullanıcı arabirimini kullanarak herhangi bir değişiklik veya işlem yaparsanız, bunlar gerçek müşteriler için resmi siparişler olarak değerlendirilir. Bunlar faturanızda yansıtılır ve şirketiniz bu ücret ödemekten sorumludur.
+Bu hesap, gerçek müşteriler için gerçek siparişler oluşturabilirsiniz. Birincil hesapta oturum asanız, İş Ortağı Merkezi SDK'sı veya İş Ortağı Panosu kullanıcı arabirimini kullanarak herhangi bir değişiklik veya işlem yaptısanız, bunlar gerçek müşteriler için resmi siparişler olarak kabul edilir. Bunlar faturanıza yansır ve bunlar için ödeme sizin şirketiniz tarafından sorumludur.
 
 ### <a name="integration-sandbox-account"></a>Tümleştirme korumalı alanı hesabı
 
-Bu hesap, büyük çapta dağıtmadan önce kodunuzun test edilmesine ve Iş Ortağı Merkezi API 'Leriyle tümleştirilmesine yöneliktir. Tümleştirme korumalı alanı hesabında oturum açtığınızda yaptığınız değişiklikler ve işlemler faturanızda görünür, ancak fatura tutarını ödemek zorunda değilsiniz. Fatura PDF 'sine "ödeme yapmayın" olarak bir vazgeçme belgesi sunulacaktır. BU BIR KORUMALı ALAN FATURADıR VE HERHANGI BIR EYLEM GEREKMEZ. "
+Bu hesap, genel olarak dağıtmadan önce kodunuzu ve İş Ortağı Merkezi api'leriyle tümleştirmesini test etmek için. Tümleştirme korumalı alanı hesabında oturum asanız yaptığınız değişiklikler ve işlemler faturada görünür, ancak fatura tutarını ödemeniz gerek değildir. Fatura pdf dosyası şu şekilde bir sorumluluk reddine sahip olur: "ÖDEMEYİN. BU BIR KORUMALı ALAN FATURASıDıR VE HERHANGI BIR IŞLEM GEREKMEZ."
 
-Tümleştirme korumalı alanı hesabı ve birincil hesap bağımsız olarak davranır ve yönetici hesaplarını, Kullanıcı hesaplarını, müşterileri, siparişleri, abonelikleri veya diğer verileri paylaşmazlar.
+Tümleştirme korumalı alanı hesabı ve birincil hesap birbirinden bağımsız olarak hareket eder ve yönetici hesaplarını, kullanıcı hesaplarını, müşterileri, siparişleri, abonelikleri veya diğer verileri paylaşmaz.
 
-Tümleştirme korumalı alanı, sınırlı sayıda müşteri, sipariş, abonelik, lisans vb. ile işlemleri destekler.
+Tümleştirme korumalı alanı sınırlı sayıda müşteri, sipariş, abonelik, lisans vb. ile işlemleri destekler.
 
-İlkeye göre, tümleştirme korumalı alanı hesapları yalnızca tümleştirme testi amaçlıdır.
+İlkeyle, tümleştirme korumalı alanı hesapları yalnızca tümleştirme testi amaçlarına yöneliktir.
 
-Varsayılan olarak tümleştirme korumalı alan hesabı yoktur. Iş Ortağı Merkezi SDK 'sını kullanmayı planlıyorsanız bir tane oluşturmanız gerekir.
+Varsayılan olarak tümleştirme korumalı alan hesabı yoktur. Bu hesabı kullanmayı planlıyorsanız kendiniz bir tane İş Ortağı Merkezi SDK'sı.
 
 ## <a name="set-up-your-accounts"></a>Hesaplarınızı ayarlama
 
-Bu bölümde, Iş Ortağı Merkezi SDK 'Sı için bir birincil Iş ortağı hesabının ve bir tümleştirme korumalı alanı hesabının nasıl ayarlanacağı açıklanmaktadır.
+Bu bölümde, iş ortağı hesabı için birincil İş Ortağı hesabının ve tümleştirme korumalı alanı hesabının nasıl ayar İş Ortağı Merkezi SDK'sı.
 
 ### <a name="create-an-integration-sandbox"></a>Tümleştirme korumalı alanı oluşturma
 
-1. Genel yönetici hesabıyla (birincil Iş ortağı hesabınız) Iş ortağı panosunda oturum açın.
+1. Genel yönetici hesabıyla (birincil İş ortağı hesabınız) İş Ortağı Panosu'nda oturum açın.
 
-2. **Ayarlar** menüsünde (dişli simgesi), **iş ortağı ayarları**' nı seçin.
+2. İş ortağı **Ayarlar** (dişli simgesi) İş ortağı **ayarları'ı seçin.**
 
-3. **Tümleştirme korumalı alanı** sekmesini seçin.
+3. Tümleştirme **korumalı alanı sekmesini** seçin.
 
     >[!NOTE]
-    >Tümleştirme korumalı alanı seçeneğini görmüyorsanız, genel yönetici hesabınız olmayabilir. Aynı zamanda bir tümleştirme korumalı alanı hesabı kullanıyor olabilirsiniz ve bir tümleştirme korumalı alanı zaten ayarlanmış olabilir.
+    >Tümleştirme korumalı alanı seçeneğini görmüyorsanız genel yönetici hesabınız yok olabilir. Ayrıca bir tümleştirme korumalı alanı hesabı kullanıyor ve tümleştirme korumalı alanı zaten ayarlanmış olabilir.
 
-4. Integration Sandbox yönetici hesabı için iletişim bilgilerini girin. Ardından **Hesap oluştur**' u seçin. Hesabın oluşturulduğunu belirten bir onay iletisi için birkaç dakika bekleyin.
+4. Tümleştirme korumalı alan yönetici hesabının iletişim bilgilerini girin. Ardından Hesap **oluştur'a seçin.** Hesabın oluşturularak ilgili onay iletisi için birkaç dakika bekleyin.
 
-5. Onay iletisini görbaşladıktan sonra Iş ortağı panosunun oturumunu kapatın.
+5. Onay mesajını gördüğünüzde İş Ortağı Panosu'nın oturumlarını açın.
 
-6. Yeni tümleştirme korumalı alanı Yönetici hesabınızla yeniden oturum açın. **username@domain** Kimlik bilgilerinizin biçimini, yeni belirttiğiniz parolayla birlikte kullandığınızdan emin olun.
+6. Yeni tümleştirme korumalı alan yönetici hesabınızla yeniden oturum açın. Kimlik bilgileriniz için biçimi **username@domain** ve belirttiğiniz parolayı kullanmayı mutlaka kullanın.
 
-7. Korumalı alan hesabı kurulumunu gerçekleştirmek için **geçerli görevlerin** yukarısında **hesabı ayarla** ' yı seçin.
+7. Korumalı **alan hesabı kurulumunu tamamlamak** için Geçerli **Görevler'in** üzerinde Hesabı Ayarla'ya seçin.
 
-### <a name="enable-api-access"></a>API erişimini etkinleştir
+### <a name="enable-api-access"></a>API erişimini etkinleştirme
 
 Hesabınız ayarlandıktan sonra, İş Ortağı Merkezi SDK'sını tümleştirme korumalı alanıyla kullanabilmek için öncelikle API erişimini etkinleştirmeniz gerekir. Hem birincil İş Ortağı hesabınız hem de tümleştirme korumalı alanı hesabınız için API erişimini ayrı ayrı etkinleştirmelisiniz.
 
-1. Genel yönetici hesabı kullanarak Iş ortağı panosunda oturum açın.
+1. Genel yönetici hesabı kullanarak İş Ortağı Panosunda oturum açın.
 
-2. **Ayarlar** menüsünde (dişli simgesi), **iş ortağı ayarları**' nı seçin.
+2. İş ortağı **Ayarlar** (dişli simgesi) İş ortağı **ayarları'ı seçin.**
 
-3. **Hesap ayarları** sayfasında, **uygulama yönetimi**' ni seçin.
+3. Hesap ayarları **sayfasında Uygulama** yönetimi'ne **tıklayın.**
 
-4. Zaten mevcut bir uygulamanız yoksa, yeni bir Web uygulaması ekleyin. Mevcut bir Web uygulamanız varsa **anahtar Ekle** düğmesini seçin.
+4. Henüz bir uygulamanız yoksa yeni bir web uygulaması ekleyin. Mevcut bir web uygulamanız varsa Anahtar ekle **düğmesini** seçin.
 
-5. Uygulama kayıt bilgilerini, özellikle de bir Web uygulaması oluşturuyorsanız ve güvenli bir yerde depoluyorsanız bu **anahtarı** kopyalayın.
+5. Uygulama kayıt bilgilerini, özellikle  de bir web uygulaması oluşturuyorsanız Anahtar'a kopyalayın ve güvenli bir yerde depolar.
 
-6. Iş ortağı panosunun oturumunu kapatın.
+6. İş Ortağı Panosu'da oturum açın.
 
-7. Tümleştirme korumalı alanı hesabınızla yeniden oturum açın. Tümleştirme korumalı alanında API erişimini etkinleştirmek için 2-5 arasındaki adımları yineleyin.
+7. Tümleştirme korumalı alanı hesabınızla yeniden oturum açın. Tümleştirme korumalı alanda API erişimini etkinleştirmek için 2-5. adımları tekrarlayın.
 
-## <a name="write-and-test-code"></a>Kod yazın ve test edin
+## <a name="write-and-test-code"></a>Kod yazma ve test
 
-Tümleştirme korumalı alanında kod ve test kodu yazabilirsiniz. Azure AD ile [Iş ortağı merkezi kimlik doğrulamasını ayarlamak](partner-center-authentication.md) için aşağıdaki bilgilere ihtiyacınız vardır.
+Tümleştirme korumalı alanı içinde kod yazabilir ve kodu testebilirsiniz. Azure AD ile kimlik doğrulamasını ayarlamak [için İş Ortağı Merkezi](partner-center-authentication.md) bilgilere ihtiyacınız vardır.
 
 | Öğe adı | Öğe konumu |
 | --------- | ------------- |
-| Uygulama KIMLIĞI/Istemci KIMLIĞI | **Ayarlar** menüsünde (dişli simgesi), **iş ortağı ayarları**' nı seçin. **Hesap ayarları** sayfasında, **uygulama yönetimi**' ni seçin. Uygulama KIMLIĞI/Istemci KIMLIĞI **kayıtlı uygulama uygulama kimliği** olarak listelenir. |
-| Anahtar | [API erişimini etkinleştir](#enable-api-access)bölümünde bir Web uygulaması oluşturduysanız, bu, 5. adımda kaydettiğiniz anahtardır. |
-| Etki alanı | Tümleştirme korumalı alanı için etki alanı. |
+| Uygulama Kimliği / İstemci Kimliği | İş ortağı **Ayarlar** (dişli simgesi) İş ortağı **ayarları'ı seçin.** Hesap ayarları **sayfasında Uygulama** Yönetimi'ne **tıklayın.** Uygulama Kimliği/İstemci Kimliği, Kayıtlı uygulama Uygulama **Kimliği olarak listelenir.** |
+| Anahtar | API erişimini etkinleştirme bölümünde bir web uygulaması [oluşturduysanız,](#enable-api-access)bu, 5. adımda kaydedilen anahtardır. |
+| Etki alanı | Tümleştirme korumalı alanının etki alanı. |
 
-## <a name="run-tested-code"></a>Sınanan kodu Çalıştır
+## <a name="run-tested-code"></a>Test edilen kodu çalıştırma
 
-Çözümünüzü gerçek müşteri verileriyle birlikte kullanmak için, tümleştirme korumalı alanı kimlik bilgilerinizle birincil Iş ortağı hesabı kimlik bilgilerinizle değişiklik yapmanız gerekir.
+Çözümlerinizi gerçek müşteri verileriyle kullanmak için tümleştirme korumalı alan kimlik bilgilerinizle birincil İş Ortağı hesabı kimlik bilgilerinize değişmeniz gerekir.
 
-Birincil Iş ortağı hesabınızda test ettiğiniz kodu kullanmaya hazırsanız, bir Azure AD güvenlik belirteci almalısınız. Bu güvenlik belirteci, Iş Ortağı Merkezi uygulamanızı, anahtarınızı ve etki alanınızı temel alır (Tümleştirme korumalı alanı uygulamanız, anahtar ve etki alanınız yerine).
+Test edilen kodunuzu birincil İş Ortağı hesabında kullanmaya hazırsanız bir Azure AD güvenlik belirteci alasınız. Bu güvenlik belirteci, İş Ortağı Merkezi, anahtar ve etki alanınıza (tümleştirme korumalı alan uygulamanız, anahtarınız ve etki alanınız yerine) dayalıdır.
 
-1. Birincil Iş ortağı merkezi kimlik bilgilerinizi kullanarak bir Azure AD güvenlik belirteci almak için [Iş ortağı merkezi kimlik doğrulaması](partner-center-authentication.md) içindeki adımları izleyin. (Daha önce tümleştirme korumalı alanınız için bir Azure AD güvenlik belirteci almak üzere bu adımları izlediyseniz.)
+1. Birincil kimlik bilgilerinizi [İş Ortağı Merkezi Azure](partner-center-authentication.md) AD güvenlik belirteci almak için kimlik doğrulaması İş Ortağı Merkezi izleyin. (Tümleştirme korumalı alanınız için Azure AD güvenlik belirteci almak üzere daha önce bu adımları izlediniz.)
 
-2. Kodunuzda tümleştirme güvenlik belirtecini, birincil Iş ortağı hesabınızın yeni güvenlik belirteciyle değiştirin.
+2. Kodundaki tümleştirme güvenlik belirteci yerine birincil İş Ortağı hesabınız için yeni güvenlik belirteci girin.

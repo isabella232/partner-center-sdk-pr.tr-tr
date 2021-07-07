@@ -1,26 +1,21 @@
 ---
 title: İş Ortağı Merkezi API senaryoları
-description: Bulut çözümü sağlayıcısı program iş ortaklarının, müşteri hesaplarını, siparişleri, desteği ve faturalandırmayı programlı bir şekilde yönetmek için Iş Ortağı Merkezi API 'sini nasıl kullanabileceğinizi öğrenin.
+description: Program iş Bulut Çözümü Sağlayıcısı müşteri hesaplarını, siparişleri, İş Ortağı Merkezi ve faturalamayı program aracılığıyla yönetmek için İş Ortağı Merkezi API'sini nasıl kullanabileceğini öğrenin.
 ms.date: 10/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 14dbd501e3d075c3880fae6f362feef797cba133
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: d74400a975323d5f0f276dbdece3621d8b47a609
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97769958"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547487"
 ---
-# <a name="partner-center-api-scenarios-that-let-you-programmatically-manage-customer-accounts"></a>Müşteri hesaplarını programlı bir şekilde yönetmenize olanak sağlayan iş ortağı merkezi API senaryoları
+# <a name="partner-center-api-scenarios-that-let-you-programmatically-manage-customer-accounts"></a>İş Ortağı Merkezi hesaplarını program aracılığıyla yönetmenizi sağlar
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | Orta Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bu makalede, bulut çözümü sağlayıcısı programındaki iş ortaklarının bazıları, aşağıdaki gibi alanlarda programlı bir şekilde yönetim sağlamak için Iş Ortağı Merkezi API 'sini kullanabilir.
+Bu makalede, Bulut Çözümü Sağlayıcısı programı iş ortaklarının İş Ortağı Merkezi API'sini kullanarak aşağıdaki gibi alanları yönettikleri açıklanmıştır:
 
 - Müşteri hesapları
 - Siparişler
@@ -28,34 +23,34 @@ Bu makalede, bulut çözümü sağlayıcısı programındaki iş ortaklarının 
 - Destek
 - Faturalandırma
 
-Farklı yetenekler içeren farklı Iş ortağı merkezi sürümleri mevcuttur. Tüm senaryolar Iş Ortağı Merkezi sürümlerinde desteklenmez. Daha fazla bilgi için bkz. [Microsoft Ulusal bulut Için Iş Ortağı Merkezi Için geliştirme](developing-for-partner-center-for-microsoft-national-cloud.md).
+Farklı özellikler içeren İş Ortağı Merkezi sürümleri vardır. Tüm senaryolar tüm sürümlerde İş Ortağı Merkezi. Daha fazla bilgi edinmek için [bkz. Microsoft Ulusal İş Ortağı Merkezi için geliştirme.](developing-for-partner-center-for-microsoft-national-cloud.md)
 
-## <a name="scenarios-supported-by-the-partner-center-sdk"></a>Iş Ortağı Merkezi SDK 'Sı tarafından desteklenen senaryolar
+## <a name="scenarios-supported-by-the-partner-center-sdk"></a>İş Ortağı Merkezi SDK'sı tarafından desteklenen senaryolar
 
-Aşağıdaki senaryoların hepsi üç farklı şekilde tamamlanabilir:
+Aşağıdaki senaryoların hepsi üç farklı şekilde tamamlanır:
 
-- [Iş Ortağı Merkezi](https://partner.microsoft.com/dashboard) panosunda el ile.
+- Panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard)
 
-- Program aracılığıyla Iş Ortağı Merkezi tarafından yönetilen API 'YI kullanma.
+- Yönetilen API'yi İş Ortağı Merkezi kullanarak.
 
-- Program aracılığıyla Iş Ortağı Merkezi REST API.
+- Program aracılığıyla İş Ortağı Merkezi REST API.
 
-| Desteklenen bu senaryolar hakkında bilgi edinmek için:  | Şu kaynağa bakın:     |
+| Bu desteklenen senaryolar hakkında bilgi edinmek için:  | Şu kaynağa bakın:     |
 |----------------------------------|--------------------------|
-| **Analiz:** Azure kullanımı, abonelikleri, lisansları veya başvurularıyla ilgili analiz verilerini almayı öğrenin.         | [Analiz](usage-analytics.md)  |
-| **Denetim işlemleri:** Iş Ortağı Merkezi etkinliğinin ve işlemlerinin geçmiş denetim kayıtlarını almayı öğrenin. | [İşlemleri denetleme](audit.md)                     |
-| **Cihaz dağıtımları:** Cihaz yapılandırma ilkeleri, cihaz toplu işlemleriyle çalışma ve cihaz meta verileri hakkında bilgi edinin. Bu senaryolar cihaz yapılandırma ilkelerini ekleme, silme, güncelleştirme ve almayı içerir.    | [Cihaz dağıtıma](device-deployment.md)  |
-| **Hesaplar ve profiller:** İş ortağı faturalandırma profillerinin, yasal profillerin, MPN profilinin, iş profillerinin veya destek profillerinin nasıl alınacağını veya güncelleyeceğinizi öğrenin. Müşterilerin veya dolaylı satıcıların bir listesini de alabilirsiniz. | [Hesapları ve profilleri yönetme](manage-profiles-and-information.md)                                                                        |
-| **Faturalandırma:** Fatura döngüsünü değiştirme, Azure fiyatları ve Azure kullanım kayıtları alma, faturaları alma, ortağın geçerli hesap bakiyesini alma veya müşteri hizmetleri maliyetlerini alma gibi alanlarla ilgili bilgi edinin.  | [Faturalandırmayı yönetme](manage-billing.md)   |
-| **Azure harcama:** Azure harcama ve iş ortağı kullanımı, müşteri aboneliklerinin kullanımı, tarifeli kullanım ve müşteri kullanım bütçeleri hakkında bilgi alın. Senaryolar Ayrıca bir müşteri kullanım bütçesini güncelleştirme de içerir. | [Azure harcaması](azure-spending.md)  |
-| **Müşteri hesaplarını yönetme:** Müşteri hesabı yönetiminin, müşteri hesaplarını veya müşterinin Kullanıcı hesaplarını oluşturma ve silme, müşteri hesabı ayrıntılarını yönetme ve doğrulama, Kullanıcı hesaplarını yönetme ve lisans atama gibi birçok yönden nasıl yapılacağını öğrenin.  | [Müşterileri yönetme](manage-customers.md)  |
-| **Siparişleri yönetme:** Müşteri siparişlerini ve abonelikleri programlı bir şekilde yönetebilmeniz için tüm yolları öğrenin. Bu alan Azure ayırmaları satın alma, sipariş oluşturma, katalogdan teklif alma ve deneme dönüştürme tekliflerini yönetme işlemlerini içerir.   | [Siparişleri yönetme](manage-orders.md)  |
-| **Destek sağlama:** Bir müşteri için Hizmetleri yönetmeyi, bir aboneliğe yönelik destek kişilerini alma veya güncelleştirme ve hizmet isteklerini yönetme hakkında bilgi edinin.  | [Destek sağlama](provide-support.md)   |
-| **Başvurular:** Başvuru oluşturmayı, başvuruların bir listesini almayı veya bir başvuruyu güncelleştirmeyi öğrenin.  | [Referanslar](/partner/develop/referrals)  |
-| **Yardımcı programlar:** Bir adresin nasıl doğrulandığını, pazara göre adres biçimlendirme kuralları alma, etki alanı kullanılabilirliğini doğrulama, tümleştirme korumalı alanından bir müşteri hesabını silme veya Iş Ortağı Merkezi etkinliğinin kaydını alma hakkında bilgi edinin. | [Yardımcı Programlar](utilities.md)  |
-| **Güvenlik:** Iş Ortağı Merkezi 'nde Multi-Factor Authentication (MFA) ile ilgili REST API 'Leri hakkında bilgi edinin. Bu API 'Ler, iş ortağı kiracınızdaki her kullanıcı hesabı için MFA 'yı zorlamanıza yardımcı olur.  | [İş ortağı güvenlik gereksinimlerinin durumu](partner-security-requirements.md)  |
+| **Analiz:** Azure kullanımı, abonelikler, lisanslar veya referanslar hakkında analiz verilerini alma hakkında bilgi edinin.         | [Analiz](usage-analytics.md)  |
+| **Denetim işlemleri:** Etkinlik ve işlemlerin geçmiş denetim kayıtlarını İş Ortağı Merkezi öğrenin. | [İşlemleri denetleme](audit.md)                     |
+| **Cihaz dağıtımları:** Cihaz yapılandırma ilkeleri, cihaz toplu işleri ve cihaz meta verileri ile çalışma hakkında bilgi edinebilirsiniz. Bu senaryolar cihaz yapılandırma ilkeleri ekleme, silme, güncelleştirme ve alma senaryolarını içerir.    | [Cihaz dağıtıma](device-deployment.md)  |
+| **Hesaplar ve profiller:** İş ortağı faturalama profillerini, yasal profilleri, MPN profilini, iş profillerini veya destek profillerini nasıl alalı veya güncelleştirebilirsiniz. Ayrıca müşterilerin veya dolaylı kurumsal bayilerin listesini de alabilirsiniz. | [Hesapları ve profilleri yönetme](manage-profiles-and-information.md)                                                                        |
+| **Faturalama:** Faturalama döngüsünü değiştirme, Azure ücretlerini ve Azure kullanım kayıtlarını alma, faturaları alma, iş ortağının geçerli hesap bakiyesini alma veya müşteri hizmetleri maliyetlerini alma gibi alanlar hakkında bilgi edinin.  | [Faturalandırmayı yönetme](manage-billing.md)   |
+| **Azure harcaması:** Azure harcaması ve iş ortağı kullanımı, müşteri aboneliklerinin kullanımı, tarifeli kullanım ve müşteri kullanım bütçeleri hakkında bilgi edinin. Senaryolar ayrıca müşteri kullanım bütçesini güncelleştirmeyi de içerir. | [Azure harcaması](azure-spending.md)  |
+| **Müşteri hesaplarını yönetme:** Müşteri hesapları oluşturma ve silme, müşteri hesabı ayrıntılarını yönetme ve doğrulama, kullanıcı hesaplarını yönetme ve lisans atama gibi birçok müşteri hesabı yönetimini nasıl gerçekleştirebilirsiniz?  | [Müşterileri yönetme](manage-customers.md)  |
+| **Siparişleri yönetme:** Müşteri siparişlerini ve aboneliklerini program aracılığıyla yönetebilirsiniz. Bu alan Azure rezervasyonları satın alma, sipariş oluşturma, katalogdan teklif alma ve deneme dönüştürme tekliflerini yönetmeyi içerir.   | [Siparişleri yönetme](manage-orders.md)  |
+| **Destek sağlama:** Bir müşteri için hizmetleri yönetmeyi, bir abonelik için destek kişilerini alma veya güncelleştirme ve hizmet isteklerini yönetme hakkında bilgi alın.  | [Destek sağlama](provide-support.md)   |
+| **Referanslar:** Referans oluşturma, referans listesini öğrenme veya bir referansı güncelleştirme.  | [Referanslar](/partner/develop/referrals)  |
+| **Yardımcı Programlar:** Bir adresi doğrulamayı, pazara göre adres biçimlendirme kurallarını öğrenin, etki alanı kullanılabilirliğini doğrulayın, tümleştirme korumalı alandan bir müşteri hesabını silin veya etkinlik kaydını İş Ortağı Merkezi öğrenin. | [Yardımcı Programlar](utilities.md)  |
+| **Güvenlik:** Çok faktörlü kimlik doğrulaması (MFA) ile ilgili REST API'ler hakkında bilgi İş Ortağı Merkezi. Bu API'ler, iş ortağı kiracınız için her kullanıcı hesabı için MFA'nın zorunlu kılınmanıza yardımcı olur.  | [İş ortağı güvenlik gereksinimleri durumu](partner-security-requirements.md)  |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Iş Ortağı Merkezi örneklerine bakın](partner-center-samples.md)
-- [Kullanmaya başlama hakkında bilgi edinin](get-started.md)
+- [Bkz. İş Ortağı Merkezi örnekleri](partner-center-samples.md)
+- [Çalışmaya başlamayı öğrenin](get-started.md)
