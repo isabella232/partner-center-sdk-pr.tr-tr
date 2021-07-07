@@ -6,53 +6,49 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 43086a32fa0dbbdecf65aac167c687f26fc4c2c6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: fe8af76d1e1456754dec79291ec0853fb253d108
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768741"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446301"
 ---
-# <a name="get-a-customers-subscriptions-transfer-eligibility"></a><span data-ttu-id="a0e8a-103">Müşterinin abonelik aktarım uygunluğunu alma</span><span class="sxs-lookup"><span data-stu-id="a0e8a-103">Get a customer's subscriptions transfer eligibility</span></span>
+# <a name="get-a-customers-subscriptions-transfer-eligibility"></a><span data-ttu-id="ed3d3-103">Müşterinin abonelik aktarım uygunluğunu alma</span><span class="sxs-lookup"><span data-stu-id="ed3d3-103">Get a customer's subscriptions transfer eligibility</span></span>
 
-<span data-ttu-id="a0e8a-104">**Uygulama hedefi**</span><span class="sxs-lookup"><span data-stu-id="a0e8a-104">**Applies To**</span></span>
+<span data-ttu-id="ed3d3-104">Aktarım için uygun/uygun olmayan bir müşterinin aboneliklerinin bir koleksiyonunu alma.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-104">How to get a collection of a customer's subscriptions that are eligible/ineligible for transfer.</span></span>
 
-- <span data-ttu-id="a0e8a-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="a0e8a-105">Partner Center</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="ed3d3-105">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="ed3d3-105">Prerequisites</span></span>
 
-<span data-ttu-id="a0e8a-106">Aktarım için uygun/uygun olmayan bir müşterinin aboneliklerinin bir koleksiyonunu alma.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-106">How to get a collection of a customer's subscriptions that are eligible/ineligible for transfer.</span></span>
+- <span data-ttu-id="ed3d3-106">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-106">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="ed3d3-107">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-107">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="a0e8a-107">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="a0e8a-107">Prerequisites</span></span>
+- <span data-ttu-id="ed3d3-108">Bir müşteri KIMLIĞI ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="ed3d3-108">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="ed3d3-109">Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-109">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="ed3d3-110">Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-110">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="ed3d3-111">Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-111">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="ed3d3-112">Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-112">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="ed3d3-113">Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .</span><span class="sxs-lookup"><span data-stu-id="ed3d3-113">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="a0e8a-108">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="a0e8a-109">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-109">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+## <a name="rest-request"></a><span data-ttu-id="ed3d3-114">REST isteği</span><span class="sxs-lookup"><span data-stu-id="ed3d3-114">REST request</span></span>
 
-- <span data-ttu-id="a0e8a-110">Bir müşteri KIMLIĞI ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="a0e8a-110">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="a0e8a-111">Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-111">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="a0e8a-112">Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-112">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="a0e8a-113">Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-113">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="a0e8a-114">Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-114">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="a0e8a-115">Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .</span><span class="sxs-lookup"><span data-stu-id="a0e8a-115">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="ed3d3-115">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="ed3d3-115">Request syntax</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="a0e8a-116">REST isteği</span><span class="sxs-lookup"><span data-stu-id="a0e8a-116">REST request</span></span>
-
-### <a name="request-syntax"></a><span data-ttu-id="a0e8a-117">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="a0e8a-117">Request syntax</span></span>
-
-| <span data-ttu-id="a0e8a-118">Yöntem</span><span class="sxs-lookup"><span data-stu-id="a0e8a-118">Method</span></span>  | <span data-ttu-id="a0e8a-119">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="a0e8a-119">Request URI</span></span>                                                                                          |
+| <span data-ttu-id="ed3d3-116">Yöntem</span><span class="sxs-lookup"><span data-stu-id="ed3d3-116">Method</span></span>  | <span data-ttu-id="ed3d3-117">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="ed3d3-117">Request URI</span></span>                                                                                          |
 |---------|------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="a0e8a-120">**Al**</span><span class="sxs-lookup"><span data-stu-id="a0e8a-120">**GET**</span></span> | <span data-ttu-id="a0e8a-121">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/transferseligibility? transfertype = {aktarım-türü} http/1.1</span><span class="sxs-lookup"><span data-stu-id="a0e8a-121">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/transferseligibility?transferType={transfer-type} HTTP/1.1</span></span> |
+| <span data-ttu-id="ed3d3-118">**Al**</span><span class="sxs-lookup"><span data-stu-id="ed3d3-118">**GET**</span></span> | <span data-ttu-id="ed3d3-119">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/transferseligibility? transfertype = {aktarım-türü} http/1.1</span><span class="sxs-lookup"><span data-stu-id="ed3d3-119">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/transferseligibility?transferType={transfer-type} HTTP/1.1</span></span> |
 
-### <a name="uri-parameter"></a><span data-ttu-id="a0e8a-122">URI parametresi</span><span class="sxs-lookup"><span data-stu-id="a0e8a-122">URI parameter</span></span>
+### <a name="uri-parameter"></a><span data-ttu-id="ed3d3-120">URI parametresi</span><span class="sxs-lookup"><span data-stu-id="ed3d3-120">URI parameter</span></span>
 
-<span data-ttu-id="a0e8a-123">Bu tablo, tüm abonelikleri almak için gerekli sorgu parametresini listeler.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-123">This table lists the required query parameter to get all the subscriptions.</span></span>
+<span data-ttu-id="ed3d3-121">Bu tablo, tüm abonelikleri almak için gerekli sorgu parametresini listeler.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-121">This table lists the required query parameter to get all the subscriptions.</span></span>
 
-| <span data-ttu-id="a0e8a-124">Ad</span><span class="sxs-lookup"><span data-stu-id="a0e8a-124">Name</span></span>               | <span data-ttu-id="a0e8a-125">Tür</span><span class="sxs-lookup"><span data-stu-id="a0e8a-125">Type</span></span>   | <span data-ttu-id="a0e8a-126">Gerekli</span><span class="sxs-lookup"><span data-stu-id="a0e8a-126">Required</span></span> | <span data-ttu-id="a0e8a-127">Açıklama</span><span class="sxs-lookup"><span data-stu-id="a0e8a-127">Description</span></span>                                           |
+| <span data-ttu-id="ed3d3-122">Ad</span><span class="sxs-lookup"><span data-stu-id="ed3d3-122">Name</span></span>               | <span data-ttu-id="ed3d3-123">Tür</span><span class="sxs-lookup"><span data-stu-id="ed3d3-123">Type</span></span>   | <span data-ttu-id="ed3d3-124">Gerekli</span><span class="sxs-lookup"><span data-stu-id="ed3d3-124">Required</span></span> | <span data-ttu-id="ed3d3-125">Açıklama</span><span class="sxs-lookup"><span data-stu-id="ed3d3-125">Description</span></span>                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| <span data-ttu-id="a0e8a-128">Müşteri-Kiracı kimliği</span><span class="sxs-lookup"><span data-stu-id="a0e8a-128">customer-tenant-id</span></span> | <span data-ttu-id="a0e8a-129">string</span><span class="sxs-lookup"><span data-stu-id="a0e8a-129">string</span></span> | <span data-ttu-id="a0e8a-130">Yes</span><span class="sxs-lookup"><span data-stu-id="a0e8a-130">Yes</span></span>      | <span data-ttu-id="a0e8a-131">Müşteriyi tanımlayan GUID biçimli bir dize.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-131">A GUID-formatted string that identifies the customer.</span></span> |
-| <span data-ttu-id="a0e8a-132">Aktarım türü</span><span class="sxs-lookup"><span data-stu-id="a0e8a-132">transfer-type</span></span>      | <span data-ttu-id="a0e8a-133">string</span><span class="sxs-lookup"><span data-stu-id="a0e8a-133">string</span></span> | <span data-ttu-id="a0e8a-134">Yes</span><span class="sxs-lookup"><span data-stu-id="a0e8a-134">Yes</span></span>      | <span data-ttu-id="a0e8a-135">Hedeflenen aktarım türü.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-135">The type of transfer that is intended.</span></span>                |
+| <span data-ttu-id="ed3d3-126">Müşteri-Kiracı kimliği</span><span class="sxs-lookup"><span data-stu-id="ed3d3-126">customer-tenant-id</span></span> | <span data-ttu-id="ed3d3-127">string</span><span class="sxs-lookup"><span data-stu-id="ed3d3-127">string</span></span> | <span data-ttu-id="ed3d3-128">Yes</span><span class="sxs-lookup"><span data-stu-id="ed3d3-128">Yes</span></span>      | <span data-ttu-id="ed3d3-129">Müşteriyi tanımlayan GUID biçimli bir dize.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-129">A GUID-formatted string that identifies the customer.</span></span> |
+| <span data-ttu-id="ed3d3-130">Aktarım türü</span><span class="sxs-lookup"><span data-stu-id="ed3d3-130">transfer-type</span></span>      | <span data-ttu-id="ed3d3-131">string</span><span class="sxs-lookup"><span data-stu-id="ed3d3-131">string</span></span> | <span data-ttu-id="ed3d3-132">Yes</span><span class="sxs-lookup"><span data-stu-id="ed3d3-132">Yes</span></span>      | <span data-ttu-id="ed3d3-133">Hedeflenen aktarım türü.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-133">The type of transfer that is intended.</span></span>                |
 
-### <a name="request-headers"></a><span data-ttu-id="a0e8a-136">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="a0e8a-136">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="ed3d3-134">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="ed3d3-134">Request headers</span></span>
 
-<span data-ttu-id="a0e8a-137">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="a0e8a-137">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="ed3d3-135">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="ed3d3-135">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="a0e8a-138">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="a0e8a-138">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="ed3d3-136">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="ed3d3-136">Request body</span></span>
 
-<span data-ttu-id="a0e8a-139">Yok.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-139">None.</span></span>
+<span data-ttu-id="ed3d3-137">Yok.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-137">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="a0e8a-140">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="a0e8a-140">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="ed3d3-138">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="ed3d3-138">Request example</span></span>
 
 ```http
 GET /v1/customers/823c6c3f-9259-4d51-bae2-5dd06743177f/transferseligibility?transferType=directtoindirect HTTP/1.1
@@ -63,15 +59,15 @@ MS-CorrelationId: cd589c16-dc94-49ad-e529-125c258573d6
 Connection: Keep-Alive
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="a0e8a-141">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="a0e8a-141">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="ed3d3-139">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="ed3d3-139">REST response</span></span>
 
-<span data-ttu-id="a0e8a-142">Başarılı olursa, bu yöntem yanıt gövdesinde bir [Transferuygunluk](transfer-eligibility-resources.md) kaynakları koleksiyonu döndürür.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-142">If successful, this method returns a collection of [TransferEligibility](transfer-eligibility-resources.md) resources in the response body.</span></span>
+<span data-ttu-id="ed3d3-140">Başarılı olursa, bu yöntem yanıt gövdesinde bir [Transferuygunluk](transfer-eligibility-resources.md) kaynakları koleksiyonu döndürür.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-140">If successful, this method returns a collection of [TransferEligibility](transfer-eligibility-resources.md) resources in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="a0e8a-143">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="a0e8a-143">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="ed3d3-141">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="ed3d3-141">Response success and error codes</span></span>
 
-<span data-ttu-id="a0e8a-144">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-144">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="a0e8a-145">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="a0e8a-145">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="a0e8a-146">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="a0e8a-146">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="ed3d3-142">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-142">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="ed3d3-143">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="ed3d3-143">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="ed3d3-144">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="ed3d3-144">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="a0e8a-147">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="a0e8a-147">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="ed3d3-145">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="ed3d3-145">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

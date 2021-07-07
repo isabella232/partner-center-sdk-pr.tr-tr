@@ -6,53 +6,48 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: ff69798ddfd91fca817ec0d047bf407f326066c2
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 5ab7dde0d78e8ff15bb1a960b16c8c925b0478ce
+ms.sourcegitcommit: c5acfb373aa012eb3b6c17182f7ca56883502c6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769851"
+ms.lasthandoff: 06/19/2021
+ms.locfileid: "112391300"
 ---
-# <a name="get-invoices-unbilled-reconciliation-line-items"></a><span data-ttu-id="7fabf-103">Faturanın faturalandırılmamış mutabakat satırı öğelerini Al</span><span class="sxs-lookup"><span data-stu-id="7fabf-103">Get invoice's unbilled reconciliation line items</span></span>
+# <a name="get-invoices-unbilled-reconciliation-line-items"></a><span data-ttu-id="924da-103">Faturanın faturalandırılmamış mutabakat satırı öğelerini Al</span><span class="sxs-lookup"><span data-stu-id="924da-103">Get invoice's unbilled reconciliation line items</span></span>
 
-<span data-ttu-id="7fabf-104">**Uygulama hedefi:**</span><span class="sxs-lookup"><span data-stu-id="7fabf-104">**Applies to:**</span></span>
+<span data-ttu-id="924da-104">**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="924da-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="7fabf-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="7fabf-105">Partner Center</span></span>
-- <span data-ttu-id="7fabf-106">21Vianet tarafından çalıştırılan iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="7fabf-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="7fabf-107">Microsoft Bulut Almanya için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="7fabf-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="7fabf-108">Microsoft Cloud for US Government için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="7fabf-108">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="924da-105">Aşağıdaki yöntemleri kullanarak, faturalandırılmamış fatura satırı öğeleri (açık faturalandırma satırı öğeleri olarak da bilinir) için bir ayrıntılar koleksiyonu alabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="924da-105">You can use the following methods get a collection of details for unbilled invoice line items (also known as open billing line items).</span></span>
 
-<span data-ttu-id="7fabf-109">Aşağıdaki yöntemleri kullanarak, faturalandırılmamış fatura satırı öğeleri (açık faturalandırma satırı öğeleri olarak da bilinir) için bir ayrıntılar koleksiyonu alabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="7fabf-109">You can use the following methods get a collection of details for unbilled invoice line items (also known as open billing line items).</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="924da-106">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="924da-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="7fabf-110">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="7fabf-110">Prerequisites</span></span>
+- <span data-ttu-id="924da-107">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="924da-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="924da-108">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="924da-108">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="7fabf-111">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="7fabf-111">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="7fabf-112">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="7fabf-112">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="924da-109">Bir fatura tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="924da-109">An invoice identifier.</span></span> <span data-ttu-id="924da-110">Bu, satır öğelerinin alınacağı faturayı tanımlar.</span><span class="sxs-lookup"><span data-stu-id="924da-110">This identifies the invoice for which to retrieve the line items.</span></span>
 
-- <span data-ttu-id="7fabf-113">Bir fatura tanımlayıcısı.</span><span class="sxs-lookup"><span data-stu-id="7fabf-113">An invoice identifier.</span></span> <span data-ttu-id="7fabf-114">Bu, satır öğelerinin alınacağı faturayı tanımlar.</span><span class="sxs-lookup"><span data-stu-id="7fabf-114">This identifies the invoice for which to retrieve the line items.</span></span>
+## <a name="c"></a><span data-ttu-id="924da-111">C\#</span><span class="sxs-lookup"><span data-stu-id="924da-111">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="7fabf-115">C\#</span><span class="sxs-lookup"><span data-stu-id="7fabf-115">C\#</span></span>
+<span data-ttu-id="924da-112">Belirtilen faturaya ait satır öğelerini almak için fatura nesnesini alın:</span><span class="sxs-lookup"><span data-stu-id="924da-112">To get the line items for the specified invoice, retrieve the invoice object:</span></span>
 
-<span data-ttu-id="7fabf-116">Belirtilen faturaya ait satır öğelerini almak için fatura nesnesini alın:</span><span class="sxs-lookup"><span data-stu-id="7fabf-116">To get the line items for the specified invoice, retrieve the invoice object:</span></span>
+1. <span data-ttu-id="924da-113">Belirtilen faturaya yönelik işlemleri faturalamak için bir arabirim almak üzere [**Byıd**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="924da-113">Call the [**ById**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) method to get an interface to invoice operations for the specified invoice.</span></span>
 
-1. <span data-ttu-id="7fabf-117">Belirtilen faturaya yönelik işlemleri faturalamak için bir arabirim almak üzere [**Byıd**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-117">Call the [**ById**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) method to get an interface to invoice operations for the specified invoice.</span></span>
+2. <span data-ttu-id="924da-114">Fatura nesnesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="924da-114">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the invoice object.</span></span>
 
-2. <span data-ttu-id="7fabf-118">Fatura nesnesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-118">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the invoice object.</span></span>
+<span data-ttu-id="924da-115">Fatura nesnesi belirtilen faturaya ait tüm bilgileri içerir:</span><span class="sxs-lookup"><span data-stu-id="924da-115">The invoice object contains all of the information for the specified invoice:</span></span>
 
-<span data-ttu-id="7fabf-119">Fatura nesnesi belirtilen faturaya ait tüm bilgileri içerir:</span><span class="sxs-lookup"><span data-stu-id="7fabf-119">The invoice object contains all of the information for the specified invoice:</span></span>
+- <span data-ttu-id="924da-116">**Sağlayıcı** , faturalandırılmamış ayrıntı bilgisinin kaynağını tanımlar (örneğin, **Onetime**).</span><span class="sxs-lookup"><span data-stu-id="924da-116">**Provider** identifies the source of the unbilled detail information (for example, **OneTime**).</span></span>
 
-- <span data-ttu-id="7fabf-120">**Sağlayıcı** , faturalandırılmamış ayrıntı bilgisinin kaynağını tanımlar (örneğin, **Onetime**).</span><span class="sxs-lookup"><span data-stu-id="7fabf-120">**Provider** identifies the source of the unbilled detail information (for example, **OneTime**).</span></span>
+- <span data-ttu-id="924da-117">**Fatura Elineıtemtype** türü belirtir (örneğin, **Billinglineıtem**).</span><span class="sxs-lookup"><span data-stu-id="924da-117">**InvoiceLineItemType** specifies the type (for example, **BillingLineItem**).</span></span>
 
-- <span data-ttu-id="7fabf-121">**Fatura Elineıtemtype** türü belirtir (örneğin, **Billinglineıtem**).</span><span class="sxs-lookup"><span data-stu-id="7fabf-121">**InvoiceLineItemType** specifies the type (for example, **BillingLineItem**).</span></span>
+<span data-ttu-id="924da-118">Bir **InvoiceDetail** örneğine karşılık gelen satır öğelerinin bir koleksiyonunu almak için:</span><span class="sxs-lookup"><span data-stu-id="924da-118">To get a collection of line items that correspond to an **InvoiceDetail** instance:</span></span>
 
-<span data-ttu-id="7fabf-122">Bir **InvoiceDetail** örneğine karşılık gelen satır öğelerinin bir koleksiyonunu almak için:</span><span class="sxs-lookup"><span data-stu-id="7fabf-122">To get a collection of line items that correspond to an **InvoiceDetail** instance:</span></span>
+1. <span data-ttu-id="924da-119">Örneğe ait BillingProvider ve ınvoineıtemtype 'ı [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) metoduna geçirin.</span><span class="sxs-lookup"><span data-stu-id="924da-119">Pass the instance's BillingProvider and InvoiceLineItemType to the [**By**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) method.</span></span>
 
-1. <span data-ttu-id="7fabf-123">Örneğe ait BillingProvider ve ınvoineıtemtype 'ı [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) metoduna geçirin.</span><span class="sxs-lookup"><span data-stu-id="7fabf-123">Pass the instance's BillingProvider and InvoiceLineItemType to the [**By**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) method.</span></span>
+2. <span data-ttu-id="924da-120">İlişkili satır öğelerini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="924da-120">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the associated line items.</span></span>
 
-2. <span data-ttu-id="7fabf-124">İlişkili satır öğelerini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-124">Call the [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) method to retrieve the associated line items.</span></span>
+3. <span data-ttu-id="924da-121">Koleksiyonda çapraz geçiş yapmak için bir Numaralandırıcı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="924da-121">Create an enumerator to traverse the collection.</span></span> <span data-ttu-id="924da-122">Örnek için aşağıdaki örnek koda bakın.</span><span class="sxs-lookup"><span data-stu-id="924da-122">For an example, see the following sample code.</span></span>
 
-3. <span data-ttu-id="7fabf-125">Koleksiyonda çapraz geçiş yapmak için bir Numaralandırıcı oluşturun.</span><span class="sxs-lookup"><span data-stu-id="7fabf-125">Create an enumerator to traverse the collection.</span></span> <span data-ttu-id="7fabf-126">Örnek için aşağıdaki örnek koda bakın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-126">For an example, see the following sample code.</span></span>
-
-<span data-ttu-id="7fabf-127">Aşağıdaki örnek kod, **ınvogıtems** koleksiyonunu işlemek için bir **foreach** döngüsü kullanır.</span><span class="sxs-lookup"><span data-stu-id="7fabf-127">The following sample code uses a **foreach** loop to process the **InvoiceLineItems** collection.</span></span> <span data-ttu-id="7fabf-128">Her bir **Faturaöğeside** her bir faturaya ait ayrı bir satır öğesi koleksiyonu alınır.</span><span class="sxs-lookup"><span data-stu-id="7fabf-128">A separate collection of line items is retrieved for each **InvoiceLineItemType**.</span></span>
+<span data-ttu-id="924da-123">Aşağıdaki örnek kod, **ınvogıtems** koleksiyonunu işlemek için bir **foreach** döngüsü kullanır.</span><span class="sxs-lookup"><span data-stu-id="924da-123">The following sample code uses a **foreach** loop to process the **InvoiceLineItems** collection.</span></span> <span data-ttu-id="924da-124">Her bir **Faturaöğeside** her bir faturaya ait ayrı bir satır öğesi koleksiyonu alınır.</span><span class="sxs-lookup"><span data-stu-id="924da-124">A separate collection of line items is retrieved for each **InvoiceLineItemType**.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -110,68 +105,68 @@ while (fetchNext)
 }
 ```
 
-<span data-ttu-id="7fabf-129">Benzer bir örnek için bkz.:</span><span class="sxs-lookup"><span data-stu-id="7fabf-129">For a similar example, see:</span></span>
+<span data-ttu-id="924da-125">Benzer bir örnek için bkz.:</span><span class="sxs-lookup"><span data-stu-id="924da-125">For a similar example, see:</span></span>
 
-- <span data-ttu-id="7fabf-130">Örnek: [konsol test uygulaması](console-test-app.md)</span><span class="sxs-lookup"><span data-stu-id="7fabf-130">Sample: [Console test app](console-test-app.md)</span></span>
-- <span data-ttu-id="7fabf-131">Proje: **Iş ortağı MERKEZI SDK örnekleri**</span><span class="sxs-lookup"><span data-stu-id="7fabf-131">Project: **Partner Center SDK Samples**</span></span>
-- <span data-ttu-id="7fabf-132">Sınıf: **GetUnBilledReconLineItemsPaging.cs**</span><span class="sxs-lookup"><span data-stu-id="7fabf-132">Class: **GetUnBilledReconLineItemsPaging.cs**</span></span>
+- <span data-ttu-id="924da-126">Örnek: [konsol test uygulaması](console-test-app.md)</span><span class="sxs-lookup"><span data-stu-id="924da-126">Sample: [Console test app](console-test-app.md)</span></span>
+- <span data-ttu-id="924da-127">Project: **iş ortağı merkezi SDK örnekleri**</span><span class="sxs-lookup"><span data-stu-id="924da-127">Project: **Partner Center SDK Samples**</span></span>
+- <span data-ttu-id="924da-128">Sınıf: **GetUnBilledReconLineItemsPaging. cs**</span><span class="sxs-lookup"><span data-stu-id="924da-128">Class: **GetUnBilledReconLineItemsPaging.cs**</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="7fabf-133">REST isteği</span><span class="sxs-lookup"><span data-stu-id="7fabf-133">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="924da-129">REST isteği</span><span class="sxs-lookup"><span data-stu-id="924da-129">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="7fabf-134">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="7fabf-134">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="924da-130">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="924da-130">Request syntax</span></span>
 
-<span data-ttu-id="7fabf-135">Kullanım durumunuza bağlı olarak REST isteğiniz için aşağıdaki sözdizimleri kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="7fabf-135">You can use the following syntaxes for your REST request, depending on your use case.</span></span> <span data-ttu-id="7fabf-136">Daha fazla bilgi için her bir sözdizimi için açıklamalara bakın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-136">For more information, see the descriptions for each syntax.</span></span>
+<span data-ttu-id="924da-131">Kullanım durumunuza bağlı olarak REST isteğiniz için aşağıdaki sözdizimleri kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="924da-131">You can use the following syntaxes for your REST request, depending on your use case.</span></span> <span data-ttu-id="924da-132">Daha fazla bilgi için her bir sözdizimi için açıklamalara bakın.</span><span class="sxs-lookup"><span data-stu-id="924da-132">For more information, see the descriptions for each syntax.</span></span>
 
- | <span data-ttu-id="7fabf-137">Yöntem</span><span class="sxs-lookup"><span data-stu-id="7fabf-137">Method</span></span>  | <span data-ttu-id="7fabf-138">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="7fabf-138">Request URI</span></span>            | <span data-ttu-id="7fabf-139">Sözdizimi kullanım durumunun açıklaması</span><span class="sxs-lookup"><span data-stu-id="7fabf-139">Description of syntax use case</span></span>                                                                                |
+ | <span data-ttu-id="924da-133">Yöntem</span><span class="sxs-lookup"><span data-stu-id="924da-133">Method</span></span>  | <span data-ttu-id="924da-134">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="924da-134">Request URI</span></span>            | <span data-ttu-id="924da-135">Sözdizimi kullanım durumunun açıklaması</span><span class="sxs-lookup"><span data-stu-id="924da-135">Description of syntax use case</span></span>                                                                                |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="7fabf-140">**Al**</span><span class="sxs-lookup"><span data-stu-id="7fabf-140">**GET**</span></span> | <span data-ttu-id="7fabf-141">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvogıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {PERIOD} http/1.1</span><span class="sxs-lookup"><span data-stu-id="7fabf-141">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period} HTTP/1.1</span></span>                              | <span data-ttu-id="7fabf-142">Verilen faturaya ait her satır öğesinin tam listesini döndürmek için bu sözdizimini kullanın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-142">Use this syntax to return a full list of every line item for the given invoice.</span></span> |
-| <span data-ttu-id="7fabf-143">**Al**</span><span class="sxs-lookup"><span data-stu-id="7fabf-143">**GET**</span></span> | <span data-ttu-id="7fabf-144">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {period} &boyut = {SIZE} http/1.1</span><span class="sxs-lookup"><span data-stu-id="7fabf-144">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1</span></span>  | <span data-ttu-id="7fabf-145">Büyük faturalar için bu sözdizimini belirtilen boyut ve 0 tabanlı uzaklığa göre kullanarak satır öğelerinin sayfalandırılmış bir listesini döndürün.</span><span class="sxs-lookup"><span data-stu-id="7fabf-145">For large invoices, use this syntax with a specified size and 0-based offset to return a paged list of line items.</span></span> |
-| <span data-ttu-id="7fabf-146">**Al**</span><span class="sxs-lookup"><span data-stu-id="7fabf-146">**GET**</span></span> | <span data-ttu-id="7fabf-147">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvogıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {period} &boyut = {size} &Seekoperation = ileri</span><span class="sxs-lookup"><span data-stu-id="7fabf-147">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next</span></span>                               | <span data-ttu-id="7fabf-148">Kullanılarak mutabakat satır öğelerinin sonraki sayfasını almak için bu sözdizimini kullanın `seekOperation = "Next"` .</span><span class="sxs-lookup"><span data-stu-id="7fabf-148">Use this syntax to get the next page of reconciliation line items using `seekOperation = "Next"`.</span></span> |
+| <span data-ttu-id="924da-136">**Al**</span><span class="sxs-lookup"><span data-stu-id="924da-136">**GET**</span></span> | <span data-ttu-id="924da-137">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvogıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {PERIOD} http/1.1</span><span class="sxs-lookup"><span data-stu-id="924da-137">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period} HTTP/1.1</span></span>                              | <span data-ttu-id="924da-138">Verilen faturaya ait her satır öğesinin tam listesini döndürmek için bu sözdizimini kullanın.</span><span class="sxs-lookup"><span data-stu-id="924da-138">Use this syntax to return a full list of every line item for the given invoice.</span></span> |
+| <span data-ttu-id="924da-139">**Al**</span><span class="sxs-lookup"><span data-stu-id="924da-139">**GET**</span></span> | <span data-ttu-id="924da-140">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {period} &boyut = {SIZE} http/1.1</span><span class="sxs-lookup"><span data-stu-id="924da-140">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1</span></span>  | <span data-ttu-id="924da-141">Büyük faturalar için bu sözdizimini belirtilen boyut ve 0 tabanlı uzaklığa göre kullanarak satır öğelerinin sayfalandırılmış bir listesini döndürün.</span><span class="sxs-lookup"><span data-stu-id="924da-141">For large invoices, use this syntax with a specified size and 0-based offset to return a paged list of line items.</span></span> |
+| <span data-ttu-id="924da-142">**Al**</span><span class="sxs-lookup"><span data-stu-id="924da-142">**GET**</span></span> | <span data-ttu-id="924da-143">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvogıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {period} &boyut = {size} &Seekoperation = ileri</span><span class="sxs-lookup"><span data-stu-id="924da-143">[*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next</span></span>                               | <span data-ttu-id="924da-144">Kullanılarak mutabakat satır öğelerinin sonraki sayfasını almak için bu sözdizimini kullanın `seekOperation = "Next"` .</span><span class="sxs-lookup"><span data-stu-id="924da-144">Use this syntax to get the next page of reconciliation line items using `seekOperation = "Next"`.</span></span> |
 
-#### <a name="uri-parameters"></a><span data-ttu-id="7fabf-149">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="7fabf-149">URI parameters</span></span>
+#### <a name="uri-parameters"></a><span data-ttu-id="924da-145">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="924da-145">URI parameters</span></span>
 
-<span data-ttu-id="7fabf-150">İsteği oluştururken aşağıdaki URI ve sorgu parametrelerini kullanın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-150">Use the following URI and query parameters when creating the request.</span></span>
+<span data-ttu-id="924da-146">İsteği oluştururken aşağıdaki URI ve sorgu parametrelerini kullanın.</span><span class="sxs-lookup"><span data-stu-id="924da-146">Use the following URI and query parameters when creating the request.</span></span>
 
-| <span data-ttu-id="7fabf-151">Ad</span><span class="sxs-lookup"><span data-stu-id="7fabf-151">Name</span></span>                   | <span data-ttu-id="7fabf-152">Tür</span><span class="sxs-lookup"><span data-stu-id="7fabf-152">Type</span></span>   | <span data-ttu-id="7fabf-153">Gerekli</span><span class="sxs-lookup"><span data-stu-id="7fabf-153">Required</span></span> | <span data-ttu-id="7fabf-154">Açıklama</span><span class="sxs-lookup"><span data-stu-id="7fabf-154">Description</span></span>                                                                     |
+| <span data-ttu-id="924da-147">Ad</span><span class="sxs-lookup"><span data-stu-id="924da-147">Name</span></span>                   | <span data-ttu-id="924da-148">Tür</span><span class="sxs-lookup"><span data-stu-id="924da-148">Type</span></span>   | <span data-ttu-id="924da-149">Gerekli</span><span class="sxs-lookup"><span data-stu-id="924da-149">Required</span></span> | <span data-ttu-id="924da-150">Açıklama</span><span class="sxs-lookup"><span data-stu-id="924da-150">Description</span></span>                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| <span data-ttu-id="7fabf-155">Fatura kimliği</span><span class="sxs-lookup"><span data-stu-id="7fabf-155">invoice-id</span></span>             | <span data-ttu-id="7fabf-156">string</span><span class="sxs-lookup"><span data-stu-id="7fabf-156">string</span></span> | <span data-ttu-id="7fabf-157">Yes</span><span class="sxs-lookup"><span data-stu-id="7fabf-157">Yes</span></span>      | <span data-ttu-id="7fabf-158">Faturayı tanımlayan bir dize.</span><span class="sxs-lookup"><span data-stu-id="7fabf-158">A string that identifies the invoice.</span></span> <span data-ttu-id="7fabf-159">Faturalandırılmamış tahminleri almak için ' faturalandırılmamış ' kullanın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-159">Use 'unbilled' to get unbilled estimates.</span></span> |
-| <span data-ttu-id="7fabf-160">sağlayıcısını</span><span class="sxs-lookup"><span data-stu-id="7fabf-160">provider</span></span>               | <span data-ttu-id="7fabf-161">string</span><span class="sxs-lookup"><span data-stu-id="7fabf-161">string</span></span> | <span data-ttu-id="7fabf-162">Yes</span><span class="sxs-lookup"><span data-stu-id="7fabf-162">Yes</span></span>      | <span data-ttu-id="7fabf-163">Sağlayıcı: "OneTime".</span><span class="sxs-lookup"><span data-stu-id="7fabf-163">The provider: "OneTime".</span></span>                                                |
-| <span data-ttu-id="7fabf-164">fatura-satır-öğe türü</span><span class="sxs-lookup"><span data-stu-id="7fabf-164">invoice-line-item-type</span></span> | <span data-ttu-id="7fabf-165">string</span><span class="sxs-lookup"><span data-stu-id="7fabf-165">string</span></span> | <span data-ttu-id="7fabf-166">Yes</span><span class="sxs-lookup"><span data-stu-id="7fabf-166">Yes</span></span>      | <span data-ttu-id="7fabf-167">Fatura ayrıntısı türü: "Billinglineıtems".</span><span class="sxs-lookup"><span data-stu-id="7fabf-167">The type of invoice detail: "BillingLineItems".</span></span>               |
-| <span data-ttu-id="7fabf-168">Haspartnerearnedkrediyi</span><span class="sxs-lookup"><span data-stu-id="7fabf-168">hasPartnerEarnedCredit</span></span> | <span data-ttu-id="7fabf-169">bool</span><span class="sxs-lookup"><span data-stu-id="7fabf-169">bool</span></span>   | <span data-ttu-id="7fabf-170">No</span><span class="sxs-lookup"><span data-stu-id="7fabf-170">No</span></span>       | <span data-ttu-id="7fabf-171">Ortak kazanılan kredi uygulanmış olan satır öğelerinin döndürülmeyeceğini belirten değer.</span><span class="sxs-lookup"><span data-stu-id="7fabf-171">The value indicating if to return the line items with partner earned credit applied.</span></span> <span data-ttu-id="7fabf-172">Note: Bu parametre yalnızca sağlayıcı türü OneTime olduğunda ve Faturaınıneıtemtype 'ın Usagelineıtems olması durumunda uygulanır.</span><span class="sxs-lookup"><span data-stu-id="7fabf-172">Note: this parameter will be only applied when provider type is OneTime and InvoiceLineItemType is UsageLineItems.</span></span>
-| <span data-ttu-id="7fabf-173">currencyCode</span><span class="sxs-lookup"><span data-stu-id="7fabf-173">currencyCode</span></span>           | <span data-ttu-id="7fabf-174">string</span><span class="sxs-lookup"><span data-stu-id="7fabf-174">string</span></span> | <span data-ttu-id="7fabf-175">Yes</span><span class="sxs-lookup"><span data-stu-id="7fabf-175">Yes</span></span>      | <span data-ttu-id="7fabf-176">Faturalandırılmamış satır öğelerinin para birimi kodu.</span><span class="sxs-lookup"><span data-stu-id="7fabf-176">The currency code for the unbilled line items.</span></span>                                  |
-| <span data-ttu-id="7fabf-177">dönem</span><span class="sxs-lookup"><span data-stu-id="7fabf-177">period</span></span>                 | <span data-ttu-id="7fabf-178">string</span><span class="sxs-lookup"><span data-stu-id="7fabf-178">string</span></span> | <span data-ttu-id="7fabf-179">Yes</span><span class="sxs-lookup"><span data-stu-id="7fabf-179">Yes</span></span>      | <span data-ttu-id="7fabf-180">Faturalandırılmamış keşfi için dönem.</span><span class="sxs-lookup"><span data-stu-id="7fabf-180">The period for unbilled recon.</span></span> <span data-ttu-id="7fabf-181">Örnek: geçerli, önceki.</span><span class="sxs-lookup"><span data-stu-id="7fabf-181">example: current, previous.</span></span>                      |
-| <span data-ttu-id="7fabf-182">boyut</span><span class="sxs-lookup"><span data-stu-id="7fabf-182">size</span></span>                   | <span data-ttu-id="7fabf-183">sayı</span><span class="sxs-lookup"><span data-stu-id="7fabf-183">number</span></span> | <span data-ttu-id="7fabf-184">No</span><span class="sxs-lookup"><span data-stu-id="7fabf-184">No</span></span>       | <span data-ttu-id="7fabf-185">Döndürülecek en fazla öğe sayısı.</span><span class="sxs-lookup"><span data-stu-id="7fabf-185">The maximum number of items to return.</span></span> <span data-ttu-id="7fabf-186">Varsayılan boyut 2000 ' dir</span><span class="sxs-lookup"><span data-stu-id="7fabf-186">Default size is 2000</span></span>                     |
-| <span data-ttu-id="7fabf-187">seekOperation</span><span class="sxs-lookup"><span data-stu-id="7fabf-187">seekOperation</span></span>          | <span data-ttu-id="7fabf-188">dize</span><span class="sxs-lookup"><span data-stu-id="7fabf-188">string</span></span> | <span data-ttu-id="7fabf-189">No</span><span class="sxs-lookup"><span data-stu-id="7fabf-189">No</span></span>       | <span data-ttu-id="7fabf-190">Keşfi satır öğelerinin sonraki sayfasını almak için seekOperation = Next öğesini ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-190">Set seekOperation=Next to get the next page of recon line items.</span></span>                |
+| <span data-ttu-id="924da-151">Fatura kimliği</span><span class="sxs-lookup"><span data-stu-id="924da-151">invoice-id</span></span>             | <span data-ttu-id="924da-152">string</span><span class="sxs-lookup"><span data-stu-id="924da-152">string</span></span> | <span data-ttu-id="924da-153">Yes</span><span class="sxs-lookup"><span data-stu-id="924da-153">Yes</span></span>      | <span data-ttu-id="924da-154">Faturayı tanımlayan bir dize.</span><span class="sxs-lookup"><span data-stu-id="924da-154">A string that identifies the invoice.</span></span> <span data-ttu-id="924da-155">Faturalandırılmamış tahminleri almak için ' faturalandırılmamış ' kullanın.</span><span class="sxs-lookup"><span data-stu-id="924da-155">Use 'unbilled' to get unbilled estimates.</span></span> |
+| <span data-ttu-id="924da-156">sağlayıcısını</span><span class="sxs-lookup"><span data-stu-id="924da-156">provider</span></span>               | <span data-ttu-id="924da-157">string</span><span class="sxs-lookup"><span data-stu-id="924da-157">string</span></span> | <span data-ttu-id="924da-158">Yes</span><span class="sxs-lookup"><span data-stu-id="924da-158">Yes</span></span>      | <span data-ttu-id="924da-159">Sağlayıcı: "OneTime".</span><span class="sxs-lookup"><span data-stu-id="924da-159">The provider: "OneTime".</span></span>                                                |
+| <span data-ttu-id="924da-160">fatura-satır-öğe türü</span><span class="sxs-lookup"><span data-stu-id="924da-160">invoice-line-item-type</span></span> | <span data-ttu-id="924da-161">string</span><span class="sxs-lookup"><span data-stu-id="924da-161">string</span></span> | <span data-ttu-id="924da-162">Yes</span><span class="sxs-lookup"><span data-stu-id="924da-162">Yes</span></span>      | <span data-ttu-id="924da-163">Fatura ayrıntısı türü: "Billinglineıtems".</span><span class="sxs-lookup"><span data-stu-id="924da-163">The type of invoice detail: "BillingLineItems".</span></span>               |
+| <span data-ttu-id="924da-164">Haspartnerearnedkrediyi</span><span class="sxs-lookup"><span data-stu-id="924da-164">hasPartnerEarnedCredit</span></span> | <span data-ttu-id="924da-165">bool</span><span class="sxs-lookup"><span data-stu-id="924da-165">bool</span></span>   | <span data-ttu-id="924da-166">Hayır</span><span class="sxs-lookup"><span data-stu-id="924da-166">No</span></span>       | <span data-ttu-id="924da-167">Ortak kazanılan kredi uygulanmış olan satır öğelerinin döndürülmeyeceğini belirten değer.</span><span class="sxs-lookup"><span data-stu-id="924da-167">The value indicating if to return the line items with partner earned credit applied.</span></span> <span data-ttu-id="924da-168">Note: Bu parametre yalnızca sağlayıcı türü OneTime olduğunda ve Faturaınıneıtemtype 'ın Usagelineıtems olması durumunda uygulanır.</span><span class="sxs-lookup"><span data-stu-id="924da-168">Note: this parameter will be only applied when provider type is OneTime and InvoiceLineItemType is UsageLineItems.</span></span>
+| <span data-ttu-id="924da-169">currencyCode</span><span class="sxs-lookup"><span data-stu-id="924da-169">currencyCode</span></span>           | <span data-ttu-id="924da-170">string</span><span class="sxs-lookup"><span data-stu-id="924da-170">string</span></span> | <span data-ttu-id="924da-171">Yes</span><span class="sxs-lookup"><span data-stu-id="924da-171">Yes</span></span>      | <span data-ttu-id="924da-172">Faturalandırılmamış satır öğelerinin para birimi kodu.</span><span class="sxs-lookup"><span data-stu-id="924da-172">The currency code for the unbilled line items.</span></span>                                  |
+| <span data-ttu-id="924da-173">dönem</span><span class="sxs-lookup"><span data-stu-id="924da-173">period</span></span>                 | <span data-ttu-id="924da-174">string</span><span class="sxs-lookup"><span data-stu-id="924da-174">string</span></span> | <span data-ttu-id="924da-175">Yes</span><span class="sxs-lookup"><span data-stu-id="924da-175">Yes</span></span>      | <span data-ttu-id="924da-176">Faturalandırılmamış keşfi için dönem.</span><span class="sxs-lookup"><span data-stu-id="924da-176">The period for unbilled recon.</span></span> <span data-ttu-id="924da-177">Örnek: geçerli, önceki.</span><span class="sxs-lookup"><span data-stu-id="924da-177">example: current, previous.</span></span>                      |
+| <span data-ttu-id="924da-178">boyut</span><span class="sxs-lookup"><span data-stu-id="924da-178">size</span></span>                   | <span data-ttu-id="924da-179">sayı</span><span class="sxs-lookup"><span data-stu-id="924da-179">number</span></span> | <span data-ttu-id="924da-180">Hayır</span><span class="sxs-lookup"><span data-stu-id="924da-180">No</span></span>       | <span data-ttu-id="924da-181">Döndürülecek en fazla öğe sayısı.</span><span class="sxs-lookup"><span data-stu-id="924da-181">The maximum number of items to return.</span></span> <span data-ttu-id="924da-182">Varsayılan boyut 2000 ' dir</span><span class="sxs-lookup"><span data-stu-id="924da-182">Default size is 2000</span></span>                     |
+| <span data-ttu-id="924da-183">seekOperation</span><span class="sxs-lookup"><span data-stu-id="924da-183">seekOperation</span></span>          | <span data-ttu-id="924da-184">dize</span><span class="sxs-lookup"><span data-stu-id="924da-184">string</span></span> | <span data-ttu-id="924da-185">No</span><span class="sxs-lookup"><span data-stu-id="924da-185">No</span></span>       | <span data-ttu-id="924da-186">Keşfi satır öğelerinin sonraki sayfasını almak için seekOperation = Next öğesini ayarlayın.</span><span class="sxs-lookup"><span data-stu-id="924da-186">Set seekOperation=Next to get the next page of recon line items.</span></span>                |
 
-### <a name="request-headers"></a><span data-ttu-id="7fabf-191">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="7fabf-191">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="924da-187">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="924da-187">Request headers</span></span>
 
-<span data-ttu-id="7fabf-192">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="7fabf-192">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="924da-188">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="924da-188">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="7fabf-193">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="7fabf-193">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="924da-189">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="924da-189">Request body</span></span>
 
-<span data-ttu-id="7fabf-194">Yok.</span><span class="sxs-lookup"><span data-stu-id="7fabf-194">None.</span></span>
+<span data-ttu-id="924da-190">Yok.</span><span class="sxs-lookup"><span data-stu-id="924da-190">None.</span></span>
 
-## <a name="rest-response"></a><span data-ttu-id="7fabf-195">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="7fabf-195">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="924da-191">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="924da-191">REST response</span></span>
 
-<span data-ttu-id="7fabf-196">Başarılı olursa, yanıt satır öğesi ayrıntıları koleksiyonunu içerir.</span><span class="sxs-lookup"><span data-stu-id="7fabf-196">If successful, the response contains the collection of line item details.</span></span>
+<span data-ttu-id="924da-192">Başarılı olursa, yanıt satır öğesi ayrıntıları koleksiyonunu içerir.</span><span class="sxs-lookup"><span data-stu-id="924da-192">If successful, the response contains the collection of line item details.</span></span>
 
-<span data-ttu-id="7fabf-197">*Satır **öğesi için**, **satın alma** değeri **Yeni** ile eşlenir ve değer **iadesi** **iptal** edilecek şekilde eşlenir.*</span><span class="sxs-lookup"><span data-stu-id="7fabf-197">*For the line item **ChargeType**, the value **Purchase** is mapped to **New** and the value **Refund** is mapped to **Cancel**.*</span></span>
+<span data-ttu-id="924da-193">*Satır **öğesi için**, **satın alma** değeri **Yeni** ile eşlenir ve değer **iadesi** **iptal** edilecek şekilde eşlenir.*</span><span class="sxs-lookup"><span data-stu-id="924da-193">*For the line item **ChargeType**, the value **Purchase** is mapped to **New** and the value **Refund** is mapped to **Cancel**.*</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="7fabf-198">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="7fabf-198">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="924da-194">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="924da-194">Response success and error codes</span></span>
 
-<span data-ttu-id="7fabf-199">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="7fabf-199">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="7fabf-200">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="7fabf-200">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="7fabf-201">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="7fabf-201">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="924da-195">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="924da-195">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="924da-196">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="924da-196">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="924da-197">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="924da-197">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="request-response-examples"></a><span data-ttu-id="7fabf-202">İstek-yanıt örnekleri</span><span class="sxs-lookup"><span data-stu-id="7fabf-202">Request-response examples</span></span>
+### <a name="request-response-examples"></a><span data-ttu-id="924da-198">İstek-yanıt örnekleri</span><span class="sxs-lookup"><span data-stu-id="924da-198">Request-response examples</span></span>
 
-#### <a name="request-response-example-1"></a><span data-ttu-id="7fabf-203">İstek-yanıt örneği 1</span><span class="sxs-lookup"><span data-stu-id="7fabf-203">Request-response example 1</span></span>
+#### <a name="request-response-example-1"></a><span data-ttu-id="924da-199">İstek-yanıt örneği 1</span><span class="sxs-lookup"><span data-stu-id="924da-199">Request-response example 1</span></span>
 
-<span data-ttu-id="7fabf-204">Aşağıdaki ayrıntılar Bu örnek için geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="7fabf-204">The following details apply to this example:</span></span>
+<span data-ttu-id="924da-200">Aşağıdaki ayrıntılar Bu örnek için geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="924da-200">The following details apply to this example:</span></span>
 
-- <span data-ttu-id="7fabf-205">Sağlayıcı: **Onetime**</span><span class="sxs-lookup"><span data-stu-id="7fabf-205">Provider: **OneTime**</span></span>
-- <span data-ttu-id="7fabf-206">Fatura Elineıtemtype: **Billinglineıtems**</span><span class="sxs-lookup"><span data-stu-id="7fabf-206">InvoiceLineItemType: **BillingLineItems**</span></span>
-- <span data-ttu-id="7fabf-207">Dönem: **önceki**</span><span class="sxs-lookup"><span data-stu-id="7fabf-207">Period: **Previous**</span></span>
+- <span data-ttu-id="924da-201">Sağlayıcı: **OneTime**</span><span class="sxs-lookup"><span data-stu-id="924da-201">Provider: **OneTime**</span></span>
+- <span data-ttu-id="924da-202">InvoiceLineItemType: **BillingLineItems**</span><span class="sxs-lookup"><span data-stu-id="924da-202">InvoiceLineItemType: **BillingLineItems**</span></span>
+- <span data-ttu-id="924da-203">Dönem: **Önceki**</span><span class="sxs-lookup"><span data-stu-id="924da-203">Period: **Previous**</span></span>
 
-#### <a name="request-example-1"></a><span data-ttu-id="7fabf-208">İstek örneği 1</span><span class="sxs-lookup"><span data-stu-id="7fabf-208">Request example 1</span></span>
+#### <a name="request-example-1"></a><span data-ttu-id="924da-204">İstek örneği 1</span><span class="sxs-lookup"><span data-stu-id="924da-204">Request example 1</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1//invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode=usd&period=previous&size=2000 HTTP/1.1
@@ -184,7 +179,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-1"></a><span data-ttu-id="7fabf-209">Yanıt örneği 1</span><span class="sxs-lookup"><span data-stu-id="7fabf-209">Response example 1</span></span>
+#### <a name="response-example-1"></a><span data-ttu-id="924da-205">Yanıt örneği 1</span><span class="sxs-lookup"><span data-stu-id="924da-205">Response example 1</span></span>
 
 ```http
 HTTP/1.1 200 OK
@@ -197,13 +192,124 @@ MS-ServerId: 202010406
 Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 {
-    "totalCount": 2,
+   "totalCount": 3,
     "items": [
         {
-            "partnerId": "0c924e8d-4852-4692-a4d7-7dd0dc09ad80",
-            "customerId": "org:d7f565f5-5367-492f-a465-9e2057c5e3c3",
-            "customerName": "TEST_TEST_GTM1",
-            "customerDomainName": "TESTTESTGTM1.ccsctp.net",
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "c139c4bf-2e8b-4ab5-8bed-d9f50dcca7a2",
+            "customerName": "Test_Test_Office R2 Reduce Seats Validation",
+            "customerDomainName": "testcustomerr2t2reduce.onmicrosoft.com",
+            "customerCountry": "US",
+            "invoiceNumber": "",
+            "mpnId": "5357564",
+            "resellerMpnId": "4649221",
+            "orderId": "94e858b6d855",
+            "orderDate": "2021-05-20T18:30:06.6045692Z",
+            "productId": "CFQ7TTC0LH0R",
+            "skuId": "0002",
+            "availabilityId": "CFQ7TTC0K5RQ",
+            "productName": "Microsoft 365 Phone System - Virtual User",
+            "skuName": "Microsoft 365 Phone System - Virtual User",
+            "productQualifiers": [
+                "AddOn",
+                "Trial"
+            ],
+            "chargeType": "new",
+            "unitPrice": "0",
+            "effectiveUnitPrice": "0",
+            "unitType": "",
+            "quantity": "25",
+            "subtotal": "0",
+            "taxTotal": "0",
+            "totalForCustomer": "0",
+            "currency": "USD",
+            "publisherName": "Microsoft Corporation",
+            "publisherId": "",
+            "subscriptionDescription": "",
+            "subscriptionId": "86646af9-e80a-4aa0-da80-3fd2b792c2cc",
+            "subscriptionStartDate": "2021-05-20T00:00:00Z",
+            "subscriptionEndDate": "2021-06-19T00:00:00Z",
+            "chargeStartDate": "2021-05-20T00:00:00Z",
+            "chargeEndDate": "2021-06-19T00:00:00Z",
+            "termAndBillingCycle": "One-Month commitment for trial",
+            "alternateId": "94e858b6d855",
+            "referenceId": "0cf1202a-5b7d-4219-966e-93c637113708",
+            "priceAdjustmentDescription": "",
+            "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": "1",
+            "pcToBCExchangeRateDate": "2021-05-01T00:00:00",
+            "billableQuantity": "25",
+            "meterDescription": "",
+            "billingFrequency": "",
+            "reservationOrderId": "99f246cf-ed96-41b4-b0cd-0aa43eb1fe91",
+            "invoiceLineItemType": "billing_line_items",
+            "billingProvider": "one_time",
+            "promotionId": "",
+            "attributes": {
+                "objectType": "OneTimeInvoiceLineItem"
+            }
+            
+        },
+        {
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "835a59a7-3172-47b5-bdef-d9cc65f4d0e4",
+            "customerName": "TEST_TEST Test Promotions 01",
+            "customerDomainName": "kyletestpromos01.onmicrosoft.com",
+            "customerCountry": "US",
+            "invoiceNumber": "",
+            "mpnId": "5357564",
+            "resellerMpnId": "0",
+            "orderId": "5f9d52bb1408",
+            "orderDate": "2021-05-20T18:48:30.6168285Z",
+            "productId": "CFQ7TTC0HL8W",
+            "skuId": "0001",
+            "availabilityId": "CFQ7TTC0K59S",
+            "productName": "Power BI Premium Per User",
+            "skuName": "Power BI Premium Per User",
+            "productQualifiers": [],
+            "chargeType": "new",
+            "unitPrice": "16",
+            "effectiveUnitPrice": "14.4",
+            "unitType": "",
+            "quantity": "50",
+            "subtotal": "720",
+            "taxTotal": "0",
+            "totalForCustomer": "0",
+            "currency": "USD",
+            "publisherName": "Microsoft Corporation",
+            "publisherId": "",
+            "subscriptionDescription": "",
+            "subscriptionId": "9d7d1f3d-c8de-461c-db6d-91debd5129f0",
+            "subscriptionStartDate": "2021-05-20T00:00:00Z",
+            "subscriptionEndDate": "2022-05-19T00:00:00Z",
+            "chargeStartDate": "2021-05-20T00:00:00Z",
+            "chargeEndDate": "2021-06-19T00:00:00Z",
+            "termAndBillingCycle": "One-Year commitment for monthly/yearly billing",
+            "alternateId": "5f9d52bb1408",
+            "referenceId": "28b535e0-68f4-40b5-84f7-8ed9241eb149",
+            "priceAdjustmentDescription": "[\"Price for given billing period\",\"You are getting a discount due to a pre-determined override.\",\"You are getting a discount for being a partner.\",\"You are getting a price guarantee for your price.\",\"Price for given term\"]",
+            "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": "1",
+            "pcToBCExchangeRateDate": "2021-05-01T00:00:00",
+            "billableQuantity": "50",
+            "meterDescription": "",
+            "billingFrequency": "Monthly",
+            "reservationOrderId": "8fdebb4a-7110-496e-9570-623e4c992797",
+            "invoiceLineItemType": "billing_line_items",
+            "billingProvider": "one_time",
+            "promotionId": "78bcf906-b945-4210-8818-cfb93caf12a1",
+            "attributes/objectType": "OneTimeInvoiceLineItem",
+            "attributes": {
+                "objectType": "OneTimeInvoiceLineItem"
+            }
+        },
+        {
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "c139c4bf-2e8b-4ab5-8bed-d9f50dcca7a2",
+            "customerName": "Test_Test_Office R2 Reduce Seats Validation",
+            "customerDomainName": "testcustomerr2t2reduce.onmicrosoft.com",
             "customerCountry": "US",
             "invoiceNumber": "",
             "mpnId": "1234567",
@@ -228,9 +334,11 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "publisherId": "21223810",
             "subscriptionDescription": "",
             "subscriptionId": "12345678-9cf0-4a1f-9514-7fcc7fe9d1fe",
+            "subscriptionStartDate": "2019-02-01T00:00:00Z",
+            "subscriptionEndDate": "2020-01-31T00:00:00Z",
             "chargeStartDate": "2019-02-04T09:22:40.1767993-08:00",
             "chargeEndDate": "2019-03-03T09:22:40.1767993-08:00",
-            "termAndBillingCycle": "1 Month Subscription",
+            "termAndBillingCycle": "1 Year Subscription",
             "alternateId": "123456ad566",
             "priceAdjustmentDescription": "[\"15.0% Partner earned credit for services managed\"]",
             "discountDetails": "",
@@ -243,52 +351,9 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
-        },
-        {
-            "partnerId": "0c924e8d-4852-4692-a4d7-7dd0dc09ad80",
-            "customerId": "org:d7f565f5-5367-492f-a465-9e2057c5e3c3",
-            "customerName": "TEST_TEST_GTM1",
-            "customerDomainName": "TESTTESTGTM1.ccsctp.net",
-            "customerCountry": "US",
-            "invoiceNumber": "",
-            "mpnId": "1234567",
-            "resellerMpnId": 0,
-            "orderId": "Oi2kwDPEOyGEFUkESk3QR4XSxcpvwp1x1",
-            "orderDate": "2019-02-04T17:59:53.1628078Z",
-            "productId": "DZH318Z0BXWC",
-            "skuId": "0005",
-            "availabilityId": "DZH318Z0BH9R",
-            "productName": "Test WAF-as-a-Service",
-            "skuName": "Test WaaS - Large Plan",
-            "chargeType": "New",
-            "unitPrice": 2598,
-            "effectiveUnitPrice": 2598,
-            "unitType": "",
-            "quantity": 1,
-            "subtotal": 2598,
-            "taxTotal": 0,
-            "totalForCustomer": 0,
-            "currency": "USD",
-            "publisherName": "Test Networks, Inc.",
-            "publisherId": "21223810",
-            "subscriptionDescription": "",
-            "subscriptionId": "12345678-28db-48c2-8c30-04d7c9455746",
-            "chargeStartDate": "2019-02-04T09:22:34.6455294-08:00",
-            "chargeEndDate": "2019-03-03T09:22:34.6455294-08:00",
-            "termAndBillingCycle": "1 Month Subscription",
-            "alternateId": "123456ad566",
-            "priceAdjustmentDescription": "[\"15.0% Partner earned credit for services managed\",\"100.0% Tier 1 Discount\"]",
-            "discountDetails": "",
-            "pricingCurrency": "USD",
-            "pcToBCExchangeRate": 1,
-            "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
-            "billableQuantity": 0.737083,
-            "meterDescription": "",
-            "reservationOrderId": "883d475b-0000-2222-0000-8818752f1234",
-            "attributes": {
-                "objectType": "OneTimeInvoiceLineItem"
-            }
         }
+    ]
+}
     ],
     "links": {
         "self": {
@@ -313,16 +378,16 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-### <a name="request-response-example-2"></a><span data-ttu-id="7fabf-210">İstek-yanıt örneği 2</span><span class="sxs-lookup"><span data-stu-id="7fabf-210">Request-response example 2</span></span>
+### <a name="request-response-example-2"></a><span data-ttu-id="924da-206">İstek-yanıt örneği 2</span><span class="sxs-lookup"><span data-stu-id="924da-206">Request-response example 2</span></span>
 
-<span data-ttu-id="7fabf-211">Aşağıdaki ayrıntılar Bu örnek için geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="7fabf-211">The following details apply to this example:</span></span>
+<span data-ttu-id="924da-207">Bu örnek için aşağıdaki ayrıntılar geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="924da-207">The following details apply to this example:</span></span>
 
-- <span data-ttu-id="7fabf-212">Sağlayıcı: **Onetime**</span><span class="sxs-lookup"><span data-stu-id="7fabf-212">Provider: **OneTime**</span></span>
-- <span data-ttu-id="7fabf-213">Fatura Elineıtemtype: **Billinglineıtems**</span><span class="sxs-lookup"><span data-stu-id="7fabf-213">InvoiceLineItemType: **BillingLineItems**</span></span>
-- <span data-ttu-id="7fabf-214">Dönem: **önceki**</span><span class="sxs-lookup"><span data-stu-id="7fabf-214">Period: **Previous**</span></span>
-- <span data-ttu-id="7fabf-215">SeekOperation: **İleri**</span><span class="sxs-lookup"><span data-stu-id="7fabf-215">SeekOperation: **Next**</span></span>
+- <span data-ttu-id="924da-208">Sağlayıcı: **OneTime**</span><span class="sxs-lookup"><span data-stu-id="924da-208">Provider: **OneTime**</span></span>
+- <span data-ttu-id="924da-209">InvoiceLineItemType: **BillingLineItems**</span><span class="sxs-lookup"><span data-stu-id="924da-209">InvoiceLineItemType: **BillingLineItems**</span></span>
+- <span data-ttu-id="924da-210">Dönem: **Önceki**</span><span class="sxs-lookup"><span data-stu-id="924da-210">Period: **Previous**</span></span>
+- <span data-ttu-id="924da-211">SeekOperation: **Sonraki**</span><span class="sxs-lookup"><span data-stu-id="924da-211">SeekOperation: **Next**</span></span>
 
-#### <a name="request-example-2"></a><span data-ttu-id="7fabf-216">İstek örneği 2</span><span class="sxs-lookup"><span data-stu-id="7fabf-216">Request example 2</span></span>
+#### <a name="request-example-2"></a><span data-ttu-id="924da-212">İstek örneği 2</span><span class="sxs-lookup"><span data-stu-id="924da-212">Request example 2</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/unbilled/lineitems?provider=onetime&invoiceLineItemType=billinglineitems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -336,7 +401,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-2"></a><span data-ttu-id="7fabf-217">Yanıt örneği 2</span><span class="sxs-lookup"><span data-stu-id="7fabf-217">Response example 2</span></span>
+#### <a name="response-example-2"></a><span data-ttu-id="924da-213">Yanıt örneği 2</span><span class="sxs-lookup"><span data-stu-id="924da-213">Response example 2</span></span>
 
 ```http
 HTTP/1.1 200 OK
@@ -349,53 +414,168 @@ MS-ServerId: 202010406
 Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 {
-    "totalCount": 1,
+   "totalCount": 3,
     "items": [
         {
-            "partnerId": "0c924e8d-4852-4692-a4d7-7dd0dc09ad80",
-            "customerId": "org:d7f565f5-5367-492f-a465-9e2057c5e3c3",
-            "customerName": "TEST_TEST_GTM1",
-            "customerDomainName": "TESTTESTGTM1.ccsctp.net",
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "c139c4bf-2e8b-4ab5-8bed-d9f50dcca7a2",
+            "customerName": "Test_Test_Office R2 Reduce Seats Validation",
+            "customerDomainName": "testcustomerr2t2reduce.onmicrosoft.com",
+            "customerCountry": "US",
+            "invoiceNumber": "",
+            "mpnId": "5357564",
+            "resellerMpnId": "4649221",
+            "orderId": "94e858b6d855",
+            "orderDate": "2021-05-20T18:30:06.6045692Z",
+            "productId": "CFQ7TTC0LH0R",
+            "skuId": "0002",
+            "availabilityId": "CFQ7TTC0K5RQ",
+            "productName": "Microsoft 365 Phone System - Virtual User",
+            "skuName": "Microsoft 365 Phone System - Virtual User",
+            "productQualifiers": [
+                "AddOn",
+                "Trial"
+            ],
+            "chargeType": "new",
+            "unitPrice": "0",
+            "effectiveUnitPrice": "0",
+            "unitType": "",
+            "quantity": "25",
+            "subtotal": "0",
+            "taxTotal": "0",
+            "totalForCustomer": "0",
+            "currency": "USD",
+            "publisherName": "Microsoft Corporation",
+            "publisherId": "",
+            "subscriptionDescription": "",
+            "subscriptionId": "86646af9-e80a-4aa0-da80-3fd2b792c2cc",
+            "subscriptionStartDate": "2021-05-20T00:00:00Z",
+            "subscriptionEndDate": "2021-06-19T00:00:00Z",
+            "chargeStartDate": "2021-05-20T00:00:00Z",
+            "chargeEndDate": "2021-06-19T00:00:00Z",
+            "termAndBillingCycle": "One-Month commitment for trial",
+            "alternateId": "94e858b6d855",
+            "referenceId": "0cf1202a-5b7d-4219-966e-93c637113708",
+            "priceAdjustmentDescription": "",
+            "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": "1",
+            "pcToBCExchangeRateDate": "2021-05-01T00:00:00",
+            "billableQuantity": "25",
+            "meterDescription": "",
+            "billingFrequency": "",
+            "reservationOrderId": "99f246cf-ed96-41b4-b0cd-0aa43eb1fe91",
+            "invoiceLineItemType": "billing_line_items",
+            "billingProvider": "one_time",
+            "promotionId": "",
+            "attributes": {
+                "objectType": "OneTimeInvoiceLineItem"
+            }
+            
+        },
+        {
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "835a59a7-3172-47b5-bdef-d9cc65f4d0e4",
+            "customerName": "TEST_TEST Test Promotions 01",
+            "customerDomainName": "kyletestpromos01.onmicrosoft.com",
+            "customerCountry": "US",
+            "invoiceNumber": "",
+            "mpnId": "5357564",
+            "resellerMpnId": "0",
+            "orderId": "5f9d52bb1408",
+            "orderDate": "2021-05-20T18:48:30.6168285Z",
+            "productId": "CFQ7TTC0HL8W",
+            "skuId": "0001",
+            "availabilityId": "CFQ7TTC0K59S",
+            "productName": "Power BI Premium Per User",
+            "skuName": "Power BI Premium Per User",
+            "productQualifiers": [],
+            "chargeType": "new",
+            "unitPrice": "16",
+            "effectiveUnitPrice": "14.4",
+            "unitType": "",
+            "quantity": "50",
+            "subtotal": "720",
+            "taxTotal": "0",
+            "totalForCustomer": "0",
+            "currency": "USD",
+            "publisherName": "Microsoft Corporation",
+            "publisherId": "",
+            "subscriptionDescription": "",
+            "subscriptionId": "9d7d1f3d-c8de-461c-db6d-91debd5129f0",
+            "subscriptionStartDate": "2021-05-20T00:00:00Z",
+            "subscriptionEndDate": "2022-05-19T00:00:00Z",
+            "chargeStartDate": "2021-05-20T00:00:00Z",
+            "chargeEndDate": "2021-06-19T00:00:00Z",
+            "termAndBillingCycle": "One-Year commitment for monthly/yearly billing",
+            "alternateId": "5f9d52bb1408",
+            "referenceId": "28b535e0-68f4-40b5-84f7-8ed9241eb149",
+            "priceAdjustmentDescription": "[\"Price for given billing period\",\"You are getting a discount due to a pre-determined override.\",\"You are getting a discount for being a partner.\",\"You are getting a price guarantee for your price.\",\"Price for given term\"]",
+            "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": "1",
+            "pcToBCExchangeRateDate": "2021-05-01T00:00:00",
+            "billableQuantity": "50",
+            "meterDescription": "",
+            "billingFrequency": "Monthly",
+            "reservationOrderId": "8fdebb4a-7110-496e-9570-623e4c992797",
+            "invoiceLineItemType": "billing_line_items",
+            "billingProvider": "one_time",
+            "promotionId": "78bcf906-b945-4210-8818-cfb93caf12a1",
+            "attributes/objectType": "OneTimeInvoiceLineItem",
+            "attributes": {
+                "objectType": "OneTimeInvoiceLineItem"
+            }
+        },
+        {
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "c139c4bf-2e8b-4ab5-8bed-d9f50dcca7a2",
+            "customerName": "Test_Test_Office R2 Reduce Seats Validation",
+            "customerDomainName": "testcustomerr2t2reduce.onmicrosoft.com",
             "customerCountry": "US",
             "invoiceNumber": "",
             "mpnId": "1234567",
             "resellerMpnId": 0,
-            "orderId": "Oi2kwDPEOyGEFUkESk3QR4XSxcpvwp1x1",
-            "orderDate": "2019-02-04T17:59:53.1628078Z",
+            "orderId": "HJVtMZMkgQ2miuCiNv0RSr51zQDans0m1",
+            "orderDate": "2019-02-04T17:59:52.9460102Z",
             "productId": "DZH318Z0BXWC",
-            "skuId": "0005",
-            "availabilityId": "DZH318Z0BH9R",
+            "skuId": "0002",
+            "availabilityId": "DZH318Z0BP8B",
             "productName": "Test WAF-as-a-Service",
-            "skuName": "Test WaaS - Large Plan",
+            "skuName": "Test WaaS - Medium Plan",
             "chargeType": "New",
-            "unitPrice": 2598,
-            "effectiveUnitPrice": 2598,
+            "unitPrice": 820,
+            "effectiveUnitPrice": 820,
             "unitType": "",
             "quantity": 1,
-            "subtotal": 2598,
+            "subtotal": 820,
             "taxTotal": 0,
             "totalForCustomer": 0,
             "currency": "USD",
             "publisherName": "Test Networks, Inc.",
             "publisherId": "21223810",
             "subscriptionDescription": "",
-            "subscriptionId": "12345678-28db-48c2-8c30-04d7c9455746",
-            "chargeStartDate": "2019-02-04T09:22:34.6455294-08:00",
-            "chargeEndDate": "2019-03-03T09:22:34.6455294-08:00",
-            "termAndBillingCycle": "1 Month Subscription",
+            "subscriptionId": "12345678-9cf0-4a1f-9514-7fcc7fe9d1fe",
+            "subscriptionStartDate": "2019-02-01T00:00:00Z",
+            "subscriptionEndDate": "2020-01-31T00:00:00Z",
+            "chargeStartDate": "2019-02-04T09:22:40.1767993-08:00",
+            "chargeEndDate": "2019-03-03T09:22:40.1767993-08:00",
+            "termAndBillingCycle": "1 Year Subscription",
             "alternateId": "123456ad566",
-            "priceAdjustmentDescription": "[\"15.0% Partner earned credit for services managed\",\"100.0% Tier 1 Discount\"]",
+            "priceAdjustmentDescription": "[\"15.0% Partner earned credit for services managed\"]",
             "discountDetails": "",
             "pricingCurrency": "USD",
             "pcToBCExchangeRate": 1,
             "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
-            "billableQuantity": 0.737083,
-            "meterDescription": "",
-            "reservationOrderId": ""
+            "billableQuantity": 3.1618,
+            "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "reservationOrderId": "883d475b-0000-1234-0000-8818752f1234",
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
         }
+    ]
+}
     ],
     "links": {
         "self": {
@@ -410,7 +590,7 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 }
 ```
 
-#### <a name="request-example-3"></a><span data-ttu-id="7fabf-218">İstek örneği 3</span><span class="sxs-lookup"><span data-stu-id="7fabf-218">Request example 3</span></span>
+#### <a name="request-example-3"></a><span data-ttu-id="924da-214">İstek örneği 3</span><span class="sxs-lookup"><span data-stu-id="924da-214">Request example 3</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/invoices/unbilled/lineitems?provider=OneTime&invoiceLineItemType=UsageLineItems&currencyCode=usd&period=previous&size=2000&seekoperation=next HTTP/1.1
@@ -424,7 +604,7 @@ MS-PartnerCenter-Application: Partner Center .NET SDK Samples
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="response-example-3"></a><span data-ttu-id="7fabf-219">Yanıt örneği 3</span><span class="sxs-lookup"><span data-stu-id="7fabf-219">Response example 3</span></span>
+#### <a name="response-example-3"></a><span data-ttu-id="924da-215">Yanıt örneği 3</span><span class="sxs-lookup"><span data-stu-id="924da-215">Response example 3</span></span>
 
 ```http
 HTTP/1.1 200 OK
@@ -437,53 +617,168 @@ MS-ServerId: 202010406
 Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 {
-    "totalCount": 1,
+    "totalCount": 3,
     "items": [
         {
-            "partnerId": "0c924e8d-4852-4692-a4d7-7dd0dc09ad80",
-            "PartnerName": "testPartner",
-            "customerId": "org:d7f565f5-5367-492f-a465-9e2057c5e3c3",
-            "customerName": "TEST_TEST_GTM1",
-            "customerDomainName": "TESTTESTGTM1.ccsctp.net",
-            "invoiceNumber": "T11ETHHDDD",
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "c139c4bf-2e8b-4ab5-8bed-d9f50dcca7a2",
+            "customerName": "Test_Test_Office R2 Reduce Seats Validation",
+            "customerDomainName": "testcustomerr2t2reduce.onmicrosoft.com",
+            "customerCountry": "US",
+            "invoiceNumber": "",
+            "mpnId": "5357564",
+            "resellerMpnId": "4649221",
+            "orderId": "94e858b6d855",
+            "orderDate": "2021-05-20T18:30:06.6045692Z",
+            "productId": "CFQ7TTC0LH0R",
+            "skuId": "0002",
+            "availabilityId": "CFQ7TTC0K5RQ",
+            "productName": "Microsoft 365 Phone System - Virtual User",
+            "skuName": "Microsoft 365 Phone System - Virtual User",
+            "productQualifiers": [
+                "AddOn",
+                "Trial"
+            ],
+            "chargeType": "new",
+            "unitPrice": "0",
+            "effectiveUnitPrice": "0",
+            "unitType": "",
+            "quantity": "25",
+            "subtotal": "0",
+            "taxTotal": "0",
+            "totalForCustomer": "0",
+            "currency": "USD",
+            "publisherName": "Microsoft Corporation",
+            "publisherId": "",
+            "subscriptionDescription": "",
+            "subscriptionId": "86646af9-e80a-4aa0-da80-3fd2b792c2cc",
+            "subscriptionStartDate": "2021-05-20T00:00:00Z",
+            "subscriptionEndDate": "2021-06-19T00:00:00Z",
+            "chargeStartDate": "2021-05-20T00:00:00Z",
+            "chargeEndDate": "2021-06-19T00:00:00Z",
+            "termAndBillingCycle": "One-Month commitment for trial",
+            "alternateId": "94e858b6d855",
+            "referenceId": "0cf1202a-5b7d-4219-966e-93c637113708",
+            "priceAdjustmentDescription": "",
+            "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": "1",
+            "pcToBCExchangeRateDate": "2021-05-01T00:00:00",
+            "billableQuantity": "25",
+            "meterDescription": "",
+            "billingFrequency": "",
+            "reservationOrderId": "99f246cf-ed96-41b4-b0cd-0aa43eb1fe91",
+            "invoiceLineItemType": "billing_line_items",
+            "billingProvider": "one_time",
+            "promotionId": "",
+            "attributes": {
+                "objectType": "OneTimeInvoiceLineItem"
+            }
+            
+        },
+        {
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "835a59a7-3172-47b5-bdef-d9cc65f4d0e4",
+            "customerName": "TEST_TEST Test Promotions 01",
+            "customerDomainName": "kyletestpromos01.onmicrosoft.com",
+            "customerCountry": "US",
+            "invoiceNumber": "",
+            "mpnId": "5357564",
+            "resellerMpnId": "0",
+            "orderId": "5f9d52bb1408",
+            "orderDate": "2021-05-20T18:48:30.6168285Z",
+            "productId": "CFQ7TTC0HL8W",
+            "skuId": "0001",
+            "availabilityId": "CFQ7TTC0K59S",
+            "productName": "Power BI Premium Per User",
+            "skuName": "Power BI Premium Per User",
+            "productQualifiers": [],
+            "chargeType": "new",
+            "unitPrice": "16",
+            "effectiveUnitPrice": "14.4",
+            "unitType": "",
+            "quantity": "50",
+            "subtotal": "720",
+            "taxTotal": "0",
+            "totalForCustomer": "0",
+            "currency": "USD",
+            "publisherName": "Microsoft Corporation",
+            "publisherId": "",
+            "subscriptionDescription": "",
+            "subscriptionId": "9d7d1f3d-c8de-461c-db6d-91debd5129f0",
+            "subscriptionStartDate": "2021-05-20T00:00:00Z",
+            "subscriptionEndDate": "2022-05-19T00:00:00Z",
+            "chargeStartDate": "2021-05-20T00:00:00Z",
+            "chargeEndDate": "2021-06-19T00:00:00Z",
+            "termAndBillingCycle": "One-Year commitment for monthly/yearly billing",
+            "alternateId": "5f9d52bb1408",
+            "referenceId": "28b535e0-68f4-40b5-84f7-8ed9241eb149",
+            "priceAdjustmentDescription": "[\"Price for given billing period\",\"You are getting a discount due to a pre-determined override.\",\"You are getting a discount for being a partner.\",\"You are getting a price guarantee for your price.\",\"Price for given term\"]",
+            "discountDetails": "",
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": "1",
+            "pcToBCExchangeRateDate": "2021-05-01T00:00:00",
+            "billableQuantity": "50",
+            "meterDescription": "",
+            "billingFrequency": "Monthly",
+            "reservationOrderId": "8fdebb4a-7110-496e-9570-623e4c992797",
+            "invoiceLineItemType": "billing_line_items",
+            "billingProvider": "one_time",
+            "promotionId": "78bcf906-b945-4210-8818-cfb93caf12a1",
+            "attributes/objectType": "OneTimeInvoiceLineItem",
+            "attributes": {
+                "objectType": "OneTimeInvoiceLineItem"
+            }
+        },
+        {
+            "partnerId": "934f3416-bc2f-47f3-b492-77e517d4e572",
+            "customerId": "c139c4bf-2e8b-4ab5-8bed-d9f50dcca7a2",
+            "customerName": "Test_Test_Office R2 Reduce Seats Validation",
+            "customerDomainName": "testcustomerr2t2reduce.onmicrosoft.com",
+            "customerCountry": "US",
+            "invoiceNumber": "",
+            "mpnId": "1234567",
+            "resellerMpnId": 0,
+            "orderId": "HJVtMZMkgQ2miuCiNv0RSr51zQDans0m1",
+            "orderDate": "2019-02-04T17:59:52.9460102Z",
             "productId": "DZH318Z0BXWC",
-            "skuId": "0005",
-            "availabilityId": "DZH318Z0BH9R",
+            "skuId": "0002",
+            "availabilityId": "DZH318Z0BP8B",
             "productName": "Test WAF-as-a-Service",
-            "publisherId": "21223810",
-            "subscriptionId": "12345678-28db-48c2-8c30-04d7c9455746",
-            "subscriptionDescription": "sub description",
-            "chargeStartDate": "2019-02-04T09:22:34.6455294-08:00",
-            "chargeEndDate": "2019-03-03T09:22:34.6455294-08:00",
-            "UsageDate": "2019-02-07T09:22:34.6455294-08:00",
-            "MeterType": "type",
-            "MeterCategory": "category",
-            "MeterId": "21312312312-fdsfsd",
-            "MeterSubCategory": "subcategory",
-            "MeterName": "meter name",
-            "MeterRegion": "meter region",
-            "UnitOfMeasure": "11",
-            "skuName": "Test WaaS - Large Plan",
-            "publisherName": "Test Networks, Inc.",
+            "skuName": "Test WaaS - Medium Plan",
             "chargeType": "New",
-            "unitPrice": 2598,
-            "effectiveUnitPrice": 2598,
+            "unitPrice": 820,
+            "effectiveUnitPrice": 820,
             "unitType": "",
             "quantity": 1,
-            "subtotal": 2598,
+            "subtotal": 820,
             "taxTotal": 0,
             "totalForCustomer": 0,
             "currency": "USD",
-            "termAndBillingCycle": "1 Month Subscription",
+            "publisherName": "Test Networks, Inc.",
+            "publisherId": "21223810",
+            "subscriptionDescription": "",
+            "subscriptionId": "12345678-9cf0-4a1f-9514-7fcc7fe9d1fe",
+            "subscriptionStartDate": "2019-02-01T00:00:00Z",
+            "subscriptionEndDate": "2020-01-31T00:00:00Z",
+            "chargeStartDate": "2019-02-04T09:22:40.1767993-08:00",
+            "chargeEndDate": "2019-03-03T09:22:40.1767993-08:00",
+            "termAndBillingCycle": "1 Year Subscription",
             "alternateId": "123456ad566",
+            "priceAdjustmentDescription": "[\"15.0% Partner earned credit for services managed\"]",
             "discountDetails": "",
-            "providerSource": "All",
-            "RateOfPartnerEarnedCredit": 0.15,
-            "IsPartnerEarnedCreditApplied": true,
+            "pricingCurrency": "USD",
+            "pcToBCExchangeRate": 1,
+            "pcToBCExchangeRateDate": "2019-08-01T00:00:00Z",
+            "billableQuantity": 3.1618,
+            "meterDescription": "Bandwidth - Data Transfer In (GB) - Zone 2",
+            "reservationOrderId": "883d475b-0000-1234-0000-8818752f1234",
             "attributes": {
                 "objectType": "OneTimeInvoiceLineItem"
             }
         }
+    ]
+}
     ],
     "links": {
         "self": {

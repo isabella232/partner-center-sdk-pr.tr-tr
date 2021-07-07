@@ -1,45 +1,41 @@
 ---
 title: MFA olmadan portal istekleri alma
-description: Iş ortağı REST API kullanarak Multi-Factor Authentication (MFA) olmadan kullanıcı isteklerinin bir listesini alın.
+description: İş Ortağı kimlik doğrulamasını kullanarak çok faktörlü kimlik doğrulaması (MFA) olmadan kullanıcı isteklerinin REST API.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
-ms.openlocfilehash: fd350aa3301f00926942ae6c6af359b0d0edc423
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 41627751d3402d7712d96c15c4281a25ed9a44a7
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769076"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111445587"
 ---
-# <a name="get-portal-requests-without-mfa"></a><span data-ttu-id="319a2-103">MFA olmadan portal istekleri alma</span><span class="sxs-lookup"><span data-stu-id="319a2-103">Get portal requests without MFA</span></span>
+# <a name="get-portal-requests-without-mfa"></a><span data-ttu-id="50d8f-103">MFA olmadan portal istekleri alma</span><span class="sxs-lookup"><span data-stu-id="50d8f-103">Get portal requests without MFA</span></span>
 
-<span data-ttu-id="319a2-104">Aşağıdakiler cihazlar için geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="319a2-104">Applies to:</span></span>
+<span data-ttu-id="50d8f-104">Bu makalede, çok faktörlü kimlik doğrulamasını (MFA) tamamlamadan İş Ortağı Merkezi kullanıcılardan en son isteklerin listesini alma işlemi açıklanmıştır.</span><span class="sxs-lookup"><span data-stu-id="50d8f-104">This article explains how to obtain a list of the most recent requests from users who access Partner Center portal without completing multi-factor authentication (MFA).</span></span>
 
-- <span data-ttu-id="319a2-105">İş Ortağı Merkezi API’si</span><span class="sxs-lookup"><span data-stu-id="319a2-105">Partner Center API</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="50d8f-105">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="50d8f-105">Prerequisites</span></span>
 
-<span data-ttu-id="319a2-106">Bu makalede, çok faktörlü kimlik doğrulamasını (MFA) tamamlamadan Iş Ortağı Merkezi portalına erişen kullanıcılardan gelen en son isteklerin listesinin nasıl alınacağı açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="319a2-106">This article explains how to obtain a list of the most recent requests from users who access Partner Center portal without completing multi-factor authentication (MFA).</span></span>
+- <span data-ttu-id="50d8f-106">kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md)</span><span class="sxs-lookup"><span data-stu-id="50d8f-106">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="50d8f-107">Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="50d8f-107">This scenario supports authentication with App+User credentials.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="319a2-107">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="319a2-107">Prerequisites</span></span>
+## <a name="rest-request"></a><span data-ttu-id="50d8f-108">REST isteği</span><span class="sxs-lookup"><span data-stu-id="50d8f-108">REST request</span></span>
 
-- <span data-ttu-id="319a2-108">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="319a2-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="319a2-109">Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="319a2-109">This scenario supports authentication with App+User credentials.</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="50d8f-109">İstek söz dizimi</span><span class="sxs-lookup"><span data-stu-id="50d8f-109">Request syntax</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="319a2-110">REST isteği</span><span class="sxs-lookup"><span data-stu-id="319a2-110">REST request</span></span>
-
-### <a name="request-syntax"></a><span data-ttu-id="319a2-111">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="319a2-111">Request syntax</span></span>
-
-| <span data-ttu-id="319a2-112">Yöntem</span><span class="sxs-lookup"><span data-stu-id="319a2-112">Method</span></span>  | <span data-ttu-id="319a2-113">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="319a2-113">Request URI</span></span>                                                  |
+| <span data-ttu-id="50d8f-110">Yöntem</span><span class="sxs-lookup"><span data-stu-id="50d8f-110">Method</span></span>  | <span data-ttu-id="50d8f-111">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="50d8f-111">Request URI</span></span>                                                  |
 |---------|--------------------------------------------------------------|
-| <span data-ttu-id="319a2-114">**Al**</span><span class="sxs-lookup"><span data-stu-id="319a2-114">**GET**</span></span> | <span data-ttu-id="319a2-115">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/nonmfakarmaşıkantpartnerpartnersorumluları</span><span class="sxs-lookup"><span data-stu-id="319a2-115">[*{baseURL}*](partner-center-rest-urls.md)/v1/nonMfaCompliantPartnerPrincipals</span></span> |
+| <span data-ttu-id="50d8f-112">**Al**</span><span class="sxs-lookup"><span data-stu-id="50d8f-112">**GET**</span></span> | <span data-ttu-id="50d8f-113">[*{baseURL}*](partner-center-rest-urls.md)/v1/nonMfaCompliantPartnerPrincipals</span><span class="sxs-lookup"><span data-stu-id="50d8f-113">[*{baseURL}*](partner-center-rest-urls.md)/v1/nonMfaCompliantPartnerPrincipals</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="319a2-116">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="319a2-116">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="50d8f-114">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="50d8f-114">Request headers</span></span>
 
-- <span data-ttu-id="319a2-117">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üst bilgileri](headers.md) .</span><span class="sxs-lookup"><span data-stu-id="319a2-117">See [Partner Center REST headers](headers.md) for more information.</span></span>
+- <span data-ttu-id="50d8f-115">Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="50d8f-115">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="319a2-118">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="319a2-118">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="50d8f-116">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="50d8f-116">Request body</span></span>
 
-<span data-ttu-id="319a2-119">Yok.</span><span class="sxs-lookup"><span data-stu-id="319a2-119">None.</span></span>
+<span data-ttu-id="50d8f-117">Yok.</span><span class="sxs-lookup"><span data-stu-id="50d8f-117">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="319a2-120">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="319a2-120">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="50d8f-118">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="50d8f-118">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/nonMfaCompliantPartnerPrincipals HTTP/1.1
@@ -52,15 +48,15 @@ Connection: keep-alive
 
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="319a2-121">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="319a2-121">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="50d8f-119">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="50d8f-119">REST response</span></span>
 
-<span data-ttu-id="319a2-122">Başarılı olursa, bu yöntem yanıt gövdesinde [Portal istek](mfa-resources.md#portal-request-without-mfa) kaynaklarının bir koleksiyonunu döndürür.</span><span class="sxs-lookup"><span data-stu-id="319a2-122">If successful, this method returns a collection of [Portal request](mfa-resources.md#portal-request-without-mfa) resources in the response body.</span></span>
+<span data-ttu-id="50d8f-120">Başarılı olursa, bu yöntem yanıt gövdesinde [Portal isteği](mfa-resources.md#portal-request-without-mfa) kaynaklarının bir koleksiyonunu döndürür.</span><span class="sxs-lookup"><span data-stu-id="50d8f-120">If successful, this method returns a collection of [Portal request](mfa-resources.md#portal-request-without-mfa) resources in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="319a2-123">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="319a2-123">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="50d8f-121">Yanıt başarı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="50d8f-121">Response success and error codes</span></span>
 
-<span data-ttu-id="319a2-124">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="319a2-124">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="319a2-125">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="319a2-125">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="319a2-126">Tam liste için bkz. [hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="319a2-126">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="50d8f-122">Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir.</span><span class="sxs-lookup"><span data-stu-id="50d8f-122">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="50d8f-123">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="50d8f-123">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="50d8f-124">Tam liste için bkz. [Hata Kodları.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="50d8f-124">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="319a2-127">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="319a2-127">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="50d8f-125">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="50d8f-125">Response example</span></span>
 
 ``` http
 HTTP/1.1 200 OK

@@ -1,35 +1,31 @@
 ---
 title: Müşterinin dolaylı satıcılarını alma
-description: Belirtilen müşteriyle ilişkisi olan dolaylı satıcıların listesini alma.
+description: Belirtilen müşteriyle ilişkisi olan dolaylı kurumsal bayilerin listesini alma.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: d69abf9530548f110820ca04fefb698e0e37556c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 8697c40c22d5c19979c066b8d3a1de733e211f71
+ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769689"
+ms.lasthandoff: 06/04/2021
+ms.locfileid: "111446250"
 ---
-# <a name="get-indirect-resellers-of-a-customer"></a><span data-ttu-id="93f2e-103">Müşterinin dolaylı satıcılarını alma</span><span class="sxs-lookup"><span data-stu-id="93f2e-103">Get indirect resellers of a customer</span></span>
+# <a name="get-indirect-resellers-of-a-customer"></a><span data-ttu-id="6f866-103">Müşterinin dolaylı satıcılarını alma</span><span class="sxs-lookup"><span data-stu-id="6f866-103">Get indirect resellers of a customer</span></span>
 
-<span data-ttu-id="93f2e-104">**Uygulama hedefi**</span><span class="sxs-lookup"><span data-stu-id="93f2e-104">**Applies To**</span></span>
+<span data-ttu-id="6f866-104">Belirtilen müşteriyle ilişkisi olan dolaylı kurumsal bayilerin listesini alma.</span><span class="sxs-lookup"><span data-stu-id="6f866-104">How to get a list of the indirect resellers that have a relationship with a specified customer.</span></span>
 
-- <span data-ttu-id="93f2e-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="93f2e-105">Partner Center</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="6f866-105">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="6f866-105">Prerequisites</span></span>
 
-<span data-ttu-id="93f2e-106">Belirtilen müşteriyle ilişkisi olan dolaylı satıcıların listesini alma.</span><span class="sxs-lookup"><span data-stu-id="93f2e-106">How to get a list of the indirect resellers that have a relationship with a specified customer.</span></span>
+- <span data-ttu-id="6f866-106">kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md)</span><span class="sxs-lookup"><span data-stu-id="6f866-106">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="6f866-107">Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="6f866-107">This scenario supports authentication with App+User credentials only.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="93f2e-107">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="93f2e-107">Prerequisites</span></span>
+- <span data-ttu-id="6f866-108">Müşteri kimliği ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="6f866-108">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="6f866-109">Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard)</span><span class="sxs-lookup"><span data-stu-id="6f866-109">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="6f866-110">İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.**</span><span class="sxs-lookup"><span data-stu-id="6f866-110">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="6f866-111">Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.**</span><span class="sxs-lookup"><span data-stu-id="6f866-111">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="6f866-112">Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın.</span><span class="sxs-lookup"><span data-stu-id="6f866-112">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="6f866-113">Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.</span><span class="sxs-lookup"><span data-stu-id="6f866-113">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
 
-- <span data-ttu-id="93f2e-108">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="93f2e-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="93f2e-109">Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="93f2e-109">This scenario supports authentication with App+User credentials only.</span></span>
+## <a name="c"></a><span data-ttu-id="6f866-114">C\#</span><span class="sxs-lookup"><span data-stu-id="6f866-114">C\#</span></span>
 
-- <span data-ttu-id="93f2e-110">Bir müşteri KIMLIĞI ( `customer-tenant-id` ).</span><span class="sxs-lookup"><span data-stu-id="93f2e-110">A customer ID (`customer-tenant-id`).</span></span> <span data-ttu-id="93f2e-111">Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="93f2e-111">If you don't know the customer's ID, you can look it up in the Partner Center [dashboard](https://partner.microsoft.com/dashboard).</span></span> <span data-ttu-id="93f2e-112">Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin.</span><span class="sxs-lookup"><span data-stu-id="93f2e-112">Select **CSP** from the Partner Center menu, followed by **Customers**.</span></span> <span data-ttu-id="93f2e-113">Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin.</span><span class="sxs-lookup"><span data-stu-id="93f2e-113">Select the customer from the customer list, then select **Account**.</span></span> <span data-ttu-id="93f2e-114">Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın.</span><span class="sxs-lookup"><span data-stu-id="93f2e-114">On the customer’s Account page, look for the **Microsoft ID** in the **Customer Account Info** section.</span></span> <span data-ttu-id="93f2e-115">Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .</span><span class="sxs-lookup"><span data-stu-id="93f2e-115">The Microsoft ID is the same as the customer ID  (`customer-tenant-id`).</span></span>
-
-## <a name="c"></a><span data-ttu-id="93f2e-116">C\#</span><span class="sxs-lookup"><span data-stu-id="93f2e-116">C\#</span></span>
-
-<span data-ttu-id="93f2e-117">Belirtilen müşterinin bir ilişkisi olan dolaylı satıcıların listesini almak için önce müşteriyi tanımlamak üzere müşteri KIMLIĞINI sağlayarak [**partneroperations. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) özelliğinden belirli müşteri için müşteri koleksiyonu işlemlerine bir arabirim alın.</span><span class="sxs-lookup"><span data-stu-id="93f2e-117">To retrieve a list of indirect resellers with whom the specified customer has a relationship, first get an interface to customer collection operations for the specific customer from the [**partnerOperations.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) property by providing the customer ID to identify the customer.</span></span> <span data-ttu-id="93f2e-118">Daha sonra [**ilişkileri çağırın.**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) dolaylı satıcıların listesini almak için [**\_ zaman uyumsuz**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) yöntemi alın veya alın.</span><span class="sxs-lookup"><span data-stu-id="93f2e-118">Then call the [**Relationships.Get**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) or [**Get\_Async**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) method to get the list of indirect resellers.</span></span>
+<span data-ttu-id="6f866-115">Belirtilen müşterinin ilişkisi olan dolaylı kurumsal bayilerin listesini almak için önce [**partnerOperations.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) özelliğinden müşteri kimliğini sağlayarak müşteri koleksiyonu işlemlerine yönelik bir arabirim alın.</span><span class="sxs-lookup"><span data-stu-id="6f866-115">To retrieve a list of indirect resellers with whom the specified customer has a relationship, first get an interface to customer collection operations for the specific customer from the [**partnerOperations.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) property by providing the customer ID to identify the customer.</span></span> <span data-ttu-id="6f866-116">Ardından dolaylı kurumsal bayilerin listesini almak için [**Relationships.Get**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) veya [**Get \_ Async**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) yöntemini çağırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="6f866-116">Then call the [**Relationships.Get**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.get) or [**Get\_Async**](/dotnet/api/microsoft.store.partnercenter.relationships.icustomerrelationshipcollection.getasync) method to get the list of indirect resellers.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,33 +34,33 @@ ms.locfileid: "97769689"
  var indirectResellers = partnerOperations.Customers[customerId].Relationships.Get();
 ```
 
-<span data-ttu-id="93f2e-119">**Örnek**: [konsol test uygulaması](console-test-app.md)**PROJESI**: iş ortağı Merkezi SDK örnekleri **sınıfı**: GetIndirectResellersOfCustomer.cs</span><span class="sxs-lookup"><span data-stu-id="93f2e-119">**Sample**: [Console test app](console-test-app.md)**Project**: Partner Center SDK Samples **Class**: GetIndirectResellersOfCustomer.cs</span></span>
+<span data-ttu-id="6f866-117">**Örnek:** [Konsol test uygulaması](console-test-app.md)**Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** GetIndirectResellersOfCustomer.cs</span><span class="sxs-lookup"><span data-stu-id="6f866-117">**Sample**: [Console test app](console-test-app.md)**Project**: Partner Center SDK Samples **Class**: GetIndirectResellersOfCustomer.cs</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="93f2e-120">REST isteği</span><span class="sxs-lookup"><span data-stu-id="93f2e-120">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="6f866-118">REST isteği</span><span class="sxs-lookup"><span data-stu-id="6f866-118">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="93f2e-121">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="93f2e-121">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="6f866-119">İstek söz dizimi</span><span class="sxs-lookup"><span data-stu-id="6f866-119">Request syntax</span></span>
 
-| <span data-ttu-id="93f2e-122">Yöntem</span><span class="sxs-lookup"><span data-stu-id="93f2e-122">Method</span></span>  | <span data-ttu-id="93f2e-123">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="93f2e-123">Request URI</span></span>                                                                                   |
+| <span data-ttu-id="6f866-120">Yöntem</span><span class="sxs-lookup"><span data-stu-id="6f866-120">Method</span></span>  | <span data-ttu-id="6f866-121">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="6f866-121">Request URI</span></span>                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| <span data-ttu-id="93f2e-124">**Al**</span><span class="sxs-lookup"><span data-stu-id="93f2e-124">**GET**</span></span> | <span data-ttu-id="93f2e-125">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Relationships http/1.1</span><span class="sxs-lookup"><span data-stu-id="93f2e-125">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/relationships HTTP/1.1</span></span> |
+| <span data-ttu-id="6f866-122">**Al**</span><span class="sxs-lookup"><span data-stu-id="6f866-122">**GET**</span></span> | <span data-ttu-id="6f866-123">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/relationships HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="6f866-123">[*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/relationships HTTP/1.1</span></span> |
 
-### <a name="uri-parameter"></a><span data-ttu-id="93f2e-126">URI parametresi</span><span class="sxs-lookup"><span data-stu-id="93f2e-126">URI parameter</span></span>
+### <a name="uri-parameter"></a><span data-ttu-id="6f866-124">URI parametresi</span><span class="sxs-lookup"><span data-stu-id="6f866-124">URI parameter</span></span>
 
-<span data-ttu-id="93f2e-127">Müşteriyi tanımlamak için aşağıdaki yol parametresini kullanın.</span><span class="sxs-lookup"><span data-stu-id="93f2e-127">Use the following path parameter to identify the customer.</span></span>
+<span data-ttu-id="6f866-125">Müşteriyi tanımlamak için aşağıdaki yol parametresini kullanın.</span><span class="sxs-lookup"><span data-stu-id="6f866-125">Use the following path parameter to identify the customer.</span></span>
 
-| <span data-ttu-id="93f2e-128">Ad</span><span class="sxs-lookup"><span data-stu-id="93f2e-128">Name</span></span>        | <span data-ttu-id="93f2e-129">Tür</span><span class="sxs-lookup"><span data-stu-id="93f2e-129">Type</span></span>   | <span data-ttu-id="93f2e-130">Gerekli</span><span class="sxs-lookup"><span data-stu-id="93f2e-130">Required</span></span> | <span data-ttu-id="93f2e-131">Açıklama</span><span class="sxs-lookup"><span data-stu-id="93f2e-131">Description</span></span>                                           |
+| <span data-ttu-id="6f866-126">Ad</span><span class="sxs-lookup"><span data-stu-id="6f866-126">Name</span></span>        | <span data-ttu-id="6f866-127">Tür</span><span class="sxs-lookup"><span data-stu-id="6f866-127">Type</span></span>   | <span data-ttu-id="6f866-128">Gerekli</span><span class="sxs-lookup"><span data-stu-id="6f866-128">Required</span></span> | <span data-ttu-id="6f866-129">Açıklama</span><span class="sxs-lookup"><span data-stu-id="6f866-129">Description</span></span>                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| <span data-ttu-id="93f2e-132">müşteri kimliği</span><span class="sxs-lookup"><span data-stu-id="93f2e-132">customer-id</span></span> | <span data-ttu-id="93f2e-133">string</span><span class="sxs-lookup"><span data-stu-id="93f2e-133">string</span></span> | <span data-ttu-id="93f2e-134">Yes</span><span class="sxs-lookup"><span data-stu-id="93f2e-134">Yes</span></span>      | <span data-ttu-id="93f2e-135">Müşteriyi tanımlayan GUID biçimli dize.</span><span class="sxs-lookup"><span data-stu-id="93f2e-135">A GUID formatted string that identifies the customer.</span></span> |
+| <span data-ttu-id="6f866-130">customer-id</span><span class="sxs-lookup"><span data-stu-id="6f866-130">customer-id</span></span> | <span data-ttu-id="6f866-131">string</span><span class="sxs-lookup"><span data-stu-id="6f866-131">string</span></span> | <span data-ttu-id="6f866-132">Yes</span><span class="sxs-lookup"><span data-stu-id="6f866-132">Yes</span></span>      | <span data-ttu-id="6f866-133">Müşteriyi tanımlayan GUID biçimli bir dize.</span><span class="sxs-lookup"><span data-stu-id="6f866-133">A GUID formatted string that identifies the customer.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="93f2e-136">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="93f2e-136">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="6f866-134">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="6f866-134">Request headers</span></span>
 
-<span data-ttu-id="93f2e-137">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="93f2e-137">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="6f866-135">Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="6f866-135">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="93f2e-138">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="93f2e-138">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="6f866-136">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="6f866-136">Request body</span></span>
 
-<span data-ttu-id="93f2e-139">Yok.</span><span class="sxs-lookup"><span data-stu-id="93f2e-139">None.</span></span>
+<span data-ttu-id="6f866-137">Yok.</span><span class="sxs-lookup"><span data-stu-id="6f866-137">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="93f2e-140">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="93f2e-140">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="6f866-138">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="6f866-138">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/c501c3c4-d776-40ef-9ecf-9cefb59442c1/relationships HTTP/1.1
@@ -76,15 +72,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="93f2e-141">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="93f2e-141">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="6f866-139">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="6f866-139">REST response</span></span>
 
-<span data-ttu-id="93f2e-142">Başarılı olursa, yanıt gövdesi satıcıları tanımlamak için bir [Iş ortağı ilişki](relationships-resources.md) kaynakları koleksiyonu içerir.</span><span class="sxs-lookup"><span data-stu-id="93f2e-142">If successful, the response body contains a collection of [PartnerRelationship](relationships-resources.md) resources to identify the resellers.</span></span>
+<span data-ttu-id="6f866-140">Başarılı olursa, yanıt gövdesi kurumsal bayileri tanımlamak için [bir PartnerRelationship](relationships-resources.md) kaynakları koleksiyonu içerir.</span><span class="sxs-lookup"><span data-stu-id="6f866-140">If successful, the response body contains a collection of [PartnerRelationship](relationships-resources.md) resources to identify the resellers.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="93f2e-143">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="93f2e-143">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="6f866-141">Yanıt başarı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="6f866-141">Response success and error codes</span></span>
 
-<span data-ttu-id="93f2e-144">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="93f2e-144">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="93f2e-145">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="93f2e-145">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="93f2e-146">Tam liste için bkz. [Partner Center hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="93f2e-146">For the full list, see [Partner Center error codes](error-codes.md).</span></span>
+<span data-ttu-id="6f866-142">Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir.</span><span class="sxs-lookup"><span data-stu-id="6f866-142">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="6f866-143">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="6f866-143">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="6f866-144">Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="6f866-144">For the full list, see [Partner Center error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="93f2e-147">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="93f2e-147">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="6f866-145">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="6f866-145">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK
