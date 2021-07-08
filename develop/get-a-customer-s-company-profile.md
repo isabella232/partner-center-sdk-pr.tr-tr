@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: c26a86ecb96e5e7942ba179f8a3cc704abab7df5
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: a1c0c8401207f4b0bb33755a8eabc66de0ad9ff9
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769371"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874984"
 ---
 # <a name="get-a-customers-company-profile"></a>Müşterinin şirket profilini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Müşterinin Şirket profilini alır.
 
@@ -41,7 +36,7 @@ Müşterinin Şirket profilini almak için müşteriyi tanımlamak üzere müşt
 var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Company.Get();
 ```
 
-**Örnek**: [iş ortağı Merkezi SDK 'sını indirin](https://go.microsoft.com/fwlink/p/?LinkId=746681). **Proje**: partnersdk. Featuresamples **sınıfı**: GetCustomerCompanyProfile.cs
+**Örnek**: [iş ortağı Merkezi SDK 'sını indirin](https://go.microsoft.com/fwlink/p/?LinkId=746681). **Project**: partnersdk. featuresamples **sınıfı**: getcustomercompanyprofile. cs
 
 ## <a name="java"></a>Java
 
@@ -78,7 +73,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 

@@ -4,18 +4,14 @@ description: Belirtilen fatura dönemi için müşterinin hizmet maliyet satır�
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c2034eaf11342493797688b44b634b8e9598e2e4
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 1bc2914d7c8d41c6d806131444fdc241aa1feb90
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769365"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874950"
 ---
 # <a name="get-a-customers-service-costs-line-items"></a>Müşterinin hizmet maliyetleri satır öğelerini alma
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Belirtilen fatura dönemi için müşterinin hizmet maliyet satırı öğelerini alır.
 
@@ -88,7 +84,7 @@ Host: api.partnercenter.microsoft.com
 Başarılı olursa, yanıt gövdesi hizmet maliyetleri hakkında bilgi sağlayan bir [Servicecostlineıtem](service-costs-resources.md) kaynağı içerir.
 
 > [!IMPORTANT]
-> Aşağıdaki özellikler yalnızca ürünün *bir kerelik satın alma* işlemi olduğu servis maliyeti satırı öğeleri *için geçerlidir* : **ProductID**, **ProductName**, **skuid**, **skuname**, **kullanılabilirliği bilityıd**, **publisherID**, **PublisherName**, **terdibillingcycle**, **decountdetails**. Bu özellikler, ürünün *yinelenen satın alma* işlemi olduğu hizmet satırı öğeleri *için uygulanmaz* . Örneğin, bu özellikler abonelik tabanlı Office 365 ve Azure için *geçerlidir* .
+> Aşağıdaki özellikler yalnızca ürünün *bir kerelik satın alma* işlemi olduğu servis maliyeti satırı öğeleri *için geçerlidir* : **ProductID**, **ProductName**, **skuid**, **skuname**, **kullanılabilirliği bilityıd**, **publisherID**, **PublisherName**, **terdibillingcycle**, **decountdetails**. Bu özellikler, ürünün *yinelenen satın alma* işlemi olduğu hizmet satırı öğeleri *için uygulanmaz* . örneğin, bu özellikler abonelik tabanlı Office 365 ve Azure için *geçerlidir* .
 
 ### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 

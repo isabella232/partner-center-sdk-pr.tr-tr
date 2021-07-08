@@ -1,25 +1,21 @@
 ---
 title: Microsoft Azure İş Ortağı Paylaşılan Hizmetleri için fiyat alma
-description: Microsoft Azure Iş ortağı paylaşılan hizmetleri fiyatlarına sahip bir Azure ücret kartı alma.
+description: Microsoft Azure iş ortağı paylaşılan hizmetleri fiyatlarına sahip bir Azure ücret kartı alma.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: cd396c35b6b89de4d0f092ba4da738a2ed0ac633
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 0008d7474f7e57bbbd765afdf2487ee279848ac3
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769905"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548813"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Microsoft Azure İş Ortağı Paylaşılan Hizmetleri için fiyat alma
 
-**Uygulama hedefi**
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Microsoft Azure Iş ortağı paylaşılan hizmetleri fiyatlarına sahip bir [Azure ücret kartı](azure-rate-card-resources.md) alma.
+Microsoft Azure iş ortağı paylaşılan hizmetleri fiyatlarına sahip bir [Azure ücret kartı](azure-rate-card-resources.md) alma.
 
 Fiyatlar Pazar ve para birimine göre farklılık gösterir ve bu API 'nin yerini göz önünde bulundurun. Varsayılan olarak, API iş ortağı merkezi ve tarayıcı dilinizde ortak profil ayarlarınızı kullanır ve bu ayarlar özelleştirilebilir. Bu durum, özellikle birden çok pazardaki satışları tek bir merkezi bir ofiste yönetiyorsanız ilgilidir.
 

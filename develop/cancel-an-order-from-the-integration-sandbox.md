@@ -1,46 +1,41 @@
 ---
-title: Tümleştirme korumalı alanı 'ndan bir siparişi iptal etme
-description: Iş Ortağı Merkezi API 'Lerini, tümleştirme korumalı alanı hesaplarından farklı türdeki abonelik siparişlerinin iptal etmek için nasıl kullanacağınızı öğrenin.
+title: Tümleştirme korumalı alandan siparişi iptal etme
+description: Tümleştirme korumalı alan hesaplarından İş Ortağı Merkezi abonelik siparişlerini iptal etmek için api'leri kullanmayı öğrenin.
 ms.date: 04/28/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c3bf862c62804a56e6f73dd3ec36d2e9eb65f997
-ms.sourcegitcommit: f59a9311c8a37d45695caf74794ec1697426acc9
+ms.openlocfilehash: 4c4b658f406e420d8d3cd425688364fe3d440d3d
+ms.sourcegitcommit: a3a78ec0f5078645b5a4f3b534165eef30f2c822
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/29/2021
-ms.locfileid: "108210028"
+ms.lasthandoff: 06/30/2021
+ms.locfileid: "113104980"
 ---
-# <a name="cancel-an-order-from-the-integration-sandbox-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak tümleştirme korumalı alanından bir siparişi iptal etme
+# <a name="cancel-an-order-from-the-integration-sandbox-using-partner-center-apis"></a>Api'leri kullanarak tümleştirme korumalı alandan İş Ortağı Merkezi iptal etme
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+Bu makalede tümleştirme korumalı alan hesaplarından farklı İş Ortağı Merkezi sipariş türlerini iptal etmek için api'leri kullanma işlemi açıklanmıştır. Bu tür siparişler ayrılmış örnekler, yazılımlar ve ticari market Hizmet Olarak Yazılım (SaaS) abonelik siparişlerini içerebilir.
 
-Bu makalede, Iş Ortağı Merkezi API 'Lerinin, tümleştirme korumalı alanı hesaplarından farklı abonelik siparişlerinin türlerini iptal etmek için nasıl kullanılacağı açıklanır. Bu şekilde, ayrılmış örnekler, yazılımlar ve hizmet olarak satılan Market (SaaS) abonelik siparişleri bulunabilir.
+> [!NOTE] 
+> Ayrılmış örnek veya ticari market SaaS abonelik siparişlerinin iptallerinin yalnızca tümleştirme korumalı alan hesaplarından mümkün olduğunu unutmayın. 60 günden eski olan tüm korumalı alan siparişleri, İş Ortağı Merkezi.
 
->[!NOTE] 
->Lütfen ayrılmış örneğin iptalinin veya ticari Market SaaS Abonelik siparişlerinin yalnızca tümleştirme korumalı alanı hesaplarından yapılacağına dikkat edin. 60 günden eski olan tüm korumalı alan siparişleri Iş Ortağı Merkezi 'nden iptal edilemez. Yardıma ihtiyacınız varsa, Iş Ortağı Merkezi desteğine ulaşın. 
-
-API aracılığıyla yazılım üretim emirlerini iptal etmek için [iptal-yazılım-satın](cancel-software-purchases.md)alma kullanın.
-Ayrıca, [satın alma işlemini iptal etmek](/partner-center/csp-software-subscriptions)için pano aracılığıyla yazılımın üretim emirlerini iptal edebilirsiniz.
+API aracılığıyla yazılım üretim siparişlerini iptal etmek için [cancel-software-purchases kullanın.](cancel-software-purchases.md)
+Ayrıca, satın alma işlemini iptal etmek için pano aracılığıyla yazılım üretim [siparişlerini iptal edebilirsiniz.](/partner-center/csp-software-subscriptions)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteriyle, etkin ayrılmış örnek/yazılım/üçüncü taraf SaaS Abonelik emirlerine sahip bir tümleştirme korumalı alan iş ortağı hesabı.
+- Etkin ayrılmış örnek / yazılım / üçüncü taraf SaaS abonelik siparişleri olan bir müşteriyle tümleştirme korumalı alan iş ortağı hesabı.
 
 ## <a name="c"></a>C\#
 
-Tümleştirme korumalı alanından bir siparişi iptal etmek için, [**`CreatePartnerOperations`**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) [**`IPartner`**](/dotnet/api/microsoft.store.partnercenter.ipartner) iş ortağı işlemlerini almak üzere bir arabirim almak üzere hesap kimlik bilgilerinizi metoduna geçirin.
+Tümleştirme korumalı alandan bir siparişi iptal etmek için hesap kimlik bilgilerinizi yöntemine iletir ve iş ortağı [**`CreatePartnerOperations`**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) işlemlerini almak için bir arabirim elde [**`IPartner`**](/dotnet/api/microsoft.store.partnercenter.ipartner) edin.
 
-Belirli bir [siparişi](order-resources.md#order)seçmek için müşteri tanımlayıcısı ile iş ortağı işlemlerini ve çağrı [**`Customers.ById()`**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini kullanın, ardından siparişi **`Orders.ById()`** ve son olarak **`Get`** ya da alma yöntemini belirtmek için Order Identifier ' ı seçin **`GetAsync`** .
+Belirli bir [Sipariş seçmek için](order-resources.md#order)iş ortağı işlemlerini kullanın ve müşteri tanımlayıcısını müşteri tanımlayıcısıyla birlikte çağırma yöntemini, ardından sipariş tanımlayıcısını kullanarak siparişi ve son olarak da alma [**`Customers.ById()`**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini **`Orders.ById()`** **`Get`** **`GetAsync`** belirtin.
 
-[**`Order.Status`**](order-resources.md#order)Özelliğini olarak ayarlayın `cancelled` ve **`Patch()`** sıralamayı güncelleştirmek için yöntemini kullanın.
+özelliğini [**`Order.Status`**](order-resources.md#order) olarak ayarlayın `cancelled` ve yöntemini kullanarak **`Patch()`** siparişi güncelleştirin.
 
 ``` csharp
 // IPartnerCredentials tipAccountCredentials;
@@ -58,11 +53,11 @@ order = tipAccountPartnerOperations.Customers.ById(customerTenantId).Orders.ById
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem     | İstek URI'si                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Orders/{Order-ID} http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -70,12 +65,12 @@ Bir müşteriyi silmek için aşağıdaki sorgu parametresini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-Kiracı kimliği** ' dir. |
-| **sıra kimliği** | **string** | Y        | Değer, iptal edilmesi gereken sıra kimliklerini belirten bir dizedir. |
+| **customer-tenant-id** | **guid** | Y        | Değer, kurumsal bayinin kurumsal **bayiye** ait olan belirli bir müşteri için sonuçları filtrelemesini sağlayan GUID biçimli bir müşteri kiracı kimliğidir. |
+| **order-id** | **string** | Y        | değeri, iptal edilmesi gereken sipariş kimliklerini not alan bir dizedir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -102,11 +97,11 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem iptal edildi sırasını döndürür.
+Başarılı olursa, bu yöntem iptal edilen siparişi döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

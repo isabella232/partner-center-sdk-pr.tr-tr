@@ -1,50 +1,45 @@
 ---
 title: Microsoft Bulut Sözleşmesinin müşteri kabulünün onayını alma
-description: Bu makalede, Microsoft Bulut sözleşmesinin müşteri kabulünün nasıl doğrulanacağı açıklanır.
+description: Bu makalede, müşterinin müşteri tarafından kabulü onaylarının nasıl Microsoft Bulut Anlaşması.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 aauthor: khakiali
 ms.author: alikhaki
-ms.openlocfilehash: d91f70cbd8bc9b8622b8d41ab9e601e2aee2cfab
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1b1a8cbacb667e579bcd218a29c3f553afce26c2
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769857"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549272"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-cloud-agreement"></a>Microsoft Bulut Sözleşmesinin müşteri kabulünün onayını alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi
 
-- İş Ortağı Merkezi
+**için geçerli değildir:** İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-> [!NOTE]
-> **Sözleşme** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir. Şunları yapmak için geçerli değildir:
->
-> - 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-> - Microsoft Bulut Almanya için İş Ortağı Merkezi
-> - Microsoft Cloud for US Government için İş Ortağı Merkezi
+Sözleşme **kaynağı** şu anda yalnızca Microsoft İş Ortağı Merkezi bulut üzerinde kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Iş ortağı merkezi .NET SDK kullanıyorsanız sürüm 1,9 veya daha yeni bir sürümü gereklidir.
+- İş Ortağı Merkezi .NET SDK kullanıyorsanız sürüm 1.9 veya daha yenisi gereklidir.
 
-- Iş ortağı merkezi Java SDK 'sını kullanıyorsanız sürüm 1,8 veya daha yeni bir sürümü gereklidir.
+- İş Ortağı Merkezi Java SDK'sı kullanıyorsanız sürüm 1.8 veya daha yeni bir sürüm gereklidir.
 
-- [Iş ortağı merkezi kimlik doğrulamasında](./partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](./partner-center-authentication.md) Bu senaryo yalnızca uygulama + kullanıcı kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-## <a name="net-version-14-or-newer"></a>.NET (sürüm 1,4 veya üzeri)
+## <a name="net-version-14-or-newer"></a>.NET (sürüm 1.4 veya daha yenisi)
 
-Daha önce sağlanmış olan müşteri kabulünün onayını almak için:
+Daha önce sağlanan müşteri kabulü onaylarını almak için:
 
-- Belirtilen müşteri tanımlayıcısıyla **ıaggregatepartner. Customers** koleksiyonunu ve Call **byıd** metodunu kullanın.
+- **IAggregatePartner.Customers koleksiyonunu** kullanın ve belirtilen müşteri tanımlayıcısıyla **ById** yöntemini arayın.
 
-- **Byagreementtype** metodunu çağırarak **anlaşmalar** özelliğini getirin ve sonuçları Microsoft bulut sözleşmeye filtreleyin.
+- **Agreements özelliğini getirme** ve **ByAgreementType** yöntemini Microsoft Bulut Anlaşması sonuçları filtrele.
 
-- **Get** veya **GetAsync** metodunu çağırın.
+- **Get veya** **GetAsync yöntemini** çağırma.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -55,13 +50,13 @@ string agreementType = "MicrosoftCloudAgreement";
 var cloudAgreements = partnerOperations.Customers.ById(selectedCustomerId).Agreements.ByAgreementType(agreementType).Get();
 ```
 
-Tüm örnek, [konsol test uygulaması](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) projesinden [getcustomersözleşmeleri](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetCustomerAgreements.cs) sınıfında bulunabilir.
+Eksiksiz bir örnek, konsol test uygulaması [projesinden GetCustomerAgreements](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetCustomerAgreements.cs) [sınıfında](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) bulunabilir.
 
-## <a name="net-version-19---113"></a>.NET (sürüm 1,9-1,13)
+## <a name="net-version-19---113"></a>.NET (sürüm 1.9 - 1.13)
 
-Daha önce sağlanmış olan müşteri kabulünün onayını almak için:
+Daha önce sağlanan müşteri kabulü onaylarını almak için:
 
-**Iaggregatepartner. Customers** koleksiyonunu kullanın ve **byıd** metodunu belirtilen müşterinin tanımlayıcısıyla çağırın. Ardından, **Get** veya **GetAsync** yöntemlerini çağırarak **anlaşmalar** özelliğini alın.
+**IAggregatePartner.Customers** koleksiyonunu kullanın ve belirtilen müşterinin tanımlayıcısıyla **ById** yöntemini çağırma. Ardından **Agreements özelliğini ve** ardından **Get** veya **GetAsync yöntemlerini** çağırarak.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -74,9 +69,9 @@ var agreements = partnerOperations.Customers.ById(selectedCustomerId).Agreements
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Daha önce sağlanmış olan müşteri kabulünün onayını almak için:
+Daha önce sağlanan müşteri kabulü onaylarını almak için:
 
-**Iaggregatepartner. getCustomers** işlevini kullanın ve belirtilen müşterinin tanımlayıcısına sahip **byıd** işlevini çağırın. Ardından, **Get** Işlevini çağırarak **getagreements** işlevini alın.
+**IAggregatePartner.getCustomers** işlevini kullanın ve belirtilen müşterinin tanımlayıcısıyla **byId** işlevini arayın. Ardından **getAgreements işlevini** ve ardından get işlevini **çağırarak.**
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -85,15 +80,15 @@ Daha önce sağlanmış olan müşteri kabulünün onayını almak için:
 ResourceCollection<Agreement> agreements = partnerOperations.getCustomers().byId(selectedCustomerId).getAgreements().get();
 ```
 
-Tüm örnek, [konsol test uygulaması](https://github.com/Microsoft/Partner-Center-Java-Samples) projesinden [getcustomersözleşmeleri](https://github.com/microsoft/Partner-Center-Java-Samples/blob/master/sdk/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetCustomerAgreements.java) sınıfında bulunabilir.
+Eksiksiz bir örnek, konsol test uygulaması [projesinden GetCustomerAgreements](https://github.com/microsoft/Partner-Center-Java-Samples/blob/master/sdk/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetCustomerAgreements.java) [sınıfında](https://github.com/Microsoft/Partner-Center-Java-Samples) bulunabilir.
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Daha önce sağlanmış olan müşteri kabulünün onayını almak için:
+Daha önce sağlanan müşteri kabulü onaylarını almak için:
 
-[**Get-PartnerCustomerAgreement**](/powershell/module/partnercenter/get-partnercustomeragreement) komutunu kullanın.
+[**Get-PartnerCustomerAgreement komutunu**](/powershell/module/partnercenter/get-partnercustomeragreement) kullanın.
 
 ```powershell
 Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
@@ -101,27 +96,27 @@ Get-PartnerCustomerAgreement -CustomerId '14876998-c0dc-46e6-9d0c-65a57a6c32ec'
 
 ## <a name="rest-request"></a>REST isteği
 
-Daha önce sağlanmış olan müşteri kabulünün onayını almak için aşağıdaki yönergelere bakın.
+Daha önce sağlanan müşteri kabulü onaylarını almak için aşağıdaki yönergelere bakın.
 
-İlgili sertifika bilgileriyle yeni bir **anlaşma** kaynağı oluşturun.
+İlgili sertifikasyon **bilgileriyle** yeni bir Sözleşme kaynağı oluşturun.
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem | İstek URI'si                                                                                      |
 |--------|--------------------------------------------------------------------------------------------------|
-| GET    | [*\{ BaseUrl \}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/sözleşmeleri http/1.1 |
+| GET    | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI parametresi
 
-Onayladığınız müşteriyi belirtmek için aşağıdaki sorgu parametresini kullanın.
+Onaylamakta olduğunu müşteriyi belirtmek için aşağıdaki sorgu parametresini kullanın.
 
 | Ad             | Tür | Gerekli | Açıklama                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
-| CustomerTenantId | GUID | Y        | Değer, bir müşteriyi belirtmenizi sağlayan bir GUID biçimli **Customertenantıd** 'dir. |
+| CustomerTenantId | GUID | Y        | Değer, müşteri belirtmenize olanak sağlayan GUID biçiminde bir **CustomerTenantId** değeridir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -139,11 +134,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde **anlaşma** kaynaklarının bir koleksiyonunu döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde bir Anlaşma** kaynakları koleksiyonu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

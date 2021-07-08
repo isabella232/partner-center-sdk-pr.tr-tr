@@ -4,21 +4,16 @@ description: Ortağın MPN profilini C \# veya Iş ortağı merkezi REST API ara
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6ef7bcb35274a6bcbaddbe0553ca0cb4dc1b2f9c
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: 6bd51850c7bc5a099a34f9c028a58e247c2600a3
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97769940"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548830"
 ---
 # <a name="verify-a-partner-mpn-id-via-c-or-the-partner-center-rest-api"></a>C veya Iş Ortağı Merkezi aracılığıyla iş ortağı MPN KIMLIĞINI doğrulayın \# REST API
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Ortağın Microsoft İş Ortağı Ağı tanımlayıcısını doğrulama (MPN KIMLIĞI).
 
@@ -41,7 +36,7 @@ Ortağın MPN KIMLIĞINI doğrulamak için, önce [**ıaggregatepartner. Profile
 var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: VerifyPartnerMpnId.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: doğrulama ypartnermpnıd. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -57,7 +52,7 @@ Ortağı tanımlamak için aşağıdaki sorgu parametresini sağlayın. Bu sorgu
 
 | Ad   | Tür | Gerekli | Açıklama                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| MPN kimliği | int  | No       | Ortağı tanımlayan Microsoft İş Ortağı Ağı KIMLIĞI. |
+| MPN kimliği | int  | Hayır       | Ortağı tanımlayan Microsoft İş Ortağı Ağı KIMLIĞI. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

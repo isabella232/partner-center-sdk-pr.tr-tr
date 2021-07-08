@@ -1,48 +1,44 @@
 ---
 title: Pazara göre adres biçimlendirme kurallarını alma
-description: Pazara yönelik ISO koduna göre beklenen adres biçimini alın.
+description: Pazarın iso koduna göre beklenen adres biçimini elde edin.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c755a38c11ed9803edb7777a0f661c1fbc5a6107
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d5233d059ea6e71c28df36b2242659c28c5dd857
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769005"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549051"
 ---
 # <a name="get-address-formatting-rules-by-market"></a>Pazara göre adres biçimlendirme kurallarını alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
 
-Pazara yönelik ISO koduna göre beklenen adres biçimini alın.
+Pazarın iso koduna göre beklenen adres biçimini elde edin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                 |
 |---------|---------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/countryvalidationkurallarını/{ısocode-ID} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/countryvalidationrules/{isocode-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
 | Ad           | Tür       | Gerekli | Açıklama                         |
 |----------------|------------|----------|-------------------------------------|
-| **ısocode kimliği** | **dizisinde** | Y        | İki karakterlik ISO ülke kodu. |
+| **isocode-id** | **string** | Y        | İki karakterli ISO ülke kodu. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -60,11 +56,11 @@ MS-CorrelationId: 5cfd634d-b936-47af-87f0-0f0217425dcc
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **Countryınformation** nesnesi döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde bir CountryInformation** nesnesi döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -4,18 +4,14 @@ description: Belirtilen fatura dönemi için müşterinin hizmet maliyetlerini a
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 635e61342e13c3676120ec0df02f1e8bffda64ac
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 1cab23238b5f62a02a5f7368f626648d5b1b5b7e
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769347"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874916"
 ---
 # <a name="get-a-customers-service-costs-summary"></a>Müşterinin hizmet maliyetleri özetini alma
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Belirtilen fatura dönemi için müşterinin hizmet maliyetlerini alır.
 

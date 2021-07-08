@@ -6,23 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 42e5201919eea5644da463dfe2584c8d55002083
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: f0324916eb2efd9244530a53b1d7bb4abc0c8e6e
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769016"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549136"
 ---
 # <a name="get-invoice-statement"></a>Fatura ekstresini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Fatura KIMLIĞINI kullanarak bir fatura ekstresi alır.
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -41,7 +34,7 @@ Bir fatura ekstresini KIMLIĞE göre almak için, **ıpartner.** Invoice koleksi
 var invoiceStatement = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Documents.Statement.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresample **sınıfı**: GetInvoiceStatement.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: getfaturalarestatement. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -65,7 +58,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 

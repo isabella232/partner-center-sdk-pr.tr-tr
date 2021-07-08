@@ -1,42 +1,37 @@
 ---
-title: Kodu kimliğe göre al
-description: Fatura KIMLIĞINI kullanarak belirli bir faturayı alır.
+title: Kimliğine göre fatura al
+description: Fatura kimliğini kullanarak verilen bir faturayı alan.
 ms.date: 06/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 17880265d06e8e5eaacc5470d83c49defd10ad51
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: c888786a6b6ca941629bb7aac95227021c37a7fc
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768717"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549170"
 ---
-# <a name="get-invoice-by-id"></a>Kodu kimliğe göre al
+# <a name="get-invoice-by-id"></a>Kimliğine göre fatura al
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Fatura KIMLIĞINI kullanarak belirli bir faturayı alır.
+Fatura kimliğini kullanarak verilen bir faturayı alan.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Geçerli bir fatura KIMLIĞI.
+- Geçerli bir Fatura Kimliği.
 
 ## <a name="c"></a>C\#
 
-Bir faturayı KIMLIĞE göre almak için:
+Kimliğine göre fatura almak için:
 
-1. **Ipartner. Invoices** koleksiyonunuzu kullanın ve **byıd ()** yöntemini çağırın.
+1. **IPartner.Invoices koleksiyonu kullanın** ve **ById() yöntemini** çağırın.
 
-2. **Get ()** veya **GetAsync ()** yöntemlerini çağırın.
+2. **Get() veya** **GetAsync() yöntemlerini** çağırma.
 
 ``` csharp
 // IPartner scopedPartnerOperations;
@@ -45,15 +40,15 @@ Bir faturayı KIMLIĞE göre almak için:
 var invoice = scopedPartnerOperations.Invoices.ById(selectedInvoiceId).Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresample **sınıfı**: GetInvoice.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerSDK.FeatureSample **Sınıfı**: GetInvoice.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{INVOICE-ID} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI parametresi
 
@@ -61,15 +56,15 @@ Faturayı almak için aşağıdaki sorgu parametresini kullanın.
 
 | Ad           | Tür       | Gerekli | Açıklama                                                                                        |
 |----------------|------------|----------|----------------------------------------------------------------------------------------------------|
-| **Fatura kimliği** | **dizisinde** | Yes      | Değer, satıcının belirli bir faturaya ait sonuçları filtrelemesine olanak tanıyan bir **Fatura kimliğidir** . |
+| **invoice-id** | **string** | Yes      | Değer, kurumsal bayinin belirli bir faturanın sonuçlarını filtrelemesini sağlayan bir **invoice-id** değeridir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -83,11 +78,11 @@ MS-CorrelationId: 57eb2ca7-755f-450f-9187-eae1e75a0114
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir [Fatura](invoice-resources.md#invoice) kaynağı döndürür.
+Başarılı olursa, bu yöntem yanıt [gövdesinde](invoice-resources.md#invoice) bir Fatura kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -4,24 +4,20 @@ description: Azure teklifi için gerçek zamanlı fiyatlara sahip bir Azure ücr
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0716f0428b13604105b435a2ce8287a8b4609fea
-ms.sourcegitcommit: 64c498d3571f2287305968890578bc7396779621
+ms.openlocfilehash: 4f66ab19ef3723fbaa27acff941cf48683a7c25c
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97770293"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548796"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>Microsoft Azure için fiyat alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Azure teklifi için gerçek zamanlı fiyatlara sahip bir [Azure ücret kartı](azure-rate-card-resources.md) alma. Azure fiyatlandırması oldukça dinamik ve sık sık değişir.
 
-Kullanımı izlemek ve aylık faturanızı ve tek tek müşterilerin ücretini tahmin etmeye yardımcı olmak için, [Azure için bir müşterinin kullanım kayıtlarını almaya](get-a-customer-s-utilization-record-for-azure.md)yönelik bir istekle Microsoft Azure fiyatlarını almak üzere bu Azure fiyatı kartı sorgusunu birleştirebilirsiniz.
+kullanımı izlemek ve aylık faturanızı ve tek tek müşterilerin ücretini tahmin etmeye yardımcı olmak için, [azure için bir müşterinin kullanım kayıtlarını almaya](get-a-customer-s-utilization-record-for-azure.md)yönelik bir istekle Microsoft Azure fiyatlarını almak üzere bu Azure fiyatı kartı sorgusunu birleştirebilirsiniz.
 
 Fiyatlar Pazar ve para birimine göre farklılık gösterir ve bu API 'nin yerini göz önünde bulundurun. Varsayılan olarak, API iş ortağı merkezi ve tarayıcı dilinizde ortak profil ayarlarınızı kullanır ve bu ayarlar özelleştirilebilir. Bu durum, özellikle birden çok pazardaki satışları tek bir merkezi bir ofiste yönetiyorsanız ilgilidir. Daha fazla bilgi için bkz. [URI parametreleri](#uri-parameters).
 
@@ -35,7 +31,7 @@ Azure fiyat kartını edinmek için, Azure fiyatlarını içeren [**Azursilinebi
 var azureRateCard = partner.RateCards.Azure.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetAzureRateCard.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: GetAzureRateCard. cs
 
 ## <a name="java"></a>Java
 

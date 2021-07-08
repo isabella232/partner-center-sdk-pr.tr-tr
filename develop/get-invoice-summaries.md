@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 82cd669117db72e1819d941f48f8ea69b2eddaec
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: fb6ff839c56c7b0b77a9904abf05d95ca0500b00
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768716"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549119"
 ---
 # <a name="get-invoice-summaries"></a>Fatura özetlerini alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Yinelenen ve tek seferlik ücretlerin bakiyesini ve toplam ücretlerini gösteren bir fatura Özeti almak için **InvoiceSummaries** kullanabilirsiniz. **InvoiceSummaries** kaynağı her bir para birimi türü için bir fatura özeti içerir.
 
@@ -52,8 +47,8 @@ Console.Out.WriteLine("Current Account Balance:  {0:C}", invoiceSummaries[0].Bal
 Daha fazla bilgi için aşağıdaki örnek koda bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSample**
-- Sınıf: **GetInvoiceSummaries.cs**
+- Project: **partnersdk. featuresample**
+- Sınıf: **GetInvoiceSummaries. cs**
 
 ## <a name="rest-request"></a>REST isteği
 

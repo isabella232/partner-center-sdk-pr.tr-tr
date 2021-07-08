@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: aad9524dbe2c9edbbd7c1d50da7a448f6872fcb9
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 663b8509d8704f9c443796d9fbcf72fb9c5b7fb2
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769376"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874967"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Arama alanına göre filtrelenmiş bir müşteri listesini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bir filtreyle eşleşen [Müşteri](customer-resources.md#customer) kaynakları koleksiyonunu alır. İsteğe bağlı olarak bir sayfa boyutu ayarlayabilirsiniz. Şirket adına, etki alanına, dolaylı satıcıya veya dolaylı bulut çözümü sağlayıcısına (CSP) göre filtreleme yapabilirsiniz.
 
@@ -57,7 +52,7 @@ var myQuery = QueryFactory.Instance.BuildSimpleQuery(fieldFilter);
 var customers = partnerOperations.Customers.Query(myQuery);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: FilterCustomers.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: filtercustomers. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -73,7 +68,7 @@ Aşağıdaki sorgu parametrelerini kullanın.
 
 | Ad   | Tür   | Gerekli | Açıklama                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| boyut   | int    | No       | Tek seferde görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır. |
+| boyut   | int    | Hayır       | Tek seferde görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır. |
 | filtre | filtre | Yes      | Müşterilere uygulanacak filtre. Bu, kodlanmış bir dize olmalıdır.              |
 
 ### <a name="filter-syntax"></a>Filtre sözdizimi

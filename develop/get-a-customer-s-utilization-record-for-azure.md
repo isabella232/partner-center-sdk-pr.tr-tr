@@ -4,20 +4,16 @@ description: Belirli bir süre boyunca bir müşterinin Azure aboneliğinin kull
 ms.date: 04/19/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 23c8d18462081c6d6c95c1d969f269cbb3f8754b
-ms.sourcegitcommit: abefe11421edc421491f14b257b2408b4f29b669
+ms.openlocfilehash: 7024bc65976a9b43a62b66c529d271519181ab23
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2021
-ms.locfileid: "107745601"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874933"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Müşterinin Azure kullanım kayıtlarını alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Azure kullanım API 'sini kullanarak belirli bir süre için müşterinin Azure aboneliğinin kullanım kayıtlarını alabilirsiniz.
 
@@ -29,7 +25,7 @@ Azure kullanım API 'sini kullanarak belirli bir süre için müşterinin Azure 
 
 - Abonelik tanımlayıcısı.
 
-Bu API, rastgele bir zaman aralığı için günlük ve saatlik derecelendirilmemiş tüketim döndürür. Ancak, *Bu API Azure planları için desteklenmez*. Bir Azure planınız varsa, [Fatura faturalandırılmamış tüketim satırı öğelerini alma](get-invoice-unbilled-consumption-lineitems.md) ve [Fatura için faturalandırılan tüketim satırı öğelerini](get-invoice-billed-consumption-lineitems.md) alma makalelerine bakın. Bu makalelerde, kaynak başına ölçüm başına her gün bir derecelendirmeden derecelendirilen tüketimin nasıl alınacağı açıklanır. Bu hız tüketimi, Azure kullanım API 'SI tarafından belirtilen günlük gren verilere eşdeğerdir. Fatura tanımlayıcısını, faturalandırılan kullanım verilerini almak için kullanmanız gerekir. Veya, faturalandırılmamış kullanım tahminleri almak için geçerli ve önceki dönemleri de kullanabilirsiniz. *Saatlik gren veri ve rastgele tarih aralığı filtreleri şu anda Azure plan aboneliği kaynakları için desteklenmiyor*.
+Bu API, rastgele bir zaman aralığı için günlük ve saatlik derecelendirilmemiş tüketim döndürür. Ancak, *Bu API Azure planları için desteklenmez*. Bir Azure planınız varsa, [Fatura faturalandırılmamış tüketim satırı öğelerini Al](get-invoice-unbilled-consumption-lineitems.md) ve [Fatura için faturalandırılan tüketim satırı öğelerini](get-invoice-billed-consumption-lineitems.md) al makalelerine bakın. Bu makalelerde, kaynak başına ölçüm başına her gün bir derecelendirmeden derecelendirilen tüketimin nasıl alınacağı açıklanır. Bu hız tüketimi, Azure kullanım API 'SI tarafından belirtilen günlük gren verilere eşdeğerdir. Fatura tanımlayıcısını, faturalandırılan kullanım verilerini almak için kullanmanız gerekir. Ya da, faturalandırılmamış kullanım tahminleri almak için geçerli ve önceki dönemleri de kullanabilirsiniz. *Saatlik gren veri ve rastgele tarih aralığı filtreleri şu anda Azure plan aboneliği kaynakları için desteklenmiyor*.
 
 ## <a name="azure-utilization-api"></a>Azure kullanım API 'SI
 
@@ -39,7 +35,7 @@ Bu Azure kullanım API 'SI, kullanımın faturalandırma sisteminde ne zaman rap
 
 Bu REST API disk belleğine alınmış. Yanıt yükü tek bir sayfadan fazlaysa, kullanım kayıtlarının sonraki sayfasını almak için sonraki bağlantıyı izlemeniz gerekir.
 
-### <a name="scenario--partner-a-has-transferred-billing-ownership-of-azure-legacy-subscription-145p-to-partner-b"></a>Senaryo: Iş ortağı A, Azure eski aboneliğinin (145P) faturalama sahipliğini B ortağına aktardı
+### <a name="scenario-partner-a-has-transferred-billing-ownership-of-azure-legacy-subscription-145p-to-partner-b"></a>Senaryo: Iş ortağı A, Azure eski aboneliğinin (145P) faturalama sahipliğini B ortağına aktardı
 
 Bir iş ortağı, Azure eski aboneliğinin faturalandırma sahipliğini başka bir ortağa aktarıyorsa yeni iş ortağı aktarılan abonelik için kullanım API 'sini çağırdığında, Azure Yetkilendirme KIMLIĞI yerine ticari abonelik KIMLIĞI (Iş Ortağı Merkezi hesabında gösterilir) kullanmaları gerekir. Azure Yetkilendirme KIMLIĞI, Iş ortağı B yalnızca müşterinin Azure portal (AOBO) adına yönetici olduklarında görüntülenir. 
 
@@ -56,7 +52,7 @@ Azure kullanım kayıtlarını almak için:
 3. Kullanım sayfalarında geçiş yapmak için bir Azure kullanım kaydı numaralandırıcısı elde edin. Kaynak koleksiyonu disk belleğine alındığından bu adım gereklidir.
 
 - **Örnek**: [konsol test uygulaması](console-test-app.md)
-- **Proje**: Iş Ortağı Merkezi SDK örnekleri
+- **Project**: iş ortağı merkezi SDK örnekleri
 - **Sınıf**: GetAzureSubscriptionUtilization. cs
 
 ```csharp
@@ -153,8 +149,8 @@ Kullanım kayıtlarını almak için aşağıdaki yolu ve sorgu parametrelerini 
 | start_time | UTC Tarih-saat fark biçiminde dize | Yes | Kullanım faturalandırma sisteminde ne zaman bildirileceğini temsil eden zaman aralığının başlangıcı. |
 | end_time | UTC Tarih-saat fark biçiminde dize | Yes | Kullanım faturalandırma sisteminde bildirilme zamanını temsil eden zaman aralığının sonu. |
 | boyutu | dize | No | Kullanım toplamalarının ayrıntı düzeyini tanımlar. Kullanılabilir seçenekler şunlardır: `daily` (varsayılan) ve `hourly` .
-| show_details | boolean | No | Örnek düzeyinde kullanım ayrıntılarının kullanılıp kullanılmayacağını belirtir. Varsayılan değer: `true`. |
-| boyut | sayı | No | Tek bir API çağrısıyla döndürülen toplama sayısını belirtir. Varsayılan değer 1000’dir. Maksimum değer 1000 ' dir. |
+| show_details | boolean | Hayır | Örnek düzeyinde kullanım ayrıntılarının kullanılıp kullanılmayacağını belirtir. Varsayılan değer: `true`. |
+| boyut | sayı | Hayır | Tek bir API çağrısıyla döndürülen toplama sayısını belirtir. Varsayılan değer 1000’dir. Maksimum değer 1000 ' dir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -162,7 +158,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 

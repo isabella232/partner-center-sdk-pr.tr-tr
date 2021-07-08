@@ -7,21 +7,16 @@ ms.subservice: partnercenter-sdk
 ms.assetid: ''
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 10801cdb1f9d4f50a1f8fc86c2d0eaf8610ed68c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 719becd3fac5605c4ad48ab86d483ba7903d65d8
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769017"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549153"
 ---
 # <a name="get-invoice-estimate-links"></a>Fatura tahmini bağlantılarını alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Faturalandırılmamış mutabakat satır öğelerinin ayrıntılarını sorgulama hakkında yardım almak için tahmin bağlantıları sağlayabilirsiniz.
 
@@ -49,8 +44,8 @@ var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(
 Benzer bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Iş ortağı MERKEZI SDK örnekleri**
-- Sınıf: **GetEstimatesLinks.cs**
+- Project: **iş ortağı merkezi SDK örnekleri**
+- Sınıf: **Getestimateslinks. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -79,7 +74,7 @@ Yok.
 ### <a name="request-example"></a>İstek örneği
 
 ```http
-GET https://api.partnercenter.microsoft.com/v1/invoices/estimates/links?currencycode=usd HTTP/1.1
+GET https://api.partnercenter.microsoft.com/v1/invoices/estimates/links?currencycode=usd HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: 1234ecb8-37af-45f4-a1a1-358de3ca2b9e

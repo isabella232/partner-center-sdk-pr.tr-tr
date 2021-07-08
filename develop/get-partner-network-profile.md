@@ -4,21 +4,16 @@ description: Ortağın MPN profilini temsil eden bir nesne alır.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f8f3e74462da05de0be47964beb34228650b1f53
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 38c12a9a9755b9838b7742d9f38c5cbd52b81210
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769911"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548864"
 ---
 # <a name="get-microsoft-partner-network-profile"></a>Microsoft İş Ortağı Ağı profil alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Ortağın MPN profilini temsil eden bir nesne alır.
 
@@ -36,7 +31,7 @@ Bir iş ortağı ağ profili almak için **ıaggregatepartner. Profiles** koleks
 var mpnProfile = partnerOperations.Profiles.MpnProfile.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**:P artnerCenterSDK. FeaturesSamples **sınıfı**: GetMPNProfile.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**:P artnercentersdk. featuressamples **sınıfı**: getmpnprofile. cs
 
 ## <a name="java"></a>Java
 

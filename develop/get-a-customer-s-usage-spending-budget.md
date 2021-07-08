@@ -1,41 +1,37 @@
 ---
-title: Müşterinin kullanım harcama bütçesini alın
-description: Bir müşteri kullanım özetini (Müşterusagesummary kaynağı) güncelleştirmek için bir harcama bütçesi (Spendingbütçe nesnesi) kullanabilirsiniz.
+title: Müşterinin kullanım harcama bütçesini al
+description: Müşteri kullanım özetini (CustomerUsageSummary kaynağı) güncelleştirmek için bir harcama bütçesi (SpendingBudget nesnesi) kullanabilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8be9ceaab6b7546de8eacba1e52e8766719e5125
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: b55f59fff7e5d7865811ecab3e901848126d31f7
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769346"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874882"
 ---
-# <a name="get-a-customers-usage-spending-budget"></a>Müşterinin kullanım harcama bütçesini alın
+# <a name="get-a-customers-usage-spending-budget"></a>Müşterinin kullanım harcama bütçesini al
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Harcama bütçesini ( **Spendingbütçe** nesnesi) [Müşteri kullanım özetinde ( **Müşterusagesummary** kaynağı)](customer-usage-resources.md#customerusagesummary)güncelleştirebilirsiniz.
+Harcama bütçesini **(SpendingBudget** nesnesi) müşteri kullanım özetini [ **(CustomerUsageSummary** kaynağı) güncelleştirebilirsiniz.](customer-usage-resources.md#customerusagesummary)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
 Müşterinin kullanım harcama bütçesini güncelleştirmek için:
 
-1. Güncelleştirilmiş tutarla yeni bir [**Spendingbütçe**](/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) nesnesi oluşturun.
+1. Güncelleştirilmiş [**tutara sahip yeni bir SpendingBudget**](/dotnet/api/microsoft.store.partnercenter.models.usage.spendingbudget) nesnesi oluşturun.
 
-2. Belirtilen müşterinin tanımlayıcısına sahip [**byıd ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırmak Için [**ıaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) koleksiyonunu kullanın.
+2. Belirtilen müşterinin tanımlayıcısıyla [**ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağıran [**IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection) koleksiyonunu kullanın.
 
-3. Müşterinin kullanım bütçesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) yöntemini çağırın.
+3. Müşterinin kullanım [**bütçesini**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) almak için Get veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) yöntemini çağırma.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,23 +49,23 @@ var usageBudget = partnerOperations.Customers.ById(selectedCustomerId).UsageBudg
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                             |
 |-----------|---------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/usagebütçe http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/usagebudget HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Faturalandırma profilini güncelleştirmek için aşağıdaki sorgu parametresini kullanın.
+Faturalama profilini güncelleştirmek için aşağıdaki sorgu parametresini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-Kiracı kimliği** ' dir. |
+| **customer-tenant-id** | **guid** | Y        | Değer, kurumsal bayinin kurumsal **bayiye** ait olan belirli bir müşteri için sonuçları filtrelemesini sağlayan GUID biçimli bir müşteri kiracı kimliğidir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -89,11 +85,11 @@ X-Locale: "en-US"
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem bir kullanıcının harcama bütçesini güncelleştirilmiş tutara döndürür.
+Başarılı olursa bu yöntem, güncelleştirilmiş tutara sahip bir kullanıcının harcama bütçesini döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -4,20 +4,16 @@ description: KIMLIĞE göre mevcut bir müşteri hizmeti isteğinin ayrıntılar
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c79fd3f5e5609a1893891e9b2a8078f8678497b3
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 66488cf9592d630cb1f0237d379e8df5ead6a3a8
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769899"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548779"
 ---
 # <a name="get-service-request-details-by-id"></a>Kimliğe göre hizmet isteği ayrıntılarını alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Hizmet isteği tanımlayıcısını kullanarak mevcut bir müşteri hizmeti isteğinin ayrıntılarını alma.
 

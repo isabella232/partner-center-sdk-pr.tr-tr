@@ -1,34 +1,29 @@
 ---
 title: İş ortağı faturalandırma profili alma
-description: Ortağın faturalandırma profilini temsil eden bir nesne alır.
+description: İş ortağının faturalama profilini temsil eden bir nesnesi alır.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 94c5ff8fc351282ca3b4721511f02ba6a0cc403c
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 225d8ea2d92933838ae47eaf3308276aa1f1684c
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769839"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548983"
 ---
 # <a name="get-partner-billing-profile"></a>İş ortağı faturalandırma profili alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Ortağın faturalandırma profilini temsil eden bir nesne alır.
+İş ortağının faturalama profilini temsil eden bir nesnesi alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Bir iş ortağı Faturalandırma profili almak için **ıaggregatepartner. Profiles** koleksiyonunuzu kullanın ve **billingprofile** özelliğini çağırın. Son olarak [**Get ()**](/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync) yöntemlerini çağırın.
+bir iş ortağı faturalama profili almak için **IAggregatePartner.Profiles** koleksiyonu kullanın ve **BillingProfile özelliğini** arayın. Son olarak [**Get() veya**](/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.get) [**GetAsync() yöntemlerini**](/dotnet/api/microsoft.store.partnercenter.profiles.ibillingprofile.getasync) arayın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,19 +31,19 @@ Bir iş ortağı Faturalandırma profili almak için **ıaggregatepartner. Profi
 BillingProfile billingProfile = partnerOperations.Profiles.BillingProfile.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnercentersdk. FeaturesSamples **sınıfı**: GetBillingProfile.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples **Sınıfı:** GetBillingProfile.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                              |
 |---------|--------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/faturalandırma http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/billing HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -66,11 +61,11 @@ MS-CorrelationId: 1bb03149-88d2-4bc2-9cc1-d6e83890fa9e
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **Billingprofile** nesnesi döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde bir BillingProfile** nesnesi döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

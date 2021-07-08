@@ -4,22 +4,18 @@ description: Belirli bir Azure hizmetini veya kaynağını satın alan tüm mü�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: da829a6de3690a9b1117ce9dfa58fbe381cafd81
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6b3fb0e1989336810f2afcc2a5bfc3a1d2849b7f
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769160"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874899"
 ---
 # <a name="get-usage-records-for-all-customers"></a>Tüm müşteriler için kullanım kayıtları al
 
-**Uygulama hedefi:**
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-İş ortakları, tüm müşterileri için kullanım kayıtları almak üzere **CustomerMonthlyUsageRecord** kaynak koleksiyonunu kullanabilir. Bu kaynak, tüm müşteriler için kullanım kayıtlarını temsil eder. Bu müşterileri bir Microsoft Azure (MS-AZR-0145P) aboneliği veya bir Azure planına dahil eder.
+İş ortakları, tüm müşterileri için kullanım kayıtları almak üzere **CustomerMonthlyUsageRecord** kaynak koleksiyonunu kullanabilir. Bu kaynak, tüm müşteriler için kullanım kayıtlarını temsil eder. bu müşterileri bir Microsoft Azure (MS-azr-0145p) aboneliği veya bir Azure planına dahil eder.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,8 +39,8 @@ Geçerli faturalandırma döneminde belirli bir Azure hizmetini veya kaynağın�
 Bir örnek için aşağıdaki örneğe bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSamples**
-- Sınıf: **GetCustomerUsageRecords.cs**
+- Project: **partnersdk. featuresamples**
+- Sınıf: **GetCustomerUsageRecords. cs**
 
 ## <a name="rest-request"></a>REST isteği
 

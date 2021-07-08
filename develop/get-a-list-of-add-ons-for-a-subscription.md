@@ -1,46 +1,41 @@
 ---
 title: Bir abonelik için eklentilerin bir listesini alma
-description: Bir müşterinin aboneliğine eklemek üzere seçtiği eklentilerin koleksiyonunu alma.
+description: Müşterinin aboneliğine eklemeyi seçtiği eklenti koleksiyonunu alma.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 4e62ad22cf30c34dedfeb628003c695e33b78758
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: c627f595333a295048b02ec4326dcdc279d07b51
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769335"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874644"
 ---
 # <a name="get-a-list-of-add-ons-for-a-subscription"></a>Bir abonelik için eklentilerin bir listesini alma
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bu makalede, bir müşterinin **[abonelik](subscription-resources.md)** kaynağına eklemeyi seçtiği eklentilerin nasıl alınacağı açıklanır.
+Bu makalede, bir müşterinin Abonelik kaynağına eklemeyi seçtiği eklenti koleksiyonunun nasıl alın **[açıklanmıştır.](subscription-resources.md)**
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Abonelik KIMLIĞI.
+- Abonelik kimliği.
 
 ## <a name="c"></a>C\#
 
-Bir müşterinin aboneliğine ait eklentilerin listesini almak için:
+Müşterinin aboneliği için eklentilerin listesini almak için:
 
-1. **Byıd ()** yöntemini çağırmak Için **ıaggregatepartner. Customers** koleksiyonunuzu kullanın.
+1. **ById()** **yöntemini çağırarak IAggregatePartner.Customers** koleksiyonu kullanın.
 
-2. [**Abonelik**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğini çağırın, ardından [**byıd ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) yöntemi.
+2. Subscriptions [**özelliğini ve**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) ardından [**ById() yöntemini**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) çağırma.
 
-3. [**Addons**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.addons) özelliğini çağırın, bunu [**Get ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.getasync)ile yapın.
+3. Addons [**özelliğini,**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.addons) ardından [**Get()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.get) veya [**GetAsync() çağrısı.**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionaddoncollection.getasync)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -53,30 +48,30 @@ var subscriptionDetails = partnerOperations.Customers.ById(selectedCustomerId).S
 
 Bir örnek için aşağıdakilere bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSample**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **PartnerSDK.FeatureSample**
 - Sınıf: **SubscriptionAddons.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                       |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription}/addons http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription}/addons HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI parametresi
 
-Bu tablo, abonelik için eklentilerin listesini almak üzere gerekli sorgu parametrelerini listeler.
+Bu tabloda abonelik için eklentilerin listesini almak için gerekli sorgu parametreleri listelemektedir.
 
 | Ad                    | Tür     | Gerekli | Açıklama                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **Müşteri-Kiracı kimliği**  | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
-| **abonelik kimliği** | **guid** | Y        | Aboneliğe karşılık gelen bir GUID. |
+| **customer-tenant-id**  | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
+| **abonelik için id** | **guid** | Y        | Aboneliğe karşılık gelen BIR GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -96,9 +91,9 @@ MS-CorrelationId: c49004b1-224f-4d86-a607-6c8bcc52cfdd
 
 Başarılı olursa, bu yöntem yanıt gövdesinde bir kaynak koleksiyonu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

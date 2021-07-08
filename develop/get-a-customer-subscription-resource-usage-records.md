@@ -4,24 +4,20 @@ description: Geçerli fatura döneminde belirli Azure hizmetleri veya kaynaklar�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e815430730dd7182380e9efd1fea80f9e84d2ce7
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 50edb9de1d09363b242c080a76c683732f05a5de
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769142"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874848"
 ---
 # <a name="get-usage-data-for-subscription-by-resource"></a>Kaynağa göre abonelik için kullanım verilerini alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bu makalede **ResourceUsageRecord** kaynağını alma açıklanır. Bu kaynak, Azure planınızda sağlanan bireysel kaynaklar için aylık toplam toplu toplamı temsil eder. Bu kaynağı, geçerli fatura döneminde belirli Azure hizmetleri veya kaynakları için bir müşterinin kaynak kullanım kayıtlarını almak üzere kullanabilirsiniz. Bu API, daha önce Azure harcama API 'Leri aracılığıyla kullanılamayan verileri döndürür.
 
-*Bu yol Microsoft Azure (MS-AZR-0145P) aboneliklerini desteklemez.*
+*bu yol Microsoft Azure (MS-azr-0145p) aboneliklerini desteklemez.*
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -37,7 +33,7 @@ Geçerli fatura döneminde belirli bir Azure hizmeti veya kaynağı için bir m�
 
 1. **Byıd ()** yöntemini çağırmak Için **ıaggregatepartner. Customers** koleksiyonunuzu kullanın.
 
-2. **UsageRecords** ve ardından **Resources** özelliği ile birlikte abonelikler özelliğini çağırın. Get () veya GetAsync () yöntemlerini çağırarak son ' a erişin.
+2. Abonelikler özelliğini ve **UsageRecords** ve ardından **Resources** özelliğini çağırın. Get () veya GetAsync () yöntemlerini çağırarak son ' a erişin.
 
     ``` csharp
     // IAggregatePartner partnerOperations;
@@ -50,8 +46,8 @@ Geçerli fatura döneminde belirli bir Azure hizmeti veya kaynağı için bir m�
 Bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSamples**
-- Sınıf: **GetSubscriptionUsageRecordsByResource.cs**
+- Project: **partnersdk. featuresamples**
+- Sınıf: **GetSubscriptionUsageRecordsByResource. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -68,7 +64,7 @@ Bu tabloda, müşterinin derecelendirildi kullanım bilgilerini almak için gere
 | Ad                   | Tür     | Gerekli | Açıklama                               |
 |------------------------|----------|----------|-------------------------------------------|
 | **Müşteri-Kiracı kimliği** | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
-| **abonelik kimliği**    | **guid** | Y        | Bir Microsoft Azure (MS-AZR-0145P) aboneliğini veya bir Azure planını temsil eden bir Iş Ortağı Merkezi [abonelik kaynağının](subscription-resources.md#subscription)tanımlayıcısına karşılık gelen bir GUID. *Azure planı abonelik kaynakları için, bu rotada **abonelik kimliği** olarak **plan kimliği** sağlayın.* |
+| **abonelik kimliği**    | **guid** | Y        | bir Microsoft Azure (MS-azr-0145p) aboneliğini veya bir Azure planını temsil eden bir iş ortağı merkezi [abonelik kaynağının](subscription-resources.md#subscription)tanımlayıcısına karşılık gelen bir guıd. *Azure planı abonelik kaynakları için, bu rotada **abonelik kimliği** olarak **plan kimliği** sağlayın.* |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

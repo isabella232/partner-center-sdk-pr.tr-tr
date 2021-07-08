@@ -1,34 +1,29 @@
 ---
 title: İş ortağı yasal iş profili alma
-description: Geçerli iş profilinizi almak için API 'Leri nasıl kullanacağınızı öğrenin.
+description: Yasal iş profilinizi almak için API'leri kullanmayı öğrenin.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1d488c8deb9f01110e92327035ce0c3c023fcb46
-ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
+ms.openlocfilehash: ba0654e364674bc2db129a0904d411c6fb67cbb9
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106500031"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549068"
 ---
 # <a name="get-the-partner-legal-business-profile"></a>İş ortağı yasal iş profili alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-İş ortağının yasal iş profilini alma.
+İş ortağının yasal iş profilini elde etmek.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-İş ortağı yasal iş profilini almak için ilk olarak **ıaggregatepartner. Profiles** özelliğinden iş ortağı profili işlemleri koleksiyonuna bir arabirim alın. Ardından, yasal iş profili işlemlerine bir arabirim almak için **LegalBusinessProfile** özelliğinin değerini alın. Son olarak, profili almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync) yöntemini çağırın.
+İş ortağı yasal iş profilini almak için, önce **IAggregatePartner.Profiles** özelliğinden iş ortağı profili işlemlerinin koleksiyonuna bir arabirim elde etmek. Ardından yasal iş profili işlemlerine bir arabirim almak için **LegalBusinessProfile** özelliğinin değerini alın. Son olarak, [**profili almak**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.get) için Get veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.ilegalbusinessprofile.getasync) yöntemini çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,19 +31,19 @@ ms.locfileid: "106500031"
 var billingProfile = partnerOperations.Profiles.LegalBusinessProfile.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetLegalBusinessProfile. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Örnekleri **Sınıfı:** GetLegalBusinessProfile.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                    |
 |---------|--------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/legalbusiness http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/legalbusiness HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -69,11 +64,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **LegalBusinessProfile** nesnesi döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde bir LegalBusinessProfile** nesnesi döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
