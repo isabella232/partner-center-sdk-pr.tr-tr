@@ -1,38 +1,33 @@
 ---
 title: Teklif kimliği için eklentiler alma
-description: Bir teklif KIMLIĞI için eklentileri alma.
+description: Teklif kimliği için eklentileri nasıl elde etmek gerekir?
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 9ee22712b323c7439a192ed2e5af8d5e7eaf92a3
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: e3b0ab8007d3affa6912479b960f6dae3bc0bd28
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769263"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760343"
 ---
-# <a name="get-add-ons-for-an-offer-id"></a><span data-ttu-id="e2e85-103">Teklif kimliği için eklentiler alma</span><span class="sxs-lookup"><span data-stu-id="e2e85-103">Get add-ons for an offer ID</span></span>
+# <a name="get-add-ons-for-an-offer-id"></a><span data-ttu-id="8bfbe-103">Teklif kimliği için eklentiler alma</span><span class="sxs-lookup"><span data-stu-id="8bfbe-103">Get add-ons for an offer ID</span></span>
 
-<span data-ttu-id="e2e85-104">**Uygulama hedefi**</span><span class="sxs-lookup"><span data-stu-id="e2e85-104">**Applies To**</span></span>
+<span data-ttu-id="8bfbe-104">**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="8bfbe-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="e2e85-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="e2e85-105">Partner Center</span></span>
-- <span data-ttu-id="e2e85-106">21Vianet tarafından çalıştırılan iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="e2e85-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="e2e85-107">Microsoft Bulut Almanya için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="e2e85-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="e2e85-108">Microsoft Cloud for US Government için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="e2e85-108">Partner Center for Microsoft Cloud for US Government</span></span>
+<span data-ttu-id="8bfbe-105">Teklif kimliği için eklentileri nasıl elde etmek gerekir?</span><span class="sxs-lookup"><span data-stu-id="8bfbe-105">How to get the add-ons for an offer ID.</span></span>
 
-<span data-ttu-id="e2e85-109">Bir teklif KIMLIĞI için eklentileri alma.</span><span class="sxs-lookup"><span data-stu-id="e2e85-109">How to get the add-ons for an offer ID.</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="8bfbe-106">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="8bfbe-106">Prerequisites</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="e2e85-110">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="e2e85-110">Prerequisites</span></span>
+- <span data-ttu-id="8bfbe-107">kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md)</span><span class="sxs-lookup"><span data-stu-id="8bfbe-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="8bfbe-108">Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-108">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-- <span data-ttu-id="e2e85-111">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="e2e85-111">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="e2e85-112">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="e2e85-112">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="8bfbe-109">Teklif kimliği.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-109">An offer ID.</span></span> <span data-ttu-id="8bfbe-110">Teklif kimliğiniz yoksa bkz. [Pazar için tekliflerin listesini al.](get-a-list-of-offers-for-a-market.md)</span><span class="sxs-lookup"><span data-stu-id="8bfbe-110">If you don't have the offer ID, see [Get a list of offers for a market](get-a-list-of-offers-for-a-market.md).</span></span>
 
-- <span data-ttu-id="e2e85-113">Bir teklif KIMLIĞI.</span><span class="sxs-lookup"><span data-stu-id="e2e85-113">An offer ID.</span></span> <span data-ttu-id="e2e85-114">Teklif KIMLIĞINIZ yoksa, bkz. [pazara yönelik tekliflerin listesini alın](get-a-list-of-offers-for-a-market.md).</span><span class="sxs-lookup"><span data-stu-id="e2e85-114">If you don't have the offer ID, see [Get a list of offers for a market](get-a-list-of-offers-for-a-market.md).</span></span>
+## <a name="c"></a><span data-ttu-id="8bfbe-111">C\#</span><span class="sxs-lookup"><span data-stu-id="8bfbe-111">C\#</span></span>
 
-## <a name="c"></a><span data-ttu-id="e2e85-115">C\#</span><span class="sxs-lookup"><span data-stu-id="e2e85-115">C\#</span></span>
-
-<span data-ttu-id="e2e85-116">KIMLIĞE göre bir teklif için eklentileri almak üzere ilk olarak, verilen ülkeye göre işlem sunmaya yönelik bir arabirim almak için ülke koduyla [**ıaggregatepartner. tekliflere. ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="e2e85-116">To get the add-ons for an offer by ID, first call the [**IAggregatePartner.Offers.ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) method with the country code to get an interface to offer operations based on the given country.</span></span> <span data-ttu-id="e2e85-117">Ardından, eklentileri almak istediğiniz teklifi belirlemek için, teklif KIMLIĞIYLE [**byıd**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="e2e85-117">Then call the [**ByID**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) method with the offer ID to identify the offer whose add-ons you want to retrieve.</span></span> <span data-ttu-id="e2e85-118">Ardından, geçerli teklifin eklenti işlemlerine yönelik bir arabirim almak için [**addons**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) özelliğini kullanın.</span><span class="sxs-lookup"><span data-stu-id="e2e85-118">Next, use the [**AddOns**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) property to get an interface to add-on operations for the current offer.</span></span> <span data-ttu-id="e2e85-119">Son olarak, belirtilen teklif için tüm eklentilerin bir koleksiyonunu almak üzere [**Get**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="e2e85-119">Finally, call the [**Get**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) method to get a collection of all the add-ons for the specified offer.</span></span>
+<span data-ttu-id="8bfbe-112">Bir teklifin eklentilerini kimliğine göre almak için önce [**IAggregatePartner.Offers.ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) yöntemini ülke koduyla çağırarak verilen ülkeye göre işlem sunan bir arabirim elde edin.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-112">To get the add-ons for an offer by ID, first call the [**IAggregatePartner.Offers.ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) method with the country code to get an interface to offer operations based on the given country.</span></span> <span data-ttu-id="8bfbe-113">Ardından, [**eklentilerini**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) almak istediğiniz teklifi belirlemek için teklif kimliğiyle ByID yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-113">Then call the [**ByID**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) method with the offer ID to identify the offer whose add-ons you want to retrieve.</span></span> <span data-ttu-id="8bfbe-114">Ardından, geçerli teklife yönelik eklenti işlemlerine yönelik bir arabirim almak için [**AddOns**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) özelliğini kullanın.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-114">Next, use the [**AddOns**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) property to get an interface to add-on operations for the current offer.</span></span> <span data-ttu-id="8bfbe-115">Son olarak, [**belirtilen teklife**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) yönelik tüm eklentilerin bir koleksiyonunu almak için Get veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) yöntemini çağırın.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-115">Finally, call the [**Get**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) or [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) method to get a collection of all the add-ons for the specified offer.</span></span>
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,34 +37,34 @@ ms.locfileid: "97769263"
 var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).AddOns.Get();
 ```
 
-<span data-ttu-id="e2e85-120">**Örnek**: [konsol test uygulaması](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="e2e85-120">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="e2e85-121">**Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetOffer.cs</span><span class="sxs-lookup"><span data-stu-id="e2e85-121">**Project**: Partner Center SDK Samples **Class**: GetOffer.cs</span></span>
+<span data-ttu-id="8bfbe-116">**Örnek:** [Konsol test uygulaması](console-test-app.md).</span><span class="sxs-lookup"><span data-stu-id="8bfbe-116">**Sample**: [Console test app](console-test-app.md).</span></span> <span data-ttu-id="8bfbe-117">**Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** GetOffer.cs</span><span class="sxs-lookup"><span data-stu-id="8bfbe-117">**Project**: Partner Center SDK Samples **Class**: GetOffer.cs</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="e2e85-122">REST isteği</span><span class="sxs-lookup"><span data-stu-id="e2e85-122">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="8bfbe-118">REST isteği</span><span class="sxs-lookup"><span data-stu-id="8bfbe-118">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="e2e85-123">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="e2e85-123">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="8bfbe-119">İstek söz dizimi</span><span class="sxs-lookup"><span data-stu-id="8bfbe-119">Request syntax</span></span>
 
-| <span data-ttu-id="e2e85-124">Yöntem</span><span class="sxs-lookup"><span data-stu-id="e2e85-124">Method</span></span>  | <span data-ttu-id="e2e85-125">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="e2e85-125">Request URI</span></span>                                                                                             |
+| <span data-ttu-id="8bfbe-120">Yöntem</span><span class="sxs-lookup"><span data-stu-id="8bfbe-120">Method</span></span>  | <span data-ttu-id="8bfbe-121">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="8bfbe-121">Request URI</span></span>                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| <span data-ttu-id="e2e85-126">**Al**</span><span class="sxs-lookup"><span data-stu-id="e2e85-126">**GET**</span></span> | <span data-ttu-id="e2e85-127">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/offers/{Offer-id}/addons? ülke = {Country-Code} http/1.1</span><span class="sxs-lookup"><span data-stu-id="e2e85-127">[*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons?country={country-code} HTTP/1.1</span></span> |
+| <span data-ttu-id="8bfbe-122">**Al**</span><span class="sxs-lookup"><span data-stu-id="8bfbe-122">**GET**</span></span> | <span data-ttu-id="8bfbe-123">[*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons?country={country-code} HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="8bfbe-123">[*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons?country={country-code} HTTP/1.1</span></span> |
 
-### <a name="uri-parameters"></a><span data-ttu-id="e2e85-128">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="e2e85-128">URI parameters</span></span>
+### <a name="uri-parameters"></a><span data-ttu-id="8bfbe-124">URI parametreleri</span><span class="sxs-lookup"><span data-stu-id="8bfbe-124">URI parameters</span></span>
 
-<span data-ttu-id="e2e85-129">Teklif KIMLIĞI ve ülke kodu sağlamak için aşağıdaki parametreleri kullanın.</span><span class="sxs-lookup"><span data-stu-id="e2e85-129">Use the following parameters to provide the offer ID and country code.</span></span>
+<span data-ttu-id="8bfbe-125">Teklif kimliğini ve ülke kodunu sağlamak için aşağıdaki parametreleri kullanın.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-125">Use the following parameters to provide the offer ID and country code.</span></span>
 
-| <span data-ttu-id="e2e85-130">Ad</span><span class="sxs-lookup"><span data-stu-id="e2e85-130">Name</span></span>         | <span data-ttu-id="e2e85-131">Tür</span><span class="sxs-lookup"><span data-stu-id="e2e85-131">Type</span></span>       | <span data-ttu-id="e2e85-132">Gerekli</span><span class="sxs-lookup"><span data-stu-id="e2e85-132">Required</span></span> | <span data-ttu-id="e2e85-133">Açıklama</span><span class="sxs-lookup"><span data-stu-id="e2e85-133">Description</span></span>                       |
+| <span data-ttu-id="8bfbe-126">Ad</span><span class="sxs-lookup"><span data-stu-id="8bfbe-126">Name</span></span>         | <span data-ttu-id="8bfbe-127">Tür</span><span class="sxs-lookup"><span data-stu-id="8bfbe-127">Type</span></span>       | <span data-ttu-id="8bfbe-128">Gerekli</span><span class="sxs-lookup"><span data-stu-id="8bfbe-128">Required</span></span> | <span data-ttu-id="8bfbe-129">Açıklama</span><span class="sxs-lookup"><span data-stu-id="8bfbe-129">Description</span></span>                       |
 |--------------|------------|----------|-----------------------------------|
-| <span data-ttu-id="e2e85-134">**teklif kimliği**</span><span class="sxs-lookup"><span data-stu-id="e2e85-134">**offer-id**</span></span> | <span data-ttu-id="e2e85-135">**guid**</span><span class="sxs-lookup"><span data-stu-id="e2e85-135">**guid**</span></span>   | <span data-ttu-id="e2e85-136">Y</span><span class="sxs-lookup"><span data-stu-id="e2e85-136">Y</span></span>        | <span data-ttu-id="e2e85-137">Teklifi tanımlayan bir GUID.</span><span class="sxs-lookup"><span data-stu-id="e2e85-137">A GUID that identifies the offer.</span></span> |
-| <span data-ttu-id="e2e85-138">**ülke**</span><span class="sxs-lookup"><span data-stu-id="e2e85-138">**country**</span></span>  | <span data-ttu-id="e2e85-139">**dizisinde**</span><span class="sxs-lookup"><span data-stu-id="e2e85-139">**string**</span></span> | <span data-ttu-id="e2e85-140">Y</span><span class="sxs-lookup"><span data-stu-id="e2e85-140">Y</span></span>        | <span data-ttu-id="e2e85-141">Ülke kodu (örneğin `US` ).</span><span class="sxs-lookup"><span data-stu-id="e2e85-141">The country code (for example `US`).</span></span>       |
+| <span data-ttu-id="8bfbe-130">**offer-id**</span><span class="sxs-lookup"><span data-stu-id="8bfbe-130">**offer-id**</span></span> | <span data-ttu-id="8bfbe-131">**guid**</span><span class="sxs-lookup"><span data-stu-id="8bfbe-131">**guid**</span></span>   | <span data-ttu-id="8bfbe-132">Y</span><span class="sxs-lookup"><span data-stu-id="8bfbe-132">Y</span></span>        | <span data-ttu-id="8bfbe-133">Teklifi tanımlayan GUID.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-133">A GUID that identifies the offer.</span></span> |
+| <span data-ttu-id="8bfbe-134">**Ülke**</span><span class="sxs-lookup"><span data-stu-id="8bfbe-134">**country**</span></span>  | <span data-ttu-id="8bfbe-135">**string**</span><span class="sxs-lookup"><span data-stu-id="8bfbe-135">**string**</span></span> | <span data-ttu-id="8bfbe-136">Y</span><span class="sxs-lookup"><span data-stu-id="8bfbe-136">Y</span></span>        | <span data-ttu-id="8bfbe-137">Ülke kodu `US` (örneğin).</span><span class="sxs-lookup"><span data-stu-id="8bfbe-137">The country code (for example `US`).</span></span>       |
 
-### <a name="request-headers"></a><span data-ttu-id="e2e85-142">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="e2e85-142">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="8bfbe-138">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="8bfbe-138">Request headers</span></span>
 
-<span data-ttu-id="e2e85-143">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="e2e85-143">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="8bfbe-139">Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="8bfbe-139">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="e2e85-144">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="e2e85-144">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="8bfbe-140">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="8bfbe-140">Request body</span></span>
 
-<span data-ttu-id="e2e85-145">Yok.</span><span class="sxs-lookup"><span data-stu-id="e2e85-145">None.</span></span>
+<span data-ttu-id="8bfbe-141">Yok.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-141">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="e2e85-146">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="e2e85-146">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="8bfbe-142">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="8bfbe-142">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/offers/195416C1-3447-423A-B37B-EE59A99A19C4/addons?country=us HTTP/1.1
@@ -81,15 +76,15 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="e2e85-147">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="e2e85-147">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="8bfbe-143">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="8bfbe-143">REST response</span></span>
 
-<span data-ttu-id="e2e85-148">Başarılı olursa, bu yöntem yanıt gövdesinde [teklif](offer-resources.md) nesnelerinin bir koleksiyonunu döndürür.</span><span class="sxs-lookup"><span data-stu-id="e2e85-148">If successful, this method returns a collection of [Offer](offer-resources.md) objects in the response body.</span></span>
+<span data-ttu-id="8bfbe-144">Başarılı olursa, bu yöntem yanıt [gövdesinde Teklif](offer-resources.md) nesnelerinin bir koleksiyonunu döndürür.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-144">If successful, this method returns a collection of [Offer](offer-resources.md) objects in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="e2e85-149">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="e2e85-149">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="8bfbe-145">Yanıt başarı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="8bfbe-145">Response success and error codes</span></span>
 
-<span data-ttu-id="e2e85-150">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="e2e85-150">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="e2e85-151">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="e2e85-151">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="e2e85-152">Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="e2e85-152">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
+<span data-ttu-id="8bfbe-146">Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-146">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="8bfbe-147">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="8bfbe-147">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="8bfbe-148">Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="8bfbe-148">For the full list, see [Partner Center REST error codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="e2e85-153">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="e2e85-153">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="8bfbe-149">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="8bfbe-149">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK

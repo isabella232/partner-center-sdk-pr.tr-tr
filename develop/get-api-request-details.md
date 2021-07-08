@@ -6,45 +6,43 @@ ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 43b1e3d4a6220ac8adba8eed0389395113072288
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9a367f912669114969f8792a5afcc7020af1112e
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768752"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760513"
 ---
-# <a name="get-app-and-user-api-requests"></a><span data-ttu-id="c3108-103">Uygulama ve Kullanıcı API 'SI isteklerini al</span><span class="sxs-lookup"><span data-stu-id="c3108-103">Get App and User API requests</span></span>
+# <a name="get-app-and-user-api-requests"></a><span data-ttu-id="4bea3-103">Uygulama ve Kullanıcı API 'SI isteklerini al</span><span class="sxs-lookup"><span data-stu-id="4bea3-103">Get App and User API requests</span></span>
 
-<span data-ttu-id="c3108-104">Aşağıdakiler cihazlar için geçerlidir:</span><span class="sxs-lookup"><span data-stu-id="c3108-104">Applies to:</span></span>
+<span data-ttu-id="4bea3-104">**Uygulama hedefi**: Iş Ortağı Merkezi API</span><span class="sxs-lookup"><span data-stu-id="4bea3-104">**Applies to**: Partner Center API</span></span>
 
-- <span data-ttu-id="c3108-105">İş Ortağı Merkezi API’si</span><span class="sxs-lookup"><span data-stu-id="c3108-105">Partner Center API</span></span>
-
-<span data-ttu-id="c3108-106">Bu makalede REST API 'Leri kullanarak bir kiracının içindeki tüm iş ortağı kullanıcı isteklerinin listesinin nasıl alınacağı açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="c3108-106">This article explains how to obtain a list of all partner user requests within a tenant using REST APIs.</span></span>
+<span data-ttu-id="4bea3-105">Bu makalede REST API 'Leri kullanarak bir kiracının içindeki tüm iş ortağı kullanıcı isteklerinin listesinin nasıl alınacağı açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="4bea3-105">This article explains how to obtain a list of all partner user requests within a tenant using REST APIs.</span></span>
 
  > [!NOTE]
- > <span data-ttu-id="c3108-107">Bu API yalnızca en fazla 10.000 sınırı olan APP + Kullanıcı kimlik bilgileri tarafından yapılan en son API isteklerini döndürür.</span><span class="sxs-lookup"><span data-stu-id="c3108-107">This API only returns the most recent API requests made by APP + User credential with maximum 10K limit.</span></span>
+ > <span data-ttu-id="4bea3-106">Bu API yalnızca en fazla 10.000 sınırı olan APP + Kullanıcı kimlik bilgileri tarafından yapılan en son API isteklerini döndürür.</span><span class="sxs-lookup"><span data-stu-id="4bea3-106">This API only returns the most recent API requests made by APP + User credential with maximum 10K limit.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="c3108-108">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="c3108-108">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="4bea3-107">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="4bea3-107">Prerequisites</span></span>
 
-- <span data-ttu-id="c3108-109">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="c3108-109">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="c3108-110">Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="c3108-110">This scenario supports authentication with App+User credentials.</span></span>
+- <span data-ttu-id="4bea3-108">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="4bea3-108">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="4bea3-109">Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="4bea3-109">This scenario supports authentication with App+User credentials.</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="c3108-111">REST isteği</span><span class="sxs-lookup"><span data-stu-id="c3108-111">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="4bea3-110">REST isteği</span><span class="sxs-lookup"><span data-stu-id="4bea3-110">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="c3108-112">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="c3108-112">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="4bea3-111">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="4bea3-111">Request syntax</span></span>
 
-| <span data-ttu-id="c3108-113">Yöntem</span><span class="sxs-lookup"><span data-stu-id="c3108-113">Method</span></span>  | <span data-ttu-id="c3108-114">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="c3108-114">Request URI</span></span>                                                        |
+| <span data-ttu-id="4bea3-112">Yöntem</span><span class="sxs-lookup"><span data-stu-id="4bea3-112">Method</span></span>  | <span data-ttu-id="4bea3-113">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="4bea3-113">Request URI</span></span>                                                        |
 |---------|--------------------------------------------------------------------|
-| <span data-ttu-id="c3108-115">**Al**</span><span class="sxs-lookup"><span data-stu-id="c3108-115">**GET**</span></span> | <span data-ttu-id="c3108-116">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/partnerrequests</span><span class="sxs-lookup"><span data-stu-id="c3108-116">[*{baseURL}*](partner-center-rest-urls.md)/v1/partnerRequests</span></span> |
+| <span data-ttu-id="4bea3-114">**Al**</span><span class="sxs-lookup"><span data-stu-id="4bea3-114">**GET**</span></span> | <span data-ttu-id="4bea3-115">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/partnerrequests</span><span class="sxs-lookup"><span data-stu-id="4bea3-115">[*{baseURL}*](partner-center-rest-urls.md)/v1/partnerRequests</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="c3108-117">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="c3108-117">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="4bea3-116">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="4bea3-116">Request headers</span></span>
 
-- <span data-ttu-id="c3108-118">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üst bilgileri](headers.md) .</span><span class="sxs-lookup"><span data-stu-id="c3108-118">See [Partner Center REST headers](headers.md) for more information.</span></span>
+- <span data-ttu-id="4bea3-117">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="4bea3-117">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="c3108-119">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="c3108-119">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="4bea3-118">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="4bea3-118">Request body</span></span>
 
-<span data-ttu-id="c3108-120">Yok.</span><span class="sxs-lookup"><span data-stu-id="c3108-120">None.</span></span>
+<span data-ttu-id="4bea3-119">Yok.</span><span class="sxs-lookup"><span data-stu-id="4bea3-119">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="c3108-121">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="c3108-121">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="4bea3-120">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="4bea3-120">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/partnerRequests HTTP/1.1
@@ -53,15 +51,15 @@ Host: api.partnercenter.microsoft.com
 Content-Type: application/json
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="c3108-122">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="c3108-122">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="4bea3-121">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="4bea3-121">REST response</span></span>
 
-<span data-ttu-id="c3108-123">Başarılı olursa, bu yöntem yanıt gövdesinde bir [API isteği ayrıntıları](mfa-resources.md#api-request-details) kaynakları koleksiyonu döndürür.</span><span class="sxs-lookup"><span data-stu-id="c3108-123">If successful, this method returns a collection of [API request details](mfa-resources.md#api-request-details) resources in the response body.</span></span>
+<span data-ttu-id="4bea3-122">Başarılı olursa, bu yöntem yanıt gövdesinde bir [API isteği ayrıntıları](mfa-resources.md#api-request-details) kaynakları koleksiyonu döndürür.</span><span class="sxs-lookup"><span data-stu-id="4bea3-122">If successful, this method returns a collection of [API request details](mfa-resources.md#api-request-details) resources in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="c3108-124">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="c3108-124">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="4bea3-123">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="4bea3-123">Response success and error codes</span></span>
 
-<span data-ttu-id="c3108-125">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="c3108-125">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="c3108-126">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="c3108-126">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="c3108-127">Tam liste için bkz. [hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="c3108-127">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="4bea3-124">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="4bea3-124">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="4bea3-125">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="4bea3-125">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="4bea3-126">Tam liste için bkz. [hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="4bea3-126">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="c3108-128">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="c3108-128">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="4bea3-127">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="4bea3-127">Response example</span></span>
 
 ``` http
 HTTP/1.1 200 OK
