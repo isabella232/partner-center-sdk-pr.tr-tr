@@ -1,54 +1,50 @@
 ---
 title: Pazara göre adres biçimlendirme kurallarını alma
-description: Pazara yönelik ISO koduna göre beklenen adres biçimini alın.
+description: Pazarın iso koduna göre beklenen adres biçimini elde edin.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c755a38c11ed9803edb7777a0f661c1fbc5a6107
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: d5233d059ea6e71c28df36b2242659c28c5dd857
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769005"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111549051"
 ---
-# <a name="get-address-formatting-rules-by-market"></a><span data-ttu-id="4d937-103">Pazara göre adres biçimlendirme kurallarını alma</span><span class="sxs-lookup"><span data-stu-id="4d937-103">Get address formatting rules by market</span></span>
+# <a name="get-address-formatting-rules-by-market"></a><span data-ttu-id="86584-103">Pazara göre adres biçimlendirme kurallarını alma</span><span class="sxs-lookup"><span data-stu-id="86584-103">Get address formatting rules by market</span></span>
 
-<span data-ttu-id="4d937-104">**Uygulama hedefi**</span><span class="sxs-lookup"><span data-stu-id="4d937-104">**Applies To**</span></span>
+<span data-ttu-id="86584-104">**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government</span><span class="sxs-lookup"><span data-stu-id="86584-104">**Applies to**: Partner Center | Partner Center operated by 21Vianet | Partner Center for Microsoft Cloud Germany | Partner Center for Microsoft Cloud for US Government</span></span>
 
-- <span data-ttu-id="4d937-105">İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="4d937-105">Partner Center</span></span>
-- <span data-ttu-id="4d937-106">21Vianet tarafından çalıştırılan iş ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="4d937-106">Partner Center operated by 21Vianet</span></span>
-- <span data-ttu-id="4d937-107">Microsoft Bulut Almanya için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="4d937-107">Partner Center for Microsoft Cloud Germany</span></span>
-- <span data-ttu-id="4d937-108">Microsoft Cloud for US Government için İş Ortağı Merkezi</span><span class="sxs-lookup"><span data-stu-id="4d937-108">Partner Center for Microsoft Cloud for US Government</span></span>
 
-<span data-ttu-id="4d937-109">Pazara yönelik ISO koduna göre beklenen adres biçimini alın.</span><span class="sxs-lookup"><span data-stu-id="4d937-109">Get the expected address format based on the iso code for the market.</span></span>
+<span data-ttu-id="86584-105">Pazarın iso koduna göre beklenen adres biçimini elde edin.</span><span class="sxs-lookup"><span data-stu-id="86584-105">Get the expected address format based on the iso code for the market.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="4d937-110">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="4d937-110">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="86584-106">Önkoşullar</span><span class="sxs-lookup"><span data-stu-id="86584-106">Prerequisites</span></span>
 
-- <span data-ttu-id="4d937-111">[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri.</span><span class="sxs-lookup"><span data-stu-id="4d937-111">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="4d937-112">Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.</span><span class="sxs-lookup"><span data-stu-id="4d937-112">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
+- <span data-ttu-id="86584-107">kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md)</span><span class="sxs-lookup"><span data-stu-id="86584-107">Credentials as described in [Partner Center authentication](partner-center-authentication.md).</span></span> <span data-ttu-id="86584-108">Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.</span><span class="sxs-lookup"><span data-stu-id="86584-108">This scenario supports authentication with both standalone App and App+User credentials.</span></span>
 
-## <a name="rest-request"></a><span data-ttu-id="4d937-113">REST isteği</span><span class="sxs-lookup"><span data-stu-id="4d937-113">REST request</span></span>
+## <a name="rest-request"></a><span data-ttu-id="86584-109">REST isteği</span><span class="sxs-lookup"><span data-stu-id="86584-109">REST request</span></span>
 
-### <a name="request-syntax"></a><span data-ttu-id="4d937-114">İstek sözdizimi</span><span class="sxs-lookup"><span data-stu-id="4d937-114">Request syntax</span></span>
+### <a name="request-syntax"></a><span data-ttu-id="86584-110">İstek söz dizimi</span><span class="sxs-lookup"><span data-stu-id="86584-110">Request syntax</span></span>
 
-| <span data-ttu-id="4d937-115">Yöntem</span><span class="sxs-lookup"><span data-stu-id="4d937-115">Method</span></span>  | <span data-ttu-id="4d937-116">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="4d937-116">Request URI</span></span>                                                                                 |
+| <span data-ttu-id="86584-111">Yöntem</span><span class="sxs-lookup"><span data-stu-id="86584-111">Method</span></span>  | <span data-ttu-id="86584-112">İstek URI'si</span><span class="sxs-lookup"><span data-stu-id="86584-112">Request URI</span></span>                                                                                 |
 |---------|---------------------------------------------------------------------------------------------|
-| <span data-ttu-id="4d937-117">**Al**</span><span class="sxs-lookup"><span data-stu-id="4d937-117">**GET**</span></span> | <span data-ttu-id="4d937-118">[*{BaseUrl}*](partner-center-rest-urls.md)/v1/countryvalidationkurallarını/{ısocode-ID} http/1.1</span><span class="sxs-lookup"><span data-stu-id="4d937-118">[*{baseURL}*](partner-center-rest-urls.md)/v1/countryvalidationrules/{isocode-id} HTTP/1.1</span></span> |
+| <span data-ttu-id="86584-113">**Al**</span><span class="sxs-lookup"><span data-stu-id="86584-113">**GET**</span></span> | <span data-ttu-id="86584-114">[*{baseURL}*](partner-center-rest-urls.md)/v1/countryvalidationrules/{isocode-id} HTTP/1.1</span><span class="sxs-lookup"><span data-stu-id="86584-114">[*{baseURL}*](partner-center-rest-urls.md)/v1/countryvalidationrules/{isocode-id} HTTP/1.1</span></span> |
 
-### <a name="uri-parameter"></a><span data-ttu-id="4d937-119">URI parametresi</span><span class="sxs-lookup"><span data-stu-id="4d937-119">URI parameter</span></span>
+### <a name="uri-parameter"></a><span data-ttu-id="86584-115">URI parametresi</span><span class="sxs-lookup"><span data-stu-id="86584-115">URI parameter</span></span>
 
-| <span data-ttu-id="4d937-120">Ad</span><span class="sxs-lookup"><span data-stu-id="4d937-120">Name</span></span>           | <span data-ttu-id="4d937-121">Tür</span><span class="sxs-lookup"><span data-stu-id="4d937-121">Type</span></span>       | <span data-ttu-id="4d937-122">Gerekli</span><span class="sxs-lookup"><span data-stu-id="4d937-122">Required</span></span> | <span data-ttu-id="4d937-123">Açıklama</span><span class="sxs-lookup"><span data-stu-id="4d937-123">Description</span></span>                         |
+| <span data-ttu-id="86584-116">Ad</span><span class="sxs-lookup"><span data-stu-id="86584-116">Name</span></span>           | <span data-ttu-id="86584-117">Tür</span><span class="sxs-lookup"><span data-stu-id="86584-117">Type</span></span>       | <span data-ttu-id="86584-118">Gerekli</span><span class="sxs-lookup"><span data-stu-id="86584-118">Required</span></span> | <span data-ttu-id="86584-119">Açıklama</span><span class="sxs-lookup"><span data-stu-id="86584-119">Description</span></span>                         |
 |----------------|------------|----------|-------------------------------------|
-| <span data-ttu-id="4d937-124">**ısocode kimliği**</span><span class="sxs-lookup"><span data-stu-id="4d937-124">**isocode-id**</span></span> | <span data-ttu-id="4d937-125">**dizisinde**</span><span class="sxs-lookup"><span data-stu-id="4d937-125">**string**</span></span> | <span data-ttu-id="4d937-126">Y</span><span class="sxs-lookup"><span data-stu-id="4d937-126">Y</span></span>        | <span data-ttu-id="4d937-127">İki karakterlik ISO ülke kodu.</span><span class="sxs-lookup"><span data-stu-id="4d937-127">The two-character ISO country code.</span></span> |
+| <span data-ttu-id="86584-120">**isocode-id**</span><span class="sxs-lookup"><span data-stu-id="86584-120">**isocode-id**</span></span> | <span data-ttu-id="86584-121">**string**</span><span class="sxs-lookup"><span data-stu-id="86584-121">**string**</span></span> | <span data-ttu-id="86584-122">Y</span><span class="sxs-lookup"><span data-stu-id="86584-122">Y</span></span>        | <span data-ttu-id="86584-123">İki karakterli ISO ülke kodu.</span><span class="sxs-lookup"><span data-stu-id="86584-123">The two-character ISO country code.</span></span> |
 
-### <a name="request-headers"></a><span data-ttu-id="4d937-128">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="4d937-128">Request headers</span></span>
+### <a name="request-headers"></a><span data-ttu-id="86584-124">İstek üst bilgileri</span><span class="sxs-lookup"><span data-stu-id="86584-124">Request headers</span></span>
 
-<span data-ttu-id="4d937-129">Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).</span><span class="sxs-lookup"><span data-stu-id="4d937-129">For more information, see [Partner Center REST headers](headers.md).</span></span>
+<span data-ttu-id="86584-125">Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)</span><span class="sxs-lookup"><span data-stu-id="86584-125">For more information, see [Partner Center REST headers](headers.md).</span></span>
 
-### <a name="request-body"></a><span data-ttu-id="4d937-130">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="4d937-130">Request body</span></span>
+### <a name="request-body"></a><span data-ttu-id="86584-126">İstek gövdesi</span><span class="sxs-lookup"><span data-stu-id="86584-126">Request body</span></span>
 
-<span data-ttu-id="4d937-131">Yok.</span><span class="sxs-lookup"><span data-stu-id="4d937-131">None.</span></span>
+<span data-ttu-id="86584-127">Yok.</span><span class="sxs-lookup"><span data-stu-id="86584-127">None.</span></span>
 
-### <a name="request-example"></a><span data-ttu-id="4d937-132">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="4d937-132">Request example</span></span>
+### <a name="request-example"></a><span data-ttu-id="86584-128">İstek örneği</span><span class="sxs-lookup"><span data-stu-id="86584-128">Request example</span></span>
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/countryvalidationrules/{isocode-id} HTTP/1.1
@@ -58,15 +54,15 @@ MS-RequestId: 124b0e41-a093-4fec-b871-3eeb45fd734b
 MS-CorrelationId: 5cfd634d-b936-47af-87f0-0f0217425dcc
 ```
 
-## <a name="rest-response"></a><span data-ttu-id="4d937-133">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="4d937-133">REST response</span></span>
+## <a name="rest-response"></a><span data-ttu-id="86584-129">REST yanıtı</span><span class="sxs-lookup"><span data-stu-id="86584-129">REST response</span></span>
 
-<span data-ttu-id="4d937-134">Başarılı olursa, bu yöntem yanıt gövdesinde bir **Countryınformation** nesnesi döndürür.</span><span class="sxs-lookup"><span data-stu-id="4d937-134">If successful, this method returns a **CountryInformation** object in the response body.</span></span>
+<span data-ttu-id="86584-130">Başarılı olursa, bu yöntem yanıt **gövdesinde bir CountryInformation** nesnesi döndürür.</span><span class="sxs-lookup"><span data-stu-id="86584-130">If successful, this method returns a **CountryInformation** object in the response body.</span></span>
 
-### <a name="response-success-and-error-codes"></a><span data-ttu-id="4d937-135">Yanıt başarısı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="4d937-135">Response success and error codes</span></span>
+### <a name="response-success-and-error-codes"></a><span data-ttu-id="86584-131">Yanıt başarı ve hata kodları</span><span class="sxs-lookup"><span data-stu-id="86584-131">Response success and error codes</span></span>
 
-<span data-ttu-id="4d937-136">Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.</span><span class="sxs-lookup"><span data-stu-id="4d937-136">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="4d937-137">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="4d937-137">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="4d937-138">Tam liste için bkz. [hata kodları](error-codes.md).</span><span class="sxs-lookup"><span data-stu-id="4d937-138">For the full list, see [Error Codes](error-codes.md).</span></span>
+<span data-ttu-id="86584-132">Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir.</span><span class="sxs-lookup"><span data-stu-id="86584-132">Each response comes with an HTTP status code that indicates success or failure and additional debugging information.</span></span> <span data-ttu-id="86584-133">Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın.</span><span class="sxs-lookup"><span data-stu-id="86584-133">Use a network trace tool to read this code, error type, and additional parameters.</span></span> <span data-ttu-id="86584-134">Tam liste için bkz. [Hata Kodları.](error-codes.md)</span><span class="sxs-lookup"><span data-stu-id="86584-134">For the full list, see [Error Codes](error-codes.md).</span></span>
 
-### <a name="response-example"></a><span data-ttu-id="4d937-139">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="4d937-139">Response example</span></span>
+### <a name="response-example"></a><span data-ttu-id="86584-135">Yanıt örneği</span><span class="sxs-lookup"><span data-stu-id="86584-135">Response example</span></span>
 
 ```http
 HTTP/1.1 200 OK
