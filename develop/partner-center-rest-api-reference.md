@@ -1,42 +1,40 @@
 ---
 title: İş Ortağı Merkezi REST API'si referansı
-description: CSP iş ortaklarının, müşteri hesaplarını daha iyi yönetmek için CRM ve faturalandırma yazılımlarını Microsoft sistemleriyle tümleştirmeye yönelik Iş Ortağı Merkezi REST API 'Lerini nasıl kullanabileceğinizi öğrenin.
+description: CSP iş ortaklarının müşteri hesaplarını daha İş Ortağı Merkezi için CRM ve faturalama yazılımlarını Microsoft sistemleriyle tümleştirip REST API'lerini nasıl kullanabileceğini öğrenin.
 ms.date: 11/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 3f83b2b73c3480f76646cae4fcbbcbacd31d4b3f
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: 18621fdb94f91f066b69a11f7d557410d653787e
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97769941"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548048"
 ---
-# <a name="partner-center-rest-api-reference-to-rest-urls-rest-headers-rest-resources-and-rest-events"></a>İş Ortağı Merkezi REST API REST URL 'Leri, REST üstbilgileri, REST kaynakları ve REST olayları için başvuru
+# <a name="partner-center-rest-api-reference-to-rest-urls-rest-headers-rest-resources-and-rest-events"></a>İş Ortağı Merkezi REST API REST URL'leri, REST üst bilgileri, REST kaynakları ve REST olayları için başvuru
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
 ## <a name="partner-center-rest-api"></a>İş Ortağı Merkezi REST API
 
-Iş Ortağı Merkezi REST API, bulut çözümü sağlayıcısı (CSP) iş ortaklarının mevcut CRM veya faturalandırma yazılımlarını müşteri hesaplarını yöneten, sipariş alan ve abonelikleri yöneten ve destek isteklerini işleyecek Microsoft sistemleriyle tümleştirmesine yardımcı olur.
+Bu İş Ortağı Merkezi REST API (CSP) Bulut Çözümü Sağlayıcısı mevcut CRM veya faturalama yazılımlarını müşteri hesaplarını yöneten, siparişler alan, abonelikleri yöneten ve destek isteklerini ele alan Microsoft sistemleriyle tümleştirilmesine yardımcı olur.
 
-Örnek kod dahil olmak üzere API 'nin neler yapabilecekleri hakkında daha fazla bilgi için, arka plana genel bakış da dahil olmak üzere [senaryolar](scenarios.md) konusuna bakın.
+Örnek kod da dahil olmak üzere API'nin neler yapaları hakkında daha fazla bilgi için arka plana genel [bakış](scenarios.md) da dahil olmak üzere Senaryolar konu başlığına bakın.
 
-Kodlamaya başlamadan önce, [kullanmaya](get-started.md) başlama konusunu okuyun. Bu makale, test ve üretim hesaplarınızı ayarlama, kimlik doğrulama çalışmasını alma ve örnek kodu bulma hakkında bilgiler içerir.
+Kodlamaya başlamadan önce aşağıdaki [Kullanmaya başlayın](get-started.md) okuyun. Bu makale, test ve üretim hesaplarınızı ayarlama, kimlik doğrulamasının nasıl çalıştığını alma ve örnek kodu bulma hakkında bilgi içerir.
+
+Her API'yi açıklayan bir başvuru kılavuzu için bkz. [İş Ortağı Merkezi REST API.](/rest/api/partner-center-rest/)
 
 ## <a name="topics"></a>Konu başlıkları
 
-| Konu | Description |
+| Konu | Açıklama |
 | ----- | ----------- |
-| [İş Ortağı Merkezi REST URL’leri](partner-center-rest-urls.md) | Iş Ortağı Merkezi 'nin farklı sürümleri için REST API uç noktalarını tanımlar. |
-| [İş Ortağı Merkezi REST üstbilgileri](headers.md) | REST API tarafından kullanılan istek ve yanıt üst bilgilerini tanımlar. |
-| [İş Ortağı Merkezi REST kaynakları](partner-center-rest-resources.md) | REST API kullanmak için gereken nesneleri temsil eden JSON yapılarını tanımlar. |
-| [İş Ortağı Merkezi REST olayları](partner-center-webhook-events.md) | Iş Ortağı Merkezi Web kancaları tarafından desteklenen REST kaynak değişiklik olaylarını tanımlar. |
-| [İş Ortağı Merkezi tarafından desteklenen diller ve yerel ayarlar](partner-center-supported-languages-and-locales.md) | Iş Ortağı Merkezi API 'Lerinde desteklenen yerel ayarları, dilleri ve ülke/bölge kodlarını listeler. |
-| [İş Ortağı Merkezi web kancaları](partner-center-webhooks.md) | Olayları alma, geri aramanın kimliğini doğrulama ve bir olay kaydı oluşturmak, görüntülemek ve güncelleştirmek için Iş Ortağı Merkezi Web kancası API 'Lerini kullanma. |
+| [İş Ortağı Merkezi REST API](/rest/api/partner-center-rest/) | Kullanılabilir her bir REST API başvurusu İş Ortağı Merkezi. |
+| [İş Ortağı Merkezi REST URL’leri](partner-center-rest-urls.md) | Farklı REST API sürümleri için uç noktaları tanımlar İş Ortağı Merkezi. |
+| [İş Ortağı Merkezi REST üstbilgileri](headers.md) | Uygulama tarafından kullanılan istek ve yanıt üst bilgilerini REST API. |
+| [İş Ortağı Merkezi REST kaynakları](partner-center-rest-resources.md) | REST API'ı kullanmak için gereken nesneleri temsil eden JSON REST API. |
+| [İş Ortağı Merkezi REST olayları](partner-center-webhook-events.md) | Web kancaları tarafından desteklenen REST kaynak değişikliği İş Ortağı Merkezi tanımlar. |
+| [İş Ortağı Merkezi tarafından desteklenen diller ve yerel ayarlar](partner-center-supported-languages-and-locales.md) | Yerel API'lerde desteklenen yerel kodları, dilleri ve ülke/bölge kodlarını İş Ortağı Merkezi listeler. |
+| [İş Ortağı Merkezi web kancaları](partner-center-webhooks.md) | Olay kaydı oluşturmak, görüntülemek ve güncelleştirmek için olayları alma, geri İş Ortağı Merkezi kimliğini doğrulama ve web kancası API'lerini kullanma. |

@@ -4,20 +4,16 @@ description: Müşteri 'nin geçerli fatura döneminde belirli bir Azure hizmeti
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0c918434367a3514e6a6ad6034b4897c33f51025
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 88c69637c94b9263ede6924cf2dd09513aa00f70
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769130"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874627"
 ---
 # <a name="get-a-usage-summary-for-all-of-a-customers-subscriptions"></a>Müşterinin aboneliklerinin tümü için Kullanım Özeti alın
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Müşteri 'nin geçerli fatura döneminde belirli bir Azure hizmeti veya kaynağı kullanımını almak için **Customerusagesummary** kaynağını kullanabilirsiniz.
 
@@ -45,8 +41,8 @@ Müşterinin aboneliklerinin tümü için Kullanım Özeti almak üzere:
 Bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSamples**
-- Sınıf: **GetCustomerUsageSummary.cs**
+- Project: **partnersdk. featuresamples**
+- Sınıf: **Getcustomerusagesummary. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -90,11 +86,11 @@ Başarılı olursa, bu yöntem yanıt gövdesinde bir **Customerusagesummary** k
 
 Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
 
-### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure için yanıt örneği (MS-AZR-0145P) aboneliği
+### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure için yanıt örneği (MS-azr-0145p) aboneliği
 
 Bu örnekte, müşteri bir **145P Azure PayG** teklifi satın almıştır.
 
-*Microsoft Azure (MS-AZR-0145P) aboneliklerine sahip müşteriler için API yanıtında hiçbir değişiklik olmayacaktır.*
+*Microsoft Azure (MS-azr-0145p) aboneliklerine sahip müşteriler için apı yanıtında hiçbir değişiklik olmayacaktır.*
 
 ```http
 HTTP/1.1 200 OK

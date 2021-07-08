@@ -1,79 +1,74 @@
 ---
 title: Profil kaynakları
-description: Bir bulut çözümü sağlayıcısının profillerinin davranışını açıklar.
+description: Bir Bulut Çözümü Sağlayıcısı davranışını açıklar.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e0561278995f4f9747320866b51de57efea8f712
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 945cfa141d1e6bde1709da882a177daaa32fba1f
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769664"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547793"
 ---
 # <a name="profile-resources"></a>Profil kaynakları
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bir bulut çözümü sağlayıcısının profillerinin davranışını açıklar.
+Bir Bulut Çözümü Sağlayıcısı davranışını açıklar.
 
 ## <a name="billingprofile"></a>BillingProfile
 
-Ortağın faturalandırma profilini açıklar.
+Bir iş ortağının faturalama profilini açıklar.
 
-| Özellik            | Tür                                                           | Description                                                 |
+| Özellik            | Tür                                                           | Açıklama                                                 |
 |---------------------|----------------------------------------------------------------|-------------------------------------------------------------|
-| Tadı         | string                                                         | Faturalama şirket adı.                                   |
-| adres             | [Adres](utility-resources.md#address)                       | Şirketin veya kuruluşun fatura adresi adresi. |
-| primaryContact      | [İletişim](utility-resources.md#contact)                       | Şirket veya kuruluş için birincil iletişim.        |
-| purchaseOrderNumber | string                                                         | Şirket veya kuruluşun satın alma siparişi numarası.        |
-| TaxID               | string                                                         | Şirket veya kuruluşun vergi kimliği.                       |
+| Şirketadı         | string                                                         | Faturalama şirketi adı.                                   |
+| adres             | [Adres](utility-resources.md#address)                       | Şirketin veya kuruluşun faturalama adresi. |
+| primaryContact      | [İletişim](utility-resources.md#contact)                       | Şirket veya kuruluş için birincil kişi.        |
+| purchaseOrderNumber | string                                                         | Şirketin veya kuruluşun satın alma siparişi numarası.        |
+| taxId               | string                                                         | Şirketin veya kuruluşun vergi numarası.                       |
 | billingCurrency     | string                                                         | Şirket veya kuruluş tarafından kullanılan para birimi.           |
 | profileType         | string                                                         | İş ortağı profili türü.                                   |
-| Köprü               | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Profile karşılık gelen kaynak bağlantıları.            |
-| öznitelikler          | [ResourceAttributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.       |
+| Bağlantı               | [ResourceLinks](utility-resources.md#resourcelinks)           | Profile karşılık gelen kaynak bağlantıları.            |
+| öznitelikler          | [Resourceattributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.       |
 
 ## <a name="legalbusinessprofile"></a>LegalBusinessProfile
 
-Ortağın yasal iş profilini açıklar.
+Bir iş ortağının yasal iş profilini açıklar.
 
-| Özellik               | Tür                                                           | Description                                                                                                                                                          |
+| Özellik               | Tür                                                           | Açıklama                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tadı            | string                                                         | Yasal Şirket adı.                                                                                                                                              |
-| adres                | [Adres](utility-resources.md#address)                       | Şirket veya kuruluşun adresi.                                                                                                                          |
-| primaryContact         | [İletişim](utility-resources.md#contact)                       | Şirket veya kuruluş için birincil iletişim.                                                                                                                 |
-| companyApproverAddress | [Adres](utility-resources.md#address)                       | Şirket onaylayanın adresi.                                                                                                                                        |
+| Şirketadı            | string                                                         | Yasal şirket adı.                                                                                                                                              |
+| adres                | [Adres](utility-resources.md#address)                       | Şirketin veya kuruluşun adresi.                                                                                                                          |
+| primaryContact         | [İletişim](utility-resources.md#contact)                       | Şirket veya kuruluş için birincil kişi.                                                                                                                 |
+| companyApproverAddress | [Adres](utility-resources.md#address)                       | Şirket onaylayan adresi.                                                                                                                                        |
 | companyApproverEmail   | string                                                         | Şirket onaylayan e-postası.                                                                                                                                          |
-| vettingStatus          | string                                                         | Diting durumu. Bu değer, [**Vettingstatus**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus)içinde bulunan üye adlarından birinin dize gösterimidir.           |
-| Vettingalt durumu       | string                                                         | Diting alt durumu. Bu değer, [**Vettingalt durumu**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus)'nda bulunan üye adlarından birinin dize gösterimidir. |
+| vettingStatus          | string                                                         | Risk durumu. Bu değer, [**VettingStatus**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingstatus)içinde bulunan üye adlarından birinin dize gösterimidir.           |
+| vettingSubStatus       | string                                                         | Yokma alt İstatistikleri. Bu değer, [**VettingSubStatus**](/dotnet/api/microsoft.store.partnercenter.models.partners.vettingsubstatus)içinde bulunan üye adlarından birinin dize gösterimidir. |
 | profileType            | string                                                         | İş ortağı profili türü.                                                                                                                                            |
-| Köprü                  | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Profile karşılık gelen kaynak bağlantıları.                                                                                                                     |
-| öznitelikler             | [ResourceAttributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.                                                                                                                |
+| Bağlantı                  | [ResourceLinks](utility-resources.md#resourcelinks)           | Profile karşılık gelen kaynak bağlantıları.                                                                                                                     |
+| öznitelikler             | [Resourceattributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri.                                                                                                                |
 
 ## <a name="mpnprofile"></a>MpnProfile
 
-Ortağın Microsoft İş Ortağı Ağı profilini açıklar.
+Bir iş ortağının Microsoft İş Ortağı Ağı açıklar.
 
-| Özellik    | Tür                                                           | Description                                           |
+| Özellik    | Tür                                                           | Açıklama                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | partnerName | string                                                         | Şirket veya kuruluş adı.                     |
-| Mpnıd       | string                                                         | Microsoft İş Ortağı Ağı kimliği.                     |
+| mpnId       | string                                                         | Microsoft İş Ortağı Ağı (MPN) kimliği.                     |
 | profileType | string                                                         | İş ortağı profili türü.                             |
-| Köprü       | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Profile karşılık gelen kaynak bağlantıları.      |
-| öznitelikler  | [ResourceAttributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri. |
+| Bağlantı       | [ResourceLinks](utility-resources.md#resourcelinks)           | Profile karşılık gelen kaynak bağlantıları.      |
+| öznitelikler  | [Resourceattributes](utility-resources.md#resourceattributes) | Profile karşılık gelen meta veri öznitelikleri. |
 
 ## <a name="organizationprofile"></a>OrganizationProfile
 
-Ortağın kuruluş profilini açıklar.
+Bir iş ortağının kuruluş profilini açıklar.
 
-| Özellik       | Tür                                                           | Description                                                            |
+| Özellik       | Tür                                                           | Açıklama                                                            |
 |----------------|----------------------------------------------------------------|------------------------------------------------------------------------|
-| kimlik             | string                                                         | Kuruluşun kimliği.                                                 |
+| kimlik             | string                                                         | Kuruluşun KIMLIĞI.                                                 |
 | Tadı    | string                                                         | Şirket veya kuruluşun adı.                               |
 | defaultAddress | [Adres](utility-resources.md#address)                       | Şirket veya kuruluşun varsayılan adresi.                    |
 | Değerine       | string                                                         | Kiracı tanımlayıcısı.                                                 |
@@ -89,7 +84,7 @@ Ortağın kuruluş profilini açıklar.
 
 Ortağın Destek profilini açıklar.
 
-| Özellik    | Tür                                                           | Description                                           |
+| Özellik    | Tür                                                           | Açıklama                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | e-posta       | string                                                         | Profille ilişkili e-posta adresi.        |
 | Telefon   | string                                                         | Profille ilişkili telefon numarası.         |

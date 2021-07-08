@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 2dd8469458809ab38b6d6081adc91d6d1184d2d0
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 840c9d1a61451763d37a19639f99b12f1deb7521
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769629"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874355"
 ---
 # <a name="get-a-list-of-customers"></a>Müşterilerin bir listesini alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bu makalede, bir iş ortağının müşterilerinin tümünü temsil eden bir kaynak koleksiyonunun nasıl alınacağı açıklanır.
 
@@ -53,8 +48,8 @@ var customersEnumerator = scopedPartnerOperations.Enumerators.Customers.Create(c
 Bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSamples**
-- Sınıf: **CustomerPaging.cs**
+- Project: **partnersdk. featuresamples**
+- Sınıf: **Customerpaging. cs**
 
 ## <a name="java"></a>Java
 

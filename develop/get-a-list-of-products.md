@@ -1,48 +1,43 @@
 ---
 title: Ürünlerin bir listesini alma (ülkeye göre)
-description: Ürün kaynağını, müşteri ülkesine göre ürünlerin koleksiyonunu almak için kullanabilirsiniz.
+description: Ürün kaynağını kullanarak müşteri ülkesine göre bir ürün koleksiyonu elde etmek için kullanabilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: ea239aa008a5b7c33740e9c4697c3795908415cd
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 1258727ecbe7c5cc332624577fa8a355e28e3717
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769448"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874219"
 ---
 # <a name="get-a-list-of-products-by-country"></a>Ürünlerin bir listesini alma (ülkeye göre)
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Belirli bir ülkede bulunan ürünlerin bir koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
+Belirli bir ülkede kullanılabilen ürün koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir ülke.
+- Ülke.
 
 ## <a name="c"></a>C\#
 
-Ürünlerin bir listesini almak için:
+Ürünlerin listesini almak için:
 
-1. **Bycountry ()** yöntemini kullanarak ülkeyi seçmek Için **ıaggregatepartner. Products** koleksiyonunuzu kullanın.
+1. **ByCountry()** yöntemini kullanarak ülkeyi seçmek için **IAggregatePartner.Products** koleksiyonu kullanın.
 
-2. **Bytargetview ()** yöntemini kullanarak katalog görünümünü seçin.
+2. **ByTargetView() yöntemini kullanarak katalog görünümünü** seçin.
 
-3. Seçim **Byrezervationscope ()** yöntemini kullanarak ayırma kapsamını seçin.
+3. (İsteğe bağlı) **ByReservationScope() yöntemini kullanarak rezervasyon kapsamını** seçin.
 
-4. Seçim **Bytargetsegment ()** yöntemini kullanarak hedef segmenti seçin.
+4. (İsteğe bağlı) **ByTargetSegment() yöntemini kullanarak hedef segmenti** seçin.
 
-5. Koleksiyonu döndürmek için **Get ()** veya **GetAsync ()** metodunu çağırın.
+5. Koleksiyonu geri **almak için Get()** **veya GetAsync()** yöntemini çağırma.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -65,14 +60,14 @@ ResourceCollection<Product> products = partnerOperations.Products.ByCountry("US"
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Ürünlerin bir listesini almak için:
+Ürünlerin listesini almak için:
 
-1. **Bycountry ()** işlevini kullanarak ülkeyi seçmek Için **ıaggregatepartner. GetProducts** işlevinizi kullanın.
+1. **byCountry()** işlevini kullanarak ülkeyi seçmek için **IAggregatePartner.getProducts** işlevinizi kullanın.
 
-2. **Bytargetview ()** işlevini kullanarak katalog görünümünü seçin.
-3. Seçim **Bytargetsegment ()** işlevini kullanarak hedef segmenti seçin.
+2. **byTargetView() işlevini kullanarak katalog görünümünü** seçin.
+3. (İsteğe bağlı) **byTargetSegment() işlevini kullanarak hedef segmenti** seçin.
 
-4. Koleksiyonu döndürmek için **Get ()** işlevini çağırın.
+4. Koleksiyonu geri **almak için get()** işlevini çağırma.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -88,12 +83,12 @@ ResourceCollection<Products> products = partnerOperations.getProducts().byCountr
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Ürünlerin bir listesini almak için:
+Ürünlerin listesini almak için:
 
-1. [**Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) komutunu yürütün.
+1. [**Get-PartnerProduct komutunu**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) yürütün.
 
-2. **Katalog parametresini belirterek** kataloğu seçin.
-3. Seçim **Segment** parametresini belirterek hedef segmenti seçin.
+2. **Katalog** parametresini belirterek kataloğu seçin.
+3. (İsteğe bağlı) Segment parametresini belirterek hedef **segmenti** seçin.
 
 ```powershell
 Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
@@ -101,26 +96,26 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                                    |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Products? ülke = {country} &targetview = {targetview} &targetsegment = {TARGETSEGMENT} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products?country={country}&targetView={targetView}&targetSegment={targetSegment} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-Ürünlerin bir listesini almak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
+Ürünlerin listesini almak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| ülke                | string   | Yes      | Ülke/bölge KIMLIĞI.                                                  |
-| targetView             | string   | Yes      | Kataloğun hedef görünümünü tanımlar. Desteklenen değerler şunlardır: <br/><br/>Tüm Azure öğelerini içeren **Azure**<br/><br/>Tüm Azure ayırma öğelerini içeren **Azurereservations**<br/><br/>Tüm sanal makine (VM) rezervasyon öğelerini içeren **Azurereservationsvm**<br/><br/>Tüm SQL rezervasyon öğelerini içeren **Azurereservationssql**<br/><br/>Tüm Cosmos veritabanı ayırma öğelerini içeren **Azurereservationscosmosdb**<br/><br/>Microsoft Azure aboneliklerine (**MS-AZR-0145P**) ve Azure planlarına yönelik öğeler içeren **MicrosoftAzure**<br/><br/>Tüm çevrimiçi hizmet öğelerini içeren **OnlineServices**(ticari Market ürünleri dahil)<br/><br/>Tüm yazılım öğelerini içeren **yazılım**<br/><br/>Tüm yazılım SUSE Linux öğelerini içeren **SoftwareSUSELinux**<br/><br/>Tüm kalıcı yazılım öğelerini içeren **Softwarekalıcı**<br/><br/>Tüm yazılım aboneliği öğelerini içeren **SoftwareSubscriptions**    |
-| targetSegment          | dize   | No       | Hedef segmenti tanımlar. Farklı hedef kitlelerinin görünümü. Desteklenen değerler şunlardır: <br/><br/>**seniz**<br/>**öğrenim**<br/>**Devlet**<br/>**kar amacı gütmeyen**  |
-| Rezervationscope | dize   | No | Azure ayırmaları için bir ürün listesi sorgulanırken, `reservationScope=AzurePlan` Azure planlarına uygun ürünlerin bir listesini almak için belirtin. Microsoft Azure (**MS-azr-0145P**) abonelikleri için geçerli olan Azure ayırmaları ürünlerinin bir listesini almak için bu parametreyi dışlayın.  |
+| ülke                | string   | Yes      | Ülke/bölge kimliği.                                                  |
+| targetView             | string   | Yes      | Kataloğun hedef görünümünü tanımlar. Desteklenen değerler: <br/><br/>**Tüm Azure** öğelerini içeren Azure<br/><br/>Tüm Azure rezervasyon öğelerini içeren **AzureReservations**<br/><br/>Tüm sanal makine (VM) rezervasyon öğelerini içeren **AzureReservationsVM**<br/><br/>**Tüm rezervasyon öğelerini içeren AzureReservationsSQL** SQL öğeleri<br/><br/>**Tüm veritabanı rezervasyon öğelerini içeren AzureReservationsCosmosDb** Cosmos öğeleri<br/><br/>Microsoft Azure abonelikleri (**MS-AZR-0145P**) ve Azure planları için öğeleri içeren **MicrosoftAzure**<br/><br/>Tüm çevrimiçi hizmet öğelerini (ticari market ürünleri dahil) içeren **OnlineServices**<br/><br/>**Yazılım**, tüm yazılım öğelerini içerir<br/><br/>**SoftwareSUSELinux**, tüm yazılım SUSE Linux öğelerini içerir<br/><br/>Tüm kalıcı yazılım öğelerini içeren **SoftwarePerpetual**<br/><br/>Tüm yazılım aboneliği öğelerini içeren **YazılımAubscriptions**    |
+| targetSegment          | dize   | No       | Hedef segmenti tanımlar. Farklı hedef kitlelere yönelik görünüm. Desteklenen değerler: <br/><br/>**Ticari**<br/>**Eğitim**<br/>**Hükümet**<br/>**Kar amacı gütme -yen**  |
+| reservationScope | dize   | No | Azure Rezervasyonları için ürünlerin listesini sorgularken, Azure planları için `reservationScope=AzurePlan` geçerli olan ürünlerin listesini almak için belirtin. Microsoft Azure (**MS-AZR-0145P**) abonelikleri için geçerli olan Azure rezervasyonlarının ürünlerinin listesini almak için bu parametreyi hariç tutabilirsiniz.  |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -130,7 +125,7 @@ Yok.
 
 #### <a name="products-by-country"></a>Ülkeye göre ürünler
 
-Microsoft Azure (MS-AZR-0145P) abonelikleri ve Azure planları için ülkeye göre ürünlerin bir listesini almak üzere bu örneği izleyin.
+Microsoft Azure (MS-AZR-0145P) abonelikleri ve Azure planları için ülkeye göre ürünlerin listesini almak için bu örneği izleyin.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=MicrosoftAzure HTTP/1.1
@@ -140,9 +135,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-#### <a name="azure-vm-reservations-azure-plan"></a>Azure VM ayırmaları (Azure planı)
+#### <a name="azure-vm-reservations-azure-plan"></a>Azure VM rezervasyonları (Azure planı)
 
-Azure planlarına uygun Azure VM ayırmaları için ülkeye göre ürünlerin bir listesini almak için bu örneği izleyin.
+Azure planları için geçerli olan Azure VM rezervasyonları için ülkeye göre ürünlerin listesini almak için bu örneği izleyin.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureAzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -152,9 +147,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-#### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure için Azure VM ayırmaları (MS-AZR-0145P) abonelikleri
+#### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS-AZR-0145P) abonelikleri için Azure VM rezervasyonları
 
-Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan Azure VM ayırmaları ülkeye göre ürünlerin bir listesini almak için bu örneği izleyin.
+Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan Azure VM rezervasyonları için ülkeye göre ürünlerin listesini almak için bu örneği izleyin.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureReservationsVM HTTP/1.1
@@ -166,17 +161,17 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [**ürün**](product-resources.md#product) kaynakları koleksiyonu içerir.
+Başarılı olursa yanıt gövdesi bir Ürün kaynakları [**koleksiyonu**](product-resources.md#product) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Description                                                                                               |
+| HTTP Durum Kodu     | Hata kodu   | Açıklama                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | İstenen targetSegment erişimine izin verilmiyor.                                                     |
+| 403                  | 400030       | İstenen targetSegment'a erişime izin verilmiyor.                                                     |
 | 403                  | 400036       | İstenen targetView 'a erişime izin verilmiyor.                                                        |
 
 ### <a name="response-example"></a>Yanıt örneği

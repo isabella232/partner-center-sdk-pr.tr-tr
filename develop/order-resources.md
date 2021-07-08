@@ -1,122 +1,117 @@
 ---
 title: Kaynakları sıralama
-description: Bir iş ortağı bir müşteri bir teklif listesinden abonelik satın almak istediğinde bir sipariş koyar.
+description: Müşteri teklif listesinden abonelik satın almak istediği zaman iş ortağı sipariş verdi.
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9db07337a98214b4aaa93e2c8b43b84702249b77
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: c993317f288568dd687c3b52bf47e4520fcd18c6
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769232"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548065"
 ---
 # <a name="order-resources"></a>Kaynakları sıralama
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bir iş ortağı bir müşteri bir teklif listesinden abonelik satın almak istediğinde bir sipariş koyar.
+Müşteri teklif listesinden abonelik satın almak istediği zaman iş ortağı sipariş verdi.
 
 >[!NOTE]
->Sipariş kaynağı, kiracı tanımlayıcısı başına dakikada 500 istekten oluşan bir hız sınırına sahiptir.
+>Sipariş kaynağının kiracı tanımlayıcısı başına dakikada 500 istek hız sınırı vardır.
 
 ## <a name="order"></a>Sipariş
 
-Ortağın sırasını açıklar.
+Bir iş ortağının siparişlerini açıklar.
 
-| Özellik           | Tür                                               | Description                                                 |
+| Özellik           | Tür                                               | Açıklama                                                 |
 |--------------------|----------------------------------------------------|-------------------------------------------------------------|
-| kimlik                 | string                                             | Siparişin başarıyla oluşturulması sırasında sağlanan bir sipariş tanımlayıcısı.                                   |
-| AlternateId        | string                                             | Sipariş için kolay bir tanımlayıcı.                                                                          |
-|Referencecustomerıd | string                                             | Müşteri tanımlayıcısı. |
-| Bilimlingcycle       | string                                             | Ortağın bu sipariş için faturalandırılabileceği sıklığı belirtir. Desteklenen değerler, [BillingCycleType](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. "Aylık" veya "OneTime" varsayılan olarak sıralı oluşturma. Bu alan, siparişin başarıyla oluşturulmasından sonra uygulanır. |
-| Işlem türü    | string                                             | Salt okunur. Siparişin işlem türü. Desteklenen değerler ' UserPurchase ', ' SystemPurchase ' veya ' Systemfaturalandırma ' |
-| LineItems          | [Orderlineıtem](#orderlineitem) kaynakları dizisi | Müşterinin miktarı dahil satın aldığı tekliflerinin listesi.        |
-| currencyCode       | string                                             | Salt okunur. Sipariş yerleştirilirken kullanılan para birimi. Siparişin başarıyla oluşturulmasından sonra uygulandı.           |
-| currencySymbol     | string                                             | Salt okunur. Para birimi koduyla ilişkili para birimi simgesi. |
-| creationDate       | datetime                                           | Salt okunur. Siparişin oluşturulduğu tarih ve saat biçimi. Siparişin başarıyla oluşturulmasından sonra uygulandı.                                   |
-| durum             | string                                             | Salt okunur. Siparişin durumu.  Desteklenen değerler [**Orderstatus**](#orderstatus)içinde bulunan üye adlarıdır.        |
-| Köprü              | [OrderLinks](utility-resources.md#resourcelinks)           | Sıraya karşılık gelen kaynak bağlantıları.            |
-| öznitelikler         | [ResourceAttributes](utility-resources.md#resourceattributes) | Sıraya karşılık gelen meta veri öznitelikleri.       |
+| kimlik                 | string                                             | Siparişin başarıyla oluşturulmasının ardından sağlanan bir sipariş tanımlayıcısı.                                   |
+| alternateId        | string                                             | Sipariş için kolay tanımlayıcı.                                                                          |
+|referenceCustomerId | string                                             | Müşteri tanımlayıcısı. |
+| billingCycle       | string                                             | İş ortağının bu sipariş için faturalandırılama sıklığını gösterir. Desteklenen değerler, [BillingCycleType](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. Varsayılan değer, sipariş oluşturma sırasında "Monthly" veya "OneTime" şeklindedir. Bu alan, siparişin başarıyla oluşturulmasının ardından uygulanır. |
+| Transactiontype    | string                                             | Salt okunur. Siparişin işlem türü. Desteklenen değerler 'UserPurchase', 'SystemPurchase' veya 'SystemBilling' değerleridir |
+| lineItems          | [OrderLineItem kaynakları](#orderlineitem) dizisi | Miktarı da dahil olmak üzere müşterinin satın alma tekliflerinin maddeli listesi.        |
+| currencyCode       | string                                             | Salt okunur. Siparişin yerleştirilmesi için kullanılan para birimi. Siparişin başarıyla oluşturulmasının ardından uygulanır.           |
+| Currencysymbol     | string                                             | Salt okunur. Para birimi koduyla ilişkili para birimi simgesi. |
+| Creationdate       | datetime                                           | Salt okunur. Siparişin tarih-saat biçiminde oluşturulma tarihi. Siparişin başarıyla oluşturulmasının ardından uygulanır.                                   |
+| durum             | string                                             | Salt okunur. Siparişin durumu.  Desteklenen değerler OrderStatus içinde bulunan üye [**adlarıdır.**](#orderstatus)        |
+| Bağlantı              | [OrderLinks](utility-resources.md#resourcelinks)           | Siparişe karşılık gelen kaynak bağlantıları.            |
+| öznitelikler         | [Resourceattributes](utility-resources.md#resourceattributes) | Order'a karşılık gelen meta veri öznitelikleri.       |
 
-## <a name="orderlineitem"></a>Orderlineıtem
+## <a name="orderlineitem"></a>OrderLineItem
 
-Bir sipariş, tekliflerin bir listesini içerir ve her öğe bir Orderlineıtem olarak temsil edilir.
+Sipariş, tekliflerin maddeli bir listesini içerir ve her öğe bir OrderLineItem olarak temsil edilen bir listedir.
 
-| Özellik             | Tür                                      | Description                                                                                                                                                                                                                                |
+| Özellik             | Tür                                      | Açıklama                                                                                                                                                                                                                                |
 |----------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Lineıtemnumber       | int                                       | Koleksiyondaki her bir satır öğesi, 0 ' dan say-1 ' e kadar sayarak benzersiz bir satır numarası alır.                                                                                                                                                 |
-| OfferId              | string                                    | Teklifin KIMLIĞI.                                                                                                                                                                                                                       |
-| subscriptionId       | string                                    | Aboneliğin KIMLIĞI.                                                                                                                                                                                                                |
-| Parentsubscriptionıd | string                                    | İsteğe bağlı. Bir eklenti teklifinde üst aboneliğin KIMLIĞI. Yalnızca düzeltme eki için geçerlidir.                                                                                                                                                     |
-| friendlyName         | string                                    | İsteğe bağlı. Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı.                                                                                                                                              |
+| lineItemNumber       | int                                       | Koleksiyonda yer alan her satır öğesi benzersiz bir satır numarası alır ve 0 ile 1 arasında bir sayıya kadar sayar.                                                                                                                                                 |
+| offerId              | string                                    | Teklifin kimliği.                                                                                                                                                                                                                       |
+| subscriptionId       | string                                    | Aboneliğin kimliği.                                                                                                                                                                                                                |
+| parentSubscriptionId | string                                    | İsteğe bağlı. Eklenti teklifinde üst aboneliğin kimliği. Yalnızca PATCH için geçerlidir.                                                                                                                                                     |
+| Friendlyname         | string                                    | İsteğe bağlı. Karartmanıza yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı.                                                                                                                                              |
 | miktar             | int                                       | Lisans veya örnek sayısı.                                                                                                                                                                                |
-| termDuration         | string                                    | Terimin süresinin ISO 8601 temsili. Desteklenen geçerli değerler **P1M** (1 ay), **P1Y** (1 yıl) ve **P3Y** (3 yıl).                               |
-| Işlem türü      | string                                    | Salt okunur. Satır öğesinin işlem türü. Desteklenen değerler ' New ', ' Renew ', ' addQuantity ', ' removeQuantity ', ' Cancel ', ' Convert ' veya ' Customerkred' değerleridir. |
-| partnerIdOnRecord    | string                                    | Dolaylı bir sağlayıcı dolaylı bir satıcı adına bir sipariş yerleştirirse, bu alanı **yalnızca dolaylı** satıcının MPN kimliğiyle doldurun (hiçbir zaman dolaylı sağlayıcının kimliği değildir). Bu, teşvikleri için doğru hesaplamayı sağlar. |
-| provisioningContext  | Sözlük<dize, dize>            | Katalogdaki bazı öğelerin sağlanması için gereken bilgiler. SKU 'daki provisioningVariables özelliği, katalogdaki belirli öğeler için hangi özelliklerin gerekli olduğunu gösterir.                                                                                                                                               |
-| Köprü                | [Orderlineıtemlinks](#orderlineitemlinks) | Salt okunur. Sipariş satırı öğesine karşılık gelen kaynak bağlantıları.                                                                                                                                                                                |
-| renewsTo             | [RenewsTo](#renewsto)                         |Yenileme dönemi süresi ayrıntıları.                                                                           |
+| termDuration         | string                                    | Sürenin ISO 8601 gösterimi. Desteklenen geçerli değerler **P1M (1** ay), **P1Y (1** yıl) ve **P3Y** (3 yıl) değerleridir.                               |
+| Transactiontype      | string                                    | Salt okunur. Satır öğesinin işlem türü. Desteklenen Değerler:'new', 'renew', 'addQuantity', 'removeQuantity', 'cancel', 'convert' veya 'customerCredit'. |
+| partnerIdOnRecord    | string                                    | Dolaylı sağlayıcı dolaylı bir kurumsal bayi adına sipariş verdiylerinde, bu alanı yalnızca dolaylı kurumsal bayinin MPN kimliğiyle **(dolaylı** sağlayıcının kimliği hiçbir zaman) doldurmak. Bu, teşvikler için doğru hesaplamayı sağlar. |
+| provisioningContext  | Sözlük<dizesi, dize>            | Katalogdaki bazı öğeler için sağlama için gereken bilgiler. SKU'daki provisioningVariables özelliği, katalogdaki belirli öğeler için hangi özelliklerin gerekli olduğunu gösterir.                                                                                                                                               |
+| Bağlantı                | [OrderLineItemLinks](#orderlineitemlinks) | Salt okunur. Sipariş satırı öğesine karşılık gelen kaynak bağlantıları.                                                                                                                                                                                |
+| renewsTo             | [RenewsTo](#renewsto)                         |Yenileme süresi süresi ayrıntıları.                                                                           |
 
 ## <a name="renewsto"></a>RenewsTo
 
-Yenileme dönemi süre ayrıntılarını temsil eder.
+Yenileme süresi süresi ayrıntılarını temsil eder.
 
 | Özellik              | Tür             | Gerekli        | Açıklama |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | dize           | No              | Yenileme teriminin süresinin ISO 8601 temsili. Desteklenen geçerli değerler **P1M** (1 ay) ve **P1Y** (1 yıl). |
+| termDuration          | dize           | No              | Yenileme süresinin ISO 8601 gösterimi. Desteklenen geçerli değerler **P1M (1** ay) ve **P1Y (1** yıl) değerleridir. |
 
 ## <a name="orderlinks"></a>OrderLinks
 
-Sıraya karşılık gelen kaynak bağlantılarını temsil eder.
+Siparişe karşılık gelen kaynak bağlantılarını temsil eder.
 
-| Özellik           | Tür                                         | Description                                                                   |
+| Özellik           | Tür                                         | Açıklama                                                                   |
 |--------------------|----------------------------------------------|-------------------------------------------------------------------------------|
-| provisioningStatus | [Bağlantı](utility-resources.md#link)            | Doldurulduğunda, sipariş için sağlama durumunu alma bağlantısı.       |
-| Self               | [Bağlantı](utility-resources.md#link)            | Sipariş kaynağını alma bağlantısı.                                      |
+| provisioningStatus | [Bağlantı](utility-resources.md#link)            | Doldurulduğunda, siparişin sağlama durumunu alma bağlantısı.       |
+| Kendini               | [Bağlantı](utility-resources.md#link)            | Sipariş kaynağını alma bağlantısı.                                      |
 
-## <a name="orderlineitemlinks"></a>Orderlineıtemlinks
+## <a name="orderlineitemlinks"></a>OrderLineItemLinks
 
 Siparişle ilişkili tam aboneliği temsil eder.
 
-| Özellik           | Tür                                         | Description                                                                          |
+| Özellik           | Tür                                         | Açıklama                                                                          |
 |--------------------|----------------------------------------------|--------------------------------------------------------------------------------------|
-| provisioningStatus | [Bağlantı](utility-resources.md#link)            | Doldurulduğunda, satır öğesinin [sağlama durumunu](#orderlineitemprovisioningstatus) alma bağlantısı.       |
-| isteyin                | [Bağlantı](utility-resources.md#link)            | Satın alınan katalog öğesi için SKU bilgilerini alma bağlantısı.                    |
-| aboneliği       | [Bağlantı](utility-resources.md#link)            | Doldurulduğunda, tam abonelik bilgilerinin bağlantısı.                       |
-| activationLinks    | [Bağlantı](utility-resources.md#link)            | Doldurulduğunda, aboneliği etkinleştirmek için bağlantılar kaynağı al.             |
+| provisioningStatus | [Bağlantı](utility-resources.md#link)            | Doldurulduğunda, satır öğesinin [sağlama durumunu alma](#orderlineitemprovisioningstatus) bağlantısı.       |
+| Sku                | [Bağlantı](utility-resources.md#link)            | Satın alınan katalog öğesi için SKU bilgilerini alma bağlantısı.                    |
+| aboneliği       | [Bağlantı](utility-resources.md#link)            | Doldurulduğunda, tam abonelik bilgilerine bağlantı.                       |
+| activationLinks    | [Bağlantı](utility-resources.md#link)            | Doldurulduğunda, aboneliği etkinleştirmek için bağlantıların GET kaynağı.             |
 
 ## <a name="orderstatus"></a>OrderStatus
 
-Siparişin durumunu belirten değerler içeren bir [enum/DotNet/api/System. Enum).
+Siparişin durumunu belirten değerleri olan bir [Enum/dotnet/api/system.enum).
 
-| Değer              | Konum     | Description                                     |
+| Değer              | Konum     | Açıklama                                     |
 |--------------------|--------------|-------------------------------------------------|
-| bilinmeyen            | 0            | Sabit Listesi başlatıcısı.                               |
-| dım          | 1            | Siparişin tamamlandığını gösterir.          |
-| bekleniyor            | 2            | Siparişin hala beklendiğini gösterir.      |
-| yürütüldükten          | 3            | Siparişin iptal edildiğini gösterir.    |
+| Bilinmeyen            | 0            | Enum başlatıcı.                               |
+| Tamamlandı          | 1            | Siparişin tamam olduğunu gösterir.          |
+| bekleniyor            | 2            | Siparişin hala beklemede olduğunu gösterir.      |
+| Iptal          | 3            | Siparişin iptal edildiğini gösterir.    |
 
-## <a name="orderlineitemprovisioningstatus"></a>Orderlineıtemprovisioningstatus
+## <a name="orderlineitemprovisioningstatus"></a>OrderLineItemProvisioningStatus
 
-Bir [Orderlineıtem öğesinin](#orderlineitem)sağlama durumunu temsil eder.
+[OrderLineItem'ın sağlama durumunu temsil eder.](#orderlineitem)
 
-| Özellik                        | Tür                                | Description                                                                                |
+| Özellik                        | Tür                                | Açıklama                                                                                |
 |------------------------------------|-------------------------------------|--------------------------------------------------------------------------------------------|
-| Lineıtemnumber                  | int                                 | Sipariş satırı öğesinin benzersiz satır numarası. Değerler 0 ile Count-1 arasındadır.             |
-| durum                          | string                              | Sipariş satırı öğesinin sağlama durumu. Değerlere şunlar dahildir:</br>"Yerine getirildi": siparişin yerine getirilmesi başarıyla tamamlandı ve Kullanıcı rezervasyonları kullanabilir</br>"Karşılanmamış": iptal nedeniyle karşılanmadı</br>"PrefulfillmentPending": isteğiniz hala işleniyor, tamamlama henüz tamamlanmadı |
-| Quantityprovisioningınformation | Liste<[Quantityprovisioningstatus](#quantityprovisioningstatus)> | Sipariş satırı öğesi için miktar sağlama durum bilgilerinin listesi. |
+| lineItemNumber                  | int                                 | Sipariş satırı öğesinin benzersiz satır numarası. Değerler 0 ile sayı-1 arasında değişebilir.             |
+| durum                          | string                              | Sipariş satırı öğesinin sağlama durumu. Değerlere şunlar dahildir:</br>**Tamamlandı:** Siparişin yerine getirilmesi başarıyla tamamlandı ve kullanıcı rezervasyonları kullanabilir</br>**Yerine getirilmemiş:** İptal nedeniyle karşılanmaz</br>**PrefulfillmentPending:** İsteğiniz işleme devam ediyor, gerçekleştirme henüz tamamlanmadı |
+| quantityProvisioningInformation | [QuantityProvisioningStatus<listele](#quantityprovisioningstatus)> | Sipariş satırı öğesi için miktar sağlama durumu bilgileri listesi. |
 
 ## <a name="quantityprovisioningstatus"></a>QuantityProvisioningStatus
 
-Kaynak sağlama durumunu miktara göre gösterir.
+Miktara göre sağlama durumunu temsil eder.
 
-| Özellik                           | Tür                                         | Description                                          |
+| Özellik                           | Tür                                         | Açıklama                                          |
 |------------------------------------|----------------------------------------------|------------------------------------------------------|
 | miktar                           | int                                          | Öğe sayısı.                                 |
 | durum                             | string                                       | Öğe sayısının durumu.                   |

@@ -4,19 +4,16 @@ description: Belirtilen müşteri için bir cihaz toplu işi koleksiyonu alma.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ea5797bbaff4d4eafd1e63428556ab784bcb0ee2
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 9d020bbfa1faef0be423d2fef2d8982465dfa21f
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769809"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548438"
 ---
 # <a name="get-a-list-of-device-batches-for-the-specified-customer"></a>Belirtilen müşteri için cihaz toplu işlemlerinin bir listesini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
 
 Belirtilen müşteri için bir cihaz toplu işi koleksiyonu alma.
 
@@ -40,7 +37,7 @@ var devicesBatches =
     partnerOperations.Customers.ById(selectedCustomerId).DeviceBatches.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetDevicesBatches.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getdevicestoplu iş. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -64,7 +61,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 

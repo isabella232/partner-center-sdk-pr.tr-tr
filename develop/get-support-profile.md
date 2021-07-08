@@ -4,20 +4,16 @@ description: Kullanıcının destek profilini temsil eden bir nesne alır.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b8b0fa533aaba74418985ea02cbb13bd722cede2
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: b112ccbbff731795c21f95845a08be9e9dfb6775
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769808"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548643"
 ---
 # <a name="get-support-profile"></a>Destek profili alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Kullanıcının destek profilini temsil eden bir nesne alır.
 
@@ -35,7 +31,7 @@ Destek profilinizi almak için **ıaggregatepartner. Profiles** koleksiyonunuzu 
 SupportProfile supportProfile = partnerOperations.Profiles.SupportProfile.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnercentersdk. FeaturesSamples **sınıfı**: GetSupportProfile.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnercentersdk. featuressamples **sınıfı**: getsupportprofile. cs
 
 ## <a name="rest-request"></a>REST isteği
 

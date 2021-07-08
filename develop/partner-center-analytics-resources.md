@@ -1,84 +1,79 @@
 ---
 title: İş Ortağı Merkezi Analizi
-description: İş ortağı merkezi analizi ortak API 'SI belgeleri.
+description: İş Ortağı Merkezi Analytics genel API belgeleri.
 ms.date: 06/11/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4b14ee929f3020079f409be8817e077673d3219f
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 03d7d252a415524c6573c1bf62b8b9c1518a1b9f
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768848"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548099"
 ---
 # <a name="partner-center-analytics---resources"></a>İş Ortağı Merkezi Analizi - Kaynaklar
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Analiz API 'SI, kullanıcı deneyiminde sunulmakta olan verilere programlı bir şekilde erişmenize olanak tanır.
+Analiz API'si, Kullanıcı Deneyimi'ne sunulan verilere program aracılığıyla erişmeye olanak sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryolar yalnızca Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryolar yalnızca Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-## <a name="csp-program-azure-usage-analytics"></a>CSP programı: Azure Kullanım Analizi
+## <a name="csp-program-azure-usage-analytics"></a>CSP programı: Azure kullanım analizi
 
-Aşağıdaki senaryoda, tüm Iş Ortağı Merkezi Azure kullanım analizi bilgilerinizi almak için Analytics API 'sinin nasıl kullanılacağı gösterilmektedir.
+Aşağıdaki senaryoda Analiz API'sini kullanarak Azure kullanım analizi bilgilerini İş Ortağı Merkezi nasıl alınabilirsiniz?
 
 - [Tüm Azure kullanım analizi bilgilerini alma](get-all-azure-usage-analytics.md)
 
-Bu senaryo, analiz bilgilerinizi bir [Azure kullanım](#azure-usage-resource) kaynakları koleksiyonunda döndürür.
+Bu senaryo, azure kullanım kaynakları koleksiyonunda analiz [bilgilerini](#azure-usage-resource) döndürür.
 
 ## <a name="azure-usage-resource"></a>Azure kullanım kaynağı
 
 Azure kullanımı için tüm analitik verileri temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 |----------|------|-------------|
 | CustomerTenantId | string | Müşteri kiracı tanımlayıcısı. |
-| customerName | string | Müşteri adı. |
+| Müşteriadı | string | Müşteri adı. |
 | subscriptionId | string | Abonelik tanımlayıcısı. |
 | subscriptionName | string | Abonelik adı. |
 | usageDate | string | Kullanım tarihi. |
-| resourceLocation | string | Veri merkezinin konumu, Batı Avrupa, örneğin. |
+| resourceLocation | string | Örneğin, veri merkezinin konumu( Batı Avrupa). |
 | meterCategory | string | Ölçüm kategorisi, örneğin veri yönetimi. |
-| meterSubcategory | string | Ölçüm alt kategorisi, örneğin, coğrafi olarak yedekli. |
-| meterUnit | string | Ölçüm birimi (gigabayt veya saat gibi). |
-| reservationOrderId | string | Azure VM ayrılmış örneği için rezervasyon sıralaması. |
-| reservationId | string | Belirli bir RI sıralaması altında ayrılmış örnekler. |
-| Türü | string | Sanal makine türünü gösterir. Örneğin, Standard_E4s_v3. |
+| meterSubcategory | string | Ölçüm alt kategorisi, örneğin coğrafi olarak yedekli. |
+| meterUnit | string | Gigabayt veya saat gibi ölçüm birimi. |
+| reservationOrderId | string | Azure VM Ayrılmış Örneği için rezervasyon siparişi. |
+| reservationId | string | Belirli bir RI sırasına göre ayrılmış örnekler. |
+| Servicetype | string | Sanal makine türünü gösterir. Örneğin, Standard_E4s_v3. |
 | miktar | long | Ölçüm biriminde kullanılan sayıları gösterir. |
 
-## <a name="csp-program-indirect-resellers-analytics"></a>CSP programı: dolaylı satıcılar Analizi
+## <a name="csp-program-indirect-resellers-analytics"></a>CSP programı: dolaylı kurumsal bayi analizi
 
-Aşağıdaki senaryoda, tüm Partner Center dolaylı satıcılar Analytics bilgilerinizi almak için Analytics API 'sinin nasıl kullanılacağı gösterilmektedir.
+Aşağıdaki senaryoda, analiz API'sini kullanarak tüm dolaylı kurumsal bayi İş Ortağı Merkezi bilgilerini nasıl alasınız?
 
 - [Tüm dolaylı satıcı analiz bilgilerini alma](get-all-indirect-resellers-analytics.md)
 
-Bu senaryo, bir [dolaylı satıcılar](#indirect-resellers-resource) kaynakları koleksiyonundaki analiz bilgilerinizi döndürür.
+Bu senaryo, analiz bilgilerini dolaylı kurumsal bayi kaynakları [koleksiyonunda](#indirect-resellers-resource) döndürür.
 
-## <a name="indirect-resellers-resource"></a>Dolaylı satıcılar kaynağı
+## <a name="indirect-resellers-resource"></a>Dolaylı kurumsal bayiler kaynağı
 
-Dolaylı satıcıların tüm analitik verilerini temsil eder.
+Dolaylı kurumsal bayiler için tüm analitik verileri temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 |----------|------|-------------|
-| Partnertenantıd | string | Dolaylı satıcıların verilerini almak istediğiniz ortağın kiracı KIMLIĞI. |
-| kimlik | string | Dolaylı satıcı KIMLIĞI. |
-| name | string | Dolaylı satıcıların verilerini almak istediğiniz iş ortağının adı. |
-| pazara | string | Dolaylı satıcıların verilerini almak istediğiniz iş ortağının pazarı. |
-| firstSubscriptionCreationDate | UTC Tarih saat biçiminde dize | Dolaylı satıcıların verilerini almak istediğiniz ilk aboneliğin Oluşturulma tarihi. |
-| latestSubscriptionCreationDate | UTC Tarih saat biçiminde dize | En son aboneliğin Oluşturulma tarihi. |
-| firstSubscriptionEndDate | UTC Tarih saat biçiminde dize | Herhangi bir aboneliğin sonlandırılması ilk kez. |
-| latestSubscriptionEndDate | UTC Tarih saat biçiminde dize | Herhangi bir aboneliğin sonlandıralındığı en son tarih. |
-| firstSubscriptionSuspendedDate | UTC Tarih saat biçiminde dize | Abonelikler ilk kez askıya alındı. |
-| latestSubscriptionSuspendedDate | UTC Tarih saat biçiminde dize | Herhangi bir aboneliğin askıya alındığı en son tarih. |
-| firstSubscriptionDeprovisionedDate | UTC Tarih saat biçiminde dize | İlk kez bir abonelik sağlanmamıştır. |
+| partnerTenantId | string | Dolaylı kurumsal bayi verilerini almak istediğiniz iş ortağının Kiracı Kimliği. |
+| kimlik | string | Dolaylı kurumsal bayi kimliği. |
+| name | string | Dolaylı kurumsal bayi verilerini almak istediğiniz iş ortağının adı. |
+| Pazar | string | Dolaylı kurumsal bayi verilerini almak istediğiniz iş ortağının Marketi. |
+| firstSubscriptionCreationDate | UTC tarih saat biçiminde dize | Dolaylı kurumsal bayi verilerini almak istediğiniz ilk aboneliğin oluşturma tarihi. |
+| latestSubscriptionCreationDate | UTC tarih saat biçiminde dize | En son aboneliğin oluşturma tarihi. |
+| firstSubscriptionEndDate | UTC tarih saat biçiminde dize | Herhangi bir abonelik ilk kez sona erer. |
+| latestSubscriptionEndDate | UTC tarih saat biçiminde dize | Herhangi bir aboneliğin son bitiş tarihi. |
+| firstSubscriptionSuspendedDate | UTC tarih saat biçiminde dize | Herhangi bir abonelik ilk kez askıya alınmıştır. |
+| latestSubscriptionSuspendedDate | UTC tarih saat biçiminde dize | Herhangi bir aboneliğin askıya alınarak son tarihi. |
+| firstSubscriptionDeprovisionedDate | UTC tarih saat biçiminde dize | İlk kez bir aboneliğinvision'ları silindi. |
 | latestSubscriptionDeprovisionedDate | UTC Tarih saat biçiminde dize | Herhangi bir aboneliğin sağlaması kaldırılmış olan en son tarih. |
 | Abonelik sayısı | double | Tüm değer eklenmiş satıcıların abonelik sayısı |
 | licenseCount | double | Tüm değer eklenmiş satıcıların lisans sayısı |
@@ -98,7 +93,7 @@ Bu senaryoların hepsi, bir [abonelik](#subscription-resource) kaynakları kolek
 
 Bir abonelik için tüm analitik verileri temsil eder.
 
-|         Özellik          |              Tür              |                                                                      Description                                                                       |
+|         Özellik          |              Tür              |                                                                      Açıklama                                                                       |
 |---------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 |     Customertenantıd      |             string             |                                              Müşteri kiracısını tanımlayan GUID biçimli bir dize.                                              |
 |       customerName        |             string             |                                                               Müşterinin adı.                                                                |
@@ -106,9 +101,9 @@ Bir abonelik için tüm analitik verileri temsil eder.
 |            kimlik             |             string             |                                                              Abonelik tanımlayıcısı.                                                              |
 |          durum           |             string             |                                          Abonelik durumu: "ETKIN", "askıya ALıNDı" veya "SAĞLAMASı KALDıRıLDı".                                           |
 |        productName        |             string             |                                                                Ürünün adı.                                                                |
-|     subscriptionType      |             string             |       Abonelik türü. **Note**: Bu alan, büyük/küçük harfe duyarlıdır. Desteklenen değerler şunlardır: "Office", "Azure", "Microsoft365", "Dynamics", "EMS".       |
+|     subscriptionType      |             string             |       Abonelik türü. **Note**: Bu alan, büyük/küçük harfe duyarlıdır. desteklenen değerler şunlardır: "Office", "Azure", "Microsoft365", "Dynamics", "EMS".       |
 |     autoRenewEnabled      |            boolean             |                                         Aboneliğin otomatik olarak yenilenip yenilenmediğini gösteren bir değer.                                          |
-|         iş ortağı kimliği         |             string             | MPN KIMLIĞI. Doğrudan satıcı için, bu parametre ortağın MPN KIMLIĞI olur. Dolaylı bir satıcı için, bu parametre dolaylı satıcıdan MPN KIMLIĞI olacaktır. |
+|         iş ortağı kimliği         |             string             | Microsoft İş Ortağı Ağı (MPN) KIMLIĞI. Doğrudan satıcı için, bu parametre ortağın MPN KIMLIĞI olur. Dolaylı bir satıcı için, bu parametre dolaylı satıcıdan MPN KIMLIĞI olacaktır. |
 |       friendlyName        |             string             |                                                             Aboneliğin adı.                                                              |
 |        partnerName        |             string             |                                              Aboneliğin satın alındığı ortağın adı                                               |
 |       Adı        |             string             |            Abonelik işlemi dolaylı satıcı için olduğunda, sağlayıcı adı aboneliği satın alan dolaylı sağlayıcıdır.             |
@@ -120,7 +115,7 @@ Bir abonelik için tüm analitik verileri temsil eder.
 |       trialEndDate        | UTC Tarih saat biçiminde dize |                                  Abonelik deneme süresinin sona erdiği tarih. Varsayılan değer boştur.                                  |
 |       lastUsageDate       | UTC Tarih saat biçiminde dize |                                        Aboneliğin son kullanıldığı tarih. Varsayılan değer boştur.                                        |
 |     deprovisionedDate     | UTC Tarih saat biçiminde dize |                                      Aboneliğin sağlaması kaldırılmış olan tarih. Varsayılan değer boştur.                                      |
-|      lastRenewalDate      | UTC Tarih saat biçiminde dize |                                       Aboneliğin son yenilenme tarihi varsayılan değer null.                                       |
+|      lastRenewalDate      | UTC Tarih saat biçiminde dize |                                       Aboneliğin son yenilenme tarihi. Varsayılan değer boştur.                                       |
 |       licenseCount        |             sayı             |                                                             Toplam lisans sayısı.                                                              |
 |     Abonelik sayısı     |             sayı             |                        Abonelik sayısı. Note: Bu değer yalnızca bir toplama sorgusunun yanıtında görüntülenir.                         |
 
@@ -139,7 +134,7 @@ Bu senaryo, analiz bilgilerinizi bir [arama](#search-resource) kaynakları kolek
 
 Bir arama için tüm analitik verileri temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 |----------|------|-------------|
 | Tadı | string | Faturalama şirket adı. |
 | contactButtonClicked | Boole | İletişim düğmesinin tıklandığını gösterir. |
@@ -175,7 +170,7 @@ Bu senaryo, bir [başvuru](#referrals-resource) kaynakları koleksiyonundaki ana
 
 Bir başvuru için tüm analitik verileri temsil eder.
 
-| Özellik | Tür | Description |
+| Özellik | Tür | Açıklama |
 |----------|------|-------------|
 | kimlik | string | Müşteri kiracı tanımlayıcısı.  |
 | durum | string | Başvurunun bir müşteriye işaret olup olmadığını gösterir.  |
@@ -185,11 +180,11 @@ Bir başvuru için tüm analitik verileri temsil eder.
 | acceptedDate | UTC Tarih saat biçiminde dize | Başvurunun kabul edildiği tarih. |
 | Bildiren Geddate | UTC Tarih saat biçiminde dize | Başvurunun alındığı tarih. |
 | archivedDate | UTC Tarih saat biçiminde dize | Başvurunun arşivlendiği tarih. |
-| declinedDate | UTC Tarih saat biçiminde dize | Başvurunun reddedildiğini belirten tarih. |
-| expiredDate | UTC Tarih saat biçiminde dize | Başvurunun zaman aşımına erdiği tarih. |
-| lostDate | UTC Tarih saat biçiminde dize | Başvurunun kaybedildiği tarih. |
-| Hatalı bir tarih | UTC Tarih saat biçiminde dize | Başvurunun kaçırıldığı tarih. |
-| createdDate | UTC Tarih saat biçiminde dize | Başvurunun oluşturulduğu tarih. |
-| skippedDate | UTC Tarih saat biçiminde dize | Başvurunun atlandığı tarih. |
-| Merak tarihi | UTC Tarih saat biçiminde dize | Başvurunun kazanıldığı tarih. |
-| partnerMarket | string |  Ortağın iş kullandığı ülke/bölge. |
+| declinedDate | UTC tarih saat biçiminde dize | Referans reddedildi tarihi. |
+| expiredDate | UTC tarih saat biçiminde dize | Referans süresinin dolma tarihi. |
+| lostDate | UTC tarih saat biçiminde dize | Referansların kaybedil olduğu tarih. |
+| missedDate | UTC tarih saat biçiminde dize | Referansların at olduğu tarih. |
+| createdDate | UTC tarih saat biçiminde dize | Referans oluşturma tarihi. |
+| skippedDate | UTC tarih saat biçiminde dize | Referans atlanma tarihi. |
+| wonDate | UTC tarih saat biçiminde dize | Referans kazan olduğu tarih. |
+| partnerMarket | string |  İş ortağının iş yaptığı ülke/bölge. |

@@ -6,24 +6,20 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: c6a404eb38c4c31d3e69bb598872b932d8985529
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: 2588327e72a13de75eb9e02675edbd535491adc4
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769262"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760802"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Microsoft Bulut Sözleşmesi için anlaşma meta verilerini alma
 
-**Uygulama hedefi**
+**Uygulama hedefi**: Iş Ortağı Merkezi
 
-- İş Ortağı Merkezi
+**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-> [!NOTE]
-> **AgreementMetaData** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir. Şunları yapmak için geçerli değildir:
-> - 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-> - Microsoft Bulut Almanya için İş Ortağı Merkezi
-> - Microsoft Cloud for US Government için İş Ortağı Merkezi
+**AgreementMetaData** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

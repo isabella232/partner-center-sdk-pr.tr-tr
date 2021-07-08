@@ -4,21 +4,16 @@ description: Bir müşteri aboneliği için abonelik sağlama durumunu alma.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 38544aa380ba0a6a8804ae45f7d8ae7cb431d3ba
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: f8797fa494cd77f11a1179d6406ca021f0d7788c
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769844"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548711"
 ---
 # <a name="get-subscription-provisioning-status"></a>Abonelik sağlama durumunu alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bir müşteri aboneliği için abonelik sağlama durumunu alma.
 
@@ -117,4 +112,4 @@ Date: Thu, 20 Apr 2017 19:23:39 GMT
 
 - Lisans değişikliği ataması sırasında, [Subscriptionprovisioningstatus](subscription-resources.md#subscriptionprovisioningstatus) içindeki durum alanı "bekliyor" olarak ayarlanır.
 
-- Durum alanı her on beş dakikada bir güncelleştirilir.
+- Durum alanı 15 dakikada bir güncelleştirilir.

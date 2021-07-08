@@ -1,47 +1,43 @@
 ---
 title: Bir SKU (ülkeye göre) için kullanılabilirlik listesini alma
-description: Müşteri ülkesine göre belirtilen ürün ve SKU için kullanılabilirlik koleksiyonu alma.
+description: Müşteri ülkesi tarafından belirtilen ürün ve SKU için kullanılabilirlik koleksiyonunu elde etmek.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b97a4ce85b5edd9de1301a577988f8c54096ebeb
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b29c005e74ad8a4da547a888b78e4599e74ebd02
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769124"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874542"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Bir SKU (ülkeye göre) için kullanılabilirlik listesini alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-
-Bu makalede, belirli bir ülkede belirtilen ürün ve SKU için bir kullanılabilirlik koleksiyonunun nasıl alınacağı açıklanır.
+Bu makalede belirli bir ülkede belirli bir ürün ve SKU için bir kullanılabilirlik koleksiyonunun nasıl elde edildikleri açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir ürün tanımlayıcısı.
+- Ürün tanımlayıcısı.
 
-- Bir SKU tanımlayıcısı.
+- SKU tanımlayıcısı.
 
-- Bir ülke.
+- Ülke.
 
 ## <a name="c"></a>C\#
 
-[SKU](product-resources.md#sku)'nun [kullanılabilirliği](product-resources.md#availability) listesini almak için:
+[Bir SKU'nun](product-resources.md#sku) [kullanılabilirlik](product-resources.md#availability) listesini almak için:
 
-1. Belirli bir SKU 'nun işlemlerinin arabirimini almak için [kimliğe göre SKU 'Yu edinme](get-a-sku-by-id.md) bölümündeki adımları izleyin.
+1. Belirli bir [SKU'nun işlemlerinin arabirimini](get-a-sku-by-id.md) almak için Kimle SKU al'daki adımları izleyin.
 
-2. SKU arabiriminden, kullanılabilirliği olan işlemleri içeren bir arabirim almak için **kullanılabilirlik** özelliğini seçin.
+2. SKU arabiriminden Kullanılabilirlik **işlemleriyle bir** arabirim elde etmek için Kullanılabilirlik özelliğini seçin.
 
-3. Seçim Kullanılabilirliği hedef kesime göre filtrelemek için **Bytargetsegment ()** yöntemini kullanın.
+3. (İsteğe bağlı) **Kullanılabilirlikleri hedef segmente göre filtrelemek için ByTargetSegment()** yöntemini kullanın.
 
-4. Bu SKU 'nun kullanılabilirliği koleksiyonunu almak için **Get ()** veya **GetAsync ()** öğesini çağırın.
+4. Bu SKU'nun kullanılabilirlik koleksiyonunu almak için **Get()** veya **GetAsync()** çağrısında bulundurabilirsiniz.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -68,27 +64,27 @@ var availabilities = partnerOperations.Products.ByCountry(countryCode).ById(prod
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Products/{product-id}/SKUs/{SKU-id}/kullanılabilirlik lıklara mi? ülke = {Country-code} &targetsegment = {Target-segment} http/1.1     |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}/availabilities?country={country-code}&targetSegment={target-segment} HTTP/1.1     |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-SKU 'nun kullanılabilirliği listesini almak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
+Bir SKU'nun kullanılabilirlik listesini almak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| ürün kimliği             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
-| SKU kimliği                 | string   | Yes      | SKU 'YU tanımlayan bir dize.                               |
-| ülke kodu           | string   | Yes      | Ülke/bölge KIMLIĞI.                                            |
+| product-id             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
+| sku-id                 | string   | Yes      | SKU'ları tanımlayan bir dize.                               |
+| ülke kodu           | string   | Yes      | Ülke/bölge kimliği.                                            |
 | hedef segment         | dize   | No       | Filtreleme için kullanılan hedef segmenti tanımlayan bir dize. |
-| Rezervationscope | dize   | No | Bir Azure ayırma SKU 'SU için bir kullanılabilirlik listesi sorgulanırken, `reservationScope=AzurePlan` Azuplanlama için geçerli olan kullanılabilirlik listesini almak için belirtin. Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan kullanılabilirliği listesini almak için bu parametreyi dışlayın.  |
+| reservationScope | dize   | No | Azure Rezervasyon SKU'sunuz için kullanılabilirlik listesini sorgularken, AzurePlan için geçerli olan kullanılabilirliklerin listesini `reservationScope=AzurePlan` almak için belirtin. Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli kullanılabilirliklerin listesini almak için bu parametreyi hariç tutabilirsiniz.  |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -96,9 +92,9 @@ Yok.
 
 ### <a name="request-examples"></a>İstek örnekleri
 
-#### <a name="availabilities-for-sku-by-country"></a>Ülkeye göre SKU için kullanılabilirlik
+#### <a name="availabilities-for-sku-by-country"></a>Ülkeye göre SKU kullanılabilirlikleri
 
-Ülkeye göre belirli bir SKU 'nun kullanılabilirliği listesini almak için bu örneği izleyin:
+Ülkeye göre verilen SKU'nun kullanılabilirlik listesini almak için bu örneği izleyin:
 
 ```http
 GET http:// api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US HTTP/1.1
@@ -108,9 +104,9 @@ MS-RequestId: 70324727-62d8-4195-8f99-70ea25058d02
 MS-CorrelationId: 83b644b5-e54a-4bdc-b354-f96c525b3c58
 ```
 
-#### <a name="availabilities-for-vm-reservations-azure-plan"></a>VM ayırmaları için kullanılabilirlik (Azure planı)
+#### <a name="availabilities-for-vm-reservations-azure-plan"></a>VM rezervasyonları için kullanılabilirlik (Azure planı)
 
-Azure VM ayırma SKU 'Larının ülkeye göre kullanılabilirliği listesini almak için bu örneği izleyin. Bu örnek, Azure planlarına uygulanan SKU 'Lara yöneliktir:
+Azure VM rezervasyon SKUS'ları için ülkeye göre kullanılabilirlik listesini almak için bu örneği izleyin. Bu örnek, Azure planları için geçerli olan SKUS'lar için geçerlidir:
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -120,9 +116,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-#### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS-AZR-0145P) abonelikleri için VM ayırmaları kullanılabilirliği
+#### <a name="availabilities-for-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS-AZR-0145P) abonelikleri için VM rezervasyonları için kullanılabilirlik
 
-Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan Azure VM ayırmaları için ülkeye göre kullanılabilirlik listesini almak için bu örneği izleyin.
+Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan Azure VM rezervasyonları için ülkeye göre kullanılabilirlik listesini almak için bu örneği izleyin.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/productsDZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureAzureReservationsVM HTTP/1.1
@@ -134,17 +130,17 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [**kullanılabilirlik**](product-resources.md#availability) kaynakları koleksiyonu içerir.
+Başarılı olursa, yanıt gövdesi Kullanılabilirlik kaynaklarının bir [**koleksiyonunu**](product-resources.md#availability) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Description                                                                                               |
+| HTTP Durum Kodu     | Hata kodu   | Açıklama                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | İstenen **Targetsegment** erişimine izin verilmiyor.                                                     |
+| 403                  | 400030       | İstenen **targetSegment'a erişime** izin verilmiyor.                                                     |
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -7,21 +7,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 98a099c458535123f675c6452db950b087b9f387
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: a7cb2430aa93beb89e4d1f9b8c89a016d66624ca
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769449"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874202"
 ---
 # <a name="get-a-list-of-products-by-customer"></a>Ürünlerin bir listesini alma (müşteriye göre)
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Mevcut bir müşteriye yönelik ürünlerin bir koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
@@ -44,7 +39,7 @@ Mevcut bir müşteriye yönelik ürünlerin bir koleksiyonunu almak için aşağ
 | Ad               | Tür | Gerekli | Açıklama                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
 | **Müşteri-Kiracı kimliği** | GUID | Yes | Değer, bir müşteriyi belirtmenize olanak tanıyan bir tanımlayıcı olan GUID biçimli bir **Müşteri-kiracı kimliğidir**. |
-| **targetView** | string | Yes | Kataloğun hedef görünümünü tanımlar. Desteklenen değerler şunlardır: <br/><br/>Tüm Azure öğelerini içeren **Azure**<br/><br/>Tüm Azure ayırma öğelerini içeren **Azurereservations**<br/><br/>Tüm sanal makine (VM) rezervasyon öğelerini içeren **Azurereservationsvm**<br/><br/>Tüm SQL rezervasyon öğelerini içeren **Azurereservationssql**<br/><br/>Tüm Cosmos veritabanı ayırma öğelerini içeren **Azurereservationscosmosdb**<br/><br/>Microsoft Azure aboneliklerine (**MS-AZR-0145P**) ve Azure planlarına yönelik öğeler içeren **MicrosoftAzure**<br/><br/>Ticari Market ürünleri dahil tüm çevrimiçi hizmet öğelerini içeren **OnlineServices**<br/><br/>Tüm yazılım öğelerini içeren **yazılım**<br/><br/>Tüm yazılım SUSE Linux öğelerini içeren **SoftwareSUSELinux**<br/><br/>Tüm kalıcı yazılım öğelerini içeren **Softwarekalıcı**<br/><br/>Tüm yazılım aboneliği öğelerini içeren **SoftwareSubscriptions**  |
+| **targetView** | string | Yes | Kataloğun hedef görünümünü tanımlar. Desteklenen değerler şunlardır: <br/><br/>Tüm Azure öğelerini içeren **Azure**<br/><br/>Tüm Azure ayırma öğelerini içeren **Azurereservations**<br/><br/>Tüm sanal makine (VM) rezervasyon öğelerini içeren **Azurereservationsvm**<br/><br/>tüm SQL ayırma öğelerini içeren **azurereservationssql**<br/><br/>tüm Cosmos veritabanı ayırma öğelerini içeren **azurereservationscosmosdb**<br/><br/>Microsoft Azure aboneliklerine (**MS-azr-0145p**) ve Azure planlarına yönelik öğeler içeren **MicrosoftAzure**<br/><br/>Ticari Market ürünleri dahil tüm çevrimiçi hizmet öğelerini içeren **OnlineServices**<br/><br/>Tüm yazılım öğelerini içeren **yazılım**<br/><br/>Tüm yazılım SUSE Linux öğelerini içeren **SoftwareSUSELinux**<br/><br/>Tüm kalıcı yazılım öğelerini içeren **Softwarekalıcı**<br/><br/>Tüm yazılım aboneliği öğelerini içeren **SoftwareSubscriptions**  |
 
 ### <a name="request-header"></a>İstek üst bilgisi
 
@@ -56,7 +51,7 @@ Yok.
 
 ### <a name="request-example"></a>İstek örneği
 
-Belirli bir müşteri tarafından kullanılabilen Azure kullanım tabanlı ürünlerin bir listesini isteyin. Yalnızca Microsoft Azure (MS-AZR-0145P) ve Azure planlarına yönelik ürünler, genel buluttaki müşteriler için döndürülür:
+Belirli bir müşteri tarafından kullanılabilen Azure kullanım tabanlı ürünlerin bir listesini isteyin. yalnızca Microsoft Azure (MS-azr-0145p) ve Azure planlarına yönelik ürünler, genel buluttaki müşteriler için döndürülür:
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/65543400-f8b0-4783-8530-6d35ab8c6801/products?targetView=MicrosoftAzure HTTP/1.1
@@ -74,7 +69,7 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu | Hata kodu   | Description                     |
+| HTTP durum kodu | Hata kodu   | Açıklama                     |
 |------------------|--------------|---------------------------------|
 | 403 | 400036 | İstenen targetView 'a erişime izin verilmiyor. |
 

@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 132a1e0efa3efea69d4bf649e55b412e300b0685
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1c7272761612e573388d4facea1a78808a5bad52
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769868"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760564"
 ---
 # <a name="get-an-organization-profile"></a>Kuruluş profili alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Ortağın kuruluş profilini temsil eden bir nesne alır.
 
@@ -38,7 +33,7 @@ Kuruluş profilinizi almak için **ıaggregatepartner. Profiles** koleksiyonunuz
 OrganizationProfile organizationProfile = partnerOperations.Profiles.OrganizationProfile.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnercentersdk. FeaturesSamples **sınıfı**: GetOrganizationProfile.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnercentersdk. featuressamples **sınıfı**: getorganizationprofile. cs
 
 ## <a name="java"></a>Java
 

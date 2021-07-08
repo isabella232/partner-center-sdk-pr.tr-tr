@@ -1,46 +1,43 @@
 ---
 title: Belirtilen toplu iş ve müşteri için cihazların bir listesini alma
-description: Bir müşteri için belirtilen cihaz toplu işleminde cihaz ve cihaz ayrıntıları koleksiyonu alma.
+description: Bir müşteri için belirtilen cihaz toplu işsinde cihaz koleksiyonunu ve cihaz ayrıntılarını alma.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 36fe3b97612adfd26c1b498f31b90f743bf774cb
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 28af1f568f755ba4c50cfac21529d6c677656c8e
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769550"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874270"
 ---
 # <a name="get-a-list-of-devices-for-the-specified-batch-and-customer"></a>Belirtilen toplu iş ve müşteri için cihazların bir listesini alma
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için destek
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-
-Bu makalede, belirli bir müşteri için belirtilen cihaz toplu işlemindeki cihazların bir koleksiyonunun nasıl alınacağını açıklanır. Her cihaz kaynağı cihaz hakkındaki ayrıntıları içerir.
+Bu makalede, belirtilen bir müşteri için belirtilen bir cihaz toplu iş içinde cihaz koleksiyonunun nasıl alın açıklanmıştır. Her cihaz kaynağı, cihazla ilgili ayrıntıları içerir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Bir cihaz toplu iş tanımlayıcısı.
+- Cihaz toplu iş tanımlayıcısı.
 
 ## <a name="c"></a>C\#
 
-Belirtilen müşteri için belirtilen cihaz toplu işlemindeki cihazların bir koleksiyonunu almak için:
+Belirtilen müşteri için belirtilen bir cihaz toplu iş içinde cihazların koleksiyonunu almak için:
 
-1. Belirtilen müşterideki işlemlere bir arabirim almak için, müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın.
+1. Belirtilen müşteri üzerinde işlemlere bir arabirim almak için müşteri kimliğiyle [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırma.
 
-2. Belirtilen toplu iş için cihaz toplu işlem koleksiyonu işlemlerine bir arabirim almak üzere [**devicebatch. Byıd**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) yöntemini çağırın.
+2. Belirtilen toplu iş için cihaz toplu toplama işlemlerine arabirim almak üzere [**DeviceBatches.ById**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatchcollection.byid) yöntemini çağırma.
 
-3. Batch için cihaz koleksiyonu işlemlerine bir arabirim almak üzere [**Devices**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) özelliğini alın.
+3. Toplu iş için cihaz toplama işlemlerine bir arabirim almak için [**Devices**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicesbatch.devices) özelliğini alın.
 
-4. Cihazların koleksiyonunu almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) yöntemini çağırın.
+4. Cihaz koleksiyonunu [**almak**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.get) [**için Get veya GetAsync**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.idevicecollection.getasync) yöntemini çağırma.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -53,17 +50,17 @@ var devices =
 
 Bir örnek için aşağıdakilere bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Iş ortağı MERKEZI SDK örnekleri**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **İş Ortağı Merkezi SDK'sı Örnekleri**
 - Sınıf: **GetDevices.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/devicebatches/{devicebatch-ID}/Devices http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/deviceBatches/{devicebatch-id}/devices HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
@@ -71,16 +68,16 @@ Bir örnek için aşağıdakilere bakın:
 
 | Ad           | Tür   | Gerekli | Açıklama                                           |
 |----------------|--------|----------|-------------------------------------------------------|
-| müşteri kimliği    | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
-| devicebatch kimliği | string | Yes      | Cihaz toplu işini tanımlayan bir dize tanımlayıcısı. |
+| customer-id    | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
+| devicebatch-id | string | Yes      | Cihaz toplu işlemini tanımlayan bir dize tanımlayıcısı. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -96,11 +93,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi [cihaz](device-deployment-resources.md#device) kaynaklarının Sayfalanmış bir koleksiyonunu içerir. Koleksiyonda bir sayfada 100 cihaz bulunur. 100 cihazlarındaki bir sonraki sayfayı almak için, yanıt gövdesinde continuationToken, sonraki isteğe bir MS-ContinuationToken üst bilgisi olarak eklenmelidir.
+Başarılı olursa, yanıt gövdesi Cihaz kaynaklarının sayfalı [bir koleksiyonunu](device-deployment-resources.md#device) içerir. Koleksiyon, bir sayfada 100 cihaz içerir. 100 cihazların sonraki sayfasını almak için yanıt gövdesinde continuationToken, sonraki istekte bir üst bilgi olarak MS-ContinuationToken gerekir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

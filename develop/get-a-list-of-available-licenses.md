@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: f675e5b96b2f2040d662c0dc7f1e06625f267689
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 02a6fccc2cf7f3f4dc929b96ec0f17e0f4a31b06
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769545"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874508"
 ---
 # <a name="get-a-list-of-available-licenses"></a>Kullanılabilir lisansların bir listesini alma
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Bu makalede, belirtilen müşterinin kullanıcılarına sunulan lisansların bir listesini alma açıklanmaktadır.
 
@@ -49,8 +45,8 @@ var customerUserSubscribedSkus = partnerOperations.Customers.ById(selectedCustom
 Bir örnek için aşağıdakilere bakın:
 
 - Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Iş ortağı MERKEZI SDK örnekleri**
-- Sınıf: **GetCustomerSubscribedSkus.cs**
+- Project: **iş ortağı merkezi SDK örnekleri**
+- Sınıf: **GetCustomerSubscribedSkus. cs**
 
 ## <a name="rest-request"></a>REST isteği
 

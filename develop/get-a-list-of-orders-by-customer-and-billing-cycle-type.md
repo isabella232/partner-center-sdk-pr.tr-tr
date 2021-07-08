@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 43fe08b0791851f915e2b39a25394db5ffd022ca
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: c52a556887dba065c4ccd1a82d6223624d0ad1f2
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769538"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874236"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>Müşteri ve faturalandırma dönem türüne göre siparişlerin bir listesini alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Belirli bir müşteriye ve faturalandırma dönem türüne karşılık gelen sipariş kaynakları koleksiyonunu alır. Bir siparişin gönderildiği ve müşterinin siparişlerinin koleksiyonunda görüneceği zaman arasında 15 dakikaya varan bir gecikme vardır.
 

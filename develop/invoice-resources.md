@@ -1,72 +1,67 @@
 ---
 title: Fatura kaynakları
-description: Iş Ortağı Merkezi API 'Leri aracılığıyla birden fazla faturaya yönelik kaynak mevcuttur. Bu kaynaklar, fatura ve satır öğesi ayrıntıları ile ilgilidir.
+description: Faturayla ilgili birden çok kaynak, İş Ortağı Merkezi kullanılabilir. Bu kaynaklar fatura ve satır öğesi ayrıntılarıyla ilgilidir.
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8977b3b649cd930bb517965572d0efe51d6985a0
-ms.sourcegitcommit: 4ec053c56fd210b174fe657aa7b86faf4e2b5a7c
+ms.openlocfilehash: b07b7ad14c136eac988eeb12391c24a6cf996b39
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "105730229"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548439"
 ---
 # <a name="invoice-resources"></a>Fatura kaynakları
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Aşağıdaki faturaya ilişkin kaynaklar Iş Ortağı Merkezi API 'Leri aracılığıyla kullanılabilir.
+Faturayla ilgili aşağıdaki kaynaklar, fatura API'leri İş Ortağı Merkezi kullanılabilir.
 
 ## <a name="invoice"></a>Fatura
 
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | kimlik | string | Fatura tanımlayıcısı. |
-| InvoiceDate | UTC Tarih-saat biçiminde dize | Faturanın oluşturulduğu tarih. |
-| billingPeriodStartDate | UTC Tarih-saat biçiminde dize | Fatura dönemi başlangıç tarihi (UTC). |
-| billingPeriodEndDate | UTC Tarih-saat biçiminde dize   | Fatura dönemi bitiş tarihi (UTC). |
-| Toplam ücretler | sayı | Toplam ücretler. İşlemler ve ayarlamalar için ücretler içerir.     |
-| Paidadmount | sayı  | İş ortağı tarafından ödenen miktar. Ödeme alınmışsa negatif.  |
-| currencyCode | string  | Tüm fatura öğesi miktarları ve toplamları için kullanılan para birimini belirten kod. |
-| currencySymbol  | string | Tüm fatura öğesi tutarları ve toplamları için kullanılan para birimi simgesi. |
-| pdfDownloadLink | string  | Faturayı PDF biçiminde indirmek için bir bağlantı. Bu bağlantı, arama sonuçlarının bir parçası olarak döndürülmez ve yalnızca faturaya KIMLIĞE göre erişildiğinde doldurulur. Bu bağlantı, 30 dakika içinde otomatik olarak sona erer. |
-| InvoiceDetails  | [InvoiceDetail](#invoicedetail) nesneleri dizisi  | Fatura Ayrıntıları.  |
-| siparişlerinde      | [Fatura](#invoice) nesneleri dizisi   | Bu faturaya düzeltme.  |
-| documentType    | string | Faturanın belge türü: "Kredi dekontu", "fatura". |
-| Düzeltme        | string | Bu belgenin bir düzeltme olduğu belgenin başvuru numarası.  |
-| Faturano Etype     | string  | Faturanın türü: "yinelenen", "bir \_ kez".   |
-| Köprü           | [Resourcelmürekkepler](utility-resources.md#resourcelinks)  | Kaynak bağlantıları.  |
-| öznitelikler      | [ResourceAttributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.  |
+| invoiceDate | UTC tarih-saat biçiminde dize | Faturanın oluşturulma tarihi. |
+| billingPeriodStartDate | UTC tarih-saat biçiminde dize | UTC olarak faturalama dönemi başlangıç tarihi. |
+| billingPeriodEndDate | UTC tarih-saat biçiminde dize   | UTC olarak faturalama dönemi bitiş tarihi. |
+| totalCharges | sayı | Toplam ücretler. İşlemler ve tüm ayarlamalar için ücretleri içerir.     |
+| paidAmount | sayı  | İş ortağı tarafından ödenen tutar. Ödeme alındı ise negatif.  |
+| currencyCode | string  | Tüm fatura öğesi tutarları ve toplamları için kullanılan para birimini gösteren bir kod. |
+| Currencysymbol  | string | Tüm fatura öğesi tutarları ve toplamları için kullanılan para birimi simgesi. |
+| pdfDownloadLink | string  | Faturayı PDF biçiminde indirme bağlantısı. Bu bağlantı arama sonuçlarının bir parçası olarak döndürülz ve yalnızca faturaya kimlikle erişilirse doldurulur. Bu bağlantının süresi 30 dakika içinde otomatik olarak dolar. |
+| invoiceDetails  | [InvoiceDetail nesneleri](#invoicedetail) dizisi  | Fatura ayrıntıları.  |
+| Değişiklik      | Invoice [nesneleri](#invoice) dizisi   | Bu faturada yapılan değişiklikler.  |
+| Documenttype    | string | Faturanın belge türü: "Kredi Notu", "Fatura". |
+| amendsOf        | string | Bu belgenin bir değişiklik olduğu belgenin başvuru numarası.  |
+| invoiceType     | string  | Fatura türü: "yinelenen", "bir \_ kez".   |
+| Bağlantı           | [ResourceLinks](utility-resources.md#resourcelinks)  | Kaynak bağlantıları.  |
+| öznitelikler      | [Resourceattributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.  |
 
 ## <a name="invoicedetail"></a>InvoiceDetail
 
-Fatura, faturalanan öğelerin bir koleksiyonunu içerir ve her öğe bir InvoiceDetail kaynağıyla temsil edilir.
+Fatura, faturalanmış öğelerden bir koleksiyon içerir ve her öğe bir InvoiceDetail kaynağıyla temsil edilen bir koleksiyondur.
 
 | Özellik            | Tür                                                           | Açıklama                                                                       |
 |---------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| Faturadan Elineıtemtype | string                                                         | Fatura ayrıntısı türü: "none", "kullanım \_ satırı \_ öğeleri", "Faturalandırma \_ satırı \_ öğeleri". |
-| billingProvider     | string                                                         | Faturalandırma sağlayıcısı: "none", "Office", "Azure" veya "Azure \_ veri \_ marketi".         |
-| Köprü               | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Kaynak bağlantıları.                                                               |
-| öznitelikler          | [ResourceAttributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.                                                          |
+| invoiceLineItemType | string                                                         | Fatura ayrıntısı türü: "none", "usage \_ line \_ items", "billing \_ line \_ items". |
+| billingProvider     | string                                                         | Faturalama sağlayıcısı: "none", "office", "azure" veya "azure \_ \_ data market".         |
+| Bağlantı               | [ResourceLinks](utility-resources.md#resourcelinks)           | Kaynak bağlantıları.                                                               |
+| öznitelikler          | [Resourceattributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.                                                          |
 
-## <a name="invoicelineitem"></a>Faturadan, Elinei öğe
+## <a name="invoicelineitem"></a>InvoiceLineItem
 
-Bir faturadaki her bir ücret, bir fatura Elinei olarak temsil edilir.
+Bir fatura içindeki her bireysel ücret InvoiceLineItem olarak temsil edilecektir.
 
 | Özellik            | Tür                                                           | Açıklama                                                                          |
 |---------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
-| Faturadan Elineıtemtype | string                                                         | Fatura satır öğesi türü: "none", "kullanım \_ satırı \_ öğeleri", "Faturalandırma \_ satırı \_ öğeleri". |
-| billingProvider     | string                                                         | Faturalandırma sağlayıcısı: "none", "Office", "Azure" veya "Azure \_ veri \_ marketi".            |
-| öznitelikler          | [ResourceAttributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.                                                             |
+| invoiceLineItemType | string                                                         | Fatura satırı öğesinin türü: "none", "usage \_ line \_ items", "billing \_ line \_ items". |
+| billingProvider     | string                                                         | Faturalama sağlayıcısı: "none", "office", "azure" veya "azure \_ \_ data market".            |
+| öznitelikler          | [Resourceattributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.                                                             |
 
-## <a name="invoicesummary"></a>Faturalaresummary
+## <a name="invoicesummary"></a>InvoiceSummary
 
-Bir faturanın bakiye ve toplam ücretlerine ilişkin bir Özet açıklanır.
+Bakiyenin özetini ve bir faturanın toplam ücretlerini açıklar.
 
 | Özellik                 | Tür                                                           | Açıklama                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
@@ -118,87 +113,87 @@ Lisanslı tabanlı abonelikler için fatura fatura satırı maddesini temsil ede
 | Etki               | string                                                         | Etki alanı adını alır veya ayarlar.                                             |
 | Durableofferıd           | string                                                         | Dayanıklı teklif benzersiz tanımlayıcısını alır veya ayarlar.                     |
 | Faturadan Elineıtemtype      | string                                                         | Fatura satırı öğesinin türünü alır.                                   |
-| Mpnıd                    | sayı                                                         | Bu satır öğesiyle ilişkili MPN KIMLIĞINI alır veya ayarlar. Doğrudan satıcılar için bu, satıcının MPN kimliğidir. Dolaylı satıcılar için, bu değer eklenen satıcı (VAR), MPN KIMLIĞIDIR.                                   |
-| OfferId                  | string                                                         | Teklifin benzersiz tanımlayıcısını alır veya ayarlar.                             |
+| Mpnıd                    | sayı                                                         | Bu satır öğesiyle ilişkili MPN KIMLIĞINI alır veya ayarlar. Doğrudan satıcılar için bu, satıcının MPN KIMLIĞIDIR. Dolaylı kurumsal bayiler için bu Değer Eklenmiş Kurumsal Bayinin (VAR) MPN Kimliğidir.                                   |
+| offerId                  | string                                                         | Teklif benzersiz tanımlayıcısını alır veya ayarlar.                             |
 | offerName                | string                                                         | Teklif adını alır veya ayarlar.                                          |
-| Sipariş                  | string                                                         | Sıra benzersiz tanımlayıcısını alır veya ayarlar.                             |
-| iş ortağı kimliği                | string                                                         | İş ortağı Azure Active Directory kiracı KIMLIĞINI alır veya ayarlar.            |
+| Siparişno                  | string                                                         | Sipariş benzersiz tanımlayıcısını alır veya ayarlar.                             |
+| partnerId                | string                                                         | İş ortağı Azure Active Directory kiracı kimliğini alır veya ayarlar.            |
 | miktar                 | sayı                                                         | Bu satır öğesiyle ilişkili birim sayısını alır veya ayarlar.      |
-| Abonelik açıklaması  | string                                                         | Abonelik açıklamasını alır veya ayarlar.                            |
-| subscriptionEndDate      | UTC Tarih-saat biçiminde dize                                 | Aboneliğin süresi dolduğunda tarihi alır veya ayarlar.                      |
+| subscriptionDescription  | string                                                         | Abonelik açıklamasını alır veya ayarlar.                            |
+| subscriptionEndDate      | UTC tarih-saat biçiminde dize                                 | Aboneliğin süresinin dolma tarihini alır veya ayarlar.                      |
 | subscriptionId           | string                                                         | Abonelik benzersiz tanımlayıcısını alır veya ayarlar.                      |
 | subscriptionName         | string                                                         | Abonelik adını alır veya ayarlar.                                   |
-| subscriptionStartDate    | UTC Tarih-saat biçiminde dize                                 | Aboneliğin başladığı tarihi alır veya ayarlar.                   |
-| Dikçe                 | sayı                                                         | İndirimden sonra tutarı alır veya ayarlar.                               |
-| syndicationPartnerSubscriptionNumber | string                                             | Dağıtım ortağı abonelik numarasını alır veya ayarlar.             |
-| VERG                      | sayı                                                         | Ücretlendirilen vergileri alır veya ayarlar.                                       |
-| tier2MpnId               | sayı                                                         | Bu satır öğesiyle ilişkili katman 2 ortağının MPN KIMLIĞINI alır veya ayarlar. |
-| totalForCustomer         | sayı                                                         | İskontoların ve verginin toplam miktarını alır veya ayarlar.                 |
-| totalOtherDiscount       | sayı                                                         | Bu satınalmayla ilişkili iskontoyu alır veya ayarlar.              |
-| unitPrice                | sayı                                                         | Birim fiyatını alır veya ayarlar.                                          |
+| subscriptionStartDate    | UTC tarih-saat biçiminde dize                                 | Aboneliğin başladığı tarihi alır veya ayarlar.                   |
+| Alt toplam                 | sayı                                                         | İndirimden sonra tutarı alır veya ayarlar.                               |
+| syndicationPartnerSubscriptionNumber | string                                             | Dağıtım iş ortağı abonelik numarasını alır veya ayarlar.             |
+| Vergi                      | sayı                                                         | Tahsil edilecek vergileri alır veya ayarlar.                                       |
+| tier2MpnId               | sayı                                                         | Bu satır öğesiyle ilişkili Katman 2 iş ortağının MPN kimliğini alır veya ayarlar. |
+| totalForCustomer         | sayı                                                         | İndirim ve vergiden sonra toplam tutarı alır veya ayarlar.                 |
+| totalOtherDiscount       | sayı                                                         | Bu satın alma ile ilişkili indirimi alır veya ayarlar.              |
+| unitPrice                | sayı                                                         | Birim fiyatı alır veya ayarlar.                                          |
 
-## <a name="usagebasedlineitem"></a>Usagebasedlineıtem
+## <a name="usagebasedlineitem"></a>UsageBasedLineItem
 
-Kullanım tabanlı abonelikler için bir fatura faturalama satırı öğesini temsil eder.
+Kullanım tabanlı abonelikler için fatura faturalama satırı öğesini temsil eder.
 
 | Özellik                 | Tür                                                           | Açıklama                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | öznitelikler               | string                                                         | Öznitelikleri alır.                                                  |
-| billingCycleType         | string                                                         | Faturalandırma dönem türünü alır veya ayarlar.                                  |
-| billingProvider          | string                                                         | Faturalandırma sağlayıcısını alır.                                            |
-| chargeEndDate            | UTC Tarih-saat biçiminde dize                                 | Ücret için bitiş tarihini alır veya ayarlar.                             |
-| chargeStartDate          | UTC Tarih-saat biçiminde dize                                 | Ücret için başlangıç tarihini alır veya ayarlar.                           |
+| billingCycleType         | string                                                         | Faturalama döngüsü türünü alır veya ayarlar.                                  |
+| billingProvider          | string                                                         | Faturalama sağlayıcısını alır.                                            |
+| chargeEndDate            | UTC tarih-saat biçiminde dize                                 | Ücretin bitiş tarihini alır veya ayarlar.                             |
+| chargeStartDate          | UTC tarih-saat biçiminde dize                                 | Ücretin başlangıç tarihini alır veya ayarlar.                           |
 | chargeType               | string                                                         | Ücret türünü alır veya ayarlar.                                      |
-| consumedQuantity         | sayı                                                         | Tüketilen toplam birim sayısını alır veya ayarlar.                                |
-| Sarf Mptiondiscount      | string                                                         | Tüketim indirimi alır veya ayarlar.                             |
-| Tüketimptionprice         | string                                                         | Tüketilen miktarın fiyatını alır veya ayarlar.                          |
+| consumedQuantity         | sayı                                                         | Tüketilen toplam birimleri alır veya ayarlar.                                |
+| consumptionDiscount      | string                                                         | Tüketimde indirimi alır veya ayarlar.                             |
+| consumptionPrice         | string                                                         | Tüketilen miktarın fiyatını alır veya ayarlar.                          |
 | currency                 | string                                                         | Fiyatlarla ilişkili para birimini alır veya ayarlar.                 |
-| customerName             | string                                                         | Müşteri adını alır veya ayarlar.                                       |
-| customerId               | string                                                         | Müşterinin benzersiz tanımlayıcısını alır veya ayarlar.                          |
-| Detaillineıtemıd         | sayı                                                         | Ayrıntı satırı öğe KIMLIĞINI alır veya ayarlar. Hesaplamanın tüketilen birimlerde farklı olduğu durumlarda satır öğelerini benzersiz şekilde tanımlar. Örnek: tüketilen toplam = 1338, 1024 tek bir oran ile ücretlendirilir, 314 farklı bir oran ile ücretlendirilir.        |
-| Etki               | string                                                         | Etki alanı adını alır veya ayarlar.                                             |
-| includedQuantity         | sayı                                                         | Sırada bulunan birimleri alır veya ayarlar.                         |
-| Faturadan Elineıtemtype      | string                                                         | Fatura satırı öğesinin türünü alır.                                   |
-| Faturanumarası            | string                                                         | Fatura numarasını alır veya ayarlar.                                      |
-| listPrice                | sayı                                                         | Her bir birimin fiyatını alır veya ayarlar.                                  |
-| Mpnıd                    | sayı                                                         | Bu satır öğesiyle ilişkili MPN KIMLIĞINI alır veya ayarlar. Doğrudan satıcılar için bu, satıcının MPN KIMLIĞIDIR. Dolaylı satıcılar için, bu değer eklenen satıcı (VAR), MPN KIMLIĞIDIR.                                   |
-| Sipariş                  | string                                                         | Sıra benzersiz tanımlayıcısını alır veya ayarlar.                             |
-| Fazla Agemiktarı          | sayı                                                         | İzin verilen kullanım üzerinde tüketilen miktarı alır veya ayarlar.               |
-| Partnerbillableaccountıd | string                                                         | İş ortağı faturalandırılabilir hesap KIMLIĞINI alır veya ayarlar.                         |
-| iş ortağı kimliği                | string                                                         | İş ortağı Azure Active Directory kiracı KIMLIĞINI alır veya ayarlar.            |
-| partnerName              | string                                                         | Ortağın adını alır veya ayarlar.                                      |
-| postTaxEffectiveRate     | sayı                                                         | Vergiler sonrasında geçerli fiyatı alır veya ayarlar.                         |
-| postTaxTotal             | sayı                                                         | Vergi sonrası toplam ücretleri alır veya ayarlar. Ön vergi ücretleri + vergi tutarı |
-| preTaxCharges            | sayı                                                         | Vergiler üzerinden ücretlendirildiğiniz fiyatı alır veya ayarlar.                          |
-| preTaxEffectiveRate      | sayı                                                         | Vergi öncesi geçerlilik fiyatını alır veya ayarlar.                        |
+| Müşteriadı             | string                                                         | Müşteri adını alır veya ayarlar.                                       |
+| customerId               | string                                                         | Müşteri benzersiz tanımlayıcısını alır veya ayarlar.                          |
+| detailLineItemId         | sayı                                                         | Ayrıntı satırı öğesi kimliğini alır veya ayarlar. Hesaplamanın tüketilen birimler için farklı olduğu durumlar için satır öğelerini benzersiz olarak tanımlar. Örnek: Tüketilen toplam = 1338, 1024 tek bir ücretle ücret, 314 ise farklı bir ücretle ücrete tabidir.        |
+| Etkialanıadı               | string                                                         | Etki alanı adını alır veya ayarlar.                                             |
+| includedQuantity         | sayı                                                         | Siparişe dahil edilen birimleri alır veya ayarlar.                         |
+| invoiceLineItemType      | string                                                         | Fatura satırı öğesinin türünü alır.                                   |
+| invoiceNumber            | string                                                         | Fatura numarasını alır veya ayarlar.                                      |
+| Listprice                | sayı                                                         | Her birimin fiyatını alır veya ayarlar.                                  |
+| mpnId                    | sayı                                                         | Bu satır öğesiyle ilişkili MPN kimliğini alır veya ayarlar. Doğrudan kurumsal bayiler için bu, kurumsal bayinin MPN kimliğidir. Dolaylı kurumsal bayiler için bu Değer Eklenmiş Kurumsal Bayinin (VAR) MPN Kimliğidir.                                   |
+| Siparişno                  | string                                                         | Sipariş benzersiz tanımlayıcısını alır veya ayarlar.                             |
+| overageQuantity          | sayı                                                         | İzin verilen kullanımın üzerinde tüketilen miktarı alır veya ayarlar.               |
+| partnerBillableAccountId | string                                                         | İş ortağı faturalanabilir hesap kimliğini alır veya ayarlar.                         |
+| partnerId                | string                                                         | İş ortağı Azure Active Directory kiracı kimliğini alır veya ayarlar.            |
+| partnerName              | string                                                         | İş ortağının adını alır veya ayarlar.                                      |
+| postTaxEffectiveRate     | sayı                                                         | Vergilerden sonra geçerli fiyatı alır veya ayarlar.                         |
+| postTaxTotal             | sayı                                                         | Vergi sonrasındaki toplam ücretleri alır veya ayarlar. Vergi Öncesi Ücretler + Vergi Tutarı |
+| preTaxCharges            | sayı                                                         | Vergilerden önce ücret tahsil edilecek fiyatı alır veya ayarlar.                          |
+| preTaxEffectiveRate      | sayı                                                         | Vergilerden önce geçerli fiyatı alır veya ayarlar.                        |
 | region                   | string                                                         | Kaynak örneğiyle ilişkili bölgeyi alır veya ayarlar.        |
 | resourceGuid             | string                                                         | Kaynak tanımlayıcısını alır veya ayarlar.                                 |
-| resourceName             | string                                                         | Kaynak adını alır veya ayarlar. Örnek: veritabanı (GB/ay).         |
-| HizmetAdı              | string                                                         | Hizmet adını alır veya ayarlar. Örnek: Azure Data Service.           |
-| Türü              | string                                                         | Hizmet türünü alır veya ayarlar. Örnek: Azure SQL Azure DB.           |
-| isteyin                      | string                                                         | Hizmet SKU 'sunu alır veya ayarlar.                                         |
-| Abonelik açıklaması  | string                                                         | Abonelik açıklamasını alır veya ayarlar.                            |
+| resourceName             | string                                                         | Kaynak adını alır veya ayarlar. Örnek: Veritabanı (GB/ay).         |
+| Hizmetadı              | string                                                         | Hizmet adını alır veya ayarlar. Örnek: Azure Veri Hizmeti.           |
+| Servicetype              | string                                                         | Hizmet türünü alır veya ayarlar. Örnek: Azure SQL Azure DB.           |
+| Sku                      | string                                                         | Hizmet SKU'larını alır veya ayarlar.                                         |
+| subscriptionDescription  | string                                                         | Abonelik açıklamasını alır veya ayarlar.                            |
 | subscriptionId           | string                                                         | Abonelik benzersiz tanımlayıcısını alır veya ayarlar.                      |
 | subscriptionName         | string                                                         | Abonelik adını alır veya ayarlar.                                   |
-| taxAmount                | sayı                                                         | Ücretlendirilen vergi miktarını alır veya ayarlar.                               |
-| tier2MpnId               | sayı                                                         | Bu satır öğesiyle ilişkili katman 2 ortağının MPN KIMLIĞINI alır veya ayarlar. |
+| taxAmount                | sayı                                                         | Ücret tahsil edilecek vergi miktarını alır veya ayarlar.                               |
+| tier2MpnId               | sayı                                                         | Bu satır öğesiyle ilişkili Katman 2 iş ortağının MPN kimliğini alır veya ayarlar. |
 | unit                     | string                                                         | Azure kullanımı için ölçü birimini alır veya ayarlar.                     |
 
-## <a name="invoicestatement"></a>Faturalarestatement
+## <a name="invoicestatement"></a>InvoiceStatement
 
-Application/PDF içindeki bir fatura bildiriminde kullanılabilir olan işlemleri temsil eder.
+Application/pdf'de bir fatura deyiminde kullanılabilen işlemleri temsil eder.
 
 | Özellik                 | Tür                                                           | Açıklama                                                           |
 |--------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
-| httpResponseMessage      | object                                                         | ContentType = Application/PDF ile ByteArrayContent.                  |
+| httpResponseMessage      | object                                                         | contentType = application/pdf ile ByteArrayContent.                  |
 
-## <a name="onetimeinvoicelineitem"></a>Onetimeınvotınon öğesi
+## <a name="onetimeinvoicelineitem"></a>OneTimeInvoiceLineItem
 
-Lisanslı abonelikler için fatura fatura satırı öğesini temsil eder.
+Lisanslı abonelikler için fatura faturalama satırı öğesini temsil eder.
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| İş ortağı kimliği | string | İş ortağı kiracı KIMLIĞINI alır veya ayarlar. |
+| PartnerId | string | İş ortağı kiracı KIMLIĞINI alır veya ayarlar. |
 | CustomerId | string | Müşteri kiracı KIMLIĞINI alır veya ayarlar. |
 | CustomerName | string | Müşteri adını alır veya ayarlar. |
 | CustomerDomainName | string | Müşteri etki alanı adını alır veya ayarlar. |
@@ -271,35 +266,35 @@ Günlük olarak derecelendirilen kullanım için faturalandırılmamış, fatura
 | MeterId | string | Ölçüm KIMLIĞINI (GUID) alır veya ayarlar. |
 | MeterSubCategory | string | Ölçüm alt kategorisini alır veya ayarlar. |
 | MeterName | string | Ölçüm adını alır veya ayarlar. |
-| MeterRegion | string | Ölçüm bölgesini alır veya ayarlar. |
+| MeterRegion | string | Ölçüm bölgelerini alır veya ayarlar. |
 | UnitOfMeasure | string | Ölçü birimini alır veya ayarlar. |
 | ResourceLocation | string | Kaynağın konumunu alır veya ayarlar. |
 | ConsumedService | string | Tüketilen hizmet adını alır veya ayarlar. |
 | adlı yönetilen örnek, | string | Kaynak grubunun adını alır veya ayarlar. |
-| ResourceUri | string | Kullanımın ilgili olduğu kaynak örneğinin URI 'sini alır veya ayarlar. |
-| Etiketler | string | Müşterinin eklediği etiketleri alır veya ayarlar. |
+| ResourceUri | string | Kullanımın ilgili olduğu kaynak örneğinin uri'lerini alır veya ayarlar. |
+| Etiketler | string | Müşterinin ekli etiketlerini alır veya ayarlar. |
 | AdditionalInfo | string | Hizmete özgü meta verileri alır veya ayarlar. Örneğin, sanal makinenin görüntü türü. |
-| ServiceInfo1 | string | İç Azure hizmeti meta verilerini alır veya ayarlar. |
-| ServiceInfo2 | string | ExpressRoute için bir sanal makine ve ISS adı için görüntü türü gibi hizmet bilgilerini alır veya ayarlar. |
-| CustomerCountry | string | Müşterinin ülkesini alır veya ayarlar. |
-| Mpnıd | string | Bu satır öğesiyle ilişkili MPN KIMLIĞINI alır veya ayarlar. |
-| Resellermpnıd | string | Bu satır öğesiyle ilişkili katman 2 ortağının satıcı MPN KIMLIĞINI alır veya ayarlar. |
+| ServiceInfo1 | string | İç Azure Hizmeti Meta Verilerini alır veya ayarlar. |
+| ServiceInfo2 | string | Sanal makine için bir görüntü türü ve ExpressRoute için ISS adı gibi hizmet bilgilerini alır veya ayarlar. |
+| CustomerCountry | string | Müşterinin ülkelerini alır veya ayarlar. |
+| MpnId | string | Bu satır öğesiyle ilişkili MPN kimliğini alır veya ayarlar. |
+| ResellerMpnId | string | Bu satır öğesiyle ilişkili Katman 2 iş ortağının Kurumsal Bayi MPN Kimliğini alır veya ayarlar. |
 | ChargeType | string | Ücret türünü alır veya ayarlar. |
 | UnitPrice | decimal | Birim fiyatını alır veya ayarlar. |
 | Miktar | decimal | Kullanım miktarını alır veya ayarlar. |
-| UnitType | string | Birim türünü alır veya ayarlar (örneğin, 1 saat). |
-| BillingPreTaxTotal | decimal | Müşterinin veya faturalandırma para biriminin yerel para birimindeki vergi öncesine ait genişletilmiş maliyeti veya toplam maliyeti alır veya ayarlar. |
-| BillingCurrency | string | Ölçerin, müşterinin veya faturalandırma para biriminin yerel para birimiyle ücretlendirilildiği ISO para birimini alır veya ayarlar. |
-| PricingPreTaxTotal | decimal | KDV veya değerlendirme için kullanılan Katalog para birimi cinsinden vergi öncesi genişletilmiş maliyeti veya toplam maliyeti alır veya ayarlar. |
-| PricingCurrency | string | Ölçümün, derecelendirme için kullanılan ABD Doları veya katalog para birimi cinsinden ücretlendirilildiği ISO para birimini alır veya ayarlar. |
-| EntitlementId | string | Yetkilendirme (Azure aboneliği) KIMLIĞINI alır veya ayarlar. |
+| Unittype | string | Birim türünü alır veya ayarlar (örneğin 1 saat). |
+| BillingPreTaxTotal | decimal | Müşterinin veya faturalama para biriminin yerel para birimiyle vergiden önce genişletilmiş maliyeti veya toplam maliyeti alır veya ayarlar. |
+| BillingCurrency | string | Ölçümün müşterinin veya faturalama para biriminin yerel para birimiyle ücret ödemesi yapılan ISO para birimini alır veya ayarlar. |
+| PricingPreTaxTotal | decimal | Abd doları cinsinden veya derecelendirme için kullanılan katalog para birimi cinsinden vergiden önce genişletilmiş maliyeti veya toplam maliyeti alır veya ayarlar. |
+| PricingCurrency | string | Ölçümün ABD doları cinsinden veya derecelendirme için kullanılan katalog para birimi cinsinden ücret ödemesi yapılan ISO para birimini alır veya ayarlar. |
+| EntitlementId | string | Yetkilendirme (Azure aboneliği) kimliğini alır veya ayarlar. |
 | EntitlementDescription | string | Yetkilendirme (Azure aboneliği) açıklamasını alır veya ayarlar. |
-| PCToBCExchangeRate | string | Ödeme para birimi döviz kurundaki fiyatlandırma para birimini alır veya ayarlar. |
-| PCToBCExchangeRateDate | DateTime | Ödeme para birimi döviz kuru tarihine yönelik fiyatlandırma para birimini alır veya ayarlar. |
-| Efekt, BirimFiyat | decimal | Geçerli birim fiyatını alır veya ayarlar. |
-| Rateofpartnerearnedkrediyi | decimal | İş ortağı kazanılmış kredisi oranını alır veya ayarlar. |
-| Haspartnerearnedkrediyi | bool | İş ortağı kazanılmış krediyi alır veya ayarlar. |
-| Rateofkrediyi | decimal | Verilen kredi türü için kredi oranını alır veya ayarlar. |
+| PCToBCExchangeRate | string | Fiyatlandırma para birimini alır veya faturalama para birimi döviz kuruna ayarlar. |
+| PCToBCExchangeRateDate | DateTime | Fiyatlandırma para birimini faturalama para birimi döviz kuru tarihine alır veya ayarlar. |
+| EffectiveUnitPrice | decimal | Geçerli birim fiyatını alır veya ayarlar. |
+| RateOfPartnerEarnedCredit | decimal | İş ortağı tarafından kazanılan kredi oranını alır veya ayarlar. |
+| HasPartnerEarnedCredit | bool | Alır veya kümeler iş ortağı tarafından kazanılan kredi uygulanır. |
+| RateOfCredit | decimal | Verilen kredi türü için kredi oranını alır veya ayarlar. |
 | CreditType | string | Kredi türünü alır veya ayarlar. |
-| Faturadan Elineıtemtype | Faturadan Elineıtemtype | Fatura çizgisi öğesinin türünü döndürür. |
-| BillingProvider | BillingProvider | Faturalandırma sağlayıcısını döndürür. |
+| InvoiceLineItemType | InvoiceLineItemType | Fatura satırı öğesinin türünü döndürür. |
+| BillingProvider | BillingProvider | Faturalama sağlayıcısını döndürür. |

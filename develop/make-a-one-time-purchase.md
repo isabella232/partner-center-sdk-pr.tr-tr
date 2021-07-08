@@ -4,19 +4,16 @@ description: Iş Ortağı Merkezi API 'sini kullanarak yazılım abonelikleri, k
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 17a5f5c1e845ba36a94d7ce909df30e0146ba448
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 1ca2d5b7ad6ba1196d74a8cdb748ab808192d569
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768902"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548388"
 ---
 # <a name="make-a-one-time-purchase"></a>Tek seferlik satın alım yapma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Iş Ortağı Merkezi API 'sini kullanarak yazılım abonelikleri, kalıcı yazılımlar ve Azure ayrılmış sanal makine (VM) örnekleri gibi yazılım ve rezervasyon ürünlerini tek seferlik satın alma.
 
@@ -178,4 +175,4 @@ Belirli bir fatura KIMLIĞI için fatura satırı öğe ayrıntılarının (muta
 
 ### <a name="download-an-invoice-as-a-pdf"></a>Bir faturayı PDF olarak indirme
 
-Fatura KIMLIĞI kullanarak PDF formundaki fatura ekstresini almak için bkz. [Fatura alma ekstresi](get-invoice-statement.md).
+Fatura kimliği kullanarak PDF formunda fatura deyimi almak için bkz. [Fatura deyimi alma.](get-invoice-statement.md)

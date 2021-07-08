@@ -6,18 +6,14 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 5092bc73107231d602c1465c8d157cdf5499c913
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: de59dfccf723c8f2411d9dadc51beb88688d5b02
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769556"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874525"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>Lisans grubuna göre kullanılabilir lisansların bir listesini alma
-
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
 
 Belirtilen lisans gruplarına yönelik lisansların bir listesini, belirtilen müşterinin kullanıcıları tarafından kullanılabilir.
 
@@ -67,7 +63,7 @@ Müşteriyi ve lisans gruplarını tanımlamak için aşağıdaki yolu ve sorgu 
 | Ad            | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | müşteri kimliği     | string | Yes      | Müşteriyi tanımlayan GUID biçimli dize.                                                                                                                                                                                                                 |
-| Licensegroupıds | dize | No       | Atanan lisansların lisans grubunu gösteren bir sabit listesi değeri. Geçerli değerler: grup1, grup2 grup1-bu grubun lisansı Azure Active Directory (AAD) içinde yönetilebilecek tüm ürünler vardır. Grup2-bu grup yalnızca Minecrat ürün lisanslarına sahiptir. |
+| Licensegroupıds | dize | No       | Atanan lisansların lisans grubunu gösteren bir sabit listesi değeri. Geçerli değerler: grup1, grup2 grup1-bu grubun lisansı Azure Active Directory (AAD) içinde yönetilebilecek tüm ürünler vardır. grup2-bu grubun yalnızca ürün lisansları Minecraft. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

@@ -6,18 +6,16 @@ ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 43b1e3d4a6220ac8adba8eed0389395113072288
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9a367f912669114969f8792a5afcc7020af1112e
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768752"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760513"
 ---
 # <a name="get-app-and-user-api-requests"></a>Uygulama ve Kullanıcı API 'SI isteklerini al
 
-Aşağıdakiler cihazlar için geçerlidir:
-
-- İş Ortağı Merkezi API’si
+**Uygulama hedefi**: Iş Ortağı Merkezi API
 
 Bu makalede REST API 'Leri kullanarak bir kiracının içindeki tüm iş ortağı kullanıcı isteklerinin listesinin nasıl alınacağı açıklanmaktadır.
 
@@ -38,7 +36,7 @@ Bu makalede REST API 'Leri kullanarak bir kiracının içindeki tüm iş ortağ�
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üst bilgileri](headers.md) .
+- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 

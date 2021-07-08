@@ -1,28 +1,23 @@
 ---
 title: Faturalandırmayı yönetme
-description: Bu bölümde, bulut çözümü sağlayıcısı iş ortaklarının, faturalarını programlı olarak görüntüleyip yönetmek için Iş ortağı merkezini kullanma ve müşterilerin bir Azure harcama bütçesine karşı ilerlemesini görüntüleme yolları açıklanmaktadır.
+description: bu bölümde Bulut Çözümü Sağlayıcısı iş ortaklarının, faturalarını programlı bir şekilde görüntüleyip yönetmek ve müşterilerinin bir Azure harcama bütçesine karşı ilerlemesini görüntülemek için iş ortağı merkezini kullanma yolları açıklanmaktadır.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 4d5995ea2abb5968c5ca459b8412b12dfdbbc47b
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: eaf6a426d0702130f31f08a4a30ccdfa00810270
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769491"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548371"
 ---
 # <a name="manage-billing"></a>Faturalandırmayı yönetme
 
-**Uygulama hedefi**
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bu bölümde, bulut çözümü sağlayıcısı iş ortaklarının, faturalarını programlı bir şekilde görüntüleyip yönetmek ve müşterilerinin bir Azure harcama bütçesine karşı ilerlemesini görüntülemek için Iş Ortağı Merkezi 'ni kullanma yolları açıklanmaktadır.
+bu bölümde Bulut Çözümü Sağlayıcısı iş ortaklarının, faturalarını programlı bir şekilde görüntüleyip yönetmek ve müşterilerinin bir Azure harcama bütçesine karşı ilerlemesini görüntülemek için iş ortağı merkezi 'ni kullanma yolları açıklanmaktadır.
 
 **Faturalama çevrimi:**
 - [Fatura döngüsünü değiştirme](change-the-billing-cycle.md)

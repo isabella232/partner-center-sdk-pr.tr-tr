@@ -1,25 +1,21 @@
 ---
 title: Siparişleri yönetme
-description: Bu bölümde, bulut çözümü sağlayıcısı iş ortaklarının müşteri siparişlerini ve abonelikleri programlama yoluyla yönetmek için Iş ortağı merkezini kullanma yolları açıklanmaktadır.
+description: bu bölümde, Bulut Çözümü Sağlayıcısı iş ortaklarının müşteri siparişlerini ve abonelikleri programlama yoluyla yönetmek için iş ortağı merkezini kullanma yolları açıklanmaktadır.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b3df171ecf0e86cb07372deec420244af56f05d1
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 390baa87c96706e60582811774b74fcf11567058
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769484"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548167"
 ---
 # <a name="manage-orders"></a>Siparişleri yönetme
 
-**Uygulama hedefi**
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bu bölümde, bulut çözümü sağlayıcısı iş ortaklarının müşteri siparişlerini ve abonelikleri programlama yoluyla yönetmek için Iş Ortağı Merkezi 'ni kullanma yolları açıklanmaktadır.
+bu bölümde, Bulut Çözümü Sağlayıcısı iş ortaklarının müşteri siparişlerini ve abonelikleri programlama yoluyla yönetmek için iş ortağı merkezi 'ni kullanma yolları açıklanmaktadır.
 
 ## <a name="purchase-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri satın alma
 

@@ -1,41 +1,37 @@
 ---
 title: İş Ortağı Merkezi etkinliğinin kaydını alma
-description: Bir iş ortağı Kullanıcı veya uygulama tarafından, bir süre boyunca gerçekleştirilen işlem kaydını alma.
+description: Bir iş ortağı kullanıcı veya uygulama tarafından bir süre içinde gerçekleştirilen işlemlerin kaydını alma.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2f37eae8bb96c1c1e7008e8c566b085e25d8807d
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: aec933d4b681d99080619505792bde56bdd25580
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769532"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111873981"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>İş Ortağı Merkezi etkinliğinin kaydını alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+Bu makalede, bir iş ortağı kullanıcı veya uygulama tarafından belirli bir süre boyunca gerçekleştirilen işlemlerin kaydını alma işlemi açıklanmıştır.
 
-Bu makalede bir iş ortağı Kullanıcı veya uygulama tarafından bir süre içinde gerçekleştirilen işlem kaydının nasıl yapılacağı açıklanır.
-
-Geçerli tarihten önceki 30 güne ait denetim kayıtlarını veya başlangıç tarihi ile/veya bitiş tarihi dahil ederek belirtilen bir tarih aralığını almak için bu API 'yi kullanın. Bununla birlikte, performans nedenleriyle etkinlik günlüğü veri kullanılabilirliğinin önceki 90 güne sınırlı olduğunu unutmayın. Geçerli tarihten önce 90 günden daha büyük bir başlangıç tarihi olan istekler, hatalı bir istek özel durumu (hata kodu: 400) ve uygun bir ileti alır.
+Geçerli tarihten itibaren son 30 güne veya başlangıç tarihi ve/veya bitiş tarihi dahil olmak üzere belirtilen bir tarih aralığına yönelik denetim kayıtlarını almak için bu API'yi kullanın. Ancak, performans nedenleriyle etkinlik günlüğü veri kullanılabilirliğinin son 90 günle sınırlı olduğunu unutmayın. Geçerli tarihten 90 gün önce başlangıç tarihine sahip istekler hatalı bir istek özel durumu (hata kodu: 400) ve uygun bir ileti alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Iş Ortağı Merkezi işlemlerinin kaydını almak için, önce almak istediğiniz kayıtların tarih aralığını oluşturun. Aşağıdaki kod örneği yalnızca bir başlangıç tarihi kullanır, ancak bir bitiş tarihi de ekleyebilirsiniz. Daha fazla bilgi için bkz. [**sorgu**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) yöntemi. Ardından, uygulamak istediğiniz filtre türü için gereken değişkenleri oluşturun ve uygun değerleri atayın. Örneğin, şirket adı alt dizesini filtrelemek için alt dizeyi tutacak bir değişken oluşturun. Müşteri KIMLIĞINE göre filtrelemek için, KIMLIĞI tutacak bir değişken oluşturun.
+Bu işlemlerin İş Ortağı Merkezi almak için, önce almak istediğiniz kayıtların tarih aralığını seçin. Aşağıdaki kod örneği yalnızca bir başlangıç tarihi kullanır, ancak bir bitiş tarihi de dahildir. Daha fazla bilgi için [**bkz. Query**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) yöntemi. Ardından, uygulamak istediğiniz filtre türü için ihtiyacınız olan değişkenleri oluşturun ve uygun değerleri attayin. Örneğin, şirket adı alt dizeye göre filtrelemek için alt dizeyi tutmak için bir değişken oluşturun. Müşteri kimliğine göre filtrelemek için kimliği tutmak için bir değişken oluşturun.
 
-Aşağıdaki örnekte, bir şirket adı alt dizesi, müşteri KIMLIĞI veya kaynak türüne göre filtrelemek için örnek kod sağlanır. Bunlardan birini seçin ve diğerlerini yorum yapın. Her durumda, filtre oluşturmak için önce varsayılan [**oluşturucusunu**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor) kullanarak bir [**simplefieldfilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) nesnesi örnekleyebilirsiniz. Aranacak alanı içeren bir dizeyi ve gösterildiği gibi uygulanacak uygun işleci geçirmeniz gerekir. Filtreleyecek dizeyi de sağlamanız gerekir.
+Aşağıdaki örnekte, bir şirket adı alt dize, müşteri kimliği veya kaynak türüne göre filtrelemek için örnek kod sağlanmıştır. Birini seçin ve diğerlerini açıklamaya alma. Her durumda, ilk olarak filtreyi oluşturmak için varsayılan [](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter.-ctor) oluşturucusu kullanarak [**bir SimpleFieldFilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) nesnesi örneği oluştururuz. Aranacak alanı ve uygulanacak uygun işleci içeren bir dizeyi aşağıda gösterildiği gibi geçmeniz gerekir. Ayrıca, filtrelemek için dizesini de sağlanız gerekir.
 
-Ardından, denetim kaydı işlemlerine bir arabirim almak için [**Auditrecords**](/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords) özelliğini kullanın ve filtreyi yürütmek ve sonucun ilk sayfasını temsil eden [**auditrecord**](/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord) koleksiyonunu almak Için [**Query**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) veya [**queryasync**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync) yöntemini çağırın. Yöntemi başlangıç tarihini, burada örnekte kullanılmamış bir isteğe bağlı bitiş tarihini ve bir varlıkta bir sorguyu temsil eden bir [**ıquery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) nesnesini geçirin. Iquery nesnesi yukarıda oluşturulan filtre, [**Queryfactory 'nin**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) [**buildsimplequery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) yöntemine geçirilerek oluşturulur.
+Ardından, kayıt işlemlerini denetlemeye yönelik bir arabirim almak için [**AuditRecords**](/dotnet/api/microsoft.store.partnercenter.ipartner.auditrecords) özelliğini kullanın ve filtreyi yürütmek ve sonucun ilk sayfasını temsil eden [**AuditRecord'ların**](/dotnet/api/microsoft.store.partnercenter.models.auditing.auditrecord) koleksiyonunu almak için [**Query**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.query) veya [**QueryAsync**](/dotnet/api/microsoft.store.partnercenter.auditrecords.iauditrecordscollection.queryasync) yöntemini çağırabilirsiniz. yöntemine başlangıç tarihini, buradaki örnekte kullanılmayan isteğe bağlı bir bitiş tarihini ve bir varlık üzerinde sorguyu temsil eden [**bir IQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) nesnesini iletir. IQuery nesnesi, yukarıda oluşturulan filtre [**QueryFactory'nin**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) [**BuildSimpleQuery yöntemine geçerek**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) oluşturulur.
 
-Öğelerin ilk sayfasını aldıktan sonra, kalan sayfalarda yinelemek için kullanabileceğiniz bir Numaralandırıcı oluşturmak için [**Numaralandırıcılar. AuditRecords. Create**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) metodunu kullanın.
+Öğelerin ilk sayfasına sahip olduktan sonra, kalan sayfalarda yinelerken kullanabileceğiniz bir numaralayıcı oluşturmak için [**Enumerators.AuditRecords.Create**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create) yöntemini kullanın.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -77,19 +73,19 @@ while (auditRecordEnumerator.HasValue)
 }
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **klasörü**: denetim
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Klasörü:** Denetim
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                                                                                    |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/auditrecords? StartDate = {STARTDATE} http/1.1                                                                                                     |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/auditrecords? StartDate = {startDate} &EndDate = {EndDate} http/1.1                                                                                   |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/auditrecords? StartDate = {startDate} &EndDate = {endDate} &filtre = {"alan": "COMPANYNAME", "Value": "{searchsubstrıng}", "operator": "Substring"} http/1.1 |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/auditrecords? StartDate = {startDate} &EndDate = {endDate} &filtre = {"alan": "CustomerID", "Value": "{CustomerID}", "operator": "Equals"} http/1.1          |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/auditrecords? StartDate = {startDate} &EndDate = {endDate} &filtre = {"alan": "ResourceType", "Value": "{ResourceType}", "işleç": "Equals"} http/1.1      |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate} HTTP/1.1                                                                                                     |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate} HTTP/1.1                                                                                   |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"CompanyName","Value":"{searchSubstring}","Operator":"substring"} HTTP/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"CustomerId","Value":"{customerId}","Operator":"equals"} HTTP/1.1          |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/auditrecords?startDate={startDate}&endDate={endDate}&filter={"Field":"ResourceType","Value":"{resourceType}","Operator":"equals"} HTTP/1.1      |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -97,30 +93,30 @@ while (auditRecordEnumerator.HasValue)
 
 | Ad      | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Başlangıç | date   | No       | Yyyy-AA-GG biçiminde başlangıç tarihi. Hiçbiri sağlanmazsa, sonuç kümesi, istek tarihinden önce varsayılan olarak 30 gün olur. Bir filtre sağlandığında bu parametre isteğe bağlıdır.                                          |
-| endDate   | date   | No       | Yyyy-AA-GG biçiminde bitiş tarihi. Bir filtre sağlandığında bu parametre isteğe bağlıdır. Bitiş tarihi atlanmışsa veya null olarak ayarlandığında, istek en büyük pencereyi döndürür veya günün bitiş tarihi olarak (hangisi daha küçükse) kullanır. |
-| filtre    | dize | No       | Uygulanacak filtre. Bu parametre kodlanmış bir dize olmalıdır. Başlangıç tarihi veya bitiş tarihi sağlandığında bu parametre isteğe bağlıdır.                                                                                              |
+| Startdate | date   | Hayır       | yyyy-mm-dd biçiminde başlangıç tarihi. Hiçbiri sağlanmayacaksa, sonuç kümesi varsayılan olarak istek tarihinden 30 gün önce olur. Bir filtre sağlanmalıdır, bu parametre isteğe bağlıdır.                                          |
+| Bitiştarihi   | date   | Hayır       | yyyy-mm-dd biçiminde bitiş tarihi. Bir filtre sağlanmalıdır, bu parametre isteğe bağlıdır. Bitiş tarihi atlanırsa veya null olarak ayarlanırsa istek maksimum pencereyi döndürür veya bugün bitiş tarihi olarak (hangisi daha düşükse) kullanır. |
+| filtre    | dize | No       | Uygulanacak filtre. Bu parametre kodlanmış bir dize olmalıdır. Başlangıç tarihi veya bitiş tarihi sağlanmalıdır, bu parametre isteğe bağlıdır.                                                                                              |
 
-### <a name="filter-syntax"></a>Filtre sözdizimi
-Filtre parametresini bir dizi virgülle ayrılmış anahtar-değer çiftleri olarak oluşturmanız gerekir. Her anahtar ve değer tek tek tırnak içine alınmalıdır ve iki nokta ile ayrılmalıdır. Filtrenin tamamının kodlanmış olması gerekir.
+### <a name="filter-syntax"></a>Filtre söz dizimi
+Filtre parametresini virgülle ayrılmış bir dizi anahtar-değer çifti olarak oluşturabilirsiniz. Her anahtar ve değer ayrı ayrı tırnak içine alınarak iki nokta üst üste ile ayrılarak ayrılabilir. Filtrenin tamamı kodlanmış olması gerekir.
 
-Kodlanamayan bir örnek şuna benzer:
+Kodlanmamış bir örnek şu şekildedir:
 
 ```
 ?filter{"Field":"CompanyName","Value":"bri","Operator":"substring"}
 ```
 
-Aşağıdaki tabloda gerekli anahtar-değer çiftleri açıklanmaktadır:
+Aşağıdaki tabloda gerekli anahtar-değer çiftleri açıkmektedir:
 
 | Anahtar                 | Değer                             |
 |:--------------------|:----------------------------------|
-| Alan               | Filtrelenecek alan. Desteklenen değerler [istek sözdiziminde](get-a-record-of-partner-center-activity-by-user.md#rest-request)bulunabilir.                                         |
-| Değer               | Filtrelenecek değer. Değerin durumu yok sayılır. Aşağıdaki değer parametreleri, [istek sözdiziminde](get-a-record-of-partner-center-activity-by-user.md#rest-request)gösterildiği gibi desteklenir:<br/><br/>                                                                *Searchsubstring* -Şirket adıyla değiştirin. Şirket adının bir bölümünü eşleştirmek için bir alt dize girebilirsiniz (örneğin, `bri` eşleştirecektir `Fabrikam, Inc` ).<br/>**Örnek:**`"Value":"bri"`<br/><br/>                                                                *CustomerID* -müşteri tanımlayıcısını temsil eden bir GUID biçimli dize ile değiştirin.<br/>**Örnek:**`"Value":"0c39d6d5-c70d-4c55-bc02-f620844f3fd1"`<br/><br/>                                                                                        *ResourceType* -denetim kayıtlarının alınacağı kaynak türüyle değiştirin (örneğin, abonelik). Kullanılabilir kaynak türleri [ResourceType](/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype)içinde tanımlanır.<br/>**Örnek:**`"Value":"Subscription"`                                 |
-| Operatör          | Uygulanacak işleç. Desteklenen işleçler [istek sözdiziminde](get-a-record-of-partner-center-activity-by-user.md#rest-request)bulunabilir.   |
+| Alan               | Filtrenin yer alan. Desteklenen değerler İstek söz [dizimsinde bulunabilir.](get-a-record-of-partner-center-activity-by-user.md#rest-request)                                         |
+| Değer               | Filtreye göre değer. Değerin durumu yoksayılır. Aşağıdaki değer parametreleri İstek söz dizimsinde gösterildiği [gibi de destekledik:](get-a-record-of-partner-center-activity-by-user.md#rest-request)<br/><br/>                                                                *searchSubstring* - yerine şirketin adını yazın. Şirket adının bir bölümüyle eşleşmesi için bir alt dize girsiniz (örneğin, `bri` ile `Fabrikam, Inc` eşler).<br/>**Örnek:**`"Value":"bri"`<br/><br/>                                                                *customerId* - Müşteri tanımlayıcısını temsil eden GUID biçimli bir dizeyle değiştirin.<br/>**Örnek:**`"Value":"0c39d6d5-c70d-4c55-bc02-f620844f3fd1"`<br/><br/>                                                                                        *resourceType* - Denetim kayıtlarının alınıp alınmayacak kaynak türüyle (örneğin, Abonelik) değiştirin. Kullanılabilir kaynak türleri ResourceType içinde [tanımlanır.](/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype)<br/>**Örnek:**`"Value":"Subscription"`                                 |
+| Operatör          | Uygulanacak işleç. Desteklenen işleçler İstek söz [dizimsinde bulunabilir.](get-a-record-of-partner-center-activity-by-user.md#rest-request)   |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-- Daha fazla bilgi için bkz. [parter Center Rest üst bilgileri](headers.md) .
+- Daha fazla bilgi için [bkz. Parter Center REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -141,7 +137,7 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem filtreleri karşılayan bir etkinlik kümesi döndürür.
+Başarılı olursa, bu yöntem filtreleri karşılar bir dizi etkinlik döndürür.
 
 ### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 

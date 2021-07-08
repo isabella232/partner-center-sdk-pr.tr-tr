@@ -1,40 +1,35 @@
 ---
 title: Pazara göre teklif kategorilerinin bir listesini alma
-description: Belirli bir ülke/bölgedeki tüm teklif kategorilerini ve tüm Microsoft bulutları için yerel ayarları içeren bir koleksiyon almayı öğrenin.
+description: Tüm Microsoft Bulutları için verilen bir ülkede/bölgede ve yerelde tüm teklif kategorilerini içeren bir koleksiyon elde etmeyi öğrenin.
 ms.date: 07/25/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 05aad095c6cb8eaee4cbf7ce976ca1b4b7a408c4
-ms.sourcegitcommit: f72173df911aee3ab29b008637190b4d85ffebfe
+ms.openlocfilehash: e699355f07dda3941eafed32f5f635d94000abd1
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2021
-ms.locfileid: "106500065"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874287"
 ---
 # <a name="get-a-list-of-offer-categories-by-market"></a>Pazara göre teklif kategorilerinin bir listesini alma
 
-**Uygulama hedefi:**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bu makalede, belirli bir ülke/bölge ve yerel ayarda yer alan tüm teklif kategorilerini içeren bir koleksiyonun nasıl alınacağı açıklanır.
+Bu makalede, belirli bir ülkede/bölgede ve yerel bölgede tüm teklif kategorilerini içeren bir koleksiyonun nasıl elde edildiklerine yer verilmiştir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Belirli bir ülke/bölge ve yerel ayarda teklif kategorilerinin bir listesini almak için:
+Verilen bir ülkede/bölgede ve yerelde teklif kategorilerinin listesini almak için:
 
-1. Belirtilen bağlamda [**with ()**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) yöntemini çağırmak Için [**ıaggregatepartner. Operations**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) koleksiyonunuzu kullanın.
+1. [**IAggregatePartner.Operations koleksiyonu kullanarak**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner) verilen bağlamda [**With()**](/dotnet/api/microsoft.store.partnercenter.iaggregatepartner.with) yöntemini çağırma.
 
-2. Elde edilen nesnenin [**Offercategories**](/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) özelliğini inceleyin.
+2. Sonuçta elde [**edilen nesnenin OfferCategories**](/dotnet/api/microsoft.store.partnercenter.ipartner.offercategories) özelliğini inceler.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -44,31 +39,31 @@ ResourceCollection<OfferCategory> offerCategoryResults = partnerOperations.With(
 
 Bir örnek için aşağıdakilere bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Proje: **Partnersdk. FeatureSample**
-- Sınıf: **Partnersdk. FeatureSample**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **PartnerSDK.FeatureSample**
+- Sınıf: **PartnerSDK.FeatureSample**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                  |
 |---------|----------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/offercategories? ülke = {ülke-KIMLIĞI} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offercategories?country={country-id} HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI parametresi
 
-Bu tablo teklif kategorilerini almak için gerekli sorgu parametrelerini listeler.
+Bu tabloda teklif kategorilerini almak için gerekli sorgu parametreleri listelemektedir.
 
 | Ad           | Tür       | Gerekli | Açıklama            |
 |----------------|------------|----------|------------------------|
-| **ülke kimliği** | **string** | Y        | Ülke/bölge KIMLIĞI. |
+| **country-id** | **string** | Y        | Ülke/bölge kimliği. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Dize olarak biçimlendirilen bir **yerel ayar kimliği** gereklidir.
+Dize **olarak biçimlendirilmiş bir locale-id** gereklidir.
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -88,11 +83,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde **Offercategory** kaynaklarının bir koleksiyonunu döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde **OfferCategory** kaynaklarının bir koleksiyonunu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

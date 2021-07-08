@@ -1,38 +1,33 @@
 ---
 title: Teklif kimliği için eklentiler alma
-description: Bir teklif KIMLIĞI için eklentileri alma.
+description: Teklif kimliği için eklentileri nasıl elde etmek gerekir?
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 9ee22712b323c7439a192ed2e5af8d5e7eaf92a3
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: e3b0ab8007d3affa6912479b960f6dae3bc0bd28
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769263"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760343"
 ---
 # <a name="get-add-ons-for-an-offer-id"></a>Teklif kimliği için eklentiler alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Bir teklif KIMLIĞI için eklentileri alma.
+Teklif kimliği için eklentileri nasıl elde etmek gerekir?
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir teklif KIMLIĞI. Teklif KIMLIĞINIZ yoksa, bkz. [pazara yönelik tekliflerin listesini alın](get-a-list-of-offers-for-a-market.md).
+- Teklif kimliği. Teklif kimliğiniz yoksa bkz. [Pazar için tekliflerin listesini al.](get-a-list-of-offers-for-a-market.md)
 
 ## <a name="c"></a>C\#
 
-KIMLIĞE göre bir teklif için eklentileri almak üzere ilk olarak, verilen ülkeye göre işlem sunmaya yönelik bir arabirim almak için ülke koduyla [**ıaggregatepartner. tekliflere. ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) yöntemini çağırın. Ardından, eklentileri almak istediğiniz teklifi belirlemek için, teklif KIMLIĞIYLE [**byıd**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) yöntemini çağırın. Ardından, geçerli teklifin eklenti işlemlerine yönelik bir arabirim almak için [**addons**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) özelliğini kullanın. Son olarak, belirtilen teklif için tüm eklentilerin bir koleksiyonunu almak üzere [**Get**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) yöntemini çağırın.
+Bir teklifin eklentilerini kimliğine göre almak için önce [**IAggregatePartner.Offers.ByCountry**](/dotnet/api/microsoft.store.partnercenter.genericoperations.icountryselector-1.bycountry) yöntemini ülke koduyla çağırarak verilen ülkeye göre işlem sunan bir arabirim elde edin. Ardından, [**eklentilerini**](/dotnet/api/microsoft.store.partnercenter.offers.ioffercollection.byid) almak istediğiniz teklifi belirlemek için teklif kimliğiyle ByID yöntemini çağırın. Ardından, geçerli teklife yönelik eklenti işlemlerine yönelik bir arabirim almak için [**AddOns**](/dotnet/api/microsoft.store.partnercenter.offers.ioffer.addons) özelliğini kullanın. Son olarak, [**belirtilen teklife**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.get) yönelik tüm eklentilerin bir koleksiyonunu almak için Get veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.offers.iofferaddons.getasync) yöntemini çağırın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,28 +37,28 @@ KIMLIĞE göre bir teklif için eklentileri almak üzere ilk olarak, verilen ül
 var offerAddOns = partnerOperations.Offers.ByCountry(countryCode).ById(offerId).AddOns.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetOffer.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** GetOffer.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                             |
 |---------|---------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/offers/{Offer-id}/addons? ülke = {Country-Code} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/offers/{offer-id}/addons?country={country-code} HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-Teklif KIMLIĞI ve ülke kodu sağlamak için aşağıdaki parametreleri kullanın.
+Teklif kimliğini ve ülke kodunu sağlamak için aşağıdaki parametreleri kullanın.
 
 | Ad         | Tür       | Gerekli | Açıklama                       |
 |--------------|------------|----------|-----------------------------------|
-| **teklif kimliği** | **guid**   | Y        | Teklifi tanımlayan bir GUID. |
-| **ülke**  | **dizisinde** | Y        | Ülke kodu (örneğin `US` ).       |
+| **offer-id** | **guid**   | Y        | Teklifi tanımlayan GUID. |
+| **Ülke**  | **string** | Y        | Ülke kodu `US` (örneğin).       |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -83,11 +78,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde [teklif](offer-resources.md) nesnelerinin bir koleksiyonunu döndürür.
+Başarılı olursa, bu yöntem yanıt [gövdesinde Teklif](offer-resources.md) nesnelerinin bir koleksiyonunu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

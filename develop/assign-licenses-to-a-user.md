@@ -4,18 +4,14 @@ description: C veya REST API 'lerinin kullanımı gibi Iş Ortağı Merkezi API 
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6eb0b953b9157e48074415bb3207e2946cfb2ab4
-ms.sourcegitcommit: d1104d5c27f8fb3908a87532f80c432f0147ef5d
+ms.openlocfilehash: 88ce0f185b0b043c4a7862b7f9808fb8805d40b9
+ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "97770007"
+ms.lasthandoff: 06/10/2021
+ms.locfileid: "111974378"
 ---
 # <a name="assign-licenses-to-a-user-via-partner-center-apis"></a>Iş Ortağı Merkezi API 'Leri aracılığıyla bir kullanıcıya lisans atama
-
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
 
 Bir müşteri kullanıcısına lisans atama.
 
@@ -110,7 +106,7 @@ updateLicense.LicensesToAssign = licenseList;
 var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: CustomerUserAssignLicenses.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: customeruseratamalisansı. cs
 
 ## <a name="rest-request"></a>REST isteği
 

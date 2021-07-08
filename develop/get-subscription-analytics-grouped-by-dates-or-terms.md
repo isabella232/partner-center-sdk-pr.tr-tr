@@ -4,21 +4,16 @@ description: Tarih veya koşullara göre gruplanmış abonelik Analizi bilgileri
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4a9946027fa89f5a93fff5eede86e36a6be5b721
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8192a9863d53ec8697a7341cd38c69200614bd4a
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769052"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548728"
 ---
 # <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Tarih veya koşullara göre gruplandırılmış abonelik analizlerini al
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Müşterilerinizin tarihlere veya terimlere göre gruplanmış abonelik Analizi bilgilerini alma.
 
@@ -54,7 +49,7 @@ Kodlanamayan bir örnek şuna benzer:
 
 Aşağıdaki tabloda Group by için desteklenen alanların listesi gösterilmektedir.
 
-| Alan | Tür | Description |
+| Alan | Tür | Açıklama |
 |-------|------|-------------|
 | Customertenantıd | string | Müşteri kiracısını tanımlayan GUID biçimli bir dize. |
 | customerName | string | Müşterinin adı. |
@@ -62,7 +57,7 @@ Aşağıdaki tabloda Group by için desteklenen alanların listesi gösterilmekt
 | kimlik | string | Aboneliği tanımlayan GUID biçimli bir dize. |
 | durum | string | Abonelik durumu. Desteklenen değerler şunlardır: "ETKIN", "askıya ALıNDı" veya "SAĞLAMASı KALDıRıLDı". |
 | productName | string | Ürünün adı. |
-| subscriptionType | string | Abonelik türü. Note: Bu alan, büyük/küçük harfe duyarlıdır. Desteklenen değerler şunlardır: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |
+| subscriptionType | string | Abonelik türü. Note: Bu alan, büyük/küçük harfe duyarlıdır. desteklenen değerler şunlardır: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |
 | autoRenewEnabled | Boole | Aboneliğin otomatik olarak yenilenip yenilenmediğini gösteren bir değer. |
 | iş ortağı kimliği  | string | MPN KIMLIĞI. Doğrudan satıcı için, bu parametre ortağın MPN KIMLIĞI olur. Dolaylı bir satıcı için, bu parametre dolaylı satıcıdan MPN KIMLIĞI olacaktır. |
 | friendlyName | string | Aboneliğin adı. |
@@ -82,7 +77,7 @@ Aşağıdaki tabloda Group by için desteklenen alanların listesi gösterilmekt
 
 Aşağıdaki tablo, isteğe bağlı filtre alanlarını ve açıklamalarını listelemektedir:
 
-| Alan | Tür |  Description |
+| Alan | Tür |  Açıklama |
 |-------|------|--------------|
 | top | int | İstekte döndürülecek veri satır sayısı. Değer belirtilmezse, en büyük değer ve varsayılan değer 10000 ' dir. Sorguda daha fazla satır varsa, yanıt gövdesi sonraki veri sayfasını istemek için kullanabileceğiniz bir sonraki bağlantıyı içerir. |
 | Atla | int | Sorgudaki atlanacak satır sayısı. Büyük veri kümeleri üzerinden sayfa eklemek için bu parametreyi kullanın. Örneğin, top = 10000 ve Skip = 0 verilerin ilk 10000 satırını alır, top = 10000 ve Skip = 10000, sonraki 10000 satırlık verileri alır. |

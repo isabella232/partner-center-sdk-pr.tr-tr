@@ -7,21 +7,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 6b9c9bcd52798006d7f686405f059192a722c7e8
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b76526d97ba9027897fc88954ba45186d58aefb8
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769095"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874168"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-customer"></a>Bir ürüne ait SKU 'ların listesini alın (müşteriye göre)
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Mevcut bir müşterinin kullanabildiği belirli bir ürün için SKU 'ların bir koleksiyonunu alır.
 
@@ -74,7 +69,7 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu | Hata kodu | Description |
+| HTTP durum kodu | Hata kodu | Açıklama |
 |------------------|------------|-------------|
 | 404 | 400013 | Üst ürün bulunamadı. |
 

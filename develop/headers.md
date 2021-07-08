@@ -4,21 +4,16 @@ description: Iş Ortağı Merkezi REST API tarafından desteklenen HTTP REST ist
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9f506c8c610c2584912c24453288d0f3578b84e3
-ms.sourcegitcommit: 8a5c37376a29e29fe0002a980082d4acc6b91131
+ms.openlocfilehash: 3f09ab5808a9751f02e451da2027f6b35877390b
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "97769953"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548473"
 ---
 # <a name="partner-center-rest-and-response-headers-supported-by-the-partner-center-rest-api"></a>İş Ortağı Merkezi tarafından desteklenen iş ortağı merkezi REST ve yanıt başlıkları REST API 
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Aşağıdaki HTTP isteği ve yanıt üst bilgileri, Iş Ortağı Merkezi REST API tarafından desteklenir. Tüm API çağrıları tüm üst bilgileri kabul etmez.
 
@@ -26,7 +21,7 @@ Aşağıdaki HTTP isteği ve yanıt üst bilgileri, Iş Ortağı Merkezi REST AP
 
 Aşağıdaki HTTP istek üstbilgileri, Iş Ortağı Merkezi REST API tarafından desteklenir.
 
-| Üst bilgi                       | Description                                                                                                                                                                                                                                                                            | Değer Türü |
+| Üst bilgi                       | Açıklama                                                                                                                                                                                                                                                                            | Değer Türü |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | Yetkilendirme:               | Gereklidir. Taşıyıcı belirtecindeki yetkilendirme belirteci &lt; &gt; .                                                                                                                                                                                                                    | string     |
 | Ettiğinizde                      | "Application/JSON" istek ve yanıt türünü belirtir.                                                                                                                                                                                                                           | string     |
@@ -41,7 +36,7 @@ Aşağıdaki HTTP istek üstbilgileri, Iş Ortağı Merkezi REST API tarafından
 
 Aşağıdaki HTTP yanıt üst bilgileri, Iş Ortağı Merkezi REST API döndürebilir.
 
-| Üst bilgi            | Description                                                                                                                                                                                                                                 | Değer Türü |
+| Üst bilgi            | Açıklama                                                                                                                                                                                                                                 | Değer Türü |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | Ettiğinizde           | "Application/JSON" istek ve yanıt türünü belirtir.                                                                                                                                                                                | string     |
 | MS-RequestId:     | Kimlik-kuvvet sağlamak için kullanılan, çağrı için benzersiz bir tanımlayıcı. Bir zaman aşımı varsa, yeniden deneme çağrısı aynı değeri içermelidir. Yanıt aldıktan sonra (başarı veya iş hatası), sonraki çağrının değeri sıfırlanmalıdır. | GUID       |

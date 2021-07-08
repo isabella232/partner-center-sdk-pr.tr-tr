@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 4d71cd138421704d94a55a9fe21e074d92638815
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: e8f23e90cbb5afb45e519e2c58fd0d3b9ea2de6a
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769725"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760309"
 ---
 # <a name="get-all-of-a-customers-orders"></a>Müşteri siparişlerinin tümünü alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Belirtilen müşteri için tüm siparişlerin bir koleksiyonunu alır. Bir siparişin gönderildiği ve müşterinin siparişlerinin koleksiyonunda görüneceği zaman arasında 15 dakikaya varan bir gecikme vardır.
 
@@ -45,7 +40,7 @@ Müşterinin tüm siparişlerinin bir koleksiyonunu elde etmek için:
 var orders = partnerOperations.Customers.ById(selectedCustomerId).Orders.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnersdk. Featuresamples **sınıfı**: GetOrders.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresamples **sınıfı**: getorders. cs
 
 ## <a name="rest-request"></a>REST isteği
 

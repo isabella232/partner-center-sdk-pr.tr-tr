@@ -6,21 +6,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 3a004f6f8f8de8cd398d82c300793e4f196efaaa
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 6f4fd821879545db4e781fe3202c8ee11f167615
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769107"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874253"
 ---
 # <a name="get-a-list-of-offers-for-a-market"></a>Pazara yönelik tekliflerin bir listesini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Belirli bir pazar için tüm teklifleri içeren bir koleksiyon alır.
 
@@ -38,7 +33,7 @@ Belirli bir pazardaki tekliflerin listesini almak için **ıaggregatepartner. te
 ResourceCollection<Offer> offers = partnerOperations.Offers.ByCountry("US").Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Partnersdk. Featuresample **sınıfı**: offers.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: teklifler. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -54,7 +49,7 @@ Bu tablo, teklifleri almak için gerekli sorgu parametrelerini listeler.
 
 | Ad           | Tür       | Gerekli | Açıklama            |
 |----------------|------------|----------|------------------------|
-| **ülke kimliği** | **dizisinde** | Y        | Ülke/bölge KIMLIĞI. |
+| **ülke kimliği** | **string** | Y        | Ülke/bölge KIMLIĞI. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

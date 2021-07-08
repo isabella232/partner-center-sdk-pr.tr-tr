@@ -1,35 +1,31 @@
 ---
 title: Kimliğe göre bir müşterinin yönetilen hizmetlerini alma
-description: Müşterinin yönetilen hizmetlerini alır. Diğer bir deyişle, yönetici ayrıcalıklarına sahip olduğunuz tüm müşteri aboneliklerinin bağlantılarını alın. Bu bağlantıları, Microsoft ile destek ve dosya hizmeti istekleri sağlamak için kullanabilirsiniz.
+description: Müşteri için yönetilen hizmetleri alır. Başka bir deyişle, yönetici ayrıcalıkları için temsilci olarak seçen müşterinin tüm aboneliklerinin bağlantılarını edinin. Microsoft ile destek ve dosya hizmeti istekleri sağlamak için bu bağlantıları kullanabilirsiniz.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4764fce6a80035ea4b9dcc6677a3da28fc863eb7
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: 1cf7e7b62113bd96b00fdc2301e4e7ac4f5d4243
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769802"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548456"
 ---
 # <a name="get-the-managed-services-for-a-customer-by-id"></a>Kimliğe göre bir müşterinin yönetilen hizmetlerini alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Müşterinin yönetilen hizmetlerini alır. Diğer bir deyişle, yönetici ayrıcalıklarına sahip olduğunuz tüm müşteri aboneliklerinin bağlantılarını alın. Bu bağlantıları, Microsoft ile destek ve dosya hizmeti istekleri sağlamak için kullanabilirsiniz.
+Müşteri için yönetilen hizmetleri alır. Başka bir deyişle, yönetici ayrıcalıkları için temsilci olarak seçen müşterinin tüm aboneliklerinin bağlantılarını edinin. Microsoft ile destek ve dosya hizmeti istekleri sağlamak için bu bağlantıları kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
-Müşterinin tüm yönetilen hizmetlerinin listesini göstermek için **ıaggregatepartner. Customers** koleksiyonunuzu kullanın ve [**byıd ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından [**Managedservices**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices) özelliğini çağırın, ardından [**Get ()**](/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync) yöntemleri gelir.
+Bir müşteri için tüm yönetilen hizmetlerin listesini görüntülemek için **IAggregatePartner.Customers** koleksiyonu kullanın ve [**ById() yöntemini**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) arayın. Ardından [**ManagedServices özelliğini**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.managedservices) ve ardından [**Get() veya**](/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.get) [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.managedservices.imanagedservicecollection.getasync) yöntemlerini çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -38,15 +34,15 @@ Müşterinin tüm yönetilen hizmetlerinin listesini göstermek için **ıaggreg
 ResourceCollection<ManagedService> managedServices = partnerOperations.Customers.ById(selectedCustomerId).ManagedServices.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: partnercentersdk. FeaturesSamples **sınıfı**: CustomerManagedServices.cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples **Sınıfı:** CustomerManagedServices.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                            |
 |---------|--------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/managedservices http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/managedservices HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -54,11 +50,11 @@ Müşterinin yönetilen hizmetlerini almak için aşağıdaki sorgu parametresin
 
 | Ad                   | Tür     | Gerekli | Açıklama                           |
 |------------------------|----------|----------|---------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Müşteriye karşılık gelen bir GUID. |
+| **customer-tenant-id** | **guid** | Y        | Müşteriye karşılık gelen bir GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -76,11 +72,11 @@ MS-CorrelationId: 03d6064a-f048-4aee-8892-ed46dc5c8bee
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde **yönetilen hizmet** nesnelerinin bir koleksiyonunu döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde Yönetilen Hizmet** nesnelerinin bir koleksiyonunu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

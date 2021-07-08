@@ -4,19 +4,16 @@ description: Belirli bir müşteri için bir cihaz toplu karşıya yükleme işl
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fb887ba257d6fbe68f95ae4b59d701ac4c934860
-ms.sourcegitcommit: 30d1b9d48453c7697a2f42ee09138e507dcf9f2d
+ms.openlocfilehash: fd8726af41fe4399797f39a0790cf962fde64acc
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "97769796"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548490"
 ---
 # <a name="get-the-status-of-a-device-batch-upload"></a>Cihaz toplu karşıya yükleme durumu alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
 
 Belirli bir müşteri için bir cihaz toplu karşıya yükleme işleminin durumunu alma.
 
@@ -26,7 +23,7 @@ Belirli bir müşteri için bir cihaz toplu karşıya yükleme işleminin durumu
 
 - Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
 
-- Cihaz toplu işi gönderildiğinde konum üstbilgisinde döndürülen toplu iş izleme tanımlayıcısı. Daha fazla bilgi için bkz. [belirtilen müşteri için cihaz listesini karşıya yükleme](upload-a-list-of-devices-for-the-specified-customer.md).
+- Cihaz toplu işi gönderildiğinde konum üstbilgisinde döndürülen toplu iş izleme tanımlayıcısı. daha fazla bilgi için, bkz. [belirtilen müşteri için cihazların listesini Upload](upload-a-list-of-devices-for-the-specified-customer.md).
 
 ## <a name="c"></a>C\#
 
@@ -41,7 +38,7 @@ var status =
     partnerOperations.Customers.ById(selectedCustomerId).BatchUploadStatus.ById(selectedTrackingId).Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Proje**: Iş Ortağı Merkezi SDK örnekleri **sınıfı**: GetBatchUploadStatus.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getbatchuploadstatus. cs
 
 ## <a name="rest-request"></a>REST isteği
 
@@ -66,7 +63,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Yok
+Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 

@@ -1,24 +1,21 @@
 ---
 title: Azure rezervasyonları satın alma
-description: Mevcut Microsoft Azure aboneliğiniz (MS-AZR-0145P) veya Azure planı aracılığıyla Iş Ortağı Merkezi API 'sini kullanarak bir müşteri için Azure ayırmaları satın alabilirsiniz.
+description: mevcut Microsoft Azure aboneliğiniz (MS-azr-0145p) veya Azure planı aracılığıyla iş ortağı merkezi apı 'sini kullanarak bir müşteri için Azure ayırmaları satın alabilirsiniz.
 ms.date: 11/01/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4c09f65ae5105a74be41a7ec45824e3889217a1c
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 0b9ce4a808ac12c32bd67888fc92808baeb0e575
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97768981"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111547776"
 ---
 # <a name="purchase-azure-reservations"></a>Azure rezervasyonları satın alma
 
-**Uygulama hedefi:**
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-- İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
-
-Iş Ortağı Merkezi API 'sini kullanarak bir müşterinin Azure ayırmasını satın almak için, mevcut bir Microsoft Azure (**MS-AZR-0145P**) aboneliğine veya Azure planına sahip olmanız gerekir.
+iş ortağı merkezi apı 'sini kullanarak bir müşterinin Azure ayırmasını satın almak için, mevcut bir Microsoft Azure (**MS-azr-0145p**) aboneliğine veya azure planına sahip olmanız gerekir.
 
 > [!NOTE]
 > Azure ayırmaları aşağıdaki pazarlarda kullanılamaz:
@@ -78,7 +75,7 @@ Azure ayırması eklemek istediğiniz etkin CSP Azure aboneliğini tanımladıkt
 
 1. [Etkinleştirme](#enablement) -Azure ayırmaları satın almak üzere etkinleştirmek için ETKIN bir CSP Azure aboneliğini kaydedin.
 
-2. [Bulma](#discovery) -satın almak istediğiniz Azure rezervasyon ürünlerini ve SKU 'larını bulun ve seçin ve bunların kullanılabilirliğini kontrol edin.
+2. [Bulma](#discovery) -satın almak istediğiniz Azure rezervasyon ürünlerini ve stok tutma birimlerini (SKU 'lar) bulun ve seçin ve bunların kullanılabilirliğini kontrol edin.
 
 3. [Sipariş gönderimi](#order-submission) -sıralarınızın öğeleriyle birlikte bir alışveriş sepeti oluşturun ve gönderebilirsiniz.
 
@@ -91,9 +88,9 @@ Azure ayırmaları satın aldıktan sonra, aşağıdaki senaryolarda Azure rezer
 
 ## <a name="enablement"></a>Geçerlilik
 
-Etkinleştirme, aboneliği Azure ayırmaları için etkinleştirilecek şekilde kaydederek mevcut bir Microsoft Azure (**MS-AZR-0145P**) aboneliğini bir Azure ayrılmış VM örneğine ilişkilendirme anlamına gelir. Kayıt, Azure ayrılmış VM örnekleri satın almak için bir önkoşuldur.
+etkinleştirme, aboneliği azure ayırmaları için etkinleştirilecek şekilde kaydederek mevcut bir Microsoft Azure (**MS-azr-0145p**) aboneliğini bir azure ayrılmış VM örneğine ilişkilendirme anlamına gelir. Kayıt, Azure ayrılmış VM örnekleri satın almak için bir önkoşuldur.
 
-Aşağıdaki nedenlerle bir abonelik gereklidir:
+Aşağıdaki görevleri desteklemek için bir abonelik gereklidir:
 
 1. Müşterinin kaynakları dağıtmaya uygun olup olmadığını ve bu nedenle Azure ayrılmış VM örneklerini bir bölgede satın alıp almadığından emin olun.
 
@@ -104,7 +101,7 @@ Azure ayırmasını eklemek istediğiniz etkin aboneliği tanımladıktan sonra,
 Aboneliğinizi kaydettikten sonra kayıt durumunu denetleyerek kayıt işleminin tamamlandığını onaylamanız gerekir. Bunu yapmak için bkz. [abonelik kayıt durumunu Al](get-subscription-registration-status.md).
 
 > [!NOTE]
-> Azure planına sahip bir müşterinin Microsoft Azure ayırmasını satın alırken önce Azure planını kaydetmeniz gerekir. Bir Microsoft Azure (**MS-AZR-0145P**) aboneliğine benzer şekilde, bir Azure planı bir Iş Ortağı Merkezi [abonelik](subscription-resources.md) kaynağıyla temsil edilir. Bu nedenle, bir Azure planını kaydetmek için aynı [aboneliği kaydet](register-a-subscription.md) yöntemini kullanabilirsiniz.
+> azure planına sahip bir müşterinin Microsoft Azure ayırmasını satın alırken önce azure planını kaydetmeniz gerekir. bir Microsoft Azure (**MS-azr-0145p**) aboneliğine benzer şekilde, bir Azure planı bir iş ortağı merkezi [abonelik](subscription-resources.md) kaynağıyla temsil edilir. Bu nedenle, bir Azure planını kaydetmek için aynı [aboneliği kaydet](register-a-subscription.md) yöntemini kullanabilirsiniz.
 
 ## <a name="discovery"></a>Bulma
 
@@ -112,7 +109,7 @@ Abonelik, Azure ayırmaları satın alma için etkinleştirildikten sonra, ürü
 
 - [Ürün](product-resources.md#product) -satın alınabilir alınırken malları veya hizmetleri için gruplama yapısı. Bir ürünün kendisi bir satın alınabilir alınırken öğesi değil.
 
-- [SKU](product-resources.md#sku) -bir ürün altında bir satın alınabilir alınırken stok tutma BIRIMI (SKU). Bunlar, ürünün farklı şekillerini temsil eder.
+- [SKU](product-resources.md#sku) -bir ürün altında bir satın alınabilir alınırken SKU 'su. Bunlar, ürünün farklı şekillerini temsil eder.
 
 - [Kullanılabilirlik](product-resources.md#availability) -BIR SKU 'nun satın alma için kullanılabildiği bir yapılandırma (ülke, para birimi ve sektör segmenti gibi).
 
@@ -135,11 +132,11 @@ Bir Azure ayırması satın almadan önce, aşağıdaki adımları izleyin:
    - [Kullanılabilirlik KIMLIĞINI kullanarak bir kullanılabilirlik alın](get-an-availability-by-id.md)
 
 > [!IMPORTANT]
-> Her bir Microsoft Azure rezervasyon ürününde Microsoft Azure (**MS-AZR-0145P**) aboneliği ve Azure planına ait farklı kullanılabilirlik vardır. [Ürünlerin bir listesini (ülkeye göre](get-a-list-of-products.md)) veya bir [ürüne ait SKU](get-a-list-of-skus-for-a-product.md)'ların bir listesini alın (ülkeye göre) veya yalnızca Azure planına uygulanabilen [bir SKU (ülkeye göre) için kullanılabilirlik](get-a-list-of-availabilities-for-a-sku.md) listesi alın, "rezervationscope = azuplan" parametresini belirtin.
+> her bir Microsoft Azure rezervasyon ürününde Microsoft Azure (**MS-azr-0145p**) aboneliği ve Azure planına ait farklı kullanılabilirlik vardır. [Ürünlerin bir listesini (ülkeye göre](get-a-list-of-products.md)) veya bir [ürüne ait SKU](get-a-list-of-skus-for-a-product.md)'ların bir listesini alın (ülkeye göre) veya yalnızca Azure planına uygulanabilen [bir SKU (ülkeye göre) için kullanılabilirlik](get-a-list-of-availabilities-for-a-sku.md) listesi alın, "rezervationscope = azuplan" parametresini belirtin.
 
 ## <a name="order-submission"></a>Sipariş gönderimi
 
-Azure rezervasyon siparişinizi göndermek için aşağıdakileri yapın:
+Azure rezervasyon siparişinizi göndermek için aşağıdaki görevleri yapın:
 
 1. Satın almayı planladığınız Katalog öğelerinin koleksiyonunu tutmak için bir sepet oluşturun. Bir [sepet](cart-resources.md)oluşturduğunuzda, [sepet çizgisi öğeleri](cart-resources.md#cartlineitem) aynı [sırada](order-resources.md)birlikte satın alınabilecek öğelere göre otomatik olarak gruplandırılır.
 

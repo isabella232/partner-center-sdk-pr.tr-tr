@@ -4,21 +4,16 @@ description: Bir arama sorgusuyla filtrelenmiş abonelik Analizi bilgilerini alm
 ms.date: 05/10/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c1046ea3c7e813eedae4890eebf6356337c80ede
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 8df777b9a88206f8b22579f0f445c54d80f7cd64
+ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769053"
+ms.lasthandoff: 06/06/2021
+ms.locfileid: "111548745"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>Bir arama sorgusuyla filtrelenmiş abonelik analizi bilgilerini alma
 
-**Uygulama hedefi**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Bir arama sorgusuyla filtrelenmiş müşterileriniz için abonelik Analizi bilgilerini alma.
 
@@ -66,7 +61,7 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 
 Aşağıdaki tabloda, filtre parametresi için desteklenen alanların ve destek işleçlerinin listesi gösterilmektedir. Dize değerleri tek tırnak işareti içine alınmalıdır.
 
-| Parametre | Desteklenen işleçler | Description |
+| Parametre | Desteklenen işleçler | Açıklama |
 |-----------|---------------------|-------------|
 | autoRenewEnabled | `eq`, `ne` | Aboneliğin otomatik olarak yenilenip yenilenmediğini gösteren bir değer. |
 | commitmentEndDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le`  | Aboneliğin bitiş tarihi. |
@@ -86,7 +81,7 @@ Aşağıdaki tabloda, filtre parametresi için desteklenen alanların ve destek 
 | productName | `contains`, `eq`, `ne` | Ürünün adı. |
 | Adı | string | Abonelik işlemi dolaylı satıcı için olduğunda, sağlayıcı adı aboneliği satın alan dolaylı sağlayıcıdır.|
 | durum | `eq`, `ne` | Abonelik durumu. Desteklenen değerler şunlardır: "ETKIN", "askıya ALıNDı" veya "SAĞLAMASı KALDıRıLDı". |
-| subscriptionType | `eq`, `ne` | Abonelik türü. **Note**: Bu alan, büyük/küçük harfe duyarlıdır. Desteklenen değerler şunlardır: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |
+| subscriptionType | `eq`, `ne` | Abonelik türü. **Note**: Bu alan, büyük/küçük harfe duyarlıdır. desteklenen değerler şunlardır: "Office", "Azure", "Microsoft365", "Dynamics", "EMS". |
 | trialStartDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le` | Abonelik için deneme süresinin başladığı tarih. Varsayılan değer boştur. |
 | Trialtopaıdconversiondate | `eq`, `ne`, `gt`, `lt`, `ge`, `le`  | Aboneliğin deneme sürümünden ücretli olarak dönüştürdüğü tarih. Varsayılan değer boştur. |
 

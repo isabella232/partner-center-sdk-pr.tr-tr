@@ -1,40 +1,35 @@
 ---
 title: Sipariş satırı öğesine göre etkinleştirme bağlantısını alma
-description: Sipariş satırı öğesine göre bir abonelik etkinleştirme bağlantısı alır.
+description: Sipariş satırı öğesine göre abonelik etkinleştirme bağlantısını alır.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: c0e84888870571cf6bd21306f527863f2aa7ee85
-ms.sourcegitcommit: 58801b7a09c19ce57617ec4181a008a673b725f0
+ms.openlocfilehash: aa02a5a5b4a281b96e32ee6d239cc440cf8af4ec
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "97769268"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760785"
 ---
 # <a name="get-activation-link-by-order-line-item"></a>Sipariş satırı öğesine göre etkinleştirme bağlantısını alma
 
-**Uygulama hedefi**
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+Sipariş satırı öğe numarasına göre ticari market aboneliği etkinleştirme bağlantısını alır.
 
-Sipariş satırı öğe numarasına göre ticari Market aboneliği etkinleştirme bağlantısını alır.
-
-Iş Ortağı Merkezi panosunda, ana sayfada **abonelik** bölümünde **belirli bir aboneliği** seçerek veya **abonelikler** sayfasında etkinleştirilecek aboneliğin yanındaki **yayımcının site bağlantısına git** ' i seçerek bu işlemi yapabilirsiniz.
+İş Ortağı Merkezi panosunda, ana sayfada Abonelik altında Belirli bir  Abonelik seçerek veya Abonelikler sayfasında etkinleştirmek için aboneliğin yanındaki **Publisher'nin sitesine** git bağlantısını seçerek bu işlemi  **yapabilirsiniz.**
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Etkinleştirmesi gereken ürün ile tamamlanmış sıra.
+- Etkinleştirmesi gereken ürünle sipariş tamamlandı.
 
 ## <a name="c"></a>C\#
 
-Bir satır öğesinin etkinleştirme bağlantısını almak için, [**ıaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) koleksiyonunuzu kullanın ve [**byıd ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini seçili müşteri kimliğiyle çağırın. Ardından [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) özelliğini ve [**byıd ()**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) yöntemini belirtilen  [**siparişkimliğiniz**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.id)ile çağırın. Ardından, satır öğesi numara tanımlayıcısı ile **Byıd ()** yöntemi Ile [**LineItems**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) çağrısı yapın.  Son olarak, **Activationlinks ()** yöntemini çağırın.
+Bir satır öğesinin etkinleştirme bağlantısını almak için [**IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) koleksiyonu kullanın ve seçilen müşteri kimliğiyle [**ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini arayın. Ardından Orders [**özelliğini ve**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) [**ById() yöntemini**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.byid) belirttiğiniz [**OrderId değeriyle çağırabilirsiniz.**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.id) Ardından satır öğesi numarası tanımlayıcısıyla **ById()** yöntemiyle [**LineItems'i**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.get) çağırabilirsiniz.  Son olarak **ActivationLinks() yöntemini** arayın.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -48,15 +43,15 @@ var partnerOperations.Customers.ById(customerId).Orders.ById(orderId).OrderLineI
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                               |
 |---------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{CustomerID}/Orders/{OrderID}/LineItem/{lineıtemnumber}/activationlinks http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customerId}/orders/{orderId}/lineitems/{lineItemNumber}/activationlinks HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -74,11 +69,11 @@ MS-CorrelationId: b12260fb-82de-4701-a25f-dcd367690645
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir [Müşteri](customer-resources.md#customer) kaynakları koleksiyonu döndürür.
+Başarılı olursa, bu yöntem yanıt [gövdesinde bir](customer-resources.md#customer) Müşteri kaynakları koleksiyonu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -7,21 +7,16 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 5f4067916fea911963182954eed77f4e230e79d6
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: b237bbd17a6108bbcb4e23529cf476a6b8306f68
+ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769125"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111874559"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-customer"></a>Bir SKU (müşteriye göre) için kullanılabilirlik listesini alma
 
-**Uygulama hedefi:**
-
-- İş Ortağı Merkezi
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 Belirli bir müşteri tarafından kullanılabilen belirli bir ürün ve SKU 'nun kullanılabilirliği koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
@@ -77,7 +72,7 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu | Hata kodu | Description |
+| HTTP durum kodu | Hata kodu | Açıklama |
 |------------------|------------|-------------|
 | 404 | 400013 | Üst ürün bulunamadı. |
 

@@ -6,24 +6,20 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 55f63311e7bb1857fdc6c4b3d68446674542ba98
-ms.sourcegitcommit: d53d300dc7fb01aeb4ef85bf2e3a6b80f868dc57
+ms.openlocfilehash: 3668a5e510effb533cade311f52513b9a81d40af
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "97769437"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760547"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft Müşteri Sözleşmesinin müşteri kabulünün onayını alma
 
-**Uygulama hedefi:**
+**Uygulama hedefi**: Iş Ortağı Merkezi
 
-- İş Ortağı Merkezi
+**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-**Sözleşme** kaynağı şu anda yalnızca *Microsoft genel bulutundaki* iş ortağı Merkezi tarafından desteklenmektedir. Bu kaynak için geçerlidir:
-
-- 21Vianet tarafından çalıştırılan iş ortağı Merkezi
-- Microsoft Bulut Almanya için İş Ortağı Merkezi
-- Microsoft Cloud for US Government için İş Ortağı Merkezi
+**Sözleşme** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
 
 Bu makalede, bir müşterinin Microsoft Müşteri Sözleşmesi 'nin kabul edilmesine ilişkin onay (ler) i nasıl alabileceğiniz açıklanmaktadır.
 
@@ -79,7 +75,7 @@ Aşağıdaki istek sözdizimini kullanın:
 | Ad             | Tür | Gerekli | Açıklama                                                                               |
 |------------------|------|----------|-------------------------------------------------------------------------------------------|
 | Müşteri-Kiracı kimliği | GUID | Yes | Değer, bir müşteriyi belirtmenizi sağlayan bir GUID biçimli **Customertenantıd** 'dir. |
-| anlaşma türü | dize | No | Bu parametre tüm anlaşma meta verilerini döndürür. Sorgu yanıtının belirli anlaşma türüne kapsamını atamak için bu parametreyi kullanın. Desteklenen değerler şunlardır: <br/><br/> **Microsoftcloudagreement** yalnızca *microsoftcloudagreement* türünün anlaşma meta verilerini içerir.<br/><br/> **Microsoftcustomeragreement** yalnızca *microsoftcustomeragreement* türünde anlaşma meta verilerini içerir.<br/><br/> **\*** Bu, tüm anlaşma meta verilerini döndürür. ( **\*** Kodunuz, beklenmeyen anlaşma türlerini işlemek için gerekli mantığa sahip değilse kullanmayın.)<br/><br/> **Note:** URI parametresi belirtilmemişse, sorgu geri uyumluluk için varsayılan olarak **Microsoftcloudagreement** olur. Microsoft, Sözleşme meta verilerini dilediğiniz zaman yeni anlaşma türleriyle ortaya çıkarabilir.  |
+| anlaşma türü | dize | No | Bu parametre tüm anlaşma meta verilerini döndürür. Sorgu yanıtının belirli anlaşma türüne kapsamını atamak için bu parametreyi kullanın. Desteklenen değerler şunlardır: <br/><br/> **Microsoftcloudagreement** yalnızca *microsoftcloudagreement* türünün anlaşma meta verilerini içerir.<br/><br/> **Microsoftcustomeragreement** yalnızca *microsoftcustomeragreement* türünde anlaşma meta verilerini içerir.<br/><br/> **\**_ tüm anlaşma meta verilerini döndürür. (_ Kullanmayın* \* ** kodunuzun beklenmeyen anlaşma türlerini işlemek için gerekli mantığı yoksa.) <br/> <br/> _* Note:** URI parametresi belirtilmemişse, sorgu geri uyumluluk için varsayılan olarak **Microsoftcloudagreement** olur. Microsoft, Sözleşme meta verilerini dilediğiniz zaman yeni anlaşma türleriyle ortaya çıkarabilir.  |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

@@ -6,18 +6,16 @@ ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: f82d163b704323c81e2948b78eb9b9d1a14ddc52
-ms.sourcegitcommit: cfedd76e573c5616cf006f826f4e27f08281f7b4
+ms.openlocfilehash: 9b8848c2a4531dd6609f86aae6876cec436eeea9
+ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "97769022"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111760530"
 ---
 # <a name="get-mfa-adoption-status"></a>MFA benimseme durumunu al
 
-Aşağıdakiler cihazlar için geçerlidir:
-
-- İş Ortağı Merkezi API’si
+**Uygulama hedefi**: Iş Ortağı Merkezi API
 
 Bu makalede, bir kiracının içindeki her ortağın Multi-Factor Authentication (MFA) benimseme durumunun nasıl alınacağı açıklanmaktadır.
 
@@ -35,7 +33,7 @@ Bu makalede, bir kiracının içindeki her ortağın Multi-Factor Authentication
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üst bilgileri](headers.md) .
+- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
