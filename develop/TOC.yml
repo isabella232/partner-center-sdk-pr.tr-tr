@@ -247,8 +247,6 @@
           items:
             - name: Zaman uyumsuz API’leri kullanma
               href: get-customer-qualification-asynchronous.md
-            - name: Zaman uyumlu API’leri kullanma
-              href: get-customer-qualification-synchronous.md
         - name: Müşteri siparişlerinin tümünü alma
           href: get-all-of-a-customer-s-orders.md
         - name: Müşterinin aboneliğini alma
@@ -295,8 +293,6 @@
           items:
             - name: Zaman uyumsuz API’leri kullanma
               href: update-customer-qualification-asynchronous.md
-            - name: Zaman uyumlu API’leri kullanma
-              href: update-customer-qualification-synchronous.md
         - name: Bir abonelik için takma ad güncelleştirme
           href: update-the-nickname-for-a-subscription.md
         - name: Müşterinin aktarımını geri alma

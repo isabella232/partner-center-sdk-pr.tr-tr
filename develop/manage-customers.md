@@ -1,39 +1,39 @@
 ---
 title: Müşterileri yönetme
-description: Bu bölümde, iş ortaklarının Bulut Çözümü Sağlayıcısı hesaplarını programlı olarak yönetmek İş Ortağı Merkezi için bu hesabı nasıl kullanabileceği açıklandı.
+description: bu bölümde, Bulut Çözümü Sağlayıcısı iş ortaklarının müşteri hesaplarını programlı bir şekilde yönetmek için iş ortağı merkezini kullanma yolları açıklanmaktadır.
 ms.date: 02/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 00c0e51dfd6970bd28db2ce88e6b9be15175a76c
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 9f9b8629406a8d66c8ea820205abf73a2fb0cc02
+ms.sourcegitcommit: 51237e7e98d71a7e0590b4d6a4034b6409542126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548218"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113571987"
 ---
 # <a name="manage-customers"></a>Müşterileri yönetme
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Bu bölümde, iş ortaklarının Bulut Çözümü Sağlayıcısı hesaplarını program aracılığıyla yönetmek İş Ortağı Merkezi için kullanabileceği yollar açıklandı.
+bu bölümde, Bulut Çözümü Sağlayıcısı iş ortaklarının müşteri hesaplarını programlı bir şekilde yönetmek için iş ortağı merkezi 'ni kullanma yolları açıklanmaktadır.
 
 ## <a name="create-a-customer"></a>Müşteri oluşturma
 
-- [Kurumsal bayi ilişkisi isteği](request-reseller-relationship.md)
+- [Satıcı ilişkisi isteyin](request-reseller-relationship.md)
 - [Bir müşteriyle kurumsal bayi ilişkisini kaldırma](remove-a-reseller-relationship-with-a-customer.md)
 
-## <a name="look-up-a-customer"></a>Müşteriyi look up
+## <a name="look-up-a-customer"></a>Müşteri ara
 
 - [Kimliğe göre müşteri alma](get-a-customer-by-id.md)
 - [Şirket adına veya etki alanına göre müşteri al](get-a-customer-by-name.md)
 - [Müşterilerin bir listesini alma](get-a-list-of-customers.md)
 
-## <a name="manage-customer-orders-and-subscriptions"></a>Müşteri siparişlerini ve aboneliklerini yönetme
+## <a name="manage-customer-orders-and-subscriptions"></a>Müşteri siparişlerini ve abonelikleri yönetme
 
 - [Müşteri siparişlerinin tümünü alma](get-all-of-a-customer-s-orders.md)
 - [Müşteri ve faturalandırma dönem türüne göre siparişlerin bir listesini alma](get-a-list-of-orders-by-customer-and-billing-cycle-type.md)
 - [Yetkilendirme koleksiyonu alma](get-a-collection-of-entitlements.md)
-- [Müşterinin tüm aboneliklerini edinin](get-all-of-a-customer-s-subscriptions.md)
+- [Müşterinin aboneliklerinin tümünü alın](get-all-of-a-customer-s-subscriptions.md)
 - [Bir abonelik için takma ad güncelleştirme](update-the-nickname-for-a-subscription.md)
 
 ## <a name="manage-customer-account-details"></a>Müşteri hesabı ayrıntılarını yönetme
@@ -44,17 +44,17 @@ Bu bölümde, iş ortaklarının Bulut Çözümü Sağlayıcısı hesaplarını 
 - [Müşterinin kullanım harcama bütçesini güncelleştirme](update-a-customer-s-usage-spending-budget.md)
 - [Müşteri için doğrulanmış bir etki alanı ekleme](add-a-verified-domain-for-a-customer.md)
 - [Microsoft Bulut Sözleşmesi için anlaşma meta verilerini alma](get-agreement-metadata.md)
-- [Microsoft Bulut sözleşmesi müşteri kabulü onay alma](get-confirmation-of-customer-consent.md)
+- [Microsoft Bulut sözleşmesinin müşteri kabulünün onayını alın](get-confirmation-of-customer-consent.md)
 - [Microsoft Müşteri Sözleşmesinin doğrudan imzalama (doğrudan kabul) durumunu alma](get-direct-sign-status-of-customer-agreement.md)
 - [Microsoft Müşteri Sözleşmesinin müşteri kabulünü onaylama](confirm-customer-consent-customer-agreement.md)
 - [İş ortağının doğrulama kodlarını alma](get-a-partner-s-validation-codes.md)
-- [Müşterinin nitelemesini alma](./get-customer-qualification-synchronous.md)
-- [Müşterinin yeterliliğini güncelleştirme](./update-customer-qualification-synchronous.md)
+- [Müşterinin niteliklerini al](./get-customer-qualification-asynchronous.md)
+- [Müşterinin niteliklerini güncelleştirme](./update-customer-qualification-asynchronous.md)
 
 ## <a name="manage-user-accounts-and-assign-licenses"></a>Kullanıcı hesaplarını yönetme ve lisans atama
 
 - [Müşteri için kullanıcı hesapları oluşturma](create-user-accounts-for-a-customer.md)
-- [Müşteri için kullanıcı hesaplarını silme](delete-user-accounts-for-a-customer.md)
+- [Müşterinin Kullanıcı hesaplarını silme](delete-user-accounts-for-a-customer.md)
 - [Müşteri için silinen kullanıcıları görüntüleme](view-a-deleted-user.md)
 - [Silinen bir kullanıcıyı bir müşteri için geri yükleme](restore-a-user-for-a-customer.md)
 - [Müşteri için kullanıcı hesaplarını güncelleştirme](update-user-accounts-for-a-customer.md)
@@ -64,7 +64,7 @@ Bu bölümde, iş ortaklarının Bulut Çözümü Sağlayıcısı hesaplarını 
 - [Müşteri için kullanıcı rolleri ayarlama](set-user-roles-for-a-customer.md)
 - [Kullanılabilir lisansların bir listesini alma](get-a-list-of-available-licenses.md)
 - [Bir kullanıcıya lisans atama](assign-licenses-to-a-user.md)
-- [Kullanıcıya hangi lisansların atandığı kontrol edin](check-which-licenses-are-assigned-to-a-user.md)
+- [Bir kullanıcıya hangi lisansların atandığını denetleme](check-which-licenses-are-assigned-to-a-user.md)
 
 ## <a name="manage-a-customers-self-serve-policies"></a>Müşterinin self servis ilkelerini yönetme
 
@@ -74,4 +74,4 @@ Bu bölümde, iş ortaklarının Bulut Çözümü Sağlayıcısı hesaplarını 
 - [Self servis ilkelerinin bir listesini alma](get-a-list-of-self-serve-policies.md)
 - [Kimliğe göre bir self servis ilkesi alma](get-a-self-serve-policy-by-id.md)
 
-Daha fazla bilgi için [bkz. Senaryolar.](scenarios.md)
+Daha fazla bilgi için bkz. [senaryolar](scenarios.md).

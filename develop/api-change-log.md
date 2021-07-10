@@ -5,12 +5,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.topic: reference
 ms.date: 12/15/2020
-ms.openlocfilehash: b2c2cac36a8bd1bec7aa5bf6e5d1aa73b4779535
-ms.sourcegitcommit: 717e483a6eec23607b4e31ddfaa3e2691f3043e6
+ms.openlocfilehash: d4f7f034a36a26b6219086ca952b189f7a313ef7
+ms.sourcegitcommit: 51237e7e98d71a7e0590b4d6a4034b6409542126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104711857"
+ms.lasthandoff: 07/09/2021
+ms.locfileid: "113572004"
 ---
 # <a name="december-2020-changes-to-partner-center-rest-apis"></a>Iş Ortağı Merkezi REST API 'Lerinde Aralık 2020 değişiklikleri
 
@@ -24,8 +24,8 @@ Iş Ortağı Merkezi REST API 'Lerinde yapılan değişiklikler için buraya bak
 
 Şu anda Iş Ortağı Merkezi API 'sinin eğitim müşterilerinin uygunluğunu doğrulamak için GET ve PUT nitelikleri vardır. Nitelik al API 'sinde hiçbir değişiklik olmayacaktır. Ancak, YERLEŞTIRME API 'sine bir dönüş durumu ekledik.
 
-- GET-değişmez. [Geçerli API makalesi](./get-customer-qualification-synchronous.md)
-- PUT-Return Case eklenecektir. [Geçerli API makalesi](./update-customer-qualification-synchronous.md)
+- GET-değişmez.
+- PUT-Return Case eklenecektir.
 
 Bu API 'Ler, aşağıda açıklandığı gibi yeni API 'Ler ile değiştirilerek, Şubat 2021 ' un sonunda kullanımdan kaldırılacaktır.
 
