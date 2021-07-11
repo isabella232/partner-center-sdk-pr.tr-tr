@@ -406,6 +406,8 @@
           href: update-a-cart.md
         - name: Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
           href: update-autorenew-for-an-azure-marketplace-subscription.md
+    - name: Ödemeleri yönetme
+      href: manage-payouts.md
     - name: Destek sağlama
       href: provide-support.md
       items:
