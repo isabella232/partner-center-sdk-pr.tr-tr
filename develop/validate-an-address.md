@@ -1,31 +1,31 @@
 ---
 title: Bir adresi doğrulama
-description: Adres doğrulama API 'sini kullanarak bir adresi doğrulama.
-ms.date: 09/17/2019
+description: Adres doğrulama API'sini kullanarak adresi doğrulama.
+ms.date: 05/17/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2eeca91b0e5a507dac6df4ecf61a56aed2d2d921
-ms.sourcegitcommit: 51237e7e98d71a7e0590b4d6a4034b6409542126
+ms.openlocfilehash: 30f5cd526ab038dce400e79822d89b8086ba3799
+ms.sourcegitcommit: 41bf9dca55f4c96d382b327a75b2d2418edfc9bc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113572089"
+ms.lasthandoff: 07/13/2021
+ms.locfileid: "113655615"
 ---
 # <a name="validate-an-address"></a>Bir adresi doğrulama
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Adres doğrulama API 'sini kullanarak bir adresi doğrulama.
+Adres doğrulama API'sini kullanarak adresi doğrulama.
 
-Adres doğrulama API 'SI yalnızca müşteri profili güncelleştirmelerinin ön doğrulaması için kullanılmalıdır. Ülke Birleşik Devletler, Kanada, Çin veya Meksika olduğunda, eyalet alanının ilgili ülke için geçerli durumlar listesine göre doğrulanacağını anlamak için bunu kullanın. Diğer tüm ülkelerde, bu test oluşmaz ve API yalnızca durumun geçerli bir dize olduğunu denetler.
+Adres doğrulama API'si yalnızca müşteri profili güncelleştirmelerinin ön doğrulaması için kullanılmalıdır. Ülke Birleşik Devletler, Kanada, Çin veya Meksika ise eyalet alanı ilgili ülke için geçerli eyaletler listesinde doğrulanır. Diğer tüm ülkelerde bu test oluşmaz ve API yalnızca durumunun geçerli bir dize olduğunu denetler.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Bir adresi doğrulamak için önce yeni bir **Adres** nesnesi örneği oluşturun ve doğrulanacak adresle doldurun. Ardından, **ıaggregatepartner. doğrulamaları** özelliğinden **doğrulama** işlemlerine bir arabirim alın ve adres nesnesiyle **ısaddressvalid** yöntemini çağırın.
+Bir adresi doğrulamak için öncelikle yeni bir **Address** nesnesi örneği oluşturma ve bunu doğrulanması gereken adresle doldurmak. Ardından **IAggregatePartner.Validations** özelliğinden **Validations** işlemlerine bir arabirim alın ve adres nesnesiyle **IsAddressValid** yöntemini arayın.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -78,43 +78,43 @@ private string DisplayAddress(Address address)
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                 |
 |----------|-----------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/validations/Address http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/validations/address HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
 | Ad         | Tür   | Gerekli | Açıklama                                                |
 |--------------|--------|----------|------------------------------------------------------------|
 | addressline1 | string | Y        | Adresin ilk satırı.                             |
-| addressline2 | string | N        | Adresin ikinci satırı. Bu özellik isteğe bağlıdır. |
+| Addressline2 | string | N        | Adresin ikinci satırı. Bu özellik isteğe bağlıdır. |
 | city         | string | Y        | Şehir.                                                  |
 | state        | string | Y        | Durum.                                                 |
-| PostalCode   | string | Y        | Posta kodu.                                           |
-| ülke      | string | Y        | İki karakterlik ISO Alpha-2 ülke kodu.                |
+| Postakodu   | string | Y        | Posta kodu.                                           |
+| ülke      | string | Y        | İki karakterli ISO alfa-2 ülke kodu.                |
 
 ### <a name="response-details"></a>Yanıt ayrıntıları
 
-Yanıt aşağıdaki durum iletilerinden birini döndürür:
+Yanıt aşağıdaki durum iletilerinden birini geri dönecektir:
 
-| Durum     | Açıklama |    Döndürülen önerilen adreslerin sayısı |
+| Durum     | Açıklama |    Döndürülen önerilen adres sayısı |
 |-------|---------------|-------------------|
-|Doğrulanan sevk özellikli | Adres doğrulanır ve sevk edilebilir. | Tek |
-|Doğrulanamayan | Adres doğrulandı. | Tek |
-|Etkileşim gerekli | Önerilen adres önemli ölçüde değiştirildi ve kullanıcı onayı gerekiyor. | Tek |
-|Cadde kısmi | Adreste verilen cadde kısmi ve daha fazla bilgi gerekiyor. | Birden çok — en fazla üç |
-|Şirket içi kısmi | Verilen şirket içi (bina numarası, paket numarası ve diğerleri) kısmi ve daha fazla bilgi gerekiyor. | Birden çok — en fazla üç |
-|Birden çok | Adreste kısmi olan birden çok alan vardır (büyük olasılıkla cadde kısmi ve şirket içi kısmı da dahil). | Birden çok — en fazla üç |
+|Doğrulanmış gönderilebilir | Adres doğrulanır ve adresine gönderebilirsiniz. | Tek |
+|Doğrulandı | Adres doğrulandı. | Tek |
+|Etkileşim gerekiyor | Önerilen adres önemli ölçüde değiştirildi ve kullanıcı onayı gerekiyor. | Tek |
+|Sokak kısmii | Adreste verilen sokak kısmidir ve daha fazla bilgiye ihtiyaç vardır. | Çoklu— en fazla üç |
+|Kısmi şirket içi | Verilen şirket (bina numarası, paket numarası ve diğerleri) kısmidir ve daha fazla bilgiye ihtiyaç vardır. | Çoklu— en fazla üç |
+|Birden çok | Adreste kısmi olan birden çok alan vardır (kısmi sokak ve kısmi şirket de dahil olmak üzere). | Çoklu— en fazla üç |
 |Hiçbiri | Adres yanlış. | Hiçbiri |
-|Doğrulanmamış | Adres, doğrulama işlemi aracılığıyla gönderilemedi. | Hiçbiri |
+|Doğrulanmamış | Adres doğrulama işlemi aracılığıyla gönderileemedi. | Hiçbiri |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -162,11 +162,11 @@ X-Locale: en-US
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yöntem yanıt gövdesinde bir **Addressvalidationresponse** nesnesi döndürür ve **http 200** durum kodudur. Aşağıda bir örnek gösterilmiştir.
+Başarılı olursa, yöntem http **200** durum koduyla yanıt gövdesinde **bir AddressValidationResponse** nesnesi döndürür. Aşağıda bir örnek gösterilmiştir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
