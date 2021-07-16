@@ -4,12 +4,12 @@ description: Sanal İş Ortağı Merkezi SDK'sı için geliştirme hesapları ay
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2c564baa9b626ff6ce21f9bcc517902d7cf99244
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: db7d9bba34abadc907910c68c4a5583ed1f530f4
+ms.sourcegitcommit: de1e68545d37d7fa1862788f7fa8c84a9c4f2795
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547436"
+ms.lasthandoff: 07/16/2021
+ms.locfileid: "114282099"
 ---
 # <a name="set-up-api-access-in-partner-center"></a>İş Ortağı Merkezi’nde API erişimini ayarlama
 
@@ -48,7 +48,7 @@ Bu bölümde, iş ortağı hesabı için birincil İş Ortağı hesabının ve t
 
 1. Genel yönetici hesabıyla (birincil İş ortağı hesabınız) İş Ortağı Panosu'nda oturum açın.
 
-2. İş ortağı **Ayarlar** (dişli simgesi) İş ortağı **ayarları'ı seçin.**
+2. Ayarlar **menüsünden** (dişli simgesi) Hesap **ayarları'ı seçin.**
 
 3. Tümleştirme **korumalı alanı sekmesini** seçin.
 
@@ -69,7 +69,7 @@ Hesabınız ayarlandıktan sonra, İş Ortağı Merkezi SDK'sını tümleştirme
 
 1. Genel yönetici hesabı kullanarak İş Ortağı Panosunda oturum açın.
 
-2. İş ortağı **Ayarlar** (dişli simgesi) İş ortağı **ayarları'ı seçin.**
+2. Ayarlar **menüsünden** (dişli simgesi) Hesap **ayarları'ı seçin.**
 
 3. Hesap ayarları **sayfasında Uygulama** yönetimi'ne **tıklayın.**
 
@@ -87,7 +87,7 @@ Tümleştirme korumalı alanı içinde kod yazabilir ve kodu testebilirsiniz. Az
 
 | Öğe adı | Öğe konumu |
 | --------- | ------------- |
-| Uygulama Kimliği / İstemci Kimliği | İş ortağı **Ayarlar** (dişli simgesi) İş ortağı **ayarları'ı seçin.** Hesap ayarları **sayfasında Uygulama** Yönetimi'ne **tıklayın.** Uygulama Kimliği/İstemci Kimliği, Kayıtlı uygulama Uygulama **Kimliği olarak listelenir.** |
+| Uygulama Kimliği / İstemci Kimliği | Ayarlar **menüsünden** (dişli simgesi) Hesap **ayarları'ı seçin.** Hesap ayarları **sayfasında Uygulama** Yönetimi'ne **tıklayın.** Uygulama Kimliği/İstemci Kimliği, Kayıtlı uygulama Uygulama **Kimliği olarak listelenir.** |
 | Anahtar | API erişimini etkinleştirme bölümünde bir web uygulaması [oluşturduysanız,](#enable-api-access)bu, 5. adımda kaydedilen anahtardır. |
 | Etki alanı | Tümleştirme korumalı alanının etki alanı. |
 

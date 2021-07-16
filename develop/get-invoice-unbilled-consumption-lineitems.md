@@ -4,12 +4,12 @@ description: Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir faturaya ai
 ms.date: 01/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1b7dba3333aaec8df73f0e8147b0bbbc78b9b184
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: f7c74bedfd6412fc5954ed2ddc1388936e418fa3
+ms.sourcegitcommit: 722992eea6f8ea366dc088e5dd1ee63c17d56f61
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446155"
+ms.lasthandoff: 07/15/2021
+ms.locfileid: "114224777"
 ---
 # <a name="get-invoice-unbilled-commercial-consumption-line-items"></a>Fatura faturalanmamış ticari tüketim satırı öğelerini Al
 
@@ -23,8 +23,6 @@ Ayrıca, faturalandırılmamış ticari tüketim çizgisi öğelerinin (açık k
 ## <a name="prerequisites"></a>Önkoşullar
 
 - [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
-
-- Bir fatura tanımlayıcısı. Bu, satır öğelerinin alınacağı faturayı tanımlar.
 
 ## <a name="c"></a>C\#
 
@@ -125,10 +123,10 @@ Kullanım durumunuza bağlı olarak REST isteğiniz için aşağıdaki sözdizim
 
 | Ad                   | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                                |
 |------------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| sağlayıcısını               | string | Yes      | Sağlayıcı: "**Onetime**".                                                                                                                                                                                                               |
-| fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "**Usagelineıtems**", "**usagelineıtems**".                                                                                                                                                                    |
-| currencyCode           | string | Yes      | Faturalandırılmamış satır öğelerinin para birimi kodu.                                                                                                                                                                                             |
-| dönem                 | string | Yes      | Faturalandırılmamış keşfi için süre (örneğin: **geçerli**, **önceki**). Fatura döngüsünün faturalandırılmamış kullanım verilerini (01/01/2020 – 01/31/2020), Ocak ayında **"geçerli,"** diğer **"önceki** " olarak seçin. |
+| sağlayıcısını               | string | Evet      | Sağlayıcı: "**Onetime**".                                                                                                                                                                                                               |
+| fatura-satır-öğe türü | string | Evet      | Fatura ayrıntısı türü: "**Usagelineıtems**", "**usagelineıtems**".                                                                                                                                                                    |
+| currencyCode           | string | Evet      | Faturalandırılmamış satır öğelerinin para birimi kodu.                                                                                                                                                                                             |
+| dönem                 | string | Evet      | Faturalandırılmamış keşfi için süre (örneğin: **geçerli**, **önceki**). Fatura döngüsünün faturalandırılmamış kullanım verilerini (01/01/2020 – 01/31/2020), Ocak ayında **"geçerli,"** diğer **"önceki** " olarak seçin. |
 | boyut                   | sayı | Hayır       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir.                                                                                                                                                                           |
 | seekOperation          | dize | No       | `seekOperation=Next`Mutabakat satır öğelerinin sonraki sayfasını almak için ayarlayın.                                                                                                                                                                |
 
@@ -336,8 +334,8 @@ Aşağıdaki ayrıntılar Bu örnek için geçerlidir:
 
 - **Sağlayıcı**: **Onetime**
 - **Faturaışgıtemtype**: **usagelineıtems**
-- **Dönem:** **Önceki**
-- **SeekOperation:** **Next**
+- **Dönem**: **önceki**
+- **Seekoperation**: **İleri**
 
 #### <a name="request-example-2"></a>İstek örneği 2
 
