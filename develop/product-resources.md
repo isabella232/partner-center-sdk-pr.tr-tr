@@ -4,12 +4,12 @@ description: Satın edilebilir ürünleri veya hizmetleri temsil eden kaynaklar.
 ms.date: 04/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1d536cb78c070bd06f4ab9434e066e51fb4c008c
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 2e68df1f6955fb7feb9770377621c2d649b74e4a
+ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445893"
+ms.lasthandoff: 07/31/2021
+ms.locfileid: "115009148"
 ---
 # <a name="products-resources"></a>Ürün kaynakları
 
@@ -19,7 +19,7 @@ Satın edilebilir ürünleri veya hizmetleri temsil eden kaynaklar. Ürün tür�
 
 Satın edilebilir bir iyi veya hizmeti temsil eder. Tek başına ürün, satın edilebilir bir öğe değildir.
 
-| Özellik           | Tür                          | Açıklama                                                              |
+| Özellik           | Tür                          | Description                                                              |
 |--------------------|-------------------------------|--------------------------------------------------------------------------|
 | kimlik                 | string                        | Bu ürünün kimliği.                                                 |
 | başlık              | string                        | Ürün başlığı.                                                       |
@@ -33,7 +33,7 @@ Satın edilebilir bir iyi veya hizmeti temsil eder. Tek başına ürün, satın 
 
 Bir ürünün türünü temsil eder.
 
-| Özellik        | Tür                          | Açıklama                                                                          |
+| Özellik        | Tür                          | Description                                                                          |
 |-----------------|-------------------------------|--------------------------------------------------------------------------------------|
 | kimlik              | string                        | Tür tanımlayıcısı.                                                                 |
 | displayName     | string                        | Bu tür için görünen ad.                                                      |
@@ -43,7 +43,7 @@ Bir ürünün türünü temsil eder.
 
 Bir Ürün için bağlantıların listesini [içerir.](#product)
 
-| Özellik        | Tür                                                          | Açıklama                                          |
+| Özellik        | Tür                                                          | Description                                          |
 |-----------------|---------------------------------------------------------------|------------------------------------------------------|
 | Skus            | [Bağlantı](utility-resources.md#link)                             | Temel alınan SKUS'lara erişim bağlantısı.          |
 | Bağlantı           | [ResourceLinks](utility-resources.md#resourcelinks)           | Bu kaynağın içinde yer alan kaynak bağlantıları.   |
@@ -52,7 +52,7 @@ Bir Ürün için bağlantıların listesini [içerir.](#product)
 
 Ürün kapsamında satın alınabilir bir Stok Tutma Birimini (SKU) temsil eder. Bunlar ürünün farklı şekillerini temsil ediyor.
 
-| Özellik               | Tür             | Açıklama                                                                           |
+| Özellik               | Tür             | Description                                                                           |
 |------------------------|------------------|---------------------------------------------------------------------------------------|
 | kimlik                     | string           | Bu SKU'nun kimliği. Bu kimlik yalnızca üst ürünü bağlamında benzersizdir. |
 | başlık                  | string           | SKU'nun başlığı.                                                                 |
@@ -61,81 +61,91 @@ Bir Ürün için bağlantıların listesini [içerir.](#product)
 | minimum Miktar        | int              | Satın alma için izin verilen minimum miktar.                                            |
 | maximumQuantity        | int              | Satın alma için izin verilen maksimum miktar.                                            |
 | isTrial                | bool             | Bu SKU'nun bir deneme öğesi olup olmadığını gösterir.                                           |
-| supportedBillingCycles | dize dizisi | Bu SKU için desteklenen faturalama döngülerinin listesi. Desteklenen değerler, [BillingCycleType](#billingcycletype)içinde bulunan üye adlarıdır. |
-| purchasePrerequisites  | dize dizisi | Bu öğeyi satın almadan önce gerekli olan önkoşul adımlarının veya eylemlerin listesi. Desteklenen değerler:<br/>  "InventoryCheck" - Bu öğeyi satın alma girişiminde bulunmadan önce öğenin envanterini değerlendirmenin gerektiğini gösterir.<br/> "AzureSubscriptionRegistration" - Bir Azure aboneliği gerektiğini ve bu öğeyi satın alma girişiminden önce kayıtlı olması gerektiğini gösterir.  |
-| inventoryVariables     | dize dizisi | Bu öğe üzerinde bir envanter denetimi yürütmek için gereken değişkenlerin listesi. Desteklenen değerler şunlardır:<br/> "CustomerID"-satınalmanın müşterinin KIMLIĞI.<br/> "Azu, Scriptionıd"-bir Azure ayırması satın alma için kullanılacak Azure aboneliğinin KIMLIĞI.</br> "ArmRegionName"-stok doğrulanacak bölge. Bu değer, SKU 'nun DynamicAttributes öğesinden "ArmRegionName" ile eşleşmelidir. |
-| provisioningVariables  | dize dizisi | Bu öğe satın alınırken bir [sepet çizgisi öğesinin](cart-resources.md#cartlineitem) sağlama bağlamına sağlanması gereken değişkenlerin listesi. Desteklenen değerler şunlardır:<br/> Kapsam-bir Azure ayırması satın alma kapsamı: "tek", "paylaşılan".<br/> "SubscriptionID"-bir Azure ayırması satın alma için kullanılacak Azure aboneliğinin KIMLIĞI.<br/> "Duration"-Azure ayırma süresi: "1Year", "3Year".  |
-| dynamicAttributes      | anahtar/değer çiftleri  | Bu öğe için uygulanan dinamik özelliklerin sözlüğü. Bu sözlükteki Özellikler dinamiktir ve bildirimde bulunmaksızın değiştirilebilir. Bu özelliğin değerinde mevcut olan belirli anahtarlar üzerinde güçlü bağımlılıklar oluşturmamalıdır.    |
-| Köprü                  | [Resourcelmürekkepler](utility-resources.md#resourcelinks) | SKU içinde yer alan kaynak bağlantıları.                   |
+| supportedBillingCycles | dize dizisi | Bu SKU için desteklenen faturalama döngülerinin listesi. Desteklenen değerler [BillingCycleType](#billingcycletype)içinde bulunan üye adlarıdır. |
+| purchasePrerequisites  | dize dizisi | Bu öğeyi satın almadan önce gerekli olan önkoşul adımlarının veya eylemlerin listesi. Desteklenen değerler:<br/>  "InventoryCheck" - Bu öğeyi satın alma girişiminde bulunmadan önce öğenin envanterini değerlendirmenin gerektiğini gösterir.<br/> "AzureSubscriptionRegistration" - Bu öğeyi satın almak için önce bir Azure aboneliği gerektiğini ve kayıtlı olması gerektiğini gösterir.  |
+| inventoryVariables     | dize dizisi | Bu öğe üzerinde bir envanter denetimi yürütmek için gereken değişkenlerin listesi. Desteklenen değerler:<br/> "CustomerId" - Satın alma için satın alınan müşterinin kimliği.<br/> "AzureSubscriptionId" - Azure rezervasyon satın alma için kullanılacak Azure aboneliğinin kimliği.</br> "ArmRegionName" - Envanterin doğrulan yer olduğu bölge. Bu değer, SKU'nun DynamicAttributes'larından "ArmRegionName" ile eşleşmeli. |
+| provisioningVariables  | dize dizisi | Bu öğeyi satın alırken bir sepet satır öğesinin sağlama bağlamında [sağlanması gereken](cart-resources.md#cartlineitem) değişkenlerin listesi. Desteklenen değerler:<br/> Kapsam - Azure rezervasyon satın alma kapsamı: "Tek", "Paylaşılan".<br/> "SubscriptionId" - Azure rezervasyon satın alma için kullanılacak Azure aboneliğinin kimliği.<br/> "Süre" - Azure rezervasyon süresi: "1Year", "3Year".  |
+| dynamicAttributes      | anahtar/değer çiftleri  | Bu öğe için geçerli olan dinamik özellikler sözlüğü. Bu sözlükte özellikler dinamiktir ve bildirim olmadan değişebilir. Bu özelliğin değerinde mevcut olan belirli anahtarlara güçlü bağımlılıklar oluşturmamanız gerekir.    |
+| Bağlantı                  | [ResourceLinks](utility-resources.md#resourcelinks) | SKU içinde yer alan kaynak bağlantıları.                   |
+| AttestationProperties                  | [AttestationProperties](#attestationproperties) | SKU'nun attestation özellikleri.                   |
 
 ## <a name="availability"></a>Kullanılabilirlik
 
-Bir SKU 'nun satın alma için kullanılabildiği bir yapılandırmayı (ülke, para birimi ve sektör segmenti gibi) temsil eder.
+SKU'nun satın alınabilir olduğu bir yapılandırmayı (ülke, para birimi ve sektör segmenti gibi) temsil eder.
 
-| Özellik        | Tür                        | Açıklama                                                                         |
+| Özellik        | Tür                        | Description                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------------------------------|
-| kimlik              | string                        | Bu kullanılabilirliğinin KIMLIĞI. Bu KIMLIK yalnızca üst [ürün](#product) ve [SKU](#sku)'sunun bağlamı içinde benzersizdir. **Göz önünde** Bu KIMLIK, zaman içinde değişebilir. Bu değeri yalnızca kısa bir süre içinde aldıktan sonra almalısınız.  |
-| productId       | string                        | Bu kullanılabilirliği içeren [ürünün](#product) kimliği.           |
-| skuId           | string                        | Bu kullanılabilirliği içeren [SKU](#sku) 'nun kimliği.                   |
-| Catalogıtemıd   | string                        | Katalogdaki bu öğe için benzersiz tanımlayıcı. Bu, üst [SKU](#sku)satın alınırken [Orderlineıtem. OfferId](order-resources.md#orderlineitem) veya [Cartlineıtem. CATALOGıTEMıD](cart-resources.md#cartlineitem) özelliklerine doldurulması gereken kimliğidir. **Göz önünde** Bu KIMLIK, zaman içinde değişebilir. Bu değere yalnızca kısa bir süre içinde güvenmelisiniz. Yalnızca, satın alma sırasında erişilmesi ve kullanılması gerekir.  |
+| kimlik              | string                        | Bu kullanılabilirlik için kimlik. Bu kimlik yalnızca üst ürünü ve [SKU'su bağlamında](#product) [benzersizdir.](#sku) **Not** Bu kimlik zaman içinde değişebilir. Bu değeri aldıktan sonra yalnızca kısa bir süre içinde güvenin.  |
+| productId       | string                        | Bu kullanılabilirliği [içeren](#product) ürünün kimliği.           |
+| skuId           | string                        | Bu kullanılabilirliği [içeren SKU'nun](#sku) kimliği.                   |
+| catalogItemId   | string                        | Katalogda bu öğenin benzersiz tanımlayıcısı. Bu, üst SKU satın alırken [OrderLineItem.OfferId](order-resources.md#orderlineitem) veya [CartLineItem.CatalogItemId](cart-resources.md#cartlineitem) özelliklerine doldurulması [gereken kimliktir.](#sku) **Not** Bu kimlik zaman içinde değişebilir. Bu değeri aldıktan kısa bir süre sonra güvenin. Yalnızca satın alma zamanında erişilsin ve kullanılmalıdır.  |
 | defaultCurrency | string                        | Bu kullanılabilirlik için desteklenen varsayılan para birimi.                               |
-| segment         | string                        | Bu kullanılabilirlik için sektör segmenti. Desteklenen değerler şunlardır: ticari, eğitim, Kamu, kar amacı. |
-| ülke         | string                                              | Bu kullanılabilirliğinin uygulandığı ülke veya bölge (ISO ülke kodu biçiminde). |
-| isPurchasable   | bool                                                | Bu kullanılabilirliğinin satın alınabilir alınırken olup olmadığını gösterir. |
-| ıyenilenebiliyor     | bool                                                | Bu kullanılabilirliğinin yenilenebilir olup olmadığını gösterir. |
-| ürün      | [Ürün](#product)               | Bu kullanılabilirliğinin karşılık geldiği ürün. |
-| isteyin          | [İsteyin](#sku)            | Bu kullanılabilirliğinin karşılık geldiği SKU. |
-| larındaki           | [terim](#term) dizisi kaynakları  | Bu kullanılabilirlik için geçerli olan koşulların toplanması. |
-| Köprü           | [Resourcelmürekkepler](utility-resources.md#resourcelinks) | Kullanılabilirlik içinde yer alan kaynak bağlantıları. |
+| segment         | string                        | Bu kullanılabilirlik için sektör segmenti. Desteklenen değerler: Ticari, Eğitim, Kamu, Kar Amacı Gütmeyen. |
+| ülke         | string                                              | Bu kullanılabilirlik durumunun geçerli olduğu ülke veya bölge (ISO ülke kodu biçiminde). |
+| isPursable   | bool                                                | Bu kullanılabilirlik satın edilebilir olup olmadığını gösterir. |
+| isRenewable     | bool                                                | Bu kullanılabilirlik yenilenebilir olup olmadığını gösterir. |
+| ürün      | [Ürün](#product)               | Bu kullanılabilirlik ürününe karşılık gelen ürün. |
+| Sku          | [Sku](#sku)            | Bu kullanılabilirlik SKU'su karşılık gelen. |
+| Terim           | Terim [kaynakları](#term) dizisi  | Bu kullanılabilirlik için geçerli olan koşulların koleksiyonu. |
+| Bağlantı           | [ResourceLinks](utility-resources.md#resourcelinks) | Kullanılabilirlik içinde yer alan kaynak bağlantıları. |
 
 ## <a name="term"></a>Süre
 
-Kullanılabilirliğinin satın alınabilecek bir terimi temsil eder.
+Kullanılabilirliği satın almak için bir terimi temsil eder.
 
-| Özellik              | Tür                                        | Açıklama                                                                         |
+| Özellik              | Tür                                        | Description                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| süre              | string                                      | Terimin süresinin ISO 8601 temsili. Desteklenen geçerli değerler P1M (1 ay), P1Y (1 yıl) ve P3Y (3 yıl). |
+| süre              | string                                      | Sürenin ISO 8601 gösterimi. Desteklenen geçerli değerler P1M (1 ay), P1Y (1 yıl) ve P3Y (3 yıl) değerleridir. |
 | açıklama           | string                                      | Terimin açıklaması.           |
 
-## <a name="inventorycheckrequest"></a>Inventorycheckrequest
+## <a name="inventorycheckrequest"></a>InventoryCheckRequest
 
-Belirli Katalog öğelerinin envanterini denetlemek için bir isteği temsil eder.
+Belirli katalog öğelerine karşı envanteri denetleme isteğini temsil eder.
 
-| Özellik         | Tür                                                | Açıklama                                                                                 |
+| Özellik         | Tür                                                | Description                                                                                 |
 |------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Targetıtems      | [ınventoryıtem](#inventoryitem) dizisi            | Envanter denetimi tarafından değerlendirilecek Katalog öğelerinin listesi.                           |
-| ınventorycontext | anahtar/değer çiftleri                                     | Envanter denetimini yürütmek için gereken bağlam değerlerinin sözlüğü. Ürünlerin her [SKU 'su](#sku) , bu işlemi gerçekleştirmek için hangi değerlerin (varsa) gerekli olacağını tanımlar.  |
-| Köprü            | [Resourcelmürekkepler](utility-resources.md#resourcelinks) | Envanter denetimi isteği içindeki kaynak bağlantıları.                            |
+| targetItems      | [InventoryItem dizisi](#inventoryitem)            | Envanter denetimi tarafından değerlendirilecek katalog öğelerinin listesi.                           |
+| inventoryContext | anahtar/değer çiftleri                                     | Envanter denetimlerini yapmak için gereken bağlam değerlerinin sözlüğü. Ürünlerin [her SKU'su](#sku) bu işlemi yapmak için hangi değerlerin (varsa) gerekli olduğunu tanımlar.  |
+| Bağlantı            | [ResourceLinks](utility-resources.md#resourcelinks) | Envanter denetimi isteği içinde yer alan kaynak bağlantıları.                            |
 
-## <a name="inventoryitem"></a>Inventoryıtem
+## <a name="inventoryitem"></a>InventoryItem
 
-Bir envanter denetimi işleminde tek bir öğeyi temsil eder. Bu kaynak, bir giriş isteğindeki hedef öğeleri belirtmek için kullanılır ve ayrıca envanter denetimi işleminin çıkış sonuçlarını göstermek için kullanılır.
+Envanter denetimi işlemi içinde tek bir öğeyi temsil eder. Bu kaynak, bir giriş isteğinde hedef öğeleri belirtmek için kullanılır ve envanter denetimi işlemi çıktı sonuçlarını temsil etmek için de kullanılır.
 
-| Özellik         | Tür                                                              | Açıklama                                                                      |
+| Özellik         | Tür                                                              | Description                                                                      |
 |------------------|-------------------------------------------------------------------|----------------------------------------------------------------------------------|
-| productId        | string                                                            | Istenir [Ürünün](#product)kimliği.                            |
-| skuId            | string                                                            | [SKU](#sku)'nun kimliği. Bu kaynağı bir envanter isteğine giriş olarak kullanırken, bu değer isteğe bağlıdır. Bu değer sağlanmazsa, ürün altındaki tüm SKU 'Lar, envanter denetimi işleminin hedef öğeleri olarak kabul edilir.      |
-| IsRestricted     | bool                                                              | Bu öğenin kısıtlı envanterle bulunup bulunmadığını gösterir.            |
-| larından     | [ınventoryrestriction](#inventoryrestriction) dizisi            | Bu öğe için bulunan kısıtlamaların ayrıntıları. Bu özellik yalnızca **IsRestricted** = "true" ise doldurulur. |
+| productId        | string                                                            | (Gerekli) Ürünün [kimliği.](#product)                            |
+| skuId            | string                                                            | [SKU'nun kimliği.](#sku) Bu kaynağı bir envanter isteğine giriş olarak kullanırken bu değer isteğe bağlıdır. Bu değer sağlanmayacaksa, ürün altındaki tüm SKU'lar envanter denetimi işlemi için hedef öğeler olarak kabul edilir.      |
+| ısrestricted     | bool                                                              | Bu öğenin kısıtlı bir envantere sahip olup olmadığını gösterir.            |
+| Kısıtlama -ları     | [InventoryRestriction dizisi](#inventoryrestriction)            | Bu öğe için bulunan tüm kısıtlamaların ayrıntıları. Bu özellik yalnızcaRestricted **=** "true" ise doldurulur. |
 
-## <a name="inventoryrestriction"></a>Inventoryrestriction
+## <a name="inventoryrestriction"></a>InventoryRestriction
 
-Bir stok kısıtlamasının ayrıntılarını temsil eder. Bu yalnızca envanter denetimi çıkış sonuçları için geçerlidir, giriş istekleri için geçerli değildir.
+Envanter kısıtlaması ayrıntılarını temsil eder. Bu yalnızca stok denetimi çıkış sonuçları için geçerlidir, giriş istekleri için geçerli değildir.
 
-| Özellik         | Tür                  | Açıklama                                                                                 |
+| Özellik         | Tür                  | Description                                                                                 |
 |------------------|-----------------------|---------------------------------------------------------------------------------------------|
 | reasonCode       | string                | Kısıtlamanın nedenini tanımlayan kod.                                    |
-| açıklama      | string                | Envanter kısıtlamasının açıklaması.                                               |
-| properties       | anahtar/değer çiftleri       | Kısıtlama hakkında daha fazla ayrıntı sağlayabilen özelliklerin sözlüğü.           |
+| açıklama      | string                | Envanter kısıtlaması açıklaması.                                               |
+| properties       | anahtar/değer çiftleri       | Kısıtlamayla ilgili daha fazla ayrıntı sağlay sözcükler sözlüğü.           |
 
 ## <a name="billingcycletype"></a>BillingCycleType
 
-Bir fatura döngüsünün türünü belirten değerler içeren bir [enum/DotNet/api/System. Enum).
+Faturalama dönemi türünü belirten değerlerin yer alan [Enum/dotnet/api/system.enum) değeri.
 
-| Değer              | Konum     | Açıklama                                                                                |
+| Değer              | Konum     | Description                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
-| Bilinmiyor            | 0            | Sabit Listesi başlatıcısı.                                                                          |
-| Aylık            | 1            | Ortağın aylık olarak ücretlendirileceğini gösterir.                                        |
-| Yıllık             | 2            | Ortağın yıllık olarak ücretlendirileceğini gösterir.                                       |
-| Hiçbiri               | 3            | Ortağın ücretlendirilmeyeceğini belirtir. Bu değer, deneme öğeleri için kullanılabilir.    |
-| Kerelik            | 4            | Ortağın bir kez ücretlendirileceğini gösterir.                                       |
+| Bilinmiyor            | 0            | Enum başlatıcı.                                                                          |
+| Aylık            | 1            | İş ortağının aylık olarak ücret alın olacağını gösterir.                                        |
+| Yıllık             | 2            | İş ortağının yıllık ücret alın olacağını gösterir.                                       |
+| Hiçbiri               | 3            | İş ortağının ücret ödemesi olmadığını gösterir. Bu değer deneme öğeleri için kullanılabilir.    |
+| OneTime            | 4            | İş ortağının bir kez ücret alın olacağını gösterir.                                       |
+
+## <a name="attestationproperties"></a>AttestationProperties
+
+Birstation türünü ve satın alma için gerekli ise temsil eder.
+
+| Özellik              | Tür                                        | Description                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| attestationType              | string                                      | Station türünü gösterir. 365 Windows Windows365 değeridir. Windows 365 doğrulama metninde "Windows 365 business with Windows Hybrid Benefit kullanan her bir kişinin de birincil iş cihazında geçerli Windows 10/11 Pro kopyasının yüklü olması gerektiğini anlıyoruz." |
+| enforceAttestation           | boolean                                      | Satın alma için doğru olup olmadığını gösterir.           |

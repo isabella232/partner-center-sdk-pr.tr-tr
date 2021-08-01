@@ -4,12 +4,12 @@ description: Bir müşteri, teklif listesinden bir abonelik satın almak istedi�
 ms.date: 08/26/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 08085dde1b43f20b6f6bf707120dd87c48816aba
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: ebe6e628d5bb3b66186d5c4f428f69e46415892b
+ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974157"
+ms.lasthandoff: 07/31/2021
+ms.locfileid: "115009179"
 ---
 # <a name="cart-resources"></a>Sepet kaynakları
 
@@ -21,7 +21,7 @@ Bir iş ortağı bir müşteri bir teklif listesinden abonelik satın almak iste
 
 Bir sepet tanımlar.
 
-| Özellik              | Tür             | Açıklama                                                                                            |
+| Özellik              | Tür             | Description                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | kimlik                    | string           | Sepet başarıyla oluşturulduktan sonra sağlanan bir sepet tanımlayıcısı.                               |
 | creationTimeStamp     | DateTime         | Sepetin oluşturulduğu tarih ve saat biçimi. Sepet başarıyla oluşturulduktan sonra uygulandı.      |
@@ -35,7 +35,7 @@ Bir sepet tanımlar.
 
 Sepette bulunan bir öğeyi temsil eder.
 
-| Özellik             | Tür                             | Açıklama                                                                                                                                           |
+| Özellik             | Tür                             | Description                                                                                                                                           |
 |----------------------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | kimlik                   | string                           | Sepet çizgisi öğesi için benzersiz bir tanımlayıcı. Sepet başarıyla oluşturulduktan sonra uygulandı.                                                                   |
 | Catalogıtemıd        | string                           | Katalog öğesi tanımlayıcısı.                                                                                                                          |
@@ -50,6 +50,7 @@ Sepette bulunan bir öğeyi temsil eder.
 | Addonıtems           | **Cartlineıtem** nesnelerinin listesi | Eklentiler için sepet çizgisi öğeleri koleksiyonu. Bu öğeler, kök sepet çizgisi öğesinin satın alma işleminden kaynaklanan temel aboneliğe göre satın alınacaktır. |
 | error                | Nesne                           | Bir hata oluştuysa sepet oluşturulduktan sonra uygulanır.                                                                                                    |
 | renewsTo             | Nesne dizisi                 | [RenewsTo](#renewsto) kaynaklarından oluşan bir dizi.                                                                            |
+| AttestationAccepted             | bool                 | Teklif veya SKU koşullarına yönelik anlaşmayı gösterir. Yalnızca SkuAttestationProperties veya OfferAttestationProperties Enforcekanıtlama 'nin doğru olduğu teklifler veya SKU 'lar için gereklidir.                                                                            |
 
 ## <a name="renewsto"></a>RenewsTo
 
@@ -65,28 +66,49 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 ## <a name="carterror"></a>CartError
 
-Sepet oluşturulduktan sonra oluşan bir hatayı temsil eder.
+Bir sepet oluşturulduktan sonra oluşan bir hatayı temsil eder.
 
-| Özellik         | Tür                                   | Açıklama                                                                                   |
+| Özellik         | Tür                                   | Description                                                                                   |
 |------------------|----------------------------------------|-----------------------------------------------------------------------------------------------|
-| errorCode        | [İş Ortağı Merkezi hata kodları](error-codes.md) | Sepet hatasının türü.                                                                       |
-| Errordescription | string                                 | Desteklenen değerler, varsayılan değerler veya sınırlar hakkında notlar da dahil olmak üzere hata açıklaması. |
+| Raporladı        | [Gelişme kodu](#carterrorcode) | Sepet hatası türü.                                                                       |
+| errorDescription | string                                 | Desteklenen değerler, varsayılan değerler veya limitlere ilişkin notlar da dahil olmak üzere hata açıklaması. |
+
+
+## <a name="carterrorcode"></a>CartErrorCode
+
+Sepet hatalarının türleri.
+
+| Name                             | ErrorCode   | Description
+|----------------------------------|-------------|-----------------------------------------------------------------------------------------------|
+| Currencyınotsupported           | 10000   | Para birimi, belirtilen Pazar için desteklenmiyor  |
+| Catalogıtemmıdisnotvalid          | 10001   | Katalog öğesi kimliği geçerli değil  |
+| QuotaNotAvailable                | 10002   | Yeterli kullanılabilir kota yok  |
+| InventoryNotAvailable            | 10003   | Seçili teklif için stok yok  |
+| ParticipantsIsNotSupportedForPartner  | 10004   | Iş ortağı için katılımcı ayarlama desteklenmez  |
+| Unabletoprocesscartlineıtem      | 10006   | Sepet çizgisi öğesi işlenemiyor.  |
+| Subscriptionınotvalid           | 10007   | Abonelik geçerli değil.  |
+| Subscriptionısnotenabledforrı    | 10008   | RI satın alma için abonelik etkin değil.  |
+| Sandboxlimitexceıbaşında             | 10009   | Korumalı alan sınırı aşıldı.  |
+| Invalidınput                     | 10010   | Genel giriş geçerli değil.  |
+| SubscriptionNotRegistered        | 10011   | Abonelik geçerli değil.  |
+| AttestationNotAccepted           | 10012   | Kanıtlama kabul edilmedi.  |
+| Bilinmiyor                          | 0   | Varsayılan değer   |
 
 ## <a name="cartcheckoutresult"></a>CartCheckoutResult
 
-Sepet iadenin sonucu temsil eder.
+Sepet kullanıma almanın sonucunu temsil eder.
 
-| Özellik    | Tür                                              | Açıklama                     |
+| Özellik    | Tür                                              | Description                     |
 |-------------|---------------------------------------------------|---------------------------------|
-| siparişler      | Order [nesnelerinin](order-resources.md#order) listesi.         | Sipariş koleksiyonu.       |
-| orderErrors | [OrderError nesnelerinin](#ordererror) listesi. | Sipariş hatalarının koleksiyonu. |
+| siparişler      | [Sıra](order-resources.md#order) nesnelerinin listesi.         | Siparişlerin koleksiyonu.       |
+| orderErrors | [OrderError](#ordererror) nesnelerinin listesi. | Sıra hatalarının toplanması. |
 
 ## <a name="ordererror"></a>OrderError
 
-Sipariş oluşturulduğunda sepetin iade oluşturulduğunda oluşan bir hatayı temsil eder.
+Bir sipariş oluşturulduğunda sepet kullanıma alma sırasında oluşan bir hatayı gösterir.
 
-| Özellik     | Tür   | Açıklama                                     |
+| Özellik     | Tür   | Description                                     |
 |--------------|--------|-------------------------------------------------|
-| orderGroupId | string | Hatayla birlikte siparişin sipariş grubu kimliği. |
+| Ordergroupıd | string | Hatanın sipariş Grup KIMLIĞI. |
 | kod         | int    | Hata kodu.                                 |
 | açıklama  | string | Hatanın açıklaması.                   |

@@ -1,17 +1,17 @@
 ---
 title: Sepet oluşturma
-description: Sepette bir İş Ortağı Merkezi sipariş eklemek için api'leri kullanmayı öğrenin. Konu, sepet oluşturma ve önkoşullar hakkında bilgi içerir.
+description: Sepette müşteri İş Ortağı Merkezi sipariş eklemek için api'leri kullanmayı öğrenin. Konu, sepet oluşturma ve önkoşullar hakkında bilgi içerir.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: dba54d4f6b97f3d0a51e2f87b32edca686466b89
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: d23c162b5eddd0fbe91b11faafa5c4debfb7a4a8
+ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973783"
+ms.lasthandoff: 07/31/2021
+ms.locfileid: "115009197"
 ---
 # <a name="create-a-cart-with-a-customer-order"></a>Müşteri siparişiyle sepet oluşturma
 
@@ -131,7 +131,7 @@ Bir müşteriye sipariş oluşturmak için:
 
 2. **CartLineItem nesnelerinin** listesini oluşturun ve listeyi sepetin satır öğelerine attayabilirsiniz. Her sepet satır öğesi, bir ürün için satın alma bilgilerini içerir. En az bir sepet satır öğeniz olması gerekir.
 
-3. Müşteriyi tanımlamak için müşteri kimliğiyle **IAggregatePartner.getCustomers().byId** işlevini çağırarak ve **ardından getCart** işlevinden arabirimi alarak işlemleri sepetine almak için bir arabirim elde edin.
+3. Müşteri kimliğini kullanarak **IAggregatePartner.getCustomers().byId** işlevini çağırarak ve **ardından getCart** işlevinden arabirimi alarak işlemleri sepetine almak için bir arabirim elde edin.
 
 4. Sepeti **oluşturmak için create** işlevini çağırma.
 
@@ -207,7 +207,7 @@ New-PartnerCustomerCart -CustomerId $customerId -LineItems $lineItem
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Müşteriyi tanımlamak için aşağıdaki yol parametresini kullanın.
+Müşteriyi tanımlamak için aşağıdaki path parametresini kullanın.
 
 | Ad            | Tür     | Gerekli | Açıklama                                                            |
 |-----------------|----------|----------|------------------------------------------------------------------------|
@@ -224,33 +224,34 @@ Bu tablo, istek [gövdesinin](cart-resources.md) Sepet özelliklerini açıklar.
 | Özellik              | Tür             | Gerekli        | Açıklama |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | kimlik                    | dize           | No              | Sepetin başarıyla oluşturulmasının ardından sağlanan bir sepet tanımlayıcısı.                                  |
-| creationTimeStamp     | DateTime         | Hayır              | Sepetin tarih-saat biçiminde oluşturulma tarihi. Sepetin başarıyla oluşturulmasının ardından uygulanır.         |
-| lastModifiedTimeStamp | DateTime         | Hayır              | Sepetin en son güncelleştirilen tarih-saat biçiminde olduğu tarih. Sepetin başarıyla oluşturulmasının ardından uygulanır.    |
-| expirationTimeStamp   | DateTime         | Hayır              | Sepet tarih-saat biçiminde sona erer.  Sepetin başarıyla oluşturulmasının ardından uygulanır.            |
+| creationTimeStamp     | DateTime         | No              | Sepetin tarih-saat biçiminde oluşturulma tarihi. Sepetin başarıyla oluşturulmasının ardından uygulanır.         |
+| lastModifiedTimeStamp | DateTime         | No              | Sepetin en son güncelleştirilen tarih-saat biçiminde olduğu tarih. Sepetin başarıyla oluşturulmasının ardından uygulanır.    |
+| expirationTimeStamp   | DateTime         | No              | Sepet tarih-saat biçiminde sona erer.  Sepetin başarıyla oluşturulmasının ardından uygulanır.            |
 | lastModifiedUser      | dize           | No              | Sepeti en son güncelleştirilen kullanıcı. Sepetin başarıyla oluşturulmasının ardından uygulanır.                             |
-| lineItems             | Nesne dizisi | Yes             | [Bir CartLineItem kaynakları](cart-resources.md#cartlineitem) dizisi.                                     |
+| lineItems             | Nesne dizisi | Yes             | [CartLineItem kaynaklarının](cart-resources.md#cartlineitem) dizisi.                                     |
 
 Bu tablo, istek [gövdesinin CartLineItem](cart-resources.md#cartlineitem) özelliklerini açıklar.
 
 |      Özellik       |            Tür             | Gerekli |                                                                                         Açıklama                                                                                         |
 |---------------------|-----------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         kimlik          |           dize            |    No    |                                                     Sepet satır öğesi için benzersiz tanımlayıcı. Sepetin başarıyla oluşturulmasının ardından uygulanır.                                                     |
+|         kimlik          |           dize            |    No    |                                                     Sepet çizgisi öğesi için benzersiz bir tanımlayıcı. Sepet başarıyla oluşturulduktan sonra uygulandı.                                                     |
 |      catalogId      |           string            |   Yes    |                                                                                Katalog öğesi tanımlayıcısı.                                                                                 |
-|    Friendlyname     |           dize            |    No    |                                                    İsteğe bağlı. Karartmanıza yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.                                                    |
+|    friendlyName     |           dize            |    No    |                                                    İsteğe bağlı. Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.                                                    |
 |      miktar       |             int             |   Yes    |                                                                            Lisans veya örnek sayısı.                                                                             |
 |    currencyCode     |           dize            |    No    |                                                                                     Para birimi kodu.                                                                                      |
-|    billingCycle     |           Nesne            |   Yes    |                                                                    Geçerli dönem için ayarlanmış faturalama dönemi türü.                                                                    |
-|    Katılımcılar     | Nesne Dizesi çiftlerinin listesi |    Hayır    |                                                                Satın almada Kayıt üzerinde PartnerId (MPNID) koleksiyonu.                                                                 |
-| provisioningContext | Sözlük<dizesi, dize>  |    Hayır    | Katalogdaki bazı öğeler için sağlama için gereken bilgiler. SKU'daki provisioningVariables özelliği, katalogdaki belirli öğeler için hangi özelliklerin gerekli olduğunu gösterir. |
-|     orderGroup      |           dize            |    No    |                                                                   Hangi öğelerin bir araya yerleştiril olduğunu belirten bir grup.                                                                   |
-|        error        |           Nesne            |    Hayır    |                                                                     Bir hata varsa sepet oluşturulduktan sonra uygulanır.                                                                      |
-|     renewsTo        | Nesne dizisi            |    Hayır    |                                                    [RenewsTo kaynakları dizisi.](cart-resources.md#renewsto)                                                                            |
+|    Bilimlingcycle     |           Nesne            |   Yes    |                                                                    Geçerli dönem için ayarlanan faturalandırma dönemi türü.                                                                    |
+|    Katılımcılar     | Nesne dizesi çiftlerinin listesi |    No    |                                                                Satınalmada iş ortağı kimliği koleksiyonu (MPNıD).                                                                 |
+| provisioningContext | Sözlük<dize, dize>  |    No    | Katalogdaki bazı öğelerin sağlanması için gereken bilgiler. SKU 'daki provisioningVariables özelliği, katalogdaki belirli öğeler için hangi özelliklerin gerekli olduğunu gösterir. |
+|     orderGroup      |           dize            |    No    |                                                                   Hangi öğelerin birlikte yerleştirilebileceğini belirten bir grup.                                                                   |
+|        error        |           Nesne            |    No    |                                                                     Bir hata varsa sepet oluşturulduktan sonra uygulanır.                                                                      |
+|     renewsTo        | Nesne dizisi            |    No    |                                                    [RenewsTo](cart-resources.md#renewsto) kaynaklarından oluşan bir dizi.                                                                            |
+|     AttestationAccepted        | Boole            |    No    |                                                   Teklif veya SKU koşullarına yönelik anlaşmayı gösterir. Yalnızca SkuAttestationProperties veya OfferAttestationProperties Enforcekanıtlama 'nin doğru olduğu teklifler veya SKU 'lar için gereklidir.                                                                             |
 
-Bu tabloda istek [gövdesinin RenewsTo](cart-resources.md#renewsto) özellikleri açık edilmektedir.
+Bu tablo, istek gövdesinde [RenewsTo](cart-resources.md#renewsto) özelliklerini açıklar.
 
 | Özellik              | Tür             | Gerekli        | Açıklama |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | dize           | No              | Yenileme süresinin ISO 8601 gösterimi. Desteklenen geçerli değerler **P1M (1** ay) ve **P1Y (1** yıl) değerleridir. |
+| termDuration          | dize           | No              | Yenileme teriminin süresinin ISO 8601 temsili. Desteklenen geçerli değerler **P1M** (1 ay) ve **P1Y** (1 yıl). |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -333,11 +334,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt [gövdesinde](cart-resources.md) doldurulmuş Sepet kaynağını döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde doldurulmuş [sepet](cart-resources.md) kaynağını döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
 
 ### <a name="response-example"></a>Yanıt örneği
 
