@@ -3,15 +3,15 @@ title: Güvenli uygulama modelini etkinleştirme
 description: Uygulamalarınızı İş Ortağı Merkezi denetim masası uygulamalarının güvenliğini sağlama.
 ms.date: 01/20/2020
 ms.service: partner-dashboard
-ms.subservice: partnercenter-csp
+ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 19a1c39576a4f897df2d1205e3501839f6580831
-ms.sourcegitcommit: e0077b2724d128ab20cb05696e5e5b1cde8e5214
+ms.openlocfilehash: 36a81c7b235c68e49bb425b5bd0d4615882f88ef
+ms.sourcegitcommit: 07b9a11f5c615ed1e716081392032cea2124bd98
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2021
-ms.locfileid: "113481676"
+ms.lasthandoff: 08/04/2021
+ms.locfileid: "115104219"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>Güvenlik Uygulama Modeli çerçevesini etkinleştirme
 
@@ -74,7 +74,7 @@ Güvenli Uygulama Modeli çerçevesini örnek kodla rest çağrısı yapmak içi
 
 REST çağrıları yapmadan önce bir web uygulamasını İş Ortağı Merkezi web uygulaması oluşturmanız ve kaydetmeniz gerekir.
 
-1. [Azure portalında](https://portal.azure.com) oturum açın.
+1. [Azure Portal](https://portal.azure.com)’ında oturum açın.
 
 2. Bir Azure Active Directory (Azure AD) uygulaması oluşturun.
 
@@ -246,7 +246,7 @@ Bu işlem hakkında daha fazla bilgi için PowerShell [ile Uygulama Modeli](/pow
     ```
 
     > [!NOTE]
-    > **Web/API** türüne sahip bir Azure AD uygulaması kullanıldığından **ServicePrincipal** parametresi **New-PartnerAccessToken** komutuyla birlikte kullanılır. Bu tür bir uygulama, erişim belirteci isteğine bir istemci tanımlayıcısı ve gizli kodun dahilsini gerektirir. **Get-Credential komutu** çağrıldığında kullanıcı adı ve parola girmeniz istenir. Kullanıcı adı olarak uygulama tanımlayıcısını girin. Parola olarak uygulama gizli parolasını girin. **New-PartnerAccessToken** komutu çağrıldığında, kimlik bilgilerini yeniden girmeniz istenir. Kullanmakta olan hizmet hesabının kimlik bilgilerini girin. Bu hizmet hesabı, uygun izinlere sahip bir iş ortağı hesabı olması gerekir.
+    > **Web/API** türüne sahip bir Azure AD uygulaması kullanıldığından **ServicePrincipal** parametresi **New-PartnerAccessToken** komutuyla birlikte kullanılır. Bu tür bir uygulama, erişim belirteci isteğine bir istemci tanımlayıcısı ve gizli kodun dahilsini gerektirir. **Get-Credential komutu** çağrıldığında kullanıcı adı ve parola girmeniz istenir. Kullanıcı adı olarak uygulama tanımlayıcısını girin. Parola olarak uygulama gizli parolasını girin. **New-PartnerAccessToken** komutu çağrıldığında, kimlik bilgilerini yeniden girmeniz istenir. Kullanmakta olduğunuz hizmet hesabının kimlik bilgilerini girin. Bu hizmet hesabı, uygun izinlere sahip bir iş ortağı hesabı olmalıdır.
 
 3. Yenileme belirteci değerini kopyalayın.
 
@@ -254,4 +254,4 @@ Bu işlem hakkında daha fazla bilgi için PowerShell [ile Uygulama Modeli](/pow
     $token.RefreshToken | clip
     ```
 
-Yenileme belirteci değerini, yenileme belirteci gibi güvenli bir Azure Key Vault. PowerShell ile güvenli uygulama modülü hakkında daha fazla bilgi için çok faktörlü [kimlik doğrulaması makalesine](/powershell/partnercenter/multi-factor-auth) bakın.
+Yenileme belirteci değerini, Azure Key Vault gibi güvenli bir depoda depolamanız gerekir. PowerShell ile güvenli uygulama modülünü kullanma hakkında daha fazla bilgi için bkz. [Multi-Factor Authentication](/powershell/partnercenter/multi-factor-auth) makalesi.
