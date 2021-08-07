@@ -1,58 +1,58 @@
 ---
-title: Tüm müşteriler için kullanım kayıtları al
+title: Tüm müşteriler için kullanım kayıtlarını al
 description: Belirli bir Azure hizmetini veya kaynağını satın alan tüm müşterilerin kullanım kayıtlarını almak için CustomerMonthlyUsageRecord kaynak koleksiyonunu kullanabilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6b3fb0e1989336810f2afcc2a5bfc3a1d2849b7f
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 2ac71bdcbbeb36462f543a024727980922baf7dff5e37a3e7997ced881a51f94
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874899"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992917"
 ---
-# <a name="get-usage-records-for-all-customers"></a>Tüm müşteriler için kullanım kayıtları al
+# <a name="get-usage-records-for-all-customers"></a>Tüm müşteriler için kullanım kayıtlarını al
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-İş ortakları, tüm müşterileri için kullanım kayıtları almak üzere **CustomerMonthlyUsageRecord** kaynak koleksiyonunu kullanabilir. Bu kaynak, tüm müşteriler için kullanım kayıtlarını temsil eder. bu müşterileri bir Microsoft Azure (MS-azr-0145p) aboneliği veya bir Azure planına dahil eder.
+İş ortakları, **tüm müşterilerinin kullanım kayıtlarını almak için CustomerMonthlyUsageRecord** kaynak koleksiyonunu kullanabilir. Bu kaynak tüm müşteriler için kullanım kayıtlarını temsil eder. Buna bir Microsoft Azure (MS-AZR-0145P) aboneliğine veya Bir Azure planına sahip olan müşteriler dahildir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
-Geçerli faturalandırma döneminde belirli bir Azure hizmetini veya kaynağını satın alan tüm müşterilerin kullanım kayıtlarını almak için:
+Geçerli faturalama döneminde belirli bir Azure hizmeti veya kaynağı satın alan tüm müşterilerin kullanım kayıtlarını almak için:
 
-1. **Byıd ()** yöntemini çağırmak Için **ıaggregatepartner. Customers** koleksiyonunuzu kullanın.
+1. **ById()** **yöntemini çağırarak IAggregatePartner.Customers** koleksiyonu kullanın.
 
-2. **UsageRecords** özelliğini çağırın, sonra **Get ()** veya **GetAsync ()** yöntemini çağırın.
+2. **UsageRecords özelliğini** ve ardından **Get()** veya **GetAsync() yöntemini** arayın.
 
     ``` csharp
     // IAggregatePartner partnerOperations;
     var usageRecords = partnerOperations.Customers.UsageRecords.Get();
     ```
 
-Bir örnek için aşağıdaki örneğe bakın:
+Bir örnek için aşağıdaki örneğine bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Project: **partnersdk. featuresamples**
-- Sınıf: **GetCustomerUsageRecords. cs**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **PartnerSDK.FeatureSamples**
+- Sınıf: **GetCustomerUsageRecords.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                   |
 |---------|-------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/usagerecords http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/usagerecords HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -70,15 +70,15 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **CustomerMonthlyUsageRecord** kaynağı döndürür.
+Bu yöntem başarılı olursa yanıt gövdesinde **CustomerMonthlyUsageRecord** kaynağını döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
-**Ispyükseltilen** özelliğini kullanarak bir Azure planına sahip olan müşterileri tanımlayabilirsiniz. **Isyükseltilen** değeri **true** ise, müşterilerin Azure planlarına sahip olduğu anlamına gelir.
+bir Azure planına sahip müşterileri belirlemek için **isUpgraded** özelliğini kullanabilirsiniz. **isUpgraded değeri true** **ise,** müşterilerin Azure planları olduğu anlamına gelir.
 
 ```http
 HTTP/1.1 200 OK

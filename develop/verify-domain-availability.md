@@ -1,31 +1,31 @@
 ---
 title: Etki alanı kullanılabilirliğini doğrulama
-description: Bir etki alanının kullanılabilir olup olmadığını belirleme.
+description: Bir etki alanının kullanıma hazır olup olmadığını belirleme.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e2b8f0438516cc0aff9c4d8159c22de43ec582e4
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 3515216127219908aeefb2e070b138e75dc1f0e72b1f57f07f1dbff65ab79558
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530285"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989058"
 ---
 # <a name="verify-domain-availability"></a>Etki alanı kullanılabilirliğini doğrulama
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Bir etki alanının kullanılabilir olup olmadığını belirleme.
+Bir etki alanının kullanıma hazır olup olmadığını belirleme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Bir etki alanı `contoso.onmicrosoft.com` (örneğin).
+- Bir etki alanı (örneğin `contoso.onmicrosoft.com` ).
 
 ## <a name="c"></a>C\#
 
-Bir etki alanının kullanılabilir olup olduğunu doğrulamak için önce [**IAggregatePartner.Domains'i**](/dotnet/api/microsoft.store.partnercenter.ipartner.domains) çağırarak etki alanı işlemlerine bir arabirim alın. Ardından, kontrol [**etmek için etki alanıyla ByDomain**](/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) yöntemini arayın. Bu yöntem, belirli bir etki alanı için kullanılabilir işlemler için bir arabirim sağlar. Son olarak, etki [**alanının zaten**](/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) var olup olduğunu görmek için Exists yöntemini çağırabilirsiniz.
+Bir etki alanının kullanılabilir olup olmadığını doğrulamak için, önce etki alanı işlemlerine bir arabirim almak üzere [**ıaggregatepartner. Domains**](/dotnet/api/microsoft.store.partnercenter.ipartner.domains) ' ı çağırın. Ardından, denetlenecek etki alanı ile [**bydomain**](/dotnet/api/microsoft.store.partnercenter.domains.idomaincollection.bydomain) yöntemini çağırın. Bu yöntem, belirli bir etki alanı için kullanılabilir işlemlere bir arabirim alır. Son olarak, etki alanının zaten mevcut olup olmadığını görmek için [**EXISTS**](/dotnet/api/microsoft.store.partnercenter.domains.idomain.exists) metodunu çağırın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -34,15 +34,15 @@ Bir etki alanının kullanılabilir olup olduğunu doğrulamak için önce [**IA
 bool result = partnerOperations.Domains.ByDomain(domain).Exists();
 ```
 
-**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Örnekleri **Sınıfı:** CheckDomainAvailability.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: checkdomainavaılabılıty. cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem   | İstek URI'si                                                              |
 |----------|--------------------------------------------------------------------------|
-| **Kafa** | [*{baseURL}*](partner-center-rest-urls.md)/v1/domains/{domain} HTTP/1.1 |
+| **BAŞLı** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Domains/{Domain} http/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -50,11 +50,11 @@ Etki alanı kullanılabilirliğini doğrulamak için aşağıdaki sorgu parametr
 
 | Ad       | Tür       | Gerekli | Açıklama                                   |
 |------------|------------|----------|-----------------------------------------------|
-| **Etki alanı** | **string** | Y        | Kontrol etmek için etki alanını tanımlayan bir dize. |
+| **alanını** | **string** | Y        | Denetlenecek etki alanını tanımlayan bir dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -75,13 +75,13 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Etki alanı mevcutsa kullanılamaz ve 200 Tamam yanıt durum kodu döndürülür. Etki alanı bulunamasa kullanılabilir ve 404 Bulunamadı yanıt durum kodu döndürülür.
+Etki alanı varsa, kullanım için kullanılamaz ve 200 Tamam yanıt durum kodu döndürülür. Etki alanı bulunmazsa, kullanılabilir ve 404 yanıt durum kodu döndürülür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
 
-### <a name="response-example-for-when-the-domain-is-already-in-use"></a>Etki alanı zaten kullanımda olduğunda için yanıt örneği
+### <a name="response-example-for-when-the-domain-is-already-in-use"></a>Etki alanı zaten kullanımda olduğunda yanıt örneği
 
 ```http
 HTTP/1.1 200 OK
@@ -93,7 +93,7 @@ MS-ServerId: 201022015
 Date: Tue, 31 Jan 2017 22:22:35 GMT
 ```
 
-### <a name="response-example-for-when-the-domain-is-available"></a>Etki alanının kullanılabilir olduğu zaman için yanıt örneği
+### <a name="response-example-for-when-the-domain-is-available"></a>Etki alanı kullanılabilir olduğunda yanıt örneği
 
 ```http
 HTTP/1.1 404 Not Found

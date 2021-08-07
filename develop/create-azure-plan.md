@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: mowrim
 ms.author: mowrim
-ms.openlocfilehash: b77b067c7eb150ab1ad9904915e87c3fc55c104a
-ms.sourcegitcommit: 1fce45e6cafbc4c228042523ae28aac651a73757
+ms.openlocfilehash: 5083f7aa8ea274b5210d88085d26376dadbc0c4d1a0dd6e1babe59c94d7a6f9c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2021
-ms.locfileid: "114483067"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991489"
 ---
 # <a name="create-an-azure-plan"></a>Azure planı oluşturma
 
@@ -25,7 +25,7 @@ Azure planı satın almak, oluşturmak ve yönetmek için api'leri İş Ortağı
 
 ## <a name="get-the-catalog-item-for-azure-plan"></a>Azure planı için katalog öğesini edinin
 
-Bir müşteri için Azure planı oluşturamadan önce ilgili katalog öğesini alasiniz. Katalog öğesini, aşağıdaki kaynak modelleriyle İş Ortağı Merkezi katalog API'lerini kullanarak alın.
+Müşteri için bir Azure planı oluşturamadan önce ilgili katalog öğesini alasiniz. Katalog öğesini, aşağıdaki kaynak modelleriyle İş Ortağı Merkezi katalog API'lerini kullanarak alın.
 
 * **[Ürün:](product-resources.md#product)** Satınlanabilir ürünler veya hizmetler için bir gruplama yapısı. Ürünün kendisi satınlanabilir bir öğe değildir.
 * **[SKU:](product-resources.md#sku)** Ürün altında satın alınabilir bir Stok Tutma Birimi (SKU). SKUS'lar ürünün farklı şekillerini temsil ediyor.
@@ -33,11 +33,11 @@ Bir müşteri için Azure planı oluşturamadan önce ilgili katalog öğesini a
 
 Bir Azure planının katalog öğesini almak için aşağıdaki adımları tamamlayın:
 
-1. Azure planının *ürün tanımlayıcısını* belirleme ve alma. Ürünlerin listesini alma [ve targetView'u](get-a-list-of-products.md) MicrosoftAzure olarak **belirtme** **adımlarını izleyin.** (Azure planının ürün *tanımlayıcısını* zaten biliyorsanız bunun yerine Ürün kimliğini kullanarak ürün alma [adımlarını takip](get-a-product-by-id.md) edin.)
+1. Azure planının *ürün tanımlayıcısını* belirleme ve alma. Ürünlerin listesini alma [ve targetView'u](get-a-list-of-products.md) **MicrosoftAzure olarak belirtme adımlarını izleyin.**  (Azure planının ürün *tanımlayıcısını* zaten biliyorsanız bunun yerine Ürün kimliğini kullanarak ürün alma [adımlarını takip](get-a-product-by-id.md) edin.)
 
 2. Azure **planı için** üründen SKU'ları alın. Bir ürün için [SKUS listesini al'daki adımları izleyin.](get-a-list-of-skus-for-a-product.md) Azure planının SKU tanımlayıcısını zaten biliyorsanız, bunun yerine SKU kimliğini kullanarak SKU alma [adımlarını takip](get-a-sku-by-id.md) edin.
 
-3. Azure **planı için** SKU'dan kullanılabilirliği alın. [Bir SKU için kullanılabilirlik listesini al'daki adımları izleyin.](get-a-list-of-availabilities-for-a-sku.md) Ihtiyacınız olan kullanılabilirlik için tanımlayıcıyı zaten biliyorsanız Kullanılabilirlik kimliğini kullanarak kullanılabilirlik [alma adımlarını takip](get-an-availability-by-id.md) edin. *Azure planı için kullanılabilirlik **özelliğinin CatalogItemId** özelliğinin değerini not edin. Sipariş oluşturmak için bu değere ihtiyacınız olacak.*
+3. Azure **planı için** SKU'dan kullanılabilirliği alın. SKU için [kullanılabilirlik listesini al'daki adımları izleyin.](get-a-list-of-availabilities-for-a-sku.md) Ihtiyacınız olan kullanılabilirlik için tanımlayıcıyı zaten biliyorsanız Kullanılabilirlik kimliğini kullanarak kullanılabilirlik [alma adımlarını takip](get-an-availability-by-id.md) edin. *Azure planı için kullanılabilirlik **özelliğinin CatalogItemId** özelliğinin değerini not edin. Sipariş oluşturmak için bu değere ihtiyacınız olacak.*
 
 ## <a name="create-and-submit-an-order"></a>Sipariş oluşturma ve gönderme
 
@@ -61,11 +61,11 @@ Sipariş başarıyla işlendikten sonra, Azure İş Ortağı Merkezi **abonelik*
 * [Müşterinin aboneliğini alma](get-all-of-a-customer-s-subscriptions.md)
 * [Siparişe göre aboneliklerin bir listesini alma](get-a-list-of-subscriptions-by-order.md)
 
-Azure'da bir Azure planı İş Ortağı Merkezi azure'da karşılık gelen bir Azure kullanım aboneliği de oluşturulur. Azure api'lerini ve Azure API'lerini kullanarak aynı Azure planı altında Azure portal Azure kullanım abonelikleri de oluşturabilirsiniz. Azure planıyla ilişkili tüm Azure kullanım aboneliklerinin tanımlayıcılarını almak için Azure aboneliği için Azure yetkilendirmelerinin [listesini alma](get-a-list-of-azure-entitlements-for-subscription.md) İş Ortağı Merkezi alabilirsiniz
+Azure'da bir Azure planı İş Ortağı Merkezi azure'da karşılık gelen bir Azure kullanım aboneliği de oluşturulur. Azure api'lerini ve Azure API'lerini kullanarak aynı Azure planı altında Azure portal Azure kullanım abonelikleri de oluşturabilirsiniz. Bir Azure planıyla ilişkili tüm Azure kullanım aboneliklerinin tanımlayıcılarını almak için Azure aboneliği için Azure yetkilendirmelerinin [listesini alma](get-a-list-of-azure-entitlements-for-subscription.md) İş Ortağı Merkezi alabilirsiniz
 
 ## <a name="lifecycle-management"></a>Yaşam döngüsü yönetimi
 
-Aboneliği askıya alma'daki adımları takip edin ve mevcut Bir Azure planını [askıya almak için askıya alın.](suspend-a-subscription.md)
+Aboneliği askıya alma 'daki adımları takip edin ve mevcut Bir Azure planını [askıya almak için askıya alın.](suspend-a-subscription.md)
 
 *Mevcut Bir Azure planını askıya almak için azure kullanım abonelikleri ve Azure rezervasyonları dahil olmak üzere artık ilişkili etkin kullanım varlıkları yoksa askıya alabilirsiniz.*
 

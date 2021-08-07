@@ -1,45 +1,45 @@
 ---
 title: Müşteri siparişi oluşturma
-description: Müşteri için sipariş oluşturmak üzere Iş Ortağı Merkezi API 'Lerini nasıl kullanacağınızı öğrenin. Makale önkoşulları, adımları ve örnekleri içerir.
+description: Müşteri için sipariş İş Ortağı Merkezi API'leri kullanmayı öğrenin. Makale önkoşulları, adımları ve örnekleri içerir.
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a2a980634e3887780c9d6dbd4fa3271956978884
-ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
+ms.openlocfilehash: 9330639de3ff88fd2e659e92729de0c1625b6157e2608204577287d30d330d00
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2021
-ms.locfileid: "115009178"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991506"
 ---
-# <a name="create-an-order-for-a-customer-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak bir müşteri için sipariş oluşturma
+# <a name="create-an-order-for-a-customer-using-partner-center-apis"></a>İş Ortağı Merkezi API'lerini kullanarak müşteri İş Ortağı Merkezi oluşturma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-**Azure ayrılmış VM örneği ürünlerinin bir sırası** oluşturmak için *yalnızca* şu şekilde geçerlidir:
+Azure ayrılmış **VM örneği ürünleri için sipariş oluşturma yalnızca** *aşağıdakiler için* geçerlidir:
 
 - İş Ortağı Merkezi
 
-şu anda satım için kullanılabilir olan bilgiler hakkında bilgi için [Bulut Çözümü Sağlayıcısı programındaki iş ortağı teklifleri](/partner-center/csp-offers)konusuna bakın.
+Şu anda satış için nelerin kullanılabilir olduğu hakkında daha fazla bilgi için, Bulut Çözümü Sağlayıcısı [bakın.](/partner-center/csp-offers)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Bir teklif tanımlayıcısı.
+- Teklif tanımlayıcısı.
 
 ## <a name="c"></a>C\#
 
-Bir müşteri için sipariş oluşturmak için:
+Bir müşteriye sipariş oluşturmak için:
 
-1. Bir [**Order**](order-resources.md) nesnesi örneği oluşturun ve müşteriyi kaydetmek Için **Referencecustomerıd** özelliğini müşteri kimliği olarak ayarlayın.
+1. Bir Order nesnesi [**örneği**](order-resources.md) oluşturma ve müşteriyi kaydetmek **için ReferenceCustomerID** özelliğini müşteri kimliğine ayarlayın.
 
-2. [**Orderlineıtem**](order-resources.md#orderlineitem) nesnelerinin bir listesini oluşturun ve listeyi Order 's **LineItems** özelliğine atayın. Her sipariş satırı öğesi, bir teklifin satın alma bilgilerini içerir. En az bir sipariş satırı öğesine sahip olmanız gerekir.
+2. [**OrderLineItem nesnelerinin**](order-resources.md#orderlineitem) listesini oluşturun ve listeyi siparişin **LineItems özelliğine** attayabilirsiniz. Her sipariş satırı öğesi, bir teklif için satın alma bilgilerini içerir. En az bir sipariş satırı öğeniz olması gerekir.
 
-3. Sipariş işlemlerine yönelik bir arabirim edinin. İlk olarak, müşteriyi tanımlamak için [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) YÖNTEMINI Müşteri kimliğiyle çağırın. Sonra, [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) özelliğinden arabirimi alın.
+3. İşlemleri sıralamak için bir arabirim elde edin. İlk olarak, [**müşteri kimliğini kullanarak IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak müşteriyi tanıyın. Ardından Orders özelliğinden [**arabirimini**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) alın.
 
-4. [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) veya [**createasync**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) metodunu çağırın ve [**Order**](order-resources.md) nesnesini geçirin.
+4. [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) veya [**CreateAsync yöntemini**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) çağırma ve [**Order nesnesine**](order-resources.md) geçme.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -69,15 +69,15 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: createorder. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** CreateOrder.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Orders http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
@@ -85,29 +85,29 @@ Müşteriyi tanımlamak için aşağıdaki yol parametresini kullanın.
 
 | Ad        | Tür   | Gerekli | Açıklama                                                |
 |-------------|--------|----------|------------------------------------------------------------|
-| müşteri kimliği | string | Yes      | Müşteriyi tanımlayan bir GUID biçimli müşteri kimliği. |
+| customer-id | string | Yes      | Müşteriyi tanımlayan GUID biçimlendirilmiş customer-id. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
 #### <a name="order"></a>Sipariş
 
-Bu tablo, istek gövdesindeki [sıra](order-resources.md) özelliklerini açıklar.
+Bu tablo, istek [gövdesinin](order-resources.md) Sipariş özelliklerini açıklar.
 
 | Özellik             | Tür                        | Gerekli                        | Açıklama                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
-| kimlik                   | dize                      | No                              | Siparişin başarıyla oluşturulması sırasında sağlanan bir sipariş tanımlayıcısı.   |
-| Referencecustomerıd  | dize                      | No                              | Müşteri tanımlayıcısı. |
-| Bilimlingcycle         | dize                      | No                              | Ortağın bu sipariş için faturalandırılabileceği sıklığı belirtir. Desteklenen değerler, [BillingCycleType](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. "Aylık" veya "OneTime" varsayılan olarak sıralı oluşturma. Bu alan, siparişin başarıyla oluşturulmasından sonra uygulanır. |
-| LineItems            | [Orderlineıtem](order-resources.md#orderlineitem) kaynakları dizisi | Yes      | Müşterinin miktarı dahil satın aldığı tekliflerinin listesi.        |
-| currencyCode         | dize                      | No                              | Salt okunur. Sipariş yerleştirilirken kullanılan para birimi. Siparişin başarıyla oluşturulmasından sonra uygulandı.           |
-| creationDate         | datetime                    | No                              | Salt okunur. Siparişin oluşturulduğu tarih ve saat biçimi. Siparişin başarıyla oluşturulmasından sonra uygulandı.                                   |
-| durum               | dize                      | No                              | Salt okunur. Siparişin durumu.  Desteklenen değerler [Orderstatus](order-resources.md#orderstatus)içinde bulunan üye adlarıdır.        |
-| Köprü                | [OrderLinks](utility-resources.md#resourcelinks)              | No                              | Sıraya karşılık gelen kaynak bağlantıları. |
-| öznitelikler           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | Sıraya karşılık gelen meta veri öznitelikleri. |
+| kimlik                   | dize                      | No                              | Siparişin başarıyla oluşturulmasının ardından sağlanan bir sipariş tanımlayıcısı.   |
+| referenceCustomerId  | dize                      | No                              | Müşteri tanımlayıcısı. |
+| billingCycle         | dize                      | No                              | İş ortağının bu sipariş için faturalandırılama sıklığını gösterir. Desteklenen değerler, [BillingCycleType](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. Varsayılan değer, sipariş oluşturma sırasında "Monthly" veya "OneTime" şeklindedir. Bu alan, siparişin başarıyla oluşturulmasının ardından uygulanır. |
+| lineItems            | [OrderLineItem kaynakları](order-resources.md#orderlineitem) dizisi | Yes      | Miktarı da dahil olmak üzere müşterinin satın alma tekliflerinin maddeli listesi.        |
+| currencyCode         | dize                      | No                              | Salt okunur. Siparişin yerleştirilmesi için kullanılan para birimi. Siparişin başarıyla oluşturulmasının ardından uygulanır.           |
+| Creationdate         | datetime                    | No                              | Salt okunur. Siparişin tarih-saat biçiminde oluşturulma tarihi. Siparişin başarıyla oluşturulmasının ardından uygulanır.                                   |
+| durum               | dize                      | No                              | Salt okunur. Siparişin durumu.  Desteklenen değerler OrderStatus içinde bulunan üye [adlarıdır.](order-resources.md#orderstatus)        |
+| Bağlantı                | [OrderLinks](utility-resources.md#resourcelinks)              | No                              | Siparişe karşılık gelen kaynak bağlantıları. |
+| öznitelikler           | [Resourceattributes](utility-resources.md#resourceattributes) | No                              | Order'a karşılık gelen meta veri öznitelikleri. |
 
 #### <a name="orderlineitem"></a>Orderlineıtem
 

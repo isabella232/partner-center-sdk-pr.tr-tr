@@ -1,33 +1,33 @@
 ---
 title: Lisans grubuna göre kullanılabilir lisansların bir listesini alma
-description: Belirtilen lisans gruplarına yönelik lisansların bir listesini, belirtilen müşterinin kullanıcıları tarafından kullanılabilir.
+description: Belirtilen müşterinin kullanıcıları tarafından kullanılabilen belirtilen lisans grupları için lisans listesini nasıl elde ekleyebilirsiniz?
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: de59dfccf723c8f2411d9dadc51beb88688d5b02
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: fb2beecef8ad4821ad251ee6d532b6b280bd49e110f7e6dde3f39dfe2693d8f5
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874525"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991183"
 ---
 # <a name="get-a-list-of-available-licenses-by-license-group"></a>Lisans grubuna göre kullanılabilir lisansların bir listesini alma
 
-Belirtilen lisans gruplarına yönelik lisansların bir listesini, belirtilen müşterinin kullanıcıları tarafından kullanılabilir.
+Belirtilen müşterinin kullanıcıları tarafından kullanılabilen belirtilen lisans grupları için lisans listesini nasıl elde ekleyebilirsiniz?
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Bir veya daha fazla lisans grubu tanımlayıcısı listesi.
+- Bir veya daha fazla lisans grubu tanımlayıcısının listesi.
 
 ## <a name="c"></a>C\#
 
-Belirtilen lisans grupları için kullanılabilir lisansların bir listesini almak için, [**Licensegroupıd**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)türünde bir [liste](/dotnet/api/system.collections.generic.list-1) oluşturarak başlayın ve ardından Lisans gruplarını listeye ekleyin. Ardından, müşteriyi tanımlamak için, müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini kullanın. Ardından, müşteri abone olunan SKU toplama işlemlerine bir arabirim almak için [**SubscribedSkus**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) özelliğinin değerini alın. Son olarak, abone olan SKU 'ların listesini, kullanılabilir lisans birimleri hakkındaki ayrıntılarla almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) yöntemine yönelik lisans grupları listesini geçirin.
+Belirtilen lisans grupları için kullanılabilir lisansların listesini almak için, [](/dotnet/api/system.collections.generic.list-1) [**licenseGroupId**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid)türünde bir Liste örneği başlatarak başlar ve sonra lisans gruplarını listeye ekleyin. Ardından, müşteriyi [**tanımlamak için IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri kimliğiyle birlikte kullanın. Ardından, müşteri tarafından abone olunan SKU toplama işlemlerine bir arabirim almak için [**SubscribedSkus**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscribedskus) özelliğinin değerini alın. Son olarak, kullanılabilir lisans birimlerinin ayrıntılarıyla birlikte abone olunan SKUS'ların listesini almak için lisans gruplarının listesini [**Get**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscribedskus.icustomersubscribedskucollection.getasync) yöntemine geçin.
 
 ``` csharp
 // string selectedCustomerId;
@@ -48,13 +48,13 @@ var customerUserBothAadAndSfbSubscribedSkus = partnerOperations.Customers.ById(s
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                                  |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/subscribedskus? Licensegroupıds = grup1 http/1.1                        |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/subscribedskus? Licensegroupıds = grup2 http/1.1                        |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/subscribedskus? Licensegroupıds = grup1&Licensegroupıds = grup2 http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus?licenseGroupIds=Group1 HTTP/1.1                        |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus?licenseGroupIds=Group2 HTTP/1.1                        |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscribedskus?licenseGroupIds=Group1&licenseGroupIds=Group2 HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -62,12 +62,12 @@ Müşteriyi ve lisans gruplarını tanımlamak için aşağıdaki yolu ve sorgu 
 
 | Ad            | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                                                           |
 |-----------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| müşteri kimliği     | string | Yes      | Müşteriyi tanımlayan GUID biçimli dize.                                                                                                                                                                                                                 |
-| Licensegroupıds | dize | No       | Atanan lisansların lisans grubunu gösteren bir sabit listesi değeri. Geçerli değerler: grup1, grup2 grup1-bu grubun lisansı Azure Active Directory (AAD) içinde yönetilebilecek tüm ürünler vardır. grup2-bu grubun yalnızca ürün lisansları Minecraft. |
+| customer-id     | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize.                                                                                                                                                                                                                 |
+| licenseGroupIds | dize | No       | Atanan lisansların lisans grubunu gösteren bir enum değeri. Geçerli değerler: Grup1, Grup2 Grup1 - Bu grupta lisansları Azure Active Directory (AAD) vardır. Grup2 - Bu grubun yalnızca Minecraft lisansları vardır. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -87,11 +87,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [SubscribedSku](license-resources.md#subscribedsku) kaynakları koleksiyonu içerir.
+Başarılı olursa, yanıt gövdesi [SubscribedSku kaynaklarının bir koleksiyonunu](license-resources.md#subscribedsku) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
@@ -229,7 +229,7 @@ Date: Sat, 10 Jun 2017 00:19:44 GMT
 
 ### <a name="response-example-no-matching-skus-found"></a>Yanıt örneği (eşleşen SKU bulunamadı)
 
-Belirtilen lisans grupları için eşleşen bir abone olan SKU bulunamazsa, yanıt, değeri 0 olan totalCount öğesi olan boş bir koleksiyon içerir.
+Belirtilen lisans grupları için eşleşen abone olunan SKU'lar bulunamasa yanıt, değeri 0 olan totalCount öğesine sahip boş bir koleksiyon içerir.
 
 ```http
 HTTP/1.1 200 OK

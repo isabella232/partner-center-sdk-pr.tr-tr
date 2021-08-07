@@ -1,51 +1,51 @@
 ---
 title: Tüm abonelik analizi bilgilerini alma
-description: Tüm abonelik Analizi bilgilerini alma.
+description: Tüm abonelik analizi bilgilerini alma.
 ms.date: 08/02/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: e1f16c92569a02bc51c96a85ecb642fbeb76a9a7
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 5c93f36491851be11c700388201443f2e951122e4129786abc3e064091605b8d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760258"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992611"
 ---
 # <a name="get-all-subscription-analytics-information"></a>Tüm abonelik analizi bilgilerini alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Bu makalede, müşterileriniz için tüm abonelik Analizi bilgilerinin nasıl alınacağı açıklanır.
+Bu makalede, müşterileriniz için tüm abonelik analizi bilgilerini alma açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem | İstek URI'si |
 |--------|-------------|
-| **Al** | [*\{ BaseUrl \}*](partner-center-rest-urls.md)/partner/v1/analiz Tics/abonelikleri http/1.1 |
+| **Al** | [*\{ baseURL \}*](partner-center-rest-urls.md)/partner/v1/analytics/subscriptions HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-Aşağıdaki tabloda isteğe bağlı parametreler ve açıklamaları listelenmektedir:
+Aşağıdaki tabloda isteğe bağlı parametreler ve açıklamaları liste almaktadır:
 
-| Parametre | Tür |  Açıklama |
+| Parametre | Tür |  Description |
 |-----------|------|--------------|
-| top | int | İstekte döndürülecek veri satır sayısı. Değer belirtilmezse, en büyük değer ve varsayılan değer `10000` . Sorguda daha fazla satır varsa, yanıt gövdesi sonraki veri sayfasını istemek için kullanabileceğiniz bir sonraki bağlantıyı içerir. |
-| Atla | int | Sorgudaki atlanacak satır sayısı. Büyük veri kümeleri üzerinden sayfa eklemek için bu parametreyi kullanın. Örneğin, `top=10000` ve `skip=0` ilk 10000 veri satırını alır `top=10000` ve `skip=10000` sonraki 10000 veri satırını alır. |
-| filtre | string | Yanıttaki satırları filtreleyen bir veya daha fazla deyim. Her filtre ekstresi, yanıt gövdesinden bir alan adı ve **`eq`** , **`ne`** veya belirli alanlar için, işleci ile ilişkili bir değer içerir **`contains`** . Deyimler, veya kullanılarak birleştirilebilir **`and`** **`or`** . Dize değerleri, **filtre** parametresindeki tek tırnak işaretleriyle çevrelenmelidir. Filtrelenebilir alanların listesi ve bu alanlarla Desteklenen işleçler için aşağıdaki bölüme bakın. |
-| aggregationLevel | string | Toplam verilerinin alınacağı zaman aralığını belirtir. Şu dizelerden biri olabilir: **gün**, **hafta** veya **ay**. Değer belirtilmezse, varsayılan olarak **Dadterange** olur. Bu parametre yalnızca, **GroupBy** parametresinin bir parçası olarak bir tarih alanı geçirildiğinde geçerlidir. |
-| Ölçütü | string | Yalnızca belirtilen alanlara veri toplamayı uygulayan bir ifade. |
+| top | int | İstekte geri dönecek veri satırlarının sayısı. Değer belirtilmezse, maksimum değer ve varsayılan değer `10000` olur. Sorguda daha fazla satır varsa yanıt gövdesi, sonraki veri sayfasını talep etmek için kullanabileceğiniz bir sonraki bağlantı içerir. |
+| Atla | int | Sorguda atlana satır sayısı. Büyük veri kümelerini sayfalara yapmak için bu parametreyi kullanın. Örneğin, ilk 10000 veri satırı alınır ve sonraki `top=10000` `skip=0` `top=10000` `skip=10000` 10000 veri satırı alınır. |
+| filtre | string | Yanıtta satırları filtreleen bir veya daha fazla deyim. Her filtre deyimi, yanıt gövdesinden bir alan adı ve , veya belirli alanlar **`eq`** **`ne`** için işleciyle ilişkili bir değer **`contains`** içerir. deyimleri veya kullanılarak **`and`** birleştirilmiş **`or`** olabilir. Dize değerlerinin filtre parametresinde tek tırnak içine **alınarak çevrelenmiş olması** gerekir. Filtrelenmiş alanların listesi ve bu alanlarda desteklenen işleçler için aşağıdaki bölüme bakın. |
+| aggregationLevel | string | Toplama verilerini almak için zaman aralığını belirtir. Şu dizelerden biri olabilir: **gün,** **hafta** veya **ay.** Değer belirtilmezse varsayılan değer **dateRange'dır.** Bu parametre yalnızca **groupBy** parametresinin bir parçası olarak bir tarih alanı geçir kullanıldığında geçerlidir. |
+| Groupby | string | Yalnızca belirtilen alanlara veri toplaması uygulanan bir deyim. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -63,11 +63,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [**abonelik**](partner-center-analytics-resources.md#subscription-resource) kaynakları koleksiyonu içerir.
+Başarılı olursa, yanıt gövdesi Abonelik kaynaklarının bir [**koleksiyonunu**](partner-center-analytics-resources.md#subscription-resource) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

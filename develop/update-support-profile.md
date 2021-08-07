@@ -4,12 +4,12 @@ description: Bir kullanıcının destek profilini güncelleştirme.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 143328c5501f525d52911eead805d420f79b78ff
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: f312f7da76d47282c5caa27b3158249b3d3e8a35e739d60fd74525705c0e7cf3
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530353"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990401"
 ---
 # <a name="update-support-profile"></a>Destek profili güncelleştirme
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: eaf6a426d0702130f31f08a4a30ccdfa00810270
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: b1609f9a53c1ec40483ebb13411e8acf6593e02628be65dd760984579f88b848
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548371"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989602"
 ---
 # <a name="manage-billing"></a>Faturalandırmayı yönetme
 

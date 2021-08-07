@@ -1,45 +1,45 @@
 ---
-title: Dolaylı kurumsal bayi için müşteri siparişi oluşturma
-description: Dolaylı kurumsal bayi İş Ortağı Merkezi sipariş oluşturmak için api'leri kullanmayı öğrenin. Makale önkoşulları, adımları ve örnekleri içerir.
+title: Dolaylı satıcı için müşteri siparişi oluştur
+description: Dolaylı bir satıcının müşterisi için sipariş oluşturmak üzere Iş Ortağı Merkezi API 'Lerini nasıl kullanacağınızı öğrenin. Makale önkoşulları, adımları ve örnekleri içerir.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6253ba2289ea1f58e7d8eaa960d7d0daaa887f0d
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: ba46b151e423df27f1378ac8441a23702e47746911b4e05e370bbf0aa7b53233
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973561"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991557"
 ---
 # <a name="create-an-order-for-a-customer-of-an-indirect-reseller"></a>Dolaylı satıcı müşterisi için bir sipariş oluşturma
 
-Dolaylı kurumsal bayi müşterisi için sipariş oluşturma.
+Dolaylı bir satıcı müşterisi için sipariş oluşturma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
+- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
 
-- Satın alınan öğenin teklif tanımlayıcısı.
+- Satın alınacak öğenin teklif tanımlayıcısı.
 
-- Dolaylı kurumsal bayinin kiracı tanımlayıcısı.
+- Dolaylı Bayi kiracı tanımlayıcısı.
 
 ## <a name="c"></a>C\#
 
-Dolaylı kurumsal bayinin müşterisi için sipariş oluşturmak için:
+Dolaylı bir satıcının müşterisi için sipariş oluşturmak için:
 
-1. Oturum açmış iş ortağıyla ilişkisi olan dolaylı kurumsal bayilerin koleksiyonunu alın.
+1. Oturum açmış iş ortağıyla ilişkisi olan dolaylı satıcıların bir koleksiyonunu alın.
 
-2. Koleksiyonda dolaylı kurumsal bayi kimliğiyle eşleşen öğeye bir yerel değişken alın. Bu adım, siparişi 7/2012'ye kadar olan tüm bayilerin [**MpnId**](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) özelliğine erişmeye yardımcı olur.
+2. Koleksiyonda dolaylı satıcı KIMLIĞIYLE eşleşen öğeye yerel bir değişken alın. Bu adım, siparişi oluştururken satıcının [**Mpnıd**](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationship.mpnid) özelliğine erişmenize yardımcı olur.
 
-3. Bir Order [**nesnesinin**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) örneğini oluşturma ve müşteriyi kaydetmek için [**ReferenceCustomerID**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) özelliğini müşteri tanımlayıcısı olarak ayarlayın.
+3. Bir [**Order**](/dotnet/api/microsoft.store.partnercenter.models.orders.order) nesnesi örneği oluşturun ve müşteriyi kaydetmek Için [**Referencecustomerıd**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.referencecustomerid) özelliğini müşteri tanımlayıcısı olarak ayarlayın.
 
-4. [**OrderLineItem nesnelerinin**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) listesini oluşturun ve listeyi siparişin [**LineItems özelliğine**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) attayabilirsiniz. Her sipariş satırı öğesi, bir teklif için satın alma bilgilerini içerir. Her satır öğesinde [**PartnerIdOnRecord**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) özelliğini dolaylı kurumsal bayinin MPN kimliğiyle doldurmak için emin olun. En az bir sipariş satırı öğeniz olması gerekir.
+4. [**Orderlineıtem**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem) nesnelerinin bir listesini oluşturun ve listeyi Order 's [**LineItems**](/dotnet/api/microsoft.store.partnercenter.models.orders.order.lineitems) özelliğine atayın. Her sipariş satırı öğesi, bir teklifin satın alma bilgilerini içerir. Her bir satır öğesinde [**Partneridonrecord**](/dotnet/api/microsoft.store.partnercenter.models.orders.orderlineitem.partneridonrecord) özelliğini dolaylı satıcının MPN kimliğiyle doldurduğunuzdan emin olun. En az bir sipariş satırı öğesine sahip olmanız gerekir.
 
-5. Müşteriyi tanımlamak için müşteri kimliğiyle [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak işlemleri sıralamak için bir arabirim alın ve [**ardından Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) özelliğinden arabirimi alın.
+5. Müşteriyi tanımlamak için müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak işlemleri sipariş etmek için bir arabirim edinin ve ardından [**Orders**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) özelliğinden arabirimi alın.
 
-6. Siparişi oluşturmak [**için Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) [**veya CreateAsync**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) yöntemini çağırma.
+6. Siparişi oluşturmak için [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) veya [**createasync**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) metodunu çağırın.
 
 ### <a name="c-example"></a>C \# örneği
 
@@ -77,15 +77,15 @@ var order = new Order()
 var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(order);
 ```
 
-**Örnek:** [Konsol test uygulaması](console-test-app.md)**Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** PlaceOrderForCustomer.cs
+**örnek**: [konsol test uygulaması](console-test-app.md)**Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: placeorderforcustomer. cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem   | İstek URI'si                                                                            |
 |----------|----------------------------------------------------------------------------------------|
-| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/orders HTTP/1.1 |
+| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Orders http/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
@@ -93,41 +93,41 @@ Müşteriyi tanımlamak için aşağıdaki yol parametresini kullanın.
 
 | Ad        | Tür   | Gerekli | Açıklama                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| customer-id | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
+| müşteri kimliği | string | Yes      | Müşteriyi tanımlayan GUID biçimli dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
 #### <a name="order"></a>Sipariş
 
-Bu tablo, istek **gövdesinin** Sipariş özelliklerini açıklar.
+Bu tablo, istek gövdesindeki **sıra** özelliklerini açıklar.
 
 | Ad | Tür | Gerekli | Açıklama |
 | ---- | ---- | -------- | ----------- |
-| kimlik | dize | No | Siparişin başarıyla oluşturulmasının ardından sağlanan bir sipariş tanımlayıcısı. |
-| referenceCustomerId | string | Yes | Müşteri tanımlayıcısı. |
-| billingCycle | dize | No | İş ortağının bu sipariş için faturalandırılama sıklığı. Varsayılan değer &quot; Aylık'tır &quot; ve siparişin başarıyla oluşturulmasının ardından uygulanır. Desteklenen değerler, [**BillingCycleType**](/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)içinde bulunan üye adlarıdır. Not: Yıllık faturalama özelliği henüz genel kullanıma açık değildir. Yıllık faturalama desteği yakında gelecektir. |
-| lineItems | nesne dizisi | Yes | [**OrderLineItem kaynaklarının dizisi.**](#orderlineitem) |
-| Creationdate | dize | No | Siparişin tarih-saat biçiminde oluşturulma tarihi. Siparişin başarıyla oluşturulmasının ardından uygulanır. |
-| öznitelikler | object | Hayır | "ObjectType": "Order" ifadesini içerir. |
+| kimlik | dize | No | Siparişin başarıyla oluşturulması sırasında sağlanan bir sipariş tanımlayıcısı. |
+| Referencecustomerıd | string | Yes | Müşteri tanımlayıcısı. |
+| Bilimlingcycle | dize | No | Bu sipariş için ortağın faturalandırılma sıklığı. Varsayılan değer &quot; aylık &quot; ' dır ve siparişin başarıyla oluşturulması üzerine uygulanır. Desteklenen değerler, [**BillingCycleType**](/dotnet/api/microsoft.store.partnercenter.models.offers.billingcycletype)içinde bulunan üye adlarıdır. Note: yıllık faturalandırma özelliği henüz genel kullanıma sunulmamıştır. Yıllık faturalandırmaya yönelik destek yakında kullanıma sunulacak. |
+| LineItems | nesne dizisi | Yes | [**Orderlineıtem**](#orderlineitem) kaynakları dizisi. |
+| creationDate | dize | No | Siparişin oluşturulduğu tarih ve saat biçimi. Siparişin başarıyla oluşturulmasından sonra uygulandı. |
+| öznitelikler | object | No | "ObjectType": "Order" içerir. |
 
-#### <a name="orderlineitem"></a>OrderLineItem
+#### <a name="orderlineitem"></a>Orderlineıtem
 
-Bu tablo, istek **gövdesinin OrderLineItem** özelliklerini açıklar.
+Bu tablo, istek gövdesinde **Orderlineıtem** özelliklerini açıklar.
 
 | Ad | Tür | Gerekli | Açıklama |
 | ---- | ---- | -------- | ----------- |
-| lineItemNumber | int | Yes | Koleksiyonda yer alan her satır öğesi benzersiz bir satır numarası alır ve 0 ile 1 arasında bir sayıya kadar sayar. |
-| offerId | string | Yes | Teklif tanımlayıcısı. |
+| Lineıtemnumber | int | Yes | Koleksiyondaki her bir satır öğesi, 0 ' dan say-1 ' e kadar sayarak benzersiz bir satır numarası alır. |
+| OfferId | string | Yes | Teklif tanımlayıcısı. |
 | subscriptionId | dize | No | Abonelik tanımlayıcısı. |
 | Parentsubscriptionıd | dize | No | İsteğe bağlı. Bir eklenti teklifinde üst aboneliğin KIMLIĞI. Yalnızca düzeltme eki için geçerlidir. |
 | friendlyName | dize | No | İsteğe bağlı. Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı. |
 | miktar | int | Yes | Lisans tabanlı abonelik için lisans sayısı. |
 | partnerIdOnRecord | dize | No | Dolaylı bir sağlayıcı dolaylı bir satıcı adına bir sipariş yerleştirirse, bu alanı **yalnızca dolaylı** satıcının MPN kimliğiyle doldurun (hiçbir zaman dolaylı sağlayıcının kimliği değildir). Bu, teşvikleri için doğru hesaplamayı sağlar. **Satıcı MPN KIMLIĞI sağlama hatası, siparişin başarısız olmasına neden olmaz. Ancak, satıcı kaydedilmez ve bir sonuç olarak hesaplamalar satışı içermez.** |
-| öznitelikler | object | Hayır | "ObjectType": "Orderlineıtem" içerir. |
+| öznitelikler | object | No | "ObjectType": "Orderlineıtem" içerir. |
 
 ### <a name="request-example"></a>İstek örneği
 

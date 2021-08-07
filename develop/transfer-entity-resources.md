@@ -4,12 +4,12 @@ description: Müşteri, iş ortağıyla olan aboneliğinin başka bir iş ortağ
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 544b9682bb0e1428fad088c818a62492198897b2
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 3103c0e9f8e6850336d663a5a38274ce7391e30edd433d08f44071de31b5fc5e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530149"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990214"
 ---
 # <a name="transferentity-resources"></a>TransferEntity kaynakları
 
@@ -19,7 +19,7 @@ Müşteri, iş ortağıyla olan aboneliğinin başka bir iş ortağına devredsi
 
 transferEntity'i açıklar.
 
-| Özellik              | Tür             | Açıklama                                                                                            |
+| Özellik              | Tür             | Description                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | kimlik                    | string           | transferEntity'nin başarıyla oluşturulmasının ardından sağlanan bir transferEntity tanımlayıcısı.                               |
 | createdTime           | DateTime         | transferEntity'nin tarih-saat biçiminde oluşturulma tarihi. transferEntity başarıyla oluşturularak uygulanır.      |
@@ -39,7 +39,7 @@ transferEntity'i açıklar.
 
 transferEntity içinde yer alan bir öğeyi temsil eder.
 
-| Özellik             | Tür                             | Açıklama                                                                                             |
+| Özellik             | Tür                             | Description                                                                                             |
 |----------------------|----------------------------------|---------------------------------------------------------------------------------------------------------|
 | kimlik                   | string                           | Aktarım satırı öğesi için benzersiz tanımlayıcı. transferEntity başarıyla oluşturularak uygulanır.   |
 | subscriptionId       | string                           | Abonelik tanımlayıcısı.                                                                            |
@@ -56,7 +56,7 @@ transferEntity içinde yer alan bir öğeyi temsil eder.
 
 Aktarım kabul etme sonucu temsil eder.
 
-| Özellik          | Tür                                                  | Açıklama                        |
+| Özellik          | Tür                                                  | Description                        |
 |-------------------|-------------------------------------------------------|------------------------------------|
 | siparişler            | [Sıra](order-resources.md#order) nesnelerinin listesi.    | Siparişlerin koleksiyonu.          |
 | transferErrors    | [Transfererror](#transfererror) nesnelerinin listesi.      | Aktarım hataları koleksiyonu. |
@@ -65,7 +65,7 @@ Aktarım kabul etme sonucu temsil eder.
 
 Bir aktarım kabul edildiğinde oluşan bir hatayı gösterir.
 
-| Özellik          | Tür   | Açıklama                                     |
+| Özellik          | Tür   | Description                                     |
 |-------------------|--------|-------------------------------------------------|
 | Transfergroupıd   | string | Hatanın sipariş Grup KIMLIĞI. |
 | kod              | int    | Hata kodu.                                 |
@@ -76,7 +76,7 @@ Bir aktarım kabul edildiğinde oluşan bir hatayı gösterir.
 
 Bir sıra hatası türünü belirten değerler içeren bir [enum/DotNet/api/System. Enum).
 
-| Değer | Konum | Açıklama |
+| Değer | Konum | Description |
 | --- | --- | --- |
 | PartnerTokenMissing | 800001 | İstek bağlamında ortak belirteç yok. |
 | Invalidınput | 800002 | Geçersiz istek girişi. |

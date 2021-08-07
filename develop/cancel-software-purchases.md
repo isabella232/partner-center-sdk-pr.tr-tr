@@ -1,39 +1,39 @@
 ---
 title: Yazılım satın alımlarını iptal etme
-description: Iş Ortağı Merkezi API 'Lerini kullanarak yazılım aboneliklerini ve kalıcı yazılım satın alımlarını iptal etmek için Self Servis seçeneği.
+description: Yeni API'leri kullanarak yazılım aboneliklerini ve kalıcı yazılım satın almalarını iptal İş Ortağı Merkezi seçeneği.
 ms.date: 12/19/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 877702ac930919ff72c6cc45a3c0e8ecc7e1b5f4
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: f7dfa5122c585a8519312e8492922f718a51972f177a12d7431015e1cdcb5d06
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974242"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992203"
 ---
 # <a name="cancel-software-purchases"></a>Yazılım satın alımlarını iptal etme
 
-Iş Ortağı Merkezi API 'Lerini, yazılım aboneliklerini ve kalıcı yazılım satın alımlarını iptal etmek için kullanabilirsiniz (satın alma tarihinden itibaren iptal etme penceresinde yaptığınız sürece). Bu tür iptallerini yapmak için bir destek bileti oluşturmanız gerekmez ve bunun yerine aşağıdaki self servis yöntemlerini kullanabilirsiniz.
+Yazılım aboneliklerini ve kalıcı yazılım satın almalarını iptal etmek için İş Ortağı Merkezi API'lerini kullanabilirsiniz (bu satın alma işlemleri satın alma tarihine kadar iptal penceresinde yapılmış olduğu sürece). Bu tür iptaller yapmak için bir destek bileti oluşturmanıza gerek yok ve bunun yerine aşağıdaki self servis yöntemleri kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Yazılım sırasını iptal etmek için
+Bir yazılım siparişini iptal etmek için,
 
-1. İş ortağı işlemlerini almak üzere bir [**ıpartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) arabirimi almak için hesap kimlik bilgilerinizi [**createpartneroperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) metoduna geçirin.
+1. İş ortağı işlemlerini almak için bir [**IPartner**](/dotnet/api/microsoft.store.partnercenter.ipartner) arabirimi almak için [**createPartnerOperations**](/dotnet/api/microsoft.store.partnercenter.partnerservice.instance) yöntemine hesap kimlik bilgilerinizi girin.
 
-2. İptal etmek istediğiniz belirli bir [sıra](order-resources.md#order) seçin. Customer [**. byıd ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri tanımlayıcısıyla, ardından **Orders. byıd ()** ile Order Identifier ile çağırın.
+2. İptal etmek [istediğiniz belirli](order-resources.md#order) bir Siparişi seçin. Müşteri [**tanımlayıcısıyla Customers.ById()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini, ardından sipariş **tanımlayıcısıyla Orders.ById()** yöntemini arayın.
 
-3. Siparişi almak için **Get** veya **GetAsync** yöntemini çağırın.
+3. Siparişi almak **için Get** **veya GetAsync** yöntemini çağırma.
 
-4. [**Order. Status**](order-resources.md#order) özelliğini olarak ayarlayın `cancelled` .
+4. [**Order.Status özelliğini**](order-resources.md#order) olarak `cancelled` ayarlayın.
 
-5. Seçim İptal için belirli satır öğelerini belirtmek istiyorsanız [**Order. LineItems**](order-resources.md#order) öğesini iptal etmek istediğiniz satır öğeleri listesine ayarlayın.
+5. (İsteğe bağlı) İptal için belirli satır öğelerini belirtmek için [**Order.LineItems'i**](order-resources.md#order) iptal etmek istediğiniz satır öğelerinin listesine ayarlayın.
 
-6. Sıralamayı güncelleştirmek için **Patch ()** metodunu kullanın.
+6. Siparişi **güncelleştirmek için Patch()** yöntemini kullanın.
 
 ``` csharp
 // IPartnerCredentials accountCredentials;
@@ -54,11 +54,11 @@ order = accountPartnerOperations.Customers.ById(customerTenantId).Orders.ById(or
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem     | İstek URI'si                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Orders/{Order-ID} http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/orders/{order-id} HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
@@ -66,12 +66,12 @@ Bir müşteriyi silmek için aşağıdaki sorgu parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Bu değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli müşteri kiracı tanımlayıcısıdır. |
-| **sıra kimliği** | **string** | Y        | Değer, iptal etmek istediğiniz sıranın tanımlayıcısını gösteren bir dizedir. |
+| **customer-tenant-id** | **guid** | Y        | Değer, kurumsal bayinin kurumsal bayiye ait olan belirli bir müşteri için sonuçları filtrelemesini sağlayan GUID biçimli bir müşteri kiracı tanımlayıcısıdır. |
+| **order-id** | **string** | Y        | değeri, iptal etmek istediğiniz siparişin tanımlayıcısını ifade eder. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -110,17 +110,17 @@ MS-CorrelationId: 1438ea3d-b515-45c7-9ec1-27ee0cc8e6bd
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem iptal edilen satır öğelerinin sırasını döndürür.
+Başarılı olursa, bu yöntem iptal edilen satır öğeleriyle siparişi döndürür.
 
-Sipariş durumu, siparişteki tüm satır öğeleri iptal edildiğinde iptal **edildi** olarak işaretlenir veya siparişteki tüm satır öğeleri iptal edilmediğinde **tamamlanacaktır** .
+Sipariş durumu, **siparişteki** tüm satır öğeleri iptal edilirse iptal edildi  olarak işaretlenir veya siparişteki tüm satır öğeleri iptal edilmezse tamamlanmış olur.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
-Aşağıdaki örnek yanıtta, teklif tanımlayıcısına sahip olan satır öğesi miktarının **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** sıfır (0) hale geldiğini görebilirsiniz. Bu değişiklik, iptal için işaretlenen satır öğesinin başarıyla iptal edildiği anlamına gelir. Örnek sıra, iptal edilmemiş diğer satır öğelerini içerir, bu da genel siparişin durumunun **tamamlandı** olarak işaretleneceği, **iptal** edilmeyeceği anlamına gelir.
+Aşağıdaki örnek yanıtta teklif tanımlayıcısına sahip satır öğesi miktarının sıfır **`DG7GMGF0FKZV:0003:DG7GMGF0DWMS`** (0) olduğunu görüyorsunuz. Bu değişiklik, iptal için işaretlenmiş satır öğesinin başarıyla iptal edildiği anlamına gelir. Örnek sipariş, iptal edile diğer satır öğelerini içerir. Başka bir ifadeyle, genel siparişin durumu tamamlandı **olarak** işaretlenir, iptal **edilmez.**
 
 ```http
 HTTP/1.1 200 OK

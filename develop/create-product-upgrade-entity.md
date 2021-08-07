@@ -4,12 +4,12 @@ description: Bir müşteriyi belirli bir ürün ailesine yükseltmek üzere ür�
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4e346b7f5294a8847047c85115d8c80f34eaca84
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 7515bbce2914142e052349a1bbb4de20416d0931ac886fe9264cc4d3b8c1f734
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973426"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991472"
 ---
 # <a name="create-a-product-upgrade-entity-for-a-customer"></a>Müşteri için ürün yükseltme varlığı oluşturma
 

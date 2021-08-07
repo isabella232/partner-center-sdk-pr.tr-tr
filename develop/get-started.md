@@ -1,59 +1,59 @@
 ---
 title: başlarken
-description: Bu İş Ortağı Merkezi SDK'sı müşteri, abonelik ve sipariş verilerini yönetmek REST API iş ortaklarının kullanabileceği bir api ve yönetilen API içerir.
+description: Iş Ortağı Merkezi SDK 'Sı, yönetilen bir API ve iş ortaklarının müşteri, abonelik ve sipariş verilerini yönetmek için kullanması için bir REST API içerir.
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b5d05f26d63574ef876519091dc1c33c05f36e25
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 340b46978d71bdf5fa6f6795d69fe0721d808c4eb2650744e82510c208dd5b8f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548762"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989704"
 ---
 # <a name="get-started"></a>başlarken
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Bu İş Ortağı Merkezi SDK'sı müşteri, abonelik ve sipariş verilerini yönetmek REST API iş ortaklarının kullanabileceği bir api ve yönetilen API içerir.
+Iş Ortağı Merkezi SDK 'Sı, yönetilen bir API ve iş ortaklarının müşteri, abonelik ve sipariş verilerini yönetmek için kullanması için bir REST API içerir.
 
 ## <a name="get-the-code"></a>Kodu alma
 
-[Uygulamayı İş Ortağı Merkezi SDK'sı](https://go.microsoft.com/fwlink/p/?LinkId=746681)
+[Iş Ortağı Merkezi SDK 'sını indirin](https://go.microsoft.com/fwlink/p/?LinkId=746681)
 
 > [!NOTE]
-> Dolaylı kurumsal İş Ortağı Merkezi api erişimi desteklenen bir senaryo değildir.
+> Dolaylı satıcılar için Iş Ortağı Merkezi 'ne API erişimi, desteklenen bir senaryo değildir.
 
-## <a name="determine-your-version-of-partner-center"></a>İş Ortağı Merkezi sürümü İş Ortağı Merkezi
+## <a name="determine-your-version-of-partner-center"></a>Iş Ortağı Merkezi sürümünüzü belirleme
 
-Bazı İş Ortağı Merkezi SDK'nın tamamı mevcut değildir. Daha fazla bilgi için [bkz. Microsoft Ulusal İş Ortağı Merkezi için geliştirme.](developing-for-partner-center-for-microsoft-national-cloud.md)
+Iş Ortağı Merkezi 'nin bazı sürümlerinde SDK 'nın tamamı kullanılabilir değildir. Daha fazla bilgi için bkz. [Microsoft Ulusal bulut Için Iş Ortağı Merkezi Için geliştirme](developing-for-partner-center-for-microsoft-national-cloud.md).
 
 ## <a name="get-the-samples"></a>Örnekleri alın
 
-C# kod parçacıkları, REST örnekleri ve örnek uygulama hakkında daha fazla bilgi için [bkz. İş Ortağı Merkezi örnekleri.](partner-center-samples.md)
+C# parçacıkları, REST örnekleri ve örnek uygulama hakkında daha fazla bilgi için bkz. [Partner Center örnekleri](partner-center-samples.md).
 
-## <a name="test-vs-production"></a>Test ve üretim
+## <a name="test-vs-production"></a>Test ve üretim karşılaştırması
 
-Kodunuzu yazarken ve test ederken, yanlışlıkla şirketin ödemeden sorumlu olduğu yeni ücretler ödemeden önce tümleştirme korumalı alan hesabınız (ve buna karşılık gelen belirteçler) kullansanız iyi olur. Bu test ortamı hakkında daha fazla bilgi için bkz. Api [erişimini İş Ortağı Merkezi.](set-up-api-access-in-partner-center.md)
+Kodunuzu başlangıçta yazarken ve test ederken, yanlışlıkla şirketiniz ödemekten sorumlu yeni ücretler ödemeniz için tümleştirme korumalı alanı hesabınızı (ve ilgili belirteçleri) kullanmanız gerekir. Bu test ortamı hakkında daha fazla bilgi için bkz. [Iş Ortağı Merkezi 'NDE API erişimi ayarlama](set-up-api-access-in-partner-center.md).
 
-Çözümünüz test edildi ve gerçek müşteri hesaplarda kullanıma hazır olduğunda, Azure AD istemci uygulamasını ve Birincil hesap hesabınıza karşılık gelen gizli bir gizli anahtar kullanmak için belirteçlerinizi güncelleştirmeniz İş Ortağı Merkezi gerekir.
+Çözümünüz test edildiğinde ve gerçek müşteri hesaplarında kullanıma hazırlandığında, birincil Iş Ortağı Merkezi hesabınıza karşılık gelen bir Azure AD istemci uygulaması ve gizli anahtarı kullanmanız için belirteçlerinizi güncelleştirmeniz gerekir.
 
-Üretimde Test (TiP) ve Tümleştirme Korumalı Alanı hakkında daha fazla bilgi dahil olmak üzere test ve hata ayıklama hakkında ipuçları ve öneriler için bkz. Test ve [hata ayıklama.](test-and-debug.md)
+Test ve hata ayıklama hakkında daha fazla bilgi ve test üretimi (tıp) ve tümleştirme korumalı alanı hakkında daha fazla bilgi için bkz. [test ve hata ayıklama](test-and-debug.md).
 
-## <a name="configure-your-authentication"></a>Kimlik doğrulamanızı yapılandırma
+## <a name="configure-your-authentication"></a>Kimlik bilgilerinizi yapılandırma
 
-İş Ortağı Merkezi API'lerini kullanmak üzere Azure AD kimlik doğrulamanızı yapılandırmak için [bkz. İş Ortağı Merkezi doğrulaması.](partner-center-authentication.md)
+Iş Ortağı Merkezi API 'Lerini kullanabilmeniz için Azure AD kimlik doğrulamasını yapılandırmak üzere bkz. [Partner Center kimlik doğrulaması](partner-center-authentication.md).
 
 > [!IMPORTANT]
-> Microsoft, çok faktörlü kimlik doğrulaması (MFA) mimarisi aracılığıyla bulut çözümü sağlayıcısı (CSP) iş ortaklarının ve denetim masası satıcılarının (CPV) Microsoft Azure güvenli ve ölçeklenebilir bir çerçeve sunmaktadır.
-İş Ortağı Merkezi kimlik doğrulaması için Azure AD'yi ve İş Ortağı Merkezi API'lerini kullanmak için kimlik doğrulama ayarlarınızı doğru yapılandırmanız gerekir.
+> Microsoft, Microsoft Azure multi-factor authentication (MFA) mimarisi aracılığıyla bulut çözümü sağlayıcısı (CSP) iş ortaklarının ve denetim masası satıcılarının (cpv) kimlik doğrulaması için güvenli ve ölçeklenebilir bir çerçeve sunuyor.
+İş ortağı merkezi kimlik doğrulaması için Azure AD 'yi kullanır ve Iş Ortağı Merkezi API 'Lerini kullanmak için kimlik doğrulama ayarlarınızı doğru şekilde yapılandırmanız gerekir.
 >
-> Daha fazla bilgi için [bkz. Güvenli uygulama modelini etkinleştirme.](enable-secure-app-model.md)
+> Daha fazla bilgi için bkz. [güvenli uygulama modelini etkinleştirme](enable-secure-app-model.md).
 
 ## <a name="get-help"></a>Yardım alın
 
-İş ortakları, iş ortakları İş Ortağı Merkezi SDK'sı Yammer [olabilir.](https://go.microsoft.com/fwlink/p/?LinkID=717360) Geliştiriciler daha kişiselleştirilmiş yardım almak için MPN destek avantajlarını veya destek avantajlarını Premier Destek.
+iş ortakları, [iş ortağı merkezi SDK Yammer grubunda](https://go.microsoft.com/fwlink/p/?LinkID=717360)destek alabilir. Geliştiriciler, daha fazla kişiselleştirilmiş yardım almak için MPN destek avantajlarını veya Premier Destek kullanabilir.
 
 ## <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>İş Ortağı Merkezi API'si ve SDK Erken Benimseyen Programı'na katılma
 
-İş ortağı özellikleri ve özelliklerinin geliştirilmesinde Microsoft ile nasıl işbirliği yap bulunabilirsiniz? için bkz. [İş Ortağı Merkezi API'si ve SDK Erken Benimseyen Programı'ne katılma.](early-adopter-program.md)
+Iş ortağı özelliklerinin ve özelliklerinin geliştirilmesi konusunda Microsoft ile nasıl işbirliği yapabileceğiniz hakkında bilgi edinmek için bkz. [Iş Ortağı Merkezi API 'si ve SDK erken benimseyen programı 'Na ekleme](early-adopter-program.md).

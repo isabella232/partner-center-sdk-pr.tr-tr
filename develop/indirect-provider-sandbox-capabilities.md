@@ -1,115 +1,115 @@
 ---
-title: Korumalı Alanda CSP Dolaylı sağlayıcı özellikleri
-description: Dolaylı sağlayıcılar, test amacıyla Korumalı Alanda dolaylı kurumsal bayiler oluşturabilir.
+title: Sanal alanda CSP dolaylı sağlayıcı özellikleri
+description: Dolaylı sağlayıcılar, test amaçları için korumalı alanda dolaylı satıcılar oluşturabilir.
 ms.date: 05/20/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: vinayks-ms
 ms.author: vinayks
-ms.openlocfilehash: da35dadd4e13247e923259a1cf3a67852f4b9e00
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 07608fb5f2d2a3ffc418188e0ac1ff367e3c5691aa241554a4a954de8c4f2005
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445910"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990683"
 ---
-# <a name="csp-indirect-provider-sandbox-capabilities-for-creating-indirect-reseller-accounts"></a>Dolaylı kurumsal bayi hesapları oluşturmak için CSP Dolaylı sağlayıcı korumalı alan özellikleri 
+# <a name="csp-indirect-provider-sandbox-capabilities-for-creating-indirect-reseller-accounts"></a>Dolaylı satıcı hesapları oluşturmak için CSP dolaylı sağlayıcısı korumalı alanı özellikleri 
 
-**Uygun roller:** Dolaylı sağlayıcı
+**Uygun roller**: dolaylı sağlayıcı
 
-CSP Indirect Providers, CSP Indirect Reseller portalında kendi Katman 2 Korumalı Alan hesabı aracılığıyla İş Ortağı Merkezi oluşturabilir.
+CSP dolaylı sağlayıcıları, Iş Ortağı Merkezi portalındaki kendi katman 2 Sandbox hesabı aracılığıyla bir CSP dolaylı Bayi Sandbox hesabı oluşturabilir.
 
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
-İş Ortağı Merkezi Dolaylı Sağlayıcı (Katman 2) korumalı alan kimlik bilgileri. Korumalı alan senaryosu hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler. 
+Partner Center dolaylı sağlayıcısı (katman 2) korumalı alan kimlik bilgileri. Sandbox senaryosu hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler. 
  
 
-## <a name="sandbox-indirect-provider--create-sandbox-indirect-reseller-using-the-partner-center-user-interface"></a>Korumalı Alan Dolaylı Sağlayıcısı – Sanal ağ kullanıcı arabirimini kullanarak İş Ortağı Merkezi Dolaylı Kurumsal Bayi oluşturma 
+## <a name="sandbox-indirect-provider--create-sandbox-indirect-reseller-using-the-partner-center-user-interface"></a>Korumalı alan dolaylı sağlayıcısı – Iş Ortağı Merkezi Kullanıcı arabirimini kullanarak korumalı alan dolaylı satıcısı oluşturma 
 
- Bu, Korumalı Alan Dolaylı Sağlayıcılarının İş Ortağı Merkezi portal aracılığıyla Korumalı Alan Dolaylı Kurumsal Bayi hesabı oluşturmasını sağlayan yalnızca korumalı İş Ortağı Merkezi özelliktir.
+ Bu, korumalı alan dolaylı sağlayıcılarına, Iş Ortağı Merkezi portalı aracılığıyla korumalı alan dolaylı satıcı hesabı oluşturma yeteneği sağlayan, yalnızca korumalı bir özelliktir.
 
-Aşağıdaki senaryolar, Dolaylı sağlayıcıların Korumalı Alan'daki dolaylı kurumsal bayiler için İş Ortağı Merkezi arabirimidir: 
+Aşağıdaki senaryolar, Iş Ortağı Merkezi kullanıcı arabirimi aracılığıyla korumalı satıcıların dolaylı satıcılarına yönelik olarak ne yapabilecekleri, dolaylı sağlayıcılardır: 
 
-1. CSP Indirect Providers, CSP Indirect Reseller portalında kendi Katman 2 Korumalı Alan hesabı aracılığıyla İş Ortağı Merkezi oluşturabilir.
-2. CSP Indirect Resellers, Dolaylı Sağlayıcılar tarafından müşteriyi görüntülemeyi sağlar. 
+1. CSP dolaylı sağlayıcıları, Iş Ortağı Merkezi portalındaki kendi katman 2 Sandbox hesabı aracılığıyla bir CSP dolaylı Bayi Sandbox hesabı oluşturabilir.
+2. CSP dolaylı satıcıları, müşteriyi dolaylı sağlayıcılara göre görüntüleyebilir. 
 
-1. CSP Indirect Resellers, temsilcili yönetici izinlerini kullanarak müşteri hesabını yönetebilir.
+1. CSP dolaylı satıcıları, yönetici temsilcisi izinlerini kullanarak müşteri hesabını yönetebilir.
 
-1. CSP Dolaylı Sağlayıcıları CSP Dolaylı Kurumsal Bayileri davet ediyor olabilir.
+1. CSP dolaylı sağlayıcıları, CSP dolaylı satıcılarını davet edebilir.
  
-1. CSP Dolaylı Sağlayıcıları, CSP Indirect Reseller portalında kendi Katman 2 Korumalı Alan hesabı aracılığıyla İş Ortağı Merkezi silebilir.
+1. CSP dolaylı sağlayıcıları, Iş Ortağı Merkezi portalındaki kendi katman 2 Sandbox hesabı aracılığıyla bir CSP dolaylı satıcı Sandbox hesabını silebilir.
 
-    a.  Korumalı Alan Dolaylı Sağlayıcısı Korumalı Alan Dolaylı Kurumsal Bayi ile ilişkiyi silse de Dolaylı Kurumsal Bayinin diğer sağlayıcılarla başka bir ilişkisi olup ola bir ilişkisi olup değildir. Öyleyse, yalnızca ilgili Dolaylı sağlayıcıyla ilişki kaldırılır.
+    a.  Korumalı alan dolaylı sağlayıcısı, korumalı alan dolaylı satıcısı ile ilişkiyi sildiğinde, dolaylı satıcının diğer sağlayıcılarla başka bir ilişkiye sahip olup olmadığını kontrol edin. Bu durumda, yalnızca söz konusu dolaylı sağlayıcıyla ilişki kaldırılır.
 
-    c. Dolaylı Kurumsal Bayi için tek ilişki bu ise Dolaylı Kurumsal Bayi silinir.
+    c. Bu, dolaylı satıcı için tek ilişkisidir ve dolaylı satıcı silinir.
 
-1. CSP Dolaylı Sağlayıcıları bir hesabı CSP Indirect Reseller.
+1. CSP dolaylı sağlayıcıları, bir CSP dolaylı satıcısı silebilir.
 
-    a. Bu, Korumalı Alan Dolaylı Sağlayıcılarının Korumalı Alan Dolaylı Kurumsal Bayilerini silmesini sağlayan yalnızca korumalı alan özelliğidir.
+    a. Bu, korumalı alan dolaylı sağlayıcılarının korumalı alan dolaylı satıcılarını silmesine izin veren yalnızca korumalı bir özelliktir.
      
-1. Korumalı Alan Dolaylı Kurumsal Bayiyi silmek için önkullar:
+1. Korumalı alan dolaylı satıcılarını silmenin önkoşulları:
 
-    1. Korumalı Alan Dolaylı Kurumsal Bayi'nin her müşterisi için abonelikleri askıya alın.
+    1. Korumalı alan dolaylı satıcısının her bir müşterisi için abonelikleri askıya alın.
 
-    1. Dolaylı Kurumsal Bayi'nin tüm müşterilerini silin.
+    1. Dolaylı satıcıdan oluşan tüm müşterileri silin.
 
-1. Korumalı Alan Dolaylı Sağlayıcısı başına izin verilen beş Korumalı Alan Dolaylı Kurumsal Bayi sınırı. Korumalı Alan Dolaylı kurumsal bayisi silindikten sonra kota sıfırlanır.
+1. Korumalı alan dolaylı sağlayıcısı başına beş korumalı alan dolaylı satıcıya izin verilen sınır. Korumalı alan dolaylı satıcısı silindikten sonra kota sıfırlanır.
 
 ### <a name="pre-requisites"></a>Ön koşullar
 
-- Korumalı Alan Dolaylı Sağlayıcısı başına izin verilen beş Korumalı Alan Dolaylı Kurumsal Bayi sınırı. 
+- Korumalı alan dolaylı sağlayıcısı başına beş korumalı alan dolaylı satıcıya izin verilen sınır. 
 
-- MPN ID ülke ve Dolaylı Kurumsal Bayi Korumalı Alanı ülke aynı ise birden çok Dolaylı Kurumsal Bayi Korumalı Alanı hesabı oluşturmak için aynı MPN Kimliği kullanılabilir. Kullanılabilir bir test MPN Kimliğiniz varsa, bunu kullanabilir veya mpN kimliklerinin listesini Yammer [kanalımız aracılığıyla eldeebilirsiniz.]( https://www.yammer.com/cloudpartnercommunity/#/files/929991598080 ) Erişim iznine sahip değil Yammer Yammer erişim istemeniz gerekir.
+- MPN KIMLIK ülkesi ve dolaylı satıcı Sandbox ülkesi aynıysa, aynı MPN KIMLIĞI birden çok dolaylı satıcı Sandbox hesabı oluşturmak için kullanılabilir. kullanılabilir bir test mpn kimliğiniz varsa, bunu kullanabilir veya [Yammer kanalımızda]( https://www.yammer.com/cloudpartnercommunity/#/files/929991598080 )mpn kimliklerinin bir listesini alabilirsiniz. Yammer erişiminiz yoksa, Yammer sizden erişim isteğinde bulunan bir sorun olacaktır.
  
-- Korumalı Alan Dolaylı Sağlayıcısı başına yalnızca 75 müşteriye izin verilir
+- Sandbox dolaylı sağlayıcısı başına yalnızca 75 müşteriye izin verilir
 
-## <a name="create-csp-indirect-reseller-sandbox-account"></a>Korumalı CSP Indirect Reseller hesabı oluşturma
+## <a name="create-csp-indirect-reseller-sandbox-account"></a>CSP dolaylı Bayi Sandbox hesabı oluştur
 
-1. Katman 2 İş Ortağı Merkezi hesabı aracılığıyla oturum açın. 
+1. Katman 2 Sandbox hesabınız aracılığıyla Iş Ortağı Merkezi ' nde oturum açın. 
 
-2. Sol menüden Dolaylı Kurumsal Bayiler'e gidin. 
+2. Sol menüden dolaylı satıcılara gidin. 
 
-3. Kurumsal Bayi **Korumalı Alanı Ekle düğmesini** seçin. 
+3. **Satıcı korumalı alanı Ekle** düğmesini seçin. 
 
-4. Hesap kayıt formunu doldurun. Bu kendi kendine açık bir ifadedir ancak Dolaylı Kurumsal Bayi için korumalı alan hesabı oluşturmakta olduğunu unutmayın. Bu hesap için bir yok etme işlemi olmayacaktır ve siz hesap kaydı tamamlana kadar hemen etkinleştirilir.  
+4. Hesap kayıt formunu girin. Kendi kendine açıklayıcı bir, ancak dolaylı bir satıcı için bir sandbox hesabı oluşturuyoruz. Bu hesap devre dışı bırakılır ve hesap kaydını tamamlayandan sonra etkinleştirilecektir.  
 
-5. Hesap oluşturulduktan sonra portalda Dolaylı Kurumsal Bayi korumalı alan hesabı için Genel Yönetici kimlik bilgilerini alırsınız. Hemen kaydetmeyi unutmayın; aksi takdirde Dolaylı Kurumsal Bayi Korumalı Alanı olarak oturum açamayacaksınız. 
+5. Hesap oluşturulduktan sonra, portalda dolaylı satıcı Sandbox hesabı için genel yönetici kimlik bilgilerini alırsınız. Bunu hemen kaydetmeyi unutmayın, aksi takdirde dolaylı satıcı korumalı alanı olarak oturum açamazsınız. 
 
-6. Dolaylı Kurumsal Bayi Korumalı Alanı'nın İş Ortağı Merkezi kimlik bilgilerini kullanarak oturum açma ve yeniden oturum açma. Dolaylı Kurumsal Bayi olarak sahip olduğunuz özellikleri keşfedin. Bazı şeyler:  
+6. Oturumu kapatın ve dolaylı satıcı korumalı alanının yeni kimlik bilgilerini kullanarak Iş Ortağı Merkezi 'nde yeniden oturum açın. Dolaylı bir satıcı olarak yapabileceğiniz özellikleri keşfedebilirsiniz. Bazı şeyler:  
 
     - Profilleri yönetme  
 
     - Kullanıcıları ve rolleri yönetme 
 
-    - Dolaylı Sağlayıcıları Yönetme 
+    - Dolaylı sağlayıcıları yönetme 
 
-    - CSP Korumalı Alan müşterilerini yönetme 
+    - CSP korumalı alan müşterilerini yönetme 
 
     - İlişkileri yönetme
     
      
-## <a name="sandbox-indirect-provider--delete-sandbox-indirect-reseller-using-the-partner-center-user-interface"></a>Sandbox Indirect Provider – İş Ortağı Merkezi kullanıcı arabirimini kullanarak Sandbox Indirect Reseller'ı silin
+## <a name="sandbox-indirect-provider--delete-sandbox-indirect-reseller-using-the-partner-center-user-interface"></a>Korumalı alan dolaylı sağlayıcısı – Iş Ortağı Merkezi Kullanıcı arabirimini kullanarak korumalı alan dolaylı satıcısı silme
 
- Bu yalnızca Korumalı Alan özelliğidir ve Korumalı Alan Dolaylı Sağlayıcılarının mevcut Korumalı Alan Dolaylı Kurumsal Bayi hesabını portal üzerinden İş Ortağı Merkezi sağlar. 
+ Bu, korumalı alan dolaylı sağlayıcılarının, Iş Ortağı Merkezi portalı aracılığıyla mevcut bir korumalı alan dolaylı satıcı hesabını silmesine izin veren yalnızca korumalı bir özelliktir. 
 
-### <a name="pre-requisites-to-delete-sandbox-indirect-reseller"></a>Korumalı alan Dolaylı kurumsal bayiyi silmek için önkullar:
+### <a name="pre-requisites-to-delete-sandbox-indirect-reseller"></a>Korumalı alan dolaylı satıcılarını silmenin önkoşulları:
 
-Kendi CSP Indirect Reseller Katman 2 Korumalı Alan hesabınızla CSP Indirect Provider bir korumalı alan hesabı.  
+Kendi CSP dolaylı sağlayıcısı katman 2 Sandbox hesabınızla ilişkili mevcut CSP dolaylı satıcı korumalı alan hesabı.  
  
 
-## <a name="delete-csp-indirect-reseller-sandbox-account"></a>Korumalı CSP Indirect Reseller hesabını silme
+## <a name="delete-csp-indirect-reseller-sandbox-account"></a>CSP dolaylı Bayi Sandbox hesabını Sil
 
-1. Katman 2 İş Ortağı Merkezi kullanarak oturum açın. 
+1. Katman 2 Sandbox hesabınızı kullanarak Iş Ortağı Merkezi ' nde oturum açın. 
 
-2. Sol menüden Dolaylı Kurumsal Bayiler'e gidin. 
+2. Sol menüden dolaylı satıcılara gidin. 
 
-3. Silmek **istediğiniz Dolaylı Kurumsal Bayi** Korumalı Alanı hesabının yanındaki Kurumsal Bayi Korumalı Alanı Sil bağlantısını seçin. Dolaylı Kurumsal Bayi Korumalı Alanı hesabı kalıcı olarak silinir ve kurtarılamaz. 
+3. Silmek istediğiniz dolaylı satıcı korumalı alan hesabının yanındaki **satıcı korumalı alanını sil** bağlantısını seçin. Dolaylı satıcı korumalı alan hesabı kalıcı olarak silinir ve kurtarılamaz. 
 
 ## <a name="api-references"></a>API başvuruları
 
-- Dolaylı Kurumsal Bayi oluşturma 
-- Dolaylı Kurumsal Bayiyi silme 
+- Dolaylı satıcı oluştur 
+- Dolaylı Bayi Sil 
 
  
 

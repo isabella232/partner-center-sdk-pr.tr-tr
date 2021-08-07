@@ -4,12 +4,12 @@ description: Tümleştirme korumalı alan hesaplarından İş Ortağı Merkezi a
 ms.date: 04/28/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4c4b658f406e420d8d3cd425688364fe3d440d3d
-ms.sourcegitcommit: a3a78ec0f5078645b5a4f3b534165eef30f2c822
+ms.openlocfilehash: 9c4843dc4626c2bb2cd1b2784f3df1c323e2eceea2edbb6330a9bd9dbcea4dc1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/30/2021
-ms.locfileid: "113104980"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992220"
 ---
 # <a name="cancel-an-order-from-the-integration-sandbox-using-partner-center-apis"></a>Api'leri kullanarak tümleştirme korumalı alandan İş Ortağı Merkezi iptal etme
 

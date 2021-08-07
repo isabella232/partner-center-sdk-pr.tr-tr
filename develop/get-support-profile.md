@@ -1,29 +1,29 @@
 ---
 title: Destek profili alma
-description: Kullanıcının destek profilini temsil eden bir nesne alır.
+description: Bir kullanıcının destek profilini temsil eden bir nesnesi alır.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b112ccbbff731795c21f95845a08be9e9dfb6775
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 6f6771dfed989536369a83cffc341c7ed6a099307d42ed0a03aea9d237e3bba6
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548643"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989024"
 ---
 # <a name="get-support-profile"></a>Destek profili alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Kullanıcının destek profilini temsil eden bir nesne alır.
+Bir kullanıcının destek profilini temsil eden bir nesnesi alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Destek profilinizi almak için **ıaggregatepartner. Profiles** koleksiyonunuzu kullanın. [**Supportprofile**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) özelliğini çağırın, ardından [**Get ()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync) yöntemleri gelir.
+Destek profilinizi almak için **IAggregatePartner.Profiles koleksiyonu kullanın.** [**SupportProfile özelliğini**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile) ve ardından [**Get()**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.get) veya [**GetAsync() yöntemlerini**](/dotnet/api/microsoft.store.partnercenter.profiles.isupportprofile.getasync) çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -31,19 +31,19 @@ Destek profilinizi almak için **ıaggregatepartner. Profiles** koleksiyonunuzu 
 SupportProfile supportProfile = partnerOperations.Profiles.SupportProfile.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnercentersdk. featuressamples **sınıfı**: getsupportprofile. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerCenterSDK.FeaturesSamples **Sınıfı**: GetSupportProfile.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                              |
 |---------|--------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/support http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/support HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -61,11 +61,11 @@ MS-CorrelationId: 20604323-50bf-4738-9968-c5486ab32be0
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **supportprofile** nesnesi döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde bir **SupportProfile** nesnesi döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

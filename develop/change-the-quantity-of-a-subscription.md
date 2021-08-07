@@ -4,12 +4,12 @@ description: Bir müşteri aboneliği için lisans miktarını değiştirmek üz
 ms.date: 06/05/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d57ece4dd19ef2852f39130916222c54a9ccc85a
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: f13f4c73e085d2bf323a4260674d0dfa50631b692340a99bb67925a6480d044c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974106"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992152"
 ---
 # <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Bir müşteri aboneliğinde lisans miktarını değiştirme
 

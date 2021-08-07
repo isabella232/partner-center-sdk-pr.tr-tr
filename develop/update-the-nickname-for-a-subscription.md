@@ -1,35 +1,35 @@
 ---
 title: Bir abonelik için takma ad güncelleştirme
-description: Müşterinin aboneliği için kolay ad veya ad alanı güncelleştirir.
+description: Müşterinin Aboneliğinin kolay adını veya takma adını güncelleştirme.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 195a85fcf29b3e4c9fe0e578d4d8cb80ca068c40
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: e3456ff7463fcb1a96315dc1acd9d119102515fb88eaaf8f58f5fecae4f24bac
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530013"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992509"
 ---
 # <a name="update-the-nickname-for-a-subscription"></a>Bir abonelik için takma ad güncelleştirme
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Müşterinin [aboneliği](subscription-resources.md)için kolay ad veya ad alanı güncelleştirir. Bu ad, müşteri hesabındaki aboneliklerin ayırt edilmesine yardımcı olmak için Iş Ortağı Merkezi 'nde görünür.
+Müşterinin Aboneliğinin kolay adını veya takma adını [güncelleştirme.](subscription-resources.md) Bu ad, İş Ortağı Merkezi hesapta abonelikleri ayırt etmeye yardımcı olmak için bu adla görünür.
 
-Iş Ortağı Merkezi panosunda, bu işlem önce [bir müşteri seçilerek](get-a-customer-by-name.md)gerçekleştirilebilir. Sonra, söz konusu dosyayı yeniden adlandırmak istediğiniz aboneliği seçin. Son olarak, **abonelik takma ad** alanındaki adı değiştirin ve ardından Gönder ' i seçin **.**
+Bu İş Ortağı Merkezi önce bir müşteri [seçerek gerçekleştirebilirsiniz.](get-a-customer-by-name.md) Ardından, söz konusu aboneliği yeniden adlandırmak istediğiniz aboneliği seçin. Son olarak Abonelik takma adı alanında **adı değiştirerek** Gönder'i **seçin.**
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Abonelik KIMLIĞI.
+- Abonelik kimliği.
 
 ## <a name="c"></a>C\#
 
-Müşterinin aboneliğinin takma adını güncelleştirmek için önce [aboneliği alın](get-a-subscription-by-id.md), sonra aboneliğin [**FriendlyName**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.friendlyname) özelliğini değiştirin. Değişiklik yapıldıktan sonra [**ıpartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) koleksiyonunuzu kullanın ve [**byıd ()**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından, ve ardından [**Byıd ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) yöntemiyle [**abonelikler**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğini çağırın. Ardından, [**Patch ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch) yöntemini çağırarak son ' u kullanabilirsiniz.
+Müşterinin aboneliğinin takma adını güncelleştirmek için önce [Aboneliği alın,](get-a-subscription-by-id.md)ardından aboneliğin [**FriendlyName özelliğini**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.friendlyname) değiştirin. Değişiklik yapıldıktan sonra [**IPartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) koleksiyonu kullanın ve [**ById() yöntemini**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) arayın. Ardından [**Subscriptions özelliğini**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) ve ardından [**ById() yöntemini**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) çağırabilirsiniz. Ardından Patch() yöntemini [**çağırarak bitirin.**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.patch)
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,32 +43,32 @@ Subscription selectedSubscription = customerSubscriptions.Items.FirstOrDefault(s
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresamples **sınıfı**: updatesubscription. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerSDK.FeatureSamples **Sınıfı:** UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription} http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Bu tabloda, abonelik takma adı 'nı güncelleştirmek için gerekli sorgu parametresi listelenmektedir.
+Bu tabloda abonelik takma adını güncelleştirmek için gerekli sorgu parametresi listelemektedir.
 
 | Ad                    | Tür     | Gerekli | Açıklama                          |
 |-------------------------|----------|----------|--------------------------------------|
-| **Müşteri-Kiracı kimliği**  | **guid** | Y        | **Müşteri-Kiracı kimliği** (GUID). |
-| **abonelik kimliği** | **guid** | Y        | Abonelik KIMLIĞI (GUID).        |
+| **customer-tenant-id**  | **guid** | Y        | **Customer-tenant-id** (GUID). |
+| **abonelik için id** | **guid** | Y        | Abonelik kimliği (GUID).        |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesinde tam bir **abonelik** kaynağı gereklidir. **FriendlyName** özelliğinin güncelleştirildiğinden emin olun.
+İstek **gövdesinde** tam bir Abonelik kaynağı gereklidir. **FriendlyName özelliğinin** güncelleştirilmiş olduğundan emin olun.
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -107,11 +107,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş [abonelik](subscription-resources.md) kaynak özelliklerini döndürür.
+Başarılı olursa, bu yöntem yanıt [gövdesinde](subscription-resources.md) güncelleştirilmiş Abonelik kaynağı özelliklerini döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -4,12 +4,12 @@ description: Deneme aboneliğini ücretli aboneliğe dönüştürmenize yardımc
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1863c365627807d8de2534a2d3116807a5de70e1
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 9e7f8985fa15f4959f3cb5a729e492bbb9f3f624a5812f5b87fc119f841dc87e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973902"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991880"
 ---
 # <a name="conversion-resources-to-convert-trial-subscriptions-to-paid"></a>Deneme aboneliklerini ücretli olarak dönüştürmek için dönüştürme kaynakları
 
@@ -21,7 +21,7 @@ Dönüştürme kaynakları, bir deneme aboneliğinin ücretli aboneliğe dönü�
 
 Bir deneme aboneliğini ücretli aboneliğe dönüştürmek için kullanılan bilgileri içerir.
 
-| Özellik | Tür | Açıklama |
+| Özellik | Tür | Description |
 | -------- | ---- | ----------- |
 | OfferId | string | Orijinal, deneme teklifinin teklif tanımlayıcısı. |
 | targetOfferId | string | Hedef teklif için teklif tanımlayıcısı. |
@@ -33,7 +33,7 @@ Bir deneme aboneliğini ücretli aboneliğe dönüştürmek için kullanılan bi
 
 Dönüştürme sırasında oluşan bir hatayı temsil eder.
 
-| Özellik | Tür | Açıklama |
+| Özellik | Tür | Description |
 | -------- | ---- | ----------- |
 | kod | string | Sorunla ilişkili hata kodu. Olası değerler: **diğer** (genel hata), **Conversionsnotfound** (dönüştürmeye yönelik deneme aboneliği için herhangi bir dönüştürme bulunamıyor).
 | açıklama | string | Sorunu açıklayan kolay metin. |
@@ -42,7 +42,7 @@ Dönüştürme sırasında oluşan bir hatayı temsil eder.
 
 Abonelik dönüştürmesi gerçekleştirme sonucunu temsil eder.
 
-| Özellik       | Tür                                | Açıklama                                                            |
+| Özellik       | Tür                                | Description                                                            |
 |----------------|-------------------------------------|------------------------------------------------------------------------|
 | subscriptionId | string                              | Abonelik tanımlayıcısı.                                           |
 | OfferId        | string                              | Özgün teklif tanımlayıcısı.                                         |

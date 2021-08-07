@@ -4,12 +4,12 @@ description: Tarih veya koşullara göre gruplanmış abonelik Analizi bilgileri
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8192a9863d53ec8697a7341cd38c69200614bd4a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 66336d3e5573598eb4810853ad2704bc8d2c76680292a4f5b4a3da9bb50936b8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548728"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989687"
 ---
 # <a name="get-subscription-analytics-grouped-by-dates-or-terms"></a>Tarih veya koşullara göre gruplandırılmış abonelik analizlerini al
 
@@ -49,7 +49,7 @@ Kodlanamayan bir örnek şuna benzer:
 
 Aşağıdaki tabloda Group by için desteklenen alanların listesi gösterilmektedir.
 
-| Alan | Tür | Açıklama |
+| Alan | Tür | Description |
 |-------|------|-------------|
 | Customertenantıd | string | Müşteri kiracısını tanımlayan GUID biçimli bir dize. |
 | customerName | string | Müşterinin adı. |
@@ -77,7 +77,7 @@ Aşağıdaki tabloda Group by için desteklenen alanların listesi gösterilmekt
 
 Aşağıdaki tablo, isteğe bağlı filtre alanlarını ve açıklamalarını listelemektedir:
 
-| Alan | Tür |  Açıklama |
+| Alan | Tür |  Description |
 |-------|------|--------------|
 | top | int | İstekte döndürülecek veri satır sayısı. Değer belirtilmezse, en büyük değer ve varsayılan değer 10000 ' dir. Sorguda daha fazla satır varsa, yanıt gövdesi sonraki veri sayfasını istemek için kullanabileceğiniz bir sonraki bağlantıyı içerir. |
 | Atla | int | Sorgudaki atlanacak satır sayısı. Büyük veri kümeleri üzerinden sayfa eklemek için bu parametreyi kullanın. Örneğin, top = 10000 ve Skip = 0 verilerin ilk 10000 satırını alır, top = 10000 ve Skip = 10000, sonraki 10000 satırlık verileri alır. |

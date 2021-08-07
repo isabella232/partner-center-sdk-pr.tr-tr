@@ -1,69 +1,69 @@
 ---
 title: Kullanıcı kaynakları
-description: Tek bir Iş Ortağı Merkezi kullanıcıyı, kişisel ve hesap bilgilerini ve Iş Ortağı Merkezi 'nde sahip oldukları izinleri açıklar.
+description: Bir kullanıcıya İş Ortağı Merkezi, kişisel ve hesap bilgilerine ve kullanıcıya sahip olduğu izinlere İş Ortağı Merkezi.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 26bb202db3eefd9be8fe57ed2cc4dc220c8807d4
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 8c91e3509d86c8817da30c8ad0d96a2b1b6eec7697e43b47d3dfb96055cac632
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111529690"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989228"
 ---
 # <a name="user-resources"></a>Kullanıcı kaynakları
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Tek bir Iş Ortağı Merkezi kullanıcıyı, kişisel ve hesap bilgilerini ve Iş Ortağı Merkezi 'nde sahip oldukları izinleri açıklar.
+Bir kullanıcıya İş Ortağı Merkezi, kişisel ve hesap bilgilerine ve kullanıcıya sahip olduğu izinlere İş Ortağı Merkezi.
 
 ## <a name="user"></a>Kullanıcı
 
 Tek bir kullanıcıyı açıklar.
 
-| Özellik              | Tür                                                           | Açıklama                                                                                                                                                                                                                |
+| Özellik              | Tür                                                           | Description                                                                                                                                                                                                                |
 |-----------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | kimlik                    | string                                                         | Kullanıcı tanımlayıcısı.                                                                                                                                                                                                       |
 | userPrincipalName     | string                                                         | Kullanıcı asıl tanımlayıcısı.                                                                                                                                                                                             |
-| firstName             | string                                                         | Kullanıcının ilk adı.                                                                                                                                                                                                |
+| firstName             | string                                                         | Kullanıcının adı.                                                                                                                                                                                                |
 | lastName              | string                                                         | Kullanıcının soyadı.                                                                                                                                                                                                 |
-| displayName           | string                                                         | Kullanıcının görünen adı.                                                                                                                                                                                            |
+| displayName           | string                                                         | Kullanıcının görüntülenen adı.                                                                                                                                                                                            |
 | passwordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | Kullanıcının parola profili.                                                                                                                                                                                               |
-| phoneNumber           | string                                                         | Kullanıcının telefon numarası.                                                                                                                                                                                                   |
-| lastDirectorySyncTime | UTC Tarih saat biçiminde dize                                 | Azure Active Directory ve şirket içi Active Directory arasında bu kullanıcı bilgilerinin son eşitlendiği zaman. bir tarih saat değeri yalnızca Azure AD Connect eşitleme etkinse görüntülenir. Aksi halde değer null olur. |
-| userDomainType        | string                                                         | Kullanıcı etki alanı türü: "none", "Managed" veya "federe".                                                                                                                                                                   |
-| state                 | string                                                         | Kullanıcının durumu: "etkin", "etkin değil" (silinen kullanıcı için).                                                                                                                                                          |
-| softDeletionTime      | UTC Tarih saat biçiminde dize                                 | Silinen bir kullanıcıyla ilişkili verilerin kalıcı olarak silinmesini ve bu nedenle kurtarılamaz olduğunu 30 günlük sürenin başlangıcını temsil eder.                                                                          |
-| Köprü                 | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Kaynak bağlantıları.                                                                                                                                                                                                        |
-| öznitelikler            | [ResourceAttributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.                                                                                                                                                                                                   |
+| Phonenumber           | string                                                         | Kullanıcının telefon numarası.                                                                                                                                                                                                   |
+| lastDirectorySyncTime | UTC tarih saat biçiminde dize                                 | Bu kullanıcıya ilişkin bilgilerin Azure Active Directory ile şirket içi Active Directory. Tarih saat değeri yalnızca Azure AD eşitleme Bağlan etkinse görüntülenir. Aksi takdirde değer null olur. |
+| userDomainType        | string                                                         | Kullanıcı etki alanı türü: "none", "managed" veya "federated".                                                                                                                                                                   |
+| state                 | string                                                         | Kullanıcının durumu: "etkin", "etkin değil" (silinen bir kullanıcı için).                                                                                                                                                          |
+| softDeletionTime      | UTC tarih saat biçiminde dize                                 | Silinen bir kullanıcıyla ilişkili verilerin kalıcı olarak silindikten ve dolayısıyla kurtarılamaz hale gelen 30 günlük sürenin başlangıcını temsil eder.                                                                          |
+| Bağlantı                 | [ResourceLinks](utility-resources.md#resourcelinks)           | Kaynak bağlantıları.                                                                                                                                                                                                        |
+| öznitelikler            | [Resourceattributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.                                                                                                                                                                                                   |
 
 ## <a name="customeruser"></a>CustomerUser
 
-Bir müşteri kullanıcısını açıklar.
+Müşteri kullanıcılarını açıklar.
 
-| Özellik              | Tür                                                           | Açıklama                                                                                                                                                                                                                |
+| Özellik              | Tür                                                           | Description                                                                                                                                                                                                                |
 |-----------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| usageLocation         | string                                                         | Kullanıcının lisansı kullanmayı amaçladığı konum.                                                                                                                                                                    |
+| usageLocation         | string                                                         | Kullanıcının lisansı kullanmayı amacının bulunduğu konum.                                                                                                                                                                    |
 | kimlik                    | string                                                         | Kullanıcı tanımlayıcısı.                                                                                                                                                                                                       |
 | userPrincipalName     | string                                                         | Kullanıcı asıl tanımlayıcısı.                                                                                                                                                                                             |
-| firstName             | string                                                         | Kullanıcının ilk adı.                                                                                                                                                                                                |
+| firstName             | string                                                         | Kullanıcının adı.                                                                                                                                                                                                |
 | lastName              | string                                                         | Kullanıcının soyadı.                                                                                                                                                                                                 |
-| displayName           | string                                                         | Kullanıcının görünen adı.                                                                                                                                                                                            |
-| ImmutableID           | string                                                         | Kullanıcının sabit KIMLIĞI.                                                                                                                                                                                              |
+| displayName           | string                                                         | Kullanıcının görüntülenen adı.                                                                                                                                                                                            |
+| immutableId           | string                                                         | Kullanıcının sabit kimliği.                                                                                                                                                                                              |
 | passwordProfile       | [PasswordProfile](utility-resources.md#passwordprofile)       | Kullanıcının parola profili.                                                                                                                                                                                               |
-| phoneNumber           | string                                                         | Kullanıcının telefon numarası.                                                                                                                                                                                                   |
-| lastDirectorySyncTime | UTC Tarih saat biçiminde dize                                 | Azure Active Directory ve şirket içi Active Directory arasında bu kullanıcı bilgilerinin son eşitlendiği zaman. bir tarih saat değeri yalnızca Azure AD Connect eşitleme etkinse görüntülenir. Aksi halde değer null olur. |
-| userDomainType        | string                                                         | Kullanıcı etki alanı türü: "none", "Managed" veya "federe".                                                                                                                                                                   |
-| state                 | string                                                         | Kullanıcının durumu: "etkin", "etkin değil" (silinen kullanıcı için).                                                                                                                                                          |
-| softDeletionTime      | UTC Tarih saat biçiminde dize                                 | Silinen bir kullanıcıyla ilişkili verilerin kalıcı olarak silinmesini ve bu nedenle kurtarılamaz olduğunu 30 günlük sürenin başlangıcını temsil eder.                                                                          |
-| Köprü                 | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | Kaynak bağlantıları.                                                                                                                                                                                                        |
+| Phonenumber           | string                                                         | Kullanıcının telefon numarası.                                                                                                                                                                                                   |
+| lastDirectorySyncTime | UTC tarih saat biçiminde dize                                 | Bu kullanıcıya ilişkin bilgilerin Azure Active Directory ile şirket içi Active Directory. Tarih saat değeri yalnızca Azure AD eşitleme Bağlan etkinse görüntülenir. Aksi takdirde değer null olur. |
+| userDomainType        | string                                                         | Kullanıcı etki alanı türü: "none", "managed" veya "federated".                                                                                                                                                                   |
+| state                 | string                                                         | Kullanıcının durumu: "etkin", "etkin değil" (silinen bir kullanıcı için).                                                                                                                                                          |
+| softDeletionTime      | UTC tarih saat biçiminde dize                                 | Silinen bir kullanıcıyla ilişkili verilerin kalıcı olarak silindikten ve dolayısıyla kurtarılamaz hale gelen 30 günlük sürenin başlangıcını temsil eder.                                                                          |
+| Bağlantı                 | [ResourceLinks](utility-resources.md#resourcelinks)           | Kaynak bağlantıları.                                                                                                                                                                                                        |
 | öznitelikler            | [ResourceAttributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri.                                                                                                                                                                                                   |
 
 ## <a name="usercredentials"></a>UserCredentials
 
 Kullanıcının oturum açma kimlik bilgilerini açıklar.
 
-| Özellik | Tür                                               | Açıklama                          |
+| Özellik | Tür                                               | Description                          |
 |----------|----------------------------------------------------|--------------------------------------|
 | userName | string                                             | Kullanıcının adı.                |
 | password | [SecureString](utility-resources.md#securestring) | Kullanıcının güvenli şekilde depolanan parolası. |
@@ -72,7 +72,7 @@ Kullanıcının oturum açma kimlik bilgilerini açıklar.
 
 Kullanıcının üye bilgilerini açıklar.
 
-| Özellik          | Tür                                                           | Açıklama                        |
+| Özellik          | Tür                                                           | Description                        |
 |-------------------|----------------------------------------------------------------|------------------------------------|
 | displayName       | string                                                         | Kullanıcının görünen adı.   |
 | userPrincipalName | string                                                         | Kullanıcı sorumlusunun adı.    |

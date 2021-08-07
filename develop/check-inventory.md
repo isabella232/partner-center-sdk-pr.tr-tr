@@ -1,31 +1,31 @@
 ---
-title: Envanteri denetle
-description: Belirli bir katalog öğeleri kümesinin envanterini denetlemek için Iş Ortağı Merkezi API 'Lerini nasıl kullanacağınızı öğrenin. Bunu bir müşterinin ürünlerini veya SKU 'Larını belirlemek için yapabilirsiniz.
+title: Envanteri denetleme
+description: Belirli bir katalog İş Ortağı Merkezi envanterini kontrol etmek için api'leri kullanmayı öğrenin. Bir müşterinin ürünlerini veya SKUS'larını belirlemek için bunu yapabiliriz.
 ms.date: 05/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b982dbd7e5e10d454ef87a1e750546ea50eb8438
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: de931c7dd89f94b6be8fdaf0ad79c8faee268267c35a2c0f8e38d36b97842f3f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974089"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992118"
 ---
-# <a name="check-the-inventory-of-catalog-items-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak Katalog öğelerinin envanterini denetleme
+# <a name="check-the-inventory-of-catalog-items-using-partner-center-apis"></a>Api'leri kullanarak katalog öğelerinin İş Ortağı Merkezi denetleme
 
-Belirli bir katalog öğeleri kümesinin envanterini denetleme.
+Belirli bir katalog öğeleri kümesi için envanteri denetleme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir veya daha fazla ürün kimliği. İsteğe bağlı olarak, SKU kimlikleri de belirlenebilir.
+- Bir veya daha fazla ürün kimlikleri. İsteğe bağlı olarak, SKU kimlikleri de belirtilebilir.
 
-- Belirtilen Ürün/SKU KIMLIKLERI tarafından başvurulan SKU 'ları envanterin doğrulanması için gereken ek bağlam. Bu gereksinimler Ürün/SKU türüne göre farklılık gösterebilir ve [SKU](product-resources.md#sku) 'nun **ınventoryvariables** özelliğinden belirlenebilir.
+- Sağlanan ürün/SKU kimlikleri tarafından başvurulan SKU'ların envanterini doğrulamak için gereken ek bağlam. Bu gereksinimler ürün/SKU türüne göre değişiklik gösterebilir ve [SKU'nun](product-resources.md#sku) **InventoryVariables özelliğinden belirlenebilir.**
 
 ## <a name="c"></a>C\#
 
-Sayımı denetlemek için, denetlenecek her öğe için bir [ınventoryıtem](product-resources.md#inventoryitem) nesnesi kullanarak bir [ınventorycheckrequest](product-resources.md#inventorycheckrequest) nesnesi oluşturun. Ardından bir **ıaggregatepartner. Extensions** erişimcisi kullanın, bunu **ürüne** göre belirleyin ve ardından **bycountry ()** yöntemini kullanarak ülkeyi seçin. Son olarak, **ınventorycheckrequest** nesneniz Ile **checkınventory ()** yöntemini çağırın.
+Envanteri kontrol etmek için, denetlenen her öğe için [bir InventoryItem](product-resources.md#inventoryitem) nesnesi kullanarak bir [InventoryCheckRequest](product-resources.md#inventorycheckrequest) nesnesi derleme. Ardından bir **IAggregatePartner.Extensions** erişimcisi kullanın, **kapsamı Product** olarak sildiniz ve **ByCountry()** yöntemini kullanarak ülkeyi seçin. Son olarak **InventoryCheckRequest** nesneniz ile **CheckInventory()** yöntemini çağırabilirsiniz.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -52,27 +52,27 @@ var inventoryResults = partnerOperations.Extensions.Product.ByCountry(countryCod
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                                                                              |
 |----------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Extensions/Product/checkInventory? ülke = {Country-Code} http/1.1                        |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/extensions/product/checkInventory?country={country-code} HTTP/1.1                        |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Stoku denetlemek için aşağıdaki sorgu parametresini kullanın.
+Envanteri kontrol etmek için aşağıdaki sorgu parametresini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| ülke kodu           | string   | Yes      | Ülke/bölge KIMLIĞI.                                            |
+| ülke kodu           | string   | Yes      | Ülke/bölge kimliği.                                            |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bir veya daha fazla [ınventoryıtem](product-resources.md#inventoryitem) kaynağı Içeren bir [ınventorycheckrequest](product-resources.md#inventorycheckrequest) kaynağı içeren envanter isteği ayrıntıları.
+Bir veya daha fazla [InventoryItem](product-resources.md#inventoryitem) kaynağı içeren [inventoryCheckRequest](product-resources.md#inventorycheckrequest) kaynağından oluşan envanter isteği ayrıntıları.
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -91,14 +91,14 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi, varsa kısıtlama ayrıntıları ile doldurulmuş bir [ınventoryıtem](product-resources.md#inventoryitem) nesneleri koleksiyonu içerir.
+Başarılı olursa yanıt gövdesi, varsa kısıtlama ayrıntılarıyla doldurulmuş [bir InventoryItem](product-resources.md#inventoryitem) nesneleri koleksiyonu içerir.
 
 >[!NOTE]
->Bir giriş ınventoryıtem, katalogda bulunamayan bir öğeyi temsil ediyorsa, çıkış koleksiyonuna dahil edilmez.
+>InventoryItem girişi katalogda buluna bir öğeyi temsil ediyorsa, çıkış koleksiyonuna dahil olmaz.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -4,12 +4,12 @@ description: Bir iş ortağı kullanıcı veya uygulama tarafından bir süre i�
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: aec933d4b681d99080619505792bde56bdd25580
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 5d965fc226d326998212ef0f027160d50f69d5e84360c8a9d09c27a76c63310d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873981"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991081"
 ---
 # <a name="get-a-record-of-partner-center-activity"></a>İş Ortağı Merkezi etkinliğinin kaydını alma
 
@@ -93,8 +93,8 @@ while (auditRecordEnumerator.HasValue)
 
 | Ad      | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                |
 |-----------|--------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Startdate | date   | Hayır       | yyyy-mm-dd biçiminde başlangıç tarihi. Hiçbiri sağlanmayacaksa, sonuç kümesi varsayılan olarak istek tarihinden 30 gün önce olur. Bir filtre sağlanmalıdır, bu parametre isteğe bağlıdır.                                          |
-| Bitiştarihi   | date   | Hayır       | yyyy-mm-dd biçiminde bitiş tarihi. Bir filtre sağlanmalıdır, bu parametre isteğe bağlıdır. Bitiş tarihi atlanırsa veya null olarak ayarlanırsa istek maksimum pencereyi döndürür veya bugün bitiş tarihi olarak (hangisi daha düşükse) kullanır. |
+| Startdate | date   | No       | yyyy-mm-dd biçiminde başlangıç tarihi. Hiçbiri sağlanmayacaksa, sonuç kümesi varsayılan olarak istek tarihinden 30 gün önce olur. Bir filtre sağlanmalıdır, bu parametre isteğe bağlıdır.                                          |
+| Bitiştarihi   | date   | No       | yyyy-mm-dd biçiminde bitiş tarihi. Bir filtre sağlanmalıdır, bu parametre isteğe bağlıdır. Bitiş tarihi atlanırsa veya null olarak ayarlanırsa istek maksimum pencereyi döndürür veya bugün bitiş tarihi olarak (hangisi daha düşükse) kullanır. |
 | filtre    | dize | No       | Uygulanacak filtre. Bu parametre kodlanmış bir dize olmalıdır. Başlangıç tarihi veya bitiş tarihi sağlanmalıdır, bu parametre isteğe bağlıdır.                                                                                              |
 
 ### <a name="filter-syntax"></a>Filtre söz dizimi
@@ -111,7 +111,7 @@ Aşağıdaki tabloda gerekli anahtar-değer çiftleri açıkmektedir:
 | Anahtar                 | Değer                             |
 |:--------------------|:----------------------------------|
 | Alan               | Filtrenin yer alan. Desteklenen değerler İstek söz [dizimsinde bulunabilir.](get-a-record-of-partner-center-activity-by-user.md#rest-request)                                         |
-| Değer               | Filtreye göre değer. Değerin durumu yoksayılır. Aşağıdaki değer parametreleri İstek söz dizimsinde gösterildiği [gibi de destekledik:](get-a-record-of-partner-center-activity-by-user.md#rest-request)<br/><br/>                                                                *searchSubstring* - yerine şirketin adını yazın. Şirket adının bir bölümüyle eşleşmesi için bir alt dize girsiniz (örneğin, `bri` ile `Fabrikam, Inc` eşler).<br/>**Örnek:**`"Value":"bri"`<br/><br/>                                                                *customerId* - Müşteri tanımlayıcısını temsil eden GUID biçimli bir dizeyle değiştirin.<br/>**Örnek:**`"Value":"0c39d6d5-c70d-4c55-bc02-f620844f3fd1"`<br/><br/>                                                                                        *resourceType* - Denetim kayıtlarının alınıp alınmayacak kaynak türüyle (örneğin, Abonelik) değiştirin. Kullanılabilir kaynak türleri ResourceType içinde [tanımlanır.](/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype)<br/>**Örnek:**`"Value":"Subscription"`                                 |
+| Değer               | Filtreye göre değer. Değerin durumu yoksayılır. Aşağıdaki değer parametreleri İstek söz dizimsinde gösterildiği [gibi de destekledik:](get-a-record-of-partner-center-activity-by-user.md#rest-request)<br/><br/>                                                                *searchSubstring* - yerine şirketin adını yazın. Şirket adının bir bölümüyle eşleşmesi için bir alt dize girsiniz (örneğin, `bri` ile `Fabrikam, Inc` eşler).<br/>**Örnek:** `"Value":"bri"`<br/><br/>                                                                *customerId* - Müşteri tanımlayıcısını temsil eden GUID biçimli bir dizeyle değiştirin.<br/>**Örnek:** `"Value":"0c39d6d5-c70d-4c55-bc02-f620844f3fd1"`<br/><br/>                                                                                        *resourceType* - Denetim kayıtlarının alınıp alınmayacak kaynak türüyle (örneğin, Abonelik) değiştirin. Kullanılabilir kaynak türleri ResourceType içinde [tanımlanır.](/dotnet/api/microsoft.store.partnercenter.models.auditing.resourcetype)<br/>**Örnek:** `"Value":"Subscription"`                                 |
 | Operatör          | Uygulanacak işleç. Desteklenen işleçler İstek söz [dizimsinde bulunabilir.](get-a-record-of-partner-center-activity-by-user.md#rest-request)   |
 
 ### <a name="request-headers"></a>İstek üst bilgileri

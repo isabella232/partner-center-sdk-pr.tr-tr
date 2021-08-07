@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: e8f23e90cbb5afb45e519e2c58fd0d3b9ea2de6a
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: ac7059ca6c7190f8c96482b12f999b924bb98593b5260b42d6ef2ccf64f9e5fe
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760309"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990979"
 ---
 # <a name="get-all-of-a-customers-orders"></a>Müşteri siparişlerinin tümünü alma
 

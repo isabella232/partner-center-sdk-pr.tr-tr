@@ -1,39 +1,39 @@
 ---
 title: İlke ile cihaz listesini güncelleştirme
-description: Belirtilen müşteri için bir yapılandırma ilkesiyle bir cihaz listesini güncelleştirme.
+description: Belirtilen müşteri için bir yapılandırma ilkesiyle cihazların listesini güncelleştirme.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 35b35873eb253b0929bfc01662b0beb9b31d0c6b
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: b028c84ae513131d1c754dc59020e40aaf09ce31113cd3964b9144bf155300f8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530081"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990061"
 ---
 # <a name="update-a-list-of-devices-with-a-policy"></a>İlke ile cihaz listesini güncelleştirme
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için destek
 
-Belirtilen müşteri için bir yapılandırma ilkesiyle bir cihaz listesini güncelleştirme.
+Belirtilen müşteri için bir yapılandırma ilkesiyle cihazların listesini güncelleştirme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 - İlke tanımlayıcısı.
 
-- Güncelleştirilecek cihazların cihaz tanımlayıcıları.
+- Güncelleştirilen cihazların cihaz tanımlayıcıları.
 
 ## <a name="c"></a>C\#
 
-Belirtilen yapılandırma ilkesiyle bir cihaz listesini güncelleştirmek için ilk olarak [KeyValuePair/DotNet/API/System. Collections. Generic. KeyValuePair -2)[**(PolicyCategory,**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory)String) türünde bir [list/DotNet/api/System. Collections. Generic. List -1) oluşturun ve aşağıdaki kod örneğinde gösterildiği gibi, uygulanacak ilkeyi ekleyin. İlkenin ilke tanımlayıcısına ihtiyacınız olacak.
+Cihazların listesini belirtilen yapılandırma ilkesiyle güncelleştirmek için, önce [KeyValuePair/dotnet/api/system.collections.generic.list-1) türünde bir [List/dotnet/api/system.collections.generic.keyvaluepair-2)[](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.policycategory)örneği ve aşağıdaki kod örneğinde gösterildiği gibi uygulanacak ilkeyi ekleyin. İlkenin ilke tanımlayıcısı gerekir.
 
-Ardından, ilke ile, her bir cihaz için, cihaz tanımlayıcısını ve uygulanacak ilkeyi içeren listeyi belirterek ilkeyle güncelleştirileceği [**cihaz**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) nesnelerinin bir listesini oluşturun. Ardından, bir [**Devicepolicyupdaterequest**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicepolicyupdaterequest) nesnesi örneği oluşturun ve [**Devices**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) özelliğini cihaz nesneleri listesine ayarlayın.
+Ardından, her cihaz [**için**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.device) cihaz tanımlayıcısını ve uygulanacak ilkeyi içeren listeyi belirterek ilkeyle güncelleştirilen Cihaz nesnelerinin listesini oluşturun. Ardından bir [**DevicePolicyUpdateRequest nesnesi**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicepolicyupdaterequest) başlatın ve [**Devices özelliğini**](/dotnet/api/microsoft.store.partnercenter.models.devicesdeployment.devicebatchcreationrequest.devices) cihaz nesneleri listesine ayarlayın.
 
-Cihaz İlkesi güncelleştirme isteğini işlemek için, belirtilen müşterideki işlemlere bir arabirim almak üzere [**ıaggregatepartner. Customers. byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini Müşteri kimliğiyle çağırın. Ardından, müşteri cihaz koleksiyonu işlemlerine bir arabirim almak için [**Devicepolicy**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy) özelliğini alın. Son olarak, cihazları ilkeyle güncelleştirmek için DevicePolicyUpdateRequest nesnesiyle birlikte [**Update**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.icustomerdevicecollection.update) yöntemini çağırın.
+Cihaz ilkesi güncelleştirme isteğini işleme almak için [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri tanımlayıcısıyla çağırarak belirtilen müşteri üzerinde işlemlere bir arabirim alın. Ardından, müşteri cihaz toplama işlemlerine bir arabirim almak için [**DevicePolicy**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.devicepolicy) özelliğini alın. Son olarak, [**cihazları ilkeyle**](/dotnet/api/microsoft.store.partnercenter.devicesdeployment.icustomerdevicecollection.update) güncelleştirmek için DevicePolicyUpdateRequest nesnesiyle Update yöntemini çağırabilirsiniz.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -71,15 +71,15 @@ var trackingLocation =
     partnerOperations.Customers.ById(selectedCustomerId).DevicePolicy.Update(devicePolicyUpdateRequest);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: updatedevicespolicy. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı **Sınıfı:** UpdateDevicesPolicy.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                         |
 |-----------|-----------------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/devicepolicyupdates http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/DevicePolicyUpdates HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -87,15 +87,15 @@ var trackingLocation =
 
 | Ad        | Tür   | Gerekli | Açıklama                                           |
 |-------------|--------|----------|-------------------------------------------------------|
-| müşteri kimliği | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
+| customer-id | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesi bir [Devicepolicyupdaterequest](device-deployment-resources.md#devicepolicyupdaterequest) kaynağı içermelidir.
+İstek gövdesi bir [DevicePolicyUpdateRequest kaynağı içermeli.](device-deployment-resources.md#devicepolicyupdaterequest)
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -140,11 +140,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt, bu toplu işlemin durumunu almak için kullanılabilecek bir URI 'ye sahip bir **konum** üst bilgisi içerir. Bu URI 'yi diğer ilgili REST API 'Leri ile kullanmak üzere kaydedin.
+Başarılı olursa yanıt, bu toplu **işlem durumunu** almak için uri'ye sahip bir Konum üst bilgisi içerir. Bu URI'yi diğer ilgili REST API'leriyle kullanmak üzere kaydedin.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

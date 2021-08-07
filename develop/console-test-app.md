@@ -1,21 +1,21 @@
 ---
 title: Konsol test uygulaması
-description: Bu konsol test uygulaması, Iş Ortağı Merkezi API 'Leri tarafından desteklenen tüm senaryolar için örnek kod sağlar. Test etmek için de kullanabilirsiniz.
+description: Bu konsol test uygulaması, uygulama api'leri tarafından desteklenen tüm senaryolar için İş Ortağı Merkezi sağlar. Test için de kullanabilirsiniz.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b35167104deeede50107d59fca6112c10dc7b4bf
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 53a014608303e432be251de0845857547170a5464a1952bb4fde9ff7beb8ae95
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974038"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991965"
 ---
 # <a name="console-test-app"></a>Konsol test uygulaması
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Konsol test uygulaması C# ve Java 'da sağlanır, Iş Ortağı Merkezi API 'Leri tarafından desteklenen tüm senaryolar için örnek kodlar sağlar. Test etmek için de kullanabilirsiniz.
+Konsol test uygulaması C# ve Java ile sağlanmıştır ve uygulama api'leri tarafından desteklenen tüm senaryolar için İş Ortağı Merkezi sağlar. Test için de kullanabilirsiniz.
 
 ## <a name="get-the-code"></a>Kodu alma
 
@@ -23,86 +23,86 @@ Konsol test uygulaması için örnek kodu indirin.
 
 ## <a name="net"></a>.NET
 
-[Örnek kodu indirin](https://go.microsoft.com/fwlink/p/?LinkId=746682) ve gereken şekilde değiştirin.
+[Örnek kodu indirin](https://go.microsoft.com/fwlink/p/?LinkId=746682) ve gerekli şekilde değiştirin.
 
 > [!IMPORTANT]
-> Uygulamayı oluşturmadan önce, *App.config* dosyadaki değerleri, [iş ortağı merkezi kimlik doğrulaması](partner-center-authentication.md)' nda oluşturduğunuz Azure AD kimlik doğrulaması bilgilerini yansıtacak şekilde güncelleştirin. Özellikle, tümleştirme korumalı alanı hesap ayarlarınızı erken geliştirme sırasında veya üretimde test etmek için kullanmanız gerekir.
+> Uygulamayı derlemeden önce,App.configdosyasındaki değerleri, kimlik doğrulamasında oluşturduğunuz Azure AD kimlik doğrulaması [bilgilerini İş Ortağı Merkezi güncelleştirin.](partner-center-authentication.md)  Özellikle, erken geliştirme sırasında veya üretimde test etmek için tümleştirme korumalı alan hesabı ayarlarınızı kullansanız iyi olur.
 
-*App.config* dosyasında **ScenarioSettings** altında, çalıştırdığınız senaryolara otomatik olarak geçirilecek parametreleri ayarlayabilirsiniz.
+App.config *dosyasındaki* **ScenarioSettings** altında, çalıştırdınız senaryolara otomatik olarak geçirilir parametreleri ayarlayın.
 
-Çalıştırılan senaryoların listesini değiştirmek için, **ıpartnerscenario \[ \] Mainsenaryolarında** ya da *program. cs* dosyasında bulunan tek bir **Get senaryo** yönteminde bulunan satırları açıklama satırı yapın.
+Çalıştırilen senaryoların listesini değiştirmek için **IPartnerScenario \[ \] mainScenarios** veya *Program.cs* dosyasında bulunan tek bir **Senaryo Al** yönteminde satırları açıklama satırı olarak ekleyin.
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-[Örnek kodu indirin](https://go.microsoft.com/fwlink/p/?LinkId=2026887) ve gereken şekilde değiştirin.
+[Örnek kodu indirin](https://go.microsoft.com/fwlink/p/?LinkId=2026887) ve gerekli şekilde değiştirin.
 
 > [!IMPORTANT]
-> Uygulamayı oluşturmadan önce, dosyadaki *SamplesConfigurations.js* , [iş ortağı merkezi kimlik DOĞRULAMASıNDA](partner-center-authentication.md)oluşturduğunuz Azure AD kimlik doğrulaması bilgilerini yansıtacak şekilde güncelleştirin. Özellikle, tümleştirme korumalı alanı hesap ayarlarınızı erken geliştirme sırasında veya üretimde test etmek için kullanmanız gerekir.
+> Uygulamayı derlemeden önce, dosyada yer *alanSamplesConfigurations.js,* kimlik doğrulamasında oluşturduğunuz Azure AD kimlik doğrulama bilgilerini [yansıtacak İş Ortağı Merkezi güncelleştirin.](partner-center-authentication.md) Özellikle, erken geliştirme sırasında veya üretimde test etmek için tümleştirme korumalı alan hesabı ayarlarınızı kullansanız iyi olur.
 
-*SamplesConfiguration.js* dosyadaki **ScenarioSettings** altında, çalıştırdığınız senaryolara otomatik olarak geçirilecek parametreleri ayarlayabilirsiniz.
+Dosyanın dosya *SamplesConfiguration.js* **ScenarioSettings** altında, çalıştırdınız senaryolara otomatik olarak geçirilir parametreleri ayarlayın.
 
-Çalıştırılan senaryoların listesini değiştirmek için, **ıpartnerscenario \[ \] Mainsenaryolarında** ya da *program. Java* dosyasında bulunan tek bir **Get senaryolar** yönteminde bulunan satırları açıklama satırı yapın.
+Çalıştırilen senaryoların listesini değiştirmek için **IPartnerScenario \[ \] mainScenarios** veya *Program.java* dosyasında bulunan tek bir **Senaryo Al** yönteminde satırları açıklama satırı olarak ekleyin.
 
-## <a name="what-to-change"></a>Ne değiştirilebilir
+## <a name="what-to-change"></a>Nelerin değişmesi gerekenler
 
-Örnek kodda nelerin değişiklik yapılacağını veya değişdiklerinizi belirlemek için aşağıdaki listeleri kullanın.
+Örnek kodda neyi değiştireceklerini veya değiştirmeyeceklerini belirlemek için aşağıdaki listeleri kullanın.
 
-### <a name="partnerservicesettings"></a>Partnerservice ayarları
+### <a name="partnerservicesettings"></a>PartnerServiceSettings
 
-**Partnerservicesettings** için şu değişikliği yapmayın:
+**PartnerServiceSettings** için şunları değiştirme:
 
 - **PartnerServiceApiEndpoint**
 - **AuthenticationAuthorityEndpoint**
 - **GraphEndpoint**
 - **CommonDomain**
 
-Bu ayarların tümü, örnek API çağrılarının düzgün çalışması için gereklidir.
+Örnek API çağrılarının düzgün çalışması için bu ayarların hepsi gereklidir.
 
 ### <a name="userauthentication"></a>UserAuthentication
 
-**Userauthentication** için şunları değiştirmeniz gerekir:
+**UserAuthentication** için şunları değiştirmelisiniz:
 
-- **applicationıd** (Azure Active Directory oturum açma için kullanılan uygulama kimliği)
-- **Kullanıcı adı** (Active Directory Kullanıcı adınız)
-- **Parola** (Active Directory parolanız).
+- **ApplicationId** (oturum Azure Active Directory kullanılan uygulama kimliğiniz)
+- **UserName** (active directory kullanıcı adınız)
+- **Parola** (active directory parolanız).
 
-Değiştirme:
+Şunları değiştirme:
 
 - **ResourceUrl**
 - **RedirectUrl**
 
 ### <a name="appauthentication"></a>AppAuthentication
 
-**Appauthentication** için şunları değiştirmeniz gerekir:
+**AppAuthentication** için şunları değiştirmelisiniz:
 
-- **ApplicationId** (uygulama oturum açması için kullanılan Active DIRECTORY uygulama kimliğiniz)
-- **Applicationsecret** (uygulama oturum açması için kullanılan Active Directory uygulama gizli anahtarı)
-- **Etki alanı** (uygulamanın barındırıldığı Active Directory etki alanı)
+- **ApplicationId** (uygulama oturum açma için kullanılan Active Directory uygulama kimliğiniz)
+- **ApplicationSecret** (uygulama oturum açma için kullanılan Active Directory uygulama gizli dizininiz)
+- **Etki** alanı (uygulamanın barındırıldı olduğu Active Directory etki alanınız)
 
 ### <a name="scenariosettings"></a>ScenarioSettings
 
-**ScenarioSettings** için şunu değiştirmeyin:
+**ScenarioSettings** için, şunları değiştirme:
 
-- **Customerdomainsuffix** (yeni müşteri oluşturulurken kullanılan etki alanı soneki)
+- **CustomerDomainSuffix** (yeni müşteri oluştururken kullanılan etki alanı soneki)
 
-İsteğe bağlı ayarlar. Boş bırakılırsa, gereken yerde bir senaryo çalıştırılırken bu bilgilerin oluşturulması gerekir):
+İsteğe bağlı ayarlar. Boş bırakılırsa, gerektiğinde bir senaryo çalıştırılabilirken bu bilgilerin gir olması gerekir:
 
-- **Customerıdtodelete** (silinmek üzere kullanılan müşterinin kimliği)
-- **Defaultcustomerıd** (müşteriyle ilgili senaryolarda kullanılacak müşteri kimliği)
-- **Defaultınvoiceıd** (fatura senaryolarında kullanılacak fatura kimliği)
-- **Partnermpnıd** (dolaylı iş ortağı senaryolarında kullanılacak iş ortağı MPN kimliği)
-- **DefaultServiceRequestId** (hizmet isteği senaryolarında kullanılacak HIZMET isteği kimliği)
-- **Defaultsupporttopicıd** (hizmet isteği senaryolarında kullanılacak destek konusu kimliği)
-- **Defaultofferıd** (teklif senaryolarında kullanılacak teklif kimliği)
-- **DefaultOrderID** (sipariş senaryolarında kullanılacak sıra kimliği)
-- **Defaultsubscriptionıd** (abonelik senaryolarında kullanılacak abonelik kimliği)
+- **CustomerIdToDelete** (silme için kullanılan müşterinin kimliği)
+- **DefaultCustomerId** (müşteriyle ilgili senaryolarda kullanmak için müşteri kimliği)
+- **DefaultInvoiceID** (fatura senaryolarında kullanmak için fatura kimliği)
+- **PartnerMpnId** (dolaylı iş ortağı senaryolarında kullanmak için iş ortağı MPN kimliği)
+- **DefaultServiceRequestId** (hizmet isteği senaryolarında kullanmak için hizmet isteği kimliği)
+- **DefaultSupportTopicID** (hizmet isteği senaryolarında kullanmak için destek konusu kimliği)
+- **DefaultOfferID** (teklif senaryolarında kullanmak için teklif kimliği)
+- **DefaultOrderID** (sipariş senaryolarında kullanmak için sipariş kimliği)
+- **DefaultSubscriptionID** (abonelik senaryolarında kullanmak için abonelik kimliği)
 
-Değişiklik için isteğe bağlı. Bu ayarların tümü, disk belleği içeriğini alırken sayfa başına giriş miktarını belirtir:
+Değiştirmek için isteğe bağlı. Bu ayarların hepsi, sayfalamalı içerik alınırken sayfa başına giriş miktarını belirtir:
 
 - **CustomerPageSize**
-- **Invoicepagesize**
+- **InvoicePageSize**
 - **ServiceRequestPageSize**
 - **DefaultOfferPageSize**
 - **SubscriptionPageSize**

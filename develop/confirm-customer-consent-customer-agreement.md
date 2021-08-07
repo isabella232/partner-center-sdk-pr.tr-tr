@@ -1,42 +1,42 @@
 ---
 title: Microsoft Müşteri Sözleşmesinin müşteri kabulünü onaylama
-description: Iş Ortağı Merkezi API 'Lerini kullanarak Microsoft Müşteri Sözleşmesi 'nin müşteri kabulünü onaylama hakkında bilgi edinin.
+description: İş Ortağı Merkezi API'lerini kullanarak Microsoft Müşteri Sözleşmesi kabul İş Ortağı Merkezi öğrenin.
 ms.date: 02/08/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 002508109191ede53cd06f25efc38286647fd67c
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 374a9670f5d4c05209e5cec07afe766bcf57f255f9266138b7aaf0e85f90f0ed
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974021"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991931"
 ---
-# <a name="confirm-customer-acceptance-of-the-microsoft-customer-agreement-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylama
+# <a name="confirm-customer-acceptance-of-the-microsoft-customer-agreement-using-partner-center-apis"></a>Api'leri kullanarak Microsoft Müşteri Sözleşmesi kabul İş Ortağı Merkezi onaylayın
 
-**Uygulama hedefi**: Iş Ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi
 
-**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**için geçerli değildir:** İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-İş ortağı merkezi şu anda Microsoft Müşteri sözleşmesinin yalnızca Microsoft genel bulutundaki müşteri kabulünün onayını desteklemektedir.
+İş Ortağı Merkezi şu anda yalnızca Microsoft genel bulutlarında Microsoft Müşteri Sözleşmesi onay onay desteklemektedir.
 
-Bu makalede, Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylama veya yeniden onaylama işlemlerinin nasıl yapılacağı açıklanır.
+Bu makalede, müşterinin müşteri kabulünü onaylama veya yeniden onaylama işleminin nasıl Microsoft Müşteri Sözleşmesi.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Iş ortağı merkezi .NET SDK kullanıyorsanız sürüm 1,14 veya daha yeni bir sürümü gereklidir.
+- İş Ortağı Merkezi .NET SDK kullanıyorsanız sürüm 1.14 veya daha yenisi gereklidir.
 
-- [Iş ortağı merkezi kimlik doğrulamasında](./partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. *Bu senaryo yalnızca uygulama + kullanıcı kimlik doğrulamasını destekler.*
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](./partner-center-authentication.md) *Bu senaryo yalnızca App+User kimlik doğrulamasını destekler.*
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Müşteri Microsoft Müşteri anlaşmasını kabul ettiğinde Tarih (**kabul edildi**).
+- Müşterinin müşteri tarafından kabul edilen tarih (**dateAgreed**) Microsoft Müşteri Sözleşmesi.
 
-- Müşteri kuruluşundan, Microsoft Müşteri anlaşmasını kabul eden kullanıcı hakkında bilgiler. Şunları içerir:
+- Müşteri kuruluşundan, kullanıcıyla ilgili bilgileri kabul eden Microsoft Müşteri Sözleşmesi. Şunları içerir:
   - Ad
   - Soyadı
   - E-posta adresi
   - Telefon numarası (isteğe bağlı)
-- bir müşteri için aşağıdaki değerler değişiyorsa, iş ortağı merkezi bu müşteri için başka bir sözleşmenin oluşturulmasını sağlayacaktır: ad adı soyadı e-posta adresi Telefon numarası aksi takdirde iş ortakları, oluşturulan yinelenen bir müşteri nedeniyle aşağıdaki hata kodunu alır
+- Bir müşteri için aşağıdaki değerler değişirse, İş Ortağı Merkezi müşteri için başka bir sözleşmenin oluşturulmuş olmasına izin verir: Ad Soyadı E-posta adresi Telefon numarası Aksi takdirde iş ortakları, yinelenen bir müşteri oluşturulduktan dolayı aşağıdaki hata kodunu alır
 
 
 ```
@@ -53,9 +53,9 @@ Bu makalede, Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylama v
 
 ## <a name="net"></a>.NET
 
-Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylamak veya yeniden doğrulamak için:
+Müşterinin kabulünü onaylamak veya yeniden onaylamak için Microsoft Müşteri Sözleşmesi:
 
-1. Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini alın. Microsoft Müşteri sözleşmesinin **TemplateId** 'sini edinmeniz gerekir. Daha fazla bilgi için bkz. [Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini edinme](get-customer-agreement-metadata.md).
+1. Veri kaynağı için sözleşme meta verilerini Microsoft Müşteri Sözleşmesi. Uygulamanın **templateId'lerini** Microsoft Müşteri Sözleşmesi. Daha fazla bilgi için [bkz. Microsoft Müşteri Sözleşmesi.](get-customer-agreement-metadata.md)
 
    ```csharp
    // IAggregatePartner partnerOperations;
@@ -65,11 +65,11 @@ Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylamak veya yeniden 
    var microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
    ```
 
-2. Onayın ayrıntılarını içeren yeni bir **anlaşma** nesnesi oluşturun.
+2. Onayın **ayrıntılarını içeren** yeni bir Sözleşme nesnesi oluşturun.
 
-3. **Iagreggatepartner. Customers** koleksiyonunu kullanın ve belirtilen **Müşteri Kiracı kimliği** ile **byıd** yöntemini çağırın.
+3. **IAgreggatePartner.Customers** koleksiyonunu kullanın ve belirtilen **customer-tenant-id** ile **ById** yöntemini çağırın.
 
-4. , Ardından **Create** veya **createasync** çağrısı yaparak **anlaşmalar** özelliğini kullanın.
+4. Agreements **özelliğini,** ardından **Create** veya **CreateAsync çağrısıyla kullanın.**
 
    ```csharp
    // string selectedCustomerId;
@@ -90,52 +90,52 @@ Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylamak veya yeniden 
    Agreement agreement = partnerOperations.Customers.ById(selectedCustomerId).Agreements.Create(agreementToCreate);
    ```
 
-[Konsol test uygulaması](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) projesinden [createcustomeragreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) sınıfında bir bütün örnek bulunabilir.
+Eksiksiz bir örnek, konsol test uygulaması [projesinin CreateCustomerAgreement](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/CreateCustomerAgreement.cs) [sınıfında](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) bulunabilir.
 
 ## <a name="rest-request"></a>REST isteği
 
-Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylamak veya yeniden doğrulamak için:
+Müşterinin kabulünü onaylamak veya yeniden onaylamak için Microsoft Müşteri Sözleşmesi:
 
-1. Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini alın. Microsoft Müşteri sözleşmesinin **TemplateId** 'sini edinmeniz gerekir. Daha fazla bilgi için bkz. [Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini edinme](get-customer-agreement-metadata.md).
+1. Veri kaynağı için sözleşme meta verilerini Microsoft Müşteri Sözleşmesi. Uygulamanın **templateId'lerini** Microsoft Müşteri Sözleşmesi. Daha fazla bilgi için [bkz. Microsoft Müşteri Sözleşmesi.](get-customer-agreement-metadata.md)
 
-2. Müşterinin Microsoft Müşteri anlaşmasını kabul ettiğini onaylamak için yeni bir [ **anlaşma** kaynağı](agreement-resources.md) oluşturun. Aşağıdaki [rest istek sözdizimini](#request-syntax)kullanın.
+2. Müşterinin bu [ **hesabı kabul**](agreement-resources.md) etmiş olduğunu onaylamak için yeni bir Sözleşme Microsoft Müşteri Sözleşmesi. Aşağıdaki REST isteği [söz dizimlerini kullanın.](#request-syntax)
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem | İstek URI'si                                                                                        |
 |--------|----------------------------------------------------------------------------------------------------|
-| POST   | [*\{ BaseUrl \}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/sözleşmeleri http/1.1 |
+| POST   | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/agreements HTTP/1.1 |
 
 #### <a name="uri-parameter"></a>URI parametresi
 
-Onayladığınız müşteriyi belirtmek için aşağıdaki sorgu parametresini kullanın.
+Onaylamakta olduğunu müşteriyi belirtmek için aşağıdaki sorgu parametresini kullanın.
 
 | Ad               | Tür | Gerekli | Açıklama                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| Müşteri-Kiracı kimliği | GUID | Yes | Değer, bir müşteriyi belirtmenize olanak tanıyan bir tanımlayıcı olan GUID biçimli bir **Müşteri-kiracı kimliğidir**. |
+| customer-tenant-id | GUID | Yes | Değer, müşteri belirtmenize olanak sağlayan bir tanımlayıcı olan GUID biçimli **müşteri-kiracı** kimliğidir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, REST istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tabloda REST isteği gövdesinde gerekli özellikler açıkmektedir.
 
-| Ad      | Tür   | Açıklama                                                                                  |
+| Ad      | Tür   | Description                                                                                  |
 |-----------|--------|----------------------------------------------------------------------------------------------|
-| Sözleşme | object | Microsoft Müşteri sözleşmesinin müşteri kabulünü onaylamak için iş ortağı tarafından sunulan ayrıntılar. |
+| Sözleşme | object | İş ortağı tarafından sağlanan ayrıntılar, müşterinin kabulünü onaylamak Microsoft Müşteri Sözleşmesi. |
 
 #### <a name="agreement"></a>Sözleşme
 
-Bu tablo, bir [ **anlaşma** kaynağı](agreement-resources.md)oluşturmak için gereken en düşük alanları açıklar.
+Bu tabloda, bir Sözleşme kaynağı oluşturmak için gereken en düşük [ **alanlar açıklandı.**](agreement-resources.md)
 
-| Özellik       | Tür   | Açıklama                              |
+| Özellik       | Tür   | Description                              |
 |----------------|--------|------------------------------------------|
-| primaryContact | [İletişim](./utility-resources.md#contact) | Microsoft Müşteri sözleşmesini kabul eden müşteri kuruluşundan Kullanıcı hakkındaki bilgiler:  **FirstName**, **LastName**, **email** ve **PhoneNumber** (isteğe bağlı) |
-| Kabul edilen tarih     | UTC Tarih saat biçiminde dize |Müşterinin sözleşmeyi kabul ettiği tarih. |
-| TemplateId     | string | Müşteri tarafından kabul edilen sözleşme türünün benzersiz tanımlayıcısı. Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini alarak Microsoft Müşteri Sözleşmesi için **TemplateId** 'yi edinebilirsiniz. Ayrıntılar için bkz. [Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini edinme](./get-customer-agreement-metadata.md) . |
-| tür           | string | Müşteri tarafından kabul edilen anlaşma türü. Müşteri Microsoft Müşteri anlaşmasını kabul ettiğinde "MicrosoftCustomerAgreement" kullanın. |
+| primaryContact | [İletişim](./utility-resources.md#contact) | Adı, soyadı , e-posta ve **phoneNumber** (isteğe bağlı) dahil olmak Microsoft Müşteri Sözleşmesi müşteri kuruluşundan kullanıcı hakkında bilgiler   |
+| dateAgreed     | UTC tarih saat biçiminde dize |Müşterinin sözleşmeyi kabul etme tarihi. |
+| templateId     | string | Müşteri tarafından kabul edilen sözleşme türünün benzersiz tanımlayıcısı. Uygulama için **templateId'Microsoft Müşteri Sözleşmesi** için anlaşma meta verilerini Microsoft Müşteri Sözleşmesi. Ayrıntılar [için bkz. Microsoft Müşteri Sözleşmesi](./get-customer-agreement-metadata.md) meta verilerini al. |
+| tür           | string | Müşteri tarafından kabul edilen sözleşme türü. Müşteri kabul ettiyse "MicrosoftCustomerAgreement" Microsoft Müşteri Sözleşmesi. |
 
 #### <a name="request-example"></a>İstek örneği
 
@@ -160,13 +160,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem bir [ **anlaşma** kaynağı](./agreement-resources.md)döndürür.
+Başarılı olursa, bu yöntem bir Sözleşme [ **kaynağı** döndürür.](./agreement-resources.md)
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir.
 
-Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 #### <a name="response-example"></a>Yanıt örneği
 

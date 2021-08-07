@@ -4,12 +4,12 @@ description: Belirli bir müşteri İş Ortağı Merkezi yapılandırma ilkesi o
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 530ff72862204bda093385252450f4eb81b63160
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: b3637b6d482934d894a5807734b541cc73dea3f265b5460ba807c7fad6834a82
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973692"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991625"
 ---
 # <a name="create-a-new-configuration-policy-for-the-specified-customer"></a>Belirtilen müşteri için yeni bir yapılandırma ilkesi oluşturma
 

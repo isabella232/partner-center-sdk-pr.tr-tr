@@ -1,37 +1,37 @@
 ---
 title: Dolaylı bir satıcının müşterilerini alma
-description: Dolaylı bir satıcı müşterilerinin listesini alma.
+description: Dolaylı kurumsal bayi müşterilerinin listesini alma.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: e05248b16b803529258de806c25b117f3104ad2a
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: e0b3a45c8cf63334ac53e673fbe88734d3692dfca00c5fe8458695cc28c34f64
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446335"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990520"
 ---
 # <a name="get-customers-of-an-indirect-reseller"></a>Dolaylı bir satıcının müşterilerini alma
 
-Dolaylı bir satıcı müşterilerinin listesini alma.
+Dolaylı kurumsal bayi müşterilerinin listesini alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Dolaylı Bayi kiracı tanımlayıcısı.
+- Dolaylı kurumsal bayinin kiracı tanımlayıcısı.
 
 ## <a name="c"></a>C\#
 
-Belirtilen dolaylı satıcıyla ilişki olan müşterilerin bir koleksiyonunu almak için ilk olarak filtreyi oluşturmak üzere bir [**Simplefieldfilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) nesnesi oluşturun. [**Customersearchfield. ındirectbayi**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield) numaralandırma üyesini bir dizeye dönüştürmeniz ve [**Fieldfilteroperation. StartsWith**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) değerlerini filtre işleminin türü olarak belirtmeniz gerekir. Ayrıca, filtrelemeye yönelik dolaylı satıcının kiracı tanımlayıcısını sağlamanız gerekir.
+Belirtilen dolaylı kurumsal bayiyle ilişkisi olan müşterilerin koleksiyonunu almak için önce filtreyi oluşturmak üzere [**bir SimpleFieldFilter**](/dotnet/api/microsoft.store.partnercenter.models.query.simplefieldfilter) nesnesi örneği oluşturun. [**CustomerSearchField.IndirectReseller**](/dotnet/api/microsoft.store.partnercenter.models.customers.customersearchfield) numaralama üyesini bir dizeye dönüştürmeniz ve filtre işlemi türü olarak [**FieldFilterOperation.StartsWith**](/dotnet/api/microsoft.store.partnercenter.models.query.fieldfilteroperation) öğesini belirtebilirsiniz. Ayrıca filtrenin geçerli olduğu dolaylı kurumsal bayinin kiracı tanımlayıcısını da sağlayabilirsiniz.
 
-Sonra, [**Buildsimplequery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) yöntemini çağırarak ve filtre geçirerek sorguya geçirilecek bir [**ıquery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) nesnesi örneği oluşturun. BuildSimplyQuery, [**Queryfactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) sınıfının desteklediği sorgu türlerinden yalnızca biridir.
+Ardından [**BuildSimpleQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory.buildsimplequery) yöntemini çağırarak ve filtreyi geçerek sorguya geçmek için bir [**iQuery**](/dotnet/api/microsoft.store.partnercenter.models.query.iquery) nesnesi örneği oluşturun. BuildSimplyQuery, [**QueryFactory**](/dotnet/api/microsoft.store.partnercenter.models.query.queryfactory) sınıfı tarafından desteklenen sorgu türlerinden yalnızca birdir.
 
-Filtreyi yürütmek ve sonucu almak için önce iş ortağının müşteri işlemlerine bir arabirim almak üzere [**ıaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) ' ı kullanın. Sonra [**Query**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) veya [**queryasync**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) yöntemini çağırın.
+Filtreyi yürütmek ve sonucu almak için ilk olarak [**IAggregatePartner.Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) kullanarak iş ortağının müşteri işlemlerine yönelik bir arabirim elde edersiniz. Ardından Query [**veya**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.query) [**QueryAsync yöntemini**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.queryasync) çağırabilirsiniz.
 
-Disk belleğine geçiş yapmak için bir Numaralandırıcı oluşturmak üzere [**ıaggregatepartner. Numaralandırıcılar. Customers**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumeratorcontainer.customers) özelliğinden müşteri koleksiyonu Numaralandırıcı fabrikası arabirimini alın ve sonra, aşağıdaki kodda gösterildiği gibi, müşteri koleksiyonunu tutan değişkeni geçirerek [**Oluştur**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)'u çağırın.
+Sayfalamalı sonuçlarda geçiş yapmak için bir numaralayıcı oluşturmak [**için, IAggregatePartner.Enumerators.Customers**](/dotnet/api/microsoft.store.partnercenter.enumerators.iresourcecollectionenumeratorcontainer.customers) özelliğinden müşteri koleksiyonu numaralayıcı fabrika arabirimini elde edin ve ardından aşağıdaki kodda gösterildiği gibi [**Create**](/dotnet/api/microsoft.store.partnercenter.factory.iresourcecollectionenumeratorfactory-1.create)çağrısında bulunarak müşteri koleksiyonunu tutan değişkeni geçirebilirsiniz.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -66,15 +66,15 @@ while (customersEnumerator.HasValue)
 }
 ```
 
-**örnek**: [konsol test uygulaması](console-test-app.md)**Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getcustomersofındirectbayi. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md)**Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** GetCustomersOfIndirectReseller.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers? size = {size}? Filter = {FILTER} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers?size={size}?filter={filter} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -82,12 +82,12 @@ while (customersEnumerator.HasValue)
 
 | Ad   | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                                                                                   |
 |--------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| boyut   | int    | Hayır       | Tek seferde görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır.                                                                                                                                                                                                                |
-| filtre | filtre | Yes      | Aramaya filtre uygulayan sorgu. Belirtilen bir dolaylı satıcı için müşterileri almak üzere, dolaylı satıcı tanımlayıcısını eklemeniz ve şu dizeyi içermelidir: {"Field": "ındirectbayi", "Value": "{dolaylı satıcı tanımlayıcısı}", "operator": " \_ ile başlar"}. |
+| boyut   | int    | No       | Aynı anda görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır.                                                                                                                                                                                                                |
+| filtre | filtre | Yes      | Arama filtrelerini alan sorgu. Belirli bir dolaylı kurumsal bayinin müşterilerini almak için dolaylı kurumsal bayi tanımlayıcısını eklemeli ve şu dizeyi eklemeli ve kodlamalı: {"Field":"IndirectReseller","Value":"{indirect reseller identifier}","Operator":"starts \_ with"}. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -105,7 +105,7 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-### <a name="request-example-decoded"></a>İstek örneği (kodu çözüldü)
+### <a name="request-example-decoded"></a>İstek örneği (kodu çözülen)
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers?size=0&filter={"Field":"IndirectReseller","Value":"484e548c-f5f3-4528-93a9-c16c6373cb59","Operator":"starts_with"} HTTP/1.1
@@ -119,11 +119,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi satıcının müşterileri hakkındaki bilgileri içerir.
+Başarılı olursa, yanıt gövdesi kurumsal bayinin müşterileri hakkında bilgiler içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

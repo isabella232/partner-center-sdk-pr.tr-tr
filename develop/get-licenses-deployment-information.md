@@ -4,12 +4,12 @@ description: Office ve Dynamics lisansları için dağıtım bilgilerini alın.
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9eb0dc655affb2216b11635e58e00ed6464d6792
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: c47ab4f839c102c7a7bcab0169bf13955ab49beb97c48800e882598714347e67
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445672"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990724"
 ---
 # <a name="get-licenses-deployment-information"></a>Lisans dağıtım bilgilerini alma
 
@@ -35,11 +35,11 @@ Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers
 
 | Parametre         | Tür     | Açıklama | Gerekli |
 |-------------------|----------|-------------|----------|
-| top               | string   | İstekte geri dönecek veri satırlarının sayısı. Belirtilmezse en büyük değer ve varsayılan değer 10000'tir. Sorguda daha fazla satır varsa yanıt gövdesi, sonraki veri sayfasını talep etmek için kullanabileceğiniz bir sonraki bağlantı içerir. | Hayır |
-| Atla              | int      | Sorguda atlana satır sayısı. Büyük veri kümelerini sayfalara yapmak için bu parametreyi kullanın. Örneğin, top=10000 ve skip=0 ilk 10000 veri satırlarını, top=10000 ve skip=10000 sonraki 10000 satırı ve bu şekilde devam ediyor. | Hayır |
-| filtre            | string   | *İsteğin* filtre parametresi, yanıtta satırları filtreleen bir veya daha fazla deyim içerir. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir ve `eq` `ne` deyimleri veya kullanılarak bir `and` araya `or` olabilir. Bazı örnek filtre *parametreleri şu* şekildedir:<br/><br/> *filter=serviceCode eq 'O365'*<br/> *filter=serviceCode eq 'O365'* veya (*channel eq 'Reseller'*)<br/><br/> Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**  | Hayır |
-| Groupby           | string   | Yalnızca belirtilen alanlara veri toplaması uygulanan bir deyim. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**<br/><br/> Döndürülen veri satırları *groupby* parametresinde belirtilen alanları ve şunları içerir:<br/><br/>**dağıtılan lisanslar**<br/>**licensesSold**  | Hayır |
-| processedDateTime | DateTime | Kullanım verileri işlenme tarihini belirtebilirsiniz. Verilerin işlenme tarihi varsayılan olarak en son tarihtir | Hayır |
+| top               | string   | İstekte geri dönecek veri satırlarının sayısı. Belirtilmezse en büyük değer ve varsayılan değer 10000'tir. Sorguda daha fazla satır varsa yanıt gövdesi, sonraki veri sayfasını talep etmek için kullanabileceğiniz bir sonraki bağlantı içerir. | No |
+| Atla              | int      | Sorguda atlana satır sayısı. Büyük veri kümelerini sayfalara yapmak için bu parametreyi kullanın. Örneğin, top=10000 ve skip=0 ilk 10000 veri satırlarını, top=10000 ve skip=10000 sonraki 10000 satırı ve bu şekilde devam ediyor. | No |
+| filtre            | string   | *İsteğin* filtre parametresi, yanıtta satırları filtreleen bir veya daha fazla deyim içerir. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir ve `eq` `ne` deyimleri veya kullanılarak bir `and` araya `or` olabilir. Bazı örnek filtre *parametreleri şu* şekildedir:<br/><br/> *filter=serviceCode eq 'O365'*<br/> *filter=serviceCode eq 'O365'* veya (*channel eq 'Reseller'*)<br/><br/> Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**  | No |
+| Groupby           | string   | Yalnızca belirtilen alanlara veri toplaması uygulanan bir deyim. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**<br/><br/> Döndürülen veri satırları *groupby* parametresinde belirtilen alanları ve şunları içerir:<br/><br/>**dağıtılan lisanslar**<br/>**licensesSold**  | No |
+| processedDateTime | DateTime | Kullanım verileri işlenme tarihini belirtebilirsiniz. Verilerin işlenme tarihi varsayılan olarak en son tarihtir | No |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -57,7 +57,7 @@ Host: api.partnercenter.microsoft.com
 
 Başarılı olursa, yanıt gövdesi dağıtılan lisanslar hakkında verileri içeren aşağıdaki alanları içerir.
 
-| Alan             | Tür     | Açıklama                           |
+| Alan             | Tür     | Description                           |
 |-------------------|----------|---------------------------------------|
 | serviceCode       | string   | Hizmet kodu                          |
 | Hizmetadı       | string   | Hizmet adı                          |

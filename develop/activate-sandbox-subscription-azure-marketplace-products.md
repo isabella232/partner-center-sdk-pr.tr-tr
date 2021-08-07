@@ -1,42 +1,42 @@
 ---
-title: Ticari Market ürünleri için bir korumalı alan aboneliğini etkinleştirin
-description: Ticari Market ürünleri için bir korumalı alan aboneliğini etkinleştirmek üzere C/# ve Iş Ortağı Merkezi REST API 'Lerini nasıl kullanacağınızı öğrenin.
+title: Ticari market ürünleri için korumalı alan aboneliğini etkinleştirme
+description: Ticari market ürünleri için korumalı alan aboneliğini etkinleştirmek İş Ortağı Merkezi C/# ve rest API'leri kullanmayı öğrenin.
 ms.date: 09/10/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b32c3e87462f58218771fc5da7da56ed177489cb
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: 1ea581695e4328f02d08486c91b7b90a78e75a50985279d78cc54ef8b35fa715
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025709"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990503"
 ---
-# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-saas-products-to-enable-billing"></a>Faturalandırmayı etkinleştirmek için ticari Market SaaS ürünleri için bir korumalı alan aboneliği etkinleştirin
+# <a name="activate-a-sandbox-subscription-for-commercial-marketplace-saas-products-to-enable-billing"></a>Faturalamayı etkinleştirmek için ticari market SaaS ürünleri için korumalı alan aboneliğini etkinleştirme
 
-Faturalandırmayı etkinleştirmek için tümleştirme korumalı alanı hesaplarından hizmet olarak satılan ticari Market yazılım (SaaS) ürünleri için bir abonelik etkinleştirme.
+Faturalamayı etkinleştirmek için tümleştirme korumalı alan hesaplarından ticari market Hizmet Olarak Yazılım (SaaS) ürünleri için aboneliği etkinleştirme.
 
 > [!NOTE]
-> Yalnızca tümleştirme korumalı alanı hesaplarından ticari Market SaaS ürünleri için bir abonelik etkinleştirmek mümkündür. Üretim aboneliğiniz varsa, kurulum işlemini gerçekleştirmek için yayımcının sitesini ziyaret etmeniz gerekir. Abonelik faturalandırması, yalnızca kurulum tamamlandıktan sonra başlayacaktır.
+> Ticari market SaaS ürünleri için aboneliği yalnızca tümleştirme korumalı alan hesaplarından etkinleştirmek mümkündür. Üretim aboneliğiniz varsa, kurulum işlemini tamamlamak için yayımcının sitesini ziyaret edin. Abonelik faturalaması ancak kurulum tamamlandıktan sonra başlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Ticari Market SaaS ürünleri için etkin aboneliğe sahip bir müşterinin bulunduğu tümleştirme korumalı alan iş ortağı hesabı.
+- Ticari market SaaS ürünleri için etkin bir aboneliğe sahip olan bir müşteriyle tümleştirme korumalı alan iş ortağı hesabı.
 
-- Iş ortağı merkezi .NET SDK kullanan iş ortakları için, bu özelliğe erişmek için SDK sürüm 1.14.0 veya üstünü kullanmanız gerekir.
+- .NET SDK İş Ortağı Merkezi kullanan iş ortakları için bu özelliğe erişmek için SDK sürüm 1.14.0 veya daha yüksek bir sürümünü kullansanız gerekir.
 
 ## <a name="c"></a>C\#
 
-Ticari Market SaaS ürünleri için bir aboneliği etkinleştirmek üzere aşağıdaki adımları kullanın:
+Ticari market SaaS ürünleri için aboneliği etkinleştirmek üzere aşağıdaki adımları kullanın:
 
-1. Kullanılabilir abonelik işlemlerine bir arabirim oluşturun. Müşteriyi tanımlamalısınız ve deneme aboneliğinin abonelik tanımlayıcısını belirtmeniz gerekir.
+1. Abonelik işlemleri için bir arabirim kullanılabilir hale getirildi. Müşteriyi tanımlamanız ve deneme aboneliğinin abonelik tanımlayıcısını belirtmeniz gerekir.
 
    ```csharp
    var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
    ```
 
-2. **Etkinleştirme** işlemini kullanarak aboneliği etkinleştirin.
+2. Etkinleştir işlemi kullanarak aboneliği **etkinleştirin.**
 
    ```csharp
    var subscriptionActivationResult = subscriptionOperations.Activate();
@@ -44,22 +44,22 @@ Ticari Market SaaS ürünleri için bir aboneliği etkinleştirmek üzere aşağ
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem     | İstek URI'si                                                                            |
 |------------|----------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{Subscription-id}/Activate http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/activate HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y | Değer, bir müşteri belirtmenize olanak tanıyan, GUID biçimli bir müşteri kiracı tanımlayıcısıdır (**Müşteri Kiracı kimliği**). |
-| **abonelik kimliği** | **guid** | Y | Değer, bir abonelik belirtmenizi sağlayan GUID biçimli bir abonelik tanımlayıcısıdır (**abonelik kimliği**). |
+| **customer-tenant-id** | **guid** | Y | Değer, müşteri belirtmenize olanak sağlayan GUID biçimli bir müşteri kiracı tanımlayıcısıdır (**customer-tenant-id).** |
+| **subscription-id** | **guid** | Y | Değer, bir abonelik belirtmenize olanak sağlayan GUID biçimli bir abonelik tanımlayıcısıdır (**subscription-id).** |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -78,11 +78,11 @@ MS-RequestId: 655890ba-4d2b-4d09-a95f-4ea1348686a5
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Bu yöntem, **abonelik kimliği** ve **durum** özelliklerini döndürür.
+Bu yöntem **subscription-id ve status** **özelliklerini** döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

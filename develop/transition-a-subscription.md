@@ -4,12 +4,12 @@ description: Müşterinin aboneliğini belirtilen hedef aboneliğe yükselter.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 01455315825cad026830268b6bbd55509e964bb5
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 2989f1db4259ce43583baf8acf20b2b5204ab72e3725cdd7fa9f75db1db12510
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530251"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990180"
 ---
 # <a name="transition-a-subscription"></a>Bir aboneliği geçirme
 

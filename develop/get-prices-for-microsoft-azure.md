@@ -1,29 +1,29 @@
 ---
 title: Microsoft Azure için fiyat alma
-description: Azure teklifi için gerçek zamanlı fiyatlara sahip bir Azure ücret kartı alma. Azure fiyatlandırması oldukça dinamik ve sık sık değişir.
+description: Bir Azure teklifinin gerçek zamanlı fiyatlarıyla Azure Rate Card'a nasıl sahip oluruz? Azure fiyatlandırması oldukça dinamiktir ve sık sık değişir.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 4f66ab19ef3723fbaa27acff941cf48683a7c25c
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 8b69e9e3d8e6e4c4e447b308c890c4c054e6a1e5221bb523a5caca041d1ea115
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548796"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989126"
 ---
 # <a name="get-prices-for-microsoft-azure"></a>Microsoft Azure için fiyat alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Azure teklifi için gerçek zamanlı fiyatlara sahip bir [Azure ücret kartı](azure-rate-card-resources.md) alma. Azure fiyatlandırması oldukça dinamik ve sık sık değişir.
+Bir Azure [teklifinin gerçek zamanlı](azure-rate-card-resources.md) fiyatlarıyla Azure Rate Card'a nasıl sahip oluruz? Azure fiyatlandırması oldukça dinamiktir ve sık sık değişir.
 
-kullanımı izlemek ve aylık faturanızı ve tek tek müşterilerin ücretini tahmin etmeye yardımcı olmak için, [azure için bir müşterinin kullanım kayıtlarını almaya](get-a-customer-s-utilization-record-for-azure.md)yönelik bir istekle Microsoft Azure fiyatlarını almak üzere bu Azure fiyatı kartı sorgusunu birleştirebilirsiniz.
+Kullanımı izlemek ve bireysel müşterilerin aylık faturanızı ve faturalarını tahmin etmeye yardımcı olmak için bu Azure Rate Card sorgusunu birleştirebilir ve Microsoft Azure için fiyatları almak için Azure için müşterinin kullanım kayıtlarını al isteği [gönderebilirsiniz.](get-a-customer-s-utilization-record-for-azure.md)
 
-Fiyatlar Pazar ve para birimine göre farklılık gösterir ve bu API 'nin yerini göz önünde bulundurun. Varsayılan olarak, API iş ortağı merkezi ve tarayıcı dilinizde ortak profil ayarlarınızı kullanır ve bu ayarlar özelleştirilebilir. Bu durum, özellikle birden çok pazardaki satışları tek bir merkezi bir ofiste yönetiyorsanız ilgilidir. Daha fazla bilgi için bkz. [URI parametreleri](#uri-parameters).
+Fiyatlar pazara ve para birimine göre farklılık gösterir ve bu API konumu dikkate alır. Varsayılan olarak API, İş Ortağı Merkezi ve tarayıcınızın dilinde iş ortağı profili ayarlarınızı kullanır ve bu ayarlar özelleştirilebilir. Konum tanıma, özellikle de birden çok pazarda satışları tek, merkezi bir ofisten yönetirken oldukça alakalıdır. Daha fazla bilgi için [bkz. URI parametreleri.](#uri-parameters)
 
 ## <a name="c"></a>C\#
 
-Azure fiyat kartını edinmek için, Azure fiyatlarını içeren [**Azursilinebilir tecard**](/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) kaynağını döndürmek üzere [**ıazursilinebilir Tecard. Get**](/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.get) yöntemini çağırın.
+Azure Rate Card'ı almak için [**IAzureRateCard.Get**](/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.get) yöntemini çağırarak Azure fiyatlarını içeren [**bir AzureRateCard**](/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) kaynağı bulun.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -31,13 +31,13 @@ Azure fiyat kartını edinmek için, Azure fiyatlarını içeren [**Azursilinebi
 var azureRateCard = partner.RateCards.Azure.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: GetAzureRateCard. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** GetAzureRateCard.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Azure fiyat kartını edinmek için **ıazursilinebilir Tecard. Get** Işlevini çağırıp Azure fiyatlarını içeren ücret kartı ayrıntılarını döndürün.
+Azure Rate Card'ı almak için **IAzureRateCard.get** işlevini çağırarak Azure fiyatlarını içeren fiyat kartı ayrıntılarını iade edin.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().get();
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Azure kartını almak için [**Get-Partnerazursilinebilir Tecard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) komutunu çalıştırarak Azure fiyatlarını içeren ücret kartı ayrıntılarını döndürün.
+Azure Kartını almak için, Azure fiyatlarını içeren fiyat kartı ayrıntılarını iade etmek için [**Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) komutunu yürütün.
 
 ```powershell
 Get-PartnerAzureRateCard
@@ -57,28 +57,28 @@ Get-PartnerAzureRateCard
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                        |
 |---------|--------------------------------------------------------------------|
-| **Al** | *{BaseUrl}*/v1/ratecards/Azure? para birimi = {currency} &bölgesi = {Region} |
+| **Al** | *{baseURL}*/v1/ratecards/azure?currency={currency}&region={region} |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
 | Ad     | Tür   | Gerekli | Açıklama                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | dize | No       | Kaynak tarifelerinin sağlandığı para birimi için isteğe bağlı üç harfli ISO kodu (örneğin `EUR` ). Varsayılan değer: `USD`. |
-| region   | dize | No       | Teklifin satın alındığı pazarı belirten, isteğe bağlı iki harfli ISO ülke/bölge kodu (örneğin `FR` ). Varsayılan değer: `US`.        |
+| currency | dize | No       | Kaynak oranlarının sağlanacak para birimi için isteğe bağlı üç harfli ISO kodu `EUR` (örneğin). Varsayılan değer: `USD`. |
+| region   | dize | No       | Isteğe bağlı iki harfli ISO ülke/bölge kodu, teklifin satın alınarak pazar olduğunu gösterir `FR` (örneğin). Varsayılan değer: `US`.        |
 
-İsteğe bağlı X-locale [üst bilgisini](headers.md#rest-request-headers) isteğinize dahil edebilirsiniz. X-locale üst bilgisini eklemezseniz, varsayılan değer ("en-US") kullanılır.
+İsteğe bağlı X-Locale üst bilgilerini [isteğinize](headers.md#rest-request-headers) dahilebilirsiniz. X-Locale üst bilgisi dahil değil, varsayılan değer ("en-US") kullanılır.
 
-- İsteğiniz için para birimi ve bölge parametreleri sağlarsanız, yanıtın dilini belirlemekte X-locale değeri kullanılır.
+- İsteğinize para birimi ve bölge parametreleri sağlarsanız yanıtın dilini belirlemek için X-Locale değeri kullanılır.
 
-- İsteğiniz içinde bölge ve para birimi parametreleri sağlamazsanız, yanıtın bölge, para birimi ve dilini belirlemekte X-locale değeri kullanılır.
+- İsteğinize bölge ve para birimi parametreleri sağlanmıyorsa yanıtın bölgesi, para birimi ve dili belirlemek için X-Locale değeri kullanılır.
 
 ### <a name="request-header"></a>İstek üst bilgisi
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -99,11 +99,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-İstek başarılı olursa, bir [Azure ücret kartı](azure-rate-card-resources.md) kaynağı döndürür.
+İstek başarılı olursa bir Azure Rate [Card kaynağı](azure-rate-card-resources.md) döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

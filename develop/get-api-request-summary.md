@@ -1,39 +1,39 @@
 ---
-title: MFA benimseme durumunu al
-description: Iş ortağı REST API kullanarak her iş ortağı için Multi-Factor Authentication benimseme durumunun bir listesini alın.
+title: MFA benimseme durumunu edinme
+description: İş Ortağı kimlik doğrulamasını kullanarak her iş ortağı için çok faktörlü kimlik doğrulaması benimseme durumunun REST API.
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 9b8848c2a4531dd6609f86aae6876cec436eeea9
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: e4b55122a6f723d8a877c2688c425fda52cb1c56110c47ee81ddce24e4923e99
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760530"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992543"
 ---
 # <a name="get-mfa-adoption-status"></a>MFA benimseme durumunu al
 
-**Uygulama hedefi**: Iş Ortağı Merkezi API
+**Için geçerlidir:** İş Ortağı Merkezi API
 
-Bu makalede, bir kiracının içindeki her ortağın Multi-Factor Authentication (MFA) benimseme durumunun nasıl alınacağı açıklanmaktadır.
+Bu makalede, bir kiracı içindeki her iş ortağı için çok faktörlü kimlik doğrulaması (MFA) benimseme durumunun nasıl elde edilmesi açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                               |
 |---------|---------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/applicationmfabenimsetionstatus> |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/applicationmfaadoptionstatus> |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+- Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -50,11 +50,11 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde uygulama kaynakları [tarafından özetlenen bir API isteği](mfa-resources.md#api-request-summarized-by-application) koleksiyonu döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde Uygulama kaynakları [tarafından özetlenen bir API](mfa-resources.md#api-request-summarized-by-application) isteği koleksiyonu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

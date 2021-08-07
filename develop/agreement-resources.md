@@ -1,37 +1,37 @@
 ---
 title: Anlaşma kaynakları
-description: Sözleşme kaynağı, iş ortağı tarafından sunulan sertifika ayrıntıları ile bir Microsoft bulut müşteri anlaşmasını temsil eder.
+description: Anlaşma kaynağı, iş ortağı tarafından sağlanan sertifikasyon ayrıntılarının yer alan bir Microsoft bulut müşteri sözleşmesini temsil eder.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 5fa196e711d9ff899b61ba20e75edd92749165e5
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: dc67d93a40cdced977412ff8151a661f6655c0fa1d079c8f1bc468f0f8b1eea2
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025640"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992492"
 ---
-# <a name="agreement-resources-representing-a-microsoft-cloud-customer-agreement"></a>Microsoft bulut müşteri anlaşmasını temsil eden sözleşme kaynakları
+# <a name="agreement-resources-representing-a-microsoft-cloud-customer-agreement"></a>Microsoft bulut müşteri sözleşmelerini temsil eden sözleşme kaynakları
 
-**Uygulama hedefi**: Iş Ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi
 
-**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**için geçerli değildir:** İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-**Sözleşme** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
+Sözleşme **kaynağı** şu anda yalnızca Microsoft İş Ortağı Merkezi bulut üzerinde kullanılabilir.
 
-**Sözleşme** kaynağı bir Microsoft bulut müşteri anlaşmasını temsil eder.
+Anlaşma **kaynağı** bir Microsoft bulut müşterisi anlaşmasını temsil eder.
 
 ## <a name="agreement"></a>Sözleşme
 
-**Anlaşma** kaynağı, iş ortağı tarafından belirtilen sertifikanın ayrıntılarını temsil eder.
+Anlaşma **kaynağı,** iş ortağı tarafından sağlanan sertifikasyon ayrıntılarını temsil eder.
 
-| Özellik       | Tür   | Açıklama                                                                                               |
+| Özellik       | Tür   | Description                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| userId         | string                         | İş ortağı kiracısında iş ortağı kuruluşu adına onay sağlayan, oturum açmış kullanıcının nesne tanıtıcısı. Iş Ortağı Merkezi, bir anlaşma kaynağı oluşturmak için uygulama + kullanıcı kimlik doğrulaması kullanırken, uygulama + Kullanıcı belirtecinden **UserID** özniteliği değerini otomatik olarak türetir.                                                                             |
-| primaryContact | [İletişim](./utility-resources.md#contact) | Müşteri kuruluşundan, sözleşmeyi kabul  **eden,** **Soyadı**, **e-posta** ve **PhoneNumber** (isteğe bağlı) dahil olmak üzere Kullanıcı hakkında bilgiler. |
-| Kabul edilen tarih     | UTC Tarih saat biçiminde dize | Müşterinin sözleşmeyi kabul ettiği tarih.                                 |
-| TemplateId     |string                          | Müşterinin kabul ettiği sözleşmenin benzersiz tanıtıcısı. |
-| tür           |string                          | Anlaşma türü. Şu anda, desteklenen değerler **Microsoftcloudagreement** ve **microsoftcustomeragreement**' i içerir.|
-| agreementLink  | string                         | Sözleşme şablonunun URL 'SI.                                                    |
+| userId         | string                         | İş ortağı kuruluş adına onay sağlayan iş ortağı kiracısında oturum açmış kullanıcının nesne tanımlayıcısı. Bir Sözleşme kaynağı oluşturmak için App+User kimlik doğrulaması kullanılırken, İş Ortağı Merkezi App+User belirteclerinden **userId** öznitelik değerini otomatik olarak türetebilirsiniz.                                                                             |
+| primaryContact | [İletişim](./utility-resources.md#contact) | Sözleşmeyi kabul eden müşteri kuruluşundan kullanıcı hakkında bilgiler:  **firstName**, **lastName,** **email** ve **phoneNumber** (isteğe bağlı). |
+| dateAgreed     | UTC tarih saat biçiminde dize | Müşterinin sözleşmeyi kabul etme tarihi.                                 |
+| templateId     |string                          | Müşterinin kabul etmiş olduğu sözleşmenin benzersiz tanımlayıcısı. |
+| tür           |string                          | Anlaşma türü. Şu anda desteklenen değerler **MicrosoftCloudAgreement ve** **MicrosoftCustomerAgreement'tir.**|
+| agreementLink  | string                         | Anlaşma şablonunun URL'si.                                                    |

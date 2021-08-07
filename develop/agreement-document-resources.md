@@ -1,35 +1,35 @@
 ---
-title: Sözleşme belgesi kaynakları
-description: AgreementDocument kaynağı, önizleme ve indirme için bir Microsoft sözleşmesi belgesidir. Microsoft genel bulut İş Ortağı Merkezi tarafından de destekler.
+title: Anlaşma belgesi kaynakları
+description: AgreementDocument kaynağı, önizleme ve indirme için bir Microsoft sözleşmesi belgesidir. Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenir.
 ms.date: 08/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 1a81da4f75594f241669db831125bd437872561c
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: eddde1e8072c6aeeee814b52f46c7648d870b6ba63c09b20e4270b17f8386383
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025675"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991115"
 ---
-# <a name="agreement-document-resources-supported-by-partner-center-in-the-microsoft-public-cloud"></a>Microsoft genel buluta İş Ortağı Merkezi tarafından desteklenen sözleşme belgesi kaynakları
+# <a name="agreement-document-resources-supported-by-partner-center-in-the-microsoft-public-cloud"></a>Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenen anlaşma belgesi kaynakları
 
-**Için geçerlidir:** İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi
 
-**için geçerli değildir:** İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-**AgreementDocument kaynağı** şu anda yalnızca Microsoft İş Ortağı Merkezi bulut üzerinde kullanılabilir.
+**AgreementDocument** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
 
-**AgreementDocument kaynağı,** önizleme ve indirme için kullanılabilen bir Microsoft sözleşmesi belgesini temsil eder.
+**AgreementDocument** kaynağı, önizleme ve indirme için kullanılabilen bir Microsoft sözleşmesi belgesini temsil eder.
 
 ## <a name="agreementdocument"></a>AgreementDocument
 
-**Bir AgreementDocument** kaynağı aşağıdaki özellikleri içerir:
+Bir **AgreementDocument** kaynağı aşağıdaki özellikleri içerir:
 
-| Özellik       | Tür   | Açıklama                                                                                               |
+| Özellik       | Tür   | Description                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
-| ülke | string | Bu belgenin geçerli olduğu ülke veya pazar. |
-| language | string | Bu belgenin yerelleştirilmiş olduğu dil. |
-| displayUri | string | Bir tarayıcıda sözleşme belgesinin önizlemesini görüntülemek için bir bağlantı.  |
-| downloadUri |string | Sözleşme belgesini indirme bağlantısı (Microsoft Word). |
+| ülke | string | Bu belgenin geçerli olduğu ülke veya Pazar. |
+| language | string | Bu belgenin yerelleştirildiği dil. |
+| displayUri | string | Bir tarayıcıda anlaşma belgesini önizlemek için bir bağlantı.  |
+| downloadUri |string | anlaşma belgesini indirmek için bir bağlantı (Microsoft Word biçimde). |

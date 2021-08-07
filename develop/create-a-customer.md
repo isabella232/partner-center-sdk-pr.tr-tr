@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 6232ca77d057f2f5168b73d81ec551669d540246
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 49df47441276c7e79074e1bf7f8d50cd72054b42acd93938de088046b68b6d98
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973732"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991778"
 ---
 # <a name="create-a-customer-using-partner-center-apis"></a>İş Ortağı Merkezi API'lerini kullanarak müşteri oluşturma
 
@@ -166,7 +166,7 @@ New-PartnerCustomer -BillingAddressLine1 '1 Microsoft Way' -BillingAddressCity '
 
 Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
-| Ad                              | Tür   | Açıklama                                 |
+| Ad                              | Tür   | Description                                 |
 |-----------------------------------|--------|---------------------------------------------|
 | [BillingProfile](#billing-profile) | object | Müşterinin faturalama profili bilgileri. |
 | [CompanyProfile](#company-profile) | object | Müşterinin şirket profili bilgileri. |
@@ -175,7 +175,7 @@ Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
 Bu tabloda, yeni müşteri oluşturmak için gereken [CustomerBillingProfile](customer-resources.md#customerbillingprofile) kaynağından gereken en düşük alanlar açıklanır.
 
-| Ad             | Tür                                     | Açıklama                                                                                                                                                                                                     |
+| Ad             | Tür                                     | Description                                                                                                                                                                                                     |
 |------------------|------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | e-posta            | string                                   | Müşterinin e-posta adresi.                                                                                                                                                                                   |
 | kültür          | string                                   | İletişim ve para birimi için tercih edilen kültür (örneğin, "en-US"). Desteklenen [İş Ortağı Merkezi dil ve yerel dillerle](partner-center-supported-languages-and-locales.md) ilgili daha fazla şey öğrenmek için bkz. |
@@ -187,7 +187,7 @@ Bu tabloda, yeni müşteri oluşturmak için gereken [CustomerBillingProfile](cu
 
 Bu tabloda, yeni müşteri oluşturmak için gereken [CustomerCompanyProfile](customer-resources.md#customercompanyprofile) kaynağından gereken minimum alanlar açıklanır.
 
-| Ad   | Tür   | Açıklama                                                  |
+| Ad   | Tür   | Description                                                  |
 |--------|--------|--------------------------------------------------------------|
 | etki alanı | string | Müşterinin etki alanı adı, örneğin contoso.onmicrosoft.com. |
 |organizationRegistrationNumber|Dize|Müşterinin kuruluş kayıt numarası (belirli ülkelerde INN numarası olarak da adlandırılır). Müşterinin yalnızca şu ülkelerde bulunan şirketi/kuruluşu için gereklidir: Dalı(AM), Brezilya(AZ), Zaman(BY),İşle(HU), GZ), Kyrgyzstan(KG), Arjantin(MD), Rusya(RU), Tajikistan(TJ), Özbekistan(UZ), Arjantin(UA), Brezilya(BR), Hindistan, Güney Afrika, Afrika, Birleşik Krallık, Suudi Arabistan, Suudi Arabistan, Suudi Arabistan, Vietnam, Myanmar, Hindistan, Güney Sudan ve Sudan. Müşterinin başka ülkelerde bulunan şirketi/kuruluşu için bu isteğe bağlı bir alandır.|
@@ -235,7 +235,7 @@ Başarılı olursa, bu API yeni [müşteri için](customer-resources.md#customer
 
 ### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Yanıtlar, başarılı veya başarısız olduğunu gösteren bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Yanıtlar, başarılı veya başarısız olduğunu gösteren bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -4,12 +4,12 @@ description: Yeni bir self servis ilkesi oluşturma.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 14f46e22fbd294c765b745204cf62474250cbfbd
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 0ef67efc08d188a5e3566295d0d2cd3add154dc0957d87bb6e85e5f74dfa5297
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973698"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991608"
 ---
 # <a name="create-a-selfservepolicy"></a>SelfServePolicy oluşturma
 
@@ -82,7 +82,7 @@ Bir örnek için aşağıdakilere bakın:
 
 Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
-| Ad                              | Tür   | Açıklama                                 |
+| Ad                              | Tür   | Description                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
 | [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | Self servis ilke bilgileri. |
 
@@ -90,7 +90,7 @@ Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
 Bu tablo, yeni bir self servis ilkesi oluşturmak için [gereken SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağından gereken minimum alanları açıklar.
 
-| Özellik              | Tür             | Açıklama                                                                                            |
+| Özellik              | Tür             | Description                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
 | SelfServeEntity       | SelfServeEntity  | Erişim verilen self servis varlık.                                                     |
 | Grantor               | Grantor          | Erişim iznini vermekte olan grantor.                                                                    |
@@ -138,7 +138,7 @@ Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP Durum Kodu     | Hata kodu   | Açıklama                                                                |
+| HTTP Durum Kodu     | Hata kodu   | Description                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
 | 409                  | 600041       | Self servis ilkesi zaten var.                                                     |
 

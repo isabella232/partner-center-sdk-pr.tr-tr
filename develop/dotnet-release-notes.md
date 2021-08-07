@@ -1,144 +1,144 @@
 ---
 title: İş Ortağı Merkezi .NET SDK sürüm notları
-description: .NET SDK'sı için en son İş Ortağı Merkezi sürüm notları.
+description: Iş ortağı merkezi .NET SDK 'sının en son sürümü için sürüm notları.
 ms.date: 07/07/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c1532d48c00550f5eb437ed0164d6a1f7bb340dd
-ms.sourcegitcommit: 53c94db33b09c30e762b842c4275b2b531dba932
+ms.openlocfilehash: 6fc6182638cb2cc5457bdfada37b928c88e1ca786e401f7eb8d5309a0abd9310
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113522643"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991233"
 ---
 # <a name="net-sdk-release-notes"></a>.NET SDK sürüm notları
 
-Microsoft İş Ortağı Merkezi [.NET SDK'sı yeni](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter)sürümleri için aşağıdaki sürüm notları kullanılabilir. [.NET SDK örneklerini GitHub.](https://github.com/Microsoft/Partner-Center-DotNet-Samples) [.NET API İş Ortağı Merkezi .NET API Browser'da](/dotnet/api/?view=partnercenter-dotnet-latest&preserve-view=true) bulabilirsiniz.
+Aşağıdaki sürüm notları, [Microsoft Iş ortağı merkezi .NET SDK 'sının](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter)yeni sürümlerinde kullanılabilir. GitHub için [.NET SDK örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) bulabilirsiniz. .NET API tarayıcısında [Iş ortağı merkezi .NET API başvurusunu](/dotnet/api/?view=partnercenter-dotnet-latest&preserve-view=true) bulabilirsiniz.
 
 ## <a name="version-201"></a>Sürüm 2.0.1
 
-[Microsoft İş Ortağı Merkezi .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/2.0.1) v2.0.1 genel kullanılabilirlik özelliğine sahip. Güncelleştirilmiş [GitHub örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) de kullanılabilir. Bu sürüme aşağıdaki değişiklikler dahildir:
+[Microsoft Iş ortağı merkezi .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/2.0.1) v 2.0.1 artık genel kullanıma sunulmuştur. güncelleştirilmiş [GitHub örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) de mevcuttur. Bu sürüme aşağıdaki değişiklikler dahildir:
 
 > [!NOTE]
-> Şu anda yalnızca M365/D365 yeni ticari deneyim teknik önizlemesinde yer alan iş ortaklarının daveti temel alınarak kullanılabilen Yeni Ticaret Deneyimleri ("NCE") kapsamında yapılan bazı değişiklikler. Yeni ticari özel önizleme kapsamında yer alan iş ortakları, etkileri fark etmez ve geriye dönük uyumlu olmalıdır.
+> Yeni ticari deneyimler ("NCE") kapsamında tanıtılan bazı değişiklikler, yalnızca M365/D365 yeni ticaret deneyimi Technical Preview 'ın parçası olan iş ortakları için davet temel alınarak kullanılabilir. Yeni ticaret özel önizlemesinin parçası olmayan iş ortakları, etkileri fark etmez ve geriye dönük olarak uyumlu olmalıdır.
 
 ### <a name="common"></a>Common
-* Kimlik doğrulama kitaplığı başvurusunda değişiklik – Başvuru, Azure Active Directory Authentication Library[(ADAL)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet)olan başvuru, Microsoft Kimlik Doğrulama Kitaplığı ([MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)) olarak değiştirildi
+* kimlik doğrulama kitaplığı başvurusunda değişiklik – başvuru, Azure Active Directory kimlik doğrulaması kitaplığı ([ADAL](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet)) ile Microsoft kimlik doğrulama kitaplığı ([MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)) olarak değiştirilir
 
-  MSAL'nin uygulamanıza veya .NET örneğinde doğru şekilde çalıştırılana kadar aşağıdaki değişiklikler gerçekleştirin:
+  MSAL uygulamasının uygulamanızda veya .NET örneğinde düzgün çalışmasını sağlamak için aşağıdaki değişiklikler yapılmalıdır:
 
-  * Mobil `https://login.microsoftonline.com/common/oauth2/nativeclient` ve masaüstü uygulamaları için RedirectUrl olarak ekleme
-  * Uygulama **yapılandırma** dosyanız içinde UserAuthentication bölümüne Etki Alanı ekleyin. 
+  * `https://login.microsoftonline.com/common/oauth2/nativeclient`Mobil ve Masaüstü uygulamaları Için RedirectUrl olarak ekleyin
+  * Uygulama yapılandırma dosyanızdaki UserAuthentication bölümüne **etki alanı** ekleyin. 
 
-    Etki alanı, Azure Active Directory Azure AD uygulamasının oluşturularak oluşturulan etki alanı veya kiracı kimliğidir
+    etki alanı, Azure AD uygulamasının oluşturulduğu Azure Active Directory etki alanı veya kiracı kimliğidir
 
-* [Hata kodları](error-codes.md) – Yeni hata kodu eklendi 
-  * 408: İstek zaman aşımı
-  * 504: Ağ geçidi zaman aşımı 
+* [Hata kodları](error-codes.md) – yeni hata kodu eklendi 
+  * 408: istek zaman aşımı
+  * 504: ağ geçidi zaman aşımı 
 
 ### <a name="manage-billing"></a>Faturalandırmayı yönetme
 
-* [Fatura satırı öğeleri](get-invoiceline-items.md) - aşağıdaki API'lere yeni öznitelikler eklendi:
+* [Fatura satırı-öğeler](get-invoiceline-items.md) -aşağıdaki API 'lere eklenen yeni öznitelikler:
   * `GET /invoices/{invoice-id}/lineitems?provider={provider}&invoicelineitemtype=billinglineitems`
   * `GET /invoices/unbilled/lineitems?provider=onetime&invoicelineitemtype=billinglineitems`
 
   Yeni öznitelikler: 
-  * productQualifiers
+  * Productniteleyiciler
   * subscriptionStartDate
   * subscriptionEndDate
-  * referenceId
-  * creditReasonCode (Yalnızca NCE için geçerlidir)
-  * promotionId 
+  * Referenceıd
+  * creditReasonCode (yalnızca NCE için geçerlidir)
+  * Promotionıd 
 
 
-* [Günlük olarak derecelendirilmiş kullanım Satır öğeleri](get-invoice-billed-consumption-lineitems.md) – aşağıdaki API'ye yeni öznitelikler eklendi: 
+* [Günlük dereceli kullanım satırı-öğeler](get-invoice-billed-consumption-lineitems.md) – aşağıdaki API 'ye eklenen yeni öznitelikler: 
   * `GET /invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=usagelineitems`
   
   Yeni öznitelikler: 
-  * hasPartnerEarnedCredit (Yalnızca NCE için geçerlidir)
-  * creditType (Yalnızca NCE için geçerlidir)
-  * rateOfCredit (Yalnızca NCE için geçerlidir)
+  * Haspartnerearnedkredisi (yalnızca NCE için geçerlidir)
+  * creditType (yalnızca NCE için geçerlidir)
+  * Rateofkredisi (yalnızca NCE için geçerlidir)
 
 
 ### <a name="manage-orders"></a>Siparişleri yönetme
 
-* [Abonelik Kaynakları](subscription-resources.md) – Yeni özellik eklendi. 
-  * CancellationAllowedUntilDate - (Yalnızca NCE için geçerlidir)
+* [Abonelik kaynakları](subscription-resources.md) – yeni özellik eklendi. 
+  * CancellationAllowedUntilDate-(yalnızca NCE için geçerlidir)
 
-* Geçiş Kaynakları (Yalnızca NCE için geçerlidir) – Yeni özellik eklendi 
-  * FromSubscriptionId
+* Geçiş kaynakları (yalnızca NCE için geçerlidir) – yeni özellik eklendi 
+  * Fromsubscriptionıd
 
 ### <a name="manage-customer-accounts"></a>Müşteri hesaplarını yönetme
 
-* [Adresi doğrulama](validate-an-address.md) – Yanıt Boolean'dan API için yeni bir modele değiştirilir:
+* [Adresi doğrulama](validate-an-address.md) – yanıt, Boole değerinden API için yeni bir modele değiştirilir:
   * `POST /validations/address`
   
   Yeni yanıt modeli: 
   * AddressValidationResponse
 
-* Müşterinin nitele zaman uyumlu API'si kullanım dışıdır.  
+* Müşterinin nitelik zaman uyumlu API 'SI kullanım dışıdır.  
 
 
 ## <a name="version-1170"></a>Sürüm 1.17.0
 
-[Microsoft İş Ortağı Merkezi .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/1.17.0) v1.17.0 genel kullanılabilirlik özelliğine sahip. Güncelleştirilmiş [GitHub örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) de kullanılabilir. Bu sürüme aşağıdaki değişiklikler dahildir:
+[Microsoft Iş ortağı merkezi .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/1.17.0) v 1.17.0 artık genel kullanıma sunulmuştur. güncelleştirilmiş [GitHub örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) de mevcuttur. Bu sürüme aşağıdaki değişiklikler dahildir:
 
-* Denetim Güncelleştirildi - Müşterinin DAP'ı ne zaman onayla ve sonlandırdı olduğunu bilmek için yeni işlem türleri eklendi
+* Denetim güncelleştirildi-müşterinin ne zaman onayladığı ve sonlandırıldığı hakkında yeni işlem türleri eklendi
   * [DapAdminRelationshipApproved](auditing-resources.md)
-  * [DapAdminRelationshipTerminated](auditing-resources.md)
+  * [Dapadminrelationshipsonlandırılan](auditing-resources.md)
 
-* Denetim Güncelleştirildi – Müşteri dizini rolü senaryosunu desteklemek için yeni kaynak ve işlem türleri eklendi
-  * Kaynak türü : "[CustomerDirectoryRole](auditing-resources.md)"
-  * İşlem türleri : "[AddUserMember](auditing-resources.md)" ve "[RemoveUserMember](auditing-resources.md)"
+* Denetim güncelleştirildi – müşteri dizin rolü senaryosunu desteklemek için yeni kaynak ve işlem türleri eklendi
+  * Kaynak türü "[Customerdirectoryrole](auditing-resources.md)"
+  * "[Addusermember](auditing-resources.md)" ve "[removeusermember](auditing-resources.md)" işlem türleri
 
-* Müşteri Hesabında SDK Güncelleştirmeleri - Aşağıdaki API'ler için destek
-  * GET /customers/{customer-tenant-id}/directSignedMicrosoftCustomerAgreementStatus
-  * GET /customers/{customer-tenant-id}/qualifications 
-  * POST /customers/{customer_id}/qualifications?code={validationCode}
+* Müşteriler için SDK güncelleştirmeleri hesabı-aşağıdaki API 'leri destekler
+  * /Customers/{customer-tenant-id}/directSignedMicrosoftCustomerAgreementStatus al
+  * /Customers/{Customer-Tenant-ID}/nitelikler al 
+  * /Customers/{customer_id}/nitelikler SONRASı? Code = {validationCode}
 
-* **Şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinde yer alan iş ortaklarının daveti temel alarak kullanılabilen Yeni Ticaret kapsamında yapılan değişikliklerden sonra.** Yeni ticari özel önizleme kapsamında yer alan iş ortakları, etkileri fark etmez ve geriye dönük uyumlu olmalıdır.
-  * Katalog Değişiklikleri:
-    * GET /products/{product-id}/skus/{sku-id}
-  * Satın Alma ve Yönetme:
-    * GET /customers/{customerId}/subscriptions
-    * GET /customers/{customerId}/subscriptions/{subscriptionId}
-    * PATCH /customers/{customerId}/subscriptions/{subscriptionId}
-    * GET /customers/{customerId}/subscriptions/{subscriptionId}/transitioneligibilities
-    * GET /customers/{customerId}/subscriptions/{subscriptionId}/transitions
-    * POST /customers/{customerId}/subscriptions/{subscriptionId}/transitions
+* **Şu anda, yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları için yapılan davet temelinde mevcut olan yeni ticaretin bir parçası olarak tanıtılan değişiklikler.** Yeni ticaret özel önizlemesinin parçası olmayan iş ortakları, etkileri fark etmez ve geriye dönük olarak uyumlu olmalıdır.
+  * Katalog değişiklikleri:
+    * /Products/{product-id}/SKUs/{SKU-id} al
+  * Satın alın ve yönetin:
+    * /Customers/{CustomerID}/abonelikleri al
+    * /Customers/{CustomerID}/Subscriptions/{SubscriptionID} al
+    * PATCH/Customers/{CustomerID}/Subscriptions/{SubscriptionID}
+    * /Customers/{CustomerID}/Subscriptions/{SubscriptionID}/geçişli tioneligılıklara al
+    * /Customers/{CustomerID}/Subscriptions/{SubscriptionID}/geçişlerini al
+    * POST/Customers/{CustomerID}/Subscriptions/{SubscriptionID}/geçişlerin
 
 
 ## <a name="version-1163"></a>Sürüm 1.16.3
 
-[Microsoft İş Ortağı Merkezi .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/1.16.3) v1.16.3 artık genel kullanılabilirlik özelliğidir. Güncelleştirilmiş [GitHub örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) de kullanılabilir. Bu sürüme aşağıdaki değişiklikler dahildir:
+[Microsoft Iş ortağı merkezi .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/1.16.3) v 1.16.3 artık genel kullanıma sunulmuştur. güncelleştirilmiş [GitHub örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) de mevcuttur. Bu sürüme aşağıdaki değişiklikler dahildir:
 
-* SelfServePolicies - yeni işlevsellik eklendi
+* SelfServePolicies-yeni işlevsellik eklendi
   * [GetSelfServePolicies](get-a-self-serve-policy-by-id.md)
-  * [GetListOfSelfServicePolicies](get-a-list-of-self-serve-policies.md)
+  * [Getlıfselfservicepolicies](get-a-list-of-self-serve-policies.md)
   * [CreateSelfServePolicies](create-a-self-serve-policy.md)
   * [UpdateSelfServePolicies](update-a-self-serve-policy.md)
   * [DeleteSelfServePolicies](delete-a-self-serve-policy.md)
 
-* Müşteriler Şirket Profili
-  * [OrganizationRegistrationNumber eklendi](create-a-customer.md)
+* Müşteriler şirket profili
+  * [Organizationregistrationnumber](create-a-customer.md) eklendi
 
-* CustomerBillingProfile.DefaultAddress
+* CustomerBillingProfile. DefaultAddress
   * MiddleName eklendi
 
 ## <a name="version-1162"></a>Sürüm 1.16.2
 
-[Microsoft İş Ortağı Merkezi .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/1.16.2) v1.16.2 genel kullanılabilirlik özelliğine sahip. Güncelleştirilmiş [GitHub örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) de kullanılabilir. Bu sürüme aşağıdaki değişiklikler dahildir:
+[Microsoft Iş ortağı merkezi .NET SDK](https://www.nuget.org/packages/Microsoft.Store.PartnerCenter/1.16.2) v 1.16.2 artık genel kullanıma sunulmuştur. güncelleştirilmiş [GitHub örnekleri](https://github.com/Microsoft/Partner-Center-DotNet-Samples) de mevcuttur. Bu sürüme aşağıdaki değişiklikler dahildir:
 
-* Denetim Kaydı için desteklenen işlem türlerini güncelleştirin. Yeni eklenenler:
+* Denetim kaydı için desteklenen işlem türlerini güncelleştirin. Yeni eklenen olanlar şunlardır:
   * CreateSelfServePolicy
   * UpdateSelfServePolicy
   * DeleteSelfServePolicy
   * RemovePartnerRelationship
   * DeleteTipCustomer
-  * CreateRelatedReferral
-  * UpdateRelatedReferral
+  * Createrelatedbaşvurunun
+  * Updaterelatedbaşvurunun
 
-* Hizmet isteği oluşturma artık kullanım dışı
+* Hizmet isteği oluşturma artık kullanım dışıdır
 * Destek konuları artık kullanım dışıdır
 
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 3a7cac98a8081a8557dcadfb0724f5497be7d14c
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 6f42c50ed28099d03c2af2142e3b98d717a6cfa46e5ab751a62c9c2b818806a8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760275"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990996"
 ---
 # <a name="get-a-user-account-by-id"></a>Kimliğe göre bir kullanıcı hesabı alma
 

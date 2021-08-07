@@ -4,12 +4,12 @@ description: Geçerli faturalama döneminde belirli bir Azure hizmetinin veya ka
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 976abd86f34c1c27184f277ffc89fbc65f16bb37
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 67b3ab744a47a4698ca478118ebf3523d7cee35807042f932f5a279c4c7d8ea8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874695"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992798"
 ---
 # <a name="get-subscription-usage-records-for-a-customer"></a>Müşteri için abonelik kullanım kayıtlarını alma
 

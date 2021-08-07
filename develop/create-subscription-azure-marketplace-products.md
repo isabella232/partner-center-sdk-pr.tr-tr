@@ -1,102 +1,102 @@
 ---
-title: Ticari market ürünleri için abonelik oluşturma
-description: Geliştiriciler, farklı API'leri kullanarak ticari market ürünleri için İş Ortağı Merkezi oluşturabilir ve yönetebilir.
+title: Ticari Market ürünleri için abonelik oluşturma
+description: Geliştiriciler, Iş Ortağı Merkezi API 'Lerini kullanarak ticari Market ürünleri için bir abonelik oluşturabilir ve yönetebilir.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ae2e4b0a1ffa2e63e68864887093673e32079d9f
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 7e7a4b96f509ae99cd4933963c04b0f660d7d76410ee86c31256c62b290f122f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973375"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991387"
 ---
-# <a name="create-a-subscription-for-commercial-marketplace-products"></a>Ticari market ürünleri için abonelik oluşturma
+# <a name="create-a-subscription-for-commercial-marketplace-products"></a>Ticari Market ürünleri için abonelik oluşturma
 
-Api'leri kullanarak ticari market ürünleri için İş Ortağı Merkezi oluşturabilirsiniz. Bir pazara [yönelik tekliflerin listesini alısınız,](#get-a-list-of-offers-for-a-market) [ticari](#create-and-submit-an-order) market aboneliği için sipariş oluşturmanız ve göndermeniz ve ardından etkinleştirme bağlantısını [alasınız.](#get-activation-link)
+Iş Ortağı Merkezi API 'Lerini kullanarak ticari Market ürünleri için bir abonelik oluşturabilirsiniz. [Pazara yönelik tekliflerin bir listesini almanız](#get-a-list-of-offers-for-a-market), ticari Market aboneliğine yönelik bir [sipariş oluşturup göndermeniz ve](#create-and-submit-an-order) ardından [bir etkinleştirme bağlantısı almanız](#get-activation-link)gerekir.
 
-Ayrıca bu [abonelikler için yaşam döngüsü](#lifecycle-management) yönetimi [gerçekleştirebilirsiniz ve](#invoice-and-reconciliation) faturaları yönetebilirsiniz.
+Ayrıca, [yaşam döngüsü yönetimi gerçekleştirebilir](#lifecycle-management) ve bu abonelikler için [faturaları yönetebilirsiniz](#invoice-and-reconciliation) .
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [İş Ortağı Merkezi kimlik doğrulaması](partner-center-authentication.md) kimlik bilgileri. Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
-* Müşteri tanımlayıcısı. Müşteri tanımlayıcısına sahip değilsanız Müşteri listesini alma [adımlarını izleyin.](get-a-list-of-customers.md) Alternatif olarak, İş Ortağı Merkezi oturum açın, müşteri listesinden müşteriyi seçin, Hesap'ı **seçin** ve microsoft kimliğini **kaydedin.**
+* [Iş ortağı merkezi kimlik doğrulama](partner-center-authentication.md) bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+* Müşteri tanımlayıcısı. Müşterinin tanımlayıcısı yoksa, [müşterilerin listesini al](get-a-list-of-customers.md)bölümündeki adımları izleyin. Alternatif olarak, Iş Ortağı Merkezi ' nde oturum açın, müşteri listesinden müşteriyi seçin, **Hesap**' ı seçin ve **Microsoft kimliklerini** kaydedin.
 
 ## <a name="get-a-list-of-offers-for-a-market"></a>Pazara yönelik tekliflerin bir listesini alma
 
-Aşağıdaki API modellerini kullanarak pazar için kullanılabilir teklifleri İş Ortağı Merkezi edinebilirsiniz:
+Aşağıdaki Iş Ortağı Merkezi API modellerini kullanarak bir pazar için kullanılabilir teklifleri kontrol edebilirsiniz:
 
-* **[Ürün:](product-resources.md#product)** Satınlanabilir ürünler veya hizmetler için bir gruplama yapısı. Ürünün kendisi satınlanabilir bir öğe değildir.
-* **[SKU:](product-resources.md#sku)** Ürün altında satın alınabilir bir Stok Tutma Birimi (SKU). Bunlar ürünün farklı şekillerini temsil ediyor.
-* **[Kullanılabilirlik:](product-resources.md#availability)** SKU'nun satın alınabilir olduğu yapılandırma (ülke, para birimi veya sektör segmenti gibi).
+* **[Ürün](product-resources.md#product)**: satın alınabilir alınırken mallar veya hizmetler için gruplama yapısı. Ürünün kendisi bir satın alınabilir alınırken öğesi değil.
+* **[SKU](product-resources.md#sku)**: bir ürün altındaki satın alınabilir alınırken stok tutma BIRIMI (SKU). Bunlar, ürünün farklı şekillerini temsil eder.
+* **[Kullanılabilirlik](product-resources.md#availability)**: BIR SKU 'nun satın alma için kullanılabildiği bir yapılandırma (ülke, para birimi veya sektör segmenti gibi).
 
-Azure rezervasyonu satın almadan önce aşağıdaki adımları tamamlayın:
+Bir Azure ayırması satın almadan önce, aşağıdaki adımları izleyin:
 
-1. Satın almak istediğiniz ürünü ve SKU'ları belirleyin ve alın. Ürün Kimliği ve SKU Kimliğini zaten biliyorsanız bunları seçin.
+1. Satın almak istediğiniz ürün ve SKU 'YU belirleyip alın. Ürün KIMLIĞI ve SKU KIMLIĞINI zaten biliyorsanız, bunları seçin.
 
-    * [Ürünlerin listesini al](get-a-list-of-products.md)
-    * [Ürün kimliğini kullanarak ürün al](get-a-product-by-id.md)
-    * [Bir ürün için SKUS listesini al](get-a-list-of-skus-for-a-product.md)
-    * [SKU Kimliğini kullanarak SKU'ya sahip olmak](get-a-sku-by-id.md)
-
-    > [!NOTE]
-    > Ticari market ürünlerini **ProductType** özelliğine ve **"SaaS"** **subType** **özelliğine göre tanımlayabilirsiniz.**
-
-2. SKU'lar **InventoryCheck** önkoşulları ile etiketlenmişse, [SKU envanterini kontrol edin.](check-inventory.md)
+    * [Ürünlerin bir listesini alın](get-a-list-of-products.md)
+    * [Ürün KIMLIĞINI kullanarak bir ürün alın](get-a-product-by-id.md)
+    * [Ürün için SKU 'ların listesini alın](get-a-list-of-skus-for-a-product.md)
+    * [SKU KIMLIĞI kullanarak bir SKU al](get-a-sku-by-id.md)
 
     > [!NOTE]
-    > Şu anda envanter denetimi destekleyen veya **InventoryCheck** önkolu ile etiketlenen ticari market ürünleri yoktur.
+    > Ticari Market ürünlerini, **ProductType** özelliği olan **"Azure"** ve onların **Subtype** özelliği olan **"SaaS"** olarak tanımlayabilirsiniz.
 
-3. SKU için kullanılabilirliği alın. Siparişinizi sağlarken **kullanılabilirlik CatalogItemId'ye** ihtiyacınız olacak ve bu bilgileri aşağıdaki API'ler aracılığıyla edinebilirsiniz:
+2. SKU 'Lar bir **ınventorycheck** önkoşulu ile ETIKETLENMIŞSE, [SKU 'nun envanterini kontrol](check-inventory.md)edin.
 
-    * [SKU için kullanılabilirlik listesini al](get-a-list-of-availabilities-for-a-sku.md)
-    * [Kullanılabilirlik kimliğini kullanarak kullanılabilirlik elde edin](get-an-availability-by-id.md)
+    > [!NOTE]
+    > Şu anda, envanter denetimini destekleyen bir ticari Market ürünü yoktur veya bir **ınventorycheck** önkoşulu ile etiketlenebilir.
+
+3. SKU için kullanılabilirliği alın. Siparişi yerleştirirken, aşağıdaki API 'Ler aracılığıyla alabileceğiniz, kullanılabilir olan **Catalogıtemıd** öğesine ihtiyacınız olacaktır:
+
+    * [SKU 'nun kullanılabilirliği listesini alın](get-a-list-of-availabilities-for-a-sku.md)
+    * [Kullanılabilirlik KIMLIĞINI kullanarak bir kullanılabilirlik alın](get-an-availability-by-id.md)
 
 ## <a name="create-and-submit-an-order"></a>Sipariş oluşturma ve gönderme
 
 Azure rezervasyon siparişinizi göndermek için şu adımları izleyin:
 
-1. [Satın almayı istediğiniz](create-a-cart.md) katalog öğelerinin koleksiyonunu tutmak için bir sepet oluşturun. Bir sepet [oluşturma](cart-resources.md#cart)sırasında, [sepet satır](cart-resources.md#cartlineitem) öğeleri aynı sırayla birlikte satın alınarak otomatik olarak [gruplanır.](order-resources.md#order) (Bir sepeti [de güncelleştirin.)](update-a-cart.md)
-2. [Siparişin oluşturulmasıyla](checkout-a-cart.md)sonuçlandıran sepetine [göz at.](order-resources.md#order)
+1. Satın almayı planladığınız Katalog öğelerinin koleksiyonunu tutmak için [bir sepet oluşturun](create-a-cart.md) . Bir [sepet](cart-resources.md#cart)oluşturduğunuzda, [sepet çizgisi öğeleri](cart-resources.md#cartlineitem) aynı [sırada](order-resources.md#order)birlikte satın alınabilecek öğelere göre otomatik olarak gruplandırılır. ( [Bir sepet de güncelleştirebilirsiniz](update-a-cart.md).)
+2. Bir [sipariş](order-resources.md#order)oluşturulmasına neden olan [sepete](checkout-a-cart.md)göz atın.
 
 ### <a name="get-order-details"></a>Sipariş ayrıntılarını al
 
-Sipariş [kimliğini kullanarak tek bir siparişin ayrıntılarını alın.](get-an-order-by-id.md) Belirli bir [müşteriye yönelik tüm siparişlerin listesini de almak için kullanabilirsiniz.](get-all-of-a-customer-s-orders.md)
+[SIPARIŞ kimliğini kullanarak tek bir siparişin ayrıntılarını alabilirsiniz](get-an-order-by-id.md). Ayrıca, [belirli bir müşterinin tüm siparişlerinin listesini alabilirsiniz](get-all-of-a-customer-s-orders.md).
 
 > [!NOTE]
-> Bir sipariş gönderildikten sonra, siparişin müşterinin sipariş listesinde görünürken 15 dakika kadar gecikme olur.
+> Bir sipariş gönderildikten sonra, bu müşterinin sıra listesinde görüntülenmeden önce 15 dakikaya kadar bir gecikme olur.
 
 ## <a name="get-activation-link"></a>Etkinleştirme bağlantısını al
 
-İş ortağının veya müşterinin abonelikleri ürün Azure Market gerekir. Sipariş satırı [öğesine göre etkinleştirme bağlantısı edinebilirsiniz.](get-activation-link-by-order-line-item.md) Ayrıca, [kimliğine göre bir abonelik edinebilirsiniz,](get-a-subscription-by-id.md)ardından etkinleştirme bağlantısı oluşturmak için **Links** özelliğini numaralandırabilirsiniz.
+İş ortağı veya müşteri, abonelikleri Azure Market ürünlerine etkinleştirmelidir. [Sipariş satırı öğesine göre bir etkinleştirme bağlantısı alabilirsiniz](get-activation-link-by-order-line-item.md). Ayrıca, [kimliğe göre bir abonelik alabilir](get-a-subscription-by-id.md)ve ardından bir etkinleştirme bağlantısı oluşturmak için **Links** özelliğini numaralandırabilirsiniz.
 
 ## <a name="lifecycle-management"></a>Yaşam döngüsü yönetimi
 
-Ticari market ürünlerine aboneliklerinizi yaşam döngüsünü yönetmek için aşağıdaki yöntemleri kullanabilirsiniz:
+Aşağıdaki yöntemleri kullanarak ticari Market ürünleri aboneliklerinizin yaşam döngüsünü yönetebilirsiniz:
 
 * [Ticari market aboneliğini iptal etme](cancel-an-azure-marketplace-subscription.md)
-* [Ticari market aboneliği için otomatik yenilemeyi etkinleştirme veya devre dışı bırakma](update-autorenew-for-an-azure-marketplace-subscription.md)
+* [Ticari Market aboneliği için autorenew 'i etkinleştirme veya devre dışı bırakma](update-autorenew-for-an-azure-marketplace-subscription.md)
 
 ## <a name="quantity-management"></a>Miktar yönetimi
 
-Ticari market aboneliğinin miktarı, ilişkili [SKU'su](product-resources.md#sku) tarafından tanımlanan sınırlar içinde yer almalı **(bkz. minimumQuantity** ve **maximumQuantity** öznitelikleri). Ticari market aboneliğinin miktarını güncelleştirmek için aşağıdaki yöntemi kullanın:
+Bir ticari Market aboneliğinin miktarı, ilişkili [SKU 'su](product-resources.md#sku) tarafından tanımlanan sınırlar dahilinde olmalıdır (bkz. **Minimumquantity** ve **maximumquantity** öznitelikleri). Bir ticari Market aboneliğinin miktarını güncelleştirmek için aşağıdaki yöntemi kullanın:
 
 * [Bir aboneliğin miktarını değiştirme](change-the-quantity-of-a-subscription.md)
 
 ## <a name="invoice-and-reconciliation"></a>Fatura ve mutabakat
 
-Aşağıdaki yöntemleri kullanarak [müşteri faturalarını](invoice-resources.md) (ticari market ürünlerine abonelik ücretleri dahil) yönetebilirsiniz:
+Aşağıdaki yöntemleri kullanarak müşteri [faturalarını](invoice-resources.md) (ticari Market ürünlerine abonelikler için ücretler dahil olmak üzere) yönetebilirsiniz:
 
-* [Faturalandırmış ticari market tüketim satırı öğelerini alma](get-invoice-billed-consumption-lineitems.md)
+* [Fatura faturalandırılan ticari Market tüketim satırı öğelerini Al](get-invoice-billed-consumption-lineitems.md)
 * [Fatura tahmini bağlantılarını alma](get-invoice-estimate-links.md)
-* [Faturalanmamış ticari market tüketim satırı öğelerini alma](get-invoice-unbilled-consumption-lineitems.md)
-* [Faturalanmamış mutabakat satırı öğelerini alın](get-invoice-unbilled-recon-lineitems.md)
+* [Fatura faturalanmamış ticari Market tüketim satırı öğelerini Al](get-invoice-unbilled-consumption-lineitems.md)
+* [Fatura faturalandırılmamış mutabakat satır öğelerini Al](get-invoice-unbilled-recon-lineitems.md)
 
-## <a name="test-using-integration-sandbox-account"></a>Tümleştirme korumalı alan hesabını kullanarak test
+## <a name="test-using-integration-sandbox-account"></a>Tümleştirme korumalı alanı hesabını kullanarak test etme
 
-Üretimde, ticari market SaaS ürünlerine abonelik oluşturduktan sonra, kurulum işlemini tamamlamak için İş Ortağı Merkezi'dan kişiselleştirilmiş etkinleştirme bağlantısını alı ve yayımcının sitesini ziyaret edin. Abonelik faturalaması ancak kurulum tamamlandıktan sonra başlar.
+Üretimde, ticari Market SaaS ürünlerine bir abonelik oluşturduktan sonra, Iş Ortağı Merkezi 'nden kişiselleştirilmiş bir etkinleştirme bağlantısı almanız ve kurulum işlemini tamamlaması için yayımcının sitesini ziyaret etmeniz gerekir. Abonelik faturalandırması, yalnızca kurulum tamamlandıktan sonra başlayacaktır.
 
-CSP korumalı alanı ortamında ISV'lerle tümleştirme yoktur. İş Ortağı Merkezi'dan etkinleştirme bağlantısını almaya İş Ortağı Merkezi, sahte bir bağlantı döndürülür. Yayımcının sitesinde kurulum işlemini tamamlamak için bu sahte bağlantıyı kullanılamaz. Ticari market SaaS ürünlerine aboneliklerin faturalarını test etmek üzere tümleştirme korumalı alanı hesabını kullanmak için aşağıdaki yöntemi kullanarak aboneliği etkinleştirin. Abonelik faturalaması, etkinleştirme başarılı olduktan sonra başlar:
+CSP korumalı alan ortamında ISV 'Ler ile tümleştirme yoktur. Iş Ortağı Merkezi 'nden bir etkinleştirme bağlantısı almaya çalışırsanız, bir kukla bağlantı döndürülür. Bu kukla bağlantıyı, yayımcının sitesindeki kurulum işlemini tamamlayacak şekilde kullanamazsınız. Ticari Market SaaS ürünlerine yönelik abonelikleri test etmek üzere tümleştirme korumalı alanı hesabını kullanmak için, bunun yerine aboneliği etkinleştirmek üzere aşağıdaki yöntemi kullanın. Aboneliğin faturalandırılması, başarıyla etkinleştirilmesinden sonra başlayacak:
 
-* [Ticari market ürünleri için korumalı alan aboneliğini etkinleştirme](activate-sandbox-subscription-azure-marketplace-products.md)
+* [Ticari Market ürünleri için bir korumalı alan aboneliğini etkinleştirin](activate-sandbox-subscription-azure-marketplace-products.md)
 

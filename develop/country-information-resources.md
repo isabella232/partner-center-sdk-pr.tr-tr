@@ -1,70 +1,70 @@
 ---
-title: Ülke bilgi kaynakları
-description: Ülke bilgi kaynaklarıyla İş Ortağı Merkezi ve belirli bir ülke veya bölgeyle ilgili açıklayıcı meta verilerle api'leri kullanma hakkında bilgi edinebilirsiniz.
+title: Ülke bilgileri kaynakları
+description: Ülke bilgi kaynaklarıyla Iş Ortağı Merkezi API 'Lerini ve belirli bir ülke veya bölgeyle ilgili açıklayıcı meta verileri kullanma hakkında bilgi edinin.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: caf56282d21df35ae9e179a98a37317f864117a3
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 35b570b27466699d8d85819f7603794888f8dd943038ee28a0a734b7ef9aa0d1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973834"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991829"
 ---
-# <a name="country-information-resources-available-from-partner-center-apis"></a>İş Ortağı Merkezi API'İş Ortağı Merkezi kaynakları
+# <a name="country-information-resources-available-from-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerinde ülke bilgisi kaynakları mevcuttur
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Aşağıdaki kaynaklar bir ülke/bölge için açıklayıcı meta verilerdir.
+Aşağıdaki kaynaklar bir ülke/bölge için açıklayıcı meta verileridir.
 
-## <a name="countryinformation"></a>CountryInformation
+## <a name="countryinformation"></a>Countryınformation
 
-| Özellik                      | Tür               | Açıklama                                                                                        |
+| Özellik                      | Tür               | Description                                                                                        |
 |-------------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | ExtensionData                 | string             | Uzantı verileri.                                                                                |
 | Iso2Code                      | string             | ISO-2 kodu.                                                                                     |
 | Iso3Code                      | string             | ISO-3 kodu.                                                                                     |
 | DefaultCulture                | string             | Varsayılan kültür.                                                                               |
-| IsStateRequired               | boolean            | Bir eyaletin/ilin gerekli olup olmadığını gösterir.                                             |
-| SupportedStatesList           | dize dizisi   | Bir eyalet/il gerekli ise, bu ülke/bölge için tam listeyi döndürür.                    |
+| IsStateRequired               | boolean            | Bir eyalet/eyalet gerekip gerekmediğini belirtir.                                             |
+| SupportedStatesList           | dize dizisi   | Bir eyalet/bölge gerekliyse, bu ülkenin/bölgenin tam listesini döndürür.                    |
 | SupportedLanguagesList        | dize dizisi   | Desteklenen dillerin listesi.                                                                     |
-| SupportedCulturesList         | dize dizisi   | Desteklenen kültürlerin listesi.                                                                      |
-| IsPostalCodeRequired          | boolean            | Posta kodunun gerekli olup olmadığını gösterir.                                    |
-| PostalCodeRegex               | string             | Posta kodunu tanımlayan normal ifade.                                          |
-| IsCityRequired                | boolean            | Bir şehrin gerekli olup olmadığını gösterir.                                                       |
-| IsVatIdSupported              | boolean            | KDV No'ların gerekli olup olmadığını gösterir.                                                     |
-| TaxIdFormat                   | string             | Vergi numarası biçimi.                                                                                 |
-| TaxIdSample                   | string             | Vergi numarası örneği.                                                                                 |
-| KdvIdRegex                    | string             | Vergi numarası normal ifadesi.                                                                     |
+| Supportedkültureslist         | dize dizisi   | Desteklenen kültürlerin listesi.                                                                      |
+| IsPostalCodeRequired          | boolean            | Bir posta kodu veya posta kodunun gerekli olup olmadığını belirtir.                                    |
+| PostalCodeRegex               | string             | ZIP/posta kodunu tanımlayan normal ifade.                                          |
+| SCC gerekli                | boolean            | Bir şehrin gerekli olup olmadığını belirtir.                                                       |
+| IsVatIdSupported              | boolean            | KDV KIMLIĞININ gerekli olup olmadığını belirtir.                                                     |
+| Taxıdformat                   | string             | Vergi KIMLIĞI biçimi.                                                                                 |
+| Taxıdsample                   | string             | Vergi KIMLIĞI örneği.                                                                                 |
+| VatIdRegex                    | string             | Vergi KIMLIĞI normal ifadesi.                                                                     |
 | PhoneNumberRegex              | string             | Telefon numarası normal ifadesi.                                                               |
-| IsRegistrationNumberSupported | boolean            | Bir kayıt numarasının destek alınıp alın olmadığını gösterir.                                       |
-| IsTaxIdSupported              | boolean            | Bir vergi kimliğinin destek isteyip olmadığını gösterir. Bu IsVatIdSupported'den farklıdır. |
-| ResellerAgreementRegion       | string             | Kurumsal bayi sözleşmesi bölgesi.                                                                     |
+| Isregistrationnumberdestekleniyor | boolean            | Bir kayıt numarasının desteklenip desteklenmediğini belirtir.                                       |
+| Istaxıdsupported              | boolean            | Vergi KIMLIĞININ desteklenip desteklenmediğini belirtir. Bu, IsVatIdSupported 'den farklıdır. |
+| ResellerAgreementRegion       | string             | Satıcı sözleşmesi bölgesi.                                                                     |
 | GeographicRegion              | string             | Coğrafi bölge.                                                                             |
-| CountryCallingCodesList       | dize dizisi   | Ülke/bölgede desteklenen arama kodları.                                                 |
-| Öznitelikler                    | Resourceattributes | CountryInformation kaynağına karşılık gelen meta veri öznitelikleri.                          |
+| CountryCallingCodesList       | dize dizisi   | Ülkede/bölgede desteklenen çağırma kodları.                                                 |
+| Öznitelikler                    | ResourceAttributes | Countryınformation kaynağına karşılık gelen meta veri öznitelikleri.                          |
 
 ## <a name="countryvalidationrules"></a>CountryValidationRules
 
-Bir ülke/bölge için adres biçimlendirme kurallarını açıklar.
+Ülke/bölge için adres biçimlendirme kurallarını açıklar.
 
-| Özellik                | Tür               | Açıklama                                                                                        |
+| Özellik                | Tür               | Description                                                                                        |
 |-------------------------|--------------------|----------------------------------------------------------------------------------------------------|
 | Iso2Code                | string             | ISO-2 kodu.                                                                                     |
 | DefaultCulture          | string             | Varsayılan kültür.                                                                               |
-| IsStateRequired         | boolean            | Bir eyaletin/ilin gerekli olup olmadığını gösterir.                                             |
-| SupportedStatesList     | dize dizisi   | Bir eyalet/il gerekli ise, bu ülke/bölge için tam listeyi döndürür.                    |
+| IsStateRequired         | boolean            | Bir eyalet/eyalet gerekip gerekmediğini belirtir.                                             |
+| SupportedStatesList     | dize dizisi   | Bir eyalet/bölge gerekliyse, bu ülkenin/bölgenin tam listesini döndürür.                    |
 | SupportedLanguagesList  | dize dizisi   | Desteklenen dillerin listesi.                                                                     |
-| SupportedCulturesList   | dize dizisi   | Desteklenen kültürlerin listesi.                                                                      |
-| IsPostalCodeRequired    | boolean            | Posta kodunun gerekli olup olmadığını gösterir.                                    |
-| PostalCodeRegex         | string             | Posta kodunu tanımlayan normal ifade.                                          |
-| IsCityRequired          | boolean            | Bir şehrin gerekli olup olmadığını gösterir.                                                       |
-| IsVatIdSupported        | boolean            | KDV No'ların gerekli olup olmadığını gösterir.                                                     |
-| TaxIdFormat             | string             | Vergi numarası biçimi.                                                                                 |
-| TaxIdSample             | string             | Vergi numarası örneği.                                                                                 |
-| KdvIdRegex              | string             | Vergi numarası normal ifadesi.                                                                     |
+| Supportedkültureslist   | dize dizisi   | Desteklenen kültürlerin listesi.                                                                      |
+| IsPostalCodeRequired    | boolean            | Bir posta kodu veya posta kodunun gerekli olup olmadığını belirtir.                                    |
+| PostalCodeRegex         | string             | ZIP/posta kodunu tanımlayan normal ifade.                                          |
+| SCC gerekli          | boolean            | Bir şehrin gerekli olup olmadığını belirtir.                                                       |
+| IsVatIdSupported        | boolean            | KDV KIMLIĞININ gerekli olup olmadığını belirtir.                                                     |
+| Taxıdformat             | string             | Vergi KIMLIĞI biçimi.                                                                                 |
+| Taxıdsample             | string             | Vergi KIMLIĞI örneği.                                                                                 |
+| VatIdRegex              | string             | Vergi KIMLIĞI normal ifadesi.                                                                     |
 | PhoneNumberRegex        | string             | Telefon numarası normal ifadesi.                                                               |
-| IsTaxIdSupported        | boolean            | Bir vergi kimliğinin destek isteyip olmadığını gösterir. Bu özellik IsVatIdSupported özelliğinden farklıdır. |
-| IsTaxIdOptional         | boolean            | Vergi kimliğinin isteğe bağlı olup olmadığını gösterir.                                                     |
-| CountryCallingCodesList | dize dizisi   | Ülke/bölgede desteklenen arama kodları.                                                 |
-| Öznitelikler              | Resourceattributes | CountryInformation kaynağına karşılık gelen meta veri öznitelikleri.                          |
+| Istaxıdsupported        | boolean            | Vergi KIMLIĞININ desteklenip desteklenmediğini belirtir. Bu özellik IsVatIdSupported 'den farklıdır. |
+| IsTaxIdOptional         | boolean            | Vergi KIMLIĞININ isteğe bağlı olup olmadığını gösterir.                                                     |
+| CountryCallingCodesList | dize dizisi   | Ülkede/bölgede desteklenen çağırma kodları.                                                 |
+| Öznitelikler              | ResourceAttributes | Countryınformation kaynağına karşılık gelen meta veri öznitelikleri.                          |

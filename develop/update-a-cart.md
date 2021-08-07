@@ -4,12 +4,12 @@ description: Sepette müşteri için sipariş güncelleştirme.
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8954d4dad39f9b1a1b9a2f213e0231f01856fcd2
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 79dcd58e5a967aad9160777805102683087becc74c655b2de990cd1bfd4ef3c8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446692"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990163"
 ---
 # <a name="update-a-cart"></a>Sepeti güncelleştirme
 
@@ -69,9 +69,9 @@ Bu tablo, istek [gövdesinin](cart-resources.md) Sepet özelliklerini açıklar.
 | Özellik              | Tür             | Gerekli        | Açıklama                                                                                               |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
 | kimlik                    | dize           | No              | Sepetin başarıyla oluşturulmasının ardından sağlanan bir sepet tanımlayıcısı.                                  |
-| creationTimeStamp     | DateTime         | Hayır              | Sepetin tarih-saat biçiminde oluşturulma tarihi. Sepetin başarıyla oluşturulmasının ardından uygulanır.        |
-| lastModifiedTimeStamp | DateTime         | Hayır              | Sepetin en son güncelleştirilen tarih-saat biçiminde olduğu tarih. Sepetin başarıyla oluşturulmasının ardından uygulanır.    |
-| expirationTimeStamp   | DateTime         | Hayır              | Sepet tarih-saat biçiminde sona erer.  Sepetin başarıyla oluşturulmasının ardından uygulanır.            |
+| creationTimeStamp     | DateTime         | No              | Sepetin tarih-saat biçiminde oluşturulma tarihi. Sepetin başarıyla oluşturulmasının ardından uygulanır.        |
+| lastModifiedTimeStamp | DateTime         | No              | Sepetin en son güncelleştirilen tarih-saat biçiminde olduğu tarih. Sepetin başarıyla oluşturulmasının ardından uygulanır.    |
+| expirationTimeStamp   | DateTime         | No              | Sepet tarih-saat biçiminde sona erer.  Sepetin başarıyla oluşturulmasının ardından uygulanır.            |
 | lastModifiedUser      | dize           | No              | Sepeti en son güncelleştirilen kullanıcı. Sepetin başarıyla oluşturulmasının ardından uygulanır.                             |
 | lineItems             | Nesne dizisi | Yes             | [Bir CartLineItem kaynakları](cart-resources.md#cartlineitem) dizisi.                                               |
 
@@ -84,11 +84,11 @@ Bu tablo, istek [gövdesinin CartLineItem](cart-resources.md#cartlineitem) özel
 | Friendlyname         | dize                      | No           | İsteğe bağlı. Karartmanıza yardımcı olmak için iş ortağı tarafından tanımlanan öğenin kolay adı.              |
 | miktar             | int                         | Yes          | Lisans veya örnek sayısı.     |
 | currencyCode         | dize                      | No           | Para birimi kodu.                                                                                 |
-| billingCycle         | Nesne                      | Yes          | Geçerli dönem için ayarlanmış faturalama dönemi türü.                                              |
-| Katılımcılar         | Nesne Dizesi çiftlerinin listesi | Hayır           | Satın alma ile ilgili katılımcılardan bir koleksiyon.                                                      |
-| provisioningContext  | Sözlük<dizesi, dize>  | Hayır           | Teklifin sağlanması için kullanılan bağlam.                                                          |
-| orderGroup           | dize                      | No           | Hangi öğelerin bir araya yerleştiril olduğunu belirten bir grup.                                            |
-| error                | Nesne                      | Hayır           | Bir hata durumunda sepet oluşturulduktan sonra uygulanır.                                                 |
+| Bilimlingcycle         | Nesne                      | Yes          | Geçerli dönem için ayarlanan faturalandırma dönemi türü.                                              |
+| Katılımcılar         | Nesne dizesi çiftlerinin listesi | No           | Satın alımdaki katılımcılar koleksiyonu.                                                      |
+| provisioningContext  | Sözlük<dize, dize>  | No           | Teklifin sağlanması için kullanılan bir bağlam.                                                          |
+| orderGroup           | dize                      | No           | Hangi öğelerin birlikte yerleştirilebileceğini belirten bir grup.                                            |
+| error                | Nesne                      | No           | Bir hata durumunda sepet oluşturulduktan sonra uygulandı.                                                 |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -132,11 +132,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt [gövdesinde](cart-resources.md) doldurulmuş Sepet kaynağını döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde doldurulmuş [sepet](cart-resources.md) kaynağını döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
 
 ### <a name="response-example"></a>Yanıt örneği
 

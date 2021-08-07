@@ -4,12 +4,12 @@ description: Tüm arama Analizi bilgilerini alma.
 ms.date: 06/27/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e789a013b01fb63a38c72f4fe94864ecf21f7e4b
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: a420752264f4d3074ba8a569c931654fda3ad6363d8d5d8b6a7a3e32af126bd1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760173"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990911"
 ---
 # <a name="get-all-search-analytics-information"></a>Tüm arama analizi bilgilerini alma
 
@@ -31,7 +31,7 @@ Müşterileriniz için tüm arama Analizi bilgilerini alma.
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-|    Parametre     |  Tür  |                                                                                                                   Açıklama                                                                                                                    |
+|    Parametre     |  Tür  |                                                                                                                   Description                                                                                                                    |
 |------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |      filtre      | string |                                                                     Filtre koşuluyla eşleşen verileri döndürür. </br> **Örnek:**</br> `.../search?filter=field eq 'value'`                                                                     |
 |     ölçütü      | string |                                         Hem hüküm hem de tarihleri destekler. Demet sayısını sınırlandırmak için kısa devre mantığı. </br> **Örnek:**</br> `.../search?groupby=termField1,dateField1,termField2`                                         |

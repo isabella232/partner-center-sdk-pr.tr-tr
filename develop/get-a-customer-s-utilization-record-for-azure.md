@@ -4,12 +4,12 @@ description: Belirli bir süre boyunca bir müşterinin Azure aboneliğinin kull
 ms.date: 04/19/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7024bc65976a9b43a62b66c529d271519181ab23
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: e8d02ed047aa8edf574d728180100369dc1072f8cd501c153255e9b9382642e0
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874933"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992934"
 ---
 # <a name="get-a-customers-utilization-records-for-azure"></a>Müşterinin Azure kullanım kayıtlarını alma
 
@@ -149,12 +149,12 @@ Kullanım kayıtlarını almak için aşağıdaki yolu ve sorgu parametrelerini 
 | start_time | UTC Tarih-saat fark biçiminde dize | Yes | Kullanım faturalandırma sisteminde ne zaman bildirileceğini temsil eden zaman aralığının başlangıcı. |
 | end_time | UTC Tarih-saat fark biçiminde dize | Yes | Kullanım faturalandırma sisteminde bildirilme zamanını temsil eden zaman aralığının sonu. |
 | boyutu | dize | No | Kullanım toplamalarının ayrıntı düzeyini tanımlar. Kullanılabilir seçenekler şunlardır: `daily` (varsayılan) ve `hourly` .
-| show_details | boolean | Hayır | Örnek düzeyinde kullanım ayrıntılarının kullanılıp kullanılmayacağını belirtir. Varsayılan değer: `true`. |
-| boyut | sayı | Hayır | Tek bir API çağrısıyla döndürülen toplama sayısını belirtir. Varsayılan değer 1000’dir. Maksimum değer 1000 ' dir. |
+| show_details | boolean | No | Örnek düzeyinde kullanım ayrıntılarının kullanılıp kullanılmayacağını belirtir. Varsayılan değer: `true`. |
+| boyut | sayı | No | Tek bir API çağrısıyla döndürülen toplama sayısını belirtir. Varsayılan değer 1000’dir. Maksimum değer 1000 ' dir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -162,9 +162,9 @@ Hiçbiri
 
 ### <a name="request-example"></a>İstek örneği
 
-Aşağıdaki örnek istek, karşılaştırma dosyasının 7/2-8/1 dönemi için göstereceği şeydir benzer sonuçlar üretir. Bu sonuçlar, tam olarak eşleşmeyebilir (Ayrıntılar için bkz. [Azure kullanım API 'si](#azure-utilization-api) ).
+Aşağıdaki örnek istek, mutabakat dosyasının 7/2 - 8/1 dönemi için gösterecekleri sonuçlara benzer sonuçlar üretir. Bu sonuçlar tam olarak eşleşmez (ayrıntılar için Azure kullanım [API'si](#azure-utilization-api) bölümüne bakın).
 
-Bu örnek istek, faturalama sisteminde 7/2 (UTC) ve 8/2 (UTC) ile arasında raporlanan kullanım verilerini döndürür.
+Bu örnek istek faturalama sisteminde saat 12:00 (UTC) ile 12:00 (UTC) arasında ve 8/2 arasında bildirilen kullanım verilerini döndürür.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/E499C962-9218-4DBA-8B83-8ADC94F47B9F/subscriptions/FC8F8908-F918-4406-AF13-D5BC0FE41865/utilizations/azure?start_time=2017-07-02T00:00:00-08:00&end_time=2017-08-02T00:00:00-08:00 HTTP/1.1
@@ -178,11 +178,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde [Azure kullanım kaydı](azure-utilization-record-resources.md) kaynaklarının bir koleksiyonunu döndürür. Azure kullanım verileri henüz bağımlı bir sistemde kullanıma yoksa, bu yöntem Retry-After bir üst bilgiyle 204 HTTP durum kodunu döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde [Azure Kullanım Kaydı](azure-utilization-record-resources.md) kaynaklarının bir koleksiyonunu döndürür. Azure kullanım verileri henüz bağımlı bir sistemde hazır değilse, bu yöntem bir üst bilgi üst bilgisi olan bir HTTP Durum Kodu 204 Retry-After döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. HTTP durum kodunu, [hata kodu türünü](error-codes.md)ve ek parametreleri okumak için bir ağ izleme aracı kullanın.
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. HTTP durum kodunu, hata kodu türünü ve ek parametreleri [okumak için bir](error-codes.md)ağ izleme aracı kullanın.
 
 ### <a name="response-example"></a>Yanıt örneği
 

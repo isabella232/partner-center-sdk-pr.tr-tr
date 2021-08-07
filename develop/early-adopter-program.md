@@ -1,47 +1,47 @@
 ---
 title: İş Ortağı Merkezi API'si ve SDK Erken Benimseyen Programı'na katılma
-description: İş ortakları, iş ortağı özelliklerinin ve özelliklerinin geliştirilmesi konusunda Microsoft ile birlikte çalışabilir.
+description: İş ortakları, iş ortağı özelliklerinin ve özelliklerinin geliştirilmesi için Microsoft ile işbirliği yapmalarını sağlar.
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8bb46a84aaab41b8e65376ce580a40ce4bc1d188
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: 4d921e2f5be604dff1354c162acb90f6c8636c671d7c267d38157b8a8e42c5a1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906380"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989466"
 ---
 # <a name="join-the-partner-center-api-and-sdk-early-adopter-program"></a>İş Ortağı Merkezi API'si ve SDK Erken Benimseyen Programı'na katılma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-İş ortakları, Iş Ortağı Merkezi API 'SI ve SDK özellikleri ve özellikleri geliştirmede Microsoft ile birlikte çalışabilir.
+İş ortakları, api ve SDK özellikleri İş Ortağı Merkezi geliştirme konusunda Microsoft ile işbirliği kullanabilir.
 
 ## <a name="program-features"></a>Program özellikleri
 
-Iş Ortağı Merkezi API 'SI ve SDK erken benimseyen programına eklenen iş ortakları için aşağıdaki özellikler mevcuttur:
+İş Ortağı Merkezi API ve SDK Erken Benimseyen Programı'İş Ortağı Merkezi iş ortakları tarafından kullanılabilir:
 
-- **iş ortağı merkezi apı 'leri ve SDK 'sının yayın öncesi sürümlerine erişim**: özel iş ortağı merkezi erken benimseyen programı Yammer grubuna yeni özellikler ve yetenekler duyuracağız.
+- **İş Ortağı Merkezi API'leri** ve SDK'sı ön sürüm sürümlerine erişim: Yeni özellikleri ve yetenekleri özel İş Ortağı Merkezi Erken Benimseyen Program Yammer duyururuz.
 
-- **Aylık web seminerleri**: önceki benimseyenler için aylık bir Web semineri, soruları yanıtlamak, geri bildirimde bulunmak, zamanlamaları ve zaman çizelgelerini paylaşmak ve yeni özellikler için destek sağlamak üzere yürütülür.
+- **Aylık web seminerleri:** Erken benimseyenler için aylık bir web semineri; soruları yanıtlamak, geri bildirim toplamak, zamanlamaları ve zaman çizelgelerini paylaşmak ve yeni özellikler için destek sağlamak için yürütülecek.
 
-- **konu uzmanlarından destek**: katılımcılar, özel Yammer grubundaki konuyla ilgili uzmanlar (smes) ile geri bildirim sağlayabilir ve iletişim kurabilir.
+- **Konu uzmanlarının desteği:** Katılımcılar geri bildirim s sağlamanın ve özel güvenlik grubunda konu uzmanlarıyla (SME) Yammer olabilir.
 
-## <a name="join-the-program"></a>Programa katılarak
+## <a name="join-the-program"></a>Programa katılın
 
-Programa katılması için **mevcut BIR CSP iş ortağı** veya **onaylanmış bir platform satıcısı** olmanız gerekir.
+Programa katılmak için **mevcut bir CSP iş** ortağı veya onaylı bir **platform** satıcısı olmak gerekir.
 
-1. **Yammer grubu** [iş ortağı merkezi erken benimseyen programına](https://www.yammer.com/cloudpartnercommunity/#/threads/inGroup?type=in_group&feedId=5944712&view=all)katın. Uygulamanızı gözden geçirmek biraz zaman alabilir. Gruba katılmayı onayladığınızda size e-posta göndereceğiz.
+1. **Erken Benimseyen Yammer programı** [İş Ortağı Merkezi grup grubuna katılın.](https://www.yammer.com/cloudpartnercommunity/#/threads/inGroup?type=in_group&feedId=5944712&view=all) Uygulamanızı gözden geçirmemiz biraz zaman alır. Gruba katılmanız onaylandıktan sonra size e-posta ile gönderebilirsiniz.
 
    > [!NOTE]
-   > iş ortağı merkezi erken benimseyen programı Yammer grubuna katılabilmeniz için önce Microsoft Bulut Yammer Community ağa katılmanız gerekebilir.
+   > İş Ortağı Merkezi Early Adopter Program Yammer grubuna katılmadan önce Microsoft Cloud Yammer Community ağına katılmanız gerekebilir.
 
-2. **E-posta [pctap@microsoft.com](mailto:pctap@microsoft.com) Gönder** Microsoft KIMLIĞINIZ veya Tıp (üretimde test) korumalı alan hesabı ve birincil etki alanınız ile.
+2. **adresine e-posta gönderme [pctap@microsoft.com](mailto:pctap@microsoft.com)** Microsoft kimliğiniz veya TiP (Üretimde Test) korumalı alan hesabınız ve birincil etki alanınız ile.
 
    > [!TIP]
-   > Microsoft kimliğinizi, **hesap Ayarlar** menüsündeki **kuruluş profili** sayfasında bulabilirsiniz.
+   > Microsoft kimliğinizi Hesap Profili **menüsündeki** Kuruluş Profili **sayfasında Ayarlar** bulabilirsiniz.
 
-3. Yeni özellikleri erken gerçekleştirerek, Microsoft ile ilgi çekici ve geri bildirim sağlayarak programa etkin bir şekilde **katılın** . Erken benimseyen topluluğundaki diğer kişilerle ilgili olun.
+3. **Yeni özellikleri erkenden** test etmek, Microsoft ile birlikte olmak ve geri bildirim sağlamak için programa etkin bir şekilde katılabilirsiniz. Erken benimseyen toplulukta diğerleriyle birlikte olmak.
 
    > [!IMPORTANT]
-   > Microsoft, etkin olmayan iş ortaklarını programdan kaldırma hakkını saklı tutar.
+   > Microsoft, etkin olmayan iş ortaklarını programdan kaldırma hakkını kaldırır.

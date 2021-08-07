@@ -4,12 +4,12 @@ description: Office dynamics için iş yükü düzeyinde lisans kullanım bilgil
 ms.date: 10/25/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: ea3658089ce7eb5c1ad7cc65c3db34f9b6353cdd
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: a93c59c8c2a4c82ad7f3e81e814386e1ac0c046c3b0bada80eaaac40d9179d93
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445995"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990435"
 ---
 # <a name="get-licenses-usage-information"></a>Lisans kullanım bilgilerini alma
 
@@ -35,11 +35,11 @@ Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers
 
 | Parametre         | Tür     | Açıklama | Gerekli |
 |-------------------|----------|-------------|----------|
-| top               | string   | İstekte geri dönecek veri satırlarının sayısı. Belirtilmezse en büyük değer ve varsayılan değer 10000'tir. Sorguda daha fazla satır varsa yanıt gövdesi, sonraki veri sayfasını talep etmek için kullanabileceğiniz bir sonraki bağlantı içerir. | Hayır |
-| Atla              | int      | Sorguda atlana satır sayısı. Büyük veri kümelerini sayfalara yapmak için bu parametreyi kullanın. Örneğin, top=10000 ve skip=0 ilk 10000 veri satırlarını, top=10000 ve skip=10000 sonraki 10000 satırı ve bu şekilde devam ediyor. | Hayır |
-| filtre            | string   | *İsteğin* filtre parametresi, yanıtta satırları filtreleen bir veya daha fazla deyim içerir. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir ve **`eq`** **`ne`** deyimleri veya kullanılarak bir **`and`** araya **`or`** olabilir. Bazı örnek filtre *parametreleri şu* şekildedir:<br/><br/>*filter=workloadCode eq 'SFB'*<br/><br/>*filter=workloadCode eq 'SFB'* veya (*channel eq 'Reseller'*)<br/><br/>Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname** | Hayır |
-| Groupby           | string   | Yalnızca belirtilen alanlara veri toplaması uygulanan bir deyim. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Hizmetadı**<br/>**channelcustomerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**<br/><br/>Döndürülen veri satırları *groupby* parametresinde belirtilen alanları ve şunları içerir:<br/><br/>**licensesActive**<br/>**licensesQualified** | Hayır |
-| processedDateTime | DateTime | Kullanım verileri işlenme tarihini belirtebilirsiniz. Verilerin işlenme tarihi varsayılan olarak en son tarihtir | Hayır |
+| top               | string   | İstekte geri dönecek veri satırlarının sayısı. Belirtilmezse en büyük değer ve varsayılan değer 10000'tir. Sorguda daha fazla satır varsa yanıt gövdesi, sonraki veri sayfasını talep etmek için kullanabileceğiniz bir sonraki bağlantı içerir. | No |
+| Atla              | int      | Sorguda atlana satır sayısı. Büyük veri kümelerini sayfalara yapmak için bu parametreyi kullanın. Örneğin, top=10000 ve skip=0 ilk 10000 veri satırlarını, top=10000 ve skip=10000 sonraki 10000 satırı ve bu şekilde devam ediyor. | No |
+| filtre            | string   | *İsteğin* filtre parametresi, yanıtta satırları filtreleen bir veya daha fazla deyim içerir. Her deyim, veya işleçleriyle ilişkili bir alan ve değer içerir ve **`eq`** **`ne`** deyimleri veya kullanılarak bir **`and`** araya **`or`** olabilir. Bazı örnek filtre *parametreleri şu* şekildedir:<br/><br/>*filter=workloadCode eq 'SFB'*<br/><br/>*filter=workloadCode eq 'SFB'* veya (*channel eq 'Reseller'*)<br/><br/>Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Hizmetadı**<br/>**Kanal**<br/>**customerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname** | No |
+| Groupby           | string   | Yalnızca belirtilen alanlara veri toplaması uygulanan bir deyim. Aşağıdaki alanları belirtebilirsiniz:<br/><br/>**workloadCode**<br/>**workloadName**<br/>**serviceCode**<br/>**Hizmetadı**<br/>**channelcustomerTenantId**<br/>**Müşteriadı**<br/>**Productıd**<br/>**Productname**<br/><br/>Döndürülen veri satırları *groupby* parametresinde belirtilen alanları ve şunları içerir:<br/><br/>**licensesActive**<br/>**licensesQualified** | No |
+| processedDateTime | DateTime | Kullanım verileri işlenme tarihini belirtebilirsiniz. Verilerin işlenme tarihi varsayılan olarak en son tarihtir | No |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -57,7 +57,7 @@ Host: api.partnercenter.microsoft.com
 
 Başarılı olursa, yanıt gövdesi lisans kullanımıyla ilgili verileri içeren aşağıdaki alanları içerir.
 
-| Alan             | Tür     | Açıklama                                   |
+| Alan             | Tür     | Description                                   |
 |-------------------|----------|-----------------------------------------------|
 | workloadCode      | string   | İş yükü kodu                                 |
 | workloadName      | string   | İş yükü adı                                 |
@@ -67,14 +67,14 @@ Başarılı olursa, yanıt gövdesi lisans kullanımıyla ilgili verileri içere
 | customerTenantId  | string   | Müşterinin benzersiz tanımlayıcısı            |
 | Müşteriadı      | string   | Müşteri adı                                 |
 | productId         | string   | Ürün için benzersiz tanımlayıcı             |
-| productName       | string   | Ürün adı                                  |
+| Productname       | string   | Ürün adı                                  |
 | licensesActive    | long     | İş yükü başına etkin lisans sayısı        |
-| Lisans nitelikli | long     | İş yükü için uygun lisans sayısı |
-| processedDateTime | DateTime | Verilerin son işlendiği tarih         |
+| licensesQualified | long     | İş yükü için nitelikli lisans sayısı |
+| processedDateTime | DateTime | Verilerin son işlenme tarihi         |
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

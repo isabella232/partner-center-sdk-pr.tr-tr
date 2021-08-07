@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: c627f595333a295048b02ec4326dcdc279d07b51
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 677cd7d1786955ecb75a13c66b9ab1d72ba31bf0c27fbe533044a40431b11204
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874644"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989483"
 ---
 # <a name="get-a-list-of-add-ons-for-a-subscription"></a>Bir abonelik için eklentilerin bir listesini alma
 

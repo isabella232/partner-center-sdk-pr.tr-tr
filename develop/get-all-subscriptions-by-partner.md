@@ -1,35 +1,35 @@
 ---
 title: İş ortağı MPN kimliğine göre bir müşterinin aboneliğini alma
-description: Belirli bir iş ortağı tarafından belirtilen müşteriye sağlanan aboneliklerin listesini nasıl alabilirsiniz?
+description: Belirli bir iş ortağı tarafından belirtilen bir müşteriye sağlanan Aboneliklerin listesini alma.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 857caa667245503f111b27379a5c8f93aa1fb0b0
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: ebc3dc1bf557f502468f43076663b7ca1b55e7d1d8fc9ae12a8e0b2a27a21b02
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760666"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115990877"
 ---
 # <a name="get-a-customers-subscriptions-by-partner-mpn-id"></a>İş ortağı MPN kimliğine göre bir müşterinin aboneliğini alma
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Belirli bir müşteri için belirli bir Microsoft İş Ortağı Ağı (MPN) iş ortağı tarafından sağlanan aboneliklerin listesini nasıl alabilirsiniz?
+Belirli bir müşteriye verilen bir Microsoft İş Ortağı Ağı (MPN) iş ortağı tarafından sağlanan Aboneliklerin listesini alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
+- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
 
 - İş ortağı MPN tanımlayıcısı.
 
 ## <a name="c"></a>C\#
 
-Belirli bir iş ortağı tarafından belirtilen bir müşteriye sağlanan aboneliklerin listesini almak için önce müşteri kimliğiyle [**birlikte IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini kullanarak müşteriyi tanıyın. Ardından Subscriptions özelliğinden müşteri aboneliği [](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) toplama işlemlerine bir arabirim alın ve iş ortağını tanımlamak ve iş ortağı abonelik işlemlerine yönelik bir arabirim almak için MPN kimliğiyle [**ByPartner**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) yöntemini çağırın. Son olarak, [**koleksiyonu almak**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) için [**Get veya GetAsync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) yöntemini arayın.
+Belirli bir iş ortağı tarafından belirtilen bir müşteriye sağlanan Aboneliklerin listesini almak için önce müşteriyi tanımlamak üzere müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini kullanın. Ardından, [**abonelikler**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğinden müşteri aboneliği koleksiyonu işlemlerine yönelik bir arabirim alın ve iş ortağını tanımlamak ve iş ortağı abonelik işlemlerine bir arabirim almak için MPN kimliğiyle [**bypartner**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.bypartner) yöntemini çağırın. Son olarak, koleksiyonu almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.getasync) yöntemini çağırın.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -39,13 +39,13 @@ Belirli bir iş ortağı tarafından belirtilen bir müşteriye sağlanan abonel
 var customerSubscriptionsByMpnId = partnerOperations.Customers.ById(customerId).Subscriptions.ByPartner(partnerMpnId).Get();
 ```
 
-**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Örnekler **Sınıfı:** GetSubscriptionsByMpnid.cs
+**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getsubscriptionsbympnıd. cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Belirli bir iş ortağı tarafından belirtilen bir müşteriye sağlanan aboneliklerin listesini almak için önce müşteri kimliğiyle **birlikte IAggregatePartner.getCustomers.byId** işlevini kullanarak müşteriyi tanıyın. Ardından **getSubscriptions** işlevinden müşteri aboneliği toplama işlemlerine bir arabirim alın ve iş ortağını tanımlamak ve iş ortağı abonelik işlemlerine bir arabirim almak için MPN kimliği ile **byPartner** işlevini çağırma. Son olarak, koleksiyonu almak için **get** işlevini çağır.
+Belirli bir iş ortağı tarafından belirtilen bir müşteriye sağlanan Aboneliklerin listesini almak için önce müşteriyi tanımlamak üzere müşteri KIMLIĞIYLE **ıaggregatepartner. getCustomers. Byıd** işlevini kullanın. Ardından, **Getabonelikler** işlevinden müşteri aboneliği koleksiyonu işlemlerine bir arabirim alın ve iş ortağını tanımlamak ve iş ortağı abonelik işlemlerine bir arabirim almak için MPN kimliğiyle **bypartner** işlevini çağırın. Son olarak, koleksiyonu almak için **Get** işlevini çağırın.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -59,7 +59,7 @@ ResourceCollection<Subscription> customerSubscriptionsByMpnId = partnerOperation
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Belirli bir iş ortağı tarafından belirtilen müşteriye sağlanan aboneliklerin listesini almak için [**Get-PartnerCustomerSubscription komutunu yürütün.**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) **CustomerId** parametresini kullanarak müşteriyi tanımlamak için müşteri kimliğini belirtin ve **mpnId** parametresini MPN kimliğiyle birlikte iş ortağını tanımlamak için girin.
+Belirli bir iş ortağı tarafından belirtilen bir müşteriye sağlanan Aboneliklerin listesini almak için [**Get-PartnerCustomerSubscription**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerCustomerSubscription.md) komutunu yürütün. Müşteriyi belirlemek için müşteri KIMLIĞINI belirtin ve **CustomerID** parametresini kullanarak **MPNıD** parametresini MPN kimliğiyle doldurun ve iş ortağını belirleyin.
 
 ```powershell
 # $customerId
@@ -70,24 +70,24 @@ Get-PartnerCustomerSubscription -CustomerId $customerId -MpnId $partnerMpnId
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem  | İstek URI'si |
 |---------|----------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions?mpn \_ id={mpn-id} HTTP/1.1 |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/abonelikler? MPN \_ ID = {MPN-id} http/1.1 |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-Müşteriyi ve iş ortağını tanımlamak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
+Müşteriyi ve ortağı belirlemek için aşağıdaki yolu ve sorgu parametrelerini kullanın.
 
 | Ad        | Tür   | Gerekli | Açıklama                                                 |
 |-------------|--------|----------|-------------------------------------------------------------|
-| customer-id | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize.       |
-| mpn-id      | int    | Yes      | İş Microsoft İş Ortağı Ağı tanımlayan bir kimlik. |
+| müşteri kimliği | string | Yes      | Müşteriyi tanımlayan GUID biçimli dize.       |
+| MPN kimliği      | int    | Yes      | Ortağı tanımlayan Microsoft İş Ortağı Ağı KIMLIĞI. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -108,11 +108,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa yanıt gövdesi Abonelik [kaynaklarının](subscription-resources.md) koleksiyonunu içerir.
+Başarılı olursa, yanıt gövdesi [abonelik](subscription-resources.md) kaynakları koleksiyonunu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
 
 ### <a name="response-example"></a>Yanıt örneği
 

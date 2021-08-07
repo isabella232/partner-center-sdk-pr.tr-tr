@@ -1,49 +1,49 @@
 ---
 title: Yetkilendirme kaynakları
-description: Yetkilendirmeyle ilgili kaynakları açıklar.
+description: Yetkilendirkaynaklarla ilgili kaynakları açıklar.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 929004fff804675218e267bb928b432f7b1209bf
-ms.sourcegitcommit: 84a6f701190f46d2adcf6edcaeaafa32d58fbaba
+ms.openlocfilehash: 9582bb0d886078062ae14d0461accb8e0179bed2e33e9a264cc1da8b06383706
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/08/2021
-ms.locfileid: "113510117"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989160"
 ---
 # <a name="entitlement-resources"></a>Yetkilendirme kaynakları
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
 ## <a name="entitlement"></a>Yetkilendirme
 
-Bu kaynak, katalogdaki öğelerde iş ortağı satın alma nedeniyle müşterinin kullanma hakkı olan ürünleri temsil eder.
+Bu kaynak, katalogdan öğeler üzerinde iş ortağı satın alma nedeniyle müşterinin kullanması gereken ürünleri temsil eder.
 
 | Özellik | Tür | Description |
 |----------|------|-------------|
-| referenceOrder | [ReferenceOrder](#referenceorder) | Yetkilendirmeyle sonuçlandıran sipariş başvurusu. |
+| referenceOrder | [ReferenceOrder](#referenceorder) | Yetkilendirbir şekilde sonuçlanan sıra başvurusu. |
 | productId | string | Ürünün kimliği. |
-| skuID | string | SKU'nun kimliği. |
-| miktar | int | Yetkilendirme miktarı (Yerine getirilmemiş/Aktarıldı yetkilendirmeleri hariç). |
-| quantityDetails | IEnumerable<[QuantityDetail](#quantitydetail)> | Yetkilendirme miktarı ayrıntıları listesi (öğe sayısı ve her bir miktarın durumu). |
-| entitlementType | string | Yetkilendirme türü. (SDK 1.8'de [EntitlementType'tan](#entitlementtype) dizeye güncelleştirildi.) |
-| entitledArtifacts | IEnumerable<[Yapıt](#artifact)> | Yetkilendirmeyle ilişkili yapıtların listesi. |
-| IncludedEntitlements | IEnumerable<[Yetkilendirmesi](#artifact)> | Katalogdan ProductId / SkuId satın alma sonucunda örtülü olarak dahil edilen yetkilendirmelerin listesi. |
-| ExpiryDate | UTC tarih-saat biçiminde dize  | Yetkilendirme sona erme tarihi (varsa). |
+| skuId | string | SKU 'nun KIMLIĞI. |
+| miktar | int | Yetkilendirmelerin miktarı (yerine getirilmemiş/aktarmamış yetkilendirmeler hariç). |
+| quantityDetails | IEnumerable<[Quantitydetail](#quantitydetail)> | Yetkilendirme miktarı ayrıntılarının listesi (öğelerin sayısı ve her bir miktarın durumu). |
+| entitlementType | string | Yetkilendirme türü. (SDK 1,8 ' deki [EntitlementType](#entitlementtype) öğesinden dizeye güncelleştirildi.) |
+| entitledArtifacts | IEnumerable<[yapıtı](#artifact)> | Yetkilendirmeden ilişkili yapıtların listesi. |
+| Includedentitlements | IEnumerable<[Yetkilendirme](#artifact)> | Katalogdan satın alınan ProductID/SkuId 'in bir sonucu olarak örtük olarak dahil olan yetkilendirmelerin listesi. |
+| ExpiryDate | UTC Tarih-saat biçiminde dize  | Yetkilendirme bitiş tarihi (varsa). |
 
 ## <a name="referenceorder"></a>ReferenceOrder
 
-Yetkilendirmenin sipariş başvurusu.
+Yetkilendirbir yetkilendirme sırası başvurusu.
 
 | Özellik | Tür | Description |
 |----------|------|-------------|
-| kimlik | string | Başvurulan siparişin kimliği. |
-| lineItemId | string | Başvurulan sipariş satırı öğesinin kimliği. |
-| alternateId | string | Başvurulan sipariş satırı öğesinin alternatif kimliği. |
+| kimlik | string | Başvurulan siparişin KIMLIĞI. |
+| Lineıtemıd | string | Başvurulan sipariş satırı öğesinin KIMLIĞI. |
+| AlternateId | string | Başvurulan sipariş satırı öğesinin alternatif KIMLIĞI. |
 
 ## <a name="quantitydetail"></a>QuantityDetail
 
-Yetkilendirme miktarının ayrıntılarını temsil eder.
+Bir yetkilendirme miktarının ayrıntılarını temsil eder.
 
 | Özellik | Tür | Description |
 |----------|------|-------------|
@@ -53,42 +53,42 @@ Yetkilendirme miktarının ayrıntılarını temsil eder.
 ## <a name="entitlementtype"></a>EntitlementType
 
 > [!IMPORTANT]
-> SDK v1.9'da kullanım dışı
+> SDK v 1.9 'da kullanım dışı
 
-[Yetkilendirme türünü](/dotnet/api/system.enum) belirten değerlere sahip bir Enum.
+Yetkilendirme türünü belirten değerleri içeren bir [enum](/dotnet/api/system.enum) .
 
 | Değer | Açıklama |
 |-------|-------------|
 | Yazılım | Yazılımla ilgili yetkilendirme türünü gösterir. |
-| VirtualMachineReservedInstance | Kaynaklarla ilgili yetkilendirme türünü Azure Ayrılmış Sanal Makine Örnekleri. |
+| Virtualmachinereservedınstance | Azure ayrılmış sanal makine örnekleriyle ilgili yetkilendirme türünü gösterir. |
 
 ## <a name="artifact"></a>Yapıt
 
-Yetkilendirmeyle ilişkili yapıt.
+Yetkilendirmeden ilişkili yapıt.
 
 | Özellik | Tür | Description |
 |----------|------|-------------|
-| Artifacttype | string | Yapıt türü. (SDK V1.8'de [ArtifactType'tan](#artifacttype) dizeye güncelleştirildi) |
-| dynamicAttributes | Sözlük &lt; dizesi, nesne&gt; | Yapıt türüne özgü değerler içeren dinamik öznitelikler. Örneğin artifactType = "reservedinstance" olduğunda, bu özellik sanal makine ayrılmış örneğine veya Azure SQL ayrılmış örneğine açıklama ek olarak "reservationType" = "virtualmachines" veya "reservationType" = "sqldatabases" ifadesini içerir. (SDK v1.9'dan başlayarak kullanılabilir) |
+| artifactType | string | Yapıt türü. (SDK V 1.8 'de [ArtifactType](#artifacttype) 'dan dizeye güncelleştirilmiş) |
+| dynamicAttributes | Sözlük &lt; dizesi, nesne&gt; | ArtifactType 'a özgü değerler içeren dinamik öznitelikler. örneğin, artifacttype = "reservedınstance" olduğunda, bu özellik "rezervationtype" = "virtualmachines" veya "rezervationtype" = "sqldatabases" ile sanal makine ayrılmış örneği veya Azure SQL ayrılmış örneği içerir. (SDK v 1.9 'den başlayarak kullanılabilir) |
 
-## <a name="artifacttype"></a>Artifacttype
+## <a name="artifacttype"></a>ArtifactType
 
 > [!IMPORTANT]
-> SDK v1.9'da kullanım dışı
+> SDK v 1.9 'da kullanım dışı
 
-Yetkilendirme [yapıt](/dotnet/api/system.enum) türünü belirten değerlere sahip bir Enum.
+Yetkilendirme yapıtı türünü belirten değerler içeren bir [enum](/dotnet/api/system.enum) .
 
 | Değer                          | Açıklama                                                                             |
 |--------------------------------| ----------------------------------------------------------------------------------------|
-| VirtualMachineReservedInstance | Uygulamanın alınmasıyla birlikte yapıt yardımcılarını Azure Ayrılmış Sanal Makine Örnekleri. |
+| Virtualmachinereservedınstance | Yapıt 'nin Azure ayrılmış sanal makine örneklerinin alınmasına yardımcı olduğunu gösterir. |
 
-## <a name="reservedinstanceartifact"></a>ReservedInstanceArtifact
+## <a name="reservedinstanceartifact"></a>Reservedınstanceartifact
 
-Azure Ayrılmış Örneği yetkilendirmesi ile ilişkili yapıt. [Yapıt](#artifact) sınıfından devralınır.
+Azure ayrılmış örneği yetkilendirimiyle ilişkilendirilen yapıt. [Yapıt](#artifact) sınıfından devralır.
 
 | Özellik   | Tür                           | Description                                        |
 |------------|--------------------------------|----------------------------------------------------|
-| bağlantı       | [Bağlantı](./utility-resources.md#link) | İlişkili tüm yapıt ayrıntılarını almak için bağlantı.   |
+| bağlantı       | [Bağlantısının](./utility-resources.md#link) | İlişkili tüm yapıt ayrıntılarını almak için bağlantı.   |
 | Resourceıd | string                         | Azure rezervasyon siparişinin veya kaynağının kimliği. |
 
 ## <a name="reservedinstanceartifactdetails"></a>ReservedInstanceArtifactDetails

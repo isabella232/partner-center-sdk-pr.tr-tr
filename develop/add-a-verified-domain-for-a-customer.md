@@ -4,12 +4,12 @@ description: İş Ortağı Merkezi'daki bir müşteri için onaylı etki alanlar
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a8157bff5ac37100713a057ac68ac94c89ba28b8
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: fc24335aff6fe83b58ad2cb178d03db00614dd8ae24ee83d20b607b56a4bc51d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025692"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989143"
 ---
 # <a name="add-a-verified-domain-to-the-list-of-approved-domains-for-an-existing-customer"></a>Mevcut bir müşteri için onaylanmış etki alanları listesine doğrulanmış bir etki alanı ekleme 
 
@@ -71,33 +71,33 @@ Bu tablo, istek gövdesinde gerekli **ve isteğe** bağlı Etki alanı özellikl
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Authenticationtype                                    | string           | Yes      | Etki alanının bir etki alanı mı `Managed` yoksa etki alanı mı olduğunu `Federated` tanımlar. Desteklenen değerler: `Managed` , `Federated` .|
 | Özellik                                            | string           | Yes      | Etki alanı özelliğini belirtir. Örneğin, `Email`.                  |
-| ısdefault                                             | null değere sahip boole değeri | Hayır       | Etki alanının kiracı için varsayılan etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .        |
-| IsInitial                                             | null değere sahip boole değeri | Hayır       | Etki alanının bir ilk etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .                       |
+| ısdefault                                             | null değere sahip boole değeri | No       | Etki alanının kiracı için varsayılan etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .        |
+| IsInitial                                             | null değere sahip boole değeri | No       | Etki alanının bir ilk etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .                       |
 | Name                                                  | string           | Yes      | Etki alanı adı.                                                          |
 | RootDomain                                            | dize           | No       | Kök etki alanının adı.                                              |
 | Durum                                                | string           | Yes      | Etki alanı durumu. Örneğin, `Verified`. Desteklenen değerler:  `Unverified` , `Verified` , `PendingDeletion` .                               |
-| Doğrulamaları Icationmethod                                    | string           | Yes      | Etki alanı doğrulama yöntemi türü. Desteklenen değerler: `None` , `DnsRecord` , `Email` .                                    |
+| VerificationMethod                                    | string           | Yes      | Etki alanı doğrulama yöntemi türü. Desteklenen değerler: `None` , `DnsRecord` , `Email` .                                    |
 
-### <a name="domain-federation-settings"></a>Etki alanı Federasyon ayarları
+### <a name="domain-federation-settings"></a>Etki alanı federasyon ayarları
 
-Bu tabloda, istek gövdesinde gerekli ve isteğe bağlı **Domainfederationsettings** özellikleri açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli ve **isteğe bağlı DomainFederationSettings** özelliklerini açıklar.
 
 | Ad   | Tür   | Gerekli | Açıklama                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| ActiveLogOnUri                         | dize           | No      | Zengin istemciler tarafından kullanılan oturum açma URI 'SI. Bu özellik, ortağın STS kimlik doğrulama URL 'sidir. |
-| Defaultınteractiveauthenticationmethod | dize           | No      | Bir uygulama kullanıcının etkileşimli oturum açmasını gerektirdiğinde kullanılması gereken varsayılan kimlik doğrulama yöntemini gösterir. |
-| FederationBrandName                    | dize           | No      | Federasyon markası adı.        |
-| Issueruri                              | string           | Yes     | Sertifika verenin adı.                        |
-| LogOffUri                              | string           | Yes     | Oturum kapatma URI 'SI. Bu özellik, Federasyon etki alanı oturum açma URI 'sini açıklar.        |
-| MetadataExchangeUri                    | dize           | No      | Zengin istemci uygulamalarından kimlik doğrulaması için kullanılan meta veri değişim uç noktasını belirten URL. |
-| NextSigningCertificate                 | dize           | No      | Daha sonra gelen ve ADFS v2 STS tarafından talepleri imzalamak için kullanılan sertifika. Bu özellik, sertifikanın Base64 olarak kodlanmış bir gösterimidir. |
-| Openıdconnectdiscoveryendpoint         | dize           | No      | federal ıdp STS 'nin openıd Bağlan bulma uç noktası. |
-| PassiveLogOnUri                        | string           | Yes     | Eski pasif Istemciler tarafından kullanılan oturum açma URI 'SI. Bu özellik, Federasyon oturum açma isteklerini göndermek için olan adrestir. |
-| PreferredAuthenticationProtocol        | string           | Yes     | Kimlik doğrulama belirtecinin biçimi. Örneğin, `WsFed`. Desteklenen değerler: `WsFed` , `Samlp` |
+| ActiveLogOnUri                         | dize           | No      | Zengin istemciler tarafından kullanılan oturum açma URI'si. Bu özellik, iş ortağının STS Kimlik Doğrulama URL'sidir. |
+| DefaultInteractiveAuthenticationMethod | dize           | No      | Bir uygulama, kullanıcının etkileşimli oturum açmasını gerektirdiğinde kullanılacak varsayılan kimlik doğrulama yöntemini gösterir. |
+| FederationBrandName                    | dize           | No      | Federasyon markasının adı.        |
+| IssuerUri                              | string           | Yes     | Sertifikaların sertifikayı alan adı.                        |
+| LogOffUri                              | string           | Yes     | Oturum kapatma URI'si. Bu özellik, federasyon etki alanı oturum açma URI'sını açıklar.        |
+| MetadataExchangeUri                    | dize           | No      | Zengin istemci uygulamalarından kimlik doğrulaması için kullanılan meta veri değişimi uç noktasını belirten URL. |
+| NextSigningCertificate                 | dize           | No      | Talepleri imzalamak için ADFS V2 STS tarafından gelecek için kullanılan sertifika. Bu özellik, sertifikanın base64 kodlanmış gösterimidir. |
+| OpenIdConnectDiscoveryEndpoint         | dize           | No      | OpenID, Bağlan IDP STS'nin Bulma Uç Noktasıdır. |
+| PassiveLogOnUri                        | string           | Yes     | Eski pasif İstemciler tarafından kullanılan oturum açma URI'si. Bu özellik, federasyon oturum açma isteklerinin gönder adresidir. |
+| PreferredAuthenticationProtocol        | string           | Yes     | Kimlik doğrulama belirteci biçimi. Örneğin, `WsFed`. Desteklenen değerler: `WsFed` , `Samlp` |
 | PromptLoginBehavior                    | string           | Yes     | İstem oturum açma davranışı türü.  Örneğin, `TranslateToFreshPasswordAuth`. Desteklenen değerler: `TranslateToFreshPasswordAuth` , `NativeSupport` , `Disabled` |
-| SigningCertificate                     | string           | Yes     | Şu anda ADFS v2 STS tarafından talepleri imzalamak için kullanılan sertifika. Bu özellik, sertifikanın Base64 olarak kodlanmış bir gösterimidir. |
-| SigningCertificateUpdateStatus         | dize           | No      | Imzalama sertifikasının güncelleştirme durumunu gösterir. |
-| SigningCertificateUpdateStatus         | null yapılabilir Boole | Hayır      | IDP STS 'nin MFA 'yı destekleyip desteklemediğini gösterir. Desteklenen değerler: `True` , `False` , `Null` .|
+| SigningCertificate                     | string           | Yes     | Şu anda ADFS V2 STS tarafından talepleri imzalamak için kullanılan sertifika. Bu özellik, sertifikanın base64 kodlanmış gösterimidir. |
+| SigningCertificateUpdateStatus         | dize           | No      | İmzalama sertifikasının güncelleştirme durumunu gösterir. |
+| SigningCertificateUpdateStatus         | null değere sahip boole değeri | No      | IDP STS'nin MFA'nın destekleyip destekleme olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .|
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -143,11 +143,11 @@ X-Locale: "en-US"
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu API yeni doğrulanmış etki alanı için bir [etki alanı](#domain) kaynağı döndürür.
+Başarılı olursa, bu API yeni [doğrulanmış etki](#domain) alanı için bir Etki alanı kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

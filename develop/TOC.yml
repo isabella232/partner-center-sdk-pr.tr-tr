@@ -429,13 +429,13 @@
       href: sandbox-scenario.md
     - name: Korumalı alanı test etme ve hata ayıklama
       href: test-and-debug.md
-    - name: Sanal alanda CSP dolaylı sağlayıcı özellikleri
+    - name: Korumalı Alanda CSP Dolaylı sağlayıcısı özellikleri
       href: indirect-provider-sandbox-capabilities.md
     - name: Tümleştirme korumalı alandan bir siparişi iptal etme
       href: cancel-an-order-from-the-integration-sandbox.md
     - name: Korumalı alan aboneliğini etkinleştirme
       href: activate-sandbox-subscription-azure-marketplace-products.md
-    - name: Sandbox 'de dolaylı satıcı oluşturma
+    - name: Korumalı Alanda Dolaylı Kurumsal Bayi oluşturma
       href: create-indirect-reseller-in-sandbox.md
     - name: Korumalı alanda dolaylı Bayi silme
       href: delete-indirect-reseller-in-sandbox.md

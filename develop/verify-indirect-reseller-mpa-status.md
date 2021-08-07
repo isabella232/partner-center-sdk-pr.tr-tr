@@ -1,35 +1,35 @@
 ---
-title: Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu doğrulama
-description: AgreementStatus API 'sini kullanarak dolaylı bir satıcının Microsoft Iş ortağı sözleşmesinin imzalanıp imzalanmadığını doğrulayabilirsiniz.
+title: Dolaylı satıcının kurumsal bayinin Microsoft İş Ortağı Sözleşmesi durumunu doğrulama
+description: AgreementStatus API'sini kullanarak dolaylı bir kurumsal bayinin sözleşmeyi Microsoft İş Ortağı Sözleşmesi.
 ms.date: 07/24/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f83acc61624a72354c390905b1250bc021dd39aa
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 517c99356a4b623b5b46bc3d33f2355cd569f97326e7d9596cff551329d10da7
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111529857"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989857"
 ---
-# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu doğrulama
+# <a name="verify-an-indirect-resellers-microsoft-partner-agreement-signing-status"></a>Dolaylı satıcının kurumsal bayinin Microsoft İş Ortağı Sözleşmesi durumunu doğrulama
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-dolaylı bir satıcının, Microsoft İş Ortağı Ağı (mpn) kimliği (pga/PLA) veya Bulut Çözümü Sağlayıcısı (CSP) kiracı kimliğini (microsoft ıd) kullanarak Microsoft iş ortağı sözleşmesini imzaladığını doğrulayabilirsiniz. **AgreementStatus** API 'Sini kullanarak Microsoft Iş ortağı sözleşmesi imza durumunu denetlemek için bu tanımlayıcılardan birini kullanabilirsiniz.
+Dolaylı bir kurumsal bayinin Microsoft İş Ortağı Sözleşmesi (MPN) Microsoft İş Ortağı Ağı (PGA/PLA) veya Bulut Çözümü Sağlayıcısı (CSP) kiracı kimliğini (Microsoft Kimliği) kullanarak Bulut Çözümü Sağlayıcısı imzaladığı doğrulanabilirsiniz. **AgreementStatus** API'sini kullanarak imzalama durumunu Microsoft İş Ortağı Sözleşmesi bu tanımlayıcılardan birini kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- MPN KIMLIĞI (PGA/PLA) veya dolaylı satıcıdan oluşan CSP kiracı KIMLIĞI (Microsoft ID). *Bu iki tanımlayıcıdan birini kullanmalısınız.*
+- Dolaylı kurumsal bayinin MPN Kimliği (PGA/PLA) veya CSP kiracı kimliği (Microsoft Kimliği). *Bu iki tanımlayıcıdan birini kullan gerekir.*
 
 ## <a name="c"></a>C\#
 
-Dolaylı bir satıcının Microsoft Iş ortağı sözleşmesi imza durumunu almak için:
+Dolaylı satıcının Microsoft İş Ortağı Sözleşmesi durumunu almak için:
 
-1. **AgreementSignatureStatus** özelliğini çağırmak Için **ıaggregatepartner. uyum** koleksiyonunuzu kullanın.
+1. **AgreementSignatureStatus** **özelliğini aramak için IAggregatePartner.Compliance** koleksiyonu kullanın.
 
-2. [**Get ()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) yöntemini çağırın.
+2. [**Get() veya**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.get) [**GetAsync() yöntemini**](/dotnet/api/microsoft.store.partnercenter.compliance.iagreementsignaturestatus.getasync) çağırma.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -39,36 +39,36 @@ var agreementSignatureStatusByMpnId = partnerOperations.Compliance.AgreementSign
 var agreementSignatureStatusByTenantId = partnerOperations.Compliance.AgreementSignatureStatus.Get(tenantId: "Enter Tenant Id");
 ```
 
-- Örnek: **[konsol test uygulaması](console-test-app.md)**
-- Project: **partnercentersdk. featuressamples**
-- Sınıf: **GetAgreementSignatureStatus. cs**
+- Örnek: **[Konsol test uygulaması](console-test-app.md)**
+- Project: **PartnerCenterSDK.FeaturesSamples**
+- Sınıf: **GetAgreementSignatureStatus.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem | İstek URI'si |
 | ------ | ----------- |
-| **Al** | *[{BaseUrl}](partner-center-rest-urls.md)*/v1/Compliance/{programname}/agreementstatus? mpnıd = {mpnıd} &tenantıd = {tenantıd} |
+| **Al** | *[{baseURL}](partner-center-rest-urls.md)*/v1/compliance/{ProgramName}/agreementstatus?mpnId={MpnId}&tenantId={TenantId} |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-İş ortağını tanımlamak için aşağıdaki iki sorgu parametresini sağlamanız gerekir. Bu iki sorgu parametrelerinden birini sağlamazsanız, **400 (hatalı istek)** hatası alırsınız.
+İş ortağını tanımlamak için aşağıdaki iki sorgu parametresini belirtebilirsiniz. Bu iki sorgu parametresini sağlayamazsanız **400 (Hatalı istek) hatası** alırsınız.
 
 | Ad | Tür | Gerekli | Açıklama |
 | ---- | ---- | -------- | ----------- |
-| **Mpnıd** | int | Hayır | Dolaylı Bayi tanımlayan bir Microsoft İş Ortağı Ağı KIMLIĞI (PGA/PLA). |
-| **Değerine** | GUID | Hayır | Dolaylı satıcıdan oluşan CSP hesabını tanımlayan bir Microsoft KIMLIĞI. |
+| **MpnId** | int | No | Dolaylı Microsoft İş Ortağı Ağı tanımlayan bir kimlik (PGA/PLA). |
+| **TenantId** | GUID | No | Dolaylı kurumsal bayinin CSP hesabını tanımlayan bir Microsoft kimliği. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI kalanı](headers.md).
+Daha fazla bilgi için [bkz. REST İş Ortağı Merkezi.](headers.md)
 
 ### <a name="request-examples"></a>İstek örnekleri
 
-#### <a name="request-using-mpn-id-pgapla"></a>MPN KIMLIĞI (PGA/PLA) kullanarak istek
+#### <a name="request-using-mpn-id-pgapla"></a>MPN Kimliği (PGA/PLA) kullanarak istek
 
-Aşağıdaki örnek istek dolaylı satıcının Microsoft Iş ortağı sözleşmesi imza durumunu dolaylı Bayi Microsoft İş Ortağı Ağı KIMLIĞINI kullanarak alır.
+Aşağıdaki örnek istek, dolaylı kurumsal bayinin Microsoft İş Ortağı Sözleşmesi kimliğini kullanarak dolaylı kurumsal bayinin Microsoft İş Ortağı Ağı alır.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?mpnid=1234567 HTTP/1.1
@@ -80,9 +80,9 @@ X-Locale: en-US
 Host: api.partnercenter.microsoft.com
 ```
 
-#### <a name="request-using-csp-tenant-id"></a>CSP kiracı KIMLIĞI kullanarak istek
+#### <a name="request-using-csp-tenant-id"></a>CSP kiracı kimliğini kullanarak istekte
 
-Aşağıdaki örnek istek, dolaylı satıcının CSP kiracı KIMLIĞINI (Microsoft ID) kullanarak dolaylı satıcının Microsoft Iş ortağı sözleşmesi imza durumunu alır.
+Aşağıdaki örnek istek dolaylı kurumsal bayinin CSP kiracı Microsoft İş Ortağı Sözleşmesi (Microsoft Kimliği) kullanarak dolaylı kurumsal bayinin oturum açma durumunu alır.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/compliance/csp/agreementstatus?tenantId=a2898e3a-06ca-454e-a0d0-c73b0ee36bba HTTP/1.1
@@ -96,13 +96,13 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hatası](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hatası.](error-codes.md)
 
 ### <a name="response-example-success"></a>Yanıt örneği (başarılı)
 
-Aşağıdaki örnek yanıt başarıyla dolaylı satıcının Microsoft Iş ortağı sözleşmesi 'Ni imzaladığı olup olmadığını döndürür.
+Aşağıdaki örnek yanıt, dolaylı kurumsal bayinin kurumsal bayiyi Microsoft İş Ortağı Sözleşmesi.
 
 ```http
 HTTP/1.1 200 OK
@@ -121,11 +121,11 @@ Connection: close
 
 ### <a name="response-examples-failure"></a>Yanıt örnekleri (hata)
 
-Dolaylı satıcının Microsoft Iş ortağı sözleşmesinin imzalama durumu döndürülemeyebilir, aşağıdaki örneklere benzer yanıtlar alabilirsiniz.
+Dolaylı kurumsal bayinin iş ortağının imzalama durumu döndürülene Microsoft İş Ortağı Sözleşmesi gibi yanıtlar alabilirsiniz.
 
-#### <a name="non-guid-formatted-csp-tenant-id"></a>GUID olmayan biçimli CSP kiracı KIMLIĞI
+#### <a name="non-guid-formatted-csp-tenant-id"></a>GUID biçimlendirilmeyen CSP kiracı kimliği
 
-Aşağıdaki örnek yanıt, API 'ye geçirilen CSP kiracı KIMLIĞI bir GUID olmadığında döndürülür.
+API'ye aktardınız CSP kiracı kimliği GUID değilse aşağıdaki örnek yanıt döndürülür.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -145,9 +145,9 @@ Connection: close
 }
 ```
 
-#### <a name="non-numeric-mpn-id"></a>Sayısal olmayan MPN KIMLIĞI
+#### <a name="non-numeric-mpn-id"></a>Sayısal olmayan MPN Kimliği
 
-Aşağıdaki örnek yanıt, API 'ye geçirilen MPN KIMLIĞI (PGA/PLA) sayısal olmayan bir değer olarak döndürülür.
+API'ye aktardınız MPN Kimliği (PGA/PLA) sayısal olmayan olduğunda aşağıdaki örnek yanıt döndürülür.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -167,9 +167,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-mpn-id-or-csp-tenant-id"></a>MPN KIMLIĞI veya CSP kiracı KIMLIĞI yok
+#### <a name="no-mpn-id-or-csp-tenant-id"></a>MPN Kimliği veya CSP kiracı kimliği yok
 
-Aşağıdaki örnek yanıt, API 'ye bir MPN KIMLIĞI (PGA/PLA) veya CSP kiracı KIMLIĞI geçirmedikçe döndürülür. İki KIMLIK türünden birini API 'ye geçirmeniz gerekir.
+API'ye BIR MPN Kimliği (PGA/PLA) veya CSP kiracı kimliği geçirip geçirip alamamadan aşağıdaki örnek yanıt döndürülür. api'ye iki kimlik türlerinden birini geçmeniz gerekir.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -189,9 +189,9 @@ Connection: close
 }
 ```
 
-#### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>MPN KIMLIĞI ve CSP kiracı KIMLIĞI geçildi
+#### <a name="both-mpn-id-and-csp-tenant-id-passed"></a>Hem MPN Kimliği hem de CSP kiracı kimliği geçirildi
 
-Aşağıdaki örnek yanıt, hem MPN KIMLIĞI (PGA/PLA) hem de CSP kiracı KIMLIĞINI API 'ye geçirdiğinizde döndürülür. API 'ye iki tanımlayıcı türünden *yalnızca birini* geçirmeniz gerekir.
+API'ye hem MPN Kimliği (PGA/PLA) hem de CSP kiracı kimliğini iletirken aşağıdaki örnek yanıt döndürülür. *API'ye iki tanımlayıcı* türlerinden yalnızca birini geçmelisiniz.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -211,9 +211,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-reseller-mpn-id-pgapla-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>CSP dolaylı Bayi MPN KIMLIĞI (PGA/PLA) geçersiz ya da Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmedi
+#### <a name="csp-indirect-reseller-mpn-id-pgapla-is-either-invalid-or-not-migrated-from-partner-membership-center-to-partner-center"></a>CSP Indirect Reseller MPN Kimliği (PGA/PLA) geçersiz veya Partner Membership Center İş Ortağı Merkezi
 
-Geçirilen dolaylı satıcı MPN KIMLIĞI (PGA/PLA) geçersiz olduğunda veya Iş ortağı üyeliği merkezinden Iş Ortağı Merkezi 'ne geçirilmediğinde aşağıdaki örnek yanıt döndürülür. [Daha Fazla Bilgi](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
+Dolaylı kurumsal bayi MPN Kimliği (PGA/PLA) geçirilirse veya bu değer bir satıcıdan Partner Membership Center geçirilmezse aşağıdaki İş Ortağı Merkezi. [Daha Fazla Bilgi](https://partner.microsoft.com/resources/detail/migrate-pmc-pc-mpa-guide-pptx)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -235,9 +235,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>CSP dolaylı sağlayıcı bölgesi ve CSP dolaylı satıcı bölgesi eşleşmiyor
+#### <a name="csp-indirect-provider-region-and-csp-indirect-reseller-region-does-not-match"></a>CSP Indirect Provider bölge CSP Indirect Reseller bölge eşle
 
-Dolaylı satıcı MPN KIMLIĞI (PGA/PLA) bölgesi dolaylı sağlayıcının bölgesiyle eşleşmediği zaman aşağıdaki örnek yanıt döndürülür. CSP bölgeleri hakkında [daha fazla bilgi edinin](/partner-center/mpa-indirect-provider-faq) .
+Dolaylı kurumsal bayi MPN kimliği (PGA/PLA) bölgesi Dolaylı Sağlayıcının bölgesiyle eşleşmezse aşağıdaki örnek yanıt döndürülür. CSP [Bölgeleri](/partner-center/mpa-indirect-provider-faq) hakkında daha fazla bilgi.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -259,9 +259,9 @@ Connection: close
 }
 ```
 
-#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>CSP dolaylı satıcı hesabı Iş Ortağı Merkezi 'nde var, ancak MPA imzasız
+#### <a name="csp-indirect-reseller-account-exists-in-partner-center-but-hasnt-signed-the-mpa"></a>CSP Indirect Reseller hesabı İş Ortağı Merkezi MPA'yı imzalamadı
 
-Aşağıdaki örnek yanıt, Iş ortağı merkezindeki CSP dolaylı satıcı hesabı MPA 'yı imzaladığı zaman döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
+MPA'yı imzalamamış CSP Indirect Reseller aşağıdaki İş Ortağı Merkezi yanıt döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -283,9 +283,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Belirtilen MPN KIMLIĞIYLE ilişkili CSP dolaylı satıcı hesabı yok
+#### <a name="no-csp-indirect-reseller-account-is-associated-with-the-given-mpn-id"></a>Belirli CSP Indirect Reseller MPN kimliğiyle ilişkili bir hesap yok
 
-Iş Ortağı Merkezi, istekte geçirilen MPN KIMLIĞINI (PGA/PLA) tanıyabileceği halde, belirtilen MPN KIMLIĞI (PGA/PLA) ile ilişkili CSP kaydı yoksa, aşağıdaki örnek yanıt döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
+İstekte geçirilen MPN İş Ortağı Merkezi (PGA/PLA) tanıyamıyorum ama verilen MPN kimliğiyle (PGA/PLA) ilişkili CSP kaydı yok olduğunda aşağıdaki örnek yanıt döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -307,9 +307,9 @@ Connection: close
 }
 ```
 
-#### <a name="invalid-tenant-id"></a>Geçersiz kiracı KIMLIĞI
+#### <a name="invalid-tenant-id"></a>Geçersiz Kiracı Kimliği
 
-Iş Ortağı Merkezi, istekte geçirilen kiracı KIMLIĞIYLE ilişkili herhangi bir hesap bulamadığında aşağıdaki örnek yanıt döndürülür.
+Aşağıdaki örnek yanıt, istekte İş Ortağı Merkezi kiracı kimliğiyle ilişkili bir hesap bulmazsa döndürülür.
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -329,9 +329,9 @@ Connection: close
 }
 ```
 
-#### <a name="no-mpa-found-with-the-given-tenant-id"></a>Verilen kiracı KIMLIĞINE sahip bir MPA bulunamadı
+#### <a name="no-mpa-found-with-the-given-tenant-id"></a>Verilen Kiracı Kimliği ile MPA bulunamadı
 
-Aşağıdaki örnek yanıt, Iş Ortağı Merkezi belirtilen kiracı KIMLIĞINE sahip herhangi bir MPA imzasını bulamadığında döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
+Aşağıdaki örnek yanıt, İş Ortağı Merkezi kiracı kimliğine sahip herhangi bir MPA imzası bulamayarak döndürülür. [Daha Fazla Bilgi](/partner-center/mpa-indirect-provider-faq)
 
 ```http
 HTTP/1.1 400 Bad Request

@@ -1,52 +1,52 @@
 ---
 title: Bir kullanıcıya lisans atama
-description: C veya REST API 'lerinin kullanımı gibi Iş Ortağı Merkezi API 'Leri aracılığıyla bir müşteri kullanıcısına lisans atamayı öğrenin \# .
+description: C veya REST API'leri kullanımı gibi İş Ortağı Merkezi API'ler aracılığıyla bir müşteri kullanıcıya \# lisans atamayı öğrenin.
 ms.date: 10/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 88ce0f185b0b043c4a7862b7f9808fb8805d40b9
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 8263f7f274e453603305324cc7ac6e8b25820561ade3136b873c65ffa21e94fc
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111974378"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989075"
 ---
-# <a name="assign-licenses-to-a-user-via-partner-center-apis"></a>Iş Ortağı Merkezi API 'Leri aracılığıyla bir kullanıcıya lisans atama
+# <a name="assign-licenses-to-a-user-via-partner-center-apis"></a>Api'leri kullanarak kullanıcıya lisans İş Ortağı Merkezi atama
 
-Bir müşteri kullanıcısına lisans atama.
+Bir müşteri kullanıcıya lisans atama.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Bir müşteri Kullanıcı tanımlayıcısı. Bu KIMLIK, lisansın atanacağı kullanıcıyı tanımlar.
+- Müşteri kullanıcı tanımlayıcısı. Bu kimlik, lisansın atanma kullanıcısını tanımlar.
 
-- Lisansın ürününü tanımlayan bir Ürün SKU tanımlayıcısı.
+- Lisansın ürününü tanımlayan ürün SKU tanımlayıcısı.
 
 ## <a name="assigning-licenses-through-code"></a>Kod aracılığıyla lisans atama
 
-Bir kullanıcıya lisans atadığınızda, müşterinin abone olunan SKU 'ların koleksiyonundan seçim yapmanız gerekir. Daha sonra, atamak istediğiniz ürünleri tanımladıktan sonra, atamaları yapabilmek için her bir ürün için Ürün SKU 'su KIMLIĞINI edinmeniz gerekir. Her [**SubscribedSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) örneği, [**productsku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) nesnesine başvuralabileceğiniz ve [**kimliği**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)alabileceğiniz bir [**productsku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) özelliği içerir.
+Bir kullanıcıya lisans atadığınız zaman müşterinin abone olunan SKU koleksiyonundan birini seçmeniz gerekir. Ardından, atamak istediğiniz ürünleri belirlediniz, atamaları yapmak için her ürün için ürün SKU Kimliğini elde edinirsiniz. Her [**SubscribedSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku) örneği, [**ProductSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.subscribedsku.productsku) nesnesine başvurarak kimliğini almak için [**bir ProductSku**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku) özelliği [**içerir.**](/dotnet/api/microsoft.store.partnercenter.models.licenses.productsku.id)
 
-Lisans atama isteğinin tek bir lisans grubundan lisans içermesi gerekir. Örneğin, aynı istekte [**grup1**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) ve **grup2** 'tan lisans atayamazsınız. Tek bir istekte birden fazla gruptan lisans atama girişimi uygun bir hata ile başarısız olur. Lisans grubuna göre hangi lisansların kullanılabildiğini öğrenmek için bkz. [lisans grubuna göre kullanılabilir lisansların listesini alma](get-a-list-of-available-licenses-by-license-group.md).
+Lisans ataması isteği tek bir lisans grubundan lisanslar içermeli. Örneğin, aynı istekte [**Grup1**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licensegroupid) ve **Grup2'den lisans** atayamazsiniz. Tek bir istekte birden fazla gruptan lisans atama girişimi uygun bir hatayla başarısız olur. Lisans grubuna göre hangi lisansların kullanılabilir olduğunu bulmak için [bkz. Lisans grubuna göre kullanılabilir lisansların listesini alın.](get-a-list-of-available-licenses-by-license-group.md)
 
-Şu kod aracılığıyla lisans atama adımları şunlardır:
+Kod aracılığıyla lisans atama adımları şu şekildedir:
 
-1. [**Licenseatama**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) nesnesi örneği oluşturun. Atanacak Ürün SKU 'sunu ve hizmet planlarını belirtmek için bu nesneyi kullanırsınız.
+1. [**LicenseAssignment nesnesinin örneğini**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) oluşturma. Bu nesneyi, atanma ürün SKU'su ve hizmet planlarını belirtmek için kullanırsiniz.
 
     ``` csharp
     LicenseAssignment license = new LicenseAssignment();
     ```
 
-2. Nesne özelliklerini aşağıda gösterildiği gibi doldurun. Bu kod, zaten Ürün SKU KIMLIĞINIZ olduğunu ve kullanılabilir tüm hizmet planlarının atanacağını (yani, hiçbirinin dışlanmayacağını) varsayar.
+2. Nesne özelliklerini aşağıda gösterildiği gibi girin. Bu kod, ürün SKU kimliğine zaten sahip olduğunu ve tüm kullanılabilir hizmet planlarının atandığı varsayar (başka bir şey yoktur).
 
     ```csharp
     license.SkuId = selectedProductSkuId;
     license.ExcludedPlans = null;
     ```
 
-3. Ürün SKU KIMLIĞINIZ yoksa, abone olunan SKU 'ların koleksiyonunu almanız ve Ürün SKU 'su kimliğini bunlardan birine almanız gerekir. Ürün SKU 'SU adını biliyorsanız bir örnek aşağıda verilmiştir.
+3. Ürün SKU Kimliğiniz yoksa, abone olunan SKU'ların koleksiyonunu almalı ve ürün SKU Kimliğini bunlardan birini al gerekir. Ürün SKU'su adını biliyorsanız bir örnek burada vetir.
 
     ```csharp
     var customerSubscribedSkus = partnerOperations.Customers.ById(selectedCustomerId).SubscribedSkus.Get();
@@ -55,21 +55,21 @@ Lisans atama isteğinin tek bir lisans grubundan lisans içermesi gerekir. Örne
     license.ExcludedPlans = null;
     ```
 
-4. Sonra, [**Licenseatama**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)türünde yeni bir liste oluşturun ve lisans nesnesini ekleyin. Her birini listeye ayrı ekleyerek birden fazla lisans atayabilirsiniz. Bu listeye dahil edilen lisanslar aynı lisans grubundan olmalıdır.
+4. Ardından [**LicenseAssignment**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment)türünde yeni bir liste örneği ekleyin ve lisans nesnesini ekleyin. Her birini listeye tek tek ekleyerek birden fazla lisans atabilirsiniz. Bu listeye dahil edilen lisansların aynı lisans grubundan olması gerekir.
 
     ```csharp
     List<LicenseAssignment> licenseList = new List<LicenseAssignment>();
     licenseList.Add(license);
     ```
 
-5. [**Licenseupdate**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) örneği oluşturun ve lisans atamalarının listesini [**licensestoassign**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) özelliğine atayın.
+5. Bir [**LicenseUpdate**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) örneği oluşturun ve lisans atamalarının listesini [**LicensesToAssign özelliğine**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) attayabilirsiniz.
 
     ```csharp
     LicenseUpdate updateLicense = new LicenseUpdate();
     updateLicense.LicensesToAssign = licenseList;
     ```
 
-6. Lisansları atamak için [**Create**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) veya [**createasync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) metodunu çağırın ve lisans güncelleştirme nesnesini aşağıda gösterildiği gibi geçirin.
+6. [**Create**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) veya [**CreateAsync yöntemini**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) çağırarak lisansları atamak için aşağıda gösterildiği gibi lisans güncelleştirme nesnesini geçin.
 
     ```csharp
     var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
@@ -77,11 +77,11 @@ Lisans atama isteğinin tek bir lisans grubundan lisans içermesi gerekir. Örne
 
 ## <a name="c"></a>C\#
 
-Bir müşteri kullanıcısına lisans atamak için, önce bir [**Licenseatama**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) nesnesi örneği oluşturun ve [**Skuid**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) ve [**excludedplanlar**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) özelliklerini doldurun. Atanacak Ürün SKU 'sunu belirtmek için bu nesneyi kullanırsınız. Sonra, **Licenseatama** türünde yeni bir liste oluşturun ve lisans nesnesini listeye ekleyin. Sonra bir [**Licenseupdate**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) örneği oluşturun ve lisans atamalarının listesini [**licensestoassign**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) özelliğine atayın.
+Bir müşteri kullanıcıya lisans atamak için, önce [**bir LicenseAssignment**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment) nesnesi örneği oluşturma ve [**Skuid**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.skuid) ve [**ExcludedPlans özelliklerini**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseassignment.excludedplans) doldurmak. Bu nesneyi, atanacak ürün SKU'larını ve hariç tutulacak hizmet planlarını belirtmek için kullanırsiniz. Ardından **LicenseAssignment** türünde yeni bir liste örneği ekleyin ve lisans nesnesini listeye ekleyin. Ardından bir [**LicenseUpdate**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate) örneği oluşturun ve lisans atamalarının listesini [**LicensesToAssign özelliğine**](/dotnet/api/microsoft.store.partnercenter.models.licenses.licenseupdate.licensestoassign) attayabilirsiniz.
 
-Ardından, müşteriyi tanımlamak için müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini ve kullanıcıyı tanımlamak IÇIN Kullanıcı kimliği ile [**Users. byıd**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini kullanın. Daha sonra [**Licenseupdates**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates) özelliğinden müşteri Kullanıcı Lisansı güncelleştirme işlemlerine yönelik bir arabirim alın.
+Ardından [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri kimliğiyle birlikte kullanarak müşteriyi ve kullanıcı kimliğiyle [**Users.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini kullanarak kullanıcı kimliğini tanımlayabilirsiniz. Ardından [**LicenseUpdates**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.licenseupdates) özelliğinden müşteri kullanıcı lisansı güncelleştirme işlemlerine bir arabirim alın.
 
-Son olarak, [**Create**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) veya [**createasync**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) metodunu çağırın ve lisansı atamak için lisans güncelleştirme nesnesini geçirin.
+Son olarak, [**Create**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.create) veya [**CreateAsync yöntemini**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruserlicenseupdates.createasync) çağırarak lisansa atamak için lisans güncelleştirme nesnesinin geçişine geçebilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -106,15 +106,15 @@ updateLicense.LicensesToAssign = licenseList;
 var assignLicense = partnerOperations.Customers.ById(selectedCustomerId).Users.ById(selectedCustomerUserId).LicenseUpdates.Create(updateLicense);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: customeruseratamalisansı. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı **Örnekler Sınıfı:** CustomerUserAssignLicenses.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                                                                    |
 |----------|----------------------------------------------------------------------------------------------------------------|
-| **Yayınla** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-ID}/Users/{User-ID}/licenseupdates http/1.1 |
+| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/users/{user-id}/licenseupdates HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
@@ -122,16 +122,16 @@ Müşteriyi ve kullanıcıyı tanımlamak için aşağıdaki yol parametrelerini
 
 | Ad        | Tür   | Gerekli | Açıklama                                       |
 |-------------|--------|----------|---------------------------------------------------|
-| müşteri kimliği | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir KIMLIK. |
-| user-id     | string | Yes      | Kullanıcıyı tanımlayan GUID biçimli bir KIMLIK.     |
+| customer-id | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir kimlik. |
+| user-id     | string | Yes      | Kullanıcıyı tanımlayan GUID biçimlendirilmiş bir kimlik.     |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Atanacak lisansları belirten istek gövdesine bir [Licenseupdate](license-resources.md#licenseupdate) kaynağı ekleyin.
+İstek [gövdesine,](license-resources.md#licenseupdate) atanma lisanslarını belirten bir LicenseUpdate kaynağı dahil etme.
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -164,11 +164,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, HTTP yanıt durum kodu 201 döndürülür ve yanıt gövdesi lisans bilgilerine sahip bir [Licenseupdate](license-resources.md#licenseupdate) kaynağı içerir.
+Başarılı olursa, 201 HTTP yanıt durum kodu döndürülür ve yanıt gövdesi lisans bilgilerini içeren [bir LicenseUpdate](license-resources.md#licenseupdate) kaynağı içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example-success"></a>Yanıt örneği (başarılı)
 

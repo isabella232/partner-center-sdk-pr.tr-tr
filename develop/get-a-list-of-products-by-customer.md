@@ -1,49 +1,49 @@
 ---
 title: Ürünlerin bir listesini alma (müşteriye göre)
-description: Müşterinin bir ürün koleksiyonunu almak için bir müşteri tanımlayıcısı kullanabilirsiniz.
+description: Müşteriye göre ürün koleksiyonunu almak için müşteri tanımlayıcısını kullanabilirsiniz.
 ms.assetid: ''
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: a7cb2430aa93beb89e4d1f9b8c89a016d66624ca
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 2f896c16f8f13df795cee14742b00e7d10dbb1812308b20a4d4bc4a8c614471c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874202"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115991149"
 ---
 # <a name="get-a-list-of-products-by-customer"></a>Ürünlerin bir listesini alma (müşteriye göre)
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Mevcut bir müşteriye yönelik ürünlerin bir koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
+Mevcut bir müşteriye ürün koleksiyonu almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem | İstek URI'si                                                                                                              |
 |--------|--------------------------------------------------------------------------------------------------------------------------|
-| POST   | [*\{ BaseUrl \}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Products? targetView = {targetview} http/1.1 |
+| POST   | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/products?targetView={targetView} HTTP/1.1 |
 
 #### <a name="request-uri-parameters"></a>İstek URI parametreleri
 
 | Ad               | Tür | Gerekli | Açıklama                                                                                 |
 |--------------------|------|----------|---------------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | GUID | Yes | Değer, bir müşteriyi belirtmenize olanak tanıyan bir tanımlayıcı olan GUID biçimli bir **Müşteri-kiracı kimliğidir**. |
-| **targetView** | string | Yes | Kataloğun hedef görünümünü tanımlar. Desteklenen değerler şunlardır: <br/><br/>Tüm Azure öğelerini içeren **Azure**<br/><br/>Tüm Azure ayırma öğelerini içeren **Azurereservations**<br/><br/>Tüm sanal makine (VM) rezervasyon öğelerini içeren **Azurereservationsvm**<br/><br/>tüm SQL ayırma öğelerini içeren **azurereservationssql**<br/><br/>tüm Cosmos veritabanı ayırma öğelerini içeren **azurereservationscosmosdb**<br/><br/>Microsoft Azure aboneliklerine (**MS-azr-0145p**) ve Azure planlarına yönelik öğeler içeren **MicrosoftAzure**<br/><br/>Ticari Market ürünleri dahil tüm çevrimiçi hizmet öğelerini içeren **OnlineServices**<br/><br/>Tüm yazılım öğelerini içeren **yazılım**<br/><br/>Tüm yazılım SUSE Linux öğelerini içeren **SoftwareSUSELinux**<br/><br/>Tüm kalıcı yazılım öğelerini içeren **Softwarekalıcı**<br/><br/>Tüm yazılım aboneliği öğelerini içeren **SoftwareSubscriptions**  |
+| **customer-tenant-id** | GUID | Yes | Değer, müşteri belirtmenize olanak sağlayan bir tanımlayıcı olan GUID biçimli **müşteri-kiracı** kimliğidir. |
+| **targetView** | string | Yes | Kataloğun hedef görünümünü tanımlar. Desteklenen değerler: <br/><br/>**Tüm Azure** öğelerini içeren Azure<br/><br/>Tüm Azure rezervasyon öğelerini içeren **AzureReservations**<br/><br/>Tüm sanal makine (VM) rezervasyon öğelerini içeren **AzureReservationsVM**<br/><br/>**Tüm rezervasyon öğelerini içeren AzureReservationsSQL** SQL öğeleri<br/><br/>**Tüm veritabanı rezervasyon öğelerini içeren AzureReservationsCosmosDb** Cosmos öğeleri<br/><br/>Microsoft Azure abonelikleri (**MS-AZR-0145P**) ve Azure planları için öğeleri içeren **MicrosoftAzure**<br/><br/>Ticari market ürünleri de dahil olmak üzere tüm çevrimiçi hizmet öğelerini içeren **OnlineServices**<br/><br/>**Yazılım**, tüm yazılım öğelerini içerir<br/><br/>**SoftwareSUSELinux**, tüm yazılım SUSE Linux öğelerini içerir<br/><br/>Tüm kalıcı yazılım öğelerini içeren **SoftwarePerpetual**<br/><br/>Tüm yazılım aboneliği öğelerini içeren **YazılımAubscriptions**  |
 
 ### <a name="request-header"></a>İstek üst bilgisi
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -51,7 +51,7 @@ Yok.
 
 ### <a name="request-example"></a>İstek örneği
 
-Belirli bir müşteri tarafından kullanılabilen Azure kullanım tabanlı ürünlerin bir listesini isteyin. yalnızca Microsoft Azure (MS-azr-0145p) ve Azure planlarına yönelik ürünler, genel buluttaki müşteriler için döndürülür:
+Müşterinin kullanımına açık olan Azure kullanım tabanlı ürünlerin listesini talep edin. Hem Microsoft Azure (MS-AZR-0145P) hem de Azure planları genel buluttaki müşteriler için döndürülür:
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/customers/65543400-f8b0-4783-8530-6d35ab8c6801/products?targetView=MicrosoftAzure HTTP/1.1
@@ -63,15 +63,15 @@ MS-CorrelationId: b1939cb2-e83d-4fb0-989f-514fb741b734
 
 ## <a name="rest-response"></a>Rest yanıtı
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu | Hata kodu   | Açıklama                     |
+| HTTP Durum Kodu | Hata kodu   | Description                     |
 |------------------|--------------|---------------------------------|
-| 403 | 400036 | İstenen targetView 'a erişime izin verilmiyor. |
+| 403 | 400036 | İstenen targetView'a erişime izin verilmiyor. |
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -1,39 +1,39 @@
 ---
 title: Ölçüme göre abonelik için kullanım verilerini alma
-description: Geçerli faturalama döneminde belirli Azure hizmetleri veya kaynakları için bir müşterinin ölçüm kullanım kayıtlarını almak için MeterUsageRecord kaynak koleksiyonunu kullanabilirsiniz.
+description: Geçerli faturalandırma döneminde belirli Azure hizmetleri veya kaynakları için bir müşterinin ölçüm kullanım kayıtlarını almak üzere MeterUsageRecord kaynak koleksiyonunu kullanabilirsiniz.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0bd6143c80059bd140a4c4332ab4ec19c54d99f1
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 2d2f13c9f944a0a5297c61c70606517c4426957f86066fe4469a7543b14d3bf9
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874865"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992832"
 ---
 # <a name="get-usage-data-for-subscription-by-meter"></a>Ölçüme göre abonelik için kullanım verilerini alma
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Geçerli faturalama döneminde belirli Azure hizmetleri veya kaynakları için bir müşterinin ölçüm kullanım kayıtlarını almak için **MeterUsageRecord** kaynak koleksiyonunu kullanabilirsiniz. Bu kaynak koleksiyonu, Tüm Azure planınız genelinde geçerli faturalama dönemi için her ölçüm için toplu bir toplamı temsil eder.
+Geçerli faturalandırma döneminde belirli Azure hizmetleri veya kaynakları için bir müşterinin ölçüm kullanım kayıtlarını almak üzere **MeterUsageRecord** kaynak koleksiyonunu kullanabilirsiniz. Bu kaynak koleksiyonu, tüm Azure planınız genelinde geçerli faturalandırma döngüsünün her bir ölçümü için toplam toplu toplamı temsil eder.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
+- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
 
-- Abonelik kimliği
+- Abonelik KIMLIĞI
 
-*Bu yeni yol, yalnızca Microsoft Azure (MS-AZR-0145P) abonelikleri için çalışmaya devam edecek olan ile `subscriptions/{subscription-id}/usagerecords/resources` eşdeğerdir.* Bu yeni yol hem Microsoft Azure (MS-AZR-0145P) aboneliklerini hem de Azure planlarını destekleyecektir. Azure planınıza ilişkin bu bilgileri almak için bu yeni rotaya geçmeniz gerekir. Aşağıdaki bölümlerde belirtilen özellikler dışında, yanıt eski yol ile aynıdır.
+*bu yeni yol ile eşdeğerdir `subscriptions/{subscription-id}/usagerecords/resources` , ancak yalnızca Microsoft Azure (MS-azr-0145p) abonelikleri için çalışmaya devam edecektir.* bu yeni rota hem Microsoft Azure (MS-azr-0145p) aboneliklerini ve Azure planlarını destekleyecektir. Azure planınızla ilgili bu bilgileri almak için bu yeni yola geçmeniz gerekir. Aşağıdaki bölümlerde bahsedilen özellikler dışında, yanıt eski rotayla aynıdır.
 
 ## <a name="c"></a>C\#
 
-Geçerli faturalama döneminde belirli bir Azure hizmetine veya kaynağına yönelik müşterinin ölçüm kullanım kayıtlarını almak için:
+Geçerli faturalandırma döneminde belirli bir Azure hizmeti veya kaynağı için bir müşterinin ölçüm kullanım kayıtlarını almak için:
 
-1. **ById()** **yöntemini çağırarak IAggregatePartner.Customers** koleksiyonu kullanın.
+1. **Byıd ()** yöntemini çağırmak Için **ıaggregatepartner. Customers** koleksiyonunuzu kullanın.
 
-2. Subscriptions özelliğini ve **UsageRecords'ı** ve ardından **Meters özelliğini** çağırma. Get() veya GetAsync() yöntemlerini çağırarak son.
+2. Abonelikler özelliğini ve **UsageRecords** ve ardından **ölçümler özelliğini çağırın** . Get () veya GetAsync () yöntemlerini çağırarak son ' a erişin.
 
     ``` csharp
     // IAggregatePartner partnerOperations;
@@ -43,32 +43,32 @@ Geçerli faturalama döneminde belirli bir Azure hizmetine veya kaynağına yön
     var usageRecords = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscriptionId).UsageRecords.Meters.Get();
     ```
 
-Bir örnek için aşağıdaki örneğine bakın:
+Bir örnek için aşağıdaki örneğe bakın:
 
-- Örnek: [Konsol test uygulaması](console-test-app.md)
-- Project: **PartnerSDK.FeatureSamples**
-- Sınıf: **GetSubscriptionUsageRecordsByMeter.cs**
+- Örnek: [konsol test uygulaması](console-test-app.md)
+- Project: **partnersdk. featuresamples**
+- Sınıf: **GetSubscriptionUsageRecordsByMeter. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem  | İstek URI'si                                                                                                                             |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/meterusagerecords HTTP/1.1 |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Subscriptions/{Subscription-id}/meterusagerecords http/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-Bu tabloda müşterinin derecelendirilmiş kullanım bilgilerini almak için gereken sorgu parametreleri listelemektedir.
+Bu tabloda, müşterinin derecelendirildi kullanım bilgilerini almak için gerekli sorgu parametreleri listelenmektedir.
 
 | Ad                   | Tür     | Gerekli | Açıklama                               |
 |------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id** | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
-| **subscription-id**    | **guid** | Y        | Microsoft Azure (MS-AZR-0145P) aboneliğini veya bir Azure planını temsil eden bir İş Ortağı Merkezi aboneliği kaynağının tanımlayıcısına karşılık gelen GUID. [](subscription-resources.md#subscription) *Azure planı abonelik kaynakları için bu yolda **subscription-id** olarak **plan-id** girin.* |
+| **Müşteri-Kiracı kimliği** | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
+| **abonelik kimliği**    | **guid** | Y        | bir Microsoft Azure (MS-azr-0145p) aboneliğini veya bir Azure planını temsil eden bir iş ortağı merkezi [abonelik kaynağının](subscription-resources.md#subscription)tanımlayıcısına karşılık gelen bir guıd. *Azure planı abonelik kaynakları için, bu rotada **abonelik kimliği** olarak **plan kimliği** sağlayın.* |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -86,17 +86,17 @@ MS-CorrelationId: 47c36033-af5d-4457-80a4-512c1626fac4
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt **gövdesinde \<MeterUsageRecord> bir PagedResourceCollection** kaynağı döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde bir **Pagedresourcecollection \<MeterUsageRecord>** kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
 
-### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS-AZR-0145P) abonelikleri için yanıt örneği
+### <a name="response-example-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS-azr-0145p) abonelikleri için yanıt örneği
 
-Bu örnekte müşteri **145P Azure PayG satın alır.**
+Bu örnekte, müşteri **145P Azure PayG** satın almıştır.
 
-*Microsoft Azure (MS-AZR-0145P) aboneliğine sahip müşteriler için API yanıtta değişiklik olmaz.*
+*Microsoft Azure (MS-azr-0145p) aboneliği olan müşteriler için, apı yanıtında hiçbir değişiklik olmaz.*
 
 ```http
 HTTP/1.1 200 OK
@@ -138,14 +138,14 @@ Date: Tue, 17 Sep 2019 20:31:45 GMT
 }
 ```
 
-## <a name="rest-response-example-for-azure-plan"></a>Azure planı için REST yanıtı örneği
+## <a name="rest-response-example-for-azure-plan"></a>Azure planına REST yanıtı örneği
 
-Bu örnekte müşteri bir Azure planı satın alır.
+Bu örnekte, müşteri bir Azure planı satın almış.
 
-*Azure planları olan müşteriler için API yanıtta aşağıdaki değişiklikler vardır:*
+*Azure planlarına sahip müşteriler için API yanıtında aşağıdaki değişiklikler vardır:*
 
-- **currencyLocale,** **currencyCode ile değiştirildi**
-- **usdTotalCost** yeni bir alandır
+- **Currencylocale** , **CurrencyCode** ile değiştirilmiştir
+- **Usdtotalcost** yeni bir alandır
 
 ```http
 HTTP/1.1 200 OK

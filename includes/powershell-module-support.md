@@ -1,13 +1,13 @@
 ---
-title: PowerShell SDK desteği dahil
+title: PowerShell SDK Desteği Dahil
 ms.date: 04/23/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 05339a0c974885eb954472a90e094436a7889217
-ms.sourcegitcommit: 45094b6fb1437bca51f97e193ac2957747dbea27
+ms.openlocfilehash: ebc57e4b9f8dc222aa92a29edf01ee04693a8006077316297ceef8cb0874abaa
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "97768698"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115989118"
 ---
-İş Ortağı Merkezi [PowerShell modülü](https://github.com/microsoft/partner-center-powershell/) , iş ortakları tarafından yaygın olarak Iş Ortağı Merkezi kaynaklarını yönetmek için kullanılır. Bu, iş ortağı topluluğu tarafından tutulan açık kaynaklı bir projem. Bu modül iş ortağı topluluğu tarafından korunduğundan, Microsoft tarafından resmi olarak desteklenmez. Bir sorunla karşılaşırsanız, [topluluktan yardım](https://stackoverflow.com/questions/tagged/partner+center) alabilir veya [GitHub 'da bir sorun açabilirsiniz](https://github.com/microsoft/partner-center-powershell/issues) .
+PowerShell [İş Ortağı Merkezi yaygın olarak](https://github.com/microsoft/partner-center-powershell/) iş ortakları tarafından kendi kaynaklarınızı yönetmek için İş Ortağı Merkezi kullanılır. İş ortağı topluluğu tarafından bakımı yapılan açık kaynaklı bir projedir. Bu modül iş ortağı topluluğu tarafından korundu ve Microsoft tarafından resmi olarak desteklenmiyor. Bir [sorun yaşamanıza yardımcı olmak](https://stackoverflow.com/questions/tagged/partner+center) [için topluluktan yardım GitHub](https://github.com/microsoft/partner-center-powershell/issues) bir sorun açabilirsiniz.
