@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b29c005e74ad8a4da547a888b78e4599e74ebd02
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 2bc7ec0609fa03f91427df2944c39e4c0401d11b27370d812d96e4fd0eb1ee6a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874542"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993665"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Bir SKU (ülkeye göre) için kullanılabilirlik listesini alma
 
@@ -138,7 +138,7 @@ Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP Durum Kodu     | Hata kodu   | Açıklama                                                                                               |
+| HTTP Durum Kodu     | Hata kodu   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | 403                  | 400030       | İstenen **targetSegment'a erişime** izin verilmiyor.                                                     |
 
