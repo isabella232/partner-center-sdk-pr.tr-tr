@@ -1,31 +1,31 @@
 ---
-title: KIMLIĞE göre hizmet isteği ayrıntılarını alın.
-description: KIMLIĞE göre mevcut bir müşteri hizmeti isteğinin ayrıntılarını alma.
+title: Kimliğine göre hizmet isteği ayrıntılarını al.
+description: Mevcut müşteri hizmetleri isteğinin ayrıntılarını kimliğine göre alma.
 ms.date: 02/06/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 66488cf9592d630cb1f0237d379e8df5ead6a3a8
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 1ad22e5940781d514b00a6a25ca772fab338dc5584df09ac5a29fb2559e9538a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548779"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995705"
 ---
 # <a name="get-service-request-details-by-id"></a>Kimliğe göre hizmet isteği ayrıntılarını alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Hizmet isteği tanımlayıcısını kullanarak mevcut bir müşteri hizmeti isteğinin ayrıntılarını alma.
+Hizmet isteği tanımlayıcısını kullanarak mevcut müşteri hizmetleri isteğinin ayrıntılarını alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir hizmet isteği KIMLIĞI.
+- Hizmet isteği kimliği.
 
 ## <a name="c"></a>C\#
 
-Mevcut bir müşteri hizmeti isteğinin ayrıntılarını almak için, [**ıvicerequestcollection. Byıd**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) metodunu çağırın ve belirli [**servicerequest**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) nesnesine bir arabirim tanımlamak ve döndürmek için bir [**ServiceRequest.ID**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) geçirin.
+Mevcut bir müşteri hizmetleri isteğinin ayrıntılarını almak için [**IServiceRequestCollection.ById**](/dotnet/api/microsoft.store.partnercenter.servicerequests.iservicerequestcollection.byid) yöntemini çağırarak bir [**ServiceRequest.Id**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest.id#Microsoft_Store_PartnerCenter_Models_ServiceRequests_ServiceRequest_Id) ile belirli [**ServiceRequest**](/dotnet/api/microsoft.store.partnercenter.models.servicerequests.servicerequest) nesnesine bir arabirim belirleyerek geri dönebilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -42,11 +42,11 @@ Console.WriteLine(string.Format("The primary contact for the service request {0}
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                 |
 |-----------|---------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-ID} http/1.1  |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/servicerequests/{servicerequest-id} HTTP/1.1  |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -54,11 +54,11 @@ Belirtilen hizmet isteğini almak için aşağıdaki URI parametresini kullanın
 
 | Ad                  | Tür     | Gerekli | Açıklama                                 |
 |-----------------------|----------|----------|---------------------------------------------|
-| **servicerequest kimliği** | **guid** | Y        | Hizmet isteğini tanımlayan bir GUID. |
+| **servicerequest-id** | **guid** | Y        | Hizmet isteğini tanımlayan bir GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -80,11 +80,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **hizmet isteği** kaynağı döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde** bir Hizmet İsteği kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [REST İş Ortağı Merkezi Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

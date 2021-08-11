@@ -4,12 +4,12 @@ description: Belirli bir müşteri için bir cihaz toplu karşıya yükleme işl
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: fd8726af41fe4399797f39a0790cf962fde64acc
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 6c84e3e9f8717a0ecfb75c19291ca397c48e2435864d2c22d3dac893a1007f7f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548490"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996113"
 ---
 # <a name="get-the-status-of-a-device-batch-upload"></a>Cihaz toplu karşıya yükleme durumu alma
 

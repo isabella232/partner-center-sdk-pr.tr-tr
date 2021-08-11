@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: c888786a6b6ca941629bb7aac95227021c37a7fc
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 79327879614de521224606b69a5b6d1e8e4192f0df085f5fce61230c91e774e5
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549170"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994515"
 ---
 # <a name="get-invoice-by-id"></a>Kimliğine göre fatura al
 

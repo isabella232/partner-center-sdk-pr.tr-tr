@@ -1,33 +1,33 @@
 ---
 title: Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
-description: Müşteri ve abonelik KIMLIĞIYLE eşleşen bir abonelik kaynağı için autorenew özelliğini güncelleştirin.
+description: Müşteri ve abonelik kimliğiyle eşleşen bir Abonelik kaynağı için otomatik yenileme özelliğini güncelleştirin.
 ms.date: 08/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: cc0b4c4bff5e8762ffcc2552b2e9e36bcf93686c
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: b83c225a8b6fa11bdd5db5bcca9dd277fcfc4ed56769f1a7a272a388a1c93ab5
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446675"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996606"
 ---
 # <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
 
-Müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market [abonelik](subscription-resources.md) kaynağı için autorenew özelliğini güncelleştirin.
+Ticari market Abonelik kaynağı için müşteri ve [abonelik](subscription-resources.md) kimliğiyle eşleşen otomatik yenileme özelliğini güncelleştirin.
 
-Iş Ortağı Merkezi panosunda, bu işlem ilk olarak [bir müşteri seçilerek](get-a-customer-by-name.md)gerçekleştirilir. Ardından, güncelleştirmek istediğiniz aboneliği seçin. Son olarak, **Otomatik Yenile** seçeneğini açıp **Gönder**' i seçin.
+Bu İş Ortağı Merkezi, önce bir müşteri [seçerek gerçekleştirilir.](get-a-customer-by-name.md) Ardından güncelleştirmek istediğiniz aboneliği seçin. Son olarak, Otomatik yenileme **seçeneğini açıp** Gönder'i **seçin.**
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Abonelik KIMLIĞI.
+- Abonelik kimliği.
 
 ## <a name="c"></a>C\#
 
-Bir müşterinin aboneliğini güncelleştirmek için önce [aboneliği alın](get-a-subscription-by-id.md), sonra aboneliğin [**autoRenewEnabled**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled) özelliğini ayarlayın. Değişiklik yapıldıktan sonra **ıaggregatepartner. Customers** koleksiyonunuzu kullanın ve **byıd ()** yöntemini çağırın. Ardından, ve ardından [**Byıd ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) yöntemiyle [**abonelikler**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğini çağırın. Ardından, **Patch ()** yöntemini çağırarak son ' u kullanabilirsiniz.
+Müşterinin aboneliğini güncelleştirmek için önce Aboneliği [alın,](get-a-subscription-by-id.md)ardından aboneliğin [**autoRenewEnabled özelliğini**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.autoRenewEnabled) ayarlayın. Değişiklik yapıldıktan sonra **IAggregatePartner.Customers** koleksiyonu kullanın ve **ById() yöntemini** arayın. Ardından [**Subscriptions özelliğini**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) ve ardından [**ById() yöntemini**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) çağırabilirsiniz. Ardından Patch() yöntemini **çağırarak bitirin.**
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -39,32 +39,32 @@ selectedSubscription.AutoRenewEnabled = false;
 var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).Subscriptions.ById(selectedSubscription.Id).Patch(selectedSubscription);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: updatesubscription. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerSDK.FeatureSample **Sınıfı:** UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription} http/1.1 |
+| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Bu tabloda, aboneliği askıya almak için gerekli sorgu parametresi listelenmektedir.
+Bu tabloda aboneliği askıya almak için gereken sorgu parametresi listelemektedir.
 
 | Ad                    | Tür     | Gerekli | Açıklama                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **Müşteri-Kiracı kimliği**  | **'INI** | Y        | Müşteriye karşılık gelen bir GUID.     |
-| **abonelik kimliği** | **'INI** | Y        | Aboneliğe karşılık gelen bir GUID. |
+| **customer-tenant-id**  | **Guıd** | Y        | Müşteriye karşılık gelen bir GUID.     |
+| **abonelik için id** | **Guıd** | Y        | Aboneliğe karşılık gelen BIR GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesinde tam bir ticari Market **abonelik** kaynağı gereklidir. **AutoRenewEnabled** özelliğinin güncelleştirildiğinden emin olun.
+İstek gövdesinde **tam** bir ticari market Abonelik kaynağı gereklidir. **AutoRenewEnabled özelliğinin** güncelleştirilmiş olduğundan emin olun.
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -112,11 +112,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş [abonelik](subscription-resources.md) kaynak özelliklerini döndürür.
+Başarılı olursa, bu yöntem yanıt [gövdesinde](subscription-resources.md) güncelleştirilmiş Abonelik kaynağı özelliklerini döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

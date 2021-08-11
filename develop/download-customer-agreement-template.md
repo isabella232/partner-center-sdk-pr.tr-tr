@@ -1,50 +1,50 @@
 ---
-title: Microsoft müşteri anlaşması şablonu için bir indirme bağlantısı alın
-description: Microsoft Müşteri Sözleşmesi şablonu için bir indirme bağlantısı alın.
+title: Microsoft Müşteri Sözleşmesi şablonu için indirme bağlantısı oluşturma
+description: Şablon için bir indirme Microsoft Müşteri Sözleşmesi edinebilirsiniz.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: fccb9e3d4a837f3e8043f8c7ae1e3911d819afd7
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: 7757cd6a92c168e4209d2d3ac49746e4a0907021d260a7b49603a3706e8cfa5c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906529"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994821"
 ---
-# <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft müşteri anlaşması şablonu için bir indirme bağlantısı alın
+# <a name="get-a-download-link-for-the-microsoft-customer-agreement-template"></a>Microsoft Müşteri Sözleşmesi şablonu için indirme bağlantısı oluşturma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi
 
-**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**için geçerli değildir:** İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-**AgreementDocument** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
+**AgreementDocument kaynağı** şu anda yalnızca Microsoft İş Ortağı Merkezi bulut üzerinde kullanılabilir.
 
-Bu makalede, müşterinin ülkesine ve diline bağlı olarak Microsoft müşteri anlaşması şablonunu indirme bağlantısının nasıl yapılacağı açıklanır.
+Bu makalede, müşterinin ülke ve diline göre Microsoft Müşteri Sözleşmesi şablonu indirme bağlantısının nasıl elde etmek istediğiniz açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Iş ortağı merkezi .NET SDK kullanıyorsanız sürüm 1,14 veya daha yeni bir sürümü gereklidir.
+- İş Ortağı Merkezi .NET SDK kullanıyorsanız sürüm 1.14 veya daha yenisi gereklidir.
 
-- [Iş ortağı merkezi kimlik doğrulamasında](./partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](./partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik doğrulamasını destekler.
 
-- Müşterinin Microsoft müşteri anlaşması şablonunun geçerli olduğu ülke.
+- Müşterinin uygulama şablonunun uygulandığı Microsoft Müşteri Sözleşmesi.
 
-- Microsoft müşteri anlaşması şablonunun yerelleştirilmesi gereken dil.
+- Uygulama şablonunun yerel Microsoft Müşteri Sözleşmesi dili.
 
 > [!IMPORTANT]
 >
-> - Microsoft Müşteri Sözleşmesi ülkeye özeldir. Microsoft müşteri anlaşması şablonunu indirmek için bir bağlantı istendiğinde, müşterinin konumuna göre doğru ülkeyi belirttiğinizden emin olun. ya da desteklenen ülkelerin listesi, [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
+> - Bu Microsoft Müşteri Sözleşmesi ülkeye özgü bir veridir. Microsoft Müşteri Sözleşmesi şablonunu indirmek için bağlantı isteği Microsoft Müşteri Sözleşmesi, müşterinin konumunu temel alarak doğru ülkeyi belirttiğinizden emin olun. veya desteklenen ülkelerin listesi için [bkz. Desteklenen ülkeler ve diller listesi.](#list-of-supported-countries-and-languages)
 >
-> - Bazı ülkelerde, Microsoft Müşteri Sözleşmesi birden çok dilde kullanılabilir. En iyi müşteri deneyimi için müşterinin ihtiyaçlarına en iyi eşleşen dili seçin. Desteklenen dillerin listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
-> - Bu yöntem yalnızca Microsoft Müşteri anlaşmasıyla desteklenir.
+> - Bazı ülkelerde, Microsoft Müşteri Sözleşmesi dillerde kullanılabilir. En iyi müşteri deneyimi için müşterinin ihtiyaçlarına en uygun dili seçin. Desteklenen dillerin listesi için bkz. [Desteklenen ülkeler ve diller listesi.](#list-of-supported-countries-and-languages)
+> - Bu yöntem yalnızca Microsoft Müşteri Sözleşmesi.
 
 ## <a name="net"></a>.NET
 
-Microsoft müşteri anlaşması şablonunu indirmek için bir bağlantı almak üzere:
+Uygulama şablonunu indirme bağlantısını Microsoft Müşteri Sözleşmesi:
 
-1. Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini alın. Microsoft Müşteri sözleşmesinin **TemplateId** 'sini edinmeniz gerekir. Daha fazla bilgi için bkz. [Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini edinme](get-customer-agreement-metadata.md).
+1. Veri kaynağı için sözleşme meta verilerini Microsoft Müşteri Sözleşmesi. Uygulamanın **templateId'lerini** Microsoft Müşteri Sözleşmesi. Daha fazla bilgi için [bkz. Microsoft Müşteri Sözleşmesi.](get-customer-agreement-metadata.md)
 
    ```csharp
    // IAggregatePartner partnerOperations;
@@ -54,17 +54,17 @@ Microsoft müşteri anlaşması şablonunu indirmek için bir bağlantı almak �
    AgreementMetaData microsoftCustomerAgreementDetails = partnerOperations.AgreementDetails.   ByAgreementType(agreementType).Get().Items.Single();
    ```
 
-2. Iaggregatepartner. AgreementTemplates koleksiyonunu kullanın.
+2. IAggregatePartner.AgreementTemplates koleksiyonunu kullanın.
 
-3. **Byıd** metodunu çağırın ve Microsoft Müşteri sözleşmesinin **TemplateId** 'sini belirtin.
+3. **ById yöntemini** çağırarak uygulamanın **templateId** Microsoft Müşteri Sözleşmesi.
 
-4. **Belge** özelliğini getir.
+4. Document **özelliğini** getirme.
 
-5. **Bycountry** yöntemini çağırın ve Sözleşme şablonunun geçerli olduğu müşterinin ülkesini belirtin. Yöntem belirtilmemişse sorgu *bizim* için varsayılan olarak olur. Desteklenen ülke kodlarının listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın. Bu yöntem, **büyük/küçük harfe duyarlıdır**.
+5. **ByCountry yöntemini** çağırarak müşterinin anlaşma şablonunun geçerli olduğu ülkeyi belirtin. Yöntemi belirtilmezse *sorgu* varsayılan olarak ABD'ye kullanılır. Desteklenen ülke kodlarının listesi için bkz. [Desteklenen ülkeler ve diller listesi.](#list-of-supported-countries-and-languages) Bu yöntem **büyük/büyük/büyük harfe duyarlıdır.**
 
-6. **Bylanguage** metodunu çağırın ve anlaşma şablonunun yerelleştirilmesi gereken dili belirtin. Yöntem belirtilmemişse sorgu varsayılan olarak *en-US* olur veya belirtilen ülke kodu belirtilen ülkede desteklenmez. Desteklenen dil kodlarının listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.
+6. **ByLanguage yöntemini** çağırarak anlaşma şablonunun yerelleştirilmiş olması gereken dili belirtin. Yöntem belirtilmemişse veya belirtilen ülke kodu belirtilen ülke için desteklenmiyorsa sorgu varsayılan olarak *en-US* olur. Desteklenen dil kodlarının listesi için desteklenen ülkeler [ve diller listesi'ne bakın.](#list-of-supported-countries-and-languages)
 
-7. **Get** veya **GetAsync** yöntemini çağırın.
+7. **Get** veya **GetAsync yöntemini** çağırma.
 
    ```csharp
    // IAggregatePartner partnerOperations;
@@ -76,41 +76,41 @@ Microsoft müşteri anlaşması şablonunu indirmek için bir bağlantı almak �
    var agreementDocument = partnerOperations.   AgreementTemplates.ById   (microsoftCustomerAgreementDetails.   TemplateId).Document.ByCountry   (customerCountry).ByLanguage   (languageForLocalization).Get();
    ```
 
-[Konsol test uygulaması](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) projesinden [Getagreementdetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) sınıfında, bir bütün örnek bulunabilir.
+Eksiksiz bir örnek, konsol test uygulaması [projesinden GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) [sınıfında](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) bulunabilir.
 
 ## <a name="rest-request"></a>REST isteği
 
-Microsoft müşteri anlaşması şablonunu indirmek için bir bağlantı almak üzere:
+Uygulama şablonunu indirme bağlantısını Microsoft Müşteri Sözleşmesi:
 
-1. Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini alın. Microsoft Müşteri sözleşmesinin **TemplateId** 'sini edinmeniz gerekir. Daha fazla bilgi için bkz. [Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini edinme](get-customer-agreement-metadata.md).
+1. Veri kaynağı için sözleşme meta verilerini Microsoft Müşteri Sözleşmesi. Uygulamanın **templateId'lerini** Microsoft Müşteri Sözleşmesi. Daha fazla bilgi için [bkz. Microsoft Müşteri Sözleşmesi.](get-customer-agreement-metadata.md)
 
-2. Bir [ **AgreementDocument** KAYNAĞıNı](./agreement-document-resources.md)getirmek için REST isteği oluşturun. Örnek için, [istek sözdizimi](#request-syntax) örneğine bakın. Aşağıdaki bilgileri belirtmeniz gerekir:
+2. [ **Bir AgreementDocument**](./agreement-document-resources.md)kaynağını getirmek için REST isteği oluşturun. Örnek için istek söz [dizimi örneğine](#request-syntax) bakın. Aşağıdaki bilgileri belirtmeniz gerekir:
 
-    - Microsoft Müşteri sözleşmesinin **TemplateId 'si** .
-    - Microsoft müşteri anlaşması şablonunun geçerli olduğu ülke.
-    - Microsoft müşteri anlaşması şablonunun yerelleştirilmesi gereken dil.
+    - Uygulamanın **templateId** Microsoft Müşteri Sözleşmesi.
+    - Uygulama şablonunun Microsoft Müşteri Sözleşmesi ülke.
+    - Uygulama şablonunun yerel Microsoft Müşteri Sözleşmesi dili.
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
-Bu kaynak için aşağıdaki istek sözdizimini kullanın:
+Bu kaynak için aşağıdaki istek söz dizimlerini kullanın:
 
 | Yöntem | İstek URI'si |
 |--------|---------------------------------------------------------------------|
-| GET | [*\{ BaseUrl \}*](partner-center-rest-urls.md)/v1/agreementtemplates/{Agreement-Template-id}/Document? Language = {Language} &ülke = {Country} http/1.1 |
+| GET | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/agreementtemplates/{agreement-template-id}/document?language={language}&country={country} HTTP/1.1 |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-İsteğinizle birlikte aşağıdaki URI parametrelerini kullanabilirsiniz:
+İsteğiniz ile aşağıdaki URI parametrelerini kullanabilirsiniz:
 
 | Ad                   | Tür   | Gerekli | Açıklama                                 |
 |------------------------|--------|----------|---------------------------------------------|
-| Sözleşme-şablon kimliği  | string | Yes      | Anlaşma türünün benzersiz tanımlayıcısı. Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini alarak Microsoft Müşteri Sözleşmesi için TemplateId 'yi edinebilirsiniz. Daha fazla bilgi için bkz. [Microsoft Müşteri Sözleşmesi için anlaşma meta verilerini edinme](./get-customer-agreement-metadata.md). Bu parametre, **büyük/küçük harfe duyarlıdır**.|
-| ülke                | dize | No       | Anlaşma şablonunun geçerli olduğu ülkeyi belirtir. Parametre belirtilmemişse sorgu *bizim* için varsayılan olarak olur. Desteklenen ülke kodlarının listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.|
-| language               | dize | No       | Sözleşme şablonunun yerelleştirilmesi gereken dili gösterir. Parametre belirtilmemişse sorgu varsayılan olarak *en-US* , belirtilen ülke için de belirtilen ülke kodu desteklenmez. Desteklenen ülke kodlarının listesi için [Desteklenen ülkeler ve diller listesine](#list-of-supported-countries-and-languages)bakın.|
+| agreement-template-id  | string | Yes      | Anlaşma türünün benzersiz tanımlayıcısı. Microsoft Müşteri Sözleşmesi için templateId'Microsoft Müşteri Sözleşmesi. Daha fazla bilgi için [bkz. Microsoft Müşteri Sözleşmesi.](./get-customer-agreement-metadata.md) Bu parametre **büyük/büyük/büyük harfe duyarlıdır.**|
+| ülke                | dize | No       | Anlaşma şablonunun uygulandığı ülkeyi gösterir. Parametresi *belirtilmezse sorgu* varsayılan olarak ABD olur. Desteklenen ülke kodlarının listesi için bkz. [Desteklenen ülkeler ve diller listesi.](#list-of-supported-countries-and-languages)|
+| language               | dize | No       | Anlaşma şablonunun yerelleştirilmiş olması gereken dili gösterir. Parametresi belirtilmemişse veya içinde belirtilen ülke kodu belirtilen ülke için desteklenmiyorsa sorgu varsayılan olarak *en-US* olur. Desteklenen ülke kodlarının listesi için [bkz. Desteklenen ülkeler ve diller listesi.](#list-of-supported-countries-and-languages)|
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -128,15 +128,15 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir [ **AgreementDocument** kaynağı](./agreement-document-resources.md) döndürür.
+Başarılı olursa, bu yöntem yanıt [ **gövdesinde** bir AgreementDocument](./agreement-document-resources.md) kaynağı döndürür.
 
-Kaynakta, anlaşma şablonunu indirmek için kullanılabilecek bir URL dizesi içeren bir **Downloaduri** özelliği vardır. Sorgu yaptığınızda farklı bir bağlantı döndürülür. Bu bağlantı beş dakika sonra dolar.
+Kaynağın, anlaşma şablonunu indirmek için kullanılan bir URL dizesi içeren **bir downloadUri** özelliği vardır. Her sorguda farklı bir bağlantı döndürülür. Bu bağlantının süresi beş dakika sonra dolar.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir.
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir.
 
-Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
@@ -154,12 +154,12 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-## <a name="list-of-supported-countries-and-languages"></a>Desteklenen ülkeler ve dillerin listesi
+## <a name="list-of-supported-countries-and-languages"></a>Desteklenen ülkeler ve diller listesi
 
 > [!IMPORTANT]
-> Ülke kodu özelliği büyük/küçük harfe duyarlıdır. Lütfen aşağıdaki tabloda belirtilen doğru büyük/küçük harfleri kullandığınızdan emin olun.
+> Ülke kodu özelliği büyük/büyük/büyük harfe duyarlıdır. Lütfen aşağıdaki tabloda belirtilen doğru büyük/büyük/büyük/altta belirtilen büyük/alta doğru büyük/büyük/alta doğru büyük/büyük/altta belirtilen büyük/alta doğru büyük/alta doğru büyük
 
-| Ülke                   | Ülke kodu   | Desteklenen dil kodları |
+| Ülke                   | Ülke kodu   | Desteklenen dil kodu |
 |------------------------|--------|----------|
 | Åland Adaları | Ax | en-US |
 | Afganistan | AF | en-US |
@@ -168,7 +168,7 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Amerikan Samoası | AS | en-US |
 | Andorra | AD | en-US |
 | Angola | AO | en-US, pt-PT |
-| Anguilla | Yapay Zeka | en-US |
+| Anguilla | AI | en-US |
 | Antarktika | Aq | en-US |
 | Antigua ve Barbuda | AG | en-US |
 | Arjantin | AR | en-US, es-ES |
@@ -196,71 +196,71 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Britanya Hint Okyanusu Toprakları | ıo | en-US |
 | Britanya Virjin Adaları | VG | en-US |
 | Brunei | BN | en-US |
-| Bulgaristan | BG | en-US, bg-BG |
+| Bulgaristan | BG | en-US, BG-BG |
 | Burkina Faso | BF | en-US |
 | Burundi | BI | en-US |
 | Fildişi Sahili (Côte d'Ivoire) | CI | en-US, fr-FR |
-| Cabo Verde | CV | en-US, pt-PT |
+| Cabo Verde | CV | en-US, PT NK |
 | Kamboçya | KH | en-US |
 | Kamerun | CM | en-US, fr-FR |
 | Kanada | CA | en-US, fr-FR |
 | Cayman Adaları | KY | en-US, en-US |
 | Orta Afrika Cumhuriyeti | CF | en-US |
 | Çad | TD | en-US |
-| Şili | CL | en-US, es-ES |
+| Şili | CL | en-US, ES-ES |
 | Christmas Adası | CX | en-US |
 | Cocos (Keeling) Adaları | CC | en-US |
-| Kolombiya | CO | en-US, es-ES |
-| Komorlar | Km | en-US |
+| Kolombiya | CO | en-US, ES-ES |
+| Komorlar | KM | en-US |
 | Kongo (KDC) | CD | en-US |
-| Kongo Cumhuriyeti | Cg | en-US |
-| Cook Adaları | Ck | en-US |
-| Kosta Rika | CR | en-US, es-ES |
-| Hırvatistan | HR | en-US, hr-HR |
-| Curaçao | Cw | en-US |
+| Kongo Cumhuriyeti | ILETISI | en-US |
+| Cook Adaları | STOKLAMA | en-US |
+| Kosta Rika | CR | en-US, ES-ES |
+| Hırvatistan | HR | en-US, HR-HR |
+| Curaçao | FIILI | en-US |
 | Kıbrıs | CY | en-US |
-| Çekya | CZ | en-US, cs-CZ |
+| Czechia | CZ | en-US, CS-CZ |
 | Danimarka | DK | en-US, da-DK |
-| Cibuti | Dj | en-US |
+| Cibuti | DJ | en-US |
 | Dominika | DM | en-US |
-| Dominik Cumhuriyeti | DO | en-US, es-ES |
+| Dominik Cumhuriyeti | DO | en-US, ES-ES |
 | Ekvador | EC | en-US |
 | Mısır | EG | en-US, ar-SA |
-| El Salvador | SV | en-US, es-ES |
-| Ekvator Ginesi | Gq | en-US |
+| El Salvador | SV | en-US, ES-ES |
+| Ekvator Ginesi | GQ | en-US |
 | Eritre | ER | en-US |
 | Estonya | EE | en-US, et-EE |
 | eSwatini | SZ | en-US |
 | Etiyopya | ET | en-US |
-| Falkland Adaları | FK | en-US |
-| Faroe Adaları | INFO | en-US |
+| Falkland Adaları | Fk | en-US |
+| Faroe Adaları | Fo | en-US |
 | Fiji | FJ | en-US |
-| Finlandiya | FI | en-US, Fi-FI |
+| Finlandiya | FI | en-US, fi-FI |
 | Fransa | GS | en-US, fr-FR |
 | Fransız Guyanası | GF | en-US, fr-FR  |
 | Fransız Polinezyası | PF | en-US |
-| Fransız Güney Toprakları | The | en-US |
+| Fransız Güney Toprakları | Tf | en-US |
 | Gabon | GA | en-US |
 | Gambiya | GM | en-US |
 | Gürcistan | GE | en-US |
 | Almanya | DE | en-US, de-DE |
 | Gana | GH | en-US |
-| Cebelitarık | ANACAĞı | en-US |
+| Cebelitarık | Gı | en-US |
 | Yunanistan | GR | en-US, el-GR |
-| Grönland | G | en-US |
-| Grenada | GD | en-US |
+| Grönland | Gl | en-US |
+| Grenada | Gd | en-US |
 | Guadeloupe | GP | en-US |
 | Guam | GU | en-US |
-| Guatemala | GT | en-US, ES-ES |
-| Guernsey | GG | en-US |
+| Guatemala | GT | en-US, es-ES |
+| Guernsey | Gg | en-US |
 | Gine | GN | en-US |
-| Gine-Bissau | GW | en-US |
+| Gine-Bissau | Gw | en-US |
 | Guyana | GY | en-US |
 | Haiti | HT | en-US |
-| Heard Adası ve McDonald Adaları | HM | en-US |
-| Honduras | HN | en-US, ES-ES |
+| Heard Adası ve McDonald Adaları | Hm | en-US |
+| Honduras | HN | en-US, es-ES |
 | Hong Kong ÖİB | HK | en-US, zh-HK |
-| Macaristan | HU | en-US, HU-HU |
+| Macaristan | HU | en-US, hu-HU |
 | İzlanda | IS | en-US |
 | Hindistan | IN | en-US, hi-IN |
 | Endonezya | ID | en-US, id-ID |
@@ -397,13 +397,13 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 | Birleşik Arap Emirlikleri | AE | en-US, ar-SA |
 | Birleşik Krallık | GB | en-US |
 | Birleşik Devletler | ABD | en-US |
-| Uruguay | UY | en-US, es-ES |
+| Uruguay | UY | en-US, ES-ES |
 | Özbekistan | UZ | en-US, ru-RU |
-| Vanuatu | Vu | en-US |
+| Vanuatu | Vu & lt | en-US |
 | Vatikan | VA | en-US |
-| Venezuela | VE | en-US, es-ES |
+| Venezuela | VE | en-US, ES-ES |
 | Vietnam | VN | en-US, vi-VN |
-| Wallis veUçsuzuna | WF | en-US |
-| Yemen | YE | en-US, ar-SA |
+| Wallis ve Futuna | WF | en-US |
+| Yemen | Vet | en-US, ar-SA |
 | Zambiya | ZM | en-US |
 | Zimbabve | ZW | en-US |

@@ -1,70 +1,70 @@
 ---
 title: Hizmet maliyetleri kaynakları
-description: Müşteri tarafından satın alınan hizmetlerle ilgili kaynakları açıklar.
+description: Bir müşteri tarafından satın alınan hizmetlerle ilgili kaynakları açıklar.
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: dbddc1973dd9a904cedd549c1772cd4c74c69a60
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 8c1e3a05be89eee12d708a3a37e008ec7fa42358eaec7e1f020aaa47e44b452c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547419"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996147"
 ---
 # <a name="service-costs-resources"></a>Hizmet maliyetleri kaynakları
 
-Müşteri tarafından satın alınan hizmetlerle ilgili kaynakları açıklar.
+Bir müşteri tarafından satın alınan hizmetlerle ilgili kaynakları açıklar.
 
 ## <a name="servicecostssummary"></a>ServiceCostsSummary
 
-**ServiceCostsSummary,** faturalama döneminde belirtilen müşteri tarafından satın alınan tüm hizmetleri toplanmış bir özet içerir.
+**Servicecostssummary** , fatura dönemi boyunca belirtilen müşteri tarafından satın alınan tüm hizmetleri toplayan bir Özet içerir.
 
-| Özellik | Tür | Açıklama |
+| Özellik | Tür | Description |
 | -------- | ---- | ----------- |
-| Şey | [ServiceCostsSummaryDetail nesneleri](#servicecostssummarydetail) dizisi | Fatura türüne göre ayırt edilen hizmet maliyeti özeti ayrıntı listesi.|
-| Bağlantı | [ResourceLinks](utility-resources.md#resourcelinks) | Kaynak bağlantıları. |
-| öznitelikler | [Resourceattributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri. |
+| bilgileri | [ServiceCostsSummaryDetail](#servicecostssummarydetail) nesneleri dizisi | Fatura tipine göre ayırt edilen hizmet maliyeti Özet ayrıntısı listesi.|
+| Köprü | [Resourcelmürekkepler](utility-resources.md#resourcelinks) | Kaynak bağlantıları. |
+| öznitelikler | [ResourceAttributes](utility-resources.md#resourceattributes) | Meta veri öznitelikleri. |
 
 > [!IMPORTANT]
-> **Aşağıdaki tablodaki alanlar kullanım dışıdır.** Yinelenen ve tek kullanımlık hizmet maliyeti özetlerini almak için ayrıntılar **alanını** kullanın. Ayrıntılar  alanı önceki tabloda açıklanmıştır. Ayrıntılar alanına **karşılık** gelen veri değerlerine bakın, ancak kök düzeyindeki alanlara bakın.
+> **Aşağıdaki tabloda yer alan alanlar kullanım dışı bırakılmıştır.** Yinelenen ve tek seferlik hizmet maliyeti özetlerini almak için, bunun yerine **Ayrıntılar** alanını kullanın. **Ayrıntılar** alanı önceki tabloda açıklanmıştır. **Ayrıntılar** alanının karşılık gelen veri değerlerine bakın, ancak kök düzeyi alanları değildir.
 
-| Özellik | Tür | Açıklama |
+| Özellik | Tür | Description |
 | -------- | ---- | ----------- |
-| billingStartDate | date | Faturalama döneminin başlangıcı. |
-| billingEndDate | date | Faturalama döneminin sonu. |
-| pretaxTotal | double | Müşterinin tüm maliyetlerinin vergi öncesi toplamı. |
-| Vergi  | double | Müşteri tarafından satın alınan tüm öğeler için tahakkuk eden toplam vergi. |
+| billingStartDate | date | Fatura döneminin başlangıcı. |
+| billingEndDate | date | Fatura döneminin sonu. |
+| pretaxTotal | double | Müşterinin tüm maliyetlerinin ön vergi toplamı. |
+| VERG  | double | Müşteri tarafından satın alınan tüm öğeler üzerinde tahakkuk eden toplam vergi. |
 | afterTaxTotal | double | Müşteri tarafından satın alınan tüm öğelerin net toplam maliyeti. |
 | currencyCode | string | Maliyetler için kullanılan para birimini temsil eder. |
-| Currencysymbol | string | Maliyetler için kullanılan para birimi simgesi. |
-| customerId | string | Satın alma yapan müşterinin kimliği. |
+| currencySymbol | string | Maliyetler için kullanılan para birimi simgesi. |
+| customerId | string | Satın alma yapan müşterinin KIMLIĞI. |
 
 ## <a name="servicecostssummarydetail"></a>ServiceCostsSummaryDetail
 
-**ServiceCostsSummaryDetail,** faturalama döneminde (yinelenen veya bir defalık faturalardan) belirtilen müşteri tarafından satın alınan tüm hizmetleri toplayan bir hizmet maliyeti özetini açıklar.
+**ServiceCostsSummaryDetail** , fatura dönemi (yinelenen veya tek seferlik faturalardan) sırasında belirtilen müşteri tarafından satın alınan tüm hizmetleri toplayan bir servis maliyeti Özeti açıklar.
 
-| Özellik | Tür | Açıklama |
+| Özellik | Tür | Description |
 | -------- | ---- | ----------- |
-| invoiceType | string | Hizmet maliyeti özetini oluşturan invoiceType. |
-| Özet | [ServiceCostsSummary](#servicecostssummary) | Müşteri tarafından tek bir fatura türü altında toplanan hizmet maliyeti özeti. |
+| Faturano Etype | string | Faturaya ait hizmet maliyeti Özeti oluşturulmuştur. |
+| Özet | [ServiceCostsSummary](#servicecostssummary) | Bir müşteri tarafından bir fatura türü altında toplanan hizmet maliyet özeti. |
 
-## <a name="servicecostlineitem"></a>ServiceCostLineItem
+## <a name="servicecostlineitem"></a>Servicecostlineıtem
 
-**ServiceCostLineItem,** müşteri tarafından satın alınan tek bir öğeyi açıklar.
+**Servicecostlineıtem** , müşteri tarafından satın alınan tek bir öğeyi açıklar.
 
 > [!IMPORTANT]
-> Aşağıdaki özellikler *yalnızca ürünün* tek kullanımlık satın alma olduğu hizmet maliyeti satır öğeleri için geçerlidir: **productId**, **productName**, **skuId , skuName**, **availabilityId**, **publisherId**, **publisherName**, **termAndBillingCycle**, **discountDetails**.   Bu *özellikler, ürünün yinelenen bir* satın alma olduğu hizmet satırı öğeleri *için geçerli değildir.* Örneğin, bu özellikler *abonelik tabanlı abonelikler* ve Azure Office 365 geçerli değildir.
+> Aşağıdaki özellikler yalnızca ürünün *bir kerelik satın alma* işlemi olduğu servis maliyeti satırı öğeleri *için geçerlidir* : **ProductID**, **ProductName**, **skuid**, **skuname**, **kullanılabilirliği bilityıd**, **publisherID**, **PublisherName**, **terdibillingcycle**, **decountdetails**. Bu özellikler, ürünün *yinelenen satın alma* işlemi olduğu hizmet satırı öğeleri *için uygulanmaz* . örneğin, bu özellikler abonelik tabanlı Office 365 ve Azure için *geçerlidir* .
 
-| Özellik                 | Tür                           | Açıklama                                                          |
+| Özellik                 | Tür                           | Description                                                          |
 |--------------------------|--------------------------------|----------------------------------------------------------------------|
-| Startdate                | UTC tarih-saat biçiminde dize | Ücretin başlangıç tarihi.                                       |
-| Bitiştarihi                  | UTC tarih-saat biçiminde dize | Ücretin bitiş tarihi.                                         |
+| Başlangıç                | UTC Tarih-saat biçiminde dize | Ücret için başlangıç tarihi.                                       |
+| endDate                  | UTC Tarih-saat biçiminde dize | Ücretin bitiş tarihi.                                         |
 | subscriptionFriendlyName | string                         | Aboneliğin kolay adı.                              |
 | subscriptionId           | string                         | Abonelik tanımlayıcısı.                                         |
-| Siparişno                  | string                         | Sipariş tanımlayıcısı.                                                |
-| offerId                  | string                         | Teklif tanımlayıcısı.                                                |
+| Sipariş                  | string                         | Sıra tanımlayıcısı.                                                |
+| OfferId                  | string                         | Teklif tanımlayıcısı.                                                |
 | offerName                | string                         | Teklif adı.                                                      |
-| resellerMPNId            | string                         | Yalnızca iki katmanlı iş ortağı senaryolarında kullanılır. MPN tanımlayıcısına başvurur. |
+| Resellermpnıd            | string                         | Yalnızca iki katmanlı iş ortağı senaryolarında kullanılır. MPN tanımlayıcısını ifade eder. |
 | chargeType               | string                         | İlişkili ücret türü.                                          |
 | miktar                 | sayı                         | Kullanılan veya satın alınan birim miktarı.                             |
 | unitPrice                | sayı                         | Birim başına fiyat.                                                  |
@@ -88,7 +88,7 @@ Müşteri tarafından satın alınan hizmetlerle ilgili kaynakları açıklar.
 
 ## <a name="servicecostssummarylinks"></a>ServiceCostsSummaryLinks
 
-| Özellik             | Tür                               | Açıklama                         |
+| Özellik             | Tür                               | Description                         |
 |----------------------|------------------------------------|-------------------------------------|
 | serviceCostLineItems | [Bağlantı](utility-resources.md#link) | Satır öğelerini almak için URI. |
 | Kendini                 | [Bağlantı](utility-resources.md#link) | Kendi kendine URI.                       |

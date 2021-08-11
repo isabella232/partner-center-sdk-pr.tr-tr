@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: d4d97667b5fd6b92c85889f1288dd770c2d1c035
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 3ca272e81a91d0f27b8c01104f6b26230327b772517b76268dbfc5014830b915
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973120"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995195"
 ---
 # <a name="direct-signing-direct-acceptance-status-of-a-customer-agreement"></a>Müşteri anlaşmasının doğrudan imzalama (doğrudan kabul) durumu
 
@@ -27,6 +27,6 @@ ms.locfileid: "111973120"
 
 **DirectSignedCustomerAgreementStatus** kaynağı aşağıdaki özellikleri içerir:
 
-| Özellik       | Tür   | Açıklama                                                                                               |
+| Özellik       | Tür   | Description                                                                                               |
 |----------------|--------|-----------------------------------------------------------------------------------------------------------|
 | ıssigned | boolean | Müşteri anlaşmasının müşteri tarafından doğrudan imzalandı mı (kabul edildi) olduğunu gösterir. |

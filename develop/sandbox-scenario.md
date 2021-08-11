@@ -4,12 +4,12 @@ description: İş ortağı korumalı alanı, iş ortağı ile müşteri arasınd
 ms.date: 05/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: aa6c4fb9ef71bacfad7e0f1510fec15f6af60a05
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 14133627a607c6e4151a90c37565e5f62823345e007eb55d87100de25d1f161a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547402"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996861"
 ---
 # <a name="sandbox-capabilities-for-reseller-relationship"></a>Kurumsal Bayi ilişkisi için korumalı alan özellikleri
 

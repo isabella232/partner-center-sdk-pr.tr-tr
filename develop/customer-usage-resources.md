@@ -1,67 +1,67 @@
 ---
 title: Müşteri kullanım kaynakları
-description: Kullanım tabanlı aboneliğe sahip müşterilere yönelik kaynaklar ve aylık kullanım bütçeleri (CustomerMonthlyUsageRecord, CustomerUsageSummary, PartnerUsageSummary ve Spendingbütçesi dahil).
+description: Kullanım tabanlı abonelikler ve aylık kullanım bütçeleri (CustomerMonthlyUsageRecord, CustomerUsageSummary, PartnerUsageSummary ve SpendingBudget dahil) olan müşteriler için kaynaklar.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: eae516e2f759dfc2e8f80e946a835d70760c5c9e
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 066fd84f872365b419796f00125c097c685f4579731aaacd67e826bf671bd789
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973052"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995161"
 ---
 # <a name="customer-usage-resources"></a>Müşteri kullanım kaynakları
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Kullanım tabanlı aboneliğe sahip müşteriler aylık kullanım bütçesine sahip olabilir. Bu bütçe, müşterinin en yüksek kullanım kullanımı için bir sınır ayarlar ve ortağın zaman içinde kullanımını izlemesine olanak sağlar.
+Kullanım tabanlı abonelikleri olan müşteriler aylık kullanım bütçesine sahip olabilir. Bu bütçe, müşterinin maksimum kullanımına bir sınır ayarlar ve iş ortağının zaman içinde kullanımını izlemesine olanak sağlar.
 
 > [!NOTE]
-> Müşteri kullanım numaraları, Faturalandırma amacıyla kullanılmamalıdır (son değerler değil) tahminlerdir.
+> Müşteri kullanım numaraları, faturalama amacıyla kullanılmayacak tahminlerdir (son değerler değildir).
 
 ## <a name="customermonthlyusagerecord"></a>CustomerMonthlyUsageRecord
 
-**CustomerMonthlyUsageRecord** , geçerli aydaki bir müşterinin kullanımının tahmini parasal maliyetini temsil eder.
+**CustomerMonthlyUsageRecord,** geçerli ay içinde bir müşterinin kullanımının tahmini parasal maliyetini temsil eder.
 
-| Özellik         | Tür               | Açıklama                                                              |
+| Özellik         | Tür               | Description                                                              |
 |------------------|--------------------|--------------------------------------------------------------------------|
-| Bütçe           | Spendingbütçe     | Müşteri için ayrılan harcama bütçesi.                          |
-| Yüztused      | decimal             | Ayrılan bütçenin yüzdesi.                        |
+| Bütçe           | SpendingBudget     | Müşteri için ayrılan harcama bütçesi.                          |
+| PercentUsed      | decimal             | Ayrılan bütçeden kullanılan yüzde.                        |
 | ResourceId       | string             | Kaynağın benzersiz tanımlayıcısı.                                   |
 | ResourceName     | string             | Kaynağın adı.                                                |
-| Toplam maliyet        | decimal             | Abonelikteki kaynaklar için tahmini toplam kullanım maliyeti.|
-| CurrencyLocale   | string             | Müşterinin para birimi yerel ayarı. Microsoft Azure (MS-azr-0145p) abonelikleri için kullanılabilir.            |
+| Toplam Toplam Toplam        | decimal             | Abonelikte kaynaklar için tahmini toplam kullanım maliyeti.|
+| CurrencyLocale   | string             | Müşterinin para birimi yerel değeri. Microsoft Azure (MS-AZR-0145P) abonelikleri için kullanılabilir.            |
 | CurrencyCode     | string             | Para birimi kodunu alır veya ayarlar. Azure planları için kullanılabilir.           |
-| USDTotalCost     | decimal             | Tahmini toplam maliyeti USD cinsinden alır veya ayarlar. Azure planları için kullanılabilir.                                         |
-| Iyükseltilen       | bool             | Müşterinin Azure aboneliğinin yükseltilip yükseltilmediğini gösteren bir değer alır veya ayarlar. **True** değeri, bir Azure planına sahip olan müşterileri temsil eder.                         |
-| LastModifiedDate olarak ayarlayın | date               | Kullanım verilerinin son değiştirilme tarihi.                               |
-| Öznitelikler       | ResourceAttributes | Kullanım kaydına karşılık gelen meta veri öznitelikleri.               |
+| USDTotalCost     | decimal             | Tahmini toplam maliyeti ABD doları olarak alır veya ayarlar. Azure planları için kullanılabilir.                                         |
+| IsUpgraded       | bool             | Müşterinin Azure aboneliğinin yükseltilip yükseltil olmadığını belirten bir değer alır veya ayarlar. **true** değeri, Azure planına sahip olan müşterileri temsil eder.                         |
+| LastModifiedDate olarak ayarlayın | date               | Kullanım verilerini son değiştirme tarihi.                               |
+| Öznitelikler       | Resourceattributes | Kullanım kaydına karşılık gelen meta veri öznitelikleri.               |
 
 ## <a name="customerusagesummary"></a>CustomerUsageSummary
 
-**Customerusagesummary** , bir fatura döneminin tamamına ait müşterinin kullanımının özetini temsil eder.
+**CustomerUsageSummary,** faturalama döneminin tamamı için müşterinin kullanımının özetini temsil eder.
 
-| Özellik         | Tür               | Açıklama                                                                                                      |
+| Özellik         | Tür               | Description                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
-| Bütçe           | Spendingbütçe     | Müşteri için ayrılan harcama bütçesi.                                                                  |
-| ResourceId       | string             | Kaynağın benzersiz tanımlayıcısı. CustomerMonthlyUsageRecord bağlamında bu KIMLIK müşteri KIMLIĞIDIR. |
-| ResourceName     | string             | Kaynağın adı. CustomerMonthlyUsageRecord bağlamında, bu müşteri adıdır.               |
-| BillingStartDate | date               | Geçerli fatura döneminin başlangıç tarihi.                                                                    |
-| BillingEndDate   | date               | Geçerli fatura döneminin bitiş tarihi.                                                                      |
-| Toplam maliyet        | decimal             | Abonelikteki kaynaklar için tahmini toplam kullanım maliyeti.                                         |
-| CurrencyLocale   | string             | Müşterinin para birimi yerel ayarı. Microsoft Azure (MS-azr-0145p) abonelikleri için kullanılabilir.                                         |
+| Bütçe           | SpendingBudget     | Müşteri için ayrılan harcama bütçesi.                                                                  |
+| ResourceId       | string             | Kaynağın benzersiz tanımlayıcısı. CustomerMonthlyUsageRecord bağlamında bu kimlik, müşteri kimliğidir. |
+| ResourceName     | string             | Kaynağın adı. CustomerMonthlyUsageRecord bağlamında bu müşteri adıdır.               |
+| BillingStartDate | date               | Geçerli faturalama döneminin başlangıç tarihi.                                                                    |
+| BillingEndDate   | date               | Geçerli faturalama döneminin bitiş tarihi.                                                                      |
+| Toplam Toplam Toplam        | decimal             | Abonelikte kaynaklar için tahmini toplam kullanım maliyeti.                                         |
+| CurrencyLocale   | string             | Müşterinin para birimi yerel değeri. Microsoft Azure (MS-AZR-0145P) abonelikleri için kullanılabilir.                                         |
 | CurrencyCode     | string             | Para birimi kodunu alır veya ayarlar. Azure planları için kullanılabilir.                                         |
-| USDTotalCost     | decimal             | Tahmini toplam maliyeti USD cinsinden alır veya ayarlar. Azure plan aboneliği kaynakları için kullanılabilir.                                         |
-| LastModifiedDate olarak ayarlayın | date               | Kullanım verilerinin son değiştirilme tarihi.                                                                       |
-| Bağlantılar            | Resourcelmürekkepler      | Kullanım özetine karşılık gelen kaynak bağlantıları.                                                           |
-| Öznitelikler       | ResourceAttributes | Kullanım özetine karşılık gelen meta veri öznitelikleri.                                                      |
+| USDTotalCost     | decimal             | Tahmini toplam maliyeti ABD doları olarak alır veya ayarlar. Azure planı abonelik kaynakları için kullanılabilir.                                         |
+| LastModifiedDate olarak ayarlayın | date               | Kullanım verilerini son değiştirme tarihi.                                                                       |
+| Bağlantılar            | ResourceLinks      | Kullanım özetine karşılık gelen kaynak bağlantıları.                                                           |
+| Öznitelikler       | Resourceattributes | Kullanım özetine karşılık gelen meta veri öznitelikleri.                                                      |
 
 ## <a name="partnerusagesummary"></a>PartnerUsageSummary
 
-**Partnerusagesummary** , tüm müşteriler için kullanım bütçesinin iş ortağı düzeyinde özetini temsil eder.
+**PartnerUsageSummary,** tüm müşteriler için kullanım bütçesinin iş ortağı düzeyindeki bir özetini temsil eder.
 
-| Özellik         | Tür               | Açıklama                                                                                                      |
+| Özellik         | Tür               | Description                                                                                                      |
 |------------------|--------------------|------------------------------------------------------------------------------------------------------------------|
 | EmailsToNotify   | dize dizisi   | Bildirimler için e-posta adresleri listesi.                                                                   |
 | Müşter, bütçeyi aşan | tamsayı          | Bütçeyi alan müşterilerin sayısı.                                                                    |
@@ -81,7 +81,7 @@ Kullanım tabanlı aboneliğe sahip müşteriler aylık kullanım bütçesine sa
 
 **Spendingbütçe** , bu müşteriye kullanım tabanlı abonelikler için ayrılan bütçeyi temsil eder.
 
-| Özellik   | Tür               | Açıklama                                                                                         |
+| Özellik   | Tür               | Description                                                                                         |
 |------------|--------------------|-----------------------------------------------------------------------------------------------------|
 | Miktar     | decimal             | Ayrılan bütçe. Değer null ise, bu müşteriye ayrılan harcama bütçesi yoktur. |
 | Öznitelikler | ResourceAttributes | Bütçeye karşılık gelen meta veri öznitelikleri.                                                |

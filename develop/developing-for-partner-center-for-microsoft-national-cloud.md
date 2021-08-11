@@ -1,81 +1,81 @@
 ---
-title: Microsoft Ulusal bulutları için Iş Ortağı Merkezi için geliştirme
-description: Microsoft Ulusal bulutları için Iş Ortağı Merkezi için geliştirme yaparken iş ortağı Merkezi SDK farkları.
+title: Microsoft Ulusal İş Ortağı Merkezi için geliştirme
+description: İş Ortağı Merkezi SDK'sı Microsoft Ulusal Bulutları için İş Ortağı Merkezi geliştirme arasındaki farklar.
 MS-HAID:
 - pc\_apiv2.developing\_with\_different\_partner\_center\_versions
 - pc\_apiv2.developing\_for\_partner\_center\_for\_microsoft\_national\_cloud
 ms.date: 06/11/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d38a35fb88b4835716e429aeed731a0d55d9a669
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: f8b9b3c3b9a1a1173cf8f3e79f60e629e3d34ea13ecce2e7a2c74924bde2b7d1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906451"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994872"
 ---
-# <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Microsoft Ulusal bulutları için Iş Ortağı Merkezi için geliştirme
+# <a name="developing-for-partner-center-for-microsoft-national-clouds"></a>Microsoft Ulusal İş Ortağı Merkezi için geliştirme
 
-**Uygulama hedefi**: 21Vianet tarafından işletilen Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+21Vianet İş Ortağı Merkezi tarafından çalıştırılan | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-İş Ortağı Merkezi 'nin bir SDK belgeleri kümesi vardır. Ancak, bazı işlevler Microsoft Ulusal bulutları için Iş Ortağı Merkezi sürümlerinde kullanılamayabilir.
+İş Ortağı Merkezi SDK belgeleri kümesi vardır. Ancak, Bazı işlevler Microsoft Ulusal Bulutlar için İş Ortağı Merkezi sürümlerinde kullanılamıyor olabilir.
 
-Geliştiricilerin aşağıdaki Iş ortağı merkezi sürümleri için SDK değişikliklerini göz önünde bulundurmanız gerekir:
+Geliştiricilerin sdk'nın aşağıdaki sürümleri için değişikliklerini göz önünde İş Ortağı Merkezi:
 
 - [21Vianet tarafından çalıştırılan İş Ortağı Merkezi](#partner-center-operated-by-21vianet)
 - [Microsoft Bulut Almanya için İş Ortağı Merkezi](#partner-center-for-microsoft-cloud-germany)
 - [Microsoft Cloud for US Government için İş Ortağı Merkezi](#partner-center-for-microsoft-cloud-for-us-government)
 
-Her Iş Ortağı Merkezi SDK makalesinde ilgili Iş ortağı merkezi sürümleri listelenir. Her yönetilen başvuru makalesi, **gereksinimler** bölümünde geçerli Iş Ortağı Merkezi sürümlerini de listeler.
+Her İş Ortağı Merkezi SDK'sı ilgili sürümler İş Ortağı Merkezi listeler. Her yönetilen başvuru makalesi, Gereksinimler bölümünde İş Ortağı Merkezi sürümleri **de** listeler.
 
 ## <a name="partner-center-operated-by-21vianet"></a>21Vianet tarafından çalıştırılan İş Ortağı Merkezi
 
-*21Vianet tarafından işletilen* iş *Ortağı Merkezi ve iş* ortağı merkezi arasındaki iş ortakları arasındaki farklar şunlardır:
+*21Vianet* *tarafından İş Ortağı Merkezi* İş Ortağı Merkezi iş ortakları arasındaki farklar:
 
-- Bir müşteri kullanıcısı veya tam iş ortağı kullanıcısı için bir parolayı program aracılığıyla sıfırlayamazsınız.
+- Bir müşteri kullanıcısı veya tam iş ortağı kullanıcısı için program aracılığıyla parola sıfırlayabilirsiniz.
 
-- Azure abonelikleri kullanılamıyor.
+- Azure'a abonelikler kullanılamaz.
 
-- Müşterinizin kullanıcısına ilişkin lisansları yönetemezsiniz. bunun yerine, müşterilerinizin lisanslarını yönetmek için Office 365 yönetim merkezini kullanması gerekir.
+- Müşterinizin kullanıcı lisanslarını yönetesiniz. Bunun yerine, müşterilerin lisanslarını yönetmek Office 365 merkezi yönetim merkezini kullanmaları gerekir.
 
-- Tüm destek istekleri, 21Vianet tarafından işletilen Iş Ortağı Merkezi aracılığıyla yönetilir. Hizmet istekleri ve hizmet güncelleştirmeleri uygulanmaz.
+- Tüm destek istekleri 21Vianet İş Ortağı Merkezi yönetilen ağ üzerinden yönetilir. Hizmet istekleri ve hizmet güncelleştirmeleri geçerli değildir.
 
 ## <a name="partner-center-for-microsoft-cloud-germany"></a>Microsoft Bulut Almanya için İş Ortağı Merkezi
 
 > [!IMPORTANT]
-> Müşterilerin ihtiyaçlarına bağlı olarak, Almanya için bulut stratejimiz, genel bulut teklifimiz ile tutarlı olan Almanya 'daki yeni bulut bölgelerinin teslimatını odaklamaktadır. Bu odak sayesinde, artık yeni müşterileri kabul etmiyoruz veya mevcut Almanya Microsoft Bulut yeni hizmetleri dağıtacağız. Mevcut müşteriler, gerekli güvenlik güncelleştirmeleriyle korunabilediğimiz geçerli bulut hizmetlerini kullanmaya devam edebilir.
+> Müşterilerin ihtiyaçlarına göre Almanya için bulut stratejimiz, küresel bulut teklifimiz ile tutarlı olan yeni bulut bölgelerinin Almanya'da teslimi üzerine odaklanacak. Bu odak noktasıyla, artık şu anda kullanılabilen Microsoft Bulut Almanya'da yeni müşteri kabul etmeyecek veya yeni hizmet dağıtmayacağız. Mevcut müşteriler bugün kullanılabilen geçerli bulut hizmetlerini kullanmaya devam edebilir. Bu hizmetleri gerekli güvenlik güncelleştirmeleriyle koruyacağız.
 >
-> İleri doğru hareket eden yeni müşteriler kullanılabilir hale geldiğinde mevcut Avrupa bölgelerini veya Almanya 'daki yeni bölgeleri kullanma seçeneğine sahiptir. Daha fazla bilgi için bkz. [Microsoft, Almanya 'daki yeni veri merkezlerinden bulut hizmetleri sunma](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/).
+> Daha sonra yeni müşteriler, kullanılabilir olduğunda şu anda kullanılabilir olan Avrupa bölgelerini veya Almanya'daki yeni bölgeleri kullanma seçeneğine sahip olur. Daha fazla bilgi için bkz. [Microsoft bulut hizmetlerini Almanya'da yeni veri merkezlerinden sağlıyor](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/).
 
-*Microsoft bulut Almanya için* Iş *Ortağı Merkezi* ve iş ortağı merkezi arasındaki iş ortakları arasındaki farklar şunlardır:
+Microsoft Bulut Almanya için *İş Ortağı Merkezi* İş Ortağı Merkezi *arasındaki iş ortakları arasındaki farklar:*
 
-- İş ortakları, müşteri kuruluşu için Kullanıcı oluşturamaz veya rol atayabilir.
-  - İş ortakları alanları okuyabilir, ancak yazamaz veya güncelleştiremez.
-  - iş ortaklarının, Office 365 yönetim merkezinde veya Azure portal aracılığıyla müşterilerinin kullanıcılarını el ile oluşturması veya güncelleştirmesi gerekir. [Azure Active Directory belgelerine](/azure/active-directory/)bakın.
+- İş ortakları, müşterilerinin kuruluşu için kullanıcı oluşturama ya da rol atamaz.
+  - İş ortakları alanları okuyabilir, ancak yazamaz veya güncelleştiramaz.
+  - İş ortaklarının müşteri kullanıcılarını yönetim merkezinde veya Office 365 el ile oluşturması veya güncelleştirmesi Azure portal. Bkz. [Azure Active Directory Belgeleri.](/azure/active-directory/)
 
-- Microsoft Bulut Almanya portalı veya API 'Leri için Iş Ortağı Merkezi 'ni kullanarak müşterinizin kullanıcılarına yönelik lisansları yönetemezsiniz. bunun yerine, lisanslarını yönetmek için Office 365 yönetim merkezi veya Azure etkin doğrudan grup lisans yönetimi 'ni (çok yakında) kullanmanız gerekir.
-  - (isteğe bağlı) Azure AD Graph API kullanabilirsiniz. Bkz. [bir kullanıcıya lisans atama](/graph/api/user-assignlicense). Microsoft Bulut almanya için iş ortağı merkezi için yerine Graph uç noktasını kullandığınızdan emin olun `https://graph.cloudapi.de` `https://graph.windows.net` .
+- Microsoft Bulut Almanya portalı veya API'leri için İş Ortağı Merkezi kullanıcılarının lisanslarını yönetesiniz. Bunun yerine, lisanslarını yönetmek Office 365 yönetim merkezini veya Azure Active Directly Group lisans yönetimini (çok yakında) kullanabilirsiniz.
+  - (İsteğe bağlı) Azure AD api'sini Graph kullanabilirsiniz. Bkz. [Kullanıcıya Lisans Atama.](/graph/api/user-assignlicense) Microsoft İş Ortağı Merkezi için, yerine uygulama uç noktasını Graph emin `https://graph.cloudapi.de` `https://graph.windows.net` olun.
 
-- Bir müşteri kullanıcısı veya tam iş ortağı kullanıcısı için bir parolayı program aracılığıyla sıfırlayamazsınız. Office 365 yönetim merkezini veya Azure portal kullanın. Bkz. [Azure Active Directory Kullanıcı parolasını sıfırlama](/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal). 1. adım için Microsoft Bulut Almanya Azure portal oturum açmalısınız.
+- Bir müşteri kullanıcısı veya tam iş ortağı kullanıcısı için program aracılığıyla parola sıfırlayabilirsiniz. Office 365 yönetim merkezini veya Azure portal. Bkz. [Azure Active Directory'de bir kullanıcının parolasını sıfırlama.](/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) 1. adım için Microsoft Bulut Almanya için Azure portal oturum açmanız gerekir.
 
-- Geliştiricilerin, Microsoft Bulut Almanya için Iş Ortağı Merkezi uygulamasındaki Iş Ortağı Merkezi API/SDK işlevini bütünleştirmek için uygulama KIMLIKLERINI el ile kaydetmesi gerekir. Daha fazla bilgi için bkz. [Microsoft Ulusal bulut Için Iş Ortağı Merkezi için uygulama ayrıntılarını kaydetme](create-apps-for-partner-center-for-microsoft-national-clouds.md).
+- Geliştiricilerin Microsoft Bulut Almanya'ya İş Ortağı Merkezi api/SDK işlevselliğini uygulamalarıyla tümleştiren uygulama İş Ortağı Merkezi el ile kaydetmesi gerekir. Daha fazla bilgi için [bkz. Microsoft Ulusal Bulut İş Ortağı Merkezi için uygulama ayrıntılarını kaydetme.](create-apps-for-partner-center-for-microsoft-national-clouds.md)
 
 ## <a name="partner-center-for-microsoft-cloud-for-us-government"></a>Microsoft Cloud for US Government için İş Ortağı Merkezi
 
-Microsoft Cloud for US Government iş *ortağı merkezi* ve iş *ortağı merkezi* arasındaki iş ortakları arasındaki farklar şunlardır:
+İş ortakları için İş Ortağı Merkezi *ve* *İş Ortağı Merkezi arasındaki Microsoft Cloud for US Government* farklar:
 
-- Office 365 abonelikler şu anda Microsoft Cloud for US Government için iş ortağı merkezi için kullanılamaz.
+- Office 365 abonelikler şu anda İş Ortağı Merkezi için Microsoft Cloud for US Government.
 
-- Microsoft Cloud for US Government destekleyen mevcut iş ortakları, Microsoft Cloud for US Government için iş ortağı merkezi 'nde yeni hesaplar oluşturmanız gerekir.
+- Yeni hesap oluşturma Microsoft Cloud for US Government mevcut iş ortaklarının yeni hesaplar oluşturması İş Ortağı Merkezi için Microsoft Cloud for US Government.
 
-- Microsoft Cloud for US Government müşteriler tek bir iş ortağıyla transact olmalıdır.
-  - Microsoft Cloud for US Government senaryolarındaki mevcut bir müşteriyle çok kanallı ve çoklu iş ortağı ve istek ilişkisi geçerli değildir. bu sınırlama Office 365 şu anda kullanılamıyor.
+- Microsoft Cloud for US Government tek bir iş ortağıyla işlemde olması gerekir.
+  - Çok kanallı ve çok iş parçası olan ve mevcut müşteriyle istek ilişkisi Microsoft Cloud for US Government senaryolar geçerli değildir. Bu sınırlamanın nedeni Office 365 şu anda mevcut değildir.
 
-- İş ortakları, müşteri kuruluşu için Kullanıcı oluşturamaz veya rol atayabilir.
-  - İş ortakları alanları okuyabilir, ancak yazamaz veya güncelleştiremez. İş ortaklarının, müşterilerinin kullanıcılarını Azure portal el ile oluşturması veya güncelleştirmesi gerekir. [Azure Active Directory belgelerine](/azure/active-directory/)bakın.
+- İş ortakları, müşterilerinin kuruluşu için kullanıcı oluşturama ya da rol atamaz.
+  - İş ortakları alanları okuyabilir, ancak yazamaz veya güncelleştiramaz. İş ortaklarının müşteri kullanıcılarını el ile oluşturması veya güncelleştirmesi Azure portal. Bkz. [Azure Active Directory Belgeleri.](/azure/active-directory/)
 
-- Bir müşteri kullanıcısı veya tam iş ortağı kullanıcısı için bir parolayı program aracılığıyla sıfırlayamazsınız. Azure portalını kullanın. Bkz. [Azure Active Directory Kullanıcı parolasını sıfırlama](/azure/active-directory/active-directory-users-reset-password-azure-portal). 1. adım için Azure portal Microsoft Cloud for US Government oturum açmalısınız.
+- Bir müşteri kullanıcısı veya tam iş ortağı kullanıcısı için program aracılığıyla parola sıfırlayabilirsiniz. Azure portalını kullanın. Bkz. [Azure Active Directory'de bir kullanıcının parolasını sıfırlama.](/azure/active-directory/active-directory-users-reset-password-azure-portal) 1. adım için, oturum açma Azure portal oturum Microsoft Cloud for US Government.
 
-- Microsoft Cloud for US Government için iş ortağı merkezi REST uç noktaları, iş ortağı merkezi ile aynıdır: `https://api.partnercenter.microsoft.com` .
+- İş Ortağı Merkezi için REST Microsoft Cloud for US Government, İş Ortağı Merkezi ile aynıdır: `https://api.partnercenter.microsoft.com` .
 
-- Geliştiricilerin, Microsoft Cloud for US Government için Iş Ortağı Merkezi uygulamasındaki Iş Ortağı Merkezi API/SDK işlevini bütünleştirmek için uygulama KIMLIKLERINI el ile kaydetmesi gerekir. Daha fazla bilgi için bkz. [Microsoft Ulusal bulut Için Iş Ortağı Merkezi için uygulama ayrıntılarını kaydetme](create-apps-for-partner-center-for-microsoft-national-clouds.md).
+- Geliştiricilerin uygulama kimliklerini el ile kaydeden geliştiricilerin İş Ortağı Merkezi api/SDK işlevselliğini uygulamalarında İş Ortağı Merkezi için Microsoft Cloud for US Government. Daha fazla bilgi için [bkz. Microsoft Ulusal Bulut İş Ortağı Merkezi için uygulama ayrıntılarını kaydetme.](create-apps-for-partner-center-for-microsoft-national-clouds.md)

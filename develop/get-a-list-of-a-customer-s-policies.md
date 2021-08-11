@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: bf6ace0d2425e28d80c4f2310878c2d2a9e2a876
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: c4104e91328e7ffc8581459f3696b9f0fa991bc4871a564140d0764facaf27d3
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874593"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995416"
 ---
 # <a name="get-a-list-of-a-customers-policies"></a>Müşteri ilkelerinin bir listesini alma
 

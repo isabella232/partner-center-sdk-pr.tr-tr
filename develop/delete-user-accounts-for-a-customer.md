@@ -1,43 +1,43 @@
 ---
 title: Müşterinin kullanıcı hesabını silme
-description: Bir müşterinin mevcut kullanıcı hesabını silme.
+description: Müşteri için mevcut bir kullanıcı hesabını silme.
 ms.date: 06/20/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c45646da43b8926f911942374de5da07f318c526
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 64e9175a2a4545022175b326a2d765ecd6a1106242b8926fe19e32c7e2ab6ec2
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973069"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994889"
 ---
 # <a name="delete-a-user-account-for-a-customer"></a>Müşterinin kullanıcı hesabını silme
 
-Bu makalede, bir müşterinin mevcut kullanıcı hesabının nasıl silineceği açıklanır.
+Bu makalede, bir müşteri için mevcut bir kullanıcı hesabının nasıl silinecekleri açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Bir kullanıcı KIMLIĞI. Kullanıcı KIMLIĞINIZ yoksa, bkz. [bir müşterinin tüm Kullanıcı hesaplarının listesini alın](get-a-list-of-all-user-accounts-for-a-customer.md).
+- Kullanıcı kimliği. Kullanıcı kimliğiniz yoksa [bkz. Müşteri için tüm kullanıcı hesaplarının listesini al.](get-a-list-of-all-user-accounts-for-a-customer.md)
 
 ## <a name="deleting-a-user-account"></a>Kullanıcı hesabını silme
 
-Bir kullanıcı hesabını sildiğinizde, Kullanıcı durumu 30 gün boyunca **etkin değil** olarak ayarlanır. 30 30 gün sonra, Kullanıcı hesabı ve onunla ilişkili veriler temizlenir ve kurtarılamaz hale getirilir.
+Bir kullanıcı hesabını silebilirsiniz. Kullanıcı durumu 30 **gün boyunca** devre dışı olarak ayarlanır. Otuz 30 gün sonra kullanıcı hesabı ve ilişkili verileri temizlenebilir ve kurtarılamaz hale geldi.
 
-Etkin olmayan hesap 30 günlük bir pencere içindeyse, [bir müşterinin silinen kullanıcı hesabını geri yükleyebilirsiniz](restore-a-user-for-a-customer.md) . Ancak, silinmiş ve devre dışı olarak işaretlenen bir hesabı geri yüklediğinizde, hesap artık kullanıcı koleksiyonunun bir üyesi olarak döndürülmez (örneğin, [bir müşterinin tüm Kullanıcı hesaplarının bir listesini](get-a-list-of-all-user-accounts-for-a-customer.md)aldığınızda).
+Etkin olmayan hesap 30 [günlük süre](restore-a-user-for-a-customer.md) içinde ise, silinmiş bir kullanıcı hesabını bir müşteri için geri yükleyebilirsiniz. Ancak silinmiş ve etkin değil olarak işaretlenmiş bir hesabı geri yükledikten sonra hesap artık kullanıcı koleksiyonunun bir üyesi olarak döndürülemez (örneğin, bir müşterinin tüm kullanıcı hesaplarının listesini [alırsanız).](get-a-list-of-all-user-accounts-for-a-customer.md)
 
 ## <a name="c"></a>C\#
 
-Mevcut bir müşteri Kullanıcı hesabını silmek için:
+Mevcut bir müşteri kullanıcı hesabını silmek için:
 
-1. Müşteriyi tanımlamak için, müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini kullanın.
+1. Müşteriyi [**tanımlamak için IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri kimliğiyle birlikte kullanın.
 
-2. Kullanıcıyı tanımlamak için [**Users. Byıd**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) metodunu çağırın.
+2. Kullanıcı tanımlamak [**için Users.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini çağırma.
 
-3. Kullanıcıyı silmek ve Kullanıcı durumunu devre dışı olarak ayarlamak için [**silme**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) yöntemini çağırın.
+3. Delete [**yöntemini**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomeruser.delete) çağırarak kullanıcı silin ve kullanıcı durumunu etkin değil olarak ayarlayın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -47,15 +47,15 @@ Mevcut bir müşteri Kullanıcı hesabını silmek için:
 partnerOperations.Customers.ById(selectedCustomerId).Users.ById(customerUserIdToDelete).Delete();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: deletecustomeruser. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** DeleteCustomerUser.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem     | İstek URI'si                                                                                            |
 |------------|--------------------------------------------------------------------------------------------------------|
-| DELETE     | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Users/{User-ID} http/1.1 |
+| DELETE     | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/users/{user-id} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
@@ -63,12 +63,12 @@ Müşteriyi ve kullanıcıyı tanımlamak için aşağıdaki sorgu parametreleri
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                               |
 |------------------------|----------|----------|---------------------------------------------------------------------------------------------------------------------------|
-| Müşteri-Kiracı kimliği     | GUID     | Y        | Değer, satıcının belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-kiracı kimliğidir** . |
-| user-id                | GUID     | Y        | Değer, tek bir kullanıcı hesabına ait olan GUID biçimli bir **Kullanıcı kimliğidir** .                                          |
+| customer-tenant-id     | GUID     | Y        | Değer, kurumsal bayinin belirli bir **müşteri için** sonuçları filtrelemesini sağlayan GUID biçimli bir müşteri kiracı kimliğidir. |
+| user-id                | GUID     | Y        | Değer, tek bir kullanıcı hesabına **ait OLAN** GUID biçimli bir kullanıcı kimliğidir.                                          |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -89,11 +89,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem bir **204 içerik** durum kodu döndürür.
+Başarılı olursa, bu yöntem **204 İçerik Yok durum** kodunu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [REST İş Ortağı Merkezi Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

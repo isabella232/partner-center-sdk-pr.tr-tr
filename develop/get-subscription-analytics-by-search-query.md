@@ -4,12 +4,12 @@ description: Bir arama sorgusuyla filtrelenmiş abonelik Analizi bilgilerini alm
 ms.date: 05/10/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8df777b9a88206f8b22579f0f445c54d80f7cd64
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: dc6ef8d2136c5ffac3278a372980e9a601ef49bb485ef54187865fc9431b3404
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548745"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995688"
 ---
 # <a name="get-subscription-analytics-information-filtered-by-a-search-query"></a>Bir arama sorgusuyla filtrelenmiş abonelik analizi bilgilerini alma
 
@@ -61,7 +61,7 @@ autoRenewEnabled eq true and customerMarket eq 'US'
 
 Aşağıdaki tabloda, filtre parametresi için desteklenen alanların ve destek işleçlerinin listesi gösterilmektedir. Dize değerleri tek tırnak işareti içine alınmalıdır.
 
-| Parametre | Desteklenen işleçler | Açıklama |
+| Parametre | Desteklenen işleçler | Description |
 |-----------|---------------------|-------------|
 | autoRenewEnabled | `eq`, `ne` | Aboneliğin otomatik olarak yenilenip yenilenmediğini gösteren bir değer. |
 | commitmentEndDate | `eq`, `ne`, `gt`, `lt`, `ge`, `le`  | Aboneliğin bitiş tarihi. |
@@ -107,11 +107,11 @@ Content-Length: 0
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi, filtre ölçütlerini karşılayan bir [abonelik](partner-center-analytics-resources.md#subscription-resource) kaynakları koleksiyonu içerir.
+Başarılı olursa yanıt gövdesi, filtre ölçütlerine [uyan bir](partner-center-analytics-resources.md#subscription-resource) Abonelik kaynakları koleksiyonu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

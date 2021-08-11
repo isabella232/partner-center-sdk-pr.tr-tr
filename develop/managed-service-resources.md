@@ -1,44 +1,44 @@
 ---
 title: Yönetilen hizmet kaynakları
-description: Yönetilen hizmetler, bir ortağın yönetici ayrıcalıklarına sahip olduğu hizmetlerdir. İş ortakları, yönetilen Hizmetleri adına hizmet istekleri için destek sağlayabilir.
+description: Yönetilen hizmetler, iş ortağının yönetici ayrıcalıklarına sahip olduğu hizmetlerdir. İş ortakları, yönetilen hizmetleri adına ve dosya hizmeti istekleri için destek sağlar.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 582efe75fd18a9174dd5dc173c290bee25443ee9
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 066c9f2a0d5ca8d03553508c2b471ca49735406a5a0566bf48b0773385c129f7
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548133"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994396"
 ---
 # <a name="managed-service-resources"></a>Yönetilen hizmet kaynakları
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Yönetilen hizmetler, bir ortağın yönetici ayrıcalıklarına sahip olduğu hizmetlerdir. İş ortakları, yönetilen Hizmetleri adına hizmet istekleri için destek sağlayabilir.
+Yönetilen hizmetler, iş ortağının yönetici ayrıcalıklarına sahip olduğu hizmetlerdir. İş ortakları, yönetilen hizmetleri adına ve dosya hizmeti istekleri için destek sağlar.
 
 ## <a name="managedservice"></a>ManagedService
 
 Yönetilen bir hizmeti açıklar.
 
-| Özellik   | Tür                | Açıklama                                              |
+| Özellik   | Tür                | Description                                              |
 |------------|---------------------|----------------------------------------------------------|
-| Id         | string              | Yönetilen hizmet KIMLIĞI.                                  |
+| Id         | string              | Yönetilen hizmet kimliği.                                  |
 | Name       | string              | Yönetilen hizmetin adı.                         |
-| Adýdýr  | string              | Hizmetin ait olduğu grubun adı.      |
-| Bağlantılar      | Managedservicelmürekkepler | Yönetilen hizmete karşılık gelen kaynak bağlantıları. |
-| Öznitelikler | ResourceAttributes  | Sözleşmeye karşılık gelen meta veri öznitelikleri.  |
+| GroupName  | string              | Hizmetin ait olduğu grubun adı.      |
+| Bağlantılar      | ManagedServiceLinks | Yönetilen hizmete karşılık gelen kaynak bağlantıları. |
+| Öznitelikler | Resourceattributes  | Sözleşmeye karşılık gelen meta veri öznitelikleri.  |
 
-## <a name="managedservicelinks"></a>Managedservicelmürekkepler
+## <a name="managedservicelinks"></a>ManagedServiceLinks
 
-Hizmet desteği sağlamak için, yetkilendirilmiş yönetici izinlerine sahip ortağa izin veren bağlantıları içerir.
+Yönetici temsilcisi izinlerine sahip iş ortağının hizmet için destek sağlamasını sağlayan bağlantıları içerir.
 
-| Özellik      | Tür | Açıklama                 |
+| Özellik      | Tür | Description                 |
 |---------------|------|-----------------------------|
-| AdminService  | Bağlantı | Yönetim hizmeti URI 'SI.      |
-| ServiceHealth | Bağlantı | Hizmet durumu URI 'SI.     |
-| ServiceTicket | Bağlantı | Hizmet bileti URI 'SI.     |
-| Kendi          | Bağlantı | Self-URI.               |
+| AdminService  | Bağlantı | Yönetici hizmeti URI'si.      |
+| ServiceHealth | Bağlantı | Hizmet durumu URI'si.     |
+| ServiceTicket | Bağlantı | Hizmet bileti URI'sı.     |
+| Kendi          | Bağlantı | Kendi kendine URI.               |
 | Sonraki          | Bağlantı | Öğelerin sonraki sayfası.     |
 | Önceki      | Bağlantı | Öğelerin önceki sayfası. |
 

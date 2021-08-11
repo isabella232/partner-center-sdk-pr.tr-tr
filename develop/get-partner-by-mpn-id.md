@@ -1,33 +1,33 @@
 ---
 title: İş ortağı MPN kimliğini doğrulama
-description: Ortağın MPN profilini C \# veya Iş ortağı merkezi REST API aracılığıyla isteyerek bir ortağın Microsoft iş ortağı ağı tanımlayıcısını (MPN kimliği) nasıl doğrulayacağınızı öğrenin.
+description: C veya Microsoft İş Ortağı Ağı aracılığıyla iş ortağının MPN profilini isteğinde bulundurarak iş ortağının Microsoft İş Ortağı Ağı tanımlayıcısını (MPN \# KIMLIĞI) doğrulamayı İş Ortağı Merkezi REST API.
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6bd51850c7bc5a099a34f9c028a58e247c2600a3
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 223f0da94f5a1c12b4f6de32184296b88ab5f443a69feac89152acc1aa9ccbd6
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548830"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995926"
 ---
-# <a name="verify-a-partner-mpn-id-via-c-or-the-partner-center-rest-api"></a>C veya Iş Ortağı Merkezi aracılığıyla iş ortağı MPN KIMLIĞINI doğrulayın \# REST API
+# <a name="verify-a-partner-mpn-id-via-c-or-the-partner-center-rest-api"></a>C veya ağ üzerinden iş ortağı MPN \# kimliğini İş Ortağı Merkezi REST API
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Ortağın Microsoft İş Ortağı Ağı tanımlayıcısını doğrulama (MPN KIMLIĞI).
+İş ortağının kimlik doğrulama Microsoft İş Ortağı Ağı (MPN KIMLIĞI).
 
-Burada gösterilen teknik, iş ortağının MPN profilini iş ortağı merkezinden isteyerek ortağın Microsoft İş Ortağı Ağı tanımlayıcısını doğrular. İstek başarılı olursa tanımlayıcı geçerli kabul edilir.
+Burada gösterilen teknik, iş ortağının mpN profilini Microsoft İş Ortağı Ağı iş ortağının mpN profilini İş Ortağı Merkezi. İstek başarılı olursa tanımlayıcı geçerli kabul edilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Doğrulanacak iş ortağı MPN KIMLIĞI. Bu değeri atlarsanız istek, oturum açmış ortağın MPN profilini alır.
+- Doğrulan iş ortağı MPN kimliği. Bu değeri atlarsanız istek, oturum alıkan iş ortağının MPN profilini verir.
 
 ## <a name="c"></a>C\#
 
-Ortağın MPN KIMLIĞINI doğrulamak için, önce [**ıaggregatepartner. Profiles**](/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) özelliğinden iş ortağı profili toplama işlemlerine bir arabirim alın. Ardından [**Mpnprofile**](/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) özelliğinden MPN profil işlemlerine yönelik bir arabirim alın. Son olarak, MPN profilini almak için MPN KIMLIĞIYLE [**Get**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) yöntemlerini çağırın. Get veya GetAsync çağrısından MPN KIMLIĞINI atlarsanız, istek, oturum açmış ortağın MPN profilini almaya çalışır.
+Bir iş ortağının MPN kimliğini doğrulamak için, önce [**IAggregatePartner.Profiles**](/dotnet/api/microsoft.store.partnercenter.ipartner.profiles) özelliğinden iş ortağı profili toplama işlemlerine bir arabirim alın. Ardından [**MpnProfile**](/dotnet/api/microsoft.store.partnercenter.profiles.ipartnerprofilecollection.mpnprofile) özelliğinden MPN profil işlemlerine bir arabirim elde etmek. Son olarak, MPN profilini almak için MPN Kimliği ile [**Get**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) yöntemlerini çağırabilirsiniz. Get veya GetAsync çağrısından MPN kimliğini atlarsanız, istek oturum açma iş ortağının MPN profilini almaya çalışır.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,27 +36,27 @@ Ortağın MPN KIMLIĞINI doğrulamak için, önce [**ıaggregatepartner. Profile
 var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: doğrulama ypartnermpnıd. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** VerifyPartnerMpnId.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                         |
 |---------|-------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/MPN? Mpnıd = {MPN-ID} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/mpn?mpnId={mpn-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Ortağı tanımlamak için aşağıdaki sorgu parametresini sağlayın. Bu sorgu parametresini atlarsanız istek, oturum açmış ortağın MPN profilini döndürür.
+İş ortağını tanımlamak için aşağıdaki sorgu parametresini girin. Bu sorgu parametresini atlarsanız istek, oturum alıkan iş ortağının MPN profilini döndürür.
 
 | Ad   | Tür | Gerekli | Açıklama                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| MPN kimliği | int  | Hayır       | Ortağı tanımlayan Microsoft İş Ortağı Ağı KIMLIĞI. |
+| mpn-id | int  | No       | İş Microsoft İş Ortağı Ağı tanımlayan bir kimlik. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -78,11 +78,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi iş ortağı için [Mpnprofile](profile-resources.md#mpnprofile) kaynağını içerir.
+Başarılı olursa, yanıt gövdesi iş ortağı [için MpnProfile](profile-resources.md#mpnprofile) kaynağını içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example-success"></a>Yanıt örneği (başarılı)
 

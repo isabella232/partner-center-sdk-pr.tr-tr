@@ -1,51 +1,51 @@
 ---
 title: Fatura satırı öğelerini alma
-description: Belirli bir fatura için fatura satırı öğesi (kapalı faturalama satırı öğesi) ayrıntılarının bir koleksiyonunu almak için İş Ortağı Merkezi kullanabilirsiniz.
+description: Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir faturaya ait fatura satır öğesi (kapalı faturalandırma satırı öğesi) ayrıntılarının bir koleksiyonunu alabilirsiniz.
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 944dddef64ec980d92c292a7f5b9f5eb4e7cecb6
-ms.sourcegitcommit: 15c6cfe72284cf5d4ea3535120e83e473c33f5ec
+ms.openlocfilehash: 10e43127e5f44f76ed9be8b9aa638e982259602ad57709ecee55cb62d8d7d59e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2021
-ms.locfileid: "112443181"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996045"
 ---
 # <a name="get-invoice-line-items"></a>Fatura satırı öğelerini alma
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Belirtilen fatura için fatura satırı öğelerinin (kapalı fatura satırı öğeleri olarak da bilinir) koleksiyon ayrıntılarını almak için aşağıdaki yöntemleri kullanabilirsiniz.
+Belirtilen bir fatura için, fatura satır öğelerinin (kapatılan faturalandırma satırı öğeleri olarak da bilinir) koleksiyon ayrıntılarını almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
-*Hata düzeltmeleri dışında bu API artık güncelleştirilmez.* Uygulamalarınızı market yerine **onetime API'sini çağırarak** güncelleştirmeniz **gerekir.** **Onetime** API'si ek işlevsellik sağlar ve güncelleştiril olmaya devam eder.
+*Hata düzeltmeleri haricinde, bu API artık güncelleştirilmiyor.* Uygulamalarınızı **Market** yerine **kerelik** API 'sini çağıracak şekilde güncelleştirmeniz gerekir. **Kerelik** API 'si ek işlevsellik sağlar ve güncellenmeye devam edecektir.
 
-Market yerine **tüm ticari tüketim** satırı öğelerini sorgulamak için tek bir zaman **kullanabilirsiniz.** Veya tahmin bağlantıları çağrısında yer alan bağlantıları takip edin.
+**Market** yerine tüm ticari tüketim çizgisi öğelerini sorgulamak için **kerelik** kullanmanız gerekir. Ya da, tahmin bağlantıları çağrısındaki bağlantıları izleyebilirsiniz.
 
-Bu API ayrıca  Microsoft Azure (MS-AZR-0145P) için **Azure** ve Office aboneliklerinin ve Office tekliflerinin sağlayıcı türlerini de destekler. Bu da API özelliğini geriye dönük olarak uyumlu yapar. 
+bu apı ayrıca, apı özelliğinin geri uyumlu olmasını sağlayan Microsoft Azure (MS-azr-0145p) abonelikleri ve Office teklifleri için **azure** ve **office** **sağlayıcı** türlerini destekler.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Fatura tanımlayıcısı. Bu, satır öğelerinin alın satırı için faturayı tanımlar.
+- Bir fatura tanımlayıcısı. Bu, satır öğelerinin alınacağı faturayı tanımlar.
 
 ## <a name="c"></a>C\#
 
-Belirtilen faturanın satır öğelerini almak için:
+Belirtilen faturaya ait satır öğelerini almak için:
 
-1. Belirtilen [**faturaya yönelik**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) fatura işlemlerine arabirim almak için ById yöntemini çağırma.
+1. Belirtilen faturaya yönelik işlemleri faturalamak için bir arabirim almak üzere [**Byıd**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) yöntemini çağırın.
 
-2. Fatura nesnesini [**almak**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) için [**Get veya GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırma. Invoice nesnesi, belirtilen faturayla ilgili tüm bilgileri içerir.
-3. [**InvoiceProvider**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider) ve [**InvoiceLineItemType**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.invoicelineitemtype)içeren [**bir InvoiceDetail**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail) nesneleri koleksiyonuna erişmek için invoice nesnesinin [**InvoiceDetails**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails) özelliğini kullanın. **BillingProvider,** fatura ayrıntısı bilgisinin kaynağını tanımlar **(örneğin, Office**, **Azure**, **OneTime**) ve **InvoiceLineItemType** türü belirtir (örneğin, **BillingLineItem).**
+2. Fatura nesnesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın. Fatura nesnesi belirtilen faturaya ait tüm bilgileri içerir.
+3. Her biri [**Bilinebir sağlayıcı**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.billingprovider) ve bir [**faturalandırma türü**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail.invoicelineitemtype)içeren bir [**InvoiceDetail**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoicedetail) nesneleri koleksiyonuna erişim sağlamak için Invoice nesnesinin [**InvoiceDetails**](/dotnet/api/microsoft.store.partnercenter.models.invoices.invoice.invoicedetails) özelliğini kullanın. **billingprovider** , fatura ayrıntı bilgilerinin kaynağını ( **Office**, **Azure**, **onetime** gibi) tanımlar ve **faturalandırılineıtemtype** türü belirtir (örneğin, **billinglineıtem**).
 
-Aşağıdaki örnek kod, **InvoiceDetails** koleksiyonunu işlemeye bir **foreach** döngüsü kullanır. Her **InvoiceDetail** örneği için ayrı bir satır öğeleri koleksiyonu alınır.
+Aşağıdaki örnek kod, **InvoiceDetails** koleksiyonunu işlemek için bir **foreach** döngüsü kullanır. Her bir **InvoiceDetail** örneği için satır öğelerinin ayrı bir koleksiyonu alınır.
 
-**InvoiceDetail** örneğine karşılık gelen satır öğeleri koleksiyonunu almak için:
+Bir **InvoiceDetail** örneğine karşılık gelen satır öğelerinin bir koleksiyonunu almak için:
 
-1. Örneğin **BillingProvider ve** **InvoiceLineItemType** örneklerini [**By yöntemine**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) geçin.
+1. Örneğe ait **Billingprovider** ve **ınvoineıtemtype** 'ı [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) metoduna geçirin.
 
-2. İlişkili [**satır öğelerini**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.get) almak için Get veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.getasync) yöntemini çağırma.
-3. Aşağıdaki örnekte gösterildiği gibi koleksiyonda geçiş yapmak için bir numaralayıcı oluşturun.
+2. İlişkili satır öğelerini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicelineitemcollection.getasync) yöntemini çağırın.
+3. Aşağıdaki örnekte gösterildiği gibi koleksiyonun çapraz geçişini yapmak için bir Numaralandırıcı oluşturun.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -96,69 +96,69 @@ foreach (var invoiceDetail in invoice.InvoiceDetails)
 
 Benzer bir örnek için aşağıdakilere bakın:
 
-- Örnek: [Konsol test uygulaması](console-test-app.md)
-- Project: **İş Ortağı Merkezi SDK'sı Örnekleri**
-- Sınıf: **GetInvoiceLineItems.cs**
+- Örnek: [konsol test uygulaması](console-test-app.md)
+- Project: **iş ortağı merkezi SDK örnekleri**
+- Sınıf: **Getınvogıtems. cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
-Senaryonda faturalama sağlayıcısı için uygun söz dizimini kullanarak isteğinizi yapma.
+Senaryonuza faturalandırma sağlayıcısı için uygun söz dizimini kullanarak isteğinizi yapın.
 
 #### <a name="office"></a>Office
 
-Aşağıdaki söz dizimi, faturalama sağlayıcısı olarak **Office.**
+Aşağıdaki sözdizimi faturalandırma sağlayıcısı **Office** olduğunda geçerlidir.
 
 | Yöntem  | İstek URI'si                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=office&invoicelineitemtype=billinglineitems&size={size}&offset={offset} HTTP/1.1                               |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = Office&ınvoyıtemtype = billinglineıtems&size = {size} &kayması = {KAYMASı} http/1.1                               |
 
-#### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure (MS-AZR-0145P) aboneliği
+#### <a name="microsoft-azure-ms-azr-0145p-subscription"></a>Microsoft Azure (MS-azr-0145p) aboneliği
 
-Faturalama sağlayıcısının bir Microsoft Azure (MS-AZR-0145P) aboneliği olduğunda aşağıdaki söz dizimleri geçerlidir.
-
-| Yöntem  | İstek URI'si                                                                                                                                                     |
-|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=azure&invoicelineitemtype=billinglineitems&size={size}&offset={offset} HTTP/1.1  |
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=azure&invoicelineitemtype=usagelineitems&size={size}&offset={offset} HTTP/1.1  |
-
-##### <a name="onetime"></a>OneTime
-
-Faturalama sağlayıcısı OneTime olduğunda aşağıdaki söz **dizimleri geçerlidir.** Buna Azure rezervasyonları, yazılımlar, Azure planları ve ticari market ürünleri için ücretler dahildir.
+faturalandırma sağlayıcısı bir Microsoft Azure (MS-azr-0145p) aboneliğine sahip olduğunda aşağıdaki sözdizimleri geçerlidir.
 
 | Yöntem  | İstek URI'si                                                                                                                                                     |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&size={size} HTTP/1.1  |
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/onetime/billinglineitems&size={size}?seekOperation=Next                           |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = Azure&ınvoyıtemtype = billinglineıtems&size = {size} &kayması = {KAYMASı} http/1.1  |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = Azure&ınvoyıtemtype = usagelineıtems&size = {size} &kayması = {KAYMASı} http/1.1  |
 
-#### <a name="previous-syntaxes"></a>Önceki söz dizimleri
+##### <a name="onetime"></a>Kerelik
 
-Aşağıdaki söz dizimlerini kullanıyorsanız, kullanım örneğiniz için uygun söz dizimini kullanmaya emin olun.
+Faturalandırma sağlayıcısı **Onetime** olduğunda aşağıdaki sözdizimleri geçerlidir. Buna Azure ayırmaları, yazılım, Azure planları ve ticari Market ürünleri için ücretler dahildir.
 
-*Hata düzeltmeleri dışında bu API artık güncelleştirilmez.* Uygulamalarınızı market yerine **onetime API'sini çağırarak** güncelleştirmeniz **gerekir.** **Onetime** API'si ek işlevsellik sağlar ve güncelleştiril olmaya devam eder.
+| Yöntem  | İstek URI'si                                                                                                                                                     |
+|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = billinglineıtems&size = {SIZE} http/1.1  |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItem/Onetime/billinglineıtems&size = {size}? Seekoperation = ileri                           |
 
-Market yerine **tüm ticari tüketim** satırı öğelerini sorgulamak için tek bir zaman **kullanabilirsiniz.** Veya tahmin bağlantıları çağrısında yer alan bağlantıları takip edin.
+#### <a name="previous-syntaxes"></a>Önceki sözdizimleri
 
-| Yöntem | İstek URI'si | Söz dizimi kullanım durumu açıklaması |
+Aşağıdaki sözdizimleri kullanıyorsanız, kullanım durumu için uygun sözdizimini kullandığınızdan emin olun.
+
+*Hata düzeltmeleri haricinde, bu API artık güncelleştirilmiyor.* Uygulamalarınızı **Market** yerine **kerelik** API 'sini çağıracak şekilde güncelleştirmeniz gerekir. **Kerelik** API 'si ek işlevsellik sağlar ve güncellenmeye devam edecektir.
+
+**Market** yerine tüm ticari tüketim çizgisi öğelerini sorgulamak için **kerelik** kullanmanız gerekir. Ya da, tahmin bağlantıları çağrısındaki bağlantıları izleyebilirsiniz.
+
+| Yöntem | İstek URI'si | Sözdizimi kullanım durumunun açıklaması |
 | ------ | ----------- | -------------------------------- |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type} HTTP/1.1                              | Verilen faturanın her satır öğesinin tam listesini dönmek için bu söz dizimi kullanabilirsiniz. |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/{billing-provider}/{invoice-line-item-type}?size={size}&offset={offset} HTTP/1.1  | Büyük faturalar için, satır öğelerinin sayfalanmış listesini geri dönmek için belirtilen boyut ve 0 tabanlı kaydırma ile bu söz dizimi kullanabilirsiniz. |
-| GET | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems/OneTime/{invoice-line-item-type}?seekOperation=Next                               | Faturalama sağlayıcısı **değeri OneTime** olan bir fatura için bu söz dizimi  kullanabilir ve sonraki fatura satırı öğelerini almak için **seekOperation'ı** Next olarak ayarlayın. |
+| GET | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{INVOICE-ID}/LineItem/{Billing-Provider}/{INVOICE-Line-Item-Type} http/1.1                              | Verilen faturaya ait her satır öğesinin tam listesini döndürmek için bu sözdizimini kullanabilirsiniz. |
+| GET | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/ınvoes/{INVOICE-ID}/LineItem/{Billing-Provider}/{INVOICE-Line-Item-Type}? size = {size} &kayması = {ıNGıST} http/1.1  | Büyük faturalar için bu sözdizimini belirtilen boyut ve 0 tabanlı uzaklığa göre kullanarak satır öğelerinin sayfalandırılmış bir listesini döndürebilirsiniz. |
+| GET | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{INVOICE-ID}/LineItem/Onetime/{INVOICE-Line-Item-Type}? seekoperation = ileri                               | Bu **sözdizimini, bir** faturalandırma-sağlayıcı değeri olan bir fatura için kullanabilir ve bir sonraki fatura satırı öğeleri sayfasını almak Için **Seekoperation** öğesini **İleri** olarak ayarlayabilirsiniz. |
 
 ##### <a name="uri-parameters"></a>URI parametreleri
 
-İsteği oluştururken aşağıdaki URI'yi ve sorgu parametrelerini kullanın.
+İsteği oluştururken aşağıdaki URI ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür   | Gerekli | Açıklama                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| invoice-id             | string | Yes      | Faturayı tanımlayan bir dize.                             |
-| faturalama sağlayıcısı       | string | Yes      | Faturalama sağlayıcısı: "Office", "Azure", "OneTime". Eski modelde, Azure işlemleri için ayrı Office & modellerimiz vardır. Ancak modern modelde tüm işlemlerde "OneTime" değeriyle filtrelenmiş tek bir veri modeli vardır.            |
-| invoice-line-item-type | string | Yes      | Fatura ayrıntısı türü: "BillingLineItems", "UsageLineItems". |
-| boyut                   | sayı | Hayır       | İade etmek istediğiniz en fazla öğe sayısı. Varsayılan maksimum boyut = 2000    |
-| uzaklık                 | sayı | Hayır       | İade etmek için ilk satır öğesinin sıfır tabanlı dizini.            |
+| Fatura kimliği             | string | Yes      | Faturayı tanımlayan bir dize.                             |
+| Faturalandırma-sağlayıcı       | string | Yes      | faturalandırma sağlayıcısı: "Office", "Azure", "onetime". eski bir deyişle, Azure işlemleri & Office yönelik ayrı veri modelleriniz vardır. Ancak modern, "OneTime" değeri ile filtrelenen tüm işlemler genelinde tek bir veri modeline sahiptir.            |
+| fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "Billinglineıtems", "Usagelineıtems". |
+| boyut                   | sayı | No       | İade etmek istediğiniz en fazla öğe sayısı. Varsayılan maksimum boyut = 2000    |
+| uzaklık                 | sayı | No       | İade etmek için ilk satır öğesinin sıfır tabanlı dizini.            |
 | seekOperation          | dize | No       | Faturalama sağlayıcısı  **OneTime'a eşitse,** fatura satırı öğelerinin sonraki sayfasını almak için **seekOperation'ı** Next olarak ayarlayın.  |
-| hasPartnerEarnedCredit | bool | Hayır | İş ortağı tarafından kazanılan kredinin uygulandığı satır öğelerinin iade olup olmadığını gösteren değer. Not: Bu parametre yalnızca faturalama sağlayıcısı türü OneTime ve InvoiceLineItemType usageLineItems olduğunda uygulanır. |
+| hasPartnerEarnedCredit | bool | No | İş ortağı tarafından kazanılan kredinin uygulandığı satır öğelerinin iade olup olmadığını gösteren değer. Not: Bu parametre yalnızca faturalama sağlayıcısı türü OneTime ve InvoiceLineItemType usageLineItems olduğunda uygulanır. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

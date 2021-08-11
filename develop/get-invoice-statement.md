@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: f0324916eb2efd9244530a53b1d7bb4abc0c8e6e
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 97a0ee60b2cb57d3413d341ceea10e267fc1660c83fccbbc20353c3ad6bfc8c2
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549136"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994498"
 ---
 # <a name="get-invoice-statement"></a>Fatura ekstresini alma
 

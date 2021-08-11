@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: aarzh-AaronZhang
 ms.author: v-aarzh
-ms.openlocfilehash: 36a81c7b235c68e49bb425b5bd0d4615882f88ef
-ms.sourcegitcommit: 07b9a11f5c615ed1e716081392032cea2124bd98
+ms.openlocfilehash: 9974237f7d4234b782a5b17a65fd52b9024315f848b721c73f4e1d59b69b2930
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2021
-ms.locfileid: "115104219"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994804"
 ---
 # <a name="enabling-the-secure-application-model-framework"></a>Güvenlik Uygulama Modeli çerçevesini etkinleştirme
 
@@ -246,7 +246,7 @@ Bu işlem hakkında daha fazla bilgi için PowerShell [ile Uygulama Modeli](/pow
     ```
 
     > [!NOTE]
-    > **Web/API** türüne sahip bir Azure AD uygulaması kullanıldığından **ServicePrincipal** parametresi **New-PartnerAccessToken** komutuyla birlikte kullanılır. Bu tür bir uygulama, erişim belirteci isteğine bir istemci tanımlayıcısı ve gizli kodun dahilsini gerektirir. **Get-Credential komutu** çağrıldığında kullanıcı adı ve parola girmeniz istenir. Kullanıcı adı olarak uygulama tanımlayıcısını girin. Parola olarak uygulama gizli parolasını girin. **New-PartnerAccessToken** komutu çağrıldığında, kimlik bilgilerini yeniden girmeniz istenir. Kullanmakta olduğunuz hizmet hesabının kimlik bilgilerini girin. Bu hizmet hesabı, uygun izinlere sahip bir iş ortağı hesabı olmalıdır.
+    > **Web/API** türüne sahip bir Azure AD uygulaması kullanıldığından **ServicePrincipal** parametresi **New-PartnerAccessToken** komutuyla birlikte kullanılır. Bu tür bir uygulama, erişim belirteci isteğine bir istemci tanımlayıcısı ve gizli kodun dahilsini gerektirir. **Get-Credential komutu** çağrıldığında kullanıcı adı ve parola girmeniz istenir. Kullanıcı adı olarak uygulama tanımlayıcısını girin. Parola olarak uygulama gizli parolasını girin. **New-PartnerAccessToken** komutu çağrıldığında, kimlik bilgilerini yeniden girmeniz istenir. Kullanmakta olan hizmet hesabının kimlik bilgilerini girin. Bu hizmet hesabı, uygun izinlere sahip bir iş ortağı hesabı olması gerekir.
 
 3. Yenileme belirteci değerini kopyalayın.
 
@@ -254,4 +254,4 @@ Bu işlem hakkında daha fazla bilgi için PowerShell [ile Uygulama Modeli](/pow
     $token.RefreshToken | clip
     ```
 
-Yenileme belirteci değerini, Azure Key Vault gibi güvenli bir depoda depolamanız gerekir. PowerShell ile güvenli uygulama modülünü kullanma hakkında daha fazla bilgi için bkz. [Multi-Factor Authentication](/powershell/partnercenter/multi-factor-auth) makalesi.
+Yenileme belirteci değerini, yenileme belirteci gibi güvenli bir Azure Key Vault. PowerShell ile güvenli uygulama modülü hakkında daha fazla bilgi için çok faktörlü [kimlik doğrulaması makalesine](/powershell/partnercenter/multi-factor-auth) bakın.

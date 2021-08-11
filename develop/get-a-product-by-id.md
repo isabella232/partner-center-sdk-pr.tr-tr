@@ -1,31 +1,31 @@
 ---
 title: Kimliğe göre bir ürün alma
-description: Ürün kimliği kullanarak belirtilen ürün kaynağını alır.
+description: Ürün KIMLIĞI kullanarak belirtilen ürün kaynağını alır.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: 769a4307dc3cebdc7ebbdcf51d9f2b67a9f4b7c2
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 0e8abc8cf33d12140a084e83580f20bb0b9d295eda7ab8cc7279c89043c81992
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874032"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994549"
 ---
 # <a name="get-a-product-by-id"></a>Kimliğe göre bir ürün alma
 
-Ürün kimliği kullanarak belirtilen ürün kaynağını alır.
+Ürün KIMLIĞI kullanarak belirtilen ürün kaynağını alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Ürün kimliği.
+- Bir ürün KIMLIĞI.
 
 ## <a name="c"></a>C\#
 
-Kimliğine göre belirli bir ürünü bulmak için **IAggregatePartner.Products** koleksiyonu kullanın, **ByCountry()** yöntemini kullanarak ülkeyi seçin ve **ById()** yöntemini arayın. Son olarak, ürünü **iade etmek için Get()** veya **GetAsync()** yöntemini arayın.
+KIMLIĞE göre belirli bir ürünü bulmak için **ıaggregatepartneri. Products** koleksiyonunuzu kullanın, **bycountry ()** yöntemini kullanarak ülkeyi seçin ve ardından **byıd ()** yöntemini çağırın. Son olarak, ürünü döndürmek için **Get ()** veya **GetAsync ()** metodunu çağırın.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -37,7 +37,7 @@ Product productDetail = partnerOperations.Products.ByCountry("US").ById("DZH318Z
 
 [!INCLUDE [Partner Center Java SDK support details](<../includes/java-sdk-support.md>)]
 
-Kimliğine göre belirli bir ürünü bulmak için **IAggregatePartner.getProducts** işlevinizi kullanın, **byCountry()** işlevini kullanarak ülkeyi seçin ve **byId() işlevini** çağırın. Son olarak, ürünü **iade etmek için get()** işlevini arayın.
+KIMLIĞE göre belirli bir ürünü bulmak için **ıaggregatepartner. getProducts** işlevinizi kullanın, **bycountry ()** işlevini kullanarak ülkeyi seçin ve ardından **byıd ()** işlevini çağırın. Son olarak, ürünü döndürmek için **Get ()** işlevini çağırın.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ Product productDetail = partnerOperations.getProducts().byCountry("US").byId("DZ
 
 [!INCLUDE [Partner Center PowerShell module support details](<../includes/powershell-module-support.md>)]
 
-Kimliğine göre belirli bir ürünü bulmak için [**Get-PartnerProduct komutunu**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) yürütün ve **ProductId parametresini** belirtin. **CountryCode** parametresi seçeneklerdir, belirtilmezse satıcıyla ilişkilendirilmiş ülke kullanılır.
+KIMLIĞE göre belirli bir ürünü bulmak için [**Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) komutunu yürütün ve **ProductID** parametresini belirtin. **CountryCode** parametresi, belirtilmemişse, satıcı ile ilişkili ülkenin kullanılacaktır.
 
 ```powershell
 Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
@@ -57,11 +57,11 @@ Get-PartnerProduct -ProductId 'DZH318Z0BQ3Q'
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem  | İstek URI'si                                                                                   |
 |---------|-----------------------------------------------------------------------------------------------|
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}?country={country} HTTP/1.1  |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Products/{product-id}? ülke = {Country} http/1.1  |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -69,12 +69,12 @@ Belirtilen ürünü almak için aşağıdaki yol parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
-| ülke                | string   | Yes      | Ülke/bölge kimliği.                                            |
+| ürün kimliği             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
+| ülke                | string   | Yes      | Ülke/bölge KIMLIĞI.                                            |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -92,15 +92,15 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa yanıt gövdesi bir Ürün [kaynağı](product-resources.md#product) içerir.
+Başarılı olursa, yanıt gövdesi bir [ürün](product-resources.md#product) kaynağı içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP Durum Kodu     | Hata kodu   | Açıklama                                                                |
+| HTTP durum kodu     | Hata kodu   | Description                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
 | 404                  | 400013       | Ürün bulunamadı.                                                     |
 

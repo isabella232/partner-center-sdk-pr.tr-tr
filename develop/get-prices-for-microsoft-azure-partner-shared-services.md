@@ -1,29 +1,29 @@
 ---
 title: Microsoft Azure İş Ortağı Paylaşılan Hizmetleri için fiyat alma
-description: Microsoft Azure iş ortağı paylaşılan hizmetleri fiyatlarına sahip bir Azure ücret kartı alma.
+description: İş Ortağı Paylaşılan Hizmetleri için fiyatların yer Microsoft Azure Azure Rate Card'a nasıl sahip oluruz?
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 0008d7474f7e57bbbd765afdf2487ee279848ac3
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 33ee82bb966dee459cdeef6691c5e86eb7369fc7f76117f9360ac51d6cb3da22
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548813"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995824"
 ---
 # <a name="get-prices-for-microsoft-azure-partner-shared-services"></a>Microsoft Azure İş Ortağı Paylaşılan Hizmetleri için fiyat alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Microsoft Azure iş ortağı paylaşılan hizmetleri fiyatlarına sahip bir [Azure ücret kartı](azure-rate-card-resources.md) alma.
+İş Ortağı Paylaşılan [Hizmetleri için fiyatların](azure-rate-card-resources.md) yer Microsoft Azure Azure Rate Card'a nasıl sahip oluruz?
 
-Fiyatlar Pazar ve para birimine göre farklılık gösterir ve bu API 'nin yerini göz önünde bulundurun. Varsayılan olarak, API iş ortağı merkezi ve tarayıcı dilinizde ortak profil ayarlarınızı kullanır ve bu ayarlar özelleştirilebilir. Bu durum, özellikle birden çok pazardaki satışları tek bir merkezi bir ofiste yönetiyorsanız ilgilidir.
+Fiyatlar pazara ve para birimine göre farklılık gösterir ve bu API konumu dikkate alır. Varsayılan olarak API, İş Ortağı Merkezi ve tarayıcınızın dilinde iş ortağı profili ayarlarınızı kullanır ve bu ayarlar özelleştirilebilir. Konum tanıma, özellikle de birden çok pazarda satışları tek, merkezi bir ofisten yönetirken oldukça alakalıdır.
 
-## <a name="example-code"></a>Örnek kod
+## <a name="example-code"></a>Örnek Kod
 
 ## <a name="c"></a>C\#
 
-Azure fiyat kartını edinmek için, Azure fiyatlarını içeren bir [**Azursilinebilir tecard**](/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) kaynağı döndürmek üzere [**ıazursilinebilir Tecard. getshared**](/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) metodunu çağırın.
+Azure Rate Card'ı almak için [**IAzureRateCard.GetShared**](/dotnet/api/microsoft.store.partnercenter.ratecards.iazureratecard.getshared) yöntemini çağırarak Azure fiyatlarını içeren [**bir AzureRateCard**](/dotnet/api/microsoft.store.partnercenter.models.ratecards.azureratecard) kaynağı bulun.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -35,7 +35,7 @@ var azureRateCard = partner.RateCards.Azure.GetShared();
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Azure fiyat kartını edinmek için, Azure fiyatlarını içeren hız kartı ayrıntılarını döndürmek üzere **ıazursilinebilir Tecard. getShared** işlevini çağırın.
+Azure Rate Card'ı almak için **IAzureRateCard.getShared** işlevini çağırarak Azure fiyatlarını içeren fiyat kartı ayrıntılarını iade edin.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -47,7 +47,7 @@ AzureRateCard azureRateCard = partner.getRateCards().getAzure().getShared();
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Azure kartını almak için [**Get-Partnerazursilinebilir Tecard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) komutunu yürütün ve Azure fiyatlarını içeren hız kartı ayrıntılarını döndürmek Için **SharedServices** parametresini belirtin.
+Azure Kartını almak için [**Get-PartnerAzureRateCard**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerAzureRateCard.md) komutunu yürütün ve **SharedServices** parametresini belirterek Azure fiyatlarını içeren fiyat kartı ayrıntılarını iade edin.
 
 ```powershell
 Get-PartnerAzureRateCard -SharedServices
@@ -55,24 +55,24 @@ Get-PartnerAzureRateCard -SharedServices
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                               |
 |---------|---------------------------------------------------------------------------|
-| **Al** | *{BaseUrl}*/v1/ratecards/Azure-Shared? para birimi = {currency} &bölgesi = {Region} |
+| **Al** | *{baseURL}*/v1/ratecards/azure-shared?currency={currency}&region={region} |
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
 | Ad     | Tür   | Gerekli | Açıklama                                                                                                                                                                               |
 |----------|--------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| currency | dize | No       | Kaynak tarifelerinin sağlandığı para birimi için isteğe bağlı üç harfli ISO kodu (örneğin `EUR` ). Varsayılan değer, iş ortağı profilindeki Pazar ile ilişkili para birimidir. |
-| region   | dize | No       | Teklifin satın alındığı pazarı belirten, isteğe bağlı iki harfli ISO ülke/bölge kodu (örneğin `FR` ). Varsayılan değer, iş ortağı profilinde ayarlanan ülke/bölge kodudur.        |
+| currency | dize | No       | Kaynak oranlarının sağlanacak para birimi için isteğe bağlı üç harfli ISO kodu `EUR` (örneğin). Varsayılan değer, iş ortağı profilinde pazarla ilişkili para birimidir. |
+| region   | dize | No       | Isteğe bağlı iki harfli ISO ülke/bölge kodu, teklifin satın alınarak pazar olduğunu gösterir `FR` (örneğin). Varsayılan değer, iş ortağı profilinde ayarlanmış ülke/bölge kodudur.        |
 
-İsteğe bağlı X-locale üstbilgisi isteğe dahil ise, bu değer yanıttaki Ayrıntılar için kullanılan dili belirler.
+İsteğe bağlı X-Locale üst bilgisi isteğe dahil edilirse, değeri yanıtta ayrıntılar için kullanılan dili belirler.
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -93,11 +93,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-İstek başarılı olursa, bir [Azure ücret kartı](azure-rate-card-resources.md) kaynağı döndürür.
+İstek başarılı olursa bir Azure Rate [Card kaynağı](azure-rate-card-resources.md) döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

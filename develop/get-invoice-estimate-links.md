@@ -1,34 +1,34 @@
 ---
 title: Fatura tahmini bağlantılarını alma
-description: Sorgu mutabakatı satır öğesi ayrıntılarına yönelik bir tahmin bağlantıları koleksiyonu edinebilirsiniz.
+description: Mutabakat satır öğesi ayrıntılarını sorgulamak için bir tahmin bağlantıları koleksiyonu elde edinebilirsiniz.
 ms.date: 09/24/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.assetid: ''
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 719becd3fac5605c4ad48ab86d483ba7903d65d8
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 9bbfc7bf239535ac44879827118eba274bf3cb784e5b8de34f879fe3445a414d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549153"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994481"
 ---
 # <a name="get-invoice-estimate-links"></a>Fatura tahmini bağlantılarını alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Faturalandırılmamış mutabakat satır öğelerinin ayrıntılarını sorgulama hakkında yardım almak için tahmin bağlantıları sağlayabilirsiniz.
+Bilgisiz mutabakat satırı öğelerinin ayrıntılarını sorgulamaya yardımcı olmak için tahmin bağlantıları edinebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir fatura tanımlayıcısı. Bu, satır öğelerinin alınacağı faturayı tanımlar.
+- Fatura tanımlayıcısı. Bu, satır öğelerinin alın satırı için faturayı tanımlar.
 
 ## <a name="c"></a>C\#
 
-Aşağıdaki örnek kod, belirli bir para birimi için faturalandırılmamış satır öğelerini sorgulamak için tahmin bağlantılarını nasıl kullanabileceğinizi gösterir. Yanıt, her dönemin tahmini bağlantılarını içerir (örneğin, geçerli ve önceki ay).
+Aşağıdaki örnek kodda, belirli bir para birimi için bilgisiz satır öğelerini sorgulamak için tahmin bağlantılarını nasıl alazabilirsiniz? Yanıt, her dönem (örneğin, geçerli ve önceki ay) için tahmin bağlantılarını içerir.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -43,29 +43,29 @@ var estimateLinks = scopedPartnerOperations.Invoices.Estimates.Links.ByCurrency(
 
 Benzer bir örnek için aşağıdakilere bakın:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Project: **iş ortağı merkezi SDK örnekleri**
-- Sınıf: **Getestimateslinks. cs**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **İş Ortağı Merkezi SDK'sı Örnekleri**
+- Sınıf: **GetEstimatesLinks.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                 |
 |---------|-------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/ınvoes/estimates/Links? CurrencyCode = {CURRENCYCODE} http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/estimates/links?currencycode={currencycode} HTTP/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-İsteği oluştururken aşağıdaki URI 'yi ve sorgu parametresini kullanın.
+İsteği oluştururken aşağıdaki URI'yi ve sorgu parametresini kullanın.
 
 | Ad                   | Tür   | Gerekli | Açıklama                                                       |
 |------------------------|--------|----------|-------------------------------------------------------------------|
-| currencyCode           | string | Yes      | Faturalandırılmamış satır öğelerinin para birimi kodu.                    |
+| currencyCode           | string | Yes      | İşlenemeyen satır öğelerinin para birimi kodu.                    |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -86,11 +86,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt faturalandırılmamış tahminleri alma bağlantılarını içerir.
+Başarılı olursa yanıt, bilgisiz tahminleri almak için bağlantıları içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

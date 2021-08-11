@@ -1,59 +1,59 @@
 ---
 title: CSP müşteri web vitrini
-description: Bu örnek web sitesi kodu, müşterilerin Microsoft ürünlerine abonelik satın almaları için çalışan bir çevrimiçi mağaza gösterir.
+description: Bu örnek Web sitesi kodu, müşterilerin Microsoft ürünlerine abonelik satın almasını sağlamak için çalışan bir çevrimiçi mağaza gösterir.
 ms.date: 05/29/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d68f17d707731f426cb980a566b6478790d3507c
-ms.sourcegitcommit: ad8082bee01fb1f57da423b417ca1ca9c0df8e45
+ms.openlocfilehash: 07020c365db2ad578e7ff75602519d06eabb2a3bebf0913899fcd8b5345a0365
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111973341"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995212"
 ---
 # <a name="csp-customer-web-storefront"></a>CSP müşteri web vitrini
 
-**Için geçerlidir:** İş Ortağı Merkezi
+**Uygulama hedefi**: Iş Ortağı Merkezi
 
-**Için geçerli değildir:** İş Ortağı Merkezi Microsoft Bulut Almanya | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**İçin geçerlidir**: Microsoft bulut Almanya için Iş Ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Bu örnek uygulama yalnızca uygulamanın genel İş Ortağı Merkezi.
+Bu örnek uygulama yalnızca genel Iş Ortağı Merkezi örneği için geçerlidir.
 
-Bu [İş Ortağı Merkezi, müşterilerin](https://github.com/Microsoft/Partner-Center-Storefront) Microsoft **ürünlerine abonelik** satın almak için kullanabileceği bir çevrimiçi mağazanın örnek web sitesidir. Teklifleri yapılandırmak, **marka eklemek** ve bir ödeme yöntemi eklemek için bu örnek [kodu](#configure-branding)kendi [kullanımınız için değiştirebilirsiniz.](#configure-payment-types) [](#configure-offers)
+[Iş Ortağı Merkezi storefront](https://github.com/Microsoft/Partner-Center-Storefront) , müşterilerin Microsoft ürünlerine abonelik satın almak için kullanabileceği bir çevrimiçi mağaza için **örnek bir Web sitesidir** . [Teklifleri yapılandırmak](#configure-offers), [marka eklemek](#configure-branding)ve [bir ödeme yöntemi eklemek](#configure-payment-types)için bu **örnek kodu** kendi kullanımınıza göre değiştirebilirsiniz.
 
 ## <a name="sample-code"></a>Örnek kod
 
-[GitHub'den İş Ortağı Merkezi vitrin](https://github.com/Microsoft/Partner-Center-Storefront) örnek kodunu GitHub.
+[Iş Ortağı Merkezi storefront örnek kodunu](https://github.com/Microsoft/Partner-Center-Storefront) GitHub adresinden indirin.
 
 ## <a name="configure-authentication"></a>Kimlik doğrulamasını yapılandırma
 
-Uygulamayı derlemeden önce, Web.config dosyasındaki aşağıdaki değerleri, kimlik doğrulamasında oluşturduğunuz Azure AD kimlik doğrulaması [bilgilerini İş Ortağı Merkezi güncelleştirin.](partner-center-authentication.md) Tümleştirme korumalı alan hesabı ayarlarınızı erken geliştirme sırasında veya üretimde (TiP) test etmek için kullansanız iyi olur.
+Uygulamayı oluşturmadan önce, [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)oluşturduğunuz Azure AD kimlik doğrulaması bilgilerini yansıtmak için Web.config dosyasında aşağıdaki değerleri güncelleştirin. Erken geliştirme sırasında veya üretimde test için tümleştirme korumalı alan hesabı ayarlarınızı kullanmanız gerekir (tıp).
 
-- **partnerCenter.applicationId**
-- **partnerCenter.applicationSecret**
-- **partnerCenter.domain**
-- **webPortal.clientId**
-- **webPortal.clientSecret**
-- **webPortal.domain**
-- **webPortal.azureStorageConnectionString**
+- **partnerCenter. ApplicationId**
+- **partnerCenter. applicationSecret**
+- **partnerCenter. Domain**
+- **webPortal. ClientID**
+- **webPortal. clientSecret**
+- **webPortal. Domain**
+- **webPortal. Azurestoraygeconnectionstring**
 
 ## <a name="configure-offers"></a>Teklifleri yapılandırma
 
-Teklif kümelerini (**MicrosoftOffer)** **OfferCatalogViewModel içinde yapılandırabilirsiniz.**
+(**Microsoftoffer**) teklif kümesini **Offercatalogviewmodel** içinde yapılandırabilirsiniz.
 
-## <a name="configure-branding"></a>Markayı yapılandırma
+## <a name="configure-branding"></a>Marka yapılandırma
 
-Bu örnek web sitesi, *BrandingConfiguration.cs* ve *PortalBranding.cs* içinde aşağıdaki şirket ve marka bilgilerini izler:
+Bu örnek Web sitesi, *Brandingconfiguration. cs* ve *portalmarka. cs*' deki aşağıdaki şirket ve marka bilgilerini izler:
 
 - Kuruluş adı
 - Kuruluş logosu
 - Üst bilgi görüntüsü
-- Gizlilik sözleşmesi
+- Gizlilik Sözleşmesi
 - İlgili kişinin e-posta adresi
-- İletişim telefon numarası
+- İrtibat telefon numarası
 - Destek e-postası
 - Destek telefon numarası
 
-### <a name="configure-payment-types"></a>Ödeme türlerini yapılandırma
+### <a name="configure-payment-types"></a>Ödeme türlerini yapılandır
 
-Uygulama şu anda *PayPalGateway.cs* PayPal bir ağ geçidi kullanır.
+uygulama şu anda *paypalgateway. cs* dosyasında uygulanan bir PayPal ağ geçidi kullanıyor.

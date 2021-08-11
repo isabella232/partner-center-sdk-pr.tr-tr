@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: c52a556887dba065c4ccd1a82d6223624d0ad1f2
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 1c11779ee2ac80539a36db92f1ec811b054c858bf72d5ffbcce4d0bd86eed93e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874236"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994617"
 ---
 # <a name="get-a-list-of-orders-by-customer-and-billing-cycle-type"></a>Müşteri ve faturalandırma dönem türüne göre siparişlerin bir listesini alma
 

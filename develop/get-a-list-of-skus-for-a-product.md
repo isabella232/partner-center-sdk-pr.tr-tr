@@ -1,41 +1,41 @@
 ---
 title: Bir ürüne ait SKU’ların listesini alma (ülkeye göre)
-description: Iş Ortağı Merkezi API 'Lerini kullanarak bir ürün için ülkeye göre STB koleksiyonu alabilir ve filtreleyebilirsiniz.
+description: Bir ürüne göre SKU koleksiyonunu almak ve filtrelemek için İş Ortağı Merkezi api'lerini kullanın.
 ms.date: 11/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 27a2391a22a9439461fb53764b87c1cafa68b875
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 1f15ecaa7d84f4c68c6221e459d9977a79cffd9fa19d32ccbd7e6bec6444a93c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873896"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995450"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-country"></a>Bir ürüne ait SKU’ların listesini alma (ülkeye göre)
 
-Iş Ortağı Merkezi API 'Lerini kullanarak belirli bir ürün için bir ülkede bulunan SKU 'ların bir koleksiyonunu edinebilirsiniz.
+Belirli bir ürün için bir ülkede kullanılabilen SKU koleksiyonuna sahip olmak için İş Ortağı Merkezi kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir ürün tanımlayıcısı.
+- Ürün tanımlayıcısı.
 
 ## <a name="c"></a>C\#
 
-Bir ürüne ait SKU 'ların listesini almak için:
+Bir ürünün SKUS listesini almak için:
 
-1. [Kimliğe göre ürün edinme](get-a-product-by-id.md)bölümündeki adımları izleyerek belirli bir ürünün işlemlerine yönelik bir arabirim alın.
+1. Kimliğine göre ürün al adımlarını takip edin ve belirli bir ürünün [işlemleri için bir arabirim elde edin.](get-a-product-by-id.md)
 
-2. Arabirimde, SKU 'Lar için kullanılabilir işlemleri içeren bir arabirim elde etmek üzere **SKU 'ları** özelliğini seçin.
+2. Arabirimden **SKU'lar özelliğini** seçerek SKU'lar için kullanılabilir işlemlere sahip bir arabirim elde edin.
 
-3. Ürün için kullanılabilir SKU 'ların bir koleksiyonunu almak için **Get ()** veya **GetAsync ()** metodunu çağırın.
+3. Ürün için kullanılabilir **SKU'ların** bir koleksiyonunu almak için **Get()** veya GetAsync() yöntemini çağırma.
 
-4. Seçim **Byrezervationscope ()** yöntemini kullanarak ayırma kapsamını seçin.
+4. (İsteğe bağlı) **ByReservationScope() yöntemini kullanarak rezervasyon kapsamını** seçin.
 
-5. Seçim **Get ()** veya **GetAsync ()** çağrısı yapmadan önce SKU 'ları hedef kesimine göre filtrelemek için **bytargetsegment ()** yöntemini kullanın.
+5. (İsteğe bağlı) SKUS'ları **Get()** veya GetAsync() çağırmadan önce hedef segmente göre filtrelemek için **ByTargetSegment()** **yöntemini kullanın.**
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -63,15 +63,15 @@ var skus = partnerOperations.Products.ByCountry(countryCode).ById(productIdForAz
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Bir ürüne ait SKU 'ların listesini almak için:
+Bir ürünün SKUS listesini almak için:
 
-1. [Kimliğe göre ürün edinme](get-a-product-by-id.md)bölümündeki adımları izleyerek belirli bir ürünün işlemlerine yönelik bir arabirim alın.
+1. Kimliğine göre ürün al adımlarını takip edin ve belirli bir ürünün [işlemleri için bir arabirim elde edin.](get-a-product-by-id.md)
 
-2. Arabirimde, SKU 'Lar için kullanılabilir işlemleri içeren bir arabirim edinmek üzere **GetSku 'ları** işlevini seçin.
+2. Arabirimden **getSkus işlevini** seçerek SKU'lar için kullanılabilir işlemlere sahip bir arabirim elde edin.
 
-3. Ürün için kullanılabilir SKU 'ların bir koleksiyonunu almak için **Get ()** işlevini çağırın.
+3. Ürün için kullanılabilir SKU'ların bir koleksiyonunu almak için **get()** işlevini çağırma.
 
-4. Seçim **Get ()** işlevini çağırmadan önce STB 'leri hedef kesimine göre filtrelemek Için **bytargetsegment ()** işlevini kullanın.
+4. (İsteğe bağlı) sKUS'ları **get()** işlevini çağırmadan önce hedef segmente göre filtrelemek için **byTargetSegment()** işlevini kullanın.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -91,11 +91,11 @@ var segmentSkus = partnerOperations.getProducts().byCountry(countryCode).byId(pr
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Bir ürüne ait SKU 'ların listesini almak için:
+Bir ürünün SKUS listesini almak için:
 
-1. [**Get-PartnerProductSku**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md) komutunu yürütün.
+1. [**Get-PartnerProductSku komutunu yürütün.**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProductSku.md)
 
-2. Seçim SKU 'Ları hedef kesimine göre filtrelemek için **segment** parametresini belirtin.
+2. (İsteğe bağlı) **SKUS'ları** hedef segmente göre filtrelemek için Segment parametresini belirtin.
 
 ```powershell
 # $productId
@@ -110,26 +110,26 @@ Get-PartnerProductSku -ProductId $productId -Segment $targetSegment
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                              |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Products/{product-id}/SKU 'ları? ülke = {Country-code} &targetsegment = {Target-segment} http/1.1  |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus?country={country-code}&targetSegment={target-segment} HTTP/1.1  |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-Bir ürüne yönelik SKU 'ların listesini almak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
+Bir ürünün SKUS listesini almak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| ürün kimliği             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
-| ülke kodu           | string   | Yes      | Ülke/bölge KIMLIĞI.                                            |
+| product-id             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
+| ülke kodu           | string   | Yes      | Ülke/bölge kimliği.                                            |
 | hedef segment         | dize   | No       | Filtreleme için kullanılan hedef segmenti tanımlayan bir dize. |
-| Rezervationscope | dize   | No | Bir Azure rezervasyon ürününe yönelik SKU 'ların listesini sorgularken, `reservationScope=AzurePlan` Azuplanlamada geçerli olan SKU 'ların listesini almak için belirtin. Microsoft Azure (MS-azr-0145p) abonelikleri için geçerli olan Azure rezervasyon ürünleri sku 'larının listesini almak için bu parametreyi dışlayın.  |
+| reservationScope | dize   | No | Azure Rezervasyon ürünü için SKUS listesini sorgularken, AzurePlan için geçerli olan SKUS'ların listesini `reservationScope=AzurePlan` almak için belirtin. Azure Rezervasyon ürünleri için Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan SKU'ların listesini almak için bu parametreyi hariç tutabilirsiniz.  |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -137,7 +137,7 @@ Yok.
 
 ### <a name="request-examples"></a>İstek örnekleri
 
-Belirli bir ürün için SKU 'ların listesini alın:
+Verilen bir ürün için SKUS listesini al:
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BPS6/skus?country=US HTTP/1.1
@@ -147,7 +147,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Bir Azure rezervasyon ürününe ait SKU 'ların listesini alın. yalnızca Azure planlarına uygulanabilen ve Microsoft Azure (MS-azr-0145p) abonelikleri için geçerli olan sku 'ları dahil et:
+Azure Rezervasyon ürünü için SKUS listesini alır. Yalnızca Azure planları için geçerli olan SKU'ları dahil edin ve Microsoft Azure (MS-AZR-0145P) aboneliklerini dahil edin:
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US&reservationScope=AzurePlan HTTP/1.1
@@ -157,7 +157,7 @@ MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d
 MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 ```
 
-Bir Azure rezervasyon ürününe ait SKU 'ların listesini alın. yalnızca Microsoft Azure (MS-azr-0145p) abonelikleri için geçerli olan sku 'ları (Azure planlarına değil) dahil edin:
+Azure Rezervasyon ürünü için SKUS listesini alır. Azure planları için değil yalnızca Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan SKU'ları dahil edin:
 
 ```http
 GET http://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ5S/skus?country=US HTTP/1.1
@@ -169,17 +169,17 @@ MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [SKU](product-resources.md#sku) kaynakları koleksiyonu içerir.
+Başarılı olursa, yanıt gövdesi [SKU](product-resources.md#sku) kaynaklarının bir koleksiyonunu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Açıklama                                                                                               |
+| HTTP Durum Kodu     | Hata kodu   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | İstenen targetSegment erişimine izin verilmiyor.                                                     |
+| 403                  | 400030       | İstenen targetSegment'a erişime izin verilmiyor.                                                     |
 | 404                  | 400013       | Üst ürün bulunamadı.                                                                         |
 
 ### <a name="response-example"></a>Yanıt örneği

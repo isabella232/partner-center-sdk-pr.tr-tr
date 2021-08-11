@@ -1,103 +1,103 @@
 ---
-title: Ödeme hizmeti API 'sini kullanarak ödemeleri yönetme
-description: Iş Ortağı Merkezi ödeme hizmeti API 'sini, ödeme verilerine erişmek için nasıl kullanacağınızı öğrenin
+title: Ödeme Hizmeti API'sini kullanarak ödemeleri yönetme
+description: Ödeme verilerine erişmek İş Ortağı Merkezi Ödeme Hizmeti API'sini kullanmayı öğrenin
 ms.date: 06/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: jasongroce
 ms.author: sabaja
-ms.openlocfilehash: 014a1e6a14b538b7557d58710b9132dd9e37de21
-ms.sourcegitcommit: 7e2d2805c4cdd61785b1cdcca99cad10d5683153
+ms.openlocfilehash: b9bdc6da64a79f4f35466fb62662b086a8e1ab3cadc99c7ca685303752f9d166
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2021
-ms.locfileid: "113592484"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996410"
 ---
-# <a name="manage-payouts-using-the-payout-service-api"></a>Ödeme hizmeti API 'sini kullanarak ödemeleri yönetme
+# <a name="manage-payouts-using-the-payout-service-api"></a>Ödeme Hizmeti API'sini kullanarak ödemeleri yönetme
 
-Bu makalede, Iş Ortağı Merkezi kullanıcı arabirimi yerine, ödeme verilerine ödeme hizmeti API 'Leri aracılığıyla nasıl erişebileceğiniz açıklanır. Bu API 'Ler, Iş Ortağı Merkezi 'nde [veri dışarı aktarma](https://partner.microsoft.com/dashboard/payouts/reports/incentiveexport) özelliğinin yeteneğini sağlamak için programlı bir yol sağlar.
+Bu makalede, kullanıcı arabirimi yerine Ödeme Hizmeti API'leri aracılığıyla ödeme verilerine nasıl İş Ortağı Merkezi açıklanmıştır. Bu API'ler, veri dışarı aktarma özelliğinin veri dışarı aktarma özelliğini İş Ortağı Merkezi. [](https://partner.microsoft.com/dashboard/payouts/reports/incentiveexport)
 
 ## <a name="available-apis"></a>Kullanılabilir API’ler
 
-[Ortak ödemeler](/rest/api/partner-center/partner-payouts)sırasında kullanılabilir tüm API 'leri görüntüleyin.
+İş Ortağı Ödemeleri'nde tüm [kullanılabilir API'lere bakın.](/rest/api/partner-center/partner-payouts)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Azure portal [AAD/Microsoft kimliği ile bir uygulamayı kaydedin](/graph/auth-register-app-v2) ve uygulamaya uygun sahipleri ve rolleri ekleyin.
-- [Visual Studio](https://visualstudio.microsoft.com/downloads/)'i yükler.
+- [Uygulamayı AAD/Microsoft Identity](/graph/auth-register-app-v2) ile Azure portal ve uygulamaya uygun sahipler ve roller ekleyin.
+- yükleme [Visual Studio.](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="register-an-application-with-the-microsoft-identity-platform"></a>Microsoft kimlik platformuna uygulama kaydetme
 
-[Microsoft kimlik platformu](/azure/active-directory/develop/v2-overview) , kullanıcılarınızın ve müşterilerinizin Microsoft kimliklerini veya sosyal hesaplarını kullanarak oturum açmasını ve kendi apı 'lerinize veya Microsoft Graph gibi microsoft apı 'lerine yetkili erişim sağlamasına yardımcı olur.
+Bu [Microsoft kimlik platformu,](/azure/active-directory/develop/v2-overview) kullanıcı ve müşterinizin Microsoft kimliklerini veya sosyal hesaplarını kullanarak oturum açmasını sağlayan ve kendi API'leriniz veya Microsoft Graph gibi Microsoft API'leriniz için yetkili erişim sağlayan uygulamalar derlemenize yardımcı Graph.
 
 1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalında](https://portal.azure.com/) oturum açın.
 
-   Hesabınız birden fazla kiracıya erişim veriyorsa, sağ üst köşedeki hesabınızı seçin ve Portal oturumunuzu doğru Azure AD kiracısına ayarlayın.
+   Hesabınız birden fazla kiracıya erişim veriyorsa, sağ üst köşeden hesap seçin ve portal oturumlarınızı doğru Azure AD kiracısına ayarlayın.
 
-2. sol gezinti bölmesinde Azure Active Directory hizmeti, sonra **Uygulama kayıtları** ve ardından **yeni kayıt**' ı seçin. **Uygulama kaydetme** sayfası görüntülenir.
+2. Sol gezinti bölmesinde, Azure Active Directory hizmetini seçin ve **Uygulama kayıtları** yeni kayıt **seçeneğini kullanın.** Uygulama **kaydetme** sayfası görüntülenir.
 
-   :::image type="content" source="./images/manage-payouts/new-app-registration.png" alt-text="Azure portal uygulama kaydetme ekranını gösteren ekran görüntüsü.":::
+   :::image type="content" source="./images/manage-payouts/new-app-registration.png" alt-text="Uygulama kaydetme ekranındaki Uygulama kaydetmeyi gösteren ekran Azure portal.":::
 
-3. Uygulamanızın kayıt bilgilerini girin:
+3. Uygulama kayıt bilgilerini girin:
 
-   - Ad: uygulamanın kullanıcılarına gösterilecek anlamlı bir uygulama adı girin.
-   - Desteklenen hesap türleri: uygulamanızın destekleyeceği hesapları seçin.
+   - Ad: Uygulama kullanıcılarına görüntülenecek anlamlı bir uygulama adı girin.
+   - Desteklenen hesap türleri: Uygulamanıza hangi hesapların destekley olduğunu seçin.
 
     | **Desteklenen hesap türleri**                             | **Açıklama**                                                                                            |
     |---------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-    | Yalnızca bu kuruluş dizinindeki hesaplar          | Bir iş kolu uygulaması (LOB) oluşturuyorsanız bu seçeneği belirtin. Uygulamayı bir dizine kaydetmiyorsanız bu seçenek kullanılamaz. Bu seçenek, yalnızca Azure AD tek kiracılı hesaba eşlenir.  Uygulamayı bir dizinin dışına kaydetmiyorsanız Bu seçenek varsayılandır. Uygulamanın bir dizin dışında kaydedildiği durumlarda, varsayılan seçenek Azure çok kiracılı ve kişisel Microsoft kişisel hesaplarıdır.             |
+    | Yalnızca bu kuruluş dizininde yer alan hesaplar          | Bir iş kolu uygulaması (LOB) oluşturuyorsanız bu seçeneği belirtin. Uygulamayı bir dizine kaydetmiyorsanız bu seçenek kullanılamaz. Bu seçenek, yalnızca Azure AD tek kiracılı hesaba eşlenir.  Uygulamayı bir dizinin dışında kaydetmedikçe bu seçenek varsayılan seçenektir. Uygulamanın bir dizin dışında kaydedildiği durumlarda, varsayılan seçenek Azure çok kiracılı ve kişisel Microsoft kişisel hesaplarıdır.             |
     | Herhangi bir kuruluş dizinindeki hesaplar                | Tüm iş ve eğitim müşterilerini hedeflemek istiyorsanız bu seçeneği belirleyin.  Bu seçenek, bir yalnızca Azure AD çok kiracılı hesaba eşlenir. Uygulamayı yalnızca Azure AD tek kiracılı olarak kaydettiyseniz, Kimlik doğrulaması dikey penceresinden Azure AD çok kiracılı olacak şekilde ve tekrar tek kiracılı olarak güncelleştirebilirsiniz.                                                                                                                                                  |
-    | Herhangi bir kuruluş dizinindeki hesaplar ve kişisel Microsoft hesapları | En geniş müşteri kümesini hedeflemek için bu seçeneği belirleyin. Bu seçenek Azure AD çok kiracılı ve kişisel Microsoft hesaplarına eşlenir.  Uygulamayı Azure AD çok kiracılı ve kişisel Microsoft hesapları olarak kaydettiniz, bu seçimi Kullanıcı arabiriminde değiştiremezsiniz. Bunun yerine, desteklenen hesap türlerini değiştirmek için uygulama bildirimi düzenleyicisini kullanmanız gerekir.                                                                          |
+    | Herhangi bir kuruluş dizinindeki hesaplar ve kişisel Microsoft hesapları | En geniş müşteri kümesini hedeflemek için bu seçeneği belirleyin. Bu seçenek Azure AD çok kiracılı ve kişisel Microsoft hesaplarına eşlenir.  Uygulamayı Azure AD çok kiracılı ve kişisel Microsoft hesapları olarak kaydettiyebilirsiniz, kullanıcı arabiriminde bu seçimi değiştiremezsiniz. Bunun yerine, desteklenen hesap türlerini değiştirmek için uygulama bildirimi düzenleyicisini kullanmanız gerekir.                                                                          |
 
-   - *(isteğe bağlı)* Yeniden yönlendirme URI 'SI: oluşturmakta olduğunuz uygulamanın türünü, Web veya ortak istemciyi (mobil & Masaüstü) seçin ve ardından uygulamanızın yeniden yönlendirme URI 'sini (veya yanıt URL 'SI) girin. (Yeniden yönlendirme URL 'SI, kimlik doğrulama yanıtının Kullanıcı kimliğini doğruladıktan sonra gönderileceği yerdir.) 
+   - *(isteğe bağlı)* Yeniden yönlendirme URI'si: Web veya Genel istemci (mobil & masaüstü) olarak, kendi uygulama türlerinizi seçin ve ardından uygulamanıza yönelik yeniden yönlendirme URI'sini (veya yanıt URL'sini) girin. (Yeniden yönlendirme URL'si, kullanıcı kimlik doğrulamasının ardından kimlik doğrulama yanıtının gönderilmesidir.) 
 
       Web uygulamaları için, uygulamanızın temel URL'sini girin. Örneğin `http://localhost:31544` yerel makinenizde çalışan bir web uygulamasının URL'si olabilir. Kullanıcılar, bir web istemci uygulamasında oturum açmak için bu URL'yi kullanır.
       Genel istemci uygulamaları için, Azure AD'nin belirteç yanıtlarını döndürmek üzere kullandığı URI'yi girin. Uygulamanıza özgü bir değer girin, örn. `myapp://auth`.
 
-4. **Kaydet**’i seçin. Azure AD uygulamanıza benzersiz bir uygulama (istemci) KIMLIĞI atar ve uygulamanın genel bakış sayfası yüklenir.
+4. **Kaydet**’i seçin. Azure AD, uygulamanıza benzersiz bir uygulama (istemci) kimliği atar ve uygulamanın genel bakış sayfası yüklenir.
 
-   :::image type="content" source="./images/manage-payouts/register-an-application.png" alt-text="<alt metin>":::
+   :::image type="content" source="./images/manage-payouts/register-an-application.png" alt-text="<alternatif metin>":::
 
-5. Uygulamanıza özellik eklemek istiyorsanız, marka, sertifikalar ve gizlilikler, API izinleri ve daha fazlasını içeren diğer yapılandırma seçeneklerini belirleyebilirsiniz.
+5. Uygulamanıza özellikler eklemek için markalama, sertifikalar ve gizli diziler, API izinleri ve daha fazlası gibi diğer yapılandırma seçeneklerini kullanabilirsiniz.
 
 ## <a name="platform-specific-properties"></a>Platforma özgü özellikler
 
-Aşağıdaki tabloda, farklı türlerde uygulamalar için yapılandırmanız ve kopyalamanız gereken özellikler gösterilmektedir. **Atanmış** , Azure AD tarafından atanan değeri kullanmanız gerektiği anlamına gelir.
+Aşağıdaki tabloda, farklı türlerde uygulamalar için yapılandırmanız ve kopyalamanız gereken özellikler yer alır. **Atanan,** Azure AD tarafından atanan değeri kullanmanız gerektiği anlamına gelir.
 
-| Uygulama türü              | Platform | Uygulama (istemci) kimliği | İstemci Gizli Anahtarı | Yeniden yönlendirme URI 'si/URL 'SI | Örtük Flow                                                         |
+| Uygulama türü              | Platform | Uygulama (istemci) kimliği | İstemci Gizli Anahtarı | Yeniden yönlendirme URI'si/URL'si | Örtülü Flow                                                         |
 |-----------------------|----------|-------------------------|---------------|------------------|-----------------------------------------------------------------------|
-| Yerel/mobil         | Yerel   | Atanmış                | No            | Atanmış         | No                                                                    |
-| Web App               | Web      | Atanmış                | Yes           | Yes              | isteğe bağlı açık kimlik Bağlan ara yazılım varsayılan olarak karma akışı kullanır (evet) |
-| Tek sayfalı uygulama (SPA) | Web      | Atanmış                | Yes           | Yes              | evet maça açık kimlik Bağlan örtülü Flow kullanın                            |
+| Yerel/Mobil         | Yerel   | Atanmış                | No            | Atanmış         | No                                                                    |
+| Web App               | Web      | Atanmış                | Yes           | Yes              | İsteğe bağlı Açık Bağlan ara yazılımı varsayılan olarak karma akışı kullanır (Evet) |
+| Tek Sayfalı Uygulama (SPA) | Web      | Atanmış                | Yes           | Yes              | Evet, SPA'lar açık kimlik Bağlan açık kimlik Flow                            |
 | Hizmet/Daemon        | Web      | Atanmış                | Yes           | Yes              | Hayır                                                                    |
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
-Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Uygulama için doğru izinleri hangi rolün sunduğunu belirleyen yardım için bkz. [Azure yerleşik rolleri](/azure/role-based-access-control/built-in-roles).
+Aboneliğiniz içinde kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Hangi rolün uygulama için doğru izinleri sunduğuna karar verme konusunda yardım için [bkz. Azure yerleşik rolleri.](/azure/role-based-access-control/built-in-roles)
 
 > [!NOTE]
-> Kapsamı, abonelik, kaynak grubu veya kaynak düzeyinde ayarlayabilirsiniz. İzinler, daha düşük kapsam düzeylerine devralınır. Örneğin, bir kaynak grubu için okuyucu rolüne bir uygulama eklemek, kaynak grubunu ve içerdiği kaynakları okuyabileceği anlamına gelir.
+> Kapsamı abonelik, kaynak grubu veya kaynak düzeyinde ayarlayabilirsiniz. İzinler daha düşük kapsam düzeylerine devralınmış olur. Örneğin, bir kaynak grubu için Okuyucu rolüne uygulama eklemek, kaynak grubunu ve içerdiği tüm kaynakları okuyabiliyor demektir.
 
-1. Azure portal, uygulamanın atanacağı kapsam düzeyini seçin. Örneğin, abonelik kapsamında bir rol atamak için, **abonelikleri** arayıp seçin ya da giriş sayfasında **abonelikler** ' i seçin.
+1. Uygulama Azure portal, uygulamayı atamak için kapsam düzeyini seçin. Örneğin, abonelik kapsamında bir rol atamak için Abonelikler'i bulun ve **seçin** veya giriş sayfasında **Abonelikler'i** seçin.
 
-   :::image type="content" source="./images/manage-payouts/search-for-subscriptions.png" alt-text="Abonelikler ekran aramasını gösteren ekran görüntüsü.":::
+   :::image type="content" source="./images/manage-payouts/search-for-subscriptions.png" alt-text="Abonelikler ekran aramanızı gösteren ekran görüntüsü.":::
 
-2. Uygulamanın atanacağı aboneliği seçin.
+2. Uygulamayı atamak istediğiniz aboneliği seçin.
 
-   :::image type="content" source="./images/manage-payouts/internal-testing-subscription.png" alt-text="Iç test bayrağı true olarak ayarlanan abonelikler ekranını gösteren ekran görüntüsü.":::
+   :::image type="content" source="./images/manage-payouts/internal-testing-subscription.png" alt-text="İç Test bayrağının true olarak ayarlandı olduğu Abonelikler ekran görüntüsü.":::
 
 > [!NOTE]
-> Aradığınız aboneliği görmüyorsanız, genel abonelikler filtresini seçin ve Portal için istediğiniz aboneliğin seçildiğinden emin olun.
+> İstediğiniz aboneliği görmüyorsanız genel abonelikler filtresini seçin ve portal için istediğiniz aboneliğin seçildiğinden emin olun.
 
-3. **Erişim denetimi (IAM)** öğesini seçin ve ardından **rol ataması Ekle**' yi seçin.
+3. Erişim **denetimi (IAM) öğesini** ve ardından Rol ataması **ekle'yi seçin.**
 
-4. Uygulamaya atamak istediğiniz rolü seçin. Örneğin, uygulamanın yeniden başlatma gibi eylemleri yürütmesine izin vermek için örnekleri başlatın ve durdurun, katkıda bulunan rolünü seçin. [Kullanılabilir roller](/azure/role-based-access-control/built-in-roles)hakkında daha fazla bilgi edinin.
+4. Uygulamaya atamak istediğiniz rolü seçin. Örneğin, uygulamanın örnekleri yeniden başlatma, başlatma ve durdurma gibi eylemleri yürütmesine izin vermek için Katkıda Bulunan rolünü seçin. Kullanılabilir roller hakkında daha [fazla bilgi okuyun.](/azure/role-based-access-control/built-in-roles)
 
-   Varsayılan olarak, Azure AD uygulamaları kullanılabilir seçeneklerde gösterilmez. Uygulamanızı bulmak için ad üzerinde arama yapın ve sonuçlardan seçim yapın. Aşağıdaki ekran görüntüsünde, `example-app` KAYDETTIĞINIZ AAD uygulaması.
+   Varsayılan olarak, Azure AD uygulamaları kullanılabilir seçeneklerde görüntülenmez. Uygulamanızı bulmak için ad üzerinde arama ve sonuçlardan uygulamayı seçin. Aşağıdaki ekran `example-app` görüntüsünde, kayıtlı AAD uygulamasıdır.
 
    :::image type="content" source="./images/manage-payouts/add-role-assignment.png" alt-text="Test uygulaması için rol ataması eklemek için kullanıcı arabirimini gösteren ekran görüntüsü.":::
 
-5. **Kaydet**’i seçin. Daha sonra, bu kapsam için bir role sahip kullanıcılar listesinden uygulamalarınızı görebilir.
+5. **Kaydet**’i seçin. Daha sonra, bu kapsam için bir role sahip kullanıcılar listesinden uygulamanıza bakabilirsiniz.
 
    Betiklerinizi veya uygulamalarınızı çalıştırmak için hizmet sorumlularınızı kullanmaya başlayabilirsiniz. Hizmet sorumlunuza ilişkin izinleri yönetmek için bkz. kullanıcı onayı durumu, izinleri gözden geçirme, oturum açma bilgileri ve daha fazlası), Enterprise [uygulamalarınızı](https://portal.azure.com)Azure portal.
 
@@ -113,13 +113,13 @@ Bu bölümde, gerekli API izinlerini ayarlama hakkında yönerge verilmiştir. A
 
 3. Uygulamanın Genel Bakış sayfasının Yönet altında API **İzinleri'ne** **ve** ardından İzin **ekle'ye tıklayın.**
 
-4. Kullanılabilir **API Graph Microsoft** Graph'yi seçin.
+4. Kullanılabilir **API'Graph Listesinden Microsoft** Graph'yi seçin.
 
 5. Temsilcili **izinler'i seçin** ve gerekli izinleri ekleyin. Daha fazla bilgi için [bkz. Uygulama erişimini yapılandırma.](/azure/active-directory/develop/quickstart-configure-app-access-web-apis)
 
    :::image type="content" source="./images/manage-payouts/graph-request-api-permissions.png" alt-text="Microsoft Azure portal'nin seçili olduğu Graph ekran görüntüsü.":::
 
-**AAD uygulaması aracılığıyla API'İş Ortağı Merkezi API erişimine onay**
+**AAD uygulaması aracılığıyla API'İş Ortağı Merkezi API'ye erişim izni**
 
 6. Uygulamanız için **API izinleri'ne** tıklayın, ardından API izinleri isteği ekranından İzin ekle'yi ve ardından kuruluşum tarafından kullanan **API'ler'i seçin.**
 

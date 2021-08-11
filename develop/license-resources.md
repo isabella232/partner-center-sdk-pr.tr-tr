@@ -4,12 +4,12 @@ description: Lisanslarıyla ilgili kaynakları açıklar.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 27d44f89ac89f365e77e073c425ca45ab3638c68
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: e6d91110dcec8a873e77cb02bdb77f6335e27989201ea68eebf904c5159964c5
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548405"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996589"
 ---
 # <a name="license-resources"></a>Lisans kaynakları
 
@@ -24,7 +24,7 @@ Bir kullanıcı lisansını açıklar.
 >[!NOTE]
 >21Vianet tarafından çalıştırılan Iş Ortağı Merkezi 'nde desteklenmez.
 
-| Özellik     | Tür                                                           | Açıklama                                                    |
+| Özellik     | Tür                                                           | Description                                                    |
 |--------------|----------------------------------------------------------------|----------------------------------------------------------------|
 | Hizmet planları | ServicePlan kaynakları dizisi                                 | Lisansa karşılık gelen hizmet planları koleksiyonu |
 | productSKU 'Su   | ProductSku 'Su                                                     | Lisansa karşılık gelen ürünün SKU 'su.        |
@@ -34,7 +34,7 @@ Bir kullanıcı lisansını açıklar.
 
 Bir kullanıcıya lisans atamak veya kaldırmak için kullanılan bilgileri sağlar.
 
-| Özellik         | Tür                                                           | Açıklama                                               |
+| Özellik         | Tür                                                           | Description                                               |
 |------------------|----------------------------------------------------------------|-----------------------------------------------------------|
 | licensestoAssign | nesne dizisi                                               | [Licenseatama](#licenseassignment) nesnelerinin dizisi. |
 | licensesToRemove | dize dizisi                                               | Kaldırılacak lisansların Ürün SKU tanımlayıcıları.    |
@@ -45,7 +45,7 @@ Bir kullanıcıya lisans atamak veya kaldırmak için kullanılan bilgileri sağ
 
 Bir lisans güncelleştirme işlemi için gereken bilgileri sağlar.
 
-| Özellik      | Tür             | Açıklama                                                                |
+| Özellik      | Tür             | Description                                                                |
 |---------------|------------------|----------------------------------------------------------------------------|
 | Excludedplanlar | dize dizisi | Kullanım dışında tutulacak hizmet planı tanımlayıcıları. |
 | skuId         | string           | Lisansın Ürün SKU 'SU tanımlayıcısı.                                |
@@ -54,7 +54,7 @@ Bir lisans güncelleştirme işlemi için gereken bilgileri sağlar.
 
 Bir lisans güncelleştirme işlemi sırasında oluşan uyarı bilgilerini içerir.
 
-| Özellik     | Tür             | Açıklama                                         |
+| Özellik     | Tür             | Description                                         |
 |--------------|------------------|-----------------------------------------------------|
 | kod         | string           | Uyarı kodu.                                   |
 | message      | string           | Uyarı iletisi.                                |
@@ -64,7 +64,7 @@ Bir lisans güncelleştirme işlemi sırasında oluşan uyarı bilgilerini içer
 
 Ürün ayrıntılarını açıklar.
 
-| Özellik       | Tür             | Açıklama                                         |
+| Özellik       | Tür             | Description                                         |
 |----------------|------------------|-----------------------------------------------------|
 | kimlik             | string           | Ürün tanımlayıcısı.                             |
 | name           | string           | Kullanıcı asıl tanımlayıcısı.                      |
@@ -76,27 +76,27 @@ Bir lisans güncelleştirme işlemi sırasında oluşan uyarı bilgilerini içer
 
 Bir Ürün SKU 'SU içinde dağıtılabilir bir hizmeti tanımlar. Bir üründe birçok hizmet planı olabilir.
 
-| Özellik         | Tür   | Açıklama                                                                                                       |
+| Özellik         | Tür   | Description                                                                                                       |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------|
 | kimlik               | string | Hizmet planı tanımlayıcısı.                                                                                      |
 | displayName      | string | Hizmet planının yerelleştirilmiş görünen adı.                                                                  |
-| Hizmetadı      | string | Hizmet adı.                                                                                                 |
+| HizmetAdı      | string | Hizmet adı.                                                                                                 |
 | capabilityStatus | string | Hizmet planının hizmet planı durumu.                                                                      |
-| Targettype       | string | Hizmet planının hedef türü. Bu özellik, ürünün "Kullanıcı" veya "Kiracı" için geçerli olup olmadığını tanımlar. |
+| Öğesi       | string | Hizmet planının hedef türü. Bu özellik, ürünün bir "Kullanıcı" veya "Kiracı" için geçerli olup olmadığını belirler. |
 
 ## <a name="subscribedsku"></a>SubscribedSku
 
-Kiracıya ait abone olunan bir ürünü açıklar.
+Bir kiracının sahip olduğu abone olunan bir ürünü açıklar.
 
-| Özellik         | Tür                                                           | Açıklama                                                                                       |
+| Özellik         | Tür                                                           | Description                                                                                       |
 |------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| availableUnits   | tamsayı                                                        | Atama için kullanılabilen birim sayısı. Bu değer, toplam birim ( tüketilen birimler) olarak hesaplanır. |
+| availableUnits   | tamsayı                                                        | Atama için kullanılabilen birim sayısı. Bu değer toplam birim tüketilen birimler olarak hesaplanır. |
 | activeUnits      | tamsayı                                                        | Atama için etkin birim sayısı.                                                        |
-| consumedUnits    | tamsayı                                                        | Tüketilen birim sayısı.                                                                     |
+| Tüketim birimleri    | tamsayı                                                        | Tüketilen birim sayısı.                                                                     |
 | suspendedUnits   | tamsayı                                                        | Askıya alınan birim sayısı.                                                                    |
 | totalUnits       | tamsayı                                                        | Toplam birim sayısı. Bu değer, etkin ve uyarı birimlerinin toplamı olarak hesaplanır.         |
 | warningUnits     | tamsayı                                                        | Uyarı birimlerinin sayısı.                                                                      |
-| productSku       | ProductSku                                                     | Ürün sku'su.                                                                                  |
-| servicePlans     | ServicePlan kaynakları dizisi                                 | Bir ürünün hizmet planları koleksiyonu.                                                     |
-| capabilityStatus | string                                                         | Bir ürünün sku durumu.                                                                      |
-| öznitelikler       | [Resourceattributes](utility-resources.md#resourceattributes) | Kaynağa karşılık gelen meta veri öznitelikleri.                                            |
+| productSku 'Su       | ProductSku 'Su                                                     | Ürün SKU 'su.                                                                                  |
+| Hizmet planları     | ServicePlan kaynakları dizisi                                 | Bir ürünün hizmet planları koleksiyonu.                                                     |
+| capabilityStatus | string                                                         | Ürünün SKU durumu.                                                                      |
+| öznitelikler       | [ResourceAttributes](utility-resources.md#resourceattributes) | Kaynağa karşılık gelen meta veri öznitelikleri.                                            |

@@ -1,31 +1,31 @@
 ---
-title: Self Servis ilkesini güncelleştirme
-description: Self Servis ilkesini güncelleştirme.
+title: Self servis ilkesi güncelleştirme
+description: Self servis ilkeyi güncelleştirme.
 ms.date: 04/13/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d94382e73fd2a79751fe5f8f8414df2befde584f
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 8e1330de6655e7a4dbe2d7432ece208b4600f3659266e20199e729400a917771
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445264"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996640"
 ---
-# <a name="update-a-selfservepolicy"></a>SelfServePolicy güncelleştirme
+# <a name="update-a-selfservepolicy"></a>SelfServePolicy'i güncelleştirme
 
-Bu makalede bir self servis ilkesinin nasıl güncelleştirilmesi açıklanmaktadır.
+Bu makalede self servis ilkesi güncelleştirme işlemi açıklanmıştır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Self Servis ilkesini silmek için:
+Self servis ilkesi silmek için:
 
-1. İlkelerdeki işlemlere bir arabirim almak için, varlık tanımlayıcısıyla [**ıaggregatepartner. SelfServePolicies. Byıd**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) metodunu çağırın.
+1. İlkeler üzerinde işlemlere bir arabirim almak için varlık tanımlayıcısıyla [**IAggregatePartner.SelfServePolicies.ById**](/dotnet/api/microsoft.store.partnercenter.iselfservepoliciescollection.byid) yöntemini çağırma.
 
-2. Self Servis ilkesini güncelleştirmek için [**PUT**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.put) veya [**PutAsync**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.putasync) metodunu çağırın.
+2. Self servis [**ilkeyi**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.put) güncelleştirmek için Put veya [**PutAsync**](/dotnet/api/microsoft.store.partnercenter.SelfServePolicies.putasync) yöntemini çağırma.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -40,36 +40,36 @@ partnerOperations.SelfServePolicies.ById(policy.id).Put(policy);
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem   | İstek URI'si                                                       |
 |----------|-------------------------------------------------------------------|
-| **PUT** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/SelfServePolicy http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/SelfServePolicy HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
 - İstek tanımlayıcısı ve bağıntı tanımlayıcısı gereklidir.
-- Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+- Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tabloda, istek gövdesinde gereken özellikler açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli özellikleri açıklar.
 
-| Ad                              | Tür   | Açıklama                                 |
+| Ad                              | Tür   | Description                                 |
 |------------------------------------------------------------------|--------|---------------------------------------------|
-| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | Self Servis ilke bilgileri. |
+| [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy)| object | Self servis ilke bilgileri. |
 
 #### <a name="selfservepolicy"></a>SelfServePolicy
 
-Bu tabloda, yeni bir self servis ilkesi oluşturmak için gereken [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağından gerekli en düşük alan açıklanmaktadır.
+Bu tablo, yeni bir self servis ilkesi oluşturmak için [gereken SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağından gereken minimum alanları açıklar.
 
-| Özellik              | Tür             | Açıklama                                                                                            |
+| Özellik              | Tür             | Description                                                                                            |
 |-----------------------|------------------|--------------------------------------------------------------------------------------------------------|
-| kimlik                    | string           | Self Servis ilkesinin başarıyla oluşturulması sırasında sağlanan kendi kendine bir ilke tanımlayıcısı.     |
-| SelfServeEntity       | SelfServeEntity  | Erişim izni verilen self servis varlığı.                                                     |
-| Verenin Grant izni               | Verenin Grant izni          | Erişim veren granör.                                                                    |
-| İzinler           | Izin dizisi| [İzin](self-serve-policy-resources.md#permission) kaynakları dizisi.                                                      |
-| Özelliği                  | string           | ETag.                                                                                               |
+| kimlik                    | string           | Self servis ilkenin başarıyla oluşturulmasının ardından sağlanan bir self servis ilke tanımlayıcısı.     |
+| SelfServeEntity       | SelfServeEntity  | Erişim verilen self servis varlık.                                                     |
+| Grantor               | Grantor          | Erişim iznini vermekte olan grantor.                                                                    |
+| İzinler           | İzin Dizisi| İzin [kaynakları](self-serve-policy-resources.md#permission) dizisi.                                                      |
+| Etag                  | string           | The Etag.                                                                                               |
 
 
 ### <a name="request-example"></a>İstek örneği
@@ -108,16 +108,16 @@ Connection: Keep-Alive
 
 Başarılı olursa, bu API güncelleştirilmiş self servis ilkesi için bir [SelfServePolicy](self-serve-policy-resources.md#selfservepolicy) kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Açıklama                                                                |
+| HTTP Durum Kodu     | Hata kodu   | Description                                                                |
 |----------------------|--------------|----------------------------------------------------------------------------|
-| 404                  | 600039       | Self Servis ilkesi bulunamadı                                            |
-| 404                  | 600040       | Self Servis ilke tanımlayıcısı yanlış                                  |
+| 404                  | 600039       | Self servis ilkesi bulunamadı                                            |
+| 404                  | 600040       | Self servis ilke tanımlayıcısı yanlış                                  |
 
 
 ### <a name="response-example"></a>Yanıt örneği

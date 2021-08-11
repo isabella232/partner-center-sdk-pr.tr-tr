@@ -4,12 +4,12 @@ description: Belirtilen müşteri için mevcut bir toplu işe cihaz hakkındaki 
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3fa9cff39113130c54cecfaef1f8ca28e0ac5adf
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: d83812f32312d5742fd69c43456cb3ba64dca56bc0c81fe6eedb14d2c010a7fc
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530319"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995484"
 ---
 # <a name="upload-a-list-of-devices-to-an-existing-batch-for-the-specified-customer"></a>Belirtilen müşteri için mevcut bir toplu işe ait cihaz listesini karşıya yükleme
 

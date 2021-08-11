@@ -4,12 +4,12 @@ description: Iş Ortağı Merkezi API 'sini kullanarak yazılım abonelikleri, k
 ms.date: 10/09/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 1ca2d5b7ad6ba1196d74a8cdb748ab808192d569
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: baf0b5d4aaa8957874ab019359aca2662a76194387e0cd06999b0bb329076c80
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548388"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994447"
 ---
 # <a name="make-a-one-time-purchase"></a>Tek seferlik satın alım yapma
 
@@ -175,4 +175,4 @@ Belirli bir fatura KIMLIĞI için fatura satırı öğe ayrıntılarının (muta
 
 ### <a name="download-an-invoice-as-a-pdf"></a>Bir faturayı PDF olarak indirme
 
-Fatura kimliği kullanarak PDF formunda fatura deyimi almak için bkz. [Fatura deyimi alma.](get-invoice-statement.md)
+Fatura KIMLIĞI kullanarak PDF formundaki fatura ekstresini almak için bkz. [Fatura alma ekstresi](get-invoice-statement.md).

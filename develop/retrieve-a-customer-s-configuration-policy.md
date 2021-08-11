@@ -4,12 +4,12 @@ description: Belirtilen müşteri için belirtilen yapılandırma ilkesi nasıl 
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f9a8cb435c63d8d02c3b4633abc8723353116f37
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 27e01b7c7ec0920d1e6123379fb318827f5389a9c6b297d630ac60dce6933faf
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547504"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996895"
 ---
 # <a name="retrieve-a-customers-configuration-policy"></a>Müşterinin yapılandırma ilkesini alma
 

@@ -1,35 +1,35 @@
 ---
 title: Bir aboneliğin destek kişisini güncelleştirme
-description: Bir aboneliğin destek kişisini iş ortağının değer eklenmiş satıcılarından biriyle güncelleştirme.
+description: Bir aboneliğin destek ilgili kişisini iş ortağının değer ekli kurumsal bayilerinden biri ile güncelleştirme.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8c89f91fc9e89384a7be1237c08d7a9a1cfe3164
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 94190a3cde5a1757253158f4bdbb1894b03c4f9b8cb57dbbc1ef7c7e39dceee4
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530370"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996623"
 ---
 # <a name="update-a-subscriptions-support-contact"></a>Bir aboneliğin destek kişisini güncelleştirme
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Bir aboneliğin destek kişisini iş ortağının değer eklenmiş satıcılarından biriyle güncelleştirme.
+Bir aboneliğin destek ilgili kişisini iş ortağının değer ekli kurumsal bayilerinden biri ile güncelleştirme.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 - Abonelik tanımlayıcısı.
 
-- Yeni destek kişisi hakkında bilgi: kiracı tanımlayıcı, Microsoft İş Ortağı Ağı tanımlayıcı ve ad. Destek kişisi, ortağın değer eklenmiş satıcılarından biri olmalıdır.
+- Yeni destek ilgili kişisi hakkında bilgi: kiracı tanımlayıcısı, Microsoft İş Ortağı Ağı ve ad. Destek ilgili kişisi, iş ortağının katma değerli kurumsal bayilerinden biri olmalı.
 
 ## <a name="c"></a>C\#
 
-Bir aboneliğin destek ilgili kişisini güncelleştirmek için ilk olarak bir [**supportcontact**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) nesnesi oluşturun ve yeni değerlerle doldurun. Ardından müşteriyi tanımlamak için [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) YÖNTEMINI Müşteri kimliğiyle birlikte kullanın. Ardından, abonelik KIMLIĞIYLE [**abonelikler. Byıd**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) metodunu çağırarak abonelik işlemlerine yönelik bir arabirim elde edin. Ardından, iletişim işlemlerini desteklemek için bir arabirim elde etmek üzere [**supportcontact**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) özelliğini kullanın. Son olarak, destek kişisini güncelleştirmek için, doldurulmuş SupportContact nesnesiyle [**Update**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update) veya [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync) yöntemini çağırın.
+Aboneliğin destek ilgili kişisini güncelleştirmek için öncelikle bir [**SupportContact**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.supportcontact) nesnesinin örneğini oluşturma ve yeni değerlerle doldurmak. Ardından [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri kimliğiyle birlikte kullanarak müşteriyi tanıyın. Ardından abonelik kimliğiyle [**Subscriptions.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini çağırarak abonelik işlemlerine bir arabirim alın. Ardından, iletişim işlemlerini desteklemek üzere bir arabirim elde etmek için [**SupportContact**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.supportcontact) özelliğini kullanın. Son olarak, destek ilgili kişisini güncelleştirmek için doldurulan SupportContact nesnesiyle [**Update**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.update) veya [**UpdateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionsupportcontact.updateasync) yöntemini çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations.
@@ -48,15 +48,15 @@ var supportContact = new SupportContact()
 var updatedSupportContact = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionID).SupportContact.Update(supportContact);
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: updatesubscriptionsupportcontact. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Örnekler **Sınıfı:** UpdateSubscriptionSupportContact.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                    |
 |---------|--------------------------------------------------------------------------------------------------------------------------------|
-| **PUT** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Subscriptions/{Subscription-ID}/supportcontact http/1.1 |
+| **PUT** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/supportcontact HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -64,16 +64,16 @@ Müşteriyi ve aboneliği tanımlamak için aşağıdaki yol parametrelerini kul
 
 | Ad            | Tür   | Gerekli | Açıklama                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| müşteri kimliği     | string | Yes      | Müşteriyi tanımlayan GUID biçimli dize.           |
-| abonelik kimliği | string | Yes      | Deneme aboneliğini tanımlayan GUID biçimli dize. |
+| customer-id     | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize.           |
+| subscription-id | string | Yes      | Deneme aboneliğini tanımlayan GUID biçimli bir dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesine doldurulmuş bir [Supportcontact](subscription-resources.md#supportcontact) kaynağı dahil etmeniz gerekir. Destek ilgili kişisi, iş ortağıyla ilişkisi olan mevcut bir satıcı olmalıdır.
+İstek gövdesine doldurulmuş [bir SupportContact](subscription-resources.md#supportcontact) kaynağı dahil etmek gerekir. Destek ilgili kişisi, iş ortağıyla ilişkisi olan mevcut bir kurumsal bayinin olması gerekir.
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -108,11 +108,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi [Supportcontact](subscription-resources.md#supportcontact) kaynağını içerir.
+Başarılı olursa yanıt gövdesi [SupportContact kaynağını](subscription-resources.md#supportcontact) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

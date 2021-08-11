@@ -1,27 +1,27 @@
 ---
 title: Dolaylı satıcıların bir listesini alma
-description: Oturum açmış ortağın dolaylı satıcıların listesini alma.
+description: Oturum açmış iş ortağının dolaylı kurumsal bayilerinin listesini alma.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 58f5c3378b5b941fdc9dafcf28f5efbc58c29c7c
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 901bf045d1de29744114bb58ed445f9eb17f70a4744786fd4617da9697e7c683
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446573"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996929"
 ---
 # <a name="retrieve-a-list-of-indirect-resellers"></a>Dolaylı satıcıların bir listesini alma
 
-Oturum açmış ortağın dolaylı satıcıların listesini alma.
+Oturum açmış iş ortağının dolaylı kurumsal bayilerinin listesini alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Oturum açmış iş ortağının ilişkiye sahip olduğu dolaylı satıcıların bir listesini almak için, ilk olarak [**partneroperations. relationships**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) özelliğinden ilişki toplama işlemlerine bir arabirim alın. Ardından, ilişki türünü tanımlamak için [**Partnerrelationshiptype**](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype) numaralandırmasının bir üyesini geçirerek [**Get**](/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get) veya [**Get \_ Async**](/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync) yöntemini çağırın. Dolaylı satıcıları almak için ısındirectcloudsolutionproviderof kullanmanız gerekir.
+Oturum açmış olan iş ortağının ilişkisi olan dolaylı kurumsal bayilerin listesini almak için ilk olarak [**partnerOperations.Relationships**](/dotnet/api/microsoft.store.partnercenter.ipartner.relationships) özelliğinden ilişki toplama işlemlerine yönelik bir arabirim alın. Ardından, [**ilişki türünü**](/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.get) tanımlamak için [**PartnerRelationshipType**](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype) numaralarının bir üyesini geçerek Get veya [**Get \_ Async**](/dotnet/api/microsoft.store.partnercenter.relationships.irelationshipcollection.getasync) yöntemini çağırın. Dolaylı kurumsal bayileri almak için IsIndirectCloudSolutionProviderOf kullansanız gerekir.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -29,15 +29,15 @@ Oturum açmış iş ortağının ilişkiye sahip olduğu dolaylı satıcıların
 var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipType.IsIndirectCloudSolutionProviderOf);
 ```
 
-**örnek**: [konsol test uygulaması](console-test-app.md)**Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getındirectsatıcıları. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md)**Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** GetIndirectResellers.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                                |
 |---------|----------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Relationships? ilişki \_ türü = ısındirectcloudsolutionproviderof http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/relationships?relationship \_ type=IsIndirectCloudSolutionProviderOf HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -45,11 +45,11 @@ var indirectResellers = partnerOperations.Relationships.Get(PartnerRelationshipT
 
 | Ad               | Tür    | Gerekli  | Açıklama                         |
 |--------------------|---------|-----------|-------------------------------------|
-| relationship_type  | string  | Yes       | Değer, [Partnerrelationshiptype](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)içinde bulunan üye adlarından birinin dize gösterimidir.<br/><br/> İş ortağı bir sağlayıcı olarak oturum açmışsa ve ilişki kurdukları dolaylı satıcıların bir listesini almak istiyorsanız, ısındirectcloudsolutionproviderof kullanın.<br/><br/> İş ortağı bir satıcı olarak oturum açmışsa ve ilişki kurdukları dolaylı sağlayıcıların bir listesini almak istiyorsanız, ısındirectresellerkullanın.    |
+| relationship_type  | string  | Yes       | değeri, [PartnerRelationshipType](/dotnet/api/microsoft.store.partnercenter.models.relationships.partnerrelationshiptype)içinde bulunan üye adlarından birinin dize gösterimidir.<br/><br/> İş ortağı sağlayıcı olarak oturum açmışsa ve ilişki kurduğu dolaylı kurumsal bayilerin listesini almak için IsIndirectCloudSolutionProviderOf kullanın.<br/><br/> İş ortağı kurumsal bayi olarak oturum açmışsa ve ilişki kuracakları dolaylı sağlayıcıların listesini almak için IsIndirectResellerOf kullanın.    |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -69,11 +69,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi satıcıları tanımlamak için bir [Iş ortağı ilişki](relationships-resources.md) kaynakları koleksiyonu içerir.
+Başarılı olursa, yanıt gövdesi kurumsal bayileri tanımlamak için [bir PartnerRelationship](relationships-resources.md) kaynakları koleksiyonu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

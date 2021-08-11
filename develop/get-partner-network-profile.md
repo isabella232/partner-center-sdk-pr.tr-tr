@@ -1,29 +1,29 @@
 ---
 title: Microsoft İş Ortağı Ağı profil alma
-description: Ortağın MPN profilini temsil eden bir nesne alır.
+description: İş ortağının MPN profilini temsil eden bir nesnesi alır.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 38c12a9a9755b9838b7742d9f38c5cbd52b81210
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 6a4972010605f1815382fc92df76842ae5f97ca35cacfcc8428e7b9849c6b0b6
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548864"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995841"
 ---
 # <a name="get-microsoft-partner-network-profile"></a>Microsoft İş Ortağı Ağı profil alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Ortağın MPN profilini temsil eden bir nesne alır.
+İş ortağının MPN profilini temsil eden bir nesnesi alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Bir iş ortağı ağ profili almak için **ıaggregatepartner. Profiles** koleksiyonunuzu kullanın ve **mpnprofile** özelliğini çağırın. Son olarak [**Get ()**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) yöntemlerini çağırın.
+bir iş ortağı ağ profili almak için **IAggregatePartner.Profiles** koleksiyonu kullanın ve **MpnProfile özelliğini** arayın. Son olarak [**Get() veya**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.get) [**GetAsync() yöntemlerini**](/dotnet/api/microsoft.store.partnercenter.profiles.impnprofile.getasync) arayın.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -31,13 +31,13 @@ Bir iş ortağı ağ profili almak için **ıaggregatepartner. Profiles** koleks
 var mpnProfile = partnerOperations.Profiles.MpnProfile.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**:P artnercentersdk. featuressamples **sınıfı**: getmpnprofile. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project**:P artnerCenterSDK.FeaturesSamples **Sınıfı:** GetMPNProfile.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Bir iş ortağı ağ profili almak için **ıaggregatepartner. getProfiles** işlevinizi kullanın ve **Getmpnprofile** işlevini çağırın. Son olarak **Get ()** işlevini çağırın.
+Bir iş ortağı ağ profili almak için **IAggregatePartner.getProfiles** işlevinizi kullanın ve **getMpnProfile işlevini** arayın. Son olarak **get() işlevini** arayın.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -49,7 +49,7 @@ MpnProfile mpnProfile = partnerOperations.getProfiles().getMpnProfile().get();
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Bir iş ortağı ağ profili almak için [**Get-PartnerMpnProfile**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerMpnProfile.md) komutunu yürütün.
+bir iş ortağı ağ profili almak için [**Get-PartnerMpnProfile komutunu**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerMpnProfile.md) yürütün.
 
 ```powershell
 Get-PartnerMpnProfile
@@ -57,15 +57,15 @@ Get-PartnerMpnProfile
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                          |
 |---------|----------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Profiles/MPN http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/profiles/mpn HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -84,11 +84,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **Mpnprofile** nesnesi döndürür.
+Başarılı olursa, bu yöntem yanıt **gövdesinde bir MPNProfile** nesnesi döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

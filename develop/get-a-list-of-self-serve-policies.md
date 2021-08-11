@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: b18fde8a11d3ed3dd31e50fdba746dd6b0bf3f97
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: ce217e34090d589c07a49cd51abef3f5cfc010631088890324a63bdef1480f65
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025743"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995535"
 ---
 # <a name="get-a-list-of-self-serve-policies"></a>Self Servis ilkelerinin bir listesini alın
 

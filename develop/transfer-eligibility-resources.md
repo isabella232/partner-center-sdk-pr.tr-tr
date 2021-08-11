@@ -1,26 +1,26 @@
 ---
-title: Transferuygunluk kaynakları
-description: Bir iş ortağı, bir müşteri aboneliğini başka bir ortağa aktarılacak iş ortağıyla istediğinde bir aktarım oluşturabilir.
+title: TransferEligibility kaynakları
+description: Bir iş ortağı, müşteri iş ortağıyla aboneliğini başka bir iş ortağına aktarma isteğinda bulundurarak bir aktarım oluşturabilir.
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 8f121d499abffb4c4dda688c2a91c25f83d2e863
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: ffe72aa04de17cf6e45e49e9fdbec8ba08da2deed89f5d54425a17825c91a53a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530217"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996657"
 ---
-# <a name="transfereligibility-resources"></a>Transferuygunluk kaynakları
+# <a name="transfereligibility-resources"></a>TransferEligibility kaynakları
 
-Bir iş ortağı, bir müşteri aboneliğini başka bir ortağa aktarılacak iş ortağıyla istediğinde bir aktarım oluşturabilir. Bir aboneliğin aktarılmasının uygun olup olmadığını denetlemek için Transferuygunluk kullanın.
+Bir iş ortağı, müşteri iş ortağıyla aboneliğini başka bir iş ortağına aktarma isteğinda bulundurarak bir aktarım oluşturabilir. Aboneliğin aktarıla uygun olup olmadığını kontrol etmek için TransferEligibility kullanın.
 
-## <a name="transfereligibility"></a>Transferuygunluk
+## <a name="transfereligibility"></a>AktarımAtırılığı
 
-Bir Transferuygunluk tanımlar.
+TransferEligibility'i açıklar.
 
-| Özellik              | Tür             | Açıklama                                                                              |
+| Özellik              | Tür             | Description                                                                              |
 |-----------------------|------------------|------------------------------------------------------------------------------------------|
 | kimlik                    | string           | Müşterinin abonelik tanımlayıcısı.                                                  |
-| IBir hal            | bool             | Aboneliğin aktarım için uygun olup olmadığını gösterir.                         |
-| Nedeni                | string           | Reason özelliği aboneliğin aktarım için uygun olmadığını açıklar. |
+| isEligible            | bool             | Aboneliğin aktarım için uygun olup olmadığını gösterir.                         |
+| Nedeni                | string           | neden özelliği aboneliğin aktarım için uygun olmadığını açıklar. |

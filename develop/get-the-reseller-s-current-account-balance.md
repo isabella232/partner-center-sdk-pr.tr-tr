@@ -4,12 +4,12 @@ description: Ortağın geçerli hesap bakiyesini alır. Hem yinelenen hem de tek
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a04ab63482ec9d06e2fe47d2b6ce1bc6a5fd5f27
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 796523691481152613ba13f5025bdc8cdedacfc839815239b43fcfcb57fdbb3a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548507"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996504"
 ---
 # <a name="get-the-partners-current-account-balance"></a>Ortağın geçerli hesap bakiyesini alma
 

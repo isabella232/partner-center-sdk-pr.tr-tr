@@ -4,12 +4,12 @@ description: Bir müşteri için oluşturulan aboneliklerin aktarımını geri a
 ms.date: 04/10/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3c15cf09b4e466e178c7afb5f9d324fe1199418e
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 80e7d89dc94a91f7e49f388e59f30f85c0c7615feaabca515f90064e1f4673fb
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445213"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115995433"
 ---
 # <a name="withdraw-a-transfer"></a>Bir aktarımı geri alma
 

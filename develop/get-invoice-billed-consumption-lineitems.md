@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 285b6fbda774c9396dee8947550ed774d52bf901
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 915a6b40a835b0b8d8ded6d49244aede8bbf079334890ccc8b3ef50782dec2dd
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446233"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994532"
 ---
 # <a name="get-invoice-billed-commercial-consumption-line-items"></a>Faturalandırmış ticari tüketim satırı öğelerini alın
 
@@ -129,7 +129,7 @@ Verilen faturanın her satır öğesinin tam listesini dönmek için ilk söz di
 | invoice-line-item-type | string | Yes      | Fatura ayrıntısı türü: "UsageLineItems". |
 | currencyCode           | string | Yes      | Faturalandırmış satır öğelerinin para birimi kodu.                    |
 | dönem                 | string | Yes      | Faturalandırmış mutabakat için dönem. örnek: geçerli, önceki.        |
-| boyut                   | sayı | Hayır       | İade etmek istediğiniz en fazla öğe sayısı. Varsayılan boyut 2000'tir       |
+| boyut                   | sayı | No       | İade etmek istediğiniz en fazla öğe sayısı. Varsayılan boyut 2000'tir       |
 | seekOperation          | dize | No       | Keşif satırı öğelerinin sonraki sayfasını almak için seekOperation=Next'i ayarlayın. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
@@ -330,7 +330,7 @@ Bu örnek REST isteği ve yanıtının ayrıntıları aşağıdaki gibidir:
 - **Sağlayıcı:** **OneTime**
 - **InvoiceLineItemType:** **UsageLineItems**
 - **Dönem:** **Önceki**
-- **SeekOperation:** **Next**
+- **Seekoperation**: **İleri**
 
 #### <a name="request-example-2"></a>İstek örneği 2
 
