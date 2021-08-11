@@ -1,33 +1,33 @@
 ---
 title: Müşterinin şirket profilini alma
-description: Müşterinin Şirket profilini alır.
+description: Bir müşterinin şirket profilini alır.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: a1c0c8401207f4b0bb33755a8eabc66de0ad9ff9
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: fb8c21c8307480bb0573e189ac95cc05756f9080f6156ff860d8193f134c4aa6
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874984"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115992985"
 ---
 # <a name="get-a-customers-company-profile"></a>Müşterinin şirket profilini alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Müşterinin Şirket profilini alır.
+Bir müşterinin şirket profilini alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
-Müşterinin Şirket profilini almak için müşteriyi tanımlamak üzere müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından, şirket özelliğine erişebilmek için, [**profiller**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) özelliğinden müşterinin [**ıcustomerprofilecollection**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection) arabirimini alın. Daha sonra [**ıcustomerreadonlyprofile**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1) arabirimini [**ıustomerprofilecollection. Company**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company) özelliğinden alın ve [**Get ()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) veya [**GetAsync ()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) yöntemlerini çağırın.
+Müşterinin şirket profilini almak için, müşteri kimliğini kullanarak [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak müşteriyi tanıyın. Ardından, Company özelliğine erişmek için [**Profiles**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.profiles) özelliğinden müşterinin [**ICustomerProfileCollection**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection) arabirimini elde etmek. Ardından [**ICustomerProfileCollection.Company**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerprofilecollection.company) özelliğinden [**ICustomerReadonlyProfile**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1) arabirimini al ve [**Get()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.get) veya [**GetAsync()**](/dotnet/api/microsoft.store.partnercenter.customers.profiles.icustomerreadonlyprofile-1.getasync) yöntemlerini çağır.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -36,13 +36,13 @@ Müşterinin Şirket profilini almak için müşteriyi tanımlamak üzere müşt
 var companyProfile = partnerOperations.Customers.ById(customerId).Profiles.Company.Get();
 ```
 
-**Örnek**: [iş ortağı Merkezi SDK 'sını indirin](https://go.microsoft.com/fwlink/p/?LinkId=746681). **Project**: partnersdk. featuresamples **sınıfı**: getcustomercompanyprofile. cs
+**Örnek:** [İş Ortağı Merkezi SDK'sı.](https://go.microsoft.com/fwlink/p/?LinkId=746681) **Project:** PartnerSdk.FeatureSamples **Sınıfı:** GetCustomerCompanyProfile.cs
 
 ## <a name="java"></a>Java
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Müşterinin Şirket profilini almak için, müşteriyi tanımlamak üzere **ıaggregatepartner. getCustomers (). Byıd** işlevini Müşteri kimliğiyle çağırın. Ardından Şirket özelliğine erişmek için [**Getprofiles**] Işlevinden müşterinin **ıcustomerprofilecollection** arabirimini alın. Ardından **ıcustomerreadonlyprofile arabirimini ıustomerprofilecollection. getCompany** işlevinden alın ve **Get** işlevini çağırın. 
+Müşterinin şirket profilini almak için **IAggregatePartner.getCustomers().byId** işlevini müşteri tanımlayıcısıyla çağırarak müşteriyi tanıyın. Ardından[**getProfiles**] işlevinden müşterinin **ICustomerProfileCollection** arabirimini kullanarak Şirket özelliğine erişin. Ardından, **ICustomerProfileCollection.getCompany** işlevinden **ICustomerReadonlyProfile** arabirimini al ve **get işlevini** çağır.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -53,11 +53,11 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                             |
 |---------|-------------------------------------------------------------------------|
-| **Al** | *{BaseUrl}*/v1/Customers/{Customer-Tenant-ID}/Profiles/Company http/1.1 |
+| **Al** | *{baseURL}*/v1/customers/{customer-tenant-id}/profiles/company HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -65,11 +65,11 @@ CustomerCompanyProfile companyProfile = partnerOperations.getCustomers().byId(cu
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                                                                                            |
 |------------------------|----------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Değer, satıcının satıcıya ait olan belirli bir müşteriye ait sonuçları filtrelemesine olanak tanıyan bir GUID biçimli **Müşteri-Kiracı kimliği** ' dir. |
+| **customer-tenant-id** | **guid** | Y        | Değer, kurumsal bayinin kurumsal **bayiye** ait olan belirli bir müşteri için sonuçları filtrelemesini sağlayan GUID biçimli bir müşteri kiracı kimliğidir. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -90,11 +90,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bilgi döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde bilgileri döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [REST İş Ortağı Merkezi Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

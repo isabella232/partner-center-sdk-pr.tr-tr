@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 3668a5e510effb533cade311f52513b9a81d40af
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: f5e71f2660c6db638193deec02e9ba4f25a35be6aabdc1c4219f63b1f3295908
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760547"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993512"
 ---
 # <a name="get-confirmation-of-customer-acceptance-of-microsoft-customer-agreement"></a>Microsoft Müşteri Sözleşmesinin müşteri kabulünün onayını alma
 

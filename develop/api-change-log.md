@@ -1,43 +1,43 @@
 ---
 title: İş Ortağı Merkezi REST API’si değişiklik günlüğü
-description: Bu sayfada Iş Ortağı Merkezi REST API 'Lerinde yapılan değişiklikler listelenir
+description: Bu sayfada rest API'lerinde İş Ortağı Merkezi listeleniyor
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.topic: reference
 ms.date: 12/15/2020
-ms.openlocfilehash: d4f7f034a36a26b6219086ca952b189f7a313ef7
-ms.sourcegitcommit: 51237e7e98d71a7e0590b4d6a4034b6409542126
+ms.openlocfilehash: f74f59969bf8d73c6e6e8b39900a53c337a2af715c168b59009792beddf43159
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2021
-ms.locfileid: "113572004"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993291"
 ---
-# <a name="december-2020-changes-to-partner-center-rest-apis"></a>Iş Ortağı Merkezi REST API 'Lerinde Aralık 2020 değişiklikleri
+# <a name="december-2020-changes-to-partner-center-rest-apis"></a>Rest API'leri için Aralık 2020 İş Ortağı Merkezi değişiklikleri
 
-Iş Ortağı Merkezi REST API 'Lerinde yapılan değişiklikler için buraya bakın.
+Rest API'leri için İş Ortağı Merkezi buradan kontrol edin.
 
-## <a name="enhancements-to-education-pricing-eligibility-apis"></a>Eğitim Fiyatlandırma uygunluğu API 'Lerine yönelik geliştirmeler
+## <a name="enhancements-to-education-pricing-eligibility-apis"></a>Eğitim fiyatlandırması Uygunluk API'leri iyileştirmeleri
 
 
 
-### <a name="what-has-changed"></a>Ne değişti?
+### <a name="what-has-changed"></a>Neler değişti?
 
-Şu anda Iş Ortağı Merkezi API 'sinin eğitim müşterilerinin uygunluğunu doğrulamak için GET ve PUT nitelikleri vardır. Nitelik al API 'sinde hiçbir değişiklik olmayacaktır. Ancak, YERLEŞTIRME API 'sine bir dönüş durumu ekledik.
+Şu anda İş Ortağı Merkezi API'si, Eğitim müşterilerinin uygunluğunu doğrulamak için GET ve PUT niteliklerini içerir. GET Nitelik API'sini hiçbir değişiklik olmayacaktır. Ancak PUT Nitelik API'sini bir dönüş durumu ekledik.
 
-- GET-değişmez.
-- PUT-Return Case eklenecektir.
+- GET - değişmez.
+- PUT - dönüş durumu eklenir.
 
-Bu API 'Ler, aşağıda açıklandığı gibi yeni API 'Ler ile değiştirilerek, Şubat 2021 ' un sonunda kullanımdan kaldırılacaktır.
+Bu API'ler Şubat 2021'in sonunda, aşağıda açıklandığı gibi yeni API'ler ile değiştirilene kadar sona erer.
 
-### <a name="scenarios-impacted"></a>Etkilenen senaryolar:
+### <a name="scenarios-impacted"></a>Etkilene senaryolar:
 
-Select SKU 'Larında eğitim fiyatlandırması için Müşteri uygunluğu
+Belirli SKUS'larda eğitim fiyatlandırması için müşteri uygunluğu
 
 ### <a name="detail-descriptions"></a>Ayrıntı açıklamaları
 
-İki yeni GET ve POST nitelikleri API 'si tanıtılacaktır. Yeni API 'Ler **nitelik** değil, **nitelikleri** kullanacaktır. API 'Ler, FY21 S2 'de test için kullanılabilir olacaktır.
+İki yeni GET ve POST Nitelik API'si tanıtacak. Yeni API'ler Nitelik **değil** Nitelikler'i **kullanacak.** API'ler FY21 Q2'de test için kullanılabilir.
 
-#### <a name="get-qualifications"></a>Nitelikleri al
+#### <a name="get-qualifications"></a>GET Nitelikleri
 
 ```http
 GET {customer_id}/qualifications
@@ -56,18 +56,18 @@ GET {customer_id}/qualifications
 
 #### <a name="response-fields"></a>Yanıt alanları: 
 
-- VettingStatus değerleri: onaylandı, reddedildi, ınreview, vb.
+- VettingStatus değerleri: Approved, Denied, InReview vb.
 
 - VettingReason değerleri:
-   - Eğitim müşterisi değil
-   - Artık eğitim müşterisi yok
-   - Eğitim müşterisi değil-Inceleme sonrası
-   - Eğitim müşterisi olacak şekilde kısıtlıdır
-   - Akademik etki alanı değil
-   - Uygun bir kitaplık değil
-   - Uygun Museum değil
+   - Eğitim Müşterisi Değil
+   - Artık Eğitim Müşterisi değil
+   - Eğitim Müşterisi Değil - Gözden GeçirmeDen Sonra
+   - Eğitim Müşterisi olma kısıtlaması
+   - Akademik Etki Alanı Değil
+   - Uygun Bir Kitaplık Değil
+   - Uygun bir Yer Değil
  
-#### <a name="post-qualifications"></a>GÖNDERI nitelikleri
+#### <a name="post-qualifications"></a>POST Nitelikleri
 
 ```http
 POST {customer_id}/qualifications

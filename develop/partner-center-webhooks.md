@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 74d5981436ba29ea4f6f93a5693ec6da82777eb4
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: cf063579b447601fa1050d6b03e0c46f6ef64abef9bb500598a047ac40ddaa1d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547759"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997558"
 ---
 # <a name="partner-center-webhooks"></a>İş Ortağı Merkezi web kancaları
 

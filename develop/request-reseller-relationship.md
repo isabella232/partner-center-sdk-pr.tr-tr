@@ -1,29 +1,29 @@
 ---
 title: İlişki isteği URL’sini alma
-description: Bir müşteriye göndermek için bir ilişki isteği URL 'SI alma.
+description: Müşteriye göndermek için ilişki isteği URL'sini alma.
 ms.date: 07/22/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 07804b36dfe0892cf8b531e0731188260c014f49
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 62cf06de327f8f31e908a0cc38cff52ad5c62b036b95d195e0a8040c53a4e110
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547470"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996980"
 ---
 # <a name="retrieve-a-relationship-request-url"></a>İlişki isteği URL’sini alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için destek
 
-Bir müşteriye göndermek için bir ilişki isteği URL 'SI alma.
+Müşteriye göndermek için ilişki isteği URL'sini alma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-İlişki isteği URL 'sini almak için, önce iş ortağının müşteri işlemlerine bir arabirim almak üzere [**ıaggregatepartner. Customers**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) ' ı kullanın. Ardından, bir Kullanıcı ilişki isteği işlemlerine bir arabirim almak için [**Relationshiprequest**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) özelliğini kullanın. Son olarak, URL 'YI almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) yöntemini çağırın.
+İlişki isteği URL'sini almak için önce [**IAggregatePartner.Customers'ı**](/dotnet/api/microsoft.store.partnercenter.ipartner.customers) kullanarak iş ortağının müşteri işlemlerine yönelik bir arabirim alın. Ardından [**RelationshipRequest özelliğini kullanarak**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.relationshiprequest) müşteri ilişkileri isteği işlemlerine yönelik bir arabirim elde etmek için bu özelliği kullanın. Son olarak, [**URL'yi**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.get) almak [**için Get veya GetAsync**](/dotnet/api/microsoft.store.partnercenter.relationshiprequests.icustomerrelationshiprequest.getasync) yöntemini çağırabilirsiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -31,19 +31,19 @@ Bir müşteriye göndermek için bir ilişki isteği URL 'SI alma.
 var customerRelationshipRequest = partnerOperations.Customers.RelationshipRequest.Get();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: getcustomerrelationshiprequest. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı Samples **Sınıfı:** GetCustomerRelationshipRequest.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                            |
 |---------|----------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/relationshiprequests http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/relationshiprequests HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -64,11 +64,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt [Relationshiprequest](relationships-resources.md#relationshiprequest) nesnesini içerir.
+Başarılı olursa yanıt [RelationshipRequest nesnesini](relationships-resources.md#relationshiprequest) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: e5e363a2f928dd38304887547bdc0e5d652728d6
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: f329f7aa59ee5127c8275c7c9d8c59e5ea2cf12e9c888419f1ce35e2db3604d1
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547750"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997575"
 ---
 # <a name="partner-center-webhook-events"></a>İş Ortağı Merkezi kancası olaylarını
 
@@ -34,7 +34,7 @@ Bu olay, bir test olayı isteğinde bulundurarak ve ardından ilerlemesini takip
 
 #### <a name="properties"></a>Özellikler
 
-| Özellik                  | Tür                               | Açıklama                                                                                                  |
+| Özellik                  | Tür                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | Olayın adı. {resource}-{action} formunda. Bu olay için değer "test-created" şeklindedir.                                          |
 | ResourceUri               | URI                                | Kaynağı almak için URI. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/registration/validationEvents/{{CorrelationId}}" |
@@ -63,7 +63,7 @@ Belirtilen abonelik değişirken bu olay ortaya çıkar. Abonelik Güncelleştir
 
 #### <a name="properties"></a>Özellikler
 
-| Özellik                  | Tür                               | Açıklama                                                                                                  |
+| Özellik                  | Tür                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | Olayın adı. {resource}-{action} formunda. Bu olay için değer "subscription-updated" şeklindedir.                                  |
 | ResourceUri               | URI                                | Kaynağı almak için URI. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/{{CustomerId}}/subscriptions/{{SubscriptionId}}" |
@@ -89,7 +89,7 @@ Bu olay, herhangi bir müşterinin Microsoft Azure harcama bütçesini (eşik) a
 
 #### <a name="properties"></a>Özellikler
 
-| Özellik                  | Tür                               | Açıklama                                                                                                  |
+| Özellik                  | Tür                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | Olayın adı. {resource}-{action} formunda. Bu olay için değer "usagerecords-thresholdExceeded" şeklindedir.                                  |
 | ResourceUri               | URI                                | Kaynağı almak için URI. Şu söz dizimlerini kullanır: "[*{baseURL}*](partner-center-rest-urls.md)/webhooks/v1/customers/usagerecords" |
@@ -115,7 +115,7 @@ Bu olay, başvuru oluşturulduğunda tetiklenir.
 
 #### <a name="properties"></a>Özellikler
 
-| Özellik                  | Tür                               | Açıklama                                                                                                  |
+| Özellik                  | Tür                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | Olayın adı. {Resource}-{Action} biçiminde. Bu olay için, değer "başvuru oluşturuldu" değeridir.                                  |
 | ResourceUri               | URI                                | Kaynağı almak için URI. "[*{BaseUrl}*](partner-center-rest-urls.md)/Engagements/v1/referrals/{{ReferralID}}" sözdizimini kullanır. |
@@ -141,7 +141,7 @@ Bu olay, başvuru güncelleştirilirken tetiklenir.
 
 #### <a name="properties"></a>Özellikler
 
-| Özellik                  | Tür                               | Açıklama                                                                                                  |
+| Özellik                  | Tür                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName                 | string                             | Olayın adı. {Resource}-{Action} biçiminde. Bu olay için, değer "başvuru-güncelleştirildi" olur.                                  |
 | ResourceUri               | URI                                | Kaynağı almak için URI. "[*{BaseUrl}*](partner-center-rest-urls.md)/Engagements/v1/referrals/{{ReferralID}}" sözdizimini kullanır. |
@@ -165,7 +165,7 @@ Bu olay, başvuru güncelleştirilirken tetiklenir.
 
 Bu olay, yeni fatura hazırlandığınızda tetiklenir.
 
-| Özellik                  | Tür                               | Açıklama                                                                                                  |
+| Özellik                  | Tür                               | Description                                                                                                  |
 |---------------------------|------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | EventName | string | Olayın adı. {Resource}-{Action} biçiminde. Bu olay için, değer "Invoice-Ready" olur. |
 | ResourceUri | URI | Kaynağı almak için URI. Şu sözdizimini kullanır: "[*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{{ınvoed}}" |

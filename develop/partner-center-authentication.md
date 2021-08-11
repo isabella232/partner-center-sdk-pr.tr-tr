@@ -1,37 +1,37 @@
 ---
 title: İş Ortağı Merkezi kimlik doğrulaması
-description: İş Ortağı Merkezi kimlik doğrulaması için Azure AD'yi ve İş Ortağı Merkezi API'lerini kullanmak için kimlik doğrulama ayarlarınızı doğru yapılandırmanız gerekir.
+description: İş ortağı merkezi kimlik doğrulaması için Azure AD 'yi kullanır ve Iş Ortağı Merkezi API 'Lerini kullanmak için kimlik doğrulama ayarlarınızı doğru şekilde yapılandırmanız gerekir.
 ms.date: 11/13/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 75d60ca983cd5b8fe53134ec7481319b153e128a
-ms.sourcegitcommit: 07b9a11f5c615ed1e716081392032cea2124bd98
+ms.openlocfilehash: 077fe108c6f9278011e5c3a8634fe221705d040708990d7aff6bb671d8bfd000
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/04/2021
-ms.locfileid: "115104202"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997762"
 ---
 # <a name="partner-center-authentication"></a>İş Ortağı Merkezi kimlik doğrulaması
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-İş Ortağı Merkezi kimlik doğrulaması için Azure Active Directory’yi kullanır. İş Ortağı Merkezi API’si, SDK veya PowerShell modülüyle etkileşim kurarken Azure AD uygulamasını doğru yapılandırmalı ve ardından erişim belirteci istemelisiniz. Yalnızca uygulama veya uygulama + kullanıcı kimlik doğrulaması kullanılarak alınan erişim belirteçleri, İş Ortağı Merkezi. Ancak dikkate alınacak iki önemli öğe vardır
+İş Ortağı Merkezi kimlik doğrulaması için Azure Active Directory’yi kullanır. İş Ortağı Merkezi API’si, SDK veya PowerShell modülüyle etkileşim kurarken Azure AD uygulamasını doğru yapılandırmalı ve ardından erişim belirteci istemelisiniz. Yalnızca uygulama kullanılarak alınan erişim belirteçleri veya uygulama + kullanıcı kimlik doğrulaması Iş Ortağı Merkezi ile kullanılabilir. Ancak, dikkate alınmaması gereken iki önemli öğe vardır
 
-- Uygulama + kullanıcı kimlik doğrulaması kullanarak İş Ortağı Merkezi API'sine erişirken çok faktörlü kimlik doğrulamasını kullanın. Bu değişiklikle ilgili daha fazla bilgi için [bkz. Güvenli uygulama modelini etkinleştirme.](enable-secure-app-model.md)
+- Uygulama + kullanıcı kimlik doğrulaması kullanarak Iş Ortağı Merkezi API 'sine erişirken Multi-Factor Authentication 'ı kullanın. Bu değişiklik hakkında daha fazla bilgi için bkz. [güvenli uygulama modelini etkinleştirme](enable-secure-app-model.md).
 
-- API'nin tüm işlemleri İş Ortağı Merkezi uygulama kimlik doğrulamasını desteklemez. Uygulama + kullanıcı kimlik doğrulamasını kullanmanın gerekli olduğu bazı senaryolar vardır. Her *makalenin Önkoşullar* başlığı [altında,](scenarios.md)yalnızca uygulama kimlik doğrulamasının, uygulama + kullanıcı kimlik doğrulamasının veya her ikisinin de destekçisi olup olmadığının yer alan belgeleri bulabilirsiniz.
+- Tüm işlemler Iş Ortağı Merkezi API 'Sı yalnızca uygulama kimlik doğrulamasını desteklemez. Uygulama + kullanıcı kimlik doğrulamasını kullanmanız gereken bazı senaryolar vardır. Her makaledeki *Önkoşul* başlığı altında, [](scenarios.md)uygulama yalnızca kimlik doğrulaması, uygulama + kullanıcı kimlik doğrulaması veya her ikisinin de desteklenip desteklenmediğini belirten belgeleri bulacaksınız.
 
 ## <a name="initial-setup"></a>İlk kurulum
 
-1. Başlamak için hem birincil hesap hesabınız hem de bir tümleştirme korumalı alanı İş Ortağı Merkezi olduğundan emin İş Ortağı Merkezi gerekir. Daha fazla bilgi için [bkz. API erişimi İş Ortağı Merkezi hesapları ayarlama.](set-up-api-access-in-partner-center.md) Hem birincil hesabınız hem de tümleştirme korumalı alan hesabınız için Azure AAD Uygulama kayıt kimliği ve Gizli Anahtar (yalnızca Uygulama kimliği için gizli anahtar gereklidir) not edin.
+1. Başlamak için hem birincil Iş Ortağı Merkezi hesabına hem de bir tümleştirme korumalı alanı Iş Ortağı Merkezi hesabına sahip olduğunuzdan emin olmanız gerekir. Daha fazla bilgi için bkz. [API erişimi Için Iş Ortağı Merkezi hesapları ayarlama](set-up-api-access-in-partner-center.md). Hem birincil hesabınız hem de tümleştirme Sandbox hesabınız için Azure AAD uygulama kayıt KIMLIĞI ve gizli dizi (yalnızca uygulama kimliği için istemci parolası gereklidir) ' i unutmayın.
 
-2. Azure AD'de oturum Azure portal. Diğer **uygulamalara izinler'de,** **Windows Azure Active Directory** için izinleri Temsilci İzinleri  olarak ayarlayın ve hem Oturum açma kullanıcısı olarak dizine eriş'i hem de Oturum açma ve kullanıcı **profilini okuma'yi seçin.**
+2. Azure portal Azure AD 'de oturum açın. **diğer uygulamalara yönelik izinler**' de, **Windows Azure Active Directory** için izinleri **temsilci** olarak ayarlayın ve her ikisini de oturum **açan kullanıcı olarak** ve **oturum açın ve kullanıcı profilini okuyun**.
 
-3. Uygulama Azure portal **ekleyin.** Microsoft İş Ortağı Merkezi uygulaması olan "Microsoft İş Ortağı Merkezi" araması. Temsilci **İzinlerini API'sini** **Erişim İş Ortağı Merkezi ayarlayın.** Microsoft Bulut Almanya için İş Ortağı Merkezi veya İş Ortağı Merkezi için Microsoft Cloud for US Government kullanıyorsanız, bu adım zorunludur. Genel bir örneği İş Ortağı Merkezi, bu adım isteğe bağlıdır. CSP İş Ortakları, İş Ortağı Merkezi portalında Uygulama Yönetimi özelliğini kullanarak genel örnek için bu İş Ortağı Merkezi atlar.
+3. Azure portal, **uygulama ekleyin**. Microsoft Iş Ortağı Merkezi uygulaması olan "Microsoft Iş Ortağı Merkezi" ni arayın. **Temsilci izinleri** , **Iş Ortağı Merkezi API 'sine erişim** için ayarlayın. Microsoft Cloud for US Government için Microsoft Bulut almanya veya iş ortağı merkezi için iş ortağı merkezi kullanıyorsanız, bu adım zorunludur. Iş ortağı merkezi genel örneği kullanıyorsanız, bu adım isteğe bağlıdır. CSP iş ortakları, iş ortağı merkezi genel örneği için bu adımı atlamak üzere Iş Ortağı Merkezi portalındaki uygulama yönetimi özelliğini kullanabilir.
 
 ## <a name="app-only-authentication"></a>Yalnızca uygulama kimlik doğrulaması
 
-İş Ortağı Merkezi REST API, .NET API, Java API veya PowerShell modülüne erişmek için yalnızca uygulama kimlik doğrulamasını kullanmak için aşağıdaki yönergeleri kullanarak bunu yapabilirsiniz.
+Iş Ortağı Merkezi REST API, .NET API, Java API 'SI veya PowerShell modülüne erişmek için yalnızca uygulama kimlik doğrulamasını kullanmak istiyorsanız, aşağıdaki yönergeleri kullanarak bunu yapabilirsiniz.
 
 ## <a name="net-app-only-authentication"></a>.NET (yalnızca uygulama kimlik doğrulaması)
 
@@ -95,26 +95,26 @@ Content-Length: 1406
 {"token_type":"Bearer","expires_in":"3600","ext_expires_in":"3600","expires_on":"1546469802","not_before":"1546465902","resource":"https://graph.windows.net","access_token":"value-has-been-removed"}
 ```
 
-## <a name="app--user-authentication"></a>Uygulama + Kullanıcı kimlik doğrulaması
+## <a name="app--user-authentication"></a>Uygulama + kullanıcı kimlik doğrulaması
 
-Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.3) kimlik bilgileri izni, İş Ortağı Merkezi REST API, .NET API, Java API veya PowerShell modülüyle kullanım için erişim belirteci isteğinde bulunurdu. Bu yöntem, istemci tanımlayıcısı ve kullanıcı kimlik bilgileri Azure Active Directory bir erişim belirteci isteğinde Azure Active Directory için kullanıldı. Ancak, uygulama + kullanıcı kimlik doğrulaması İş Ortağı Merkezi çok faktörlü kimlik doğrulaması gerektirdiği için bu yaklaşım artık çalışmaz. Bu gereksinime uymak için Microsoft, çok faktörlü kimlik doğrulaması kullanarak Bulut Çözümü Sağlayıcısı (CSP) iş ortaklarının ve denetim masası satıcılarının (CPV) kimlik doğrulamasını sağlamak için güvenli, ölçeklenebilir bir çerçeve ortaya verdi. Bu çerçeve, Güvenli Uygulama Modeli olarak bilinir ve bir onay işlemi ve yenileme belirteci kullanılarak erişim belirteci isteği oluşur.
+Geçmişte, [kaynak sahibi parolası kimlik bilgileri verme](https://tools.ietf.org/html/rfc6749#section-4.3) , Iş ortağı merkezi REST API, .NET API, Java API 'Si veya PowerShell modülü ile kullanım için bir erişim belirteci istemek üzere kullanılmıştır. bu yöntem, istemci tanımlayıcısı ve kullanıcı kimlik bilgileri kullanarak Azure Active Directory bir erişim belirteci istemek için kullanılmıştır. Ancak, uygulama + kullanıcı kimlik doğrulaması kullanılırken iş ortağı merkezi Multi-Factor Authentication gerektirdiğinden bu yaklaşım artık çalışmayacaktır. Microsoft bu gereksinimle uyum sağlamak için multi-factor authentication kullanarak Bulut Çözümü Sağlayıcısı (CSP) iş ortakları ve denetim masası satıcıları (cpv) kimlik doğrulaması için güvenli ve ölçeklenebilir bir çerçeve sunmuştur. Bu çerçeve güvenli uygulama modeli olarak bilinir ve bir onay işleminden ve bir erişim belirteci için yenileme belirteci kullanılarak bir istekten oluşur.
 
 ### <a name="partner-consent"></a>İş ortağı onayı
 
-İş ortağı onay işlemi, iş ortağının çok faktörlü kimlik doğrulaması kullanarak kimlik doğrulaması, uygulamaya onaylar ve yenileme belirteci gibi güvenli bir depoda depolandığı etkileşimli bir Azure Key Vault. Bu işlem için tümleştirme amacıyla ayrılmış bir hesap kullanılması önerilir.
+İş ortağı onay süreci, iş ortağının Multi-Factor Authentication kullanarak kimlik doğrulaması yaptığı, uygulamaya yönelik onayları ve yenileme belirtecinin Azure Key Vault gibi güvenli bir depoda depolandığı etkileşimli bir işlemdir. Bu işlem için bir tümleştirme amaçlarıyla adanmış bir hesap kullanılmasını öneririz.
 
 > [!IMPORTANT]
-> İş ortağı onay sürecinde kullanılan hizmet hesabı için uygun çok faktörlü kimlik doğrulaması çözümünün etkinleştirilmesi gerekir. Değilse, sonuçta elde edilen yenileme belirteci güvenlik gereksinimleriyle uyumlu olmaz.
+> İş ortağı onay sürecinde kullanılan hizmet hesabı için uygun Multi-Factor Authentication çözümü etkinleştirilmelidir. Değilse, sonuçta elde edilen yenileme belirteci güvenlik gereksinimleriyle uyumlu olmayacaktır.
 
-### <a name="samples-for-app--user-authentication"></a>Uygulama + Kullanıcı kimlik doğrulaması örnekleri
+### <a name="samples-for-app--user-authentication"></a>Uygulama + kullanıcı kimlik doğrulaması örnekleri
 
-İş ortağı onay işlemi çeşitli yollarla yapılabilir. İş ortaklarının gerekli işlemleri nasıl gerçekleştireceklerini anlarına yardımcı olmak için aşağıdaki örnekleri geliştirdik. Ortamınıza uygun çözümü uygulayan, kodlama standartlarınız ve güvenlik ilkelerinize uygun bir çözüm geliştirmeniz önemlidir.
+İş ortağı onay işlemi çeşitli yollarla gerçekleştirilebilir. İş ortaklarının her bir gerekli işlemin nasıl gerçekleştirileceğini anlamalarına yardımcı olmak için aşağıdaki örnekleri geliştirdik. Ortamınıza uygun çözümü uyguladığınızda, kodlama standartlarınız ve güvenlik ilkeleriniz ile uyumlu bir çözüm geliştirmeniz önemlidir.
 
-## <a name="net-appuser-authentication"></a>.NET (uygulama+kullanıcı kimlik doğrulaması)
+## <a name="net-appuser-authentication"></a>.NET (uygulama + kullanıcı kimlik doğrulaması)
 
-İş [ortağı onayı](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault) örnek projesi, onay almak, yenileme belirteci ASP.NET ve bu web sitesini Azure Key Vault. Bu örnek için gerekli önkoşulları oluşturmak üzere aşağıdaki adımları gerçekleştirin.
+[iş ortağı onayı](https://github.com/Microsoft/Partner-Center-DotNet-Samples/tree/master/secure-app-model/keyvault) örnek projesi, onayı yakalamak, yenileme belirteci istemek ve Azure Key Vault güvenli bir şekilde depolamak için ASP.NET kullanılarak geliştirilen bir web sitesini nasıl kullanacağınızı gösterir. Bu örnek için gerekli önkoşulları oluşturmak için aşağıdaki adımları gerçekleştirin.
 
-1. Azure portal veya aşağıdaki PowerShell komutlarını Azure Key Vault bir örnek oluşturun. Komutu yürütmeden önce parametre değerlerini uygun şekilde değiştirerek emin olun. Kasa adı benzersiz olmalıdır.
+1. Azure portal veya aşağıdaki PowerShell komutlarını kullanarak bir Azure Key Vault örneği oluşturun. Komutu yürütmeden önce parametre değerlerini uygun şekilde değiştirdiğinizden emin olun. Kasa adı benzersiz olmalıdır.
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -125,9 +125,9 @@ Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    Azure Key Vault oluşturma hakkında daha fazla bilgi için bkz. [Hızlı başlangıç: Azure Key Vault Azure portal](/azure/key-vault/quick-create-portal) veya Hızlı [Başlangıç: PowerShell](/azure/key-vault/quick-create-powershell)kullanarak gizli dizi ayarlama ve Azure Key Vault'den gizli dizi alma. Ardından bir gizli dizi ayarlayın ve alın.
+    Azure Key Vault oluşturma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: Azure Key Vault Azure Portal veya hızlı başlangıç kullanarak gizli dizi ayarlama ve alma](/azure/key-vault/quick-create-portal) [: PowerShell kullanarak Azure Key Vault bir gizli dizi ayarlama ve alma](/azure/key-vault/quick-create-powershell). Sonra bir gizli dizi ayarlayın ve alın.
 
-2. Azure portal veya aşağıdaki komutları kullanarak bir Azure AD Uygulaması ve anahtar oluşturun.
+2. Azure portal veya aşağıdaki komutları kullanarak bir Azure AD uygulaması ve anahtarı oluşturun.
 
     ```azurepowershell-interactive
     Connect-AzureAD
@@ -141,9 +141,9 @@ Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    Uygulama tanımlayıcısı ve gizli değerlerini not edin çünkü bunlar aşağıdaki adımlarda kullanılacaktır.
+    Aşağıdaki adımlarda kullanılabilecekleri için uygulama tanımlayıcısı ve gizli değerleri de göz önünde olduğunuzdan emin olun.
 
-3. Yeni oluşturulan Azure AD uygulamasına aşağıdaki komutları kullanarak gizli dizileri Azure portal izinlerini verin.
+3. Yeni Create Azure AD uygulamasına Azure portal veya aşağıdaki komutları kullanarak gizli dizi okuma izinleri verin.
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -151,22 +151,22 @@ Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. İş Ortağı Merkezi için yapılandırılmış bir Azure AD İş Ortağı Merkezi. Bu adımı tamamlamak için aşağıdaki eylemleri gerçekleştirin.
+4. Iş Ortağı Merkezi için yapılandırılmış bir Azure AD uygulaması oluşturun. Bu adımı tamamlamak için aşağıdaki eylemleri gerçekleştirin.
 
-    - İş Ortağı Merkezi [Panosu'nın](https://partner.microsoft.com/pcv/apiintegration/appmanagement) Uygulama yönetimi özelliğine göz atma
-    - Yeni bir Azure AD *uygulaması oluşturmak* için Yeni web uygulaması ekle'yi seçin.
+    - Iş Ortağı Merkezi panosunun [uygulama yönetimi](https://partner.microsoft.com/pcv/apiintegration/appmanagement) özelliğine gidin
+    - Yeni bir Azure AD uygulaması oluşturmak için *Yeni Web uygulaması Ekle* ' yi seçin.
 
-    Uygulama Kimliği, *Hesap *Kimliği*** ve Anahtar  değerlerini belgeleyenin çünkü bunlar aşağıdaki adımlarda kullanılacaktır.
+    Aşağıdaki adımlarda kullanıldıkları için *uygulama kimliği*, * hesap kimliği * * ve *anahtar* değerlerini belgelediğinizden emin olun.
 
-5. Aşağıdaki komutu [kullanarak Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) Visual Studio deposunu kopya edin.
+5. Visual Studio veya aşağıdaki komutu kullanarak [Partner-Center-DotNet-Samples](https://github.com/Microsoft/Partner-Center-DotNet-Samples) deposunu kopyalayın.
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-DotNet-Samples.git
     ```
 
-6. dizininde *bulunan PartnerConsent* projesini `Partner-Center-DotNet-Samples\secure-app-model\keyvault` açın.
+6. Dizinde bulunan *Partneronay* projesini açın `Partner-Center-DotNet-Samples\secure-app-model\keyvault` .
 
-7. Uygulama ayarlarında bulunan uygulama ayarlarını [web.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config)
+7. [web.config](https://github.com/Microsoft/Partner-Center-DotNet-Samples/blob/master/secure-app-model/keyvault/PartnerConsent/Web.config) bulunan uygulama ayarlarını doldurun
 
     ```xml
     <!-- AppID that represents CSP application -->
@@ -195,15 +195,15 @@ Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.
     ```
 
     > [!IMPORTANT]
-    > Uygulama gizli dizileri gibi hassas bilgiler yapılandırma dosyalarında depolanmaz. Bu örnek bir uygulama olduğu için burada yapıldı. Üretim uygulamanız ile sertifika tabanlı kimlik doğrulamasını kesinlikle öneririz. Daha fazla bilgi için [bkz. Uygulama kimlik doğrulaması için sertifika kimlik bilgileri.]( /azure/active-directory/develop/active-directory-certificate-credentials)
+    > Uygulama gizli dizileri gibi hassas bilgiler yapılandırma dosyalarında depolanmamalıdır. Bu örnek bir uygulama olduğu için burada gerçekleştirildi. Üretim uygulamanız sayesinde sertifika tabanlı kimlik doğrulaması kullanmanızı kesinlikle öneririz. Daha fazla bilgi için bkz. [uygulama kimlik doğrulaması Için sertifika kimlik bilgileri]( /azure/active-directory/develop/active-directory-certificate-credentials).
 
-8. Bu örnek projeyi çalıştırsanız kimlik doğrulaması istenir. Kimlik doğrulama başarılı olduktan sonra Azure AD'den erişim belirteci istenmektedir. Azure AD'den döndürülen bilgiler, yapılandırmanın yapılandırılmış örneğinde depolanan bir yenileme belirteci Azure Key Vault.
+8. Bu örnek projeyi çalıştırdığınızda sizden kimlik doğrulaması istenir. Kimlik doğrulaması başarılı olduktan sonra Azure AD 'den bir erişim belirteci istenir. Azure AD 'den döndürülen bilgiler, yapılandırılmış Azure Key Vault örneğinde depolanan yenileme belirtecini içerir.
 
-## <a name="java-appuser-authentication"></a>Java (uygulama+kullanıcı kimlik doğrulaması)
+## <a name="java-appuser-authentication"></a>Java (uygulama + kullanıcı kimlik doğrulaması)
 
-İş [ortağı onayı](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault) örnek projesi, JSP kullanılarak geliştirilen bir web sitesinin, onayı yakalamak, yenileme belirteci talep etmek ve Azure Key Vault. Bu örnek için gerekli önkoşulları oluşturmak üzere aşağıdakini gerçekleştirin.
+[İş ortağı onayı](https://github.com/Microsoft/Partner-Center-Java-Samples/tree/master/secure-app-model/keyvault) örnek projesi, izin yakalamak, yenileme belirteci istemek ve Azure Key Vault 'da güvenli depo sağlamak için JSP kullanılarak geliştirilen bir Web sitesini nasıl kullanacağınızı gösterir. Bu örnek için gerekli önkoşulları oluşturmak için aşağıdakileri yapın.
 
-1. Azure portal veya aşağıdaki PowerShell komutlarını Azure Key Vault bir örnek oluşturun. Komutu yürütmeden önce parametre değerlerini uygun şekilde değiştirerek emin olun. Kasa adı benzersiz olmalıdır.
+1. Azure portal veya aşağıdaki PowerShell komutlarını kullanarak bir Azure Key Vault örneği oluşturun. Komutu yürütmeden önce parametre değerlerini uygun şekilde değiştirdiğinizden emin olun. Kasa adı benzersiz olmalıdır.
 
     ```azurepowershell-interactive
     Login-AzureRmAccount
@@ -214,9 +214,9 @@ Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.
     New-AzureRmKeyVault -Name 'Contoso-Vault' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
     ```
 
-    Azure Key Vault oluşturma hakkında daha fazla bilgi için bkz. [Hızlı başlangıç: Azure Key Vault Azure portal](/azure/key-vault/quick-create-portal) veya Hızlı [Başlangıç: PowerShell](/azure/key-vault/quick-create-powershell)kullanarak gizli dizi ayarlama ve Azure Key Vault'den gizli dizi alma.
+    Azure Key Vault oluşturma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: Azure Key Vault Azure Portal veya hızlı başlangıç kullanarak gizli dizi ayarlama ve alma](/azure/key-vault/quick-create-portal) [: PowerShell kullanarak Azure Key Vault bir gizli dizi ayarlama ve alma](/azure/key-vault/quick-create-powershell).
 
-2. Azure portal veya aşağıdaki komutları kullanarak bir Azure AD Uygulaması ve anahtar oluşturun.
+2. Azure portal veya aşağıdaki komutları kullanarak bir Azure AD uygulaması ve anahtarı oluşturun.
 
     ```azurepowershell-interactive
     Connect-AzureAD
@@ -230,9 +230,9 @@ Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.
     Write-Host "ApplicationSecret   = $($password.Value)"
     ```
 
-    Aşağıdaki adımlarda kullanılacak olan uygulama tanımlayıcısı ve gizli değerleri belgeleyenin.
+    Aşağıdaki adımlarda kullanılabilecekleri için uygulama tanımlayıcısı ve gizli değerleri belgelediğinizden emin olun.
 
-3. Yeni oluşturulan Azure AD uygulamasına aşağıdaki komutları kullanarak gizli dizileri Azure portal izinlerini verin.
+3. Yeni oluşturulan Azure AD uygulamasına Azure portal veya aşağıdaki komutları kullanarak okuma gizli dizileri izinleri verin.
 
     ```azurepowershell-interactive
     $app = Get-AzureADApplication -Filter {AppId -eq 'ENTER-APP-ID-HERE'}
@@ -240,22 +240,22 @@ Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.
     Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoVault -ObjectId $app.ObjectId -PermissionsToSecrets get
     ```
 
-4. İş Ortağı Merkezi için yapılandırılmış bir Azure AD İş Ortağı Merkezi. Bu adımı tamamlamak için aşağıdaki işlemleri gerçekleştirin.
+4. Iş Ortağı Merkezi için yapılandırılmış bir Azure AD uygulaması oluşturun. Bu adımı tamamlamak için aşağıdakileri gerçekleştirin.
 
-    - İş Ortağı Merkezi [Panosu'nın](https://partner.microsoft.com/pcv/apiintegration/appmanagement) Uygulama yönetimi özelliğine göz atma
-    - Yeni bir Azure AD *uygulaması oluşturmak* için Yeni web uygulaması ekle'yi seçin.
+    - Iş Ortağı Merkezi panosunun [uygulama yönetimi](https://partner.microsoft.com/pcv/apiintegration/appmanagement) özelliğine gidin
+    - Yeni bir Azure AD uygulaması oluşturmak için *Yeni Web uygulaması Ekle* ' yi seçin.
 
-    Uygulama Kimliği, *Hesap *Kimliği*** ve Anahtar  değerlerini belgeleyenin çünkü bunlar aşağıdaki adımlarda kullanılacaktır.
+    Aşağıdaki adımlarda kullanıldıkları için *uygulama kimliği*, * hesap kimliği * * ve *anahtar* değerlerini belgelediğinizden emin olun.
 
-5. Aşağıdaki komutu [kullanarak Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) deposunu kopyalama
+5. Aşağıdaki komutu kullanarak [Partner-Center-Java-Samples](https://github.com/Microsoft/Partner-Center-Java-Samples) deposunu kopyalayın
 
     ```bash
     git clone https://github.com/Microsoft/Partner-Center-Java-Samples.git
     ```
 
-6. dizininde *bulunan PartnerConsent* projesini `Partner-Center-Java-Samples\secure-app-model\keyvault` açın.
+6. Dizinde bulunan *Partneronay* projesini açın `Partner-Center-Java-Samples\secure-app-model\keyvault` .
 
-7. web.xmldosyasında bulunan uygulama [ ayarlarını ](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml) doldurmak
+7. [web.xml](https://github.com/Microsoft/Partner-Center-Java-Samples/blob/master/secure-app-model/keyvault/partnerconsent/src/main/webapp/WEB-INF/web.xml) dosyasında bulunan uygulama ayarlarını doldur
 
     ```xml
     <filter>
@@ -289,13 +289,13 @@ Geçmişte kaynak [sahibi parola](https://tools.ietf.org/html/rfc6749#section-4.
     ```
 
     > [!IMPORTANT]
-    > Uygulama gizli dizileri gibi hassas bilgiler yapılandırma dosyalarında depolanmaz. Bu örnek bir uygulama olduğu için burada yapıldı. Üretim uygulamanız ile sertifika tabanlı kimlik doğrulaması kullanmanızı kesinlikle öneririz. Daha fazla bilgi için [bkz. Key Vault Sertifika kimlik doğrulaması.](https://github.com/Azure-Samples/key-vault-java-certificate-authentication)
+    > Uygulama gizli dizileri gibi hassas bilgiler, yapılandırma dosyalarında depolanmamalıdır. Bu örnek bir uygulama olduğu için burada gerçekleştirildi. Üretim uygulamanız sayesinde sertifika tabanlı kimlik doğrulaması kullanmanızı kesinlikle öneririz. Daha fazla bilgi için bkz. [Key Vault sertifikası kimlik doğrulaması](https://github.com/Azure-Samples/key-vault-java-certificate-authentication).
 
-8. Bu örnek projeyi çalıştırsanız kimlik doğrulaması istenir. Kimlik doğrulama başarılı olduktan sonra Azure AD'den erişim belirteci istenmektedir. Azure AD'den döndürülen bilgiler, yapılandırmanın yapılandırılmış örneğinde depolanan bir yenileme belirteci Azure Key Vault.
+8. Bu örnek projeyi çalıştırdığınızda sizden kimlik doğrulaması istenir. Kimlik doğrulaması başarılı olduktan sonra Azure AD 'den bir erişim belirteci istenir. Azure AD 'den döndürülen bilgiler, yapılandırılmış Azure Key Vault örneğinde depolanan yenileme belirtecini içerir.
 
-## <a name="cloud-solution-provider-authentication"></a>Bulut Çözümü Sağlayıcısı doğrulaması
+## <a name="cloud-solution-provider-authentication"></a>Bulut Çözümü Sağlayıcısı kimlik doğrulaması
 
-Bulut Çözümü Sağlayıcısı iş ortakları, iş ortağı onay işlemiyle elde edilen yenileme [belirteci](#partner-consent) kullanabilir.
+Bulut Çözümü Sağlayıcısı iş ortakları, [iş ortağı onay](#partner-consent) süreci aracılığıyla elde edilen yenileme belirtecini kullanabilir.
 
 ### <a name="samples-for-cloud-solution-provider-authentication"></a>Kimlik doğrulaması Bulut Çözümü Sağlayıcısı örnekleri
 

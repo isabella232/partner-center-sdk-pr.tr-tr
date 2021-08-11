@@ -4,12 +4,12 @@ description: Iş Ortağı Merkezi REST API, SDK genelinde kullanılan genel ama�
 ms.date: 03/30/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 095cf36d47b147eb6df28d8747889e218c270659
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: de97feed13a4d0bae9743939a03f8cb8470f5f960bec0507cd9c5adfad287120
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111529673"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115998051"
 ---
 # <a name="utility-resources"></a>Yardımcı program kaynakları
 
@@ -21,7 +21,7 @@ Iş Ortağı Merkezi REST API, SDK genelinde kullanılan genel amaçlı veri mod
 
 Müşteri veya iş ortağı profilleri için kullanılacak adres. Farklı ülkelerde/bölgelerde desteklenen biçimler ve özellikler hakkında daha fazla bilgi için bkz. [pazara göre adres biçimlendirme kurallarını edinme](get-market-specific-validation-data.md).
 
-| Özellik     | Tür   | Uzunluk (en az, en fazla) | Açıklama                                                                                      |
+| Özellik     | Tür   | Uzunluk (en az, en fazla) | Description                                                                                      |
 |--------------|--------|-------------------|--------------------------------------------------------------------------------------------------|
 | AddressLine1 | string | (1, 200)          | Adresin ilk satırı.                                                                   |
 | AddressLine2 | string | (0, 200)          | Adresin ikinci satırı. Bu özellik isteğe bağlıdır.                                       |
@@ -41,7 +41,7 @@ Müşteri veya iş ortağı profilleri için kullanılacak adres. Farklı ülkel
 
 Belirli bir kişiye ait iletişim bilgilerini açıklar.
 
-| Özellik    | Tür   | Açıklama                  |
+| Özellik    | Tür   | Description                  |
 |-------------|--------|------------------------------|
 | FirstName   | string | Kişinin adı.    |
 | LastName    | string | Kişinin soyadı.     |
@@ -52,7 +52,7 @@ Belirli bir kişiye ait iletişim bilgilerini açıklar.
 
 Arama sonuçlarına uygulanabilen bir filtre tanımlar.
 
-| Özellik | Tür   | Açıklama                                                                                                                                                                                        |
+| Özellik | Tür   | Description                                                                                                                                                                                        |
 |----------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Operatör | string | Filtre işleci: "eşittir", "eşit değildir \_ ", "büyüktür", "büyüktür veya eşittir", " \_ \_ küçüktür", " \_ küçüktür veya eşittir", " \_ \_ \_ \_ \_ substring", "ve", "veya", "ile başlar", "ile başlar \_ \_ \_ ". |
 
@@ -60,7 +60,7 @@ Arama sonuçlarına uygulanabilen bir filtre tanımlar.
 
 Iş Ortağı Merkezi 'ne yüklenen bir dış dosyayı temsil eder.
 
-| Özellik                 | Tür   | Açıklama                                   |
+| Özellik                 | Tür   | Description                                   |
 |--------------------------|--------|-----------------------------------------------|
 | Yorum                  | string | Karşıya dosya yükleme ile ilişkili bir açıklama.    |
 | FileExtension            | string | Dosya uzantısı.                           |
@@ -72,7 +72,7 @@ Iş Ortağı Merkezi 'ne yüklenen bir dış dosyayı temsil eder.
 
 Bir URI bağlantısı ve ilgili bilgileri içerir.
 
-| Özellik | Tür                   | Açıklama                        |
+| Özellik | Tür                   | Description                        |
 |----------|------------------------|------------------------------------|
 | URI      | string                 | URI.                           |
 | Yöntem   | string                 | URI tarafından temsil edilen yöntem. |
@@ -85,7 +85,7 @@ Belirli bir parolayı ve bu parolanın değiştirilmesinin gerekip gerekmediğin
 >[!NOTE]
 >21Vianet tarafından çalıştırılan Iş Ortağı Merkezi 'nde desteklenmez.
 
-| Özellik            | Tür                          | Açıklama                                                            |
+| Özellik            | Tür                          | Description                                                            |
 |---------------------|-------------------------------|------------------------------------------------------------------------|
 | Parola            | [SecureString](#securestring) | Parola.                                                          |
 | ForceChangePassword | boolean                       | Bir sonraki oturum açma sırasında parolanın zorla değiştirilmesi gerekip gerekmediğini belirler. |
@@ -94,7 +94,7 @@ Belirli bir parolayı ve bu parolanın değiştirilmesinin gerekip gerekmediğin
 
 Bir kaynak için bağlantıların bir listesini içerir.
 
-| Özellik   | Tür                                      | Açıklama                                        |
+| Özellik   | Tür                                      | Description                                        |
 |------------|-------------------------------------------|----------------------------------------------------|
 | Kendi       | [Bağlantısının](#link)                             | Self URI.                                      |
 | Sonraki       | [Bağlantısının](#link)                             | Öğelerin sonraki sayfası.                            |
@@ -105,7 +105,7 @@ Bir kaynak için bağlantıların bir listesini içerir.
 
 Bir kaynağın öznitelik meta verilerini içerir.
 
-| Özellik   | Tür   | Açıklama                                 |
+| Özellik   | Tür   | Description                                 |
 |------------|--------|---------------------------------------------|
 | Özelliği       | string | Nesne sürümü olarak da bilinen ETag. |
 | ObjectType | string | Temel kaynağın nesne türü.    |
@@ -114,7 +114,7 @@ Bir kaynağın öznitelik meta verilerini içerir.
 
 Parola gibi güvenli bilgileri depolar.
 
-| Özellik | Tür | Açıklama                       |
+| Özellik | Tür | Description                       |
 |----------|------|-----------------------------------|
 | Uzunluk   | int  | Güvenli dizenin uzunluğu. |
 
@@ -122,7 +122,7 @@ Parola gibi güvenli bilgileri depolar.
 
 ortağın Government Community Cloud doğrulama kodunu temsil eder.
 
-| Özellik         | Tür         | Açıklama                                                              |
+| Özellik         | Tür         | Description                                                              |
 |------------------|--------------|--------------------------------------------------------------------------|
 | İş ortağı kimliği        | GUID         | İş ortağı tanımlayıcısı                                                       |
 | OrganizationName | string       | Doğrulama işlemi sırasında belirtilen kuruluş adı             |

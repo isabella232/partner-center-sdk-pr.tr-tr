@@ -1,23 +1,23 @@
 ---
 title: İş Ortağı Merkezi örnekleri
-description: Api'leri kullanarak hızlıca İş Ortağı Merkezi yardımcı olmak için bir örnek program, C\ yönetilen kod parçacıkları ve REST örnek istekleri ve yanıtları sağlaruz.
+description: Iş Ortağı Merkezi API 'Leriyle hızlıca çalışmaya başlamanıza yardımcı olması için örnek bir program, C \ yönetilen kod parçacıkları ve REST örnek istekleri ve yanıtları sağlıyoruz.
 ms.date: 09/17/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 36d1c74e12ae680facef1414ce35ac2d6fb5322c
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 34e269b1a0e711f82144898441c75d731b8613f70512517e12b6705990b35622
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547844"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997609"
 ---
 # <a name="partner-center-samples"></a>İş Ortağı Merkezi örnekleri
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Api'leri kullanarak hızla İş Ortağı Merkezi yardımcı olmak için bir örnek program, C# yönetilen kod parçacıkları ve REST örnek istekleri ve yanıtları sağlaruz.
+Iş Ortağı Merkezi API 'Leriyle hızlıca çalışmaya başlamanıza yardımcı olması için örnek bir program, C# yönetilen kod parçacıkları ve REST örnek istekleri ve yanıtları sağlıyoruz.
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
@@ -25,8 +25,8 @@ Api'leri kullanarak hızla İş Ortağı Merkezi yardımcı olmak için bir örn
 
 | Örnek                                                        | Ayrıntılar                                             |
 |---------------------------------------------------------------|-----------------------------------------------------|
-| Kod parçacıkları                                                 | Müşteri hesaplarını yönetmek, analiz elde etmek, sipariş vermek, faturalama ve abonelikleri yönetmek, destek sağlamak ve hesapları ve profilleri yönetmek için İş Ortağı Merkezi yönetilen API'sinin nasıl kullanıldığına işaret gösteren işaretçiler ve .NET, Java ve PowerShell kod parçacıkları için bkz. [Senaryolar.](scenarios.md)                                                                          |
-| REST örnekleri                                                  | Müşteri hesaplarını yönetmek, analiz almak, sipariş vermek, faturalama ve abonelikleri yönetmek, destek sağlamak ve hesapları ve profilleri yönetmek için İş Ortağı Merkezi REST API'nin nasıl kullanılal olduğunu göstermek üzere örnek istekler ve yanıtlar için bkz. [Senaryolar.](scenarios.md)                                                                                                       |
-| [Konsol test uygulaması](console-test-app.md)                       | Bu uygulama C# ve Java ile kullanılabilir, senaryolar bölümünde listelenen tüm senaryolar için kod ve bazı hata işleme sağlar.                                                                        |
-| [CSP müşteri web vitrini](csp-customer-web-storefront.md) | Bu site, müşterilerimizin Microsoft ürünlerine abonelik satın almak için kullanabileceği çalışan bir çevrimiçi mağazayı gösterir. CSP Customer Storefront Builder Hızlı Başlangıç Kılavuzu ile kolayca [şirket için bir web sitesi oluşturabilirsiniz.](csp-customer-storefront-builder-quick-start-guide-.md)                                                              |
-| Web sitesini depolama                                                | Bu uygulama, iş ortaklarının sunduğu tekliflerin kataloğunu temel alan bir web Bulut Çözümü Sağlayıcısı gösterir. Müşteriler siteniz üzerinden bir mağaza hesabı oluşturabilir ve yazılım abonelikleri sipariş edebilirsiniz.<br/><br/>                  **Kodu al:**<br/> [Örnek kodu indirme](https://go.microsoft.com/fwlink/p/?LinkId=746683)<br/><br/>                                            **Yayından önce yapılandırma gerekenler:**<br/><br/> - Kimlik doğrulaması: Uygulama kimliği & gizli<br/> - Markalama: logo ve şirket adı<br/> - Hoş geldiniz iletisi<br/> - Açıklamalar ve fiyatlar da dahil olmak üzere teklifler. Uygulama, liste fiyatlarının geçerli vergileri dahil olduğunu varsayıyor. Alternatif olarak, satın alma sırasında vergiyi hesaplamak için ek mantık ekleyebilirsiniz.<br/> - Ödeme bilgileri: Kendi kredi kartı seçeneklerinizi, PayPal veya diğer ödeme türlerini sağlama. Bu bölümü yapılandırmadan önce Ödeme, sahtekarlık veya [kötüye kullanım kılavuzunu okuyun.](/partner-center/non-payment-fraud-misuse) |
+| Kod parçacıkları                                                 | Iş Ortağı Merkezi tarafından yönetilen API 'nin müşteri hesaplarını yönetmek, analiz almak, siparişleri yerleştirmek, faturalandırma ve abonelikleri yönetmek, destek sağlamak ve hesapları ve profilleri yönetmek için nasıl kullanılacağını gösteren işaretçiler ve .NET, Java ve PowerShell kod parçacıkları için bkz. [senaryolar](scenarios.md).                                                                          |
+| REST örnekleri                                                  | Müşteri hesaplarını yönetmek, analiz almak, siparişleri yerleştirmek, faturalandırma ve abonelikleri yönetmek, destek sağlamak ve hesapları ve profilleri yönetmek için Iş Ortağı Merkezi REST API nasıl kullanacağınızı gösteren örnek istekler ve yanıtlar için bkz. [senaryolar](scenarios.md).                                                                                                       |
+| [Konsol test uygulaması](console-test-app.md)                       | Bu uygulama C# ve Java 'da kullanılabilir, senaryolar bölümünde listelenen tüm senaryolar için kod ve bazı hata işleme işlemleri sağlar.                                                                        |
+| [CSP müşteri web vitrini](csp-customer-web-storefront.md) | Bu sitede, müşterilerinizin Microsoft ürünlerine abonelik satın almak için kullanabileceği çalışan bir çevrimiçi mağaza gösterilmektedir. [CSP Customer storefront Builder hızlı başlangıç kılavuzu](csp-customer-storefront-builder-quick-start-guide-.md)ile şirketiniz için kolayca bir Web sitesi oluşturabilirsiniz.                                                              |
+| Web sitesini depola                                                | bu uygulama, Bulut Çözümü Sağlayıcısı iş ortakları için sunulan tekliflerin kataloğunu temel alan bir web mağazası oluşturmayı gösterir. Müşteriler, siteniz aracılığıyla bir mağaza hesabı oluşturabilir ve yazılım abonelikleri sipariş edebilir.<br/><br/>                  **Kodu alın:**<br/> [Örnek kodu indirin](https://go.microsoft.com/fwlink/p/?LinkId=746683)<br/><br/>                                            **Sürümden önce yapılandırılacak:**<br/><br/> -Authentication: uygulama KIMLIĞI & gizli<br/> -Marka: logo ve şirket adı<br/> -Hoş geldiniz iletisi<br/> -Teklifler, açıklamalar ve fiyatlar dahil. Uygulama, liste fiyatlarının geçerli vergileri dahil olduğunu varsayar. Alternatif olarak, kullanıma alma sırasında vergiyi hesaplamak için ek Logic de ekleyebilirsiniz.<br/> -ödeme bilgileri: kendi kredi kartı seçeneklerinizi, PayPal veya diğer ödeme türlerini belirtin. Bu bölümü yapılandırmadan önce, [ödeme olmayan, sahtekarlık veya kötüye kullanma](/partner-center/non-payment-fraud-misuse)kılavuzunu okuyun. |

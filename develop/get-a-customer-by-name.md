@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: dineshvu
 ms.author: dineshvu
-ms.openlocfilehash: 663b8509d8704f9c443796d9fbcf72fb9c5b7fb2
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 4e77edd3e7d94711ad18796c0afb4db30c50abf0bc9636335b413a5d41dff9c8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111874967"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993104"
 ---
 # <a name="get-a-list-of-customers-filtered-by-a-search-field"></a>Arama alanına göre filtrelenmiş bir müşteri listesini alma
 
@@ -68,7 +68,7 @@ Aşağıdaki sorgu parametrelerini kullanın.
 
 | Ad   | Tür   | Gerekli | Açıklama                                                                    |
 |--------|--------|----------|--------------------------------------------------------------------------------|
-| boyut   | int    | Hayır       | Tek seferde görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır. |
+| boyut   | int    | No       | Tek seferde görüntülenecek sonuç sayısı. Bu parametre isteğe bağlıdır. |
 | filtre | filtre | Yes      | Müşterilere uygulanacak filtre. Bu, kodlanmış bir dize olmalıdır.              |
 
 ### <a name="filter-syntax"></a>Filtre sözdizimi

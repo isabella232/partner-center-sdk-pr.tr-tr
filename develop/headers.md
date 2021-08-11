@@ -4,12 +4,12 @@ description: Iş Ortağı Merkezi REST API tarafından desteklenen HTTP REST ist
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 3f09ab5808a9751f02e451da2027f6b35877390b
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 9c9483e761465be1a60003dcd44cef46af3e99634d99d804d43d101d6b8ef700
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548473"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993835"
 ---
 # <a name="partner-center-rest-and-response-headers-supported-by-the-partner-center-rest-api"></a>İş Ortağı Merkezi tarafından desteklenen iş ortağı merkezi REST ve yanıt başlıkları REST API 
 
@@ -21,7 +21,7 @@ Aşağıdaki HTTP isteği ve yanıt üst bilgileri, Iş Ortağı Merkezi REST AP
 
 Aşağıdaki HTTP istek üstbilgileri, Iş Ortağı Merkezi REST API tarafından desteklenir.
 
-| Üst bilgi                       | Açıklama                                                                                                                                                                                                                                                                            | Değer Türü |
+| Üst bilgi                       | Description                                                                                                                                                                                                                                                                            | Değer Türü |
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | Yetkilendirme:               | Gereklidir. Taşıyıcı belirtecindeki yetkilendirme belirteci &lt; &gt; .                                                                                                                                                                                                                    | string     |
 | Ettiğinizde                      | "Application/JSON" istek ve yanıt türünü belirtir.                                                                                                                                                                                                                           | string     |
@@ -36,7 +36,7 @@ Aşağıdaki HTTP istek üstbilgileri, Iş Ortağı Merkezi REST API tarafından
 
 Aşağıdaki HTTP yanıt üst bilgileri, Iş Ortağı Merkezi REST API döndürebilir.
 
-| Üst bilgi            | Açıklama                                                                                                                                                                                                                                 | Değer Türü |
+| Üst bilgi            | Description                                                                                                                                                                                                                                 | Değer Türü |
 |-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
 | Ettiğinizde           | "Application/JSON" istek ve yanıt türünü belirtir.                                                                                                                                                                                | string     |
 | MS-RequestId:     | Kimlik-kuvvet sağlamak için kullanılan, çağrı için benzersiz bir tanımlayıcı. Bir zaman aşımı varsa, yeniden deneme çağrısı aynı değeri içermelidir. Yanıt aldıktan sonra (başarı veya iş hatası), sonraki çağrının değeri sıfırlanmalıdır. | GUID       |

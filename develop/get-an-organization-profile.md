@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 1c7272761612e573388d4facea1a78808a5bad52
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 20e6663e353dad0f259e0cb01a8c7bd6e6338b7ba2941186e8262e262264e4dc
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760564"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993529"
 ---
 # <a name="get-an-organization-profile"></a>Kuruluş profili alma
 

@@ -1,67 +1,67 @@
 ---
 title: Hizmet isteği kaynakları
-description: İş ortakları, Microsoft tarafından sağlanan kesintiler hizmetlerini raporlamak veya sağlanamadığı diğer teknik destek istemek için iş ortakları adına hizmet isteklerini dosya halinde işleyebilir.
+description: İş ortakları, Microsoft tarafından sağlanan kesinti hizmetlerini bildirmeleri veya sağlanamıyor olmaları durumunda başka teknik destek talep etmek için iş ortakları adına hizmet isteklerinde bulunabilir.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 02a02e6a873ad8785150368f3d4b89af2b588529
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: f919b3c34ff179a7a6cd0541f34c53737ec4148e44791419d2252fae64b0658d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547368"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993240"
 ---
 # <a name="service-request-resources"></a>Hizmet isteği kaynakları
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-İş ortakları, Microsoft tarafından sağlanan kesintiler hizmetlerini raporlamak veya sağlanamadığı diğer teknik destek istemek için iş ortakları adına hizmet isteklerini dosya halinde işleyebilir.
+İş ortakları, Microsoft tarafından sağlanan kesinti hizmetlerini bildirmeleri veya sağlanamıyor olmaları durumunda başka teknik destek talep etmek için iş ortakları adına hizmet isteklerinde bulunabilir.
 
 ## <a name="servicerequest"></a>ServiceRequest
 
-Bu isteğin ilerme şekli dahil, bir iş ortağı tarafından dosyalanmış bir hizmet isteğini açıklar.
+İsteğin nasıl ilerler olduğu da dahil olmak üzere bir iş ortağı tarafından dosyalama yapılan bir hizmet isteğini açıklar.
 
-| Özellik         | Tür                                                          | Açıklama                                                                          |
+| Özellik         | Tür                                                          | Description                                                                          |
 |------------------|---------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Başlık            | string                                                        | Hizmet isteği başlığı.                                                           |
 | Description      | dize                                                        | Açıklama.                                                                     |
-| Önem derecesi         | string                                                        | Önem derecesi: "bilinmiyor", "kritik", "Orta" veya "minimal".                       |
-| Supporttopicıd   | string                                                        | Destek konusunun KIMLIĞI.                                                         |
+| Önem Derecesi         | string                                                        | Önem derecesi: "unknown", "critical", "moderate" veya "minimal".                       |
+| SupportTopicId   | string                                                        | Destek konusunun kimliği.                                                         |
 | SupportTopicName | string                                                        | Destek konusunun adı.                                                       |
-| Id               | string                                                        | Hizmet isteğinin Kımlığı.                                                       |
-| Durum           | string                                                        | Hizmet isteğinin durumu: "none", "Open", "Closed" veya "ilgilenilmesi \_ gerekiyor". |
-| Kuruluş     | [Servicerequestorganleştirme](#servicerequestorganization)     | Hizmet isteğinin oluşturulduğu kuruluş.                               |
-| PrimaryContact   | [ServiceRequestContact](#servicerequestcontact)               | Hizmet isteğindeki birincil Iletişim.                                              |
-| LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | "Son güncelleme tarihi" hizmet isteğindeki değişiklikler için ilgili kişi.                        |
+| Id               | string                                                        | Hizmet isteğinin kimliği.                                                       |
+| Durum           | string                                                        | Hizmet isteğinin durumu: "none", "open", "closed" veya "attention \_ needed". |
+| Kuruluş     | [ServiceRequestOrganization](#servicerequestorganization)     | Hizmet isteğinin oluşturulacak kuruluş.                               |
+| PrimaryContact   | [ServiceRequestContact](#servicerequestcontact)               | Hizmet isteğiyle ilgili Birincil Kişi.                                              |
+| LastUpdatedBy    | [ServiceRequestContact](#servicerequestcontact)               | Hizmet isteğinde yapılan değişiklikler için "Son Güncelleştirme Tarihi" ilgili kişisi.                        |
 | ProductName      | string                                                        | Hizmet isteğine karşılık gelen ürünün adı.                     |
 | ProductId        | string                                                        | Ürünün kimliği.                                                               |
-| CreatedDate      | date                                                          | Hizmet isteği oluşturma tarihi.                                          |
-| LastModifiedDate olarak ayarlayın | date                                                          | Hizmet isteğinin son değiştirilme tarihi.                                 |
-| LastClosedDate   | date                                                          | Hizmet isteğinin son kapatıldığı tarih.                                   |
-| Dosya bağlantıları        | [FileInfo](utility-resources.md#fileinfo) kaynakları dizisi | Hizmet isteğiyle ilgili dosya bağlantıları koleksiyonu.                    |
-| NewNote          | [ServiceRequestNote](#servicerequestnote)                     | Mevcut bir hizmet isteğine bir Note eklenebilir.                                  |
-| Notlar            | [Servicerequestnotes](#servicerequestnote) dizisi           | Hizmet isteğine eklenen notların bir koleksiyonu.                                  |
+| CreatedDate      | date                                                          | Hizmet isteğinin oluşturulma tarihi.                                          |
+| LastModifiedDate olarak ayarlayın | date                                                          | Hizmet isteğinin en son değiştiril olduğu tarih.                                 |
+| LastClosedDate   | date                                                          | Hizmet isteğinin en son kapatılan tarih.                                   |
+| Dosya Bağlantıları        | [FileInfo kaynakları](utility-resources.md#fileinfo) dizisi | Hizmet isteğiyle ilgili Dosya Bağlantıları koleksiyonu.                    |
+| YeniNot          | [ServiceRequestNote](#servicerequestnote)                     | Mevcut hizmet isteğine bir not eklenebilir.                                  |
+| Notlar            | [ServiceRequestNotes dizisi](#servicerequestnote)           | Hizmet isteğine eklenen notlar koleksiyonu.                                  |
 | CountryCode      | string                                                        | Hizmet isteğine karşılık gelen ülke.                                    |
-| Öznitelikler       | ResourceAttributes                                            | Hizmet isteğine karşılık gelen meta veri öznitelikleri.                        |
+| Öznitelikler       | Resourceattributes                                            | Hizmet isteğine karşılık gelen meta veri öznitelikleri.                        |
 
 ## <a name="servicerequestcontact"></a>ServiceRequestContact
 
-Bir hizmet isteği oluşturan veya değiştiren bir kişiyi açıklar.
+Hizmet isteği oluşturan veya değiştiren bir kişiyi açıklar.
 
-| Özellik     | Tür                                                      | Açıklama                                            |
+| Özellik     | Tür                                                      | Description                                            |
 |--------------|-----------------------------------------------------------|--------------------------------------------------------|
-| Kuruluş | [Servicerequestorganleştirme](#servicerequestorganization) | Hizmet isteğinin oluşturulduğu kuruluş. |
-| Kişi kimliği    | string                                                    | Kişinin benzersiz KIMLIĞI.                               |
+| Kuruluş | [ServiceRequestOrganization](#servicerequestorganization) | Hizmet isteğinin oluşturulacak kuruluş. |
+| Contactıd    | string                                                    | Kişinin benzersiz kimliği.                               |
 | LastName     | string                                                    | Kişinin soyadı.                          |
-| FirstName    | string                                                    | Kişinin ilk adı.                         |
+| FirstName    | string                                                    | Kişinin adı.                         |
 | E-posta        | string                                                    | Kişinin e-postası.                              |
 | PhoneNumber  | string                                                    | Kişinin telefon numarası.                       |
 
 ## <a name="servicerequestnote"></a>ServiceRequestNote
 
-Bir hizmet isteğine bağlı bir notun olduğunu açıklar.
+Hizmet isteğine eklenmiş bir notu açıklar.
 
-| Özellik      | Tür   | Açıklama                                  |
+| Özellik      | Tür   | Description                                  |
 |---------------|--------|----------------------------------------------|
 | CreatedByName | string | Notu oluşturanın adı.         |
 | CreatedDate   | date   | Notun oluşturulma tarihi ve saati. |
@@ -71,7 +71,7 @@ Bir hizmet isteğine bağlı bir notun olduğunu açıklar.
 
 Hizmet isteğinin oluşturulacak kuruluşu açıklar.
 
-| Özellik    | Tür   | Açıklama                           |
+| Özellik    | Tür   | Description                           |
 |-------------|--------|---------------------------------------|
 | Id          | string | Kuruluşun benzersiz kimliği.    |
 | Name        | string | Kuruluş adı.         |

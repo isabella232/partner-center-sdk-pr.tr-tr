@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: b3a64cc6aa4b19199490dafcf15eedde12b1330a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 6f2e1d50fa0f2ace2e94f4dbb5681e2164241ee57a85249136a55fce20893fbb
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547810"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997592"
 ---
 # <a name="partner-center-supported-languages-and-locales"></a>İş Ortağı Merkezi tarafından desteklenen diller ve yerel ayarlar
 
@@ -32,7 +32,7 @@ Aşağıdaki tabloda, Iş Ortağı Merkezi API 'Lerinde desteklenen kültürler 
 | Amerikan Samoası                           | AS                       | ASM                      | en-US                                 |
 | Andorra                                  | AD                       | AND                      | CA-ES/en-US                         |
 | Angola                                   | AO                       | ÖNCE                      | PT-PT/en-US                         |
-| Anguilla                                 | Yapay Zeka                       | AIA                      | en-US                                 |
+| Anguilla                                 | AI                       | AIA                      | en-US                                 |
 | Antarktika                               | AQ                       | ATA                      | en-US                                 |
 | Antigua ve Barbuda                      | AG                       | ATG                      | en-US                                 |
 | Arjantin                                | AR                       | DEĞIŞKENI                      | es-AR/en-US                         |
@@ -47,31 +47,31 @@ Aşağıdaki tabloda, Iş Ortağı Merkezi API 'Lerinde desteklenen kültürler 
 | Barbados                                 | BB                       | BRB                      | en-GB/en-US                         |
 | Belarus                                  | BY                       | BLR                      | Siz/en-US                         |
 | Belçika                                  | BE                       | TRUE                      | fr-------------US                 |
-| Belize                                   | BZ                       | BLZ                      | en-BZ / en-US                         |
-| Benin                                    | BJ                       | BEN                      | fr-FR / en-US                         |
-| Bermuda                                  | BM                       | Bmu                      | en-GB / en-US                         |
+| Belize                                   | BZ                       | BLZ                      | En-BZ/en-US                         |
+| Benin                                    | BJ                       | ÖĞESINI                      | fr-FR/en-US                         |
+| Bermuda                                  | BM                       | BMU                      | en-GB/en-US                         |
 | Butan                                   | BT                       | BTN                      | en-US                                 |
-| Bolivya                                  | BO                       | BOL                      | es-BO / en-US                         |
-| Bonaire                                  | Bq                       | BES                      | nl-NL / en-US                         |
-| Bosna-Hersek                   | BA                       | Bh                      | bs-Latn-BA / en-US                    |
-| Botsvana                                 | BW                       | Bwa                      | en-GB / en-US                         |
-| Bouvet Adası                            | Bv                       | Bvt                      | nb-NO / en-US                         |
-| Brezilya                                   | BR                       | Sutyen                      | pt-BR / en-US                         |
-| Britanya Hint Okyanusu Toprakları           | ıo                       | IOT                      | en-US                                 |
+| Bolivya                                  | BO                       | BOL                      | es-BO/en-US                         |
+| Bonaire                                  | BQ                       | BES                      | NL-NL/en-US                         |
+| Bosna-Hersek                   | BA                       | BIH                      | BS-Latn-BA/en-US                    |
+| Botsvana                                 | BW                       | BWA                      | en-GB/en-US                         |
+| Bouvet Adası                            | BV                       | BVT                      | NB-NO/en-US                         |
+| Brezilya                                   | BR                       | SOL                      | PT-BR/en-US                         |
+| Britanya Hint Okyanusu Toprakları           | IO                       | IOT                      | en-US                                 |
 | Britanya Virjin Adaları                   | VG                       | VGB                      | en-US                                 |
-| Brunei                                   | BN                       | BRN                      | ms-BN / en-US                         |
-| Bulgaristan                                 | BG                       | Bgr                      | bg-BG / en-US                         |
-| Burkina Faso                             | BF                       | Bfa                      | fr-FR / en-US                         |
-| Burundi                                  | BI                       | BDI                      | fr-FR / en-US                         |
-| Cabo Verde                               | CV                       | Gbm                      | pt-CV / en-US                         |
-| Kamboçya                                 | KH                       | HATİA                      | km-YıK / en-US                         |
-| Kamerun                                 | CM                       | Cmr                      | fr-FR / en-US                         |
-| Kanada                                   | CA                       | -bilirsiniz                      | fr-CA / en-US                         |
-| Cayman Adaları                           | KY                       | CYM                      | en-GB / en-US                         |
-| Orta Afrika Cumhuriyeti                 | CF                       | Caf                      | fr-FR / en-US                         |
-| Çad                                     | TD                       | Tcd                      | fr-FR / en-US                         |
-| Şili                                    | CL                       | Çınar                      | es-CL / en-US                         |
-| Çin                                    | CN                       | CHN                      | zh-CN / en-US                         |
+| Brunei                                   | BN                       | BRN                      | MS-mılyar TL/en-US                         |
+| Bulgaristan                                 | BG                       | BGR                      | BG-BG/en-US                         |
+| Burkina Faso                             | BF                       | BFA                      | fr-FR/en-US                         |
+| Burundi                                  | BI                       | BDı                      | fr-FR/en-US                         |
+| Cabo Verde                               | CV                       | CPV                      | PT-CV/en-US                         |
+| Kamboçya                                 | KH                       | KHA                      | km-KH/en-US                         |
+| Kamerun                                 | CM                       | CMR                      | fr-FR/en-US                         |
+| Kanada                                   | CA                       | ERIŞEBILIRSINIZ                      | fr-CA/en-US                         |
+| Cayman Adaları                           | KY                       | CYA                      | en-GB/en-US                         |
+| Orta Afrika Cumhuriyeti                 | CF                       | CAF                      | fr-FR/en-US                         |
+| Çad                                     | TD                       | TCD                      | fr-FR/en-US                         |
+| Şili                                    | CL                       | CHL                      | es-CL/en-US                         |
+| Çin                                    | CN                       | CHN                      | zh-CN/en-US                         |
 | Christmas Adası                         | CX                       | CXR                      | en-US                                 |
 | Cocos (Keeling) Adaları                  | CC                       | CCK                      | en-US                                 |
 | Kolombiya                                 | CO                       | SÜTUN                      | es-CO/en-US                         |
@@ -172,56 +172,56 @@ Aşağıdaki tabloda, Iş Ortağı Merkezi API 'Lerinde desteklenen kültürler 
 | Mikronezya                               | FM                       | FSM                      | en-US                                 |
 | Moldova                                  | MD                       | MDA                      | RO-RO/en-US                         |
 | Monako                                   | MC                       | MCO                      | fr-MC/en-US                         |
-| Moğolistan                                 | MN                       | Mng                      | mn-MN / en-US                         |
-| Karadağ                               | ME                       | Mne                      | sr-Latn-ME / en-US                    |
-| Montserrat                               | MS                       | Msr                      | en-US                                 |
-| Fas                                  | MA                       | MAR                      | ar-MA / en-US                         |
-| Mozambik                               | MZ                       | Moz                      | pt-PT                                 |
-| Myanmar                                  | MM                       | Mmr                      | en-US                                 |
-| Namibya                                  | NA                       | Nam                      | en-GB / en-US                         |
+| Moğolistan                                 | MN                       | MNG                      | MN-MN/en-US                         |
+| Karadağ                               | ME                       | MNE                      | sr-Latn-ME/en-US                    |
+| Montserrat                               | MS                       | Mrs                      | en-US                                 |
+| Fas                                  | MA                       | MAR                      | AR-MA/en-US                         |
+| Mozambik                               | MZ                       | MOZ                      | pt-PT                                 |
+| Myanmar                                  | MM                       | MMR                      | en-US                                 |
+| Namibya                                  | NA                       | NAM                      | en-GB/en-US                         |
 | Nauru                                    | NR                       | NRU                      | en-US                                 |
-| Nepal                                    | NP                       | Npl                      | ne-NP / en-US                         |
-| Hollanda Antilleri                     | Bir                       | Antilleri                      | en-US                                 |
-| Hollanda,                         | NL                       | NLD                      | nl-NL / en-US                         |
-| Yeni Kaledonya                            | NC                       | NCL                      | fr-FR / en-US                         |
-| Yeni Zelanda                              | NZ                       | NZL                      | en-NZ / en-US                         |
-| Nikaragua                                | NI                       | NIC                      | es-NI / en-US                         |
-| Nijer                                    | NE                       | NER                      | fr-FR / en-US                         |
-| Nijerya                                  | NG                       | Nga                      | ha-Latn-NG / en-US                    |
-| Niue                                     | NU                       | Niu                      | en-US                                 |
-| Norfolk Adası                           | Nf                       | NFK                      | en-US                                 |
+| Nepal                                    | NP                       | NPL                      | Ne-NP/en-US                         |
+| Hollanda Antilleri                     | KıZıLÖTESI                       | ZI                      | en-US                                 |
+| Hollanda,                         | NL                       | NLD                      | NL-NL/en-US                         |
+| Yeni Kaledonya                            | NC                       | NCL                      | fr-FR/en-US                         |
+| Yeni Zelanda                              | NZ                       | NZL                      | En-NZ/en-US                         |
+| Nikaragua                                | NI                       | NIC                      | es-nı/en-US                         |
+| Nijer                                    | NE                       | HI                      | fr-FR/en-US                         |
+| Nijerya                                  | NG                       | NGA                      | ha-Latn-NG/en-US                    |
+| Niue                                     | NU                       | NIU                      | en-US                                 |
+| Norfolk Adası                           | NF                       | NFK                      | en-US                                 |
 | Kuzey Mariana Adaları                 | MP                       | MNP                      | en-US                                 |
-| Norveç                                   | NO                       | NOR                      | nb-NO / en-US                         |
-| Umman                                     | OM                       | OMN                      | ar-OM / en-US                         |
-| Pakistan                                 | PK                       | PAK                      | your-PK / en-US                         |
+| Norveç                                   | NO                       | NOR                      | NB-NO/en-US                         |
+| Umman                                     | OM                       | OMN                      | AR-OM/en-US                         |
+| Pakistan                                 | PK                       | RADIUS                      | -PK/en-US                         |
 | Palau                                    | PW                       | PLW                      | en-US                                 |
-| Filistin Yönetimi                    | PS                       | Pse                      | ar-SA / en-US                         |
-| Panama                                   | PA                       | PAN                      | es-PA / en-US                         |
-| Papua Yeni Gine                         | PG                       | PNG                      | en-US                                 |
-| Paraguay                                 | PY                       | PRY                      | es-TES/en-US                         |
-| Peru                                     | PE                       | PER                      | es-PE/en-US                         |
-| Filipinler                              | PH                       | PHL                      | En-PH/en-US                         |
-| Pitcairn Adaları                         | DÖNÜŞTÜRME                       | PCN                      | en-US                                 |
-| Polonya                                   | PL                       | POL                      | PL-PL/en-US                         |
-| Portekiz                                 | PT                       | PRT                      | PT-PT/en-US                         |
-| Porto Riko                              | PR                       | BIRINCIL                      | es-PR/en-US                         |
-| Katar                                    | QA                       | QAT                      | AR-QA/en-US                         |
-| Reunion                                  | RE                       | REU                      | fr-FR/en-US                         |
-| Romanya                                  | RO                       | ROU                      | RO-RO/en-US                         |
-| Rusya                                   | RU                       | RUS                      | ru-RU/en-US                         |
-| Ruanda                                   | RW                       | RWA                      | RW-RW/en-US                         |
-| Saba                                     | X                       | XSA                      | NL-NL/en-US                         |
-| Saint Kitts ve Nevis                    | KN                       | KNA dili                      | en-GB/en-US                         |
-| Saint Lucia                              | LC                       | LCA                      | en-US                                 |
-| Saint Martin                             | MF                       | MAF                      | fr-FR/en-US                         |
-| Saint Pierre ve Miquelon                | PM                       | DÖNÜŞTÜRÜLEMEDI                      | fr-FR/en-US                         |
-| Saint Vincent ve Grenadinler         | VC                       | VCT                      | en-US                                 |
-| Saint-Barthélemy                         | BL                       | BLA                      | fr-FR/en-US                         |
-| Samoa                                    | WS                       | WSA                      | en-US                                 |
-| San Marino                               | SM                       | SMR                      | BT/en-US                         |
-| Sao Tome ve Principe                    | ST                       | STP                      | PT-PT/en-US                         |
-| Suudi Arabistan                             | SA                       | SAU                      | ar-SA/en-US                         |
-| Senegal                                  | SN                       | GÖ                      | Wo-SN/en-US                         |
+| Filistin Yönetimi                    | PS                       | PSE                      | ar-SA/en-US                         |
+| Panama                                   | PA                       | PAN                      | es-PA/en-US                         |
+| Papua Yeni Gine                         | Sayfa                       | PNG                      | en-US                                 |
+| Paraguay                                 | PY                       | PRY                      | es-PY / en-US                         |
+| Peru                                     | PE                       | PER                      | es-PE / en-US                         |
+| Filipinler                              | PH                       | Phl                      | en-PH / en-US                         |
+| Pitcairn Adaları                         | Pn                       | PCN                      | en-US                                 |
+| Polonya                                   | PL                       | Pol                      | pl-PL / en-US                         |
+| Portekiz                                 | PT                       | Prt                      | pt-PT / en-US                         |
+| Porto Riko                              | PR                       | Prı                      | es-PR / en-US                         |
+| Katar                                    | QA                       | Qat                      | ar-QA / en-US                         |
+| Reunion                                  | RE                       | Reu                      | fr-FR / en-US                         |
+| Romanya                                  | RO                       | Rou                      | ro-RO / en-US                         |
+| Rusya                                   | RU                       | RUS                      | ru-RU / en-US                         |
+| Ruanda                                   | RW                       | Rwa                      | rw-RW / en-US                         |
+| Saba                                     | Xs                       | XSA                      | nl-NL / en-US                         |
+| Saint Kitts ve Nevis                    | KN                       | Kna                      | en-GB / en-US                         |
+| Saint Lucia                              | Lc                       | Lca                      | en-US                                 |
+| Saint Martin                             | Mf                       | Maf                      | fr-FR / en-US                         |
+| Saint Pierre ve Miquelon                | PM                       | Spm                      | fr-FR / en-US                         |
+| Saint Vincent ve Grenadinler         | VC                       | Vct                      | en-US                                 |
+| Saint-Barthélemy                         | BL                       | Blm                      | fr-FR / en-US                         |
+| Samoa                                    | WS                       | Wsm                      | en-US                                 |
+| San Marino                               | Sm                       | Smr                      | it-IT / en-US                         |
+| Séo Tomé ve Préncipe                    | ST                       | Stp                      | pt-PT / en-US                         |
+| Suudi Arabistan                             | SA                       | Sau                      | ar-SA / en-US                         |
+| Senegal                                  | SN                       | Senatör                      | wo-SN / en-US                         |
 | Sırbistan                                   | RS                       | SRB                      | sr-Latn-RS/SR-Cyrl-RS/en-US       |
 | Seyşeller                               | SC                       | SYC                      | en-US                                 |
 | Sierra Leone                             | SL                       | SLE                      | en-US                                 |
@@ -272,5 +272,5 @@ Aşağıdaki tabloda, Iş Ortağı Merkezi API 'Lerinde desteklenen kültürler 
 | Wallis ve Futuna                        | WF                       | WLF                      | fr-FR/en-US                         |
 | Yemen                                    | Vet                       | YEM                      | AR-YE/en-US                         |
 | Zambiya                                   | ZM                       | ZMB                      | en-GB/en-US                         |
-| Zimbabve                                 | ZW                       | ZWE                      | En-ZW/en-US                         |
+| Zimbabve                                 | ZW                       | ZWE                      | en-ZW / en-US                         |
 

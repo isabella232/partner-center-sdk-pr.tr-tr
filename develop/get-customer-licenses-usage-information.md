@@ -1,32 +1,32 @@
 ---
 title: Müşteri lisans kullanım bilgilerini alma
-description: Belirli bir müşteri için lisans kullanım öngörüleri alma.
+description: Belirli bir müşteri için lisans kullanım içgörüleri elde edin.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: cfec12d37ce4f5f50baad57bfd45770388f8a2dc
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 54c15d914a5b744768afd68d9afba705328483d67bf940f54123f697fb3f565d
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446438"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993478"
 ---
 # <a name="get-customer-licenses-usage-information"></a>Müşteri lisans kullanım bilgilerini alma
 
-Belirli bir müşteri için lisans dağıtımı öngörülerini alma.
+Belirli bir müşteri için lisans dağıtım içgörüleri elde edin.
 
 > [!NOTE]
-> Bu senaryo, [lisans kullanım bilgilerinin yerini alır](get-licenses-usage-information.md).
+> Bu senaryo, Get licenses usage information ( Lisans kullanım [bilgilerini al) ile yenisi kullanılır.](get-licenses-usage-information.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo, App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
 ## <a name="c"></a>C\#
 
-Belirtilen bir müşteri için dağıtımda toplanan verileri almak için önce müşteriyi tanımlamak üzere müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırın. Ardından [**analiz**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics) özelliğinden müşteri düzeyi Analizi toplama işlemlerine yönelik bir arabirim alın. Ardından, [**lisanslar**](/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses) özelliğinden müşteri düzeyi lisans Analizi koleksiyonuna bir arabirim alın. Son olarak, lisansların kullanımıyla ilgili toplanan verileri almak için [**Usage. Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) yöntemini çağırın. Yöntem başarılı olursa [**Customerlicensesusageınsights**](/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesusageinsights) nesnelerinin bir koleksiyonunu alırsınız.
+Belirtilen bir müşteri için dağıtımda toplanan verileri almak için önce müşteri kimliğini kullanarak [**IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak müşteriyi tanıyın. Ardından Analytics özelliğinden müşteri düzeyinde analiz toplama işlemlerine bir [**arabirim**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.analytics) elde edin. Ardından, Lisanslar özelliğinden müşteri düzeyinde lisans analizi koleksiyonuna [**bir arabirim**](/dotnet/api/microsoft.store.partnercenter.analytics.icustomeranalyticscollection.licenses) alın. Son olarak, lisans kullanımıyla ilgili toplu verileri almak için [**Usage.Get**](/dotnet/api/microsoft.store.partnercenter.genericoperations.ientireentitycollectionretrievaloperations-2.get) yöntemini çağırabilirsiniz. Yöntem başarılı olursa [**CustomerLicensesUsageInsights nesnelerinin bir koleksiyonunu elde**](/dotnet/api/microsoft.store.partnercenter.models.analytics.customerlicensesusageinsights) edersiniz.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -37,11 +37,11 @@ var customerLicensesDeploymentAnalytics = partnerOperations.Customers.ById(custo
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                              |
 |---------|----------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Analtics/licenses/Usage http/1.1 |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/analytics/licenses/usage HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -49,11 +49,11 @@ Müşteriyi tanımlamak için aşağıdaki yol parametresini kullanın.
 
 | Ad        | Tür | Gerekli | Açıklama                                                |
 |-------------|------|----------|------------------------------------------------------------|
-| müşteri kimliği | guid | Yes      | Müşteriyi tanımlayan bir GUID biçimli müşteri kimliği. |
+| customer-id | guid | Yes      | Müşteriyi tanımlayan GUID biçimlendirilmiş customer-id. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -74,11 +74,11 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi, lisans kullanımı hakkında bilgi sağlayan bir [Customerlicensesusageınsights](analytics-resources.md#customerlicensesusageinsights) kaynakları koleksiyonu içerir.
+Başarılı olursa yanıt gövdesi, lisans kullanımı hakkında bilgi sağlayan [CustomerLicensesUsageInsights](analytics-resources.md#customerlicensesusageinsights) kaynaklarının bir koleksiyonunu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

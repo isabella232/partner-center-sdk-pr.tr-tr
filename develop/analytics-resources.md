@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: v-sumukh
 ms.author: v-sumukh
-ms.openlocfilehash: 69c6c195ba1a0d657a91320b2f9b08b5269a8499
-ms.sourcegitcommit: c7dd3f92cade7f127f88cf6d4d6df5e9a05eca41
+ms.openlocfilehash: fc665e8e4468648f71f242992780fbc66a02522a0b8b957a5ce68147ab33eaac
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2021
-ms.locfileid: "112025607"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993206"
 ---
 # <a name="analytics-api-resources-that-help-you-report-on-license-usage-deployment-and-consumption"></a>Lisans kullanımı, dağıtımı ve tüketimi hakkında rapor etmenize yardımcı olan analitik API kaynakları
 
@@ -21,7 +21,7 @@ Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak i
 
 **Partnerlicensesdeploymentinsıghts** kaynağı, lisans dağıtımı hakkında iş ortağı düzeyi öngörüleri içerir.
 
-| Özellik                  | Tür                                                           | Açıklama                                                                         |
+| Özellik                  | Tür                                                           | Description                                                                         |
 |---------------------------|----------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | Eşit oranda bulunan Deploymentpercent | sayı                                                         | Dağıtılan lisansların yüzdesi.                                                |
 | Lisanssesseski              | sayı                                                         | Satılan lisansların sayısı.                                                        |
@@ -34,7 +34,7 @@ Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak i
 
 **Partnerlicensesusageresource** , lisans kullanımı hakkında iş ortağı düzeyi öngörüleri içerir.
 
-| Özellik                     | Tür                                                           | Açıklama                                                                    |
+| Özellik                     | Tür                                                           | Description                                                                    |
 |------------------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------|
 | Eşit oranda bulunan Licensesusage yüzdesi | sayı                                                         | Dağıtılan lisansların yüzdesi.                                           |
 | workloadName                 | string                                                         | İş yükü adı (örneğin: Exchange).                                             |
@@ -47,7 +47,7 @@ Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak i
 
 **Customerlicensesdeploymentinsıghts** kaynağı, lisans dağıtımıyla ilgili müşteri düzeyi öngörüleri içerir.
 
-| Özellik          | Tür                                                           | Açıklama                                                                          |
+| Özellik          | Tür                                                           | Description                                                                          |
 |-------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | Licensesdağıtıldı  | sayı                                                         | Dağıtılan lisansların sayısı.                                                     |
 | Lisanssesseski      | sayı                                                         | Satılan lisansların sayısı.                                                         |
@@ -65,7 +65,7 @@ Burada tanımlanan kaynaklar kullanımı, dağıtımı ve tüketimi raporlamak i
 
 **Customerlicensesusageınsights** kaynağı, lisans kullanımı hakkında müşteri düzeyi öngörüleri içerir.
 
-| Özellik          | Tür                                                           | Açıklama                                                                     |
+| Özellik          | Tür                                                           | Description                                                                     |
 |-------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
 | workloadCode      | string                                                         | İş yükü kodu.                                                              |
 | workloadName      | sayı                                                         | İş yükü adı (örneğin: Exchange).                                              |

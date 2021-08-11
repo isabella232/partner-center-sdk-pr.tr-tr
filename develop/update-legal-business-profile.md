@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: parthpandyaMSFT
 ms.author: parthp
-ms.openlocfilehash: cb9f5815e0019c5e9b648dfd865e9752f0afdf05
-ms.sourcegitcommit: 4275f9f67f9479ce27af6a9fda96fe86d0bc0b44
+ms.openlocfilehash: 9be3bf1a5072140cc5f8c1e5b2f9ddaa939d1e682942addcc8d36cec3bf9d494
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2021
-ms.locfileid: "111530336"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997949"
 ---
 # <a name="update-the-partner-legal-business-profile"></a>İş ortağı yasal iş profili güncelleştirme
 

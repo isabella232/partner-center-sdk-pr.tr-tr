@@ -1,23 +1,23 @@
 ---
 title: Destek sağlama
-description: Bu bölümde, iş ortaklarının Bulut Çözümü Sağlayıcısı ve hizmet isteklerini programlı olarak İş Ortağı Merkezi için bu hizmeti nasıl kullanabileceği açıklandı.
+description: bu bölümde, Bulut Çözümü Sağlayıcısı iş ortaklarının destek ve hizmet isteklerini programlı bir şekilde yönetmek için iş ortağı merkezini kullanma yolları açıklanmaktadır.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 6b8c8c846ab0e1d8669cc296c2490c921526a62c
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: b2f40d73645dc1e85573379cffcb63795177e8a4de47b2132b3b6fd6ce1a770c
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547724"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997354"
 ---
 # <a name="provide-support"></a>Destek sağlama
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Bu bölümde, iş ortaklarının Bulut Çözümü Sağlayıcısı ve hizmet isteklerini program İş Ortağı Merkezi için iş ortaklarının nasıl kullanabileceği açıklandı.
+bu bölümde, Bulut Çözümü Sağlayıcısı iş ortaklarının destek ve hizmet isteklerini programlı bir şekilde yönetmek için iş ortağı merkezi 'ni kullanma yolları açıklanmaktadır.
 
-## <a name="admin-services-for-a-customer"></a>Bir müşteri için yönetim hizmetleri
+## <a name="admin-services-for-a-customer"></a>Müşteri için yönetici hizmetleri
 
 - [Kimliğe göre bir müşterinin yönetilen hizmetlerini alma](get-the-managed-services-for-a-customer-by-id.md)
 
@@ -27,4 +27,4 @@ Bu bölümde, iş ortaklarının Bulut Çözümü Sağlayıcısı ve hizmet iste
 - [Kimliğe göre hizmet isteği ayrıntılarını alma](get-service-request-details-by-id.md)
 - [Bir hizmet isteğini güncelleştirme](update-a-service-request.md)
 
-Daha fazla bilgi için [bkz. Senaryolar.](scenarios.md)
+Daha fazla bilgi için bkz. [senaryolar](scenarios.md).

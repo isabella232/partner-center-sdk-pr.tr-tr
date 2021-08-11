@@ -4,12 +4,12 @@ description: Bir iş ortağı bir müşteri bir teklif listesinden abonelik sat�
 ms.date: 07/12/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 128c9e041cacc1c15f6187c4d99690d5c5fa4183
-ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
+ms.openlocfilehash: c2b841b73921c9727180e5649ec6a6213081442a8047c6b088e5f9fc6428ef0b
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2021
-ms.locfileid: "115009180"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997864"
 ---
 # <a name="order-resources"></a>Kaynakları sıralama
 

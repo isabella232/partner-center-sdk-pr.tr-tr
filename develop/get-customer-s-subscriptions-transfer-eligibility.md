@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: fe8af76d1e1456754dec79291ec0853fb253d108
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: bbb34a2fb9e808cd475f175688f2b1c1c0feb2de4060a9143df50f9ae5ad13e7
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111446301"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993461"
 ---
 # <a name="get-a-customers-subscriptions-transfer-eligibility"></a>Müşterinin abonelik aktarım uygunluğunu alma
 

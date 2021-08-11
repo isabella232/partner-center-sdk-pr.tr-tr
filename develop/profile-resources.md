@@ -4,12 +4,12 @@ description: Bir Bulut Çözümü Sağlayıcısı davranışını açıklar.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 945cfa141d1e6bde1709da882a177daaa32fba1f
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 8d4c091e186b7a3ad13aee7202b3d992af95db8db50acd40a5ade496d7087359
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547793"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997320"
 ---
 # <a name="profile-resources"></a>Profil kaynakları
 
@@ -21,7 +21,7 @@ Bir Bulut Çözümü Sağlayıcısı davranışını açıklar.
 
 Bir iş ortağının faturalama profilini açıklar.
 
-| Özellik            | Tür                                                           | Açıklama                                                 |
+| Özellik            | Tür                                                           | Description                                                 |
 |---------------------|----------------------------------------------------------------|-------------------------------------------------------------|
 | Şirketadı         | string                                                         | Faturalama şirketi adı.                                   |
 | adres             | [Adres](utility-resources.md#address)                       | Şirketin veya kuruluşun faturalama adresi. |
@@ -37,7 +37,7 @@ Bir iş ortağının faturalama profilini açıklar.
 
 Bir iş ortağının yasal iş profilini açıklar.
 
-| Özellik               | Tür                                                           | Açıklama                                                                                                                                                          |
+| Özellik               | Tür                                                           | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Şirketadı            | string                                                         | Yasal şirket adı.                                                                                                                                              |
 | adres                | [Adres](utility-resources.md#address)                       | Şirketin veya kuruluşun adresi.                                                                                                                          |
@@ -54,7 +54,7 @@ Bir iş ortağının yasal iş profilini açıklar.
 
 Bir iş ortağının Microsoft İş Ortağı Ağı açıklar.
 
-| Özellik    | Tür                                                           | Açıklama                                           |
+| Özellik    | Tür                                                           | Description                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | partnerName | string                                                         | Şirket veya kuruluş adı.                     |
 | mpnId       | string                                                         | Microsoft İş Ortağı Ağı (MPN) kimliği.                     |
@@ -66,7 +66,7 @@ Bir iş ortağının Microsoft İş Ortağı Ağı açıklar.
 
 Bir iş ortağının kuruluş profilini açıklar.
 
-| Özellik       | Tür                                                           | Açıklama                                                            |
+| Özellik       | Tür                                                           | Description                                                            |
 |----------------|----------------------------------------------------------------|------------------------------------------------------------------------|
 | kimlik             | string                                                         | Kuruluşun KIMLIĞI.                                                 |
 | Tadı    | string                                                         | Şirket veya kuruluşun adı.                               |
@@ -84,7 +84,7 @@ Bir iş ortağının kuruluş profilini açıklar.
 
 Ortağın Destek profilini açıklar.
 
-| Özellik    | Tür                                                           | Açıklama                                           |
+| Özellik    | Tür                                                           | Description                                           |
 |-------------|----------------------------------------------------------------|-------------------------------------------------------|
 | e-posta       | string                                                         | Profille ilişkili e-posta adresi.        |
 | Telefon   | string                                                         | Profille ilişkili telefon numarası.         |

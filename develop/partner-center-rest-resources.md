@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: cychua
 ms.author: cychua
-ms.openlocfilehash: 13c8b53f356664eb813a9208f3ed0c30c8cec32a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 32a1dd6d7c8b553c37f11276c48557e07a4a9ef1c64699132ece14d1fabbe6a7
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111548031"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997660"
 ---
 # <a name="partner-center-rest-resources"></a>İş Ortağı Merkezi REST kaynakları
 

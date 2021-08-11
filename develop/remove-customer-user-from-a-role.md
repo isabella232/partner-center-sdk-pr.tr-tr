@@ -1,29 +1,29 @@
 ---
 title: Bir rolden bir müşteri kullanıcısını kaldırma
-description: Bir kullanıcıyı bir müşteri hesabı içindeki dizin rolünden kaldırma.
+description: Müşteri hesabı içindeki bir dizin rolünden kullanıcı kaldırma.
 ms.date: 12/15/2017
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 36dc742c4f713131b4996d7dc945b6dd008a3ef5
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 985b80a35182aefe283a8e9bbff75a1ff7bd9790157147fb943d8b18eb5c5079
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445655"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115996997"
 ---
 # <a name="remove-a-customer-user-from-a-role"></a>Bir rolden bir müşteri kullanıcısını kaldırma
 
-Bir kullanıcıyı bir müşteri hesabı içindeki dizin rolünden kaldırma.
+Müşteri hesabı içindeki bir dizin rolünden kullanıcı kaldırma.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="c"></a>C\#
 
-Bir kullanıcıyı bir dizin rolünden kaldırmak için, Kullanıcı tarafından değiştirilecek [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemine bir çağrı ile, DIZIN rolü kimliğiyle [**Directoryroles. byıd**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) metodunu kullanarak rolü belirtin. Ardından, kaldırılacak kullanıcıyı belirlemek için [**Usermembers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) yöntemine erişin ve kullanıcıyı rolden kaldırmak için silme yöntemini ve [**silin**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) .
+Bir kullanıcı dizin rolünden kaldırmak [**için, IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemine bir çağrıyla değiştir yapılacak kullanıcıya sahip olan müşteriyi seçin. Buradan, dizin rolü kimliğiyle [**DirectoryRoles.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.idirectoryrolecollection.byid) yöntemini kullanarak rolü belirtin. Ardından kaldırılanı [**belirlemek için UserMembers.ById**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermembercollection.byid) yöntemine ve kullanıcıyı rolden kaldırmak için [**Delete**](/dotnet/api/microsoft.store.partnercenter.customerdirectoryroles.iusermember.delete) yöntemine erişin.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -34,29 +34,29 @@ Bir kullanıcıyı bir dizin rolünden kaldırmak için, Kullanıcı tarafından
 partnerOperations.Customers.ById(selectedCustomerId).DirectoryRoles.ById(selectedRoleId).UserMembers.ById(selectedUserMemberId).Delete();
 ```
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: iş ortağı merkezi SDK örnekleri **sınıfı**: removecustomerusermemberfromdirectoryrole. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** İş Ortağı Merkezi SDK'sı **Örnekler Sınıfı:** RemoveCustomerUserMemberFromDirectoryRole.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem     | İstek URI'si                                                                                                                           |
 |------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| **SILMELI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/directoryroles/{role-ID}/usermembers/{User-id} http/1.1 |
+| **Silmek** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/directoryroles/{role-ID}/usermembers/{user-ID} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Doğru müşteri, rol ve kullanıcıyı tanımlamak için aşağıdaki URI parametrelerini kullanın.
+Doğru müşteriyi, rolü ve kullanıcıyı belirlemek için aşağıdaki URI parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                                        |
 |------------------------|----------|----------|------------------------------------------------------------------------------------|
-| **Müşteri-Kiracı kimliği** | **guid** | Y        | Değer, müşteriyi tanımlayan bir GUID biçimli **Müşteri-Kiracı kimliği** olur. |
-| **rol kimliği**            | **guid** | Y        | Değer, rolü tanımlayan bir GUID biçimli **rol kimliği** olur.                |
-| **Kullanıcı kimliği**            | **guid** | Y        | Değer, tek bir kullanıcı hesabını tanımlayan GUID biçimli bir **Kullanıcı kimliği** ' dir.   |
+| **customer-tenant-id** | **guid** | Y        | Değer, müşteriyi tanımlayan GUID **biçimli bir customer-tenant-id** değeridir. |
+| **role-id**            | **guid** | Y        | Değer, rolü tanımlayan GUID **biçimli bir rol** kimliğidir.                |
+| **user-id**            | **guid** | Y        | Değer, tek bir kullanıcı hesabını **tanımlayan GUID biçimli** bir kullanıcı kimliğidir.   |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -78,11 +78,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Kullanıcı rolden başarıyla kaldırılırsa, yanıt gövdesi boştur.
+Kullanıcı rolden başarıyla kaldırılırsa yanıt gövdesi boş olur.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

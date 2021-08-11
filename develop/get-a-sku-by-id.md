@@ -1,33 +1,33 @@
 ---
 title: Kimliğe göre bir SKU alma
-description: Belirtilen SKU kimliğini kullanarak belirtilen ürün için bir SKU alır.
+description: Belirtilen SKU KIMLIĞINI kullanarak belirtilen ürün için bir SKU alır.
 ms.date: 01/08/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 9516a87a438a0a84a6f6069c1f9b2a2e97e90fba
-ms.sourcegitcommit: b1d6fd0ca93d8a3e30e970844d3164454415f553
+ms.openlocfilehash: 3be496b694d9e0e34619807e85ed8fe63879f3561a404ebc7361dcedc4479612
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111873862"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994192"
 ---
 # <a name="get-a-sku-by-id"></a>Kimliğe göre bir SKU alma
 
-Belirtilen SKU kimliğini kullanarak belirtilen ürün için bir SKU alır.
+Belirtilen SKU KIMLIĞINI kullanarak belirtilen ürün için bir SKU alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Ürün kimliği.
+- Bir ürün KIMLIĞI.
 
-- SKU Kimliği.
+- SKU KIMLIĞI.
 
 ## <a name="c"></a>C\#
 
-Belirli bir SKU'nun ayrıntılarını almak için, [](get-a-product-by-id.md) Belirli bir ürünün işlemlerinin arabirimini almak için Kimle ürün al adımlarını izleyin. Elde edilen arabirimden **SKU'lar** özelliğini seçerek SKU'lar için kullanılabilir işlemlere sahip bir arabirim elde edin. SKU Kimliğini **ById()** yöntemine iletin ve SKU ayrıntılarını almak **için Get()** veya **GetAsync()** çağrısında bulundurabilirsiniz.
+Belirli bir SKU 'nun ayrıntılarını almak için, belirli bir ürünün işlemlerine yönelik arabirimi almak amacıyla [kimliğe göre ürün edinme](get-a-product-by-id.md) bölümündeki adımları izleyerek işe başlayın. Sonuç arabiriminden, SKU 'Lar için kullanılabilir işlemleri içeren bir arabirim elde etmek üzere **SKU 'ları** özelliğini seçin. SKU KIMLIĞINI **byıd ()** yöntemine GEÇIRIN ve SKU ayrıntılarını almak için **Get ()** veya **GetAsync ()** çağırın.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -41,25 +41,25 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem  | İstek URI'si                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}?country={country-code} HTTP/1.1   |
+| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Products/{product-id}/SKUs/{SKU-id}? ülke = {Country-Code} http/1.1   |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Belirtilen SKU kimliğini kullanarak belirtilen ürün için bir SKU almak üzere aşağıdaki yolu ve sorgu parametrelerini kullanın.
+Belirtilen SKU KIMLIĞINI kullanarak belirtilen ürün için bir SKU almak üzere aşağıdaki yolu ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| product-id             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
-| sku-id                 | string   | Yes      | SKU'ları tanımlayan bir dize.                               |
-| ülke kodu           | string   | Yes      | Ülke/bölge kimliği.                                            |
+| ürün kimliği             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
+| SKU kimliği                 | string   | Yes      | SKU 'YU tanımlayan bir dize.                               |
+| ülke kodu           | string   | Yes      | Ülke/bölge KIMLIĞI.                                            |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -81,18 +81,18 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa yanıt gövdesi bir [SKU kaynağı](product-resources.md#sku) içerir.
+Başarılı olursa, yanıt gövdesi bir [SKU](product-resources.md#sku) kaynağı içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP Durum Kodu     | Hata kodu   | Açıklama                                                                                               |
+| HTTP durum kodu     | Hata kodu   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | 404                  | 400013       | Ürün bulunamadı.                                                                                    |
-| 404                  | 400018       | Sku bulunamadı.                                                                                        |
+| 404                  | 400018       | SKU bulunamadı.                                                                                        |
 
 ### <a name="response-example"></a>Yanıt örneği
 

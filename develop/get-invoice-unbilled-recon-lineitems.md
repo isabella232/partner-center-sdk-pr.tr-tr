@@ -1,53 +1,53 @@
 ---
-title: Faturanın faturalandırılmamış mutabakat satırı öğelerini Al
-description: Iş Ortağı Merkezi API 'Lerini kullanarak, belirtilen dönem için faturalandırılmamış mutabakat satır öğesi ayrıntılarının koleksiyonunu alabilirsiniz.
+title: Faturanın faturalanmamış mutabakat satırı öğelerini alın
+description: Api'leri kullanarak belirli bir dönem için bilgisiz mutabakat satır öğesi ayrıntılarının İş Ortağı Merkezi edinebilirsiniz.
 ms.date: 01/27/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: sourishdeb
 ms.author: sodeb
-ms.openlocfilehash: 5ab7dde0d78e8ff15bb1a960b16c8c925b0478ce
-ms.sourcegitcommit: c5acfb373aa012eb3b6c17182f7ca56883502c6b
+ms.openlocfilehash: 3e461367eb41c180dd1004ab2548ca24c4b891976ef53d852bb7933ff23fae65
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2021
-ms.locfileid: "112391300"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993886"
 ---
-# <a name="get-invoices-unbilled-reconciliation-line-items"></a>Faturanın faturalandırılmamış mutabakat satırı öğelerini Al
+# <a name="get-invoices-unbilled-reconciliation-line-items"></a>Faturanın faturalanmamış mutabakat satırı öğelerini alın
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Aşağıdaki yöntemleri kullanarak, faturalandırılmamış fatura satırı öğeleri (açık faturalandırma satırı öğeleri olarak da bilinir) için bir ayrıntılar koleksiyonu alabilirsiniz.
+Faturalanmamış fatura satırı öğeleri (açık fatura satırı öğeleri olarak da bilinir) için ayrıntıların bir koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir fatura tanımlayıcısı. Bu, satır öğelerinin alınacağı faturayı tanımlar.
+- Fatura tanımlayıcısı. Bu, satır öğelerinin alın satırı için faturayı tanımlar.
 
 ## <a name="c"></a>C\#
 
-Belirtilen faturaya ait satır öğelerini almak için fatura nesnesini alın:
+Belirtilen faturanın satır öğelerini almak için fatura nesnesini alın:
 
-1. Belirtilen faturaya yönelik işlemleri faturalamak için bir arabirim almak üzere [**Byıd**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) yöntemini çağırın.
+1. Belirtilen [**faturaya yönelik**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoicecollection.byid) fatura işlemlerine arabirim almak için ById yöntemini çağırma.
 
-2. Fatura nesnesini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.
+2. Fatura nesnesini [**almak**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) için [**Get veya GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırma.
 
-Fatura nesnesi belirtilen faturaya ait tüm bilgileri içerir:
+Invoice nesnesi, belirtilen faturayla ilgili tüm bilgileri içerir:
 
-- **Sağlayıcı** , faturalandırılmamış ayrıntı bilgisinin kaynağını tanımlar (örneğin, **Onetime**).
+- **Sağlayıcı,** bilgisiz ayrıntı bilgisinin kaynağını tanımlar **(örneğin, OneTime).**
 
-- **Fatura Elineıtemtype** türü belirtir (örneğin, **Billinglineıtem**).
+- **InvoiceLineItemType** türünü belirtir (örneğin, **BillingLineItem**).
 
-Bir **InvoiceDetail** örneğine karşılık gelen satır öğelerinin bir koleksiyonunu almak için:
+**InvoiceDetail** örneğine karşılık gelen satır öğeleri koleksiyonunu almak için:
 
-1. Örneğe ait BillingProvider ve ınvoineıtemtype 'ı [**by**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) metoduna geçirin.
+1. Örneğin BillingProvider ve InvoiceLineItemType örneklerini [**By yöntemine**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.by) geçin.
 
-2. İlişkili satır öğelerini almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırın.
+2. İlişkili [**satır öğelerini**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.get) almak için Get veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.invoices.iinvoice.getasync) yöntemini çağırma.
 
-3. Koleksiyonda çapraz geçiş yapmak için bir Numaralandırıcı oluşturun. Örnek için aşağıdaki örnek koda bakın.
+3. Koleksiyonu çapraz geçiş yapmak için bir numaralayıcı oluşturun. Bir örnek için aşağıdaki örnek koda bakın.
 
-Aşağıdaki örnek kod, **ınvogıtems** koleksiyonunu işlemek için bir **foreach** döngüsü kullanır. Her bir **Faturaöğeside** her bir faturaya ait ayrı bir satır öğesi koleksiyonu alınır.
+Aşağıdaki örnek kod, **InvoiceLineItems** koleksiyonunu işlemeye bir **foreach** döngüsü kullanır. Her **InvoiceLineItemType** için ayrı bir satır öğeleri koleksiyonu alınır.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -105,42 +105,42 @@ while (fetchNext)
 }
 ```
 
-Benzer bir örnek için bkz.:
+Benzer bir örnek için bkz:
 
-- Örnek: [konsol test uygulaması](console-test-app.md)
-- Project: **iş ortağı merkezi SDK örnekleri**
-- Sınıf: **GetUnBilledReconLineItemsPaging. cs**
+- Örnek: [Konsol test uygulaması](console-test-app.md)
+- Project: **İş Ortağı Merkezi SDK'sı Örnekleri**
+- Sınıf: **GetUnBilledReconLineItemsPaging.cs**
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
-Kullanım durumunuza bağlı olarak REST isteğiniz için aşağıdaki sözdizimleri kullanılabilir. Daha fazla bilgi için her bir sözdizimi için açıklamalara bakın.
+Kullanım örneğiniz bağlı olarak REST isteğiniz için aşağıdaki söz dizimlerini kullanabilirsiniz. Daha fazla bilgi için her söz dizimi için açıklamalara bakın.
 
- | Yöntem  | İstek URI'si            | Sözdizimi kullanım durumunun açıklaması                                                                                |
+ | Yöntem  | İstek URI'si            | Söz dizimi kullanım durumu açıklaması                                                                                |
 |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvogıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {PERIOD} http/1.1                              | Verilen faturaya ait her satır öğesinin tam listesini döndürmek için bu sözdizimini kullanın. |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvoyıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {period} &boyut = {SIZE} http/1.1  | Büyük faturalar için bu sözdizimini belirtilen boyut ve 0 tabanlı uzaklığa göre kullanarak satır öğelerinin sayfalandırılmış bir listesini döndürün. |
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/faturalar/{Invoice-ID}/LineItems? Provider = onetime&ınvogıtemtype = billinglineıtems&CurrencyCode = {currencycode} &period = {period} &boyut = {size} &Seekoperation = ileri                               | Kullanılarak mutabakat satır öğelerinin sonraki sayfasını almak için bu sözdizimini kullanın `seekOperation = "Next"` . |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period} HTTP/1.1                              | Verilen faturanın her satır öğesinin tam listesini dönmek için bu söz dizimi kullanın. |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size} HTTP/1.1  | Büyük faturalar için, satır öğelerinin sayfalanmış listesini geri dönmek için belirtilen boyuta ve 0 tabanlı kaydırmaya sahip bu söz dizimi kullanın. |
+| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/invoices/{invoice-id}/lineitems?provider=onetime&invoicelineitemtype=billinglineitems&currencycode={currencycode}&period={period}&size={size}&seekOperation=Next                               | kullanarak mutabakat satırı öğelerinin sonraki sayfasını almak için bu söz dizimi `seekOperation = "Next"` kullanın. |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-İsteği oluştururken aşağıdaki URI ve sorgu parametrelerini kullanın.
+İsteği oluştururken aşağıdaki URI'yi ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür   | Gerekli | Açıklama                                                                     |
 |------------------------|--------|----------|---------------------------------------------------------------------------------|
-| Fatura kimliği             | string | Yes      | Faturayı tanımlayan bir dize. Faturalandırılmamış tahminleri almak için ' faturalandırılmamış ' kullanın. |
-| sağlayıcısını               | string | Yes      | Sağlayıcı: "OneTime".                                                |
-| fatura-satır-öğe türü | string | Yes      | Fatura ayrıntısı türü: "Billinglineıtems".               |
-| Haspartnerearnedkrediyi | bool   | Hayır       | Ortak kazanılan kredi uygulanmış olan satır öğelerinin döndürülmeyeceğini belirten değer. Note: Bu parametre yalnızca sağlayıcı türü OneTime olduğunda ve Faturaınıneıtemtype 'ın Usagelineıtems olması durumunda uygulanır.
-| currencyCode           | string | Yes      | Faturalandırılmamış satır öğelerinin para birimi kodu.                                  |
-| dönem                 | string | Yes      | Faturalandırılmamış keşfi için dönem. Örnek: geçerli, önceki.                      |
-| boyut                   | sayı | Hayır       | Döndürülecek en fazla öğe sayısı. Varsayılan boyut 2000 ' dir                     |
-| seekOperation          | dize | No       | Keşfi satır öğelerinin sonraki sayfasını almak için seekOperation = Next öğesini ayarlayın.                |
+| invoice-id             | string | Yes      | Faturayı tanımlayan bir dize. Hesaplanmamış tahminler almak için 'unbilled' kullanın. |
+| Sağlayıcı               | string | Yes      | Sağlayıcı: "OneTime".                                                |
+| invoice-line-item-type | string | Yes      | Fatura ayrıntısı türü: "BillingLineItems".               |
+| hasPartnerEarnedCredit | bool   | No       | İş ortağı tarafından kazanılan kredinin uygulandığı satır öğelerinin iade olup olmadığını gösteren değer. Not: Bu parametre yalnızca sağlayıcı türü OneTime ve InvoiceLineItemType usageLineItems olduğunda uygulanır.
+| currencyCode           | string | Yes      | İşlenemeyen satır öğelerinin para birimi kodu.                                  |
+| dönem                 | string | Yes      | İşlenemeyen keşif dönemi. örnek: geçerli, önceki.                      |
+| boyut                   | sayı | No       | İade etmek istediğiniz en fazla öğe sayısı. Varsayılan boyut 2000'tir                     |
+| seekOperation          | dize | No       | Keşif satırı öğelerinin sonraki sayfasını almak için seekOperation=Next'i ayarlayın.                |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -148,23 +148,23 @@ Yok.
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt satır öğesi ayrıntıları koleksiyonunu içerir.
+Başarılı olursa yanıt, satır öğesi ayrıntıları koleksiyonunu içerir.
 
-*Satır **öğesi için**, **satın alma** değeri **Yeni** ile eşlenir ve değer **iadesi** **iptal** edilecek şekilde eşlenir.*
+***ChargeType** satır öğesi için Purchase değeri **Yeni** ve Para İadesi değeri **İptal** ile **eşlenmiş.***
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="request-response-examples"></a>İstek-yanıt örnekleri
 
 #### <a name="request-response-example-1"></a>İstek-yanıt örneği 1
 
-Aşağıdaki ayrıntılar Bu örnek için geçerlidir:
+Bu örnek için aşağıdaki ayrıntılar geçerlidir:
 
-- Sağlayıcı: **OneTime**
-- InvoiceLineItemType: **BillingLineItems**
-- Dönem: **Önceki**
+- Sağlayıcı: **Onetime**
+- Fatura Elineıtemtype: **Billinglineıtems**
+- Dönem: **önceki**
 
 #### <a name="request-example-1"></a>İstek örneği 1
 
@@ -380,12 +380,12 @@ Date: Wed, 20 Feb 2019 19:59:27 GMT
 
 ### <a name="request-response-example-2"></a>İstek-yanıt örneği 2
 
-Bu örnek için aşağıdaki ayrıntılar geçerlidir:
+Aşağıdaki ayrıntılar Bu örnek için geçerlidir:
 
-- Sağlayıcı: **OneTime**
-- InvoiceLineItemType: **BillingLineItems**
-- Dönem: **Önceki**
-- SeekOperation: **Sonraki**
+- Sağlayıcı: **Onetime**
+- Fatura Elineıtemtype: **Billinglineıtems**
+- Dönem: **önceki**
+- SeekOperation: **İleri**
 
 #### <a name="request-example-2"></a>İstek örneği 2
 

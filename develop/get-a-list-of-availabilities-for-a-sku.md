@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 2bc7ec0609fa03f91427df2944c39e4c0401d11b27370d812d96e4fd0eb1ee6a
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 89ffa4156490bd321055f12a1c8c385800b65d8d9e5a460df0cc41edda5c1a27
+ms.sourcegitcommit: f5e2d3e2ad5447b99d339662e00b2ac3a03d7d04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115993665"
+ms.lasthandoff: 08/10/2021
+ms.locfileid: "116998508"
 ---
 # <a name="get-a-list-of-availabilities-for-a-sku-by-country"></a>Bir SKU (ülkeye göre) için kullanılabilirlik listesini alma
 
@@ -121,7 +121,7 @@ MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan Azure VM rezervasyonları için ülkeye göre kullanılabilirlik listesini almak için bu örneği izleyin.
 
 ```http
-GET https://api.partnercenter.microsoft.com/v1/productsDZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureAzureReservationsVM HTTP/1.1
+GET https://api.partnercenter.microsoft.com/v1/products/DZH318Z0BQ3Q/skus/0001/availabilities?country=US&targetView=AzureAzureReservationsVM HTTP/1.1
 Authorization: Bearer
 Accept: application/json
 MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d

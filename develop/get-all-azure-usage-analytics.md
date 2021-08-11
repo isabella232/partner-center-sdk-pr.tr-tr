@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 7fe987c7dc50d55b26cd72d5aead52963eb1cfbe
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 1d671c07185f92a36055af12d9de2e39adeab129bfcb2497da66d35807db270e
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760224"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994090"
 ---
 # <a name="get-all-azure-usage-analytics-information"></a>Tüm Azure kullanım analizi bilgilerini alma
 
@@ -33,7 +33,7 @@ Müşterileriniz için tüm Azure kullanım analizi bilgilerini alma.
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
-|Parametre        |Tür                        |Açıklama               |
+|Parametre        |Tür                        |Description               |
 |:----------------|:---------------------------|:-------------------------|
 |top              | string                     | İstekte döndürülecek veri satır sayısı. Belirtilen en büyük değer ve varsayılan değer 10000 ' dir. Sorguda daha fazla satır varsa, yanıt gövdesi sonraki veri sayfasını istemek için kullanabileceğiniz bir sonraki bağlantıyı içerir.                        |
 |Atla             | int                        | Sorgudaki atlanacak satır sayısı. Büyük veri kümeleri üzerinden sayfa eklemek için bu parametreyi kullanın. Örneğin, `top=10000 and skip=0` ilk 10000 veri satırını alır, `top=10000 and skip=10000` sonraki 10000 veri satırını alır ve bu şekilde devam eder.                       |

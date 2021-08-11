@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: rbars
 ms.author: rbars
-ms.openlocfilehash: c31bc12d8d484cc8042f36aa865145600d9e6738
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: fccd566e83dab8994280fdee072c0d6f27b690d5292ed3973427088f46b30d6b
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760207"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993563"
 ---
 # <a name="get-the-availability-by-id"></a>KIMLIĞE göre kullanılabilirliği al
 
@@ -119,7 +119,7 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Açıklama                                                                                               |
+| HTTP durum kodu     | Hata kodu   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | 404                  | 400013       | Ürün bulunamadı.                                                                                    |
 | 404                  | 400018       | SKU bulunamadı.                                                                                        |

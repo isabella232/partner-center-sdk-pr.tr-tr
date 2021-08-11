@@ -4,12 +4,12 @@ description: Yetkilendirme koleksiyonunu elde etmek.
 ms.date: 01/28/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 7bb8d3aefb11fae0af4bce790b41598d935de57c
-ms.sourcegitcommit: d20e7d572fee09a83a4b23a92da7ff09cfebe75a
+ms.openlocfilehash: 9248f2ef97afe7a2cefff5759028da12dc9c3936f2e14cee18063c0428699c81
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111906421"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115993682"
 ---
 # <a name="get-a-collection-of-entitlements"></a>Yetkilendirme koleksiyonu alma
 
@@ -54,7 +54,7 @@ Alınacak yetkilendirmelerin süre sonu tarihlerini doldurmak için yukarıdaki 
 |------|------|----------|-------------|
 | customerId | string | Yes | Müşteriyi tanımlayan GUID biçimli customerId. |
 | entitlementType | dize | No | Alınacak yetkilendirmelerin türünü belirtmek için kullanılabilir ( yazılım **veya** **reservedInstance** ). Ayarlanmazsa, tüm türler alınır |
-| showExpiry | boolean | Hayır | Yetkilendirme süre sonu tarihleri gerekip gerekip gereklğerlğerlerini gösteren isteğe bağlı bayrağı. |
+| showExpiry | boolean | No | Yetkilendirme süre sonu tarihleri gerekip gerekip gereklğerlğerlerini gösteren isteğe bağlı bayrağı. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 

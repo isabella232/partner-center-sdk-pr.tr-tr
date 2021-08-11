@@ -1,43 +1,43 @@
 ---
 title: Microsoft Bulut Sözleşmesi için anlaşma meta verilerini alma
-description: Bu makalede, Microsoft Bulut sözleşmesi için anlaşma meta verilerinin nasıl alınacağı açıklanmaktadır.
+description: Bu makalede, veri kaynağı için sözleşme meta verilerini Microsoft Bulut Anlaşması.
 ms.date: 02/12/2020
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: khpavan
 ms.author: sakhanda
-ms.openlocfilehash: 2588327e72a13de75eb9e02675edbd535491adc4
-ms.sourcegitcommit: d4b0c80d81f1d5bdf3c4c03344ad639646ae6ab9
+ms.openlocfilehash: 55a09752844f74caaf878f1e2dcfe3d8a70a283c5e0e9daefba89c558405690a
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111760802"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115994124"
 ---
 # <a name="get-agreement-metadata-for-microsoft-cloud-agreement"></a>Microsoft Bulut Sözleşmesi için anlaşma meta verilerini alma
 
-**Uygulama hedefi**: Iş Ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi
 
-**Şu şekilde geçerlidir**: 21Vianet tarafından çalıştırılan Iş Ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**için geçerli değildir:** İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-**AgreementMetaData** kaynağı şu anda yalnızca Microsoft genel bulutundaki Iş Ortağı Merkezi tarafından desteklenmektedir.
+**AgreementMetaData** kaynağı şu anda yalnızca Microsoft İş Ortağı Merkezi bulut üzerinde destekleneblir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Iş ortağı merkezi .NET SDK kullanıyorsanız sürüm 1,9 veya daha yeni bir sürümü gereklidir.
+- İş Ortağı Merkezi .NET SDK kullanıyorsanız sürüm 1.9 veya daha yenisi gereklidir.
 
-- Iş ortağı merkezi Java SDK 'sını kullanıyorsanız sürüm 1,8 veya daha yeni bir sürümü gereklidir.
+- İş Ortağı Merkezi Java SDK'sı kullanıyorsanız sürüm 1.8 veya daha yeni bir sürüm gereklidir.
 
-- [Iş ortağı merkezi kimlik doğrulamasında](./partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, uygulama + kullanıcı kimlik doğrulamasını destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](./partner-center-authentication.md) Bu senaryo uygulama + kullanıcı kimlik doğrulamasını destekler.
 
-## <a name="net-version-114-or-newer"></a>.NET (sürüm 1,14 veya üzeri)
+## <a name="net-version-114-or-newer"></a>.NET (sürüm 1.14 veya daha yenisi)
 
-Microsoft Bulut sözleşmesinin anlaşma meta verilerini almak için:
+Aşağıdakiler için sözleşme meta verilerini Microsoft Bulut Anlaşması:
 
-1. İlk olarak, **ıaggregatepartner. AgreementDetails** koleksiyonunu alın.
+1. İlk olarak **IAggregatePartner.AgreementDetails koleksiyonunu** alın.
 
-2. Koleksiyonu Microsoft Bulut sözleşmeye filtrelemek için **Byagreementtype** metodunu çağırın.
+2. Koleksiyonda **veri filtrelemek için ByAgreementType** yöntemini Microsoft Bulut Anlaşması.
 
-3. Son olarak, **Get** veya **GetAsync** yöntemini çağırın.
+3. Son olarak **Get veya** **GetAsync yöntemini** arayın.
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -47,13 +47,13 @@ string agreementType = "MicrosoftCloudAgreement";
 var microsoftCloudAgreementDetails = partnerOperations.AgreementDetails.ByAgreementType(agreementType).Get().Items.Single();
 ```
 
-[Konsol test uygulaması](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) projesinden [Getagreementdetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) sınıfında, bir bütün örnek bulunabilir.
+Eksiksiz bir örnek, konsol test uygulaması [projesinden GetAgreementDetails](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples/blob/master/Source/Partner%20Center%20SDK%20Samples/Agreements/GetAgreementDetails.cs) [sınıfında](https://github.com/PartnerCenterSamples/Partner-Center-SDK-Samples) bulunabilir.
 
-## <a name="net-version-19---113"></a>.NET (sürüm 1,9-1,13)
+## <a name="net-version-19---113"></a>.NET (sürüm 1.9 - 1.13)
 
-Microsoft Bulut sözleşmesinin anlaşma meta verilerini almak için:
+Aşağıdakiler için sözleşme meta verilerini Microsoft Bulut Anlaşması:
 
-Önce **ıaggregatepartner. AgreementDetails** koleksiyonunu alın ve **Get** veya **GetAsync** yöntemlerini çağırın. Ardından, koleksiyon içinde Microsoft Bulut sözleşmeye karşılık gelen öğeyi arayın:
+İlk olarak **IAggregatePartner.AgreementDetails** koleksiyonunu alın ve ardından **Get** veya **GetAsync** yöntemlerini çağırın. Ardından koleksiyon içindeki öğe için arama Microsoft Bulut Anlaşması:
 
 ```csharp
 // IAggregatePartner partnerOperations;
@@ -67,9 +67,9 @@ AgreementMetaData microsoftCloudAgreement = agreements.Items.FirstOrDefault (agr
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Microsoft Bulut sözleşmesinin anlaşma meta verilerini almak için:
+Aşağıdakiler için sözleşme meta verilerini Microsoft Bulut Anlaşması:
 
-Önce **ıaggregatepartner. getAgreementDetails** işlevini çağırın ve sonra **Get** işlevini çağırın. Ardından, koleksiyon içinde Microsoft Bulut sözleşmeye karşılık gelen öğeyi arayın:
+İlk olarak **IAggregatePartner.getAgreementDetails** işlevini ve ardından **get işlevini** çağırma. Ardından koleksiyon içindeki öğe için arama Microsoft Bulut Anlaşması:
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -87,15 +87,15 @@ for (AgreementMetaData metadata : agreements)
 }
 ```
 
-[Konsol test uygulaması](https://github.com/Microsoft/Partner-Center-Java-Samples) projesinden [Getagreementdetails](https://github.com/microsoft/Partner-Center-Java-Samples/blob/master/sdk/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetAgreementDetails.java) sınıfında, bir bütün örnek bulunabilir.
+Eksiksiz bir örnek, konsol test uygulaması [projesinden GetAgreementDetails](https://github.com/microsoft/Partner-Center-Java-Samples/blob/master/sdk/src/main/java/com/microsoft/store/partnercenter/samples/agreements/GetAgreementDetails.java) [sınıfında](https://github.com/Microsoft/Partner-Center-Java-Samples) bulunabilir.
 
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Microsoft Bulut sözleşmesinin anlaşma meta verilerini almak için:
+Aşağıdakiler için sözleşme meta verilerini Microsoft Bulut Anlaşması:
 
-[**Get-PartnerAgreementDetail**](/powershell/module/partnercenter/get-partneragreementdetail) komutunu kullanın. Ardından, koleksiyon içinde Microsoft Bulut sözleşmeye karşılık gelen öğeyi arayın:
+[**Get-PartnerAgreementDetail komutunu**](/powershell/module/partnercenter/get-partneragreementdetail) kullanın. Ardından koleksiyon içindeki öğe için arama Microsoft Bulut Anlaşması:
 
 ```powershell
 Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudAgreement'} | Select-Object -First 1
@@ -103,17 +103,17 @@ Get-PartnerAgreementDetail | Where-Object {$_.AgreementType -eq 'MicrosoftCloudA
 
 ## <a name="rest-request"></a>REST isteği
 
-Microsoft Bulut sözleşmesinin anlaşma meta verilerini almak için, önce **AgreementMetaData** koleksiyonunu almak üzere bir rest isteği oluşturun. Sonra koleksiyonda Microsoft Bulut sözleşmeye karşılık gelen öğeyi arayın.
+Bu verilerin sözleşme meta verilerini Microsoft Bulut Anlaşması önce **AgreementMetaData** koleksiyonunu almak için bir REST İsteği oluşturun. Ardından koleksiyonda, veri türüne karşılık gelen öğeyi Microsoft Bulut Anlaşması.
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem | İstek URI'si                                                         |
 |--------|---------------------------------------------------------------------|
-| GET    | [*\{ BaseUrl \}*](partner-center-rest-urls.md)/v1/SÖZLEŞMELERI http/1.1 |
+| GET    | [*\{ baseURL \}*](partner-center-rest-urls.md)/v1/agreements HTTP/1.1 |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -131,11 +131,11 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde bir **AgreementMetaData** kaynakları koleksiyonu döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde **AgreementMetaData** kaynaklarının bir koleksiyonunu döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
@@ -168,4 +168,4 @@ MS-CorrelationId: ab993325-1605-4cf4-bac4-fb584142a31b
 }
 ```
 
-Microsoft Bulut sözleşmesine karşılık gelen yanıttaki kaynağı tanımlamak için, **agreementType** özelliği "MicrosoftCloudAgreement" değerine sahip olan kaynağı arayın.
+Yanıtta, söz konusu kaynağa karşılık gelen kaynağı Microsoft Bulut Anlaşması **agreementType** özelliği "MicrosoftCloudAgreement" değerine sahip olan kaynağı seçin.

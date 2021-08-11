@@ -4,12 +4,12 @@ description: Satın edilebilir ürünleri veya hizmetleri temsil eden kaynaklar.
 ms.date: 04/01/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 2e68df1f6955fb7feb9770377621c2d649b74e4a
-ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
+ms.openlocfilehash: b0269b55810a57dc3a4897027a9817baaebc8ed5f4e98dc66e2eadfa210f362f
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2021
-ms.locfileid: "115009148"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997456"
 ---
 # <a name="products-resources"></a>Ürün kaynakları
 
@@ -61,52 +61,52 @@ Bir Ürün için bağlantıların listesini [içerir.](#product)
 | minimum Miktar        | int              | Satın alma için izin verilen minimum miktar.                                            |
 | maximumQuantity        | int              | Satın alma için izin verilen maksimum miktar.                                            |
 | isTrial                | bool             | Bu SKU'nun bir deneme öğesi olup olmadığını gösterir.                                           |
-| supportedBillingCycles | dize dizisi | Bu SKU için desteklenen faturalama döngülerinin listesi. Desteklenen değerler [BillingCycleType](#billingcycletype)içinde bulunan üye adlarıdır. |
-| purchasePrerequisites  | dize dizisi | Bu öğeyi satın almadan önce gerekli olan önkoşul adımlarının veya eylemlerin listesi. Desteklenen değerler:<br/>  "InventoryCheck" - Bu öğeyi satın alma girişiminde bulunmadan önce öğenin envanterini değerlendirmenin gerektiğini gösterir.<br/> "AzureSubscriptionRegistration" - Bu öğeyi satın almak için önce bir Azure aboneliği gerektiğini ve kayıtlı olması gerektiğini gösterir.  |
-| inventoryVariables     | dize dizisi | Bu öğe üzerinde bir envanter denetimi yürütmek için gereken değişkenlerin listesi. Desteklenen değerler:<br/> "CustomerId" - Satın alma için satın alınan müşterinin kimliği.<br/> "AzureSubscriptionId" - Azure rezervasyon satın alma için kullanılacak Azure aboneliğinin kimliği.</br> "ArmRegionName" - Envanterin doğrulan yer olduğu bölge. Bu değer, SKU'nun DynamicAttributes'larından "ArmRegionName" ile eşleşmeli. |
-| provisioningVariables  | dize dizisi | Bu öğeyi satın alırken bir sepet satır öğesinin sağlama bağlamında [sağlanması gereken](cart-resources.md#cartlineitem) değişkenlerin listesi. Desteklenen değerler:<br/> Kapsam - Azure rezervasyon satın alma kapsamı: "Tek", "Paylaşılan".<br/> "SubscriptionId" - Azure rezervasyon satın alma için kullanılacak Azure aboneliğinin kimliği.<br/> "Süre" - Azure rezervasyon süresi: "1Year", "3Year".  |
-| dynamicAttributes      | anahtar/değer çiftleri  | Bu öğe için geçerli olan dinamik özellikler sözlüğü. Bu sözlükte özellikler dinamiktir ve bildirim olmadan değişebilir. Bu özelliğin değerinde mevcut olan belirli anahtarlara güçlü bağımlılıklar oluşturmamanız gerekir.    |
-| Bağlantı                  | [ResourceLinks](utility-resources.md#resourcelinks) | SKU içinde yer alan kaynak bağlantıları.                   |
-| AttestationProperties                  | [AttestationProperties](#attestationproperties) | SKU'nun attestation özellikleri.                   |
+| supportedBillingCycles | dize dizisi | Bu SKU için desteklenen faturalama döngülerinin listesi. Desteklenen değerler, [BillingCycleType](#billingcycletype)içinde bulunan üye adlarıdır. |
+| purchasePrerequisites  | dize dizisi | Bu öğeyi satın almadan önce gerekli olan önkoşul adımlarının veya eylemlerin listesi. Desteklenen değerler:<br/>  "InventoryCheck" - Bu öğeyi satın alma girişiminde bulunmadan önce öğenin envanterini değerlendirmenin gerektiğini gösterir.<br/> "AzureSubscriptionRegistration" - Bir Azure aboneliği gerektiğini ve bu öğeyi satın alma girişiminden önce kayıtlı olması gerektiğini gösterir.  |
+| inventoryVariables     | dize dizisi | Bu öğe üzerinde bir envanter denetimi yürütmek için gereken değişkenlerin listesi. Desteklenen değerler şunlardır:<br/> "CustomerID"-satınalmanın müşterinin KIMLIĞI.<br/> "Azu, Scriptionıd"-bir Azure ayırması satın alma için kullanılacak Azure aboneliğinin KIMLIĞI.</br> "ArmRegionName"-stok doğrulanacak bölge. Bu değer, SKU 'nun DynamicAttributes öğesinden "ArmRegionName" ile eşleşmelidir. |
+| provisioningVariables  | dize dizisi | Bu öğe satın alınırken bir [sepet çizgisi öğesinin](cart-resources.md#cartlineitem) sağlama bağlamına sağlanması gereken değişkenlerin listesi. Desteklenen değerler şunlardır:<br/> Kapsam-bir Azure ayırması satın alma kapsamı: "tek", "paylaşılan".<br/> "SubscriptionID"-bir Azure ayırması satın alma için kullanılacak Azure aboneliğinin KIMLIĞI.<br/> "Duration"-Azure ayırma süresi: "1Year", "3Year".  |
+| dynamicAttributes      | anahtar/değer çiftleri  | Bu öğe için uygulanan dinamik özelliklerin sözlüğü. Bu sözlükteki Özellikler dinamiktir ve bildirimde bulunmaksızın değiştirilebilir. Bu özelliğin değerinde mevcut olan belirli anahtarlar üzerinde güçlü bağımlılıklar oluşturmamalıdır.    |
+| Köprü                  | [Resourcelmürekkepler](utility-resources.md#resourcelinks) | SKU içinde yer alan kaynak bağlantıları.                   |
+| AttestationProperties                  | [AttestationProperties](#attestationproperties) | SKU için kanıtlama özellikleri.                   |
 
 ## <a name="availability"></a>Kullanılabilirlik
 
-SKU'nun satın alınabilir olduğu bir yapılandırmayı (ülke, para birimi ve sektör segmenti gibi) temsil eder.
+Bir SKU 'nun satın alma için kullanılabildiği bir yapılandırmayı (ülke, para birimi ve sektör segmenti gibi) temsil eder.
 
 | Özellik        | Tür                        | Description                                                                         |
 |-----------------|-----------------------------------------------------|-------------------------------------------------------------------------------------|
-| kimlik              | string                        | Bu kullanılabilirlik için kimlik. Bu kimlik yalnızca üst ürünü ve [SKU'su bağlamında](#product) [benzersizdir.](#sku) **Not** Bu kimlik zaman içinde değişebilir. Bu değeri aldıktan sonra yalnızca kısa bir süre içinde güvenin.  |
-| productId       | string                        | Bu kullanılabilirliği [içeren](#product) ürünün kimliği.           |
-| skuId           | string                        | Bu kullanılabilirliği [içeren SKU'nun](#sku) kimliği.                   |
-| catalogItemId   | string                        | Katalogda bu öğenin benzersiz tanımlayıcısı. Bu, üst SKU satın alırken [OrderLineItem.OfferId](order-resources.md#orderlineitem) veya [CartLineItem.CatalogItemId](cart-resources.md#cartlineitem) özelliklerine doldurulması [gereken kimliktir.](#sku) **Not** Bu kimlik zaman içinde değişebilir. Bu değeri aldıktan kısa bir süre sonra güvenin. Yalnızca satın alma zamanında erişilsin ve kullanılmalıdır.  |
+| kimlik              | string                        | Bu kullanılabilirliğinin KIMLIĞI. Bu KIMLIK yalnızca üst [ürün](#product) ve [SKU](#sku)'sunun bağlamı içinde benzersizdir. **Göz önünde** Bu KIMLIK, zaman içinde değişebilir. Bu değeri yalnızca kısa bir süre içinde aldıktan sonra almalısınız.  |
+| productId       | string                        | Bu kullanılabilirliği içeren [ürünün](#product) kimliği.           |
+| skuId           | string                        | Bu kullanılabilirliği içeren [SKU](#sku) 'nun kimliği.                   |
+| Catalogıtemıd   | string                        | Katalogdaki bu öğe için benzersiz tanımlayıcı. Bu, üst [SKU](#sku)satın alınırken [Orderlineıtem. OfferId](order-resources.md#orderlineitem) veya [Cartlineıtem. CATALOGıTEMıD](cart-resources.md#cartlineitem) özelliklerine doldurulması gereken kimliğidir. **Göz önünde** Bu KIMLIK, zaman içinde değişebilir. Bu değere yalnızca kısa bir süre içinde güvenmelisiniz. Yalnızca, satın alma sırasında erişilmesi ve kullanılması gerekir.  |
 | defaultCurrency | string                        | Bu kullanılabilirlik için desteklenen varsayılan para birimi.                               |
-| segment         | string                        | Bu kullanılabilirlik için sektör segmenti. Desteklenen değerler: Ticari, Eğitim, Kamu, Kar Amacı Gütmeyen. |
-| ülke         | string                                              | Bu kullanılabilirlik durumunun geçerli olduğu ülke veya bölge (ISO ülke kodu biçiminde). |
-| isPursable   | bool                                                | Bu kullanılabilirlik satın edilebilir olup olmadığını gösterir. |
-| isRenewable     | bool                                                | Bu kullanılabilirlik yenilenebilir olup olmadığını gösterir. |
-| ürün      | [Ürün](#product)               | Bu kullanılabilirlik ürününe karşılık gelen ürün. |
-| Sku          | [Sku](#sku)            | Bu kullanılabilirlik SKU'su karşılık gelen. |
-| Terim           | Terim [kaynakları](#term) dizisi  | Bu kullanılabilirlik için geçerli olan koşulların koleksiyonu. |
-| Bağlantı           | [ResourceLinks](utility-resources.md#resourcelinks) | Kullanılabilirlik içinde yer alan kaynak bağlantıları. |
+| segment         | string                        | Bu kullanılabilirlik için sektör segmenti. Desteklenen değerler şunlardır: ticari, eğitim, Kamu, kar amacı. |
+| ülke         | string                                              | Bu kullanılabilirliğinin uygulandığı ülke veya bölge (ISO ülke kodu biçiminde). |
+| isPurchasable   | bool                                                | Bu kullanılabilirliğinin satın alınabilir alınırken olup olmadığını gösterir. |
+| ıyenilenebiliyor     | bool                                                | Bu kullanılabilirliğinin yenilenebilir olup olmadığını gösterir. |
+| ürün      | [Ürün](#product)               | Bu kullanılabilirliğinin karşılık geldiği ürün. |
+| isteyin          | [İsteyin](#sku)            | Bu kullanılabilirliğinin karşılık geldiği SKU. |
+| larındaki           | [terim](#term) dizisi kaynakları  | Bu kullanılabilirlik için geçerli olan koşulların toplanması. |
+| Köprü           | [Resourcelmürekkepler](utility-resources.md#resourcelinks) | Kullanılabilirlik içinde yer alan kaynak bağlantıları. |
 
 ## <a name="term"></a>Süre
 
-Kullanılabilirliği satın almak için bir terimi temsil eder.
+Kullanılabilirliğinin satın alınabilecek bir terimi temsil eder.
 
 | Özellik              | Tür                                        | Description                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| süre              | string                                      | Sürenin ISO 8601 gösterimi. Desteklenen geçerli değerler P1M (1 ay), P1Y (1 yıl) ve P3Y (3 yıl) değerleridir. |
+| süre              | string                                      | Terimin süresinin ISO 8601 temsili. Desteklenen geçerli değerler P1M (1 ay), P1Y (1 yıl) ve P3Y (3 yıl). |
 | açıklama           | string                                      | Terimin açıklaması.           |
 
-## <a name="inventorycheckrequest"></a>InventoryCheckRequest
+## <a name="inventorycheckrequest"></a>Inventorycheckrequest
 
-Belirli katalog öğelerine karşı envanteri denetleme isteğini temsil eder.
+Belirli Katalog öğelerinin envanterini denetlemek için bir isteği temsil eder.
 
 | Özellik         | Tür                                                | Description                                                                                 |
 |------------------|-----------------------------------------------------|---------------------------------------------------------------------------------------------|
-| targetItems      | [InventoryItem dizisi](#inventoryitem)            | Envanter denetimi tarafından değerlendirilecek katalog öğelerinin listesi.                           |
-| inventoryContext | anahtar/değer çiftleri                                     | Envanter denetimlerini yapmak için gereken bağlam değerlerinin sözlüğü. Ürünlerin [her SKU'su](#sku) bu işlemi yapmak için hangi değerlerin (varsa) gerekli olduğunu tanımlar.  |
-| Bağlantı            | [ResourceLinks](utility-resources.md#resourcelinks) | Envanter denetimi isteği içinde yer alan kaynak bağlantıları.                            |
+| Targetıtems      | [ınventoryıtem](#inventoryitem) dizisi            | Envanter denetimi tarafından değerlendirilecek Katalog öğelerinin listesi.                           |
+| ınventorycontext | anahtar/değer çiftleri                                     | Envanter denetimini yürütmek için gereken bağlam değerlerinin sözlüğü. Ürünlerin her [SKU 'su](#sku) , bu işlemi gerçekleştirmek için hangi değerlerin (varsa) gerekli olacağını tanımlar.  |
+| Köprü            | [ResourceLinks](utility-resources.md#resourcelinks) | Envanter denetimi isteği içinde yer alan kaynak bağlantıları.                            |
 
 ## <a name="inventoryitem"></a>InventoryItem
 
@@ -131,7 +131,7 @@ Envanter kısıtlaması ayrıntılarını temsil eder. Bu yalnızca stok denetim
 
 ## <a name="billingcycletype"></a>BillingCycleType
 
-Faturalama dönemi türünü belirten değerlerin yer alan [Enum/dotnet/api/system.enum) değeri.
+Faturalama dönemi türünü belirten değerlere sahip [Enum/dotnet/api/system.enum).
 
 | Değer              | Konum     | Description                                                                                |
 |--------------------|--------------|--------------------------------------------------------------------------------------------|
@@ -143,7 +143,7 @@ Faturalama dönemi türünü belirten değerlerin yer alan [Enum/dotnet/api/syst
 
 ## <a name="attestationproperties"></a>AttestationProperties
 
-Birstation türünü ve satın alma için gerekli ise temsil eder.
+Birstation türünü temsil eder ve satın alma için gerekli ise.
 
 | Özellik              | Tür                                        | Description                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|

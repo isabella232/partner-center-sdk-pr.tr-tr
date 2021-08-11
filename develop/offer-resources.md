@@ -4,12 +4,12 @@ description: Satıcı kataloğunda listelenen, müşterilerine sunabileceği bir
 ms.date: 03/15/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 9a7a0dd2dccc59536797c3ce533d9d8829a04f96
-ms.sourcegitcommit: 59950cf131440786779c8926be518c2dc4bc4030
+ms.openlocfilehash: bcc5b60b7d1e3e13c38bd4014a81c2af254daa1d01ef33351b680463c3fee4a6
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2021
-ms.locfileid: "115009231"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997915"
 ---
 # <a name="offer-resources"></a>Teklif kaynakları
 
@@ -48,38 +48,38 @@ Satıcı kataloğunda listelenen, müşterilerine sunabileceği bir ürünü aç
 | Isdeneme                     | boolean                   | Bunun deneme teklifi olup olmadığını gösteren bir değer.                                                               |
 | ürün                     | [OfferProduct](#offerproduct)           | Teklif ürününü alır.                                                                           |
 | unitType                    | string                    | Birimin türü.                                                                                      |
-| Köprü                       | [OfferLinks](#offerlinks)               | Teklifin "daha fazla bilgi" bağlantısı.                                                                    |
-| öznitelikler                  | [ResourceAttributes](utility-resources.md#resourceattributes) | Teklifine karşılık gelen meta veri öznitelikleri.                         |
-| AttestationProperties       | [AttestationProperties](#attestationproperties) | SKU için kanıtlama özellikleri.                   |
+| Bağlantı                       | [OfferLinks](#offerlinks)               | Teklifin "daha fazla bilgi" bağlantısı.                                                                    |
+| öznitelikler                  | [Resourceattributes](utility-resources.md#resourceattributes) | Teklife karşılık gelen meta veri öznitelikleri.                         |
+| AttestationProperties       | [AttestationProperties](#attestationproperties) | SKU'nun attestation özellikleri.                   |
 
 ## <a name="offercategory"></a>OfferCategory
 
-Bir teklifin kategorilerini açıklar. Bu, aynı ürün satırındaki diğer kullanıcılarla karşılaştırılan bu teklif kategorisinin derecesini veya önceliğini içerir.
+Teklifin kategorilere ayırmayı açıklar. Bu, teklif kategorisinin derecesini veya önceliğini, aynı ürün hattında yer alan diğer ürünlerle karşılaştırıldığında içerir.
 
 | Özellik   | Tür                                                           | Description                                                                                                                                                                |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | kimlik         | string                                                         | Kategori tanımlayıcısı.                                                                                                                                                   |
 | name       | string                                                         | Kategori adı.                                                                                                                                                         |
-| derece       | int                                                            | Kategori derecesi veya önceliği, aynı teklifteki diğer kategorilerle karşılaştırılır. Bu özellik yalnızca belirli bir teklif için birden fazla teklif kategorisi varsa ayarlanmalıdır. |
+| derece       | int                                                            | Aynı teklifte yer alan diğer kategorilere kıyasla kategori sıralaması veya önceliği. Bu özellik yalnızca bir teklif için birden fazla teklif kategorisi varsa ayarlandır. |
 | locale     | string                                                         | Teklifin geçerli olduğu yerel ayar.                                                                                                                        |
-| ülke    | string                                                         | Teklifin uygulandığı ülke/bölge.                                                                                                                   |
-| Köprü      | [Resourcelmürekkepler](utility-resources.md#resourcelinks)           | OfferCategory öğesine karşılık gelen kaynak bağlantıları.                                                                                                                     |
-| öznitelikler | [ResourceAttributes](utility-resources.md#resourceattributes) | OfferCategory öğesine karşılık gelen meta veri öznitelikleri.                                                                                                                |
+| ülke    | string                                                         | Teklifin geçerli olduğu ülke/bölge.                                                                                                                   |
+| Bağlantı      | [ResourceLinks](utility-resources.md#resourcelinks)           | OfferCategory'ye karşılık gelen kaynak bağlantıları.                                                                                                                     |
+| öznitelikler | [Resourceattributes](utility-resources.md#resourceattributes) | OfferCategory'ye karşılık gelen meta veri öznitelikleri.                                                                                                                |
 
 ## <a name="offerlinks"></a>OfferLinks
 
-Teklif hakkında daha fazla bilgi edinmek için bağlantılar içerir.
+Teklif hakkında daha fazla bilgi için bağlantılar içerir.
 
 | Özellik  | Tür | Description                 |
 |-----------|------|-----------------------------|
-| Daha fazlasını öğrenin | Bağlantı | "Daha fazla bilgi" bağlantısı.      |
-| Self      | Bağlantı | Kendi kendine URI                |
+| learnMore | Bağlantı | "Daha fazla bilgi" bağlantısı.      |
+| Kendini      | Bağlantı | Kendi kendine URI                |
 | ileri      | Bağlantı | Öğelerin sonraki sayfası.     |
-| Öncekini  | Bağlantı | Öğelerin önceki sayfası. |
+| Önceki  | Bağlantı | Öğelerin önceki sayfası. |
 
 ## <a name="offerproduct"></a>OfferProduct
 
-Her biri farklı özellik kümelerine ve farklı müşteri gereksinimlerine hedeflenmiş, kendisiyle ilişkili birden fazla teklifi olabilecek bir ürün veya hizmet.
+Her biri farklı özellik kümelerine sahip ve farklı müşteri ihtiyaçlarına yönelik birden fazla teklife sahip olan bir ürün veya hizmet.
 
 | Özellik | Tür   | Description              |
 |----------|--------|--------------------------|
@@ -89,10 +89,10 @@ Her biri farklı özellik kümelerine ve farklı müşteri gereksinimlerine hede
 
 ## <a name="attestationproperties"></a>AttestationProperties
 
-Bir kanıtlama türünü ve satın alma için gerekiyorsa temsil eder.
+Birstation türünü temsil eder ve satın alma için gerekli ise.
 
 | Özellik              | Tür                                        | Description                                                                         |
 |-----------------------|-----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| attestationType              | string                                      | Kanıtlama türünü gösterir. Windows 365 için değer Windows365. Windows 365 kanıtlama metni "Windows hibrit avantajı ile Windows 365 iş kullanan her kişinin, birincil iş cihazında Windows 10/11 Pro geçerli bir kopyasına sahip olması gerektiğini anladım." |
-| Enforcekanıtlama           | boolean                                      | Satın alma için kanıtlama gerekip gerekmediğini gösterir.           |
+| attestationType              | string                                      | Station türünü gösterir. 365 Windows Windows365 değeridir. Windows 365 doğrulama metninde "Windows 365 business with Windows Hybrid Benefit kullanan her bir kişinin de birincil iş cihazında geçerli Windows 10/11 Pro kopyasının yüklü olması gerektiğini anlıyoruz." |
+| enforceAttestation           | boolean                                      | Satın alma için doğru olup olmadığını gösterir.           |
 

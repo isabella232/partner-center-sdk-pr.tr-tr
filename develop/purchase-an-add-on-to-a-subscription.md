@@ -4,12 +4,12 @@ description: Mevcut bir aboneliğe eklenti satın alma.
 ms.date: 11/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: d8b700a2ad41a37ca0ad745f3e7767449974b18a
-ms.sourcegitcommit: b307fd75e305e0a88cfd1182cc01d2c9a108ce45
+ms.openlocfilehash: 5227b917faf663c129b1abed1d10318620667e9b47524eb8c91867fb6b453ee8
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111547691"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997371"
 ---
 # <a name="purchase-an-add-on-to-a-subscription"></a>Bir abonelik için eklenti satın alma
 
@@ -152,12 +152,12 @@ Aşağıdaki tablolar istek gövdesinin özelliklerini açıklar.
 |----------------------|--------|----------|--------------------------------------------------------------|
 | LineItemNumber       | sayı | Y        | 0 ile başlayan satır öğesi numarası.                       |
 | OfferId              | string | Y        | Eklentinin teklif kimliği.                                  |
-| SubscriptionId       | string | N        | Satın alınan eklenti aboneliğinin kimliği.                 |
-| ParentSubscriptionId | string | Y        | Eklenti teklifine sahip üst aboneliğin kimliği. |
-| Friendlyname         | string | N        | Bu satır öğesinin kolay adı.                        |
+| SubscriptionId       | string | N        | Satın alınan eklenti aboneliğinin KIMLIĞI.                 |
+| Parentsubscriptionıd | string | Y        | Eklenti teklifine sahip olan üst aboneliğin KIMLIĞI. |
+| FriendlyName         | string | N        | Bu satır öğesi için kolay ad.                        |
 | Miktar             | sayı | Y        | Lisans sayısı.                                      |
-| PartnerIdOnRecord    | string | N        | Kayıt ortağının MPN kimliği.                         |
-| Öznitelikler           | object | N        | "ObjectType": "OrderLineItem" ifadesini içerir.                      |
+| PartnerIdOnRecord    | string | N        | Kayıt ortağının MPN KIMLIĞI.                         |
+| Öznitelikler           | object | N        | "ObjectType": "Orderlineıtem" içerir.                      |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -198,11 +198,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş abonelik siparişlerini döndürür.
+Başarılı olursa, bu yöntem yanıt gövdesinde güncelleştirilmiş abonelik sırasını döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi Kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
 
 ### <a name="response-example"></a>Yanıt örneği
 

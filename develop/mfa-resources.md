@@ -4,12 +4,12 @@ description: İş Ortağı Güvenlik Gereksinimlerini karşılamak için çok fa
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 ms.date: 05/29/2020
-ms.openlocfilehash: b41a0e46fa6e0643e82a5a2dbfb7141f54a0f824
-ms.sourcegitcommit: 0b2a62af1765a447addd9c4340c28bc42fdc2747
+ms.openlocfilehash: 6377dbde574edd1b8d8058f7b8e88ae6497d615b9237bbda91e9c4617486b569
+ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2021
-ms.locfileid: "111445553"
+ms.lasthandoff: 08/06/2021
+ms.locfileid: "115997898"
 ---
 # <a name="partner-security-requirements-resources"></a>İş ortağı güvenlik gereksinimleri kaynakları
 
@@ -31,7 +31,7 @@ MFA kimlik doğrulaması olmadan İş Ortağı Merkezi erişen bir kullanıcıya
 
 APP + Kullanıcı kimlik bilgileri tarafından yapılan API isteğinin, istek tarihine ve Uygulama Kimliğine göre toplanmış bir özeti.
 
-| Özellik                            | Tür            | Açıklama               |
+| Özellik                            | Tür            | Description               |
 |-------------------------------------|-----------------|---------------------------|
 | LoginDate                           | datetime        | API istek tarihi          |
 | MfaCompliantRequestCount            | long            | MFA ile istek sayısı    |
@@ -44,7 +44,7 @@ APP + Kullanıcı kimlik bilgileri tarafından yapılan API isteğinin, istek ta
 
 APP + Kullanıcı kimlik bilgileri tarafından yapılan API isteği. 
 
-| Özellik                            | Tür            | Açıklama                              |
+| Özellik                            | Tür            | Description                              |
 |-------------------------------------|-----------------|------------------------------------------|
 | Requestıd                           | string          | MS-RequestId                             |
 | CorrelationId                       | string          | MS-CorrelationId                         |
