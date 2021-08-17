@@ -4,26 +4,26 @@ description: C veya Microsoft İş Ortağı Ağı aracılığıyla iş ortağın
 ms.date: 09/29/2018
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 223f0da94f5a1c12b4f6de32184296b88ab5f443a69feac89152acc1aa9ccbd6
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 471a94153ab4baffe45d43bee473bf68230106ad
+ms.sourcegitcommit: b0534995c36d644cc5f7bdf31b2afd5355cf7149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115995926"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122208067"
 ---
 # <a name="verify-a-partner-mpn-id-via-c-or-the-partner-center-rest-api"></a>C veya ağ üzerinden iş ortağı MPN \# kimliğini İş Ortağı Merkezi REST API
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama:** İş Ortağı Merkezi | 21Vianet İş Ortağı Merkezi tarafından çalıştırılan | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
 İş ortağının kimlik doğrulama Microsoft İş Ortağı Ağı (MPN KIMLIĞI).
 
-Burada gösterilen teknik, iş ortağının mpN profilini Microsoft İş Ortağı Ağı iş ortağının mpN profilini İş Ortağı Merkezi. İstek başarılı olursa tanımlayıcı geçerli kabul edilir.
+Burada gösterilen teknik, iş ortağının MPN profilini Microsoft İş Ortağı Ağı iş ortağının mpN profilini İş Ortağı Merkezi. İstek başarılı olursa tanımlayıcı geçerli kabul edilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Doğrulan iş ortağı MPN kimliği. Bu değeri atlarsanız istek, oturum alıkan iş ortağının MPN profilini verir.
+- Doğrulan iş ortağı MPN kimliği. Bu değeri atlarsanız istek, oturum alıkan iş ortağının MPN profilini alır.
 
 ## <a name="c"></a>C\#
 
@@ -52,7 +52,7 @@ var partnerProfile = partnerOperations.Profiles.MpnProfile.Get(partnerMpnId);
 
 | Ad   | Tür | Gerekli | Açıklama                                                 |
 |--------|------|----------|-------------------------------------------------------------|
-| mpn-id | int  | No       | İş Microsoft İş Ortağı Ağı tanımlayan bir kimlik. |
+| mpn-id | int  | Hayır       | İş Microsoft İş Ortağı Ağı tanımlayan bir kimlik. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -82,7 +82,7 @@ Başarılı olursa, yanıt gövdesi iş ortağı [için MpnProfile](profile-reso
 
 ### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
+Her yanıt, başarılı veya başarısız olduğunu gösteren bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example-success"></a>Yanıt örneği (başarılı)
 

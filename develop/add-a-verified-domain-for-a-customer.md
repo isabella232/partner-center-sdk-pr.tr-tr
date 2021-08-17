@@ -1,15 +1,15 @@
 ---
 title: Müşteri için doğrulanmış bir etki alanı ekleme
-description: İş Ortağı Merkezi'daki bir müşteri için onaylı etki alanları listesine doğrulanmış etki alanı İş Ortağı Merkezi. Bunu api'İş Ortağı Merkezi REST API'lerini kullanarak yapma.
+description: İş Ortağı Merkezi'daki bir müşteri için onaylı etki alanları listesine doğrulanmış etki alanı İş Ortağı Merkezi. Bunu yapmak için İş Ortağı Merkezi API'leri ve REST API'lerini kullanma.
 ms.date: 05/21/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: 570008c955ce3242b02c1df4c87df52aea3627abb6c86a069cc7c4c0d1d6f799
-ms.sourcegitcommit: ac8f5f8bedaddba5110dd4e562fbd9a2b24837df
+ms.openlocfilehash: b634e7e3276fdabeac8175e09a6ae8d12732f409
+ms.sourcegitcommit: b0534995c36d644cc5f7bdf31b2afd5355cf7149
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2021
-ms.locfileid: "116885586"
+ms.lasthandoff: 08/16/2021
+ms.locfileid: "122208101"
 ---
 # <a name="add-a-verified-domain-to-the-list-of-approved-domains-for-an-existing-customer"></a>Mevcut bir müşteri için onaylanmış etki alanları listesine doğrulanmış bir etki alanı ekleme 
 
@@ -23,7 +23,7 @@ Mevcut bir müşteri için onaylı etki alanları listesine doğrulanmış etki 
 
 - kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi'den **CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 ## <a name="adding-a-verified-domain"></a>Doğrulanmış etki alanı ekleme
 
@@ -71,33 +71,33 @@ Bu tablo, istek gövdesinde gerekli **ve isteğe** bağlı Etki alanı özellikl
 |--------------------|------------------------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Authenticationtype                                    | string           | Yes      | Etki alanının bir etki alanı mı `Managed` yoksa etki alanı mı olduğunu `Federated` tanımlar. Desteklenen değerler: `Managed` , `Federated` .|
 | Özellik                                            | string           | Yes      | Etki alanı özelliğini belirtir. Örneğin, `Email`.                  |
-| ısdefault                                             | null değere sahip boole değeri | No       | Etki alanının kiracı için varsayılan etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .        |
-| IsInitial                                             | null değere sahip boole değeri | No       | Etki alanının bir ilk etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .                       |
+| ısdefault                                             | null değere sahip boole değeri | Hayır       | Etki alanının kiracı için varsayılan etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .        |
+| IsInitial                                             | null değere sahip boole değeri | Hayır       | Etki alanının bir ilk etki alanı olup olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .                       |
 | Name                                                  | string           | Yes      | Etki alanı adı.                                                          |
 | RootDomain                                            | dize           | No       | Kök etki alanının adı.                                              |
 | Durum                                                | string           | Yes      | Etki alanı durumu. Örneğin, `Verified`. Desteklenen değerler:  `Unverified` , `Verified` , `PendingDeletion` .                               |
-| Doğrulamaları Icationmethod                                    | string           | Yes      | Etki alanı doğrulama yöntemi türü. Desteklenen değerler: `None` , `DnsRecord` , `Email` .                                    |
+| VerificationMethod                                    | string           | Yes      | Etki alanı doğrulama yöntemi türü. Desteklenen değerler: `None` , `DnsRecord` , `Email` .                                    |
 
-### <a name="domain-federation-settings"></a>Etki alanı Federasyon ayarları
+### <a name="domain-federation-settings"></a>Etki alanı federasyon ayarları
 
-Bu tabloda, istek gövdesinde gerekli ve isteğe bağlı **Domainfederationsettings** özellikleri açıklanmaktadır.
+Bu tablo, istek gövdesinde gerekli ve **isteğe bağlı DomainFederationSettings** özelliklerini açıklar.
 
 | Ad   | Tür   | Gerekli | Açıklama                                                  |
 |--------|--------|----------|--------------------------------------------------------------|
-| ActiveLogOnUri                         | dize           | No      | Zengin istemciler tarafından kullanılan oturum açma URI 'SI. Bu özellik, ortağın STS kimlik doğrulama URL 'sidir. |
-| Defaultınteractiveauthenticationmethod | dize           | No      | Bir uygulama kullanıcının etkileşimli oturum açmasını gerektirdiğinde kullanılması gereken varsayılan kimlik doğrulama yöntemini gösterir. |
-| FederationBrandName                    | dize           | No      | Federasyon markası adı.        |
-| Issueruri                              | string           | Yes     | Sertifika verenin adı.                        |
-| LogOffUri                              | string           | Yes     | Oturum kapatma URI 'SI. Bu özellik, Federasyon etki alanı oturum açma URI 'sini açıklar.        |
-| MetadataExchangeUri                    | dize           | No      | Zengin istemci uygulamalarından kimlik doğrulaması için kullanılan meta veri değişim uç noktasını belirten URL. |
-| NextSigningCertificate                 | dize           | No      | Daha sonra gelen ve ADFS v2 STS tarafından talepleri imzalamak için kullanılan sertifika. Bu özellik, sertifikanın Base64 olarak kodlanmış bir gösterimidir. |
-| Openıdconnectdiscoveryendpoint         | dize           | No      | federal ıdp STS 'nin openıd Bağlan bulma uç noktası. |
-| PassiveLogOnUri                        | string           | Yes     | Eski pasif Istemciler tarafından kullanılan oturum açma URI 'SI. Bu özellik, Federasyon oturum açma isteklerini göndermek için olan adrestir. |
-| PreferredAuthenticationProtocol        | string           | Yes     | Kimlik doğrulama belirtecinin biçimi. Örneğin, `WsFed`. Desteklenen değerler: `WsFed` , `Samlp` |
+| ActiveLogOnUri                         | dize           | No      | Zengin istemciler tarafından kullanılan oturum açma URI'si. Bu özellik, İş Ortağının STS Kimlik Doğrulama URL'sidir. |
+| DefaultInteractiveAuthenticationMethod | dize           | No      | Bir uygulama, kullanıcının etkileşimli oturum açmasını gerektirdiğinde kullanılacak varsayılan kimlik doğrulama yöntemini gösterir. |
+| FederationBrandName                    | dize           | No      | Federasyon markasının adı.        |
+| IssuerUri                              | string           | Yes     | Sertifikaların sertifikayı alan adı.                        |
+| LogOffUri                              | string           | Yes     | Oturum kapatma URI'si. Bu özellik, federasyon etki alanı oturum açma URI'sını açıklar.        |
+| MetadataExchangeUri                    | dize           | No      | Zengin istemci uygulamalarından kimlik doğrulaması için kullanılan meta veri değişimi uç noktasını belirten URL. |
+| NextSigningCertificate                 | dize           | No      | Talepleri imzalamak için ADFS V2 STS tarafından gelecek için kullanılan sertifika. Bu özellik, sertifikanın base64 kodlanmış gösterimidir. |
+| OpenIdConnectDiscoveryEndpoint         | dize           | No      | OpenID Bağlan IDP STS'nin Keşif Uç Noktasıdır. |
+| PassiveLogOnUri                        | string           | Yes     | Eski pasif İstemciler tarafından kullanılan oturum açma URI'si. Bu özellik, federasyon oturum açma isteklerinin gönder adresidir. |
+| PreferredAuthenticationProtocol        | string           | Yes     | Kimlik doğrulama belirteci biçimi. Örneğin, `WsFed`. Desteklenen değerler: `WsFed` , `Samlp` |
 | PromptLoginBehavior                    | string           | Yes     | İstem oturum açma davranışı türü.  Örneğin, `TranslateToFreshPasswordAuth`. Desteklenen değerler: `TranslateToFreshPasswordAuth` , `NativeSupport` , `Disabled` |
-| SigningCertificate                     | string           | Yes     | Şu anda ADFS v2 STS tarafından talepleri imzalamak için kullanılan sertifika. Bu özellik, sertifikanın Base64 olarak kodlanmış bir gösterimidir. |
-| SigningCertificateUpdateStatus         | dize           | No      | Imzalama sertifikasının güncelleştirme durumunu gösterir. |
-| SigningCertificateUpdateStatus         | null yapılabilir Boole | No      | IDP STS 'nin MFA 'yı destekleyip desteklemediğini gösterir. Desteklenen değerler: `True` , `False` , `Null` .|
+| SigningCertificate                     | string           | Yes     | Şu anda ADFS V2 STS tarafından talepleri imzalamak için kullanılan sertifika. Bu özellik, sertifikanın base64 kodlanmış gösterimidir. |
+| SigningCertificateUpdateStatus         | dize           | No      | İmzalama sertifikasının güncelleştirme durumunu gösterir. |
+| SigningCertificateUpdateStatus         | null değere sahip boole değeri | Hayır      | IDP STS'nin MFA'nın destekleyip destekleme olmadığını gösterir. Desteklenen değerler: `True` , `False` , `Null` .|
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -143,11 +143,11 @@ X-Locale: "en-US"
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu API yeni doğrulanmış etki alanı için bir [etki alanı](#domain) kaynağı döndürür.
+Başarılı olursa, bu API yeni [doğrulanmış etki](#domain) alanı için bir Etki alanı kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu gösteren bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 
