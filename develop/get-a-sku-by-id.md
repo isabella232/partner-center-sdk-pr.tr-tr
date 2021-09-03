@@ -1,33 +1,33 @@
 ---
 title: Kimliğe göre bir SKU alma
-description: Belirtilen SKU KIMLIĞINI kullanarak belirtilen ürün için bir SKU alır.
-ms.date: 01/08/2019
+description: Belirtilen SKU kimliğini kullanarak belirtilen ürün için bir SKU elde.
+ms.date: 02/16/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 3be496b694d9e0e34619807e85ed8fe63879f3561a404ebc7361dcedc4479612
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: bc7036467142d666aed6e9f41b86b1c2d2f0c8ec
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115994192"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456129"
 ---
 # <a name="get-a-sku-by-id"></a>Kimliğe göre bir SKU alma
 
-Belirtilen SKU KIMLIĞINI kullanarak belirtilen ürün için bir SKU alır.
+Belirtilen SKU kimliğini kullanarak belirtilen ürün için bir SKU alır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir ürün KIMLIĞI.
+- Ürün kimliği.
 
-- SKU KIMLIĞI.
+- SKU Kimliği.
 
 ## <a name="c"></a>C\#
 
-Belirli bir SKU 'nun ayrıntılarını almak için, belirli bir ürünün işlemlerine yönelik arabirimi almak amacıyla [kimliğe göre ürün edinme](get-a-product-by-id.md) bölümündeki adımları izleyerek işe başlayın. Sonuç arabiriminden, SKU 'Lar için kullanılabilir işlemleri içeren bir arabirim elde etmek üzere **SKU 'ları** özelliğini seçin. SKU KIMLIĞINI **byıd ()** yöntemine GEÇIRIN ve SKU ayrıntılarını almak için **Get ()** veya **GetAsync ()** çağırın.
+Belirli bir SKU'nun ayrıntılarını almak için, [](get-a-product-by-id.md) Belirli bir ürünün işlemlerinin arabirimini almak için Kimle ürün al adımlarını izleyin. Elde edilen arabirimden **SKU'lar** özelliğini seçerek SKU'lar için kullanılabilir işlemlere sahip bir arabirim elde edin. SKU Kimliğini **ById()** yöntemine geçin ve SKU ayrıntılarını almak **için Get()** veya **GetAsync()** çağrısında bulundurabilirsiniz.
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -41,25 +41,25 @@ var sku = partnerOperations.Products.ByCountry(countryCode).ById(productId).Skus
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                         |
 |---------|---------------------------------------------------------------------------------------------------------------------|
-| **Al** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Products/{product-id}/SKUs/{SKU-id}? ülke = {Country-Code} http/1.1   |
+| **AL** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products/{product-id}/skus/{sku-id}?country={country-code} HTTP/1.1   |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Belirtilen SKU KIMLIĞINI kullanarak belirtilen ürün için bir SKU almak üzere aşağıdaki yolu ve sorgu parametrelerini kullanın.
+Belirtilen SKU kimliğini kullanarak belirtilen ürün için bir SKU almak üzere aşağıdaki yolu ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                     |
 |------------------------|----------|----------|-----------------------------------------------------------------|
-| ürün kimliği             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
-| SKU kimliği                 | string   | Yes      | SKU 'YU tanımlayan bir dize.                               |
-| ülke kodu           | string   | Yes      | Ülke/bölge KIMLIĞI.                                            |
+| product-id             | string   | Yes      | Ürünü tanımlayan bir dize.                           |
+| sku-id                 | string   | Yes      | SKU'ları tanımlayan bir dize.                               |
+| ülke kodu           | string   | Yes      | Ülke/bölge kimliği.                                            |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -81,20 +81,20 @@ Host: api.partnercenter.microsoft.com
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yanıt gövdesi bir [SKU](product-resources.md#sku) kaynağı içerir.
+Başarılı olursa yanıt gövdesi bir [SKU kaynağı](product-resources.md#sku) içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP durum kodu     | Hata kodu   | Description                                                                                               |
+| HTTP Durum Kodu     | Hata kodu   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | 404                  | 400013       | Ürün bulunamadı.                                                                                    |
-| 404                  | 400018       | SKU bulunamadı.                                                                                        |
+| 404                  | 400018       | Sku bulunamadı.                                                                                        |
 
-### <a name="response-example"></a>Yanıt örneği
+### <a name="response-example-for-azure-vm-reservations-azure-plan"></a>Azure VM rezervasyonları için yanıt örneği (Azure planı)
 
 ```http
 HTTP/1.1 200 OK
@@ -150,6 +150,72 @@ Content-Length: 1108
         },
         "self": {
             "uri": "/products/DZH318Z0BQ3V/skus/00G1?country=us",
+            "method": "GET",
+            "headers": []
+        }
+    }
+}
+```
+
+### <a name="response-example-for-new-commerce-license-based-services"></a>Yeni ticari lisans tabanlı hizmetler için yanıt örneği
+
+> [!Note] 
+> Yeni Ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesi kapsamında olan iş ortakları tarafından kullanılabilir
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: Microsoft-IIS/10.0
+MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51,e75c1060-852e-4b49-92b0-cd15167a0d51
+MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d,18b41adf-29b5-48eb-b14f-c9683a4e5b7d
+X-Locale: en-US,en-US
+X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNcbWFtZW5kZVxkZXZcZHBzLXJwZVxSUEUuUGFydG5lci5TZXJ2aWNlLkNhdGFsb2dcV2ViQXBpc1xDYXRhbG9nU2VydmljZS5WMi5XZWJcdjFccHJvZHVjdHNcRFpIMzE4WjBCUTVTXHNrdXM=?=
+X-Powered-By: ASP.NET
+Date: Thu, 15 Mar 2018 21:06:03 GMT
+Content-Length: 50917
+
+{
+    "id": "0001",
+    "productId": "CFQ7TTC0LH18",
+    "title": "Microsoft 365 Business Basic",
+    "description": "Best for businesses that need professional email, cloud file storage, and online meetings & chat. Desktop versions of Office apps like Excel, Word, and PowerPoint not included. For businesses with up to 300 employees.",
+    "minimumQuantity": 1,
+    "maximumQuantity": 300,
+    "isTrial": false,
+    "supportedBillingCycles": [
+        "annual",
+        "monthly"
+    ],
+    "purchasePrerequisites": [
+        "MicrosoftCloudAgreement"
+    ],
+    "inventoryVariables": [],
+    "provisioningVariables": [],
+    "actions": [
+        "Refund"
+    ],
+    "dynamicAttributes": {
+        "isMicrosoftProduct": true,
+        "hasConstraints": true,
+        "isAddon": false,
+        "prerequisiteSkus": [],
+        "isSoftwareAssuranceApplicable": false,
+        "upgradeTargetOffers": [
+            "CFQ7TTC0LDPB:0001",
+            "CFQ7TTC0LF8Q:0001"
+…
+        ],
+        "provisioningId": "3b555118-da6a-4418-894f-7df1e2096870",
+        "internal": false
+    },
+    "links": {
+        "availabilities": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001/availabilities?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "self": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001?country=US",
             "method": "GET",
             "headers": []
         }

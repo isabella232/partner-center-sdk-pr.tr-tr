@@ -1,43 +1,43 @@
 ---
 title: Ürünlerin bir listesini alma (ülkeye göre)
-description: Ürün kaynağını kullanarak müşteri ülkesine göre bir ürün koleksiyonu elde etmek için kullanabilirsiniz.
-ms.date: 11/01/2019
+description: Ürün kaynağını, müşteri ülkesine göre ürünlerin koleksiyonunu almak için kullanabilirsiniz.
+ms.date: 02/16/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: 6ec3a642006a100ef85c0af9eeddd9daf00cc1cd981eabd5dddb77e60e15111f
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 601fc2c8012d92d6964f0aaa29a3a46d732df300
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115989449"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456061"
 ---
 # <a name="get-a-list-of-products-by-country"></a>Ürünlerin bir listesini alma (ülkeye göre)
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Belirli bir ülkede kullanılabilen ürün koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
+Belirli bir ülkede bulunan ürünlerin bir koleksiyonunu almak için aşağıdaki yöntemleri kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Ülke.
+- Bir ülke.
 
 ## <a name="c"></a>C\#
 
-Ürünlerin listesini almak için:
+Ürünlerin bir listesini almak için:
 
-1. **ByCountry()** yöntemini kullanarak ülkeyi seçmek için **IAggregatePartner.Products** koleksiyonu kullanın.
+1. **Bycountry ()** yöntemini kullanarak ülkeyi seçmek Için **ıaggregatepartner. Products** koleksiyonunuzu kullanın.
 
-2. **ByTargetView() yöntemini kullanarak katalog görünümünü** seçin.
+2. **Bytargetview ()** yöntemini kullanarak katalog görünümünü seçin.
 
-3. (İsteğe bağlı) **ByReservationScope() yöntemini kullanarak rezervasyon kapsamını** seçin.
+3. Seçim **Byrezervationscope ()** yöntemini kullanarak ayırma kapsamını seçin.
 
-4. (İsteğe bağlı) **ByTargetSegment() yöntemini kullanarak hedef segmenti** seçin.
+4. Seçim **Bytargetsegment ()** yöntemini kullanarak hedef segmenti seçin.
 
-5. Koleksiyonu geri **almak için Get()** **veya GetAsync()** yöntemini çağırma.
+5. Koleksiyonu döndürmek için **Get ()** veya **GetAsync ()** metodunu çağırın.
 
 ```csharp
 IAggregatePartner partnerOperations;
@@ -60,14 +60,14 @@ ResourceCollection<Product> products = partnerOperations.Products.ByCountry("US"
 
 [!INCLUDE [Partner Center Java SDK support details](../includes/java-sdk-support.md)]
 
-Ürünlerin listesini almak için:
+Ürünlerin bir listesini almak için:
 
-1. **byCountry()** işlevini kullanarak ülkeyi seçmek için **IAggregatePartner.getProducts** işlevinizi kullanın.
+1. **Bycountry ()** işlevini kullanarak ülkeyi seçmek Için **ıaggregatepartner. GetProducts** işlevinizi kullanın.
 
-2. **byTargetView() işlevini kullanarak katalog görünümünü** seçin.
-3. (İsteğe bağlı) **byTargetSegment() işlevini kullanarak hedef segmenti** seçin.
+2. **Bytargetview ()** işlevini kullanarak katalog görünümünü seçin.
+3. Seçim **Bytargetsegment ()** işlevini kullanarak hedef segmenti seçin.
 
-4. Koleksiyonu geri **almak için get()** işlevini çağırma.
+4. Koleksiyonu döndürmek için **Get ()** işlevini çağırın.
 
 ```java
 // IAggregatePartner partnerOperations;
@@ -83,12 +83,12 @@ ResourceCollection<Products> products = partnerOperations.getProducts().byCountr
 
 [!INCLUDE [Partner Center PowerShell module support details](../includes/powershell-module-support.md)]
 
-Ürünlerin listesini almak için:
+Ürünlerin bir listesini almak için:
 
-1. [**Get-PartnerProduct komutunu**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) yürütün.
+1. [**Get-PartnerProduct**](https://github.com/Microsoft/Partner-Center-PowerShell/blob/master/docs/help/Get-PartnerProduct.md) komutunu yürütün.
 
-2. **Katalog** parametresini belirterek kataloğu seçin.
-3. (İsteğe bağlı) Segment parametresini belirterek hedef **segmenti** seçin.
+2. **Katalog parametresini belirterek** kataloğu seçin.
+3. Seçim **Segment** parametresini belirterek hedef segmenti seçin.
 
 ```powershell
 Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
@@ -96,26 +96,26 @@ Get-PartnerProduct -Catalog 'Azure' -Segment 'commercial'
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem  | İstek URI'si                                                                                                                                    |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Al** | [*{baseURL}*](partner-center-rest-urls.md)/v1/products?country={country}&targetView={targetView}&targetSegment={targetSegment} HTTP/1.1 |
+| **AL** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Products? ülke = {country} &targetview = {targetview} &targetsegment = {TARGETSEGMENT} http/1.1 |
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-Ürünlerin listesini almak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
+Ürünlerin bir listesini almak için aşağıdaki yolu ve sorgu parametrelerini kullanın.
 
 | Ad                   | Tür     | Gerekli | Açıklama                                                             |
 |------------------------|----------|----------|-------------------------------------------------------------------------|
-| ülke                | string   | Yes      | Ülke/bölge kimliği.                                                  |
-| targetView             | string   | Yes      | Kataloğun hedef görünümünü tanımlar. Desteklenen değerler: <br/><br/>**Tüm Azure** öğelerini içeren Azure<br/><br/>Tüm Azure rezervasyon öğelerini içeren **AzureReservations**<br/><br/>Tüm sanal makine (VM) rezervasyon öğelerini içeren **AzureReservationsVM**<br/><br/>**Tüm rezervasyon öğelerini içeren AzureReservationsSQL** SQL öğeleri<br/><br/>**Tüm veritabanı rezervasyon öğelerini içeren AzureReservationsCosmosDb** Cosmos öğeleri<br/><br/>Microsoft Azure abonelikleri (**MS-AZR-0145P**) ve Azure planları için öğeleri içeren **MicrosoftAzure**<br/><br/>Tüm çevrimiçi hizmet öğelerini (ticari market ürünleri dahil) içeren **OnlineServices**<br/><br/>**Yazılım**, tüm yazılım öğelerini içerir<br/><br/>**SoftwareSUSELinux**, tüm yazılım SUSE Linux öğelerini içerir<br/><br/>Tüm kalıcı yazılım öğelerini içeren **SoftwarePerpetual**<br/><br/>Tüm yazılım aboneliği öğelerini içeren **YazılımAubscriptions**    |
-| targetSegment          | dize   | No       | Hedef segmenti tanımlar. Farklı hedef kitlelere yönelik görünüm. Desteklenen değerler: <br/><br/>**Ticari**<br/>**Eğitim**<br/>**Hükümet**<br/>**Kar amacı gütme -yen**  |
-| reservationScope | dize   | No | Azure Rezervasyonları için ürünlerin listesini sorgularken, Azure planları için `reservationScope=AzurePlan` geçerli olan ürünlerin listesini almak için belirtin. Microsoft Azure (**MS-AZR-0145P**) abonelikleri için geçerli olan Azure rezervasyonlarının ürünlerinin listesini almak için bu parametreyi hariç tutabilirsiniz.  |
+| ülke                | string   | Yes      | Ülke/bölge KIMLIĞI.                                                  |
+| targetView             | string   | Yes      | Kataloğun hedef görünümünü tanımlar. Desteklenen değerler şunlardır: <br/><br/>Tüm Azure öğelerini içeren **Azure**<br/><br/>Tüm Azure ayırma öğelerini içeren **Azurereservations**<br/><br/>Tüm sanal makine (VM) rezervasyon öğelerini içeren **Azurereservationsvm**<br/><br/>tüm SQL ayırma öğelerini içeren **azurereservationssql**<br/><br/>tüm Cosmos veritabanı ayırma öğelerini içeren **azurereservationscosmosdb**<br/><br/>Microsoft Azure aboneliklerine (**MS-azr-0145p**) ve Azure planlarına yönelik öğeler içeren **MicrosoftAzure**<br/><br/>Tüm çevrimiçi hizmet öğelerini içeren **OnlineServices**. Bu targetView, ticari Market, geleneksel lisans tabanlı hizmetler ve yeni ticaret lisansı tabanlı hizmetler içerir<br/><br/>Tüm yazılım öğelerini içeren **yazılım**<br/><br/>Tüm yazılım SUSE Linux öğelerini içeren **SoftwareSUSELinux**<br/><br/>Tüm kalıcı yazılım öğelerini içeren **Softwarekalıcı**<br/><br/>Tüm yazılım aboneliği öğelerini içeren **SoftwareSubscriptions**    |
+| targetSegment          | dize   | No       | Hedef segmenti tanımlar. Farklı hedef kitlelerinin görünümü. Desteklenen değerler şunlardır: <br/><br/>**seniz**<br/>**öğrenim**<br/>**Devlet**<br/>**kar amacı gütmeyen**  |
+| Rezervationscope | dize   | No | Azure ayırmaları için bir ürün listesi sorgulanırken, `reservationScope=AzurePlan` Azure planlarına uygun ürünlerin bir listesini almak için belirtin. Microsoft Azure (**MS-azr-0145p**) abonelikleri için geçerli olan Azure ayırmaları ürünlerinin bir listesini almak için bu parametreyi dışlayın.  |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -125,7 +125,7 @@ Yok.
 
 #### <a name="products-by-country"></a>Ülkeye göre ürünler
 
-Microsoft Azure (MS-AZR-0145P) abonelikleri ve Azure planları için ülkeye göre ürünlerin listesini almak için bu örneği izleyin.
+Microsoft Azure (MS-azr-0145p) abonelikleri ve Azure planları için ülkeye göre ürünlerin bir listesini almak üzere bu örneği izleyin.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=MicrosoftAzure HTTP/1.1
@@ -135,9 +135,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-#### <a name="azure-vm-reservations-azure-plan"></a>Azure VM rezervasyonları (Azure planı)
+#### <a name="azure-vm-reservations-azure-plan"></a>Azure VM ayırmaları (Azure planı)
 
-Azure planları için geçerli olan Azure VM rezervasyonları için ülkeye göre ürünlerin listesini almak için bu örneği izleyin.
+Azure planlarına uygun Azure VM ayırmaları için ülkeye göre ürünlerin bir listesini almak için bu örneği izleyin.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureAzureReservationsVM&reservationScope=AzurePlan HTTP/1.1
@@ -147,9 +147,9 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
-#### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure (MS-AZR-0145P) abonelikleri için Azure VM rezervasyonları
+#### <a name="azure-vm-reservations-for-microsoft-azure-ms-azr-0145p-subscriptions"></a>Microsoft Azure için Azure VM ayırmaları (MS-azr-0145p) abonelikleri
 
-Microsoft Azure (MS-AZR-0145P) abonelikleri için geçerli olan Azure VM rezervasyonları için ülkeye göre ürünlerin listesini almak için bu örneği izleyin.
+Microsoft Azure (MS-azr-0145p) abonelikleri için geçerli olan Azure VM ayırmaları ülkeye göre ürünlerin bir listesini almak için bu örneği izleyin.
 
 ```http
 GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=AzureReservationsVM HTTP/1.1
@@ -159,22 +159,37 @@ MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
 MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
 ```
 
+#### <a name="new-commerce-license-based-services"></a>Yeni ticaret lisansı tabanlı hizmetler
+
+> [!Note] 
+> Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir
+
+Yeni ticaret deneyimi teknik önizlemesinin bir parçası olarak yeni ticari lisans tabanlı hizmetlere ülkeye göre ürünlerin bir listesini almak için bu örneği izleyin. Yeni ticaret lisansı tabanlı hizmetler, **Onlineservicesnce**'nin ID ve DisplayNames değerleriyle belirlenir. Aşağıdaki yanıt örneğine bakın.
+
+```http
+GET https://api.partnercenter.microsoft.com/v1/products?country=US&targetView=OnlineServices HTTP/1.1
+Authorization: Bearer
+Accept: application/json
+MS-RequestId: 031160b2-b0b0-4d40-b2b1-aaa9bb84211d
+MS-CorrelationId: 7c1f6619-c176-4040-a88f-2c71f3ba4533
+```
+
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa yanıt gövdesi bir Ürün kaynakları [**koleksiyonu**](product-resources.md#product) içerir.
+Başarılı olursa, yanıt gövdesi bir [**ürün**](product-resources.md#product) kaynakları koleksiyonu içerir.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
 
 Bu yöntem aşağıdaki hata kodlarını döndürür:
 
-| HTTP Durum Kodu     | Hata kodu   | Description                                                                                               |
+| HTTP durum kodu     | Hata kodu   | Description                                                                                               |
 |----------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| 403                  | 400030       | İstenen targetSegment'a erişime izin verilmiyor.                                                     |
-| 403                  | 400036       | İstenen targetView'a erişime izin verilmiyor.                                                        |
+| 403                  | 400030       | İstenen targetSegment erişimine izin verilmiyor.                                                     |
+| 403                  | 400036       | İstenen targetView 'a erişime izin verilmiyor.                                                        |
 
-### <a name="response-example"></a>Yanıt örneği
+### <a name="response-example-for-azure-vm-reservations-azure-plan"></a>Azure VM ayırmaları için yanıt örneği (Azure planı)
 
 ```http
 {
@@ -221,3 +236,50 @@ Bu yöntem aşağıdaki hata kodlarını döndürür:
     }
 }
 ```
+
+### <a name="response-example-for-new-commerce-license-based-services"></a>Yeni ticaret lisansı tabanlı hizmetler için yanıt örneği
+
+> [!Note] 
+> Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir
+
+```http
+{
+  "totalCount": 19,
+  "items": [{
+      "id": "CFQ7TTC0LH18",
+      "title": "Microsoft 365 Business Basic",
+      "description": "Best for businesses that need professional email, cloud file storage, and online meetings & chat. Desktop versions of Office apps like Excel, Word, and PowerPoint not included. For businesses with up to 300 employees.",
+      "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+      },
+      "isMicrosoftProduct": true,
+      "publisherName": "Microsoft Corporation",
+      "links": {
+        "skus": {
+          "uri": "/products/CFQ7TTC0LH18/skus?country=US",
+          "method": "GET",
+          "headers": []
+        },
+        "self": {
+          "uri": "/products/CFQ7TTC0LH18?country=US",
+          "method": "GET",
+          "headers": []
+        }
+      }
+    },
+    ...
+  ],
+  "links": {
+    "self": {
+      "uri": "/products?country=US&targetView=OnlineServices",
+      "method": "GET",
+      "headers": []
+    }
+  },
+  "attributes": {
+    "objectType": "Collection"
+  }
+}
+```
+

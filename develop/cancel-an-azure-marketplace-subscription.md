@@ -1,19 +1,24 @@
 ---
-title: Ticari market aboneliğini iptal etme
-description: Müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market abonelik kaynağını iptal etmek için Iş Ortağı Merkezi API 'Lerini nasıl kullanacağınızı öğrenin.
-ms.date: 08/16/2019
+title: Ticari Market veya yeni bir ticaret aboneliğini iptal etme
+description: Iş Ortağı Merkezi API 'Lerini bir müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market veya yeni ticaret abonelik kaynağını iptal etmek için nasıl kullanacağınızı öğrenin.
+ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: e73810bb62ecc8487ff0d57c051a1201fc558d13b01529bb8ff5a3f2ac223f2b
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: cbfe17ba4880c303c3f3ba01db5955a557eb04e2
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115992271"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456146"
 ---
-# <a name="cancel-a-commercial-marketplace-subscription-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak ticari Market aboneliğini iptal etme
+# <a name="cancel-a-commercial-marketplace-or-new-commerce-subscription-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak ticari Market veya yeni ticaret aboneliğini iptal etme
 
-Bu makalede, Iş Ortağı Merkezi API 'sini müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market [abonelik](subscription-resources.md) kaynağını iptal etmek için nasıl kullanabileceğiniz açıklanır.
+**Uygulama hedefi**: Iş Ortağı Merkezi
+
+Bu makalede, müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market veya yeni ticaret [abonelik](subscription-resources.md) kaynağını iptal etmek Için Iş Ortağı Merkezi API 'sini nasıl kullanabileceğiniz açıklanmaktadır.
+
+> [!Note] 
+> Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -85,7 +90,7 @@ Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md
 
 İstek gövdesinde tam bir **abonelik** kaynağı gereklidir. **Status** özelliğinin güncelleştirildiğinden emin olun.
 
-### <a name="request-example"></a>İstek örneği
+### <a name="request-example-for-a-commercial-marketplace-subscription"></a>Ticari Market aboneliği için istek örneği
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
@@ -126,6 +131,86 @@ Connection: Keep-Alive
     "publisherName": "publisher Name",
     "orderId": "ImxjLNL4_fOc-2KoyOxGTZcrlIquzls11",
     "attributes": {"objectType": "Subscription"},
+}
+```
+
+### <a name="request-example-for-a-new-commerce-subscription"></a>Yeni bir ticari abonelik için istek örneği
+
+> [!Note] 
+> Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir.
+
+```http
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+Authorization: Bearer <token>
+Accept: application/json
+MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
+MS-CorrelationId: ec8f62e5-1d92-47e9-8d5d-1924af105f2c
+If-Match: <etag>
+Content-Type: application/json
+Content-Length: 1029
+Expect: 100-continue
+Connection: Keep-Alive
+
+{
+    "id": "a4c1340d-6911-4758-bba3-0c4c6007d161",
+    "offerId": "CFQ7TTC0LH18:0001:CFQ7TTC0K971",
+    "offerName": "Microsoft 365 Business Basic",
+    "friendlyName": "Microsoft 365 Business Basic",
+    "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+    },
+    "quantity": 1, 
+    "unitType": "Licenses",
+    "hasPurchasableAddons": false,
+    "creationDate": "2021-01-14T16:57:15.0966728Z",
+    "effectiveStartDate": "2021-01-14T16:57:14.498252Z",
+    "commitmentEndDate": "2022-01-13T00:00:00Z",
+    "status": "deleted", // original value = “active”
+    "autoRenewEnabled": true, 
+    "isTrial": false,
+    "billingType": "license",
+    "billingCycle": "monthly",
+    "termDuration": "P1Y",
+    "renewalTermDuration": "",
+    "refundOptions": [
+        {
+            "type": "Full",
+            "expiresAt": "2021-01-15T00:00:00Z"
+        }
+    ],
+    "isMicrosoftProduct": true,
+    "partnerId": "",
+    "attentionNeeded": false,
+    "actionTaken": false,
+    "contractType": "subscription",
+    "links": {
+        "product": {
+            "uri": "/products/CFQ7TTC0LH18?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "sku": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "availability": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001/availabilities/CFQ7TTC0K971?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "self": {
+            "uri": "/customers/d8202a51-69f9-4228-b900-d0e081af17d7/subscriptions/a4c1340d-6911-4758-bba3-0c4c6007d161",
+            "method": "GET",
+            "headers": []
+        }
+    },
+    "publisherName": "Microsoft Corporation",
+    "orderId": "34b37d7340cc",
+    "attributes": {
+        "objectType": "Subscription"
+    }
 }
 ```
 

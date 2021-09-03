@@ -1,15 +1,15 @@
 ---
 title: Bir aboneliğin miktarını değiştirme
 description: Bir müşteri aboneliği için lisans miktarını değiştirmek üzere Iş Ortağı Merkezi API 'Lerini nasıl kullanacağınızı öğrenin. Bunu Iş Ortağı Merkezi panosunda da yapabilirsiniz.
-ms.date: 06/05/2019
+ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f13f4c73e085d2bf323a4260674d0dfa50631b692340a99bb67925a6480d044c
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: b4bf40bf6ec2875b7091c34a2629331dfe240c95
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115992152"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456851"
 ---
 # <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Bir müşteri aboneliğinde lisans miktarını değiştirme
 
@@ -108,6 +108,85 @@ Connection: Keep-Alive
 }
 ```
 
+### <a name="request-example-for-new-commerce-subscription-to-reduce-quantity"></a>Miktarı azaltmak için yeni ticaret aboneliği için istek örneği
+
+> [!Note] 
+> Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir.
+
+```http
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+Authorization: Bearer <token>
+Accept: application/json
+MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
+MS-CorrelationId: ec8f62e5-1d92-47e9-8d5d-1924af105f2c
+Content-Type: application/json
+Content-Length: 1029
+Expect: 100-continue
+Connection: Keep-Alive
+
+{
+    "id": "a4c1340d-6911-4758-bba3-0c4c6007d161",
+    "offerId": "CFQ7TTC0LH18:0001:CFQ7TTC0K971",
+    "offerName": "Microsoft 365 Business Basic",
+    "friendlyName": "Microsoft 365 Business Basic",
+    "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+    },
+    "quantity": 1, // original value = 10
+    "unitType": "Licenses",
+    "hasPurchasableAddons": false,
+    "creationDate": "2021-01-14T16:57:15.0966728Z",
+    "effectiveStartDate": "2021-01-14T16:57:14.498252Z",
+    "commitmentEndDate": "2022-01-13T00:00:00Z",
+    "status": "active", 
+    "autoRenewEnabled": true, 
+    "isTrial": false,
+    "billingType": "license",
+    "billingCycle": "monthly",
+    "termDuration": "P1Y",
+    "renewalTermDuration": "",
+    "refundOptions": [
+        {
+            "type": "Full",
+            "expiresAt": "2021-01-15T00:00:00Z"
+        }
+    ],
+    "isMicrosoftProduct": true,
+    "partnerId": "",
+    "attentionNeeded": false,
+    "actionTaken": false,
+    "contractType": "subscription",
+    "links": {
+        "product": {
+            "uri": "/products/CFQ7TTC0LH18?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "sku": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "availability": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001/availabilities/CFQ7TTC0K971?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "self": {
+            "uri": "/customers/d8202a51-69f9-4228-b900-d0e081af17d7/subscriptions/a4c1340d-6911-4758-bba3-0c4c6007d161",
+            "method": "GET",
+            "headers": []
+        }
+    },
+    "publisherName": "Microsoft Corporation",
+    "orderId": "34b37d7340cc",
+    "attributes": {
+        "objectType": "Subscription"
+    }
+}
+```
+
 ## <a name="rest-response"></a>REST yanıtı
 
 Başarılı olursa, bu yöntem yanıt gövdesinde bir **http durum 200** durum kodu ve güncelleştirilmiş [abonelik kaynak](subscription-resources.md)  özellikleri döndürür.
@@ -190,3 +269,20 @@ Content-Length: 1432
 Connection: Keep-Alive
 Location: /customers/<customer-tenant-id>/subscriptions/<subscriptionID>
 ```
+
+#### <a name="response-example-for-new-commerce-reduce-seat-counts"></a>Yeni ticaret azaltma bilgisayar sayımlarını için yanıt örneği
+
+> [!Note] 
+> Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir.
+
+Yeni ticaret abonelikleri için miktarları azaltmaya çalışırken yanıt.
+
+```http
+{
+    "code": 800090,
+    "description": "Subscription quantity cannot be decreased.",
+    "data": [],
+    "source": "PartnerFD"
+}
+```
+

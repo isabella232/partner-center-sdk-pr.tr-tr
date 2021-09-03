@@ -1,19 +1,24 @@
 ---
-title: Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
+title: Ticari market ve yeni ticari abonelikler için otomatik yenileme güncelleştirildi
 description: Müşteri ve abonelik kimliğiyle eşleşen bir Abonelik kaynağı için otomatik yenileme özelliğini güncelleştirin.
-ms.date: 08/16/2019
+ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b83c225a8b6fa11bdd5db5bcca9dd277fcfc4ed56769f1a7a272a388a1c93ab5
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 6d533a41c58b05ec449b76394466dd4608abc65a
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115996606"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123455736"
 ---
-# <a name="update-autorenew-for-a-commercial-marketplace-subscription"></a>Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
+# <a name="update-autorenew-for-a-commercial-marketplace-subscription-or-new-commerce-subscriptions"></a>Ticari market aboneliği veya yeni ticari abonelikler için otomatik yenileme güncelleştirildi
 
-Ticari market Abonelik kaynağı için müşteri ve [abonelik](subscription-resources.md) kimliğiyle eşleşen otomatik yenileme özelliğini güncelleştirin.
+**Uygulama:** İş Ortağı Merkezi
+
+> [!Note] 
+> Yeni Ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticari deneyim teknik önizlemesi kapsamında olan iş ortakları tarafından kullanılabilir.
+
+Ticari market veya müşteri ve abonelik kimliğiyle eşleşen yeni ticari [Abonelik](subscription-resources.md) kaynağı için otomatik yenileme özelliğini güncelleştirin.
 
 Bu İş Ortağı Merkezi, önce bir müşteri [seçerek gerçekleştirilir.](get-a-customer-by-name.md) Ardından güncelleştirmek istediğiniz aboneliği seçin. Son olarak, Otomatik yenileme **seçeneğini açıp** Gönder'i **seçin.**
 
@@ -21,7 +26,7 @@ Bu İş Ortağı Merkezi, önce bir müşteri [seçerek gerçekleştirilir.](get
 
 - kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi'den **CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 - Abonelik kimliği.
 
@@ -47,16 +52,16 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | Yöntem    | İstek URI'si                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **Yama** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
+| **YAMA** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{id-for-subscription} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Bu tabloda aboneliği askıya almak için gereken sorgu parametresi listelemektedir.
+Bu tabloda aboneliği askıya almak için gerekli sorgu parametresi listelemektedir.
 
 | Ad                    | Tür     | Gerekli | Açıklama                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **customer-tenant-id**  | **Guıd** | Y        | Müşteriye karşılık gelen bir GUID.     |
-| **abonelik için id** | **Guıd** | Y        | Aboneliğe karşılık gelen BIR GUID. |
+| **customer-tenant-id**  | **GUID** | Y        | Müşteriye karşılık gelen bir GUID.     |
+| **abonelik için id** | **GUID** | Y        | Aboneliğe karşılık gelen BIR GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -66,7 +71,7 @@ Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers
 
 İstek gövdesinde **tam** bir ticari market Abonelik kaynağı gereklidir. **AutoRenewEnabled özelliğinin** güncelleştirilmiş olduğundan emin olun.
 
-### <a name="request-example"></a>İstek örneği
+### <a name="request-example-for-commercial-marketplace-subscription"></a>Ticari market aboneliği için istek örneği
 
 ```http
 PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
@@ -107,6 +112,86 @@ Connection: Keep-Alive
     "publisherName": "publisher Name",
     "orderId": "ImxjLNL4_fOc-2KoyOxGTZcrlIquzls11",
     "attributes": {"objectType": "Subscription"},
+}
+```
+
+### <a name="request-example-for-new-commerce-subscription"></a>Yeni ticari abonelik için istek örneği
+
+> [!Note] 
+> Yeni Ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticari deneyim teknik önizlemesi kapsamında olan iş ortakları tarafından kullanılabilir.
+
+```http
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+Authorization: Bearer <token>
+Accept: application/json
+MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
+MS-CorrelationId: ec8f62e5-1d92-47e9-8d5d-1924af105f2c
+If-Match: <etag>
+Content-Type: application/json
+Content-Length: 1029
+Expect: 100-continue
+Connection: Keep-Alive
+
+ {
+    "id": "a4c1340d-6911-4758-bba3-0c4c6007d161",
+    "offerId": "CFQ7TTC0LH18:0001:CFQ7TTC0K971",
+    "offerName": "Microsoft 365 Business Basic",
+    "friendlyName": "Microsoft 365 Business Basic",
+    "productType": {
+        "id": "OnlineServicesNCE",
+        "displayName": "OnlineServicesNCE"
+    },
+    "quantity": 1, 
+    "unitType": "Licenses",
+    "hasPurchasableAddons": false,
+    "creationDate": "2021-01-14T16:57:15.0966728Z",
+    "effectiveStartDate": "2021-01-14T16:57:14.498252Z",
+    "commitmentEndDate": "2022-01-13T00:00:00Z",
+    "status": "active",
+    "autoRenewEnabled": false, // original value = true
+    "isTrial": false,
+    "billingType": "license",
+    "billingCycle": "monthly",
+    "termDuration": "P1Y",
+    "renewalTermDuration": "",
+    "refundOptions": [
+        {
+            "type": "Full",
+            "expiresAt": "2021-01-15T00:00:00Z"
+        }
+    ],
+    "isMicrosoftProduct": true,
+    "partnerId": "",
+    "attentionNeeded": false,
+    "actionTaken": false,
+    "contractType": "subscription",
+    "links": {
+        "product": {
+            "uri": "/products/CFQ7TTC0LH18?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "sku": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "availability": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001/availabilities/CFQ7TTC0K971?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "self": {
+            "uri": "/customers/d8202a51-69f9-4228-b900-d0e081af17d7/subscriptions/a4c1340d-6911-4758-bba3-0c4c6007d161",
+            "method": "GET",
+            "headers": []
+        }
+    },
+    "publisherName": "Microsoft Corporation",
+    "orderId": "34b37d7340cc",
+    "attributes": {
+        "objectType": "Subscription"
+    }
 }
 ```
 

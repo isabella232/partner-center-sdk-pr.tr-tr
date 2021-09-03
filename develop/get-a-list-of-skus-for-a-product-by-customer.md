@@ -2,21 +2,21 @@
 title: Bir ürün için SKU'ların listesini al (müşteriye göre)
 description: Müşteriye göre belirtilen ürün için bir SKU koleksiyonu alır.
 ms.assetid: ''
-ms.date: 10/11/2019
+ms.date: 02/16/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: amitravat
 ms.author: amrava
-ms.openlocfilehash: a7ee543281fd65785561641ca448f78e374aad7683aa1b95c65845dabfc44f07
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: e3794dda474a3807a0707f551f01f13eebd58efe
+ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115989874"
+ms.lasthandoff: 09/03/2021
+ms.locfileid: "123456027"
 ---
 # <a name="get-a-list-of-skus-for-a-product-by-customer"></a>Bir ürün için SKU'ların listesini al (müşteriye göre)
 
-**Için geçerlidir:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet tarafından | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
 Mevcut müşteri tarafından kullanılabilen belirli bir ürün için bir SKU koleksiyonu alır.
 
@@ -24,7 +24,7 @@ Mevcut müşteri tarafından kullanılabilen belirli bir ürün için bir SKU ko
 
 - kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi'den **CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 - Ürün kimliği (**product-id**).
 
@@ -73,7 +73,7 @@ Bu yöntem aşağıdaki hata kodlarını döndürür:
 |------------------|------------|-------------|
 | 404 | 400013 | Üst ürün bulunamadı. |
 
-### <a name="response-example"></a>Yanıt örneği
+### <a name="response-example-for-azure-plan"></a>Azure planı için yanıt örneği
 
 ```http
 HTTP/1.1 200 OK
@@ -124,3 +124,86 @@ MS-RequestId: ae7288e2-2673-4ad4-8c12-7aad818d5949
     ]
 }
 ```
+
+### <a name="response-example-for-new-commerce-license-based-services"></a>Yeni ticari lisans tabanlı hizmetler için yanıt örneği
+
+> [!Note] 
+> Yeni Ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesi kapsamında olan iş ortakları tarafından kullanılabilir
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Server: Microsoft-IIS/10.0
+MS-CorrelationId: e75c1060-852e-4b49-92b0-cd15167a0d51,e75c1060-852e-4b49-92b0-cd15167a0d51
+MS-RequestId: 18b41adf-29b5-48eb-b14f-c9683a4e5b7d,18b41adf-29b5-48eb-b14f-c9683a4e5b7d
+X-Locale: en-US,en-US
+X-SourceFiles: =?UTF-8?B?QzpcVXNlcnNcbWFtZW5kZVxkZXZcZHBzLXJwZVxSUEUuUGFydG5lci5TZXJ2aWNlLkNhdGFsb2dcV2ViQXBpc1xDYXRhbG9nU2VydmljZS5WMi5XZWJcdjFccHJvZHVjdHNcRFpIMzE4WjBCUTVTXHNrdXM=?=
+X-Powered-By: ASP.NET
+Date: Thu, 15 Mar 2018 21:06:03 GMT
+Content-Length: 50917
+
+{
+    "totalCount": 40,
+    "items": [
+        {
+{
+    "id": "0001",
+    "productId": "CFQ7TTC0LH18",
+    "title": "Microsoft 365 Business Basic",
+    "description": "Best for businesses that need professional email, cloud file storage, and online meetings & chat. Desktop versions of Office apps like Excel, Word, and PowerPoint not included. For businesses with up to 300 employees.",
+    "minimumQuantity": 1,
+    "maximumQuantity": 300,
+    "isTrial": false,
+    "supportedBillingCycles": [
+        "annual",
+        "monthly"
+    ],
+    "purchasePrerequisites": [
+        "MicrosoftCloudAgreement"
+    ],
+    "inventoryVariables": [],
+    "provisioningVariables": [],
+    "actions": [
+        "Refund"
+    ],
+    "dynamicAttributes": {
+        "isMicrosoftProduct": true,
+        "hasConstraints": true,
+        "isAddon": false,
+        "prerequisiteSkus": [],
+        "isSoftwareAssuranceApplicable": false,
+        "upgradeTargetOffers": [
+            "CFQ7TTC0LDPB:0001",
+            "CFQ7TTC0LF8Q:0001"
+…
+        ],
+        "provisioningId": "3b555118-da6a-4418-894f-7df1e2096870",
+        "internal": false
+    },
+    "links": {
+        "availabilities": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001/availabilities?country=US",
+            "method": "GET",
+            "headers": []
+        },
+        "self": {
+            "uri": "/products/CFQ7TTC0LH18/skus/0001?country=US",
+            "method": "GET",
+            "headers": []
+        }
+    }
+}        [...]
+    ],
+    "links": {
+        "self": {
+            "uri": "/products/DZH318Z0BQ5S/skus?country=US",
+            "method": "GET",
+            "headers": []
+        }
+    },
+    "attributes": {
+        "objectType": "Collection"
+    }
+}
+```
+
