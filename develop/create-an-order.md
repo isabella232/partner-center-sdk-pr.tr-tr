@@ -1,31 +1,31 @@
 ---
 title: Müşteri siparişi oluşturma
 description: Müşteri için sipariş İş Ortağı Merkezi API'leri kullanmayı öğrenin. Makale önkoşulları, adımları ve örnekleri içerir.
-ms.date: 07/12/2019
+ms.date: 09/06/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: f8a18ef4a6fbdfcd659e6ec1c11bc6bd61c80472
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: 232888ee798b4579246bbfd787e049f9f6e2e8a3
+ms.sourcegitcommit: 5f27733d7c984c29f71c8b9c8ba5f89753eeabc4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123456044"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123557261"
 ---
 # <a name="create-an-order-for-a-customer-using-partner-center-apis"></a>İş Ortağı Merkezi API'lerini kullanarak müşteri için sipariş oluşturma
 
-**Uygulama:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet tarafından | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Için geçerlidir:** İş Ortağı Merkezi | 21Vianet İş Ortağı Merkezi tarafından çalıştırılan | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
 Azure ayrılmış **VM örneği ürünleri için sipariş oluşturma yalnızca** *aşağıdakiler için* geçerlidir:
 
 - İş Ortağı Merkezi
 
-Şu anda satış için nelerin kullanılabilir olduğu hakkında bilgi için [bkz. Bulut Çözümü Sağlayıcısı programda iş ortağı teklifleri.](/partner-center/csp-offers)
+Satış için şu anda nelerin kullanılabilir olduğu hakkında bilgi için [bkz. Bulut Çözümü Sağlayıcısı programda iş ortağı teklifleri.](/partner-center/csp-offers)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi'den **CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
 - Teklif tanımlayıcısı.
 
@@ -40,6 +40,97 @@ Bir müşteriye sipariş oluşturmak için:
 3. İşlemleri sıralamak için bir arabirim elde edin. İlk olarak, [**müşteri kimliğini kullanarak IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini çağırarak müşteriyi tanıyın. Ardından Orders özelliğinden [**arabirimini**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.orders) alın.
 
 4. [**Create**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.create) veya [**CreateAsync yöntemini**](/dotnet/api/microsoft.store.partnercenter.orders.iordercollection.createasync) çağırma ve [**Order nesnesine**](order-resources.md) geçme.
+
+5. Doğrulandıktan sonra ek kurumsal bayileri dahil etmek için aşağıdaki örnek İstek ve Yanıt Örneklerine bakın:
+
+### <a name="request-example"></a>İstek örneği
+
+``` csharp
+{
+    "PartnerOnRecordAttestationAccepted":true, 
+    "lineItems": [
+        {
+            "offerId": "CFQ7TTC0LH0Z:0001:CFQ7TTC0K18P",
+            "quantity": 1,
+            "lineItemNumber": 0,
+            "PartnerIdOnRecord": "873452",
+            "AdditionalPartnerIdsOnRecord":["4847383","873452"]
+        }
+    ],
+    "billingCycle": "monthly"
+}
+```
+
+### <a name="response-example"></a>Yanıt örneği
+
+``` csharp
+{
+    "id": "5cf72f146967",
+    "alternateId": "5cf72f146967",
+    "referenceCustomerId": "f81d98dd-c2f4-499e-a194-5619e260344e",
+    "billingCycle": "monthly",
+    "currencyCode": "USD",
+    "currencySymbol": "$",
+    "lineItems": [
+        {
+            "lineItemNumber": 0,
+            "offerId": "CFQ7TTC0LH0Z:0001:CFQ7TTC0K18P",
+            "subscriptionId": "fcddfa52-1da8-4529-d347-50ea51e1e7be",
+            "termDuration": "P1M",
+            "transactionType": "New",
+            "friendlyName": "AI Builder Capacity add-on",
+            "quantity": 1,
+            "partnerIdOnRecord": "873452",
+            "additionalPartnerIdsOnRecord": [
+                "4847383",
+                "873452"
+            ],
+            "links": {
+                "product": {
+                    "uri": "/products/CFQ7TTC0LH0Z?country=US",
+                    "method": "GET",
+                    "headers": []
+                },
+                "sku": {
+                    "uri": "/products/CFQ7TTC0LH0Z/skus/0001?country=US",
+                    "method": "GET",
+                    "headers": []
+                },
+                "availability": {
+                    "uri": "/products/CFQ7TTC0LH0Z/skus/0001/availabilities/CFQ7TTC0K18P?country=US",
+                    "method": "GET",
+                    "headers": []
+                }
+            }
+        }
+    ],
+    "creationDate": "2021-08-17T18:13:11.3122226Z",
+    "status": "pending",
+    "transactionType": "UserPurchase",
+    "links": {
+        "self": {
+            "uri": "/customers/f81d98dd-c2f4-499e-a194-5619e260344e/orders/5cf72f146967",
+            "method": "GET",
+            "headers": []
+        },
+        "provisioningStatus": {
+            "uri": "/customers/f81d98dd-c2f4-499e-a194-5619e260344e/orders/5cf72f146967/provisioningstatus",
+            "method": "GET",
+            "headers": []
+        },
+        "patchOperation": {
+            "uri": "/customers/f81d98dd-c2f4-499e-a194-5619e260344e/orders/5cf72f146967",
+            "method": "PATCH",
+            "headers": []
+        }
+    },
+    "client": {},
+    "attributes": {
+        "objectType": "Order"
+    }
+}
+
+```
 
 ``` csharp
 IAggregatePartner partnerOperations;
@@ -81,7 +172,7 @@ var createdOrder = partnerOperations.Customers.ById(customerId).Orders.Create(or
 
 #### <a name="uri-parameters"></a>URI parametreleri
 
-Müşteriyi tanımlamak için aşağıdaki path parametresini kullanın.
+Müşteriyi tanımlamak için aşağıdaki yol parametresini kullanın.
 
 | Ad        | Tür   | Gerekli | Açıklama                                                |
 |-------------|--------|----------|------------------------------------------------------------|
@@ -95,49 +186,52 @@ Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers
 
 #### <a name="order"></a>Sipariş
 
-Bu tablo, istek [gövdesinin](order-resources.md) Sipariş özelliklerini açıklar.
+Bu tabloda istek [gövdesinde Sipariş](order-resources.md) özellikleri açık edilmektedir.
 
 | Özellik             | Tür                        | Gerekli                        | Açıklama                                                                   |
 |----------------------|-----------------------------|---------------------------------|-------------------------------------------------------------------------------|
 | kimlik                   | dize                      | No                              | Siparişin başarıyla oluşturulmasının ardından sağlanan bir sipariş tanımlayıcısı.   |
 | referenceCustomerId  | dize                      | No                              | Müşteri tanımlayıcısı. |
-| billingCycle         | dize                      | No                              | İş ortağının bu sipariş için faturalandırılama sıklığını gösterir. Desteklenen değerler [BillingCycleType](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. Varsayılan değer, sipariş oluşturma sırasında "Monthly" veya "OneTime" şeklindedir. Bu alan, siparişin başarıyla oluşturulmasının ardından uygulanır. |
+| billingCycle         | dize                      | No                              | İş ortağının bu sipariş için faturalandırılama sıklığını gösterir. Desteklenen değerler, [BillingCycleType](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. Varsayılan değer, sipariş oluşturma sırasında "Monthly" veya "OneTime" şeklindedir. Bu alan, siparişin başarıyla oluşturulmasının ardından uygulanır. |
 | lineItems            | [OrderLineItem kaynakları](order-resources.md#orderlineitem) dizisi | Yes      | Miktarı da dahil olmak üzere müşterinin satın alma tekliflerinin maddeli listesi.        |
 | currencyCode         | dize                      | No                              | Salt okunur. Siparişin yerleştirilmesi için kullanılan para birimi. Siparişin başarıyla oluşturulmasının ardından uygulanır.           |
 | Creationdate         | datetime                    | No                              | Salt okunur. Siparişin tarih-saat biçiminde oluşturulma tarihi. Siparişin başarıyla oluşturulmasının ardından uygulanır.                                   |
 | durum               | dize                      | No                              | Salt okunur. Siparişin durumu.  Desteklenen değerler OrderStatus içinde bulunan [üye adlarıdır.](order-resources.md#orderstatus)        |
 | Bağlantı                | [OrderLinks](utility-resources.md#resourcelinks)              | No                              | Siparişe karşılık gelen kaynak bağlantıları. |
-| öznitelikler           | [Resourceattributes](utility-resources.md#resourceattributes) | No                              | Order'a karşılık gelen meta veri öznitelikleri. |
+| öznitelikler           | [ResourceAttributes](utility-resources.md#resourceattributes) | No                              | Sıraya karşılık gelen meta veri öznitelikleri. |
+| Partneronrecordattestationkabul edildi | Boole | Yes | Kanıtlama tamamlamayı onaylar |
 
-#### <a name="orderlineitem"></a>OrderLineItem
 
-Bu tablo, istek [gövdesinin OrderLineItem](order-resources.md#orderlineitem) özelliklerini açıklar.
+#### <a name="orderlineitem"></a>Orderlineıtem
+
+Bu tablo, istek gövdesinde [Orderlineıtem](order-resources.md#orderlineitem) özelliklerini açıklar.
 
 >[!NOTE]
->partnerIdOnRecord yalnızca dolaylı bir sağlayıcı dolaylı kurumsal bayi adına sipariş verdiklerinde sağlanmalıdır. Yalnızca dolaylı kurumsal bayinin Microsoft İş Ortağı Ağı kimliğini depolamak için kullanılır (hiçbir zaman dolaylı sağlayıcının kimliği).
+>PartnerIdOnRecord yalnızca dolaylı bir sağlayıcı dolaylı bir satıcı adına sipariş yerleştirirse sağlanmalıdır. Yalnızca dolaylı satıcının Microsoft İş Ortağı Ağı KIMLIĞINI depolamak için kullanılır (dolaylı sağlayıcının KIMLIĞI değildir).
 
 | Ad                 | Tür   | Gerekli | Açıklama                                                                                                                                                                                                                                |
 |----------------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lineItemNumber       | int    | Yes      | Koleksiyonda yer alan her satır öğesi benzersiz bir satır numarası alır ve 0 ile 1 arasında bir sayıya kadar sayar.                                                                                                                                                 |
-| offerId              | string | Yes      | Teklif tanımlayıcısı.                                                                                                                                                                                                                      |
+| Lineıtemnumber       | int    | Yes      | Koleksiyondaki her bir satır öğesi, 0 ' dan say-1 ' e kadar sayarak benzersiz bir satır numarası alır.                                                                                                                                                 |
+| OfferId              | string | Yes      | Teklif tanımlayıcısı.                                                                                                                                                                                                                      |
 | subscriptionId       | dize | No       | Abonelik tanımlayıcısı.                                                                                                                                                                                                               |
-| parentSubscriptionId | dize | No       | İsteğe bağlı. Eklenti teklifinde üst aboneliğin kimliği. Yalnızca PATCH için geçerlidir.                                                                                                                                                     |
-| Friendlyname         | dize | No       | İsteğe bağlı. Karartmanıza yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı.                                                                                                                                              |
-| miktar             | int    | Yes      | Lisans tabanlı bir aboneliğin lisans sayısı.                                                                                                                                                                                   |
-| partnerIdOnRecord    | dize | No       | Dolaylı sağlayıcı dolaylı bir kurumsal bayi adına sipariş verdiylerinde, bu alanı yalnızca dolaylı kurumsal bayinin MPN kimliğiyle **(dolaylı** sağlayıcının kimliği hiçbir zaman) doldurmak. Bu, teşvikler için doğru hesaplamayı sağlar. |
-| provisioningContext  | Sözlük<dizesi, dize>                | No       |  Katalogdaki bazı öğeler için sağlama için gereken bilgiler. SKU'daki provisioningVariables özelliği, katalogdaki belirli öğeler için hangi özelliklerin gerekli olduğunu gösterir.                  |
-| Bağlantı                | [OrderLineItemLinks](order-resources.md#orderlineitemlinks) | No       |  Salt okunur. Sipariş satırı öğesine karşılık gelen kaynak bağlantıları.  |
-| öznitelikler           | [Resourceattributes](utility-resources.md#resourceattributes) | No       | OrderLineItem'a karşılık gelen meta veri öznitelikleri. |
-| renewsTo             | Nesne dizisi                          | No    |[RenewsTo kaynakları](order-resources.md#renewsto) dizisi.                                                                            |
-| AttestationAccepted             | bool                 | No   |  Teklif veya sku koşullarının sözleşmeyi gösterir. Yalnızca SkuAttestationProperties veya OfferAttestationProperties enforceAttestation true olan teklifler veya sku'lar için gereklidir.          |
+| Parentsubscriptionıd | dize | No       | İsteğe bağlı. Bir eklenti teklifinde üst aboneliğin KIMLIĞI. Yalnızca düzeltme eki için geçerlidir.                                                                                                                                                     |
+| friendlyName         | dize | No       | İsteğe bağlı. Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı.                                                                                                                                              |
+| miktar             | int    | Yes      | Lisans tabanlı abonelik için lisans sayısı.                                                                                                                                                                                   |
+| partnerIdOnRecord    | dize | No       | Dolaylı bir sağlayıcı dolaylı bir satıcı adına bir sipariş yerleştirirse, bu alanı **yalnızca dolaylı** satıcının MPN kimliğiyle doldurun (hiçbir zaman dolaylı sağlayıcının kimliği değildir). Bu, teşvikleri için doğru hesaplamayı sağlar. |
+| provisioningContext  | Sözlük<dize, dize>                | No       |  Katalogdaki bazı öğelerin sağlanması için gereken bilgiler. SKU 'daki provisioningVariables özelliği, katalogdaki belirli öğeler için hangi özelliklerin gerekli olduğunu gösterir.                  |
+| Köprü                | [Orderlineıtemlinks](order-resources.md#orderlineitemlinks) | No       |  Salt okunur. Sipariş satırı öğesine karşılık gelen kaynak bağlantıları.  |
+| öznitelikler           | [ResourceAttributes](utility-resources.md#resourceattributes) | No       | Orderlineıtem öğesine karşılık gelen meta veri öznitelikleri. |
+| renewsTo             | Nesne dizisi                          | No    |[RenewsTo](order-resources.md#renewsto) kaynaklarından oluşan bir dizi.                                                                            |
+| AttestationAccepted             | bool                 | No   |  Teklif veya SKU koşullarına yönelik anlaşmayı gösterir. Yalnızca SkuAttestationProperties veya OfferAttestationProperties Enforcekanıtlama 'nin doğru olduğu teklifler veya SKU 'lar için gereklidir.          |
+| Additionalpartnerıdsonrecord | Dize | No | Dolaylı bir sağlayıcı dolaylı bir satıcı adına bir sipariş yerleştirirse, bu alanı **yalnızca ek dolaylı** satıcının MPN kimliğiyle doldurun (dolaylı sağlayıcının kimliği hiçbir zaman değildir). Teşvikleri bu ek satıcılar için geçerli değildir. Yalnızca en fazla 5 dolaylı satıcıda girilebilir. Bu, AB/EFTA ülkelerinde yalnızca geçerli iş ortakları deneyimidir. |
 
 ##### <a name="renewsto"></a>RenewsTo
 
-Bu tabloda istek [gövdesinin RenewsTo](order-resources.md#renewsto) özellikleri açık edilmektedir.
+Bu tablo, istek gövdesinde [RenewsTo](order-resources.md#renewsto) özelliklerini açıklar.
 
 | Özellik              | Tür             | Gerekli        | Açıklama |
 |-----------------------|------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------|
-| termDuration          | dize           | No              | Yenileme süresinin ISO 8601 gösterimi. Desteklenen geçerli değerler **P1M (1** ay) ve **P1Y (1** yıl) değerleridir. |
+| termDuration          | dize           | No              | Yenileme teriminin süresinin ISO 8601 temsili. Desteklenen geçerli değerler **P1M** (1 ay) ve **P1Y** (1 yıl). |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -169,11 +263,11 @@ Content-Type: application/json
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, yöntem yanıt [gövdesinde](order-resources.md) bir Sipariş kaynağı döndürür.
+Başarılı olursa, yöntem yanıt gövdesinde bir [sipariş](order-resources.md) kaynağı döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu gösteren bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
 
 ### <a name="response-example"></a>Yanıt örneği
 
