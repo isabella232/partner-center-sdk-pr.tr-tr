@@ -324,7 +324,7 @@
           href: create-azure-plan.md
         - name: Azure rezervasyonları satın alma
           href: purchase-azure-reservations.md
-        - name: Yeni ticaret lisansı tabanlı hizmetler satın alın
+        - name: Yeni ticari lisans tabanlı hizmetler satın alma
           href: purchase-new-commerce-license-based.md
         - name: Ticari market ürünleri için abonelik satın alma
           href: create-subscription-azure-marketplace-products.md
@@ -362,6 +362,8 @@
           href: get-a-list-of-products.md
         - name: Ürünlerin bir listesini alma (müşteriye göre)
           href: get-a-list-of-products-by-customer.md
+        - name: Promosyonların listesini al
+          href: get-promotions.md
         - name: Bir ürüne ait SKU’ların listesini alma (ülkeye göre)
           href: get-a-list-of-skus-for-a-product.md
         - name: Bir ürüne ait SKU’ların listesini alma (müşteriye göre)
@@ -372,6 +374,8 @@
           href: get-a-list-of-trial-conversion-offers.md
         - name: Kimliğe göre bir ürün alma
           href: get-a-product-by-id.md
+        - name: Kimlikle yükseltmeyi al
+          href: get-promotion-by-id.md
         - name: Kimliğe göre bir SKU alma
           href: get-a-sku-by-id.md
         - name: Kimliğe göre bir abonelik alma
@@ -406,12 +410,14 @@
           href: suspend-a-subscription.md
         - name: Bir aboneliği geçirme
           href: transition-a-subscription.md
-        - name: Yeni bir ticari aboneliğe geçiş
+        - name: Yeni bir ticaret aboneliğini geçiş
           href: transition-a-new-commerce-subscription.md
         - name: Sepeti güncelleştirme
           href: update-a-cart.md
         - name: Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
           href: update-autorenew-for-an-azure-marketplace-subscription.md
+        - name: Yükseltme uygunluğunu doğrulama
+          href: verify-promotion-eligibility.md
     - name: Ödemeleri yönetme
       href: manage-payouts.md
     - name: Destek sağlama
@@ -533,6 +539,8 @@
           href: profile-resources.md
         - name: Ürünler
           href: product-resources.md
+        - name: Promosyon
+          href: promotion-resources.md
         - name: İlişkiler
           href: relationships-resources.md
         - name: Self servis ilkesi
