@@ -1,56 +1,56 @@
 ---
-title: Ticari Market veya yeni bir ticaret aboneliğini iptal etme
-description: Iş Ortağı Merkezi API 'Lerini bir müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market veya yeni ticaret abonelik kaynağını iptal etmek için nasıl kullanacağınızı öğrenin.
+title: Ticari market veya yeni ticari aboneliği iptal etme
+description: Ticari marketi veya müşteri İş Ortağı Merkezi kimliğiyle eşleşen yeni bir ticari abonelik kaynağını iptal etmek için api'leri kullanmayı öğrenin.
 ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: cbfe17ba4880c303c3f3ba01db5955a557eb04e2
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: ed01a26e22fd814b269b6c8d1769da97e8160619
+ms.sourcegitcommit: 3ee00d9fe9da6b9df0fb7027ae506e2abe722770
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123456146"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129417262"
 ---
-# <a name="cancel-a-commercial-marketplace-or-new-commerce-subscription-using-partner-center-apis"></a>Iş Ortağı Merkezi API 'Lerini kullanarak ticari Market veya yeni ticaret aboneliğini iptal etme
+# <a name="cancel-a-commercial-marketplace-or-new-commerce-subscription-using-partner-center-apis"></a>İş Ortağı Merkezi API'lerini kullanarak ticari market İş Ortağı Merkezi aboneliğini iptal etme
 
-**Uygulama hedefi**: Iş Ortağı Merkezi
+**Uygulama:** İş Ortağı Merkezi
 
-Bu makalede, müşteri ve abonelik KIMLIĞIYLE eşleşen bir ticari Market veya yeni ticaret [abonelik](subscription-resources.md) kaynağını iptal etmek Için Iş Ortağı Merkezi API 'sini nasıl kullanabileceğiniz açıklanmaktadır.
+Bu makalede, müşteri ve abonelik kimliğiyle İş Ortağı Merkezi ticari market [](subscription-resources.md) veya yeni bir ticari abonelik kaynağını iptal etmek için İş Ortağı Merkezi API'sini nasıl kullanabileceğiniz açıklanmıştır.
 
 > [!Note] 
-> Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir.
+> Yeni Ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticari deneyim teknik önizlemesi kapsamında olan iş ortakları tarafından kullanılabilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi menüsünden **CSP'yi** ve ardından Müşteriler'i **seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Abonelik KIMLIĞI.
+- Abonelik kimliği.
 
-## <a name="partner-center-dashboard-method"></a>İş Ortağı Merkezi Pano yöntemi
+## <a name="partner-center-dashboard-method"></a>İş Ortağı Merkezi panosu yöntemi
 
-Iş Ortağı Merkezi panosunda bir ticari Market aboneliğini iptal etmek için:
+İş Ortağı Merkezi panosunda ticari market aboneliğini iptal etmek için:
 
-1. [Bir müşteri seçin](get-a-customer-by-name.md).
+1. [Bir müşteri seçin.](get-a-customer-by-name.md)
 
 2. İptal etmek istediğiniz aboneliği seçin.
 
-3. **Aboneliği Iptal et** seçeneğini belirleyip **Gönder**' i seçin.
+3. Aboneliği iptal **et seçeneğini ve** ardından Gönder'i **seçin.**
 
 ## <a name="c"></a>C\#
 
-Bir müşterinin aboneliğini iptal etmek için:
+Müşterinin aboneliğini iptal etmek için:
 
-1. [ABONELIĞI kimliğe göre alın](get-a-subscription-by-id.md).
+1. [Kimliğine göre aboneliği alın.](get-a-subscription-by-id.md)
 
-2. Aboneliğin [**Status**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) özelliğini değiştirin. **Durum** kodları hakkında bilgi için bkz. [subscriptionstatus numaralandırması](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus).
+2. Aboneliğin Status [**özelliğini**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscription.status) değiştirme. Durum kodları hakkında **bilgi** için [bkz. SubscriptionStatus numaralama.](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.subscriptionstatus)
 
-3. Değişiklik yapıldıktan sonra, **`IAggregatePartner.Customers`** koleksiyonunuzu kullanın ve **byıd ()** yöntemini çağırın.
+3. Değişiklik yapıldıktan sonra koleksiyonu kullanın **`IAggregatePartner.Customers`** ve **ById() yöntemini** arayın.
 
-4. [**Abonelik**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) özelliğini çağırın, ardından [**byıd ()**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) yöntemi.
+4. Subscriptions [**özelliğini ve**](/dotnet/api/microsoft.store.partnercenter.customers.icustomer.subscriptions) ardından [**ById() yöntemini**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptioncollection.byid) çağırma.
 
-5. **Patch ()** yöntemini çağırın.
+5. **Patch() yöntemini** çağırma.
 
 ``` csharp
 // IAggregatePartner partnerOperations;
@@ -63,37 +63,37 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 ### <a name="sample-console-test-app"></a>Örnek konsol test uygulaması
 
-**Örnek**: [konsol test uygulaması](console-test-app.md). **Project**: partnersdk. featuresample **sınıfı**: updatesubscription. cs
+**Örnek:** [Konsol test uygulaması](console-test-app.md). **Project:** PartnerSDK.FeatureSample **Sınıfı:** UpdateSubscription.cs
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem    | İstek URI'si                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription} http/1.1 |
+| **YAMA** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id} HTTP/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Bu tabloda, aboneliği askıya almak için gerekli sorgu parametresi listelenmektedir.
+Bu tabloda aboneliği askıya almak için gereken sorgu parametresi listelemektedir.
 
 | Ad                    | Tür     | Gerekli | Açıklama                               |
 |-------------------------|----------|----------|-------------------------------------------|
-| **Müşteri-Kiracı kimliği**  | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
-| **abonelik kimliği** | **guid** | Y        | Aboneliğe karşılık gelen bir GUID. |
+| **customer-tenant-id**  | **guid** | Y        | Müşteriye karşılık gelen bir GUID.     |
+| **subscription-id** | **guid** | Y        | Aboneliğe karşılık gelen BIR GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek gövdesinde tam bir **abonelik** kaynağı gereklidir. **Status** özelliğinin güncelleştirildiğinden emin olun.
+İstek **gövdesinde** tam bir Abonelik kaynağı gereklidir. Status özelliğinin **güncelleştirilmiş** olduğundan emin olun.
 
-### <a name="request-example-for-a-commercial-marketplace-subscription"></a>Ticari Market aboneliği için istek örneği
+### <a name="request-example-for-a-commercial-marketplace-subscription"></a>Ticari market aboneliği için istek örneği
 
 ```http
-PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscription-id> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
@@ -134,13 +134,16 @@ Connection: Keep-Alive
 }
 ```
 
-### <a name="request-example-for-a-new-commerce-subscription"></a>Yeni bir ticari abonelik için istek örneği
+### <a name="request-example-for-a-new-commerce-subscription"></a>Yeni bir ticari abonelik için örnek isteği
+
+Yeni ticari abonelikler, satın alma veya yenilemeden sonra 72 saat içinde iptal edilir. 72 saat sonra abonelikler artık iptal edilemez ve API bir hata oluşturur.
+
 
 > [!Note] 
-> Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir.
+> Yeni Ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticari deneyim teknik önizlemesi kapsamında olan iş ortakları tarafından kullanılabilir.
 
 ```http
-PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscription-id> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
@@ -216,11 +219,11 @@ Connection: Keep-Alive
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde silinen [abonelik](subscription-resources.md) kaynak özelliklerini döndürür.
+İstek başarılı olursa, bu yöntem yanıt [gövdesinde](subscription-resources.md) silinen Abonelik kaynağı özelliklerini döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Hata Kodları.](error-codes.md)
 
 ### <a name="response-example"></a>Yanıt örneği
 

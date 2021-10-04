@@ -4,12 +4,12 @@ description: Bir müşteri aboneliği için lisans miktarını değiştirmek üz
 ms.date: 02/23/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: b4bf40bf6ec2875b7091c34a2629331dfe240c95
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: 85048dbbdc605f46c12c00484961fbb3068c4f16
+ms.sourcegitcommit: 3ee00d9fe9da6b9df0fb7027ae506e2abe722770
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123456851"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129417245"
 ---
 # <a name="change-the-quantity-of-licenses-in-a-customer-subscription"></a>Bir müşteri aboneliğinde lisans miktarını değiştirme
 
@@ -54,7 +54,7 @@ var updatedSubscription = partnerOperations.Customers.ById(selectedCustomerId).S
 
 | Yöntem    | İstek URI'si                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
-| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{ID-for-Subscription} http/1.1 |
+| **DÜZELTMESI** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{Subscription-ID} http/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -113,8 +113,10 @@ Connection: Keep-Alive
 > [!Note] 
 > Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir.
 
+Lisans miktarı yalnızca, bir aboneliğin satın alınması veya yenilenmesi 72 saat içinde azaltılabilir. Orta terime eklenen lisanslar yalnızca müşteri desteği aracılığıyla yalnızca 72 saat içinde azaltılabilir.
+
 ```http
-PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<id-for-subscription> HTTP/1.1
+PATCH https://api.partnercenter.microsoft.com/v1/customers/<customer-tenant-id>/subscriptions/<subscription-id> HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: ca7c39f7-1a80-43bc-90d8-ee7d1cad3831
@@ -199,7 +201,7 @@ Düzeltme Eki işlemi beklenen süreden uzun sürerse, Iş ortağı merkezi bir 
 
 ### <a name="response-examples"></a>Yanıt örnekleri
 
-#### <a name="response-example-1"></a>Yanıt örneği 1
+#### <a name="response-example-1"></a>Yanıt örneği #1
 
 **Http durumu 200** olan başarılı istek durum kodu:
 
@@ -254,7 +256,7 @@ Connection: Keep-Alive
 }
 ```
 
-#### <a name="response-example-2"></a>Yanıt örneği 2
+#### <a name="response-example-2"></a>Yanıt örneği #2
 
 **Http durumu 202** olan başarılı istek durum kodu:
 
@@ -270,12 +272,12 @@ Connection: Keep-Alive
 Location: /customers/<customer-tenant-id>/subscriptions/<subscriptionID>
 ```
 
-#### <a name="response-example-for-new-commerce-reduce-seat-counts"></a>Yeni ticaret azaltma bilgisayar sayımlarını için yanıt örneği
+#### <a name="response-example-for-new-commerce-license-reduction"></a>Yeni ticari lisans azaltmasıyla ilgili yanıt örneği
 
 > [!Note] 
 > Yeni ticaret değişiklikleri şu anda yalnızca M365/D365 yeni ticaret deneyimi teknik önizlemesinin parçası olan iş ortakları tarafından kullanılabilir.
 
-Yeni ticaret abonelikleri için miktarları azaltmaya çalışırken yanıt.
+Yeni ticaret aboneliklerinin lisans miktarlarını 72 saat iptali penceresi dışında azaltmaya çalışırken örnek API yanıtı.
 
 ```http
 {

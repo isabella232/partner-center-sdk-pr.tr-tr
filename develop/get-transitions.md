@@ -6,12 +6,12 @@ ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: BrentSerbus
 ms.author: brserbus
-ms.openlocfilehash: 62c2e3192be547b1239fea69bc48c9c80553421c
-ms.sourcegitcommit: e1db965e8c7b4fe3aaa0ecd6cefea61973ca2232
+ms.openlocfilehash: 65859e0805397efb0c9db2f5bf566ca1b6deba49
+ms.sourcegitcommit: 3ee00d9fe9da6b9df0fb7027ae506e2abe722770
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/03/2021
-ms.locfileid: "123457342"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129417279"
 ---
 # <a name="get-transitions"></a>Geçişleri al
 
@@ -38,12 +38,12 @@ Belirli bir müşteri ve abonelik için geçişlerin geçmişini almak için kul
 - Geçirilecek abonelik için bir abonelik KIMLIĞI.
 
 ## <a name="rest-request"></a>REST isteği
-[GET] müşteriler/{CustomerID}/abonelikler/{SubscriptionID}/geçiş
+[GET] müşteriler/{müşteri-Kiracı kimliği}/abonelikler/{abonelik-kimliği}/geçişler
 ### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem   | İstek URI'si                                                                                                                         |
 |----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| **AL**  | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{/toın-ID}/geçişleri http/1.1 |
+| **AL**  | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-ID}/Subscriptions/{Subscription-id}/geçişleri http/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
@@ -52,7 +52,7 @@ Uygun geçişleri döndürmek için aşağıdaki sorgu parametrelerini kullanın
 | Ad                    | Tür     | Gerekli | Açıklama                                       |
 |-------------------------|----------|----------|---------------------------------------------------|
 | **Müşteri-Kiracı kimliği**  | **guid** | Y        | Müşterinin kiracısına karşılık gelen bir GUID.             |
-| **alt bilgisayar kimliği** | **guid** | Y        | İlk aboneliğe karşılık gelen bir GUID. |
+| **abonelik kimliği** | **guid** | Y        | İlk aboneliğe karşılık gelen bir GUID. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -65,7 +65,7 @@ Hiçbiri
 ### <a name="request-example"></a>İstek örneği
 
 ```http
-GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{subscription-Id}/transitions HTTP/1.1
+GET https://api.partnercenter.microsoft.com/v1/customers/{customer-tenant-id}/subscriptions/{subscription-id}/transitions HTTP/1.1
 Authorization: Bearer <token>
 Accept: application/json
 MS-RequestId: 18752a69-1aa1-4ef7-8f9d-eb3681b2d70a
@@ -75,7 +75,7 @@ X-Locale: en-US
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem geçiş geçmişidir.
+Başarılı olursa, bu, belirtilen abonelik için bir geçiş geçmişi döndürür.
 
 ### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 

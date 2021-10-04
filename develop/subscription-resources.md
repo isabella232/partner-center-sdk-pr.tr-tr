@@ -1,113 +1,113 @@
 ---
 title: Abonelik kaynakları
-description: Abonelik kaynakları, destek, para iadeleri, Azure yetkilendirmeleri gibi yaşam döngüsü boyunca abonelikler hakkında daha fazla bilgi sağlar.
+description: Abonelik kaynakları, destek, para iadesi, Azure yetkilendirmeleri gibi yaşam döngüsünün tamamında abonelikler hakkında daha fazla bilgi sağlayabilir.
 ms.date: 10/01/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
 author: BrentSerbus
 ms.author: brserbus
-ms.openlocfilehash: e1b95165eeb335c5426df876cbade3190dd447ac
-ms.sourcegitcommit: 856c14b6b351697e3b3d33f1fe376adbb80517c5
+ms.openlocfilehash: 461df9cdb909fc44be9069cb7eb4b41fa2a5f170
+ms.sourcegitcommit: 3ee00d9fe9da6b9df0fb7027ae506e2abe722770
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2021
-ms.locfileid: "129378753"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129417296"
 ---
 # <a name="subscription-resources"></a>Abonelik kaynakları
 
-**Uygulama:** İş Ortağı Merkezi | İş Ortağı Merkezi 21Vianet tarafından | microsoft İş Ortağı Merkezi Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
+**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
 
-Abonelik, müşterinin belirli bir süre boyunca hizmet kullanmalarını sağlar. Tüm alanlar tüm abonelikler için geçerli olmaz. Çoğu alan yalnızca yaşam döngüsünün belirli noktalarında geçerlidir; örneğin bir abonelik askıya alınır veya iptal edilir.
+Abonelik, müşterinin belirli bir süre boyunca hizmet kullanmasına olanak sağlar. Tüm alanlar tüm abonelikler için uygulanmaz. Birçok alan yalnızca yaşam döngüsünün bir abonelik askıya alınma veya iptal edilme gibi belirli noktalarda geçerlidir.
 
 ## <a name="subscription"></a>Abonelik
 
 >[!NOTE]
->Abonelik **kaynağının** kiracı tanımlayıcısı başına dakikada 500 istek hız sınırı vardır.
+>**Abonelik** kaynağında, kiracı tanımlayıcısı başına dakikada 500 istek bir hız limiti vardır.
 
-Abonelik **kaynağı,** aboneliğin yaşam döngüsünü temsil eder ve abonelik yaşam döngüsü boyunca durumları tanımlayan özellikleri içerir.
+Abonelik **kaynağı bir** aboneliğin yaşam döngüsünü temsil eder ve abonelik yaşam döngüsü boyunca durumları tanımlayan özellikleri içerir.
 
 | Özellik             | Tür                                                          | Description                                                                                                                                                                   |
 |----------------------|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | kimlik                   | string                                                        | Abonelik tanımlayıcısı.                                                                                                                                                  |
-| offerId              | string                                                        | Teklif tanımlayıcısı.                                                                                                                                                         |
-| entitlementId        | string                                                        | Yetkilendirme tanımlayıcısı (Azure abonelik kimliği).                                                                                                                        |
+| OfferId              | string                                                        | Teklif tanımlayıcısı.                                                                                                                                                         |
+| entitlementId        | string                                                        | Yetkilendirme tanımlayıcısı (bir Azure abonelik KIMLIĞI).                                                                                                                        |
 | offerName            | string                                                        | Teklif adı.                                                                                                                                                               |
-| Friendlyname         | string                                                        | Karartmanıza yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı.                                                                                           |
-| miktar             | sayı                                                        | Miktar. Örneğin, lisans tabanlı faturalama durumunda bu özellik lisans sayısına ayarlanır.                                                            |
-| Unittype             | string                                                        | Abonelik için miktarı tanımlayan birimler.                                                                                                                             |
-| parentSubscriptionId | string                                                        | Üst abonelik tanımlayıcısını alır veya ayarlar.                                                                                                                              |
-| Creationdate         | string                                                        | Oluşturma tarihini tarih-saat biçiminde alır veya ayarlar.                                                                                                                          |
-| effectiveStartDate   | UTC tarih saat biçiminde dize                                | Bu abonelik için geçerli başlangıç tarihini tarih-saat biçiminde alır veya ayarlar. Geçirilen bir aboneliğin tarihini geri alma veya başka bir abonelikle hizalamak için kullanılır.                |
-| commitmentEndDate    | UTC tarih saat biçiminde dize                                | Bu aboneliğin tarih-saat biçiminde taahhüt bitiş tarihi. Otomatik olarak yenilenebilir olmayan abonelikler için bu, gelecekte çok uzak bir tarihi temsil eder.       |
-| durum               | string                                                        | Abonelik durumu: "none", "active", "pending", "suspended", "expired" veya "deleted".                                                                                                         |
-| autoRenewEnabled     | boolean                                                       | Aboneliğin otomatik olarak yenilenmeyi belirten bir değer alır.                                                                                                    |
-| billingType          | string                                                        | Aboneliğin nasıl faturalandır olduğunu belirtir: "none", "usage" veya "license".                                                                                                      |
-| billingCycle         | string                                                        | İş ortağının bu sipariş için faturalandırılama sıklığını gösterir. Desteklenen değerler, [**BillingCycleType**](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. |
-| hasPurchasableAddons | boolean                                                       | Aboneliğin satın alınabilir eklentilere sahip olup olmadığını belirten bir değer alır veya ayarlar.                                                                                             |
-| isTrial              | boolean                                                       | Bunun bir deneme aboneliği olup olmadığını belirten bir değer.                                                                                                                      |
-| isMicrosoftProduct   | boolean                                                       | Bunun bir Microsoft ürünü olup olmadığını belirten bir değer.                                                                                                                       |
+| friendlyName         | string                                                        | Belirsizliği ortadan kaldırmaya yardımcı olmak için iş ortağı tarafından tanımlanan aboneliğin kolay adı.                                                                                           |
+| miktar             | sayı                                                        | Miktar. Örneğin, lisans tabanlı faturalandırma durumunda bu özellik lisans sayısına ayarlanır.                                                            |
+| unitType             | string                                                        | Abonelik için miktarı tanımlayan birimler.                                                                                                                             |
+| Parentsubscriptionıd | string                                                        | Üst abonelik tanımlayıcısını alır veya ayarlar.                                                                                                                              |
+| creationDate         | string                                                        | Oluşturulma tarihini tarih-saat biçiminde alır veya ayarlar.                                                                                                                          |
+| effectiveStartDate   | UTC Tarih saat biçiminde dize                                | Bu abonelik için tarih-saat biçiminde geçerli başlangıç tarihini alır veya ayarlar. Geçirilen bir aboneliğin tarihini geri almak veya başka bir abonelik ile hizalamak için kullanılır.                |
+| commitmentEndDate    | UTC Tarih saat biçiminde dize                                | Bu abonelik için tarih-saat biçiminde taahhüt bitiş tarihi. Otomatik olarak yenilenebilen abonelikler için bu, gelecekte bir tarihi temsil eder.       |
+| durum               | string                                                        | Abonelik durumu: "none", "etkin", "bekleyen", "askıya alındı", "süre dolmuþ" veya "Deleted".                                                                                                         |
+| autoRenewEnabled     | boolean                                                       | Aboneliğin otomatik olarak yenilenip yenilenmediğini gösteren bir değer alır.                                                                                                    |
+| billingType          | string                                                        | Aboneliğin nasıl faturalandırıldığını belirtir: "none", "Usage" veya "License".                                                                                                      |
+| Bilimlingcycle         | string                                                        | Ortağın bu sipariş için faturalandırılabileceği sıklığı belirtir. Desteklenen değerler, [**BillingCycleType**](product-resources.md#billingcycletype)içinde bulunan üye adlarıdır. |
+| hasPurchasableAddons | boolean                                                       | Aboneliğin satın alınabilir alınırken eklentilere sahip olup olmadığını gösteren bir değer alır veya ayarlar.                                                                                             |
+| Isdeneme              | boolean                                                       | Bunun deneme aboneliği olup olmadığını gösteren bir değer.                                                                                                                      |
+| ımicrosoftürünü   | boolean                                                       | Bunun bir Microsoft ürünü olup olmadığını gösteren bir değer.                                                                                                                       |
 | publisherName        | string                                                        | Yayımcı adı.                                                                                                                                                           |
-| eylem              | dize dizisi                                              | İzin verilen eylemleri alır veya ayarlar. Olası değerler: "edit", "cancel"                                                                                                  |
-| partnerId            | string                                                        | Dolaylı iş ortağı modelinde kullanılan kayıt kurumsal bayinin MPN kimliği.                                                                                                     |
-| suspensionReasons    | dize dizisi                                              | Salt okunur. Abonelik askıya alındı ise, bunun nedeni gösterir.                                                                                                                  |
-| contractType         | string                                                        | Salt okunur. Sözleşme türü: "subscription", "productKey" veya "redemptionCode".                                                                                           |
-| refundOptions        | [RefundOption kaynakları](#refundoption) dizisi   | Salt Okunur. Bu abonelik için kullanılabilen para iadesi seçenekleri kümesi.                                                                                              |
-| Bağlantı                | [SubscriptionLinks](#subscriptionlinks)                       | Abonelik bağlantılarını alır veya ayarlar.                                                                                                                                          |
-| Siparişno              | string                                                        | Aboneliğin başlaması için yerleştirilen siparişin kimliği.                                                                                                                |
-| termDuration         | string                                                        | Sürenin ISO 8601 gösterimi. Desteklenen geçerli değerler **P1M (1** ay), **P1Y (1** yıl) ve **P3Y** (3 yıl) değerleridir.                                                        |
-| öznitelikler           | [Resourceattributes](utility-resources.md#resourceattributes) | Aboneliğe karşılık gelen meta veri öznitelikleri.                                                                                                                    |
-| renewalTermDuration  | string                                                        | Sürenin ISO 8601 gösterimi. Desteklenen geçerli değerler **P1M (1** ay) ve **P1Y (1** yıl) değerleridir.                                                        |
-| ProductType  | [Itemtype](product-resources.md#itemtype)                             | Salt okunur. Aboneliğin sahip olduğu ürün türü.     |
-| consumptionType  | fazla [kullanılabilirlik kaynakları](subscription-resources.md#overage) dizisi   | Belirli bir müşteri için fazlalık alır veya ayarlar.     |
+| eylem              | dize dizisi                                              | İzin verilen eylemleri alır veya ayarlar. Olası değerler: "Düzenle", "iptal"                                                                                                  |
+| iş ortağı kimliği            | string                                                        | Dolaylı iş ortağı modelinde kullanılan kayıt satıcısının MPN KIMLIĞI.                                                                                                     |
+| suspensionReasons    | dize dizisi                                              | Salt okunur. Abonelik askıya alınmışsa neden olduğunu gösterir.                                                                                                                  |
+| contractType         | string                                                        | Salt okunur. Sözleşmenin türü: "Subscription", "productKey" veya "Mptioncode".                                                                                           |
+| geri alınabilir seçenekler        | geri [alınamaz](#refundoption) Kaynak dizisi   | Salt okunurdur. Bu abonelik için kullanılabilen geri ödeme seçenekleri kümesi.                                                                                              |
+| Köprü                | [SubscriptionLinks](#subscriptionlinks)                       | Abonelik bağlantılarını alır veya ayarlar.                                                                                                                                          |
+| Sipariş              | string                                                        | Aboneliği başlatmak için verilen sıranın KIMLIĞI.                                                                                                                |
+| termDuration         | string                                                        | Terimin süresinin ISO 8601 temsili. Desteklenen geçerli değerler **P1M** (1 ay), **P1Y** (1 yıl) ve **P3Y** (3 yıl).                                                        |
+| öznitelikler           | [ResourceAttributes](utility-resources.md#resourceattributes) | Aboneliğe karşılık gelen meta veri öznitelikleri.                                                                                                                    |
+| renewalTermDuration  | string                                                        | Terimin süresinin ISO 8601 temsili. Desteklenen geçerli değerler **P1M** (1 ay) ve **P1Y** (1 yıl).                                                        |
+| ProductType  | [ItemType](product-resources.md#itemtype)                             | Salt okunur. Aboneliğin için olduğu ürün türü.     |
+| Tüketim Mptiontype  | [fazla kullanım](subscription-resources.md#overage) kaynakları dizisi   | Belirli bir müşterinin fazla kullanım süresini alır veya ayarlar.     |
 
 ## <a name="subscriptionlinks"></a>SubscriptionLinks
 
-**SubscriptionLinks** kaynağı, bir abonelik kaynağına bağlı bağlantıların koleksiyonunu açıklar.
+**Subscriptionlinks** kaynağı bir abonelik kaynağına ekli bağlantıların koleksiyonunu açıklar.
 
 | Özellik           | Tür                               | Description                           |
 |--------------------|------------------------------------|---------------------------------------|
-| teklif              | [Bağlantı](utility-resources.md#link) | Teklifi alır veya ayarlar.               |
-| parentSubscription | [Bağlantı](utility-resources.md#link) | Üst aboneliği alır veya ayarlar. |
-| ürün            | [Bağlantı](utility-resources.md#link) | Abonelikle ilişkili ürünü alır. |
-| Sku                | [Bağlantı](utility-resources.md#link) | Abonelikle ilişkili ürün sku'larını alır. |
-| availability       | [Bağlantı](utility-resources.md#link) | Abonelikle ilişkili ürün sku kullanılabilirliğini alır. |
-| activationLinks    | [Bağlantı](utility-resources.md#link) | Abonelikle ilişkili etkinleştirme bağlantılarının listesini alır. |
-| Kendini               | [Bağlantı](utility-resources.md#link) | Kendi kendine URI.                         |
-| ileri               | [Bağlantı](utility-resources.md#link) | Öğelerin sonraki sayfası.               |
-| Önceki           | [Bağlantı](utility-resources.md#link) | Öğelerin önceki sayfası.           |
+| teklif              | [Bağlantısının](utility-resources.md#link) | Teklifi alır veya ayarlar.               |
+| parentSubscription | [Bağlantısının](utility-resources.md#link) | Üst aboneliği alır veya ayarlar. |
+| ürün            | [Bağlantısının](utility-resources.md#link) | Abonelikle ilişkili ürünü alır. |
+| isteyin                | [Bağlantısının](utility-resources.md#link) | Abonelikle ilişkili Ürün SKU 'sunu alır. |
+| availability       | [Bağlantısının](utility-resources.md#link) | Abonelikle ilişkili ürün sku kullanılabilirliğini alır. |
+| activationLinks    | [Bağlantısının](utility-resources.md#link) | Abonelikle ilişkili etkinleştirme bağlantılarının listesini alır. |
+| Self               | [Bağlantısının](utility-resources.md#link) | Self-URI.                         |
+| ileri               | [Bağlantısının](utility-resources.md#link) | Öğelerin sonraki sayfası.               |
+| Öncekini           | [Bağlantısının](utility-resources.md#link) | Öğelerin önceki sayfası.           |
 
 ## <a name="subscriptionprovisioningstatus"></a>SubscriptionProvisioningStatus
 
-**SubscriptionProvisioningStatus** kaynağı, bir aboneliğin sağlama durumu hakkında bilgi sağlar.
+**Subscriptionprovisioningstatus** kaynağı bir aboneliğin sağlama durumu hakkında bilgi sağlar.
 
 | Özellik   | Tür                                                           | Description                                                          |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------|
-| skuId      | string                                                         | Ürün SKU'su tanımlayan GUID biçimli bir dize.             |
-| durum     | string                                                         | Sağlama durumunu gösterir: "success", "pending" veya "failed". |
-| miktar   | sayı                                                         | Sağlama sonrasında abonelik miktarını sağlar.               |
-| Bitiştarihi    | UTC tarih saat biçiminde dize                                 | Aboneliğin bitiş tarihi.                                    |
-| öznitelikler | [Resourceattributes](utility-resources.md#resourceattributes)  | Meta veri öznitelikleri.                                             |
+| skuId      | string                                                         | Ürün SKU 'sunu tanımlayan GUID biçimli dize.             |
+| durum     | string                                                         | Sağlama durumunu belirtir: "başarılı", "bekliyor" veya "başarısız". |
+| miktar   | sayı                                                         | , Sağlama sonrasında abonelik miktarını sağlar.               |
+| endDate    | UTC Tarih saat biçiminde dize                                 | Aboneliğin bitiş tarihi.                                    |
+| öznitelikler | [ResourceAttributes](utility-resources.md#resourceattributes)  | Meta veri öznitelikleri.                                             |
 
 ## <a name="subscriptionregistrationstatus"></a>SubscriptionRegistrationStatus
 
-**SubscriptionRegistrationStatus** kaynağı, bir abonelik kaynağına bağlı bağlantı koleksiyonunu açıklar.
+**Subscriptionregistrationstatus** kaynağı bir abonelik kaynağına ekli bağlantıların koleksiyonunu açıklar.
 
 | Özellik           | Tür                               | Description                                                                           |
 |--------------------|------------------------------------|---------------------------------------------------------------------------------------|
 | subscriptionId     | string                             | Abonelik tanımlayıcısı.                                                          |
-| durum             | string                             | Kayıt durumunu gösterir: "registered", "registering" veya "notregistered".    |
+| durum             | string                             | Kayıt durumunu belirtir: "kayıtlı", "kayıt" veya "notregistered".    |
 
 ## <a name="supportcontact"></a>SupportContact
 
-**SupportContact kaynağı,** müşterinin aboneliği için bir destek ilgili kişisi temsil eder.
+**Supportcontact** kaynağı bir müşterinin aboneliğine yönelik bir destek kişisi temsil eder.
 
 | Özellik        | Tür                                                           | Description                                                                     |
 |-----------------|----------------------------------------------------------------|---------------------------------------------------------------------------------|
-| supportTenantId | string                                                         | Destek ilgili kişinin kiracı tanımlayıcısını gösteren GUID biçimlendirilmiş dize. |
-| supportMpnId    | string                                                         | Kişinin Microsoft İş Ortağı Ağı (MPN) tanımlayıcısı.                       |
-| name            | string                                                         | Destek ilgili kişisi adı.                                                |
-| Bağlantı           | [ResourceLinks](utility-resources.md#resourcelinks)            | Destek ilgili kişisi bağlantıları.                                              |
-| öznitelikler      | [Resourceattributes](utility-resources.md#resourceattributes)  | Meta veri öznitelikleri. "ObjectType": "SupportContact" içerir.              |
+| Supporttenantıd | string                                                         | Destek kişisinin kiracı tanımlayıcısını gösteren bir GUID biçimli dize. |
+| Supportmpnıd    | string                                                         | Kişinin Microsoft İş Ortağı Ağı (MPN) tanımlayıcısı.                       |
+| name            | string                                                         | Destek kişisinin adı.                                                |
+| Köprü           | [Resourcelmürekkepler](utility-resources.md#resourcelinks)            | Destek ile ilgili bağlantılar iletişim kurun.                                              |
+| öznitelikler      | [ResourceAttributes](utility-resources.md#resourceattributes)  | Meta veri öznitelikleri. "ObjectType": "SupportContact" içerir.              |
 
 ## <a name="overage"></a>Kapasite Aşımı
 
@@ -118,8 +118,8 @@ Abonelik **kaynağı,** aboneliğin yaşam döngüsünü temsil eder ve abonelik
 | azureEntitlementId | string       | Tüketim abonelik tanımlayıcısını gösteren GUID biçimli dize. |
 | iş ortağı kimliği    | string            | Abonelikle ilişkili Bayi Microsoft İş Ortağı Ağı (MPN) tanımlayıcısı.        |
 | tür    | string       | Fazla kullanım türü "PhoneServices" olabilir       |
-| fazla kullanım            | boolean      | Bunun deneme aboneliği olup olmadığını gösteren bir değer.       |
-| Köprü           | [Resourcelmürekkepler](utility-resources.md#resourcelinks)            | Destek ile ilgili bağlantılar iletişim kurun.                          |
+| fazla kullanım            | boolean      | Fazla kullanım özelliğinin etkinleştirilip etkinleştirilmediğini gösteren değer.       |
+| Köprü           | [Resourcelmürekkepler](utility-resources.md#resourcelinks)            | Fazla kullanım ile ilgili bağlantılar.                          |
 | öznitelikler      | [ResourceAttributes](utility-resources.md#resourceattributes)  | Meta veri öznitelikleri. "ObjectType" içerir: "fazla kullanım".  |
 
 
