@@ -1,66 +1,69 @@
 ---
 title: Deneme aboneliğini ücretli aboneliğe dönüştürme
-description: Deneme aboneliğini ücretli İş Ortağı Merkezi api'leri kullanmayı öğrenin.
+description: Deneme aboneliğini ücretli bir aboneliğe dönüştürmek için Iş Ortağı Merkezi API 'Lerini nasıl kullanacağınızı öğrenin.
 ms.date: 05/23/2019
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: a805264315e35c7576248630396da1e34a66cc55ac87dd07452f1615edbc0af4
-ms.sourcegitcommit: 63ef5995314ef22f29768132dff2acf45914ea84
+ms.openlocfilehash: 7cee9b9afddb12137bb66b57250a9487bd4902f5
+ms.sourcegitcommit: f112efee7344d739bdbf385adba0c554ea2a63e3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2021
-ms.locfileid: "115991863"
+ms.lasthandoff: 10/04/2021
+ms.locfileid: "129439336"
 ---
-# <a name="convert-a-trial-subscription-to-paid-using-partner-center-apis"></a>Api'leri kullanarak deneme aboneliğini İş Ortağı Merkezi dönüştürme
+# <a name="convert-a-trial-subscription-to-paid-using-partner-center-apis"></a>Deneme aboneliğini Iş Ortağı Merkezi API 'Leri kullanarak ücretli olarak dönüştürme
 
-Bir deneme aboneliğini ücretliye dönüştürebilirsiniz.
+> [!NOTE]
+> Bu adımlar yeni ticaret ürünleri için geçerli değildir. Yeni ticaret deneme sürümlerini ücretli aboneliklere dönüştürmek için **Yeni bir ticari abonelik belgelerinin geçişine** bakın
+
+Deneme aboneliğini ücretli olarak dönüştürebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo yalnızca App+User kimlik bilgileriyle kimlik doğrulamasını destekler.
+- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo yalnızca uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
 
-- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bu kimliği panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi **menüsünden CSP'yi** ve ardından **Müşteriler'i seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
+- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
 
-- Etkin bir deneme aboneliği için abonelik kimliği.
+- Etkin deneme aboneliği için abonelik KIMLIĞI.
 
-- Kullanılabilir dönüştürme teklifi.
+- Kullanılabilir bir dönüştürme teklifi.
 
-## <a name="convert-a-trial-subscription-to-a-paid-subscription-through-code"></a>Kod aracılığıyla deneme aboneliğini ücretli aboneliğe dönüştürme
+## <a name="convert-a-trial-subscription-to-a-paid-subscription-through-code"></a>Kod aracılığıyla bir deneme aboneliğini ücretli aboneliğe dönüştürme
 
-Bir deneme aboneliğini ücretli bir aboneliğe dönüştürmek için öncelikle kullanılabilir deneme dönüştürmeleri koleksiyonunu alasınız. Ardından, satın almak istediğiniz dönüştürme teklifini seçmeniz gerekir.
+Deneme aboneliğini ücretli bir sürüme dönüştürmek için, önce kullanılabilir deneme dönüştürmelerinden oluşan bir koleksiyonu edinmeniz gerekir. Ardından, Satın almak istediğiniz dönüştürme teklifini seçmeniz gerekir.
 
-Dönüştürme teklifleri, varsayılan olarak deneme aboneliğiyle aynı sayıda lisansa sahip olan bir miktar belirtir. [**Quantity**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) özelliğini satın almak istediğiniz lisans sayısına ayarerek bu miktarı değiştirebilirsiniz.
+Dönüştürme teklifleri, deneme aboneliğiyle aynı sayıda lisansla varsayılan olarak bir miktar belirtir. Bu miktarı, [**Miktar**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion.quantity) özelliğini satın almak istediğiniz lisansların sayısı olarak ayarlayarak değiştirebilirsiniz.
 
 > [!NOTE]
-> Satın alınan lisans sayısından bağımsız olarak, denemenin abonelik kimliği satın alınan lisanslar için yeniden kullanılır. Sonuç olarak, deneme sürümü kaybolur ve satın alma ile değiştirilir.
+> Satın alınan lisans sayısı ne olursa olsun, deneme sürümü abonelik KIMLIĞI satın alınan lisanslar için yeniden kullanılır. Sonuç olarak, etkin olan deneme kaybolur ve satın alma işlemi tarafından değiştirilmiştir.
 
-Bir deneme aboneliğini kod aracılığıyla dönüştürmek için aşağıdaki adımları kullanın:
+Bir deneme aboneliğini kodla dönüştürmek için aşağıdaki adımları kullanın:
 
-1. Kullanılabilir abonelik işlemleri için bir arabirim alın. Müşteriyi tanımlamanız ve deneme aboneliğinin abonelik tanımlayıcısını belirtmeniz gerekir.
+1. Kullanılabilir abonelik işlemlerine bir arabirim alın. Müşteriyi tanımlamalısınız ve deneme aboneliğinin abonelik tanımlayıcısını belirtmeniz gerekir.
 
     ``` csharp
     var subscriptionOperations = partnerOperations.Customers.ById(customerId).Subscriptions.ById(subscriptionId);
     ```
 
-2. Kullanılabilir dönüştürme tekliflerinin bir koleksiyonunu elde. Bu yönteme ilişkin istek/yanıt hakkında daha fazla bilgi ve ayrıntılar için [bkz. Deneme dönüştürme tekliflerinin listesini al.](get-a-list-of-trial-conversion-offers.md)
+2. Kullanılabilir dönüştürme tekliflerinin bir koleksiyonunu alın. Bu yöntem için istek/yanıt hakkında daha fazla bilgi ve Ayrıntılar için bkz. [deneme dönüştürme tekliflerinin bir listesini alın](get-a-list-of-trial-conversion-offers.md).
 
     ``` csharp
     var conversions = subscriptionOperations.Conversions.Get();
     ```
 
-3. Bir dönüştürme teklifi seçin. Aşağıdaki kod, koleksiyonda ilk dönüştürme teklifini seçer.
+3. Bir dönüştürme teklifi seçin. Aşağıdaki kod, koleksiyondaki ilk dönüştürme teklifini seçer.
 
     ``` csharp
     var selectedConversion = conversions.Items.ToList()[0];
     ```
 
-4. İsteğe bağlı olarak, satın alınarak lisans sayısını belirtin. Varsayılan değer, deneme aboneliğinde lisans sayısıdır.
+4. İsteğe bağlı olarak, satın alınabilecek lisansların sayısını belirtin. Varsayılan değer, deneme aboneliğindeki lisansların sayısıdır.
 
     ``` csharp
     selectedConversion.Quantity = 10;
     ```
 
-5. Deneme [**aboneliğini**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) ücretliye dönüştürmek için Create veya [**CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) yöntemini çağırma.
+5. Deneme aboneliğini ücretli olarak dönüştürmek için [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) veya [**createasync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) yöntemini çağırın.
 
     ``` csharp
     var convertResult = subscriptionOperations.Conversions.Create(selectedConversion);
@@ -68,17 +71,17 @@ Bir deneme aboneliğini kod aracılığıyla dönüştürmek için aşağıdaki 
 
 ## <a name="c"></a>C\#
 
-Deneme aboneliğini ücretli bir aboneliğe dönüştürmek için:
+Deneme aboneliğini ücretli birine dönüştürmek için:
 
-1. Müşteriyi [**tanımlamak için IAggregatePartner.Customers.ById**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini müşteri kimliğiyle birlikte kullanın.
+1. Müşteriyi tanımlamak için, müşteri KIMLIĞIYLE [**ıaggregatepartner. Customers. Byıd**](/dotnet/api/microsoft.store.partnercenter.customers.icustomercollection.byid) yöntemini kullanın.
 
-2. Deneme aboneliği kimliğiyle [**Subscriptions.ById**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) yöntemini çağırarak abonelik işlemlerine bir arabirim alın. Abonelik işlemleri arabirimine yönelik bir başvuru yerel değişkene kaydedin.
+2. Deneme aboneliği KIMLIĞIYLE [**abonelikler. Byıd**](/dotnet/api/microsoft.store.partnercenter.customerusers.icustomerusercollection.byid) metodunu çağırarak abonelik işlemlerine yönelik bir arabirim alın. Yerel bir değişkende abonelik işlemleri arabirimine bir başvuru kaydedin.
 
-3. Dönüştürmeler [**üzerinde**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) kullanılabilir işlemlere bir arabirim elde etmek için Dönüştürmeler özelliğini kullanın ve ardından kullanılabilir Dönüştürme tekliflerinin koleksiyonunu almak için [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) [**yöntemini**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) çağırabilirsiniz. Birini seçmeniz gerekir. Aşağıdaki örnek varsayılan olarak kullanılabilir ilk dönüştürmeyi kullanır.
+3. Dönüşümlerde kullanılabilir işlemlere bir arabirim elde etmek için [**dönüşümler**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) özelliğini kullanın ve ardından kullanılabilir [**dönüştürme**](/dotnet/api/microsoft.store.partnercenter.models.subscriptions.conversion) tekliflerinin bir koleksiyonunu almak Için [**Get**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.get) veya [**GetAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionconversioncollection.getasync) yöntemini çağırın. Birini seçmeniz gerekir. Aşağıdaki örnek varsayılan olarak kullanılabilir ilk dönüştürmeyi alır.
 
-4. Dönüştürmeler üzerinde kullanılabilir işlemlere bir arabirim elde etmek için, yerel değişkene kaydedilmiş abonelik işlemleri arabirimine başvuru ve [**Dönüştürmeler**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) özelliğini kullanın.
+4. Dönüşümlerdeki kullanılabilir işlemlere bir arabirim elde etmek için yerel bir değişkende kaydettiğiniz abonelik işlemleri arabirimine yönelik başvuruyu ve [**dönüşümler**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscription.conversions) özelliğini kullanın.
 
-5. Deneme dönüştürmeyi denemesi için seçilen dönüştürme teklifi nesnesini [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) [**veya CreateAsync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) yöntemine iletir.
+5. Deneme dönüşümünü denemek için seçili dönüştürme teklifini nesnesini [**Create**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.create) veya [**createasync**](/dotnet/api/microsoft.store.partnercenter.subscriptions.isubscriptionupgradecollection.createasync) metoduna geçirin.
 
 ### <a name="c-example"></a>C \# örneği
 
@@ -111,28 +114,28 @@ else
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek söz dizimi
+### <a name="request-syntax"></a>İstek sözdizimi
 
 | Yöntem   | İstek URI'si                                                                                                                 |
 |----------|-----------------------------------------------------------------------------------------------------------------------------|
-| **Yayınla** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-id}/subscriptions/{subscription-id}/conversions HTTP/1.1 |
+| **YAYINLA** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-id}/Subscriptions/{Subscription-id}/dönüşümler http/1.1 |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Müşteri ve deneme aboneliğini tanımlamak için aşağıdaki yol parametrelerini kullanın.
+Müşteri ve deneme aboneliğini belirlemek için aşağıdaki yol parametrelerini kullanın.
 
 | Ad            | Tür   | Gerekli | Açıklama                                                     |
 |-----------------|--------|----------|-----------------------------------------------------------------|
-| customer-id     | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize.           |
-| subscription-id | string | Yes      | Deneme aboneliğini tanımlayan GUID biçimli bir dize. |
+| müşteri kimliği     | string | Yes      | Müşteriyi tanımlayan GUID biçimli dize.           |
+| abonelik kimliği | string | Yes      | Deneme aboneliğini tanımlayan GUID biçimli dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
+Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
 
 ### <a name="request-body"></a>İstek gövdesi
 
-İstek [gövdesine](conversions-resources.md#conversion) doldurulmuş bir Dönüştürme kaynağı ek gerekir.
+İstek gövdesine doldurulmuş bir [dönüştürme](conversions-resources.md#conversion) kaynağı eklenmelidir.
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -162,11 +165,11 @@ Expect: 100-continue
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa yanıt gövdesi bir [ConversionResult kaynağı](conversions-resources.md#conversionresult) içerir.
+Başarılı olursa, yanıt gövdesi bir [Conversionresult](conversions-resources.md#conversionresult) kaynağı içerir.
 
-#### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
+#### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
 
-Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İş Ortağı Merkezi kodları.](error-codes.md)
+Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Partner Center hata kodları](error-codes.md).
 
 #### <a name="response-example"></a>Yanıt örneği
 
