@@ -414,6 +414,12 @@
           href: transition-a-subscription.md
         - name: Yeni bir ticaret aboneliğini geçiş
           href: transition-a-new-commerce-subscription.md
+        - name: Geçiş için aboneliği doğrulama
+          href: validate-subscription-for-migration.md
+        - name: Yeni bir ticaret geçişi oluşturma
+          href: create-migration.md
+        - name: Yeni bir ticari geçiş elde
+          href: get-new-commerce-migration.md
         - name: Sepeti güncelleştirme
           href: update-a-cart.md
         - name: Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
