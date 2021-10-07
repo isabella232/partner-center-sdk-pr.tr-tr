@@ -324,7 +324,7 @@
           href: create-azure-plan.md
         - name: Azure rezervasyonları satın alma
           href: purchase-azure-reservations.md
-        - name: Yeni ticari lisans tabanlı hizmetler satın alma
+        - name: Yeni ticaret lisansı tabanlı hizmetler satın alın
           href: purchase-new-commerce-license-based.md
         - name: Ticari market ürünleri için abonelik satın alma
           href: create-subscription-azure-marketplace-products.md
@@ -362,7 +362,7 @@
           href: get-a-list-of-products.md
         - name: Ürünlerin bir listesini alma (müşteriye göre)
           href: get-a-list-of-products-by-customer.md
-        - name: Promosyonların listesini al
+        - name: Promosyonların bir listesini alın
           href: get-promotions.md
         - name: Bir ürüne ait SKU’ların listesini alma (ülkeye göre)
           href: get-a-list-of-skus-for-a-product.md
@@ -374,7 +374,7 @@
           href: get-a-list-of-trial-conversion-offers.md
         - name: Kimliğe göre bir ürün alma
           href: get-a-product-by-id.md
-        - name: Kimlikle yükseltmeyi al
+        - name: KIMLIĞE göre promosyon al
           href: get-promotion-by-id.md
         - name: Kimliğe göre bir SKU alma
           href: get-a-sku-by-id.md
@@ -390,7 +390,7 @@
           href: get-an-offer-by-id.md
         - name: Kimliğe göre bir sipariş alma
           href: get-an-order-by-id.md
-        - name: Abonelik fazla kullanılabilirlik alma
+        - name: Abonelik fazla kullanım süresini al
           href: get-subscription-overage.md
         - name: Abonelik sağlama durumunu alma
           href: get-subscription-provisioning-status.md
@@ -412,21 +412,21 @@
           href: suspend-a-subscription.md
         - name: Bir aboneliği geçirme
           href: transition-a-subscription.md
-        - name: Yeni bir ticaret aboneliğini geçiş
+        - name: Yeni bir ticari aboneliğe geçiş
           href: transition-a-new-commerce-subscription.md
-        - name: Geçiş için aboneliği doğrulama
+        - name: Geçiş için bir abonelik doğrulama
           href: validate-subscription-for-migration.md
-        - name: Yeni bir ticaret geçişi oluşturma
+        - name: Yeni bir ticari geçiş oluşturun
           href: create-migration.md
-        - name: Yeni bir ticari geçiş elde
+        - name: Yeni bir ticari geçiş alın
           href: get-new-commerce-migration.md
         - name: Sepeti güncelleştirme
           href: update-a-cart.md
         - name: Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
           href: update-autorenew-for-an-azure-marketplace-subscription.md
-        - name: Abonelik fazla yüklemesini güncelleştirme
+        - name: Abonelik fazla kullanım süresini Güncelleştir
           href: update-subscription-overage.md
-        - name: Yükseltme uygunluğunu doğrulama
+        - name: Promosyon uygunluğunu doğrulama
           href: verify-promotion-eligibility.md
     - name: Ödemeleri yönetme
       href: manage-payouts.md
@@ -445,9 +445,18 @@
           href: update-a-service-request.md
         - name: Bir aboneliğin destek kişisini güncelleştirme
           href: update-a-subscription-s-support-contact.md
+    - name: Kenar boşluklarını görüntüle
+      href: view-margins.md
+      items:
+        - name: Kenar boşluklarını al
+          href: get-margins.md
+        - name: İndirme kenar boşlukları
+          href: download-margins.md
+        - name: Kenar boşluğu kaynakları
+          href: margin-resources.md
 - name: Tümleştirme korumalı alan
   items:
-    - name: Kurumsal Bayi ilişkisi için korumalı alan özellikleri
+    - name: Satıcı ilişkisi için korumalı alan özellikleri
       href: sandbox-scenario.md
     - name: Korumalı alanı test etme ve hata ayıklama
       href: test-and-debug.md
@@ -459,7 +468,7 @@
       href: activate-sandbox-subscription-azure-marketplace-products.md
     - name: Korumalı Alanda Dolaylı Kurumsal Bayi oluşturma
       href: create-indirect-reseller-in-sandbox.md
-    - name: Korumalı Alanda Dolaylı Kurumsal Bayiyi Silme
+    - name: Korumalı alanda dolaylı Bayi silme
       href: delete-indirect-reseller-in-sandbox.md
 - name: Referanslar
   href: /partner/develop/referrals
@@ -549,7 +558,7 @@
           href: profile-resources.md
         - name: Ürünler
           href: product-resources.md
-        - name: Promosyon
+        - name: Ter
           href: promotion-resources.md
         - name: İlişkiler
           href: relationships-resources.md
