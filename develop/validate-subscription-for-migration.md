@@ -1,57 +1,57 @@
 ---
-title: Geçiş için bir abonelik doğrulama
-description: Bir aboneliğin geçişe uygun olup olmadığını doğrulama.
+title: Geçiş için aboneliği doğrulama
+description: Bir aboneliğin geçiş için uygun olup olduğunu doğrulama.
 ms.date: 10/04/2021
 ms.service: partner-dashboard
 ms.subservice: partnercenter-sdk
-ms.openlocfilehash: c8d2ae596901a45a794230c79cfb54815963e300
-ms.sourcegitcommit: 856b0baa4824960e13ee9672817a2d2e713fdf43
+ms.openlocfilehash: d085093b8adc3750d1b8d95963fc9d74c4209e00
+ms.sourcegitcommit: 53980dc43fb2277878bf61a15a86013b8b1c2574
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2021
-ms.locfileid: "129528729"
+ms.lasthandoff: 10/06/2021
+ms.locfileid: "129610005"
 ---
-# <a name="validate-a-subscription-for-migration"></a>Geçiş için bir abonelik doğrulama
+# <a name="validate-a-subscription-for-migration"></a>Geçiş için aboneliği doğrulama
 
-**Uygulama hedefi**: Iş Ortağı Merkezi | 21Vianet tarafından işletilen iş ortağı Merkezi | Microsoft Bulut Almanya için iş ortağı Merkezi | Microsoft Cloud for US Government için iş ortağı Merkezi
+**Için geçerlidir:** İş Ortağı Merkezi | 21Vianet İş Ortağı Merkezi tarafından çalıştırılan | İş Ortağı Merkezi Microsoft Bulut Almanya için | İş Ortağı Merkezi için Microsoft Cloud for US Government
 
-Yeni ticaret deneyimine geçiş için bir aboneliği doğrulama
+Yeni Ticaret Deneyimi'ne geçiş için aboneliği doğrulama
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- [Iş ortağı merkezi kimlik doğrulamasında](partner-center-authentication.md)açıklandığı gibi kimlik bilgileri. Bu senaryo, hem tek başına uygulama hem de uygulama + kullanıcı kimlik bilgileriyle kimlik doğrulamayı destekler.
+- kimlik doğrulamasında açıklandığı gibi [İş Ortağı Merkezi bilgileri.](partner-center-authentication.md) Bu senaryo hem tek başına Uygulama hem de Uygulama+Kullanıcı kimlik bilgileriyle kimlik doğrulamasını destekler.
 
-- Bir müşteri KIMLIĞI ( `customer-tenant-id` ). Müşterinin KIMLIĞINI bilmiyorsanız Iş Ortağı Merkezi [panosunda](https://partner.microsoft.com/dashboard)bulabilirsiniz. Iş Ortağı Merkezi menüsünden **CSP** ' yi ve ardından **müşteriler**' i seçin. Müşteri listesinden müşteriyi seçin ve ardından **Hesap**' ı seçin. Müşterinin hesap sayfasında, **müşteri hesabı bilgileri** bölümünde **Microsoft kimliği** ' ni arayın. Microsoft KIMLIĞI, müşteri KIMLIĞI () ile aynıdır `customer-tenant-id` .
+- Müşteri kimliği ( `customer-tenant-id` ). Müşterinin kimliğini bilmiyorsanız bunu panoda [İş Ortağı Merkezi.](https://partner.microsoft.com/dashboard) İş Ortağı Merkezi menüsünden **CSP'yi** ve ardından Müşteriler'i **seçin.** Müşteri listesinden müşteriyi ve ardından Hesap'ı **seçin.** Müşterinin Hesap sayfasında Müşteri Hesabı Bilgileri **bölümünde Microsoft** **Kimliği'ne** bakın. Microsoft Kimliği, müşteri kimliği () ile `customer-tenant-id` aynıdır.
 
-- Geçerli bir abonelik KIMLIĞI
+- Geçerli abonelik kimliği
 
 ## <a name="rest-request"></a>REST isteği
 
-### <a name="request-syntax"></a>İstek sözdizimi
+### <a name="request-syntax"></a>İstek söz dizimi
 
 | Yöntem  | İstek URI'si                                                                                                            |
 |---------|------------------------------------------------------------------------------------------------------------------------|
-|**YAYINLA** | [*{BaseUrl}*](partner-center-rest-urls.md)/v1/Customers/{Customer-Tenant-id}/Migrations/newcommerce/Validate http/1.1  |
+|**YAYINLA** | [*{baseURL}*](partner-center-rest-urls.md)/v1/customers/{customer-tenant-id}/migrations/newcommerce/validate HTTP/1.1  |
 
 ### <a name="uri-parameter"></a>URI parametresi
 
-Bu tablo, geçiş için bir aboneliği doğrulamak üzere gerekli sorgu parametrelerini listeler.
+Bu tabloda, geçiş için bir aboneliği doğrulamak için gerekli sorgu parametreleri listeleniyor.
 
 | Ad               | Tür   | Gerekli | Açıklama                                           |
 |--------------------|--------|----------|-------------------------------------------------------|
-| Müşteri-Kiracı kimliği | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
+| customer-tenant-id | string | Yes      | Müşteriyi tanımlayan GUID biçimli bir dize. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
-Daha fazla bilgi için bkz. [Iş ortağı MERKEZI Rest üstbilgileri](headers.md).
+Daha fazla bilgi için [bkz. İş Ortağı Merkezi REST üst bilgileri.](headers.md)
 
 ### <a name="request-body"></a>İstek gövdesi
 
-Bu tablo, istek gövdesinde [abonelik](subscription-resources.md) özelliklerini açıklar.
+Bu tablo, istek [gövdesinin](subscription-resources.md) Abonelik özelliklerini açıklar.
 
 | Özellik              | Tür             | Gerekli        | Açıklama |
 |-----------------------|------------------|-----------------|-----------------------------------------------------------------------------------------------------------|
-| Currentsubscriptionıd | string           | Yes             | Hangi aboneliğin geçiş için doğrulama gerektirdiğini belirten bir abonelik tanımlayıcısı.            |
+| currentSubscriptionId | string           | Yes             | Hangi aboneliğin geçiş için doğrulama gerektirdiğini gösteren bir abonelik tanımlayıcısı.            |
 
 ### <a name="request-example"></a>İstek örneği
 
@@ -61,11 +61,11 @@ Bu tablo, istek gövdesinde [abonelik](subscription-resources.md) özelliklerini
 
 ## <a name="rest-response"></a>REST yanıtı
 
-Başarılı olursa, bu yöntem yanıt gövdesinde "ıdilinli" Boole değeri döndürür. Bu, geçerli aboneliğin yeni ticarete geçişe uygun olup olmadığını gösterir.
+Başarılı olursa, bu yöntem yanıt gövdesinde geçerli aboneliğin yeni ticarete geçiş için uygun olup olmadığını belirten bir "isEligible" boole döndürür.
 
-### <a name="response-success-and-error-codes"></a>Yanıt başarısı ve hata kodları
+### <a name="response-success-and-error-codes"></a>Yanıt başarı ve hata kodları
 
-Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini gösteren bir HTTP durum kodu ile gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [Iş ortağı MERKEZI Rest hata kodları](error-codes.md).
+Her yanıt, başarılı veya başarısız olduğunu belirten bir HTTP durum kodu ve ek hata ayıklama bilgileriyle birlikte gelir. Bu kodu, hata türünü ve ek parametreleri okumak için bir ağ izleme aracı kullanın. Tam liste için bkz. [İŞ ORTAĞı MERKEZI REST hata kodları.](error-codes.md)
 
 ### <a name="response-examples"></a>Yanıt örnekleri
 
@@ -81,11 +81,13 @@ Her yanıt başarı veya başarısızlık ve ek hata ayıklama bilgilerini göst
             }
         ]
     }
+```
 
+```http
 2. 
     {
         "currentSubscriptionId": "9beb6319-6889-4d28-a155-68ca9c783842",
         "isEligible": true,
-    "catalogItemId": "CFQ7TTC0LF8S:0002:CFQ7TTC0KSVV",
+        "catalogItemId": "CFQ7TTC0LF8S:0002:CFQ7TTC0KSVV"
     }
 ```
