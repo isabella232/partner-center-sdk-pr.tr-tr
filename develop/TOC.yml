@@ -412,21 +412,23 @@
           href: suspend-a-subscription.md
         - name: Bir aboneliği geçirme
           href: transition-a-subscription.md
-        - name: Yeni bir ticari aboneliğe geçiş
+        - name: Yeni bir ticaret aboneliğini geçiş
           href: transition-a-new-commerce-subscription.md
-        - name: Geçiş için bir abonelik doğrulama
+        - name: Geçiş için aboneliği doğrulama
           href: validate-subscription-for-migration.md
-        - name: Yeni bir ticari geçiş oluşturun
+        - name: Yeni bir ticaret geçişi oluşturma
           href: create-migration.md
-        - name: Yeni bir ticari geçiş alın
+        - name: Yeni bir ticari geçiş elde
           href: get-new-commerce-migration.md
         - name: Sepeti güncelleştirme
           href: update-a-cart.md
         - name: Ticari market aboneliğini için otomatik yenilemeyi güncelleştirme
           href: update-autorenew-for-an-azure-marketplace-subscription.md
-        - name: Abonelik fazla kullanım süresini Güncelleştir
+        - name: Yazılım aboneliği için faturalama sıklığını güncelleştirme
+          href: manage-billing-frequency-software-subs.md
+        - name: Abonelik fazla yüklemesini güncelleştirme
           href: update-subscription-overage.md
-        - name: Promosyon uygunluğunu doğrulama
+        - name: Yükseltme uygunluğunu doğrulama
           href: verify-promotion-eligibility.md
     - name: Ödemeleri yönetme
       href: manage-payouts.md
@@ -445,18 +447,18 @@
           href: update-a-service-request.md
         - name: Bir aboneliğin destek kişisini güncelleştirme
           href: update-a-subscription-s-support-contact.md
-    - name: Kenar boşluklarını görüntüle
+    - name: Kenar boşluklarını görüntüleme
       href: view-margins.md
       items:
         - name: Kenar boşluklarını al
           href: get-margins.md
-        - name: İndirme kenar boşlukları
+        - name: Kenar boşluklarını indirme
           href: download-margins.md
-        - name: Kenar boşluğu kaynakları
+        - name: Dış boşluk kaynakları
           href: margin-resources.md
 - name: Tümleştirme korumalı alan
   items:
-    - name: Satıcı ilişkisi için korumalı alan özellikleri
+    - name: Kurumsal Bayi ilişkisi için korumalı alan özellikleri
       href: sandbox-scenario.md
     - name: Korumalı alanı test etme ve hata ayıklama
       href: test-and-debug.md
@@ -468,7 +470,7 @@
       href: activate-sandbox-subscription-azure-marketplace-products.md
     - name: Korumalı Alanda Dolaylı Kurumsal Bayi oluşturma
       href: create-indirect-reseller-in-sandbox.md
-    - name: Korumalı alanda dolaylı Bayi silme
+    - name: Korumalı Alanda Dolaylı Kurumsal Bayiyi Silme
       href: delete-indirect-reseller-in-sandbox.md
 - name: Referanslar
   href: /partner/develop/referrals
@@ -558,7 +560,7 @@
           href: profile-resources.md
         - name: Ürünler
           href: product-resources.md
-        - name: Ter
+        - name: Promosyon
           href: promotion-resources.md
         - name: İlişkiler
           href: relationships-resources.md
